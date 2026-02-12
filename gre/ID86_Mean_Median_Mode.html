@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en" class="reveal-full-page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mean, Median, Mode</title>
+
+  <!-- Reveal.js Core -->
+  <link rel="stylesheet" href="../assets/reveal/dist/reset.css">
+  <link rel="stylesheet" href="../assets/reveal/dist/reveal.css">
+
+  <!-- Leland Theme -->
+  <link rel="stylesheet" href="../assets/reveal/themes/leland.css">
+
+  <!-- KaTeX for math rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false}
+      ]
+    });"></script>
+
+</head>
+<body>
+  <!-- SVG Symbol Definitions (defined once, referenced via <use>) -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="leland-logo" viewBox="0 0 200 45">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z"/>
+      <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z"/>
+      <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z"/>
+      <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z"/>
+      <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z"/>
+      <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z"/>
+    </symbol>
+  </svg>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ============================================ -->
+      <!-- SLIDE 1: Title (Dark) -->
+      <!-- ============================================ -->
+      <section class="title-dark">
+        <div class="leland-logo-top">
+          <svg width="110" height="25" fill="white"><use href="#leland-logo"/></svg>
+        </div>
+
+        <p class="eyebrow">GRE Self-Study Course</p>
+        <h1>Mean, Median, Mode &amp;<br><span class="hl">Weighted Averages</span></h1>
+
+        <aside class="notes">
+          0:00-0:20 | Hook: Three ways to describe the "center" of data: mean, median, mode. Each tells a different story. The GRE loves testing when to use which, and how to find missing values.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 2: The Three Measures -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Central Tendency</p>
+          <h2>Three Ways to Find the Center</h2>
+        </div>
+
+        <div class="card-grid-3">
+          <div class="card card-green-bg">
+            <h3 class="text-md mb-8">Mean</h3>
+            <p class="text-lg mb-8">$\bar{x} = \frac{\Sigma x}{n}$</p>
+            <p class="text-md">Sum of values divided by the count.</p>
+          </div>
+          <div class="card card-blue-bg">
+            <h3 class="text-md mb-8">Median</h3>
+            <p class="text-lg mb-8">Middle value</p>
+            <p class="text-md">Arrange in order, find the center position.</p>
+          </div>
+          <div class="card card-purple-bg">
+            <h3 class="text-md mb-8">Mode</h3>
+            <p class="text-lg mb-8">Most frequent</p>
+            <p class="text-md">The value that appears most often.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          0:20-1:00 | Introduce the three measures. Mean is the arithmetic average. Median is the middle value when sorted. Mode is the most frequent value. Each captures a different aspect of center.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 3: Example 1 - Mean -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 1</p>
+          <h2>Calculating the Mean</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-lg">Find the mean of 4, 7, 10, 15, 14.</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16">Sum:&nbsp;$4 + 7 + 10 + 15 + 14 = 50$</p>
+            <p class="text-md mb-16">Count:&nbsp;$n = 5$</p>
+            <p class="text-lg mt-16">Mean $= \frac{50}{5} =$&nbsp;<span class="ans">$10$</span></p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          1:00-1:30 | Example 1: Calculate the mean. Click to reveal solution. Sum all values to get 50. Divide by 5 values. Mean equals 10.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 4: The Key Formula -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Key Insight</p>
+          <h2>Sum = Mean x Count</h2>
+        </div>
+
+        <div class="card-alt-green compact mb-16">
+          <p class="text-lg"><strong>$\text{Sum} = \bar{x} \times n$</strong></p>
+        </div>
+
+        <p class="text-md mb-16">This rearrangement is powerful for finding missing values on the GRE.</p>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-md">The average of 5 numbers is 12. Four of them are 8, 10, 15, and 13. What is the fifth?</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16">Total sum:&nbsp;$12 \times 5 = 60$</p>
+            <p class="text-md mb-16">Known sum:&nbsp;$8 + 10 + 15 + 13 = 46$</p>
+            <p class="text-lg mt-16">Fifth number $= 60 - 46 =$&nbsp;<span class="ans">$14$</span></p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          1:30-2:30 | The key formula: Sum equals Mean times Count. This lets you find missing values. Example: average of 5 numbers is 12, so total is 60. Known sum is 46. Missing number is 14.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 5: Median -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Median</p>
+          <h2>Finding the Middle Value</h2>
+        </div>
+
+        <div class="two-column gap-24">
+          <div class="card card-green-bg">
+            <span class="badge badge-green self-start mb-8">Odd Count</span>
+            <p class="text-md mb-8">Data: 1, 3, <strong>5</strong>, 7, 9</p>
+            <p class="text-md">Median is the middle number.</p>
+            <div class="card-alt compact mt-8">
+              <p class="text-md">Median $=$&nbsp;<span class="ans">$5$</span></p>
+            </div>
+          </div>
+          <div class="card card-blue-bg">
+            <span class="badge badge-blue self-start mb-8">Even Count</span>
+            <p class="text-md mb-8">Data: 2, 4, <strong>6, 8</strong>, 10, 12</p>
+            <p class="text-md">Average the two middle numbers.</p>
+            <div class="card-alt compact mt-8">
+              <p class="text-md">Median $= \frac{6+8}{2} =$&nbsp;<span class="ans">$7$</span></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-alt compact mt-24">
+          <span class="badge badge-orange self-start">Watch Out</span>
+          <p class="text-md">Always arrange data in order first. An unsorted list gives the wrong median.</p>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          2:30-3:30 | Median: the middle value when sorted. For odd count, take the center number. For even count, average the two center numbers. Always sort first.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 6: When to Use Which -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Choosing the Right Measure</p>
+          <h2>Mean vs. Median vs. Mode</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Measure</th>
+              <th>Best When</th>
+              <th>Weakness</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Mean</td>
+              <td>Data is symmetric, no outliers</td>
+              <td>Pulled by extreme values</td>
+            </tr>
+            <tr>
+              <td>Median</td>
+              <td>Outliers present (income, prices)</td>
+              <td>Ignores actual values</td>
+            </tr>
+            <tr>
+              <td>Mode</td>
+              <td>Categorical data (most popular item)</td>
+              <td>May not exist or be unique</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="card-alt-green compact mt-24">
+          <span class="badge badge-green self-start">GRE Favorite</span>
+          <p class="text-md">Outliers pull the mean toward them but leave the median unchanged. The GRE frequently tests this&nbsp;distinction.</p>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          3:30-4:15 | When to use which measure. Mean for symmetric data. Median when outliers are present. Mode for categorical data. The GRE loves testing the effect of outliers on mean vs median.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 7: Divider - Weighted Averages -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <p class="part-number">Part 2</p>
+        <h1>Weighted Averages</h1>
+        <p>When not all values count equally</p>
+
+        <aside class="notes">
+          4:15-4:25 | Transition: Sometimes different values carry different weight. That is where weighted averages come in.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 8: Weighted Average Example -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 3</p>
+          <h2>Weighted Average: Course Grade</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-md">A student scores 80 on the midterm (40% of grade) and 90 on the final (60% of grade). What is the course average?</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16">$\text{WA} = \frac{\Sigma(\text{value} \times \text{weight})}{\Sigma(\text{weights})}$</p>
+            <p class="text-md mb-16">$= \frac{80(0.40) + 90(0.60)}{0.40 + 0.60}$</p>
+            <p class="text-md mb-16">$= \frac{32 + 54}{1}$</p>
+            <p class="text-lg mt-16">Answer:&nbsp;<span class="ans">$86$</span></p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          4:25-5:15 | Weighted average formula. Multiply each value by its weight, sum the products, divide by the sum of the weights. The course average is 86, not the simple average of 85.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 9: Combined Classes Example -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 4</p>
+          <h2>Combining Two Groups</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-md">Class A: 20 students, average 75. Class B: 30 students, average 85. What is the overall average?</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16">Class A total:&nbsp;$20 \times 75 = 1{,}500$</p>
+            <p class="text-md mb-16">Class B total:&nbsp;$30 \times 85 = 2{,}550$</p>
+            <p class="text-md mb-16">Overall:&nbsp;$\frac{4{,}050}{50}$</p>
+            <p class="text-lg mt-16">Answer:&nbsp;<span class="ans">$81$</span> (not 80!)</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          5:15-6:15 | Combining groups: you cannot simply average the averages. Class B has more students, so the overall average is pulled toward 85. The answer is 81, not 80.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 10: Summary (Dark) -->
+      <!-- ============================================ -->
+      <section class="content-dark">
+        <div class="slide-header">
+          <p class="eyebrow">Summary</p>
+          <h2>Mean, Median, Mode &amp; Weighted Averages</h2>
+        </div>
+
+        <ul class="plus-list">
+          <li><strong>Mean</strong> -- Sum divided by count; sensitive to outliers</li>
+          <li><strong>Median</strong> -- Middle value when sorted; resistant to outliers</li>
+          <li><strong>Mode</strong> -- Most frequent value; useful for categorical data</li>
+          <li><strong>Key formula</strong> -- Sum = Mean x Count for finding missing values</li>
+          <li><strong>Weighted average</strong> -- Multiply each value by its weight, then divide by total weight</li>
+          <li><strong>Never average averages</strong> -- When combining groups, weight by group size</li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="rgba(255,255,255,0.4)"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          6:15-7:00 | Summary: Mean, median, and mode each capture a different center. Use Sum = Mean x Count for missing values. For weighted averages, always weight by group size.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js -->
+  <script src="../assets/reveal/dist/reveal.min.js"></script>
+  <script type="module">
+    import RevealNotes from '../assets/reveal/plugin/notes/notes.esm.js';
+
+    Reveal.initialize({
+      width: 960,
+      height: 540,
+      margin: 0,
+      minScale: 0.5,
+      maxScale: 3.0,
+      hash: true,
+      slideNumber: true,
+      controls: true,
+      progress: true,
+      history: true,
+      center: false,
+      transition: 'none',
+      backgroundTransition: 'none',
+      disableLayout: false,
+      plugins: [ RevealNotes ]
+    });
+  </script>
+</body>
+</html>

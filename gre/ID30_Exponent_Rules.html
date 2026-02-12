@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en" class="reveal-full-page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exponent Rules</title>
+
+  <!-- Reveal.js Core -->
+  <link rel="stylesheet" href="../assets/reveal/dist/reset.css">
+  <link rel="stylesheet" href="../assets/reveal/dist/reveal.css">
+
+  <!-- Leland Theme -->
+  <link rel="stylesheet" href="../assets/reveal/themes/leland.css">
+
+  <!-- KaTeX for math rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false}
+      ]
+    });"></script>
+
+</head>
+<body>
+  <!-- SVG Symbol Definitions (defined once, referenced via <use>) -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="leland-logo" viewBox="0 0 200 45">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z"/>
+      <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z"/>
+      <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z"/>
+      <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z"/>
+      <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z"/>
+      <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z"/>
+    </symbol>
+  </svg>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ============================================ -->
+      <!-- SLIDE 1: Title (Dark) -->
+      <!-- ============================================ -->
+      <section class="title-dark">
+        <div class="leland-logo-top">
+          <svg width="110" height="25" fill="white"><use href="#leland-logo"/></svg>
+        </div>
+
+        <p class="eyebrow">GRE Self-Study Course</p>
+        <h1>Exponent<br><span class="hl">Rules</span></h1>
+
+        <aside class="notes">
+          0:00-0:45 | Hook: Show the problem 32^(5n-2) x 2^(5n-3) x 15^2 = 900. This looks impossible, but if you know what to look for, it takes 60 seconds. The GRE only tests three things with exponents. This video teaches you to see exponent problems the way the test-makers do.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 2: The Three Things That Matter -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Exponent Rules</p>
+          <h2>The Three Things That Matter</h2>
+        </div>
+
+        <p class="text-md mb-24">Every GRE exponent question tests your ability to eliminate these three obstacles:</p>
+
+        <div class="card-grid-3">
+          <div class="card card-red-bg">
+            <h3 class="text-md mb-8">Unfactored Numbers</h3>
+            <p class="text-md">18, 27, 80... numbers that hide their prime bases.</p>
+          </div>
+          <div class="card card-orange-bg">
+            <h3 class="text-md mb-8">Plus/Minus Signs</h3>
+            <p class="text-md">You cannot add or subtract different exponents directly.</p>
+          </div>
+          <div class="card card-blue-bg">
+            <h3 class="text-md mb-8">Denominators</h3>
+            <p class="text-md">Fractions complicate bases. Flip them with negative exponents.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          0:45-1:15 | Despite all the exponent rules you learned in school, there are only three things that matter in any GRE exponent question. Think of these as three things we hate to see and need to eliminate: unfactored numbers, plus and minus signs, and denominators. Let's learn how to handle each one.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 3: Divider - Unfactored Numbers -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <p class="part-number">Part 1</p>
+        <h1>Unfactored Numbers</h1>
+        <p>Get the bases the same</p>
+
+        <aside class="notes">
+          1:15-1:25 | Transition into Part 1: handling unfactored numbers by getting all bases the same.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 4: Vertical Factoring -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Unfactored Numbers</p>
+          <h2>Vertical Factoring</h2>
+        </div>
+
+        <p class="text-md mb-16">For perfect squares, cubes, etc., rewrite as a prime base raised to a power. Then apply the <strong>power-to-power rule</strong>.</p>
+
+        <div class="two-column gap-24">
+          <div class="card card-green-bg">
+            <span class="badge badge-green self-start mb-16">The Rule</span>
+            <p class="text-lg mb-8">$(a^m)^n = a^{m \cdot n}$</p>
+            <p class="text-md">Raise a power to a power: multiply exponents.</p>
+          </div>
+          <div class="card card-blue-bg">
+            <span class="badge badge-blue self-start mb-16">Combine</span>
+            <p class="text-lg mb-8">$a^m \times a^n = a^{m+n}$</p>
+            <p class="text-md">Same base: keep the base, add exponents.</p>
+          </div>
+        </div>
+
+        <div class="card-alt compact mt-24">
+          <p class="text-md"><strong>Example:</strong> $27^2 \times 9^3 = (3^3)^2 \times (3^2)^3 = 3^6 \times 3^6 = $ <span class="ans">$3^{12}$</span></p>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          1:25-2:30 | Vertical factoring: rewrite numbers as prime powers. 27 is 3 cubed, 9 is 3 squared. Apply the power-to-power rule: multiply the exponents. Then once bases match, add exponents. 3^6 times 3^6 equals 3^12.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 5: Dragging Around the Exponent -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Unfactored Numbers</p>
+          <h2>Dragging Around the Exponent</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-md mb-8">$18^5$ is equivalent to which?</p>
+            <p class="text-md mb-8">I. $(2)^5 + (9)^5$</p>
+            <p class="text-md mb-8">II. $2^5 \times 9^5$</p>
+            <p class="text-md">III. $2^5 \times 3^5 \times 3^5$</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16"><strong>Step 1:</strong> Factor the base:&nbsp;$18 = 2 \times 3 \times 3$</p>
+            <p class="text-md mb-16"><strong>Step 2:</strong> Attach exponent to each factor:&nbsp;$18^5 = 2^5 \times 3^5 \times 3^5$</p>
+            <p class="text-md mb-16"><strong>Key:</strong> You cannot distribute exponents over addition (I is wrong)</p>
+            <p class="text-lg mt-16">Answer:&nbsp;<span class="ans">III only</span></p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          2:30-3:30 | Dragging around the exponent: break 18 into its prime factors 2, 3, 3, then attach the exponent to each factor. 18^5 equals 2^5 times 3^5 times 3^5. Roman numeral I is wrong because you cannot distribute exponents over addition. Answer is III only.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 6: Example - Complex Base Matching -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 1</p>
+          <h2>Complex Base Matching</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-lg">$32^{5n-2} \times 2^{5n-3} \times 15^2 = 900$</p>
+            <p class="text-md mt-16">What is $n$?</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md math-step"><strong>Step 1:</strong>&nbsp;$32 = 2^5$, so $32^{5n-2} = 2^{25n-10}$</p>
+            <p class="text-md math-step"><strong>Step 2:</strong>&nbsp;$15^2 = 5^2 \times 3^2$;&nbsp;$900 = 2^2 \times 3^2 \times 5^2$</p>
+            <p class="text-md math-step"><strong>Step 3:</strong> Cancel $5^2 \times 3^2$:&nbsp;$2^{25n-10} \times 2^{5n-3} = 2^2$</p>
+            <p class="text-md math-step"><strong>Step 4:</strong>&nbsp;$30n - 13 = 2$, so&nbsp;$n =$&nbsp;<span class="ans">$\frac{1}{2}$</span></p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          3:30-5:00 | Full walkthrough of the hook problem. Step 1: rewrite 32 as 2^5, apply power-to-power. Step 2: factor 15^2 and 900 into primes. Step 3: cancel the 5^2 and 3^2 from both sides. Step 4: add exponents on the left, set equal to 2, solve for n = 1/2.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 7: Divider - Plus/Minus Signs -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <p class="part-number">Part 2</p>
+        <h1>Plus &amp; Minus Signs</h1>
+        <p>Horizontal factoring</p>
+
+        <aside class="notes">
+          5:00-5:10 | Transition into Part 2: when you see plus or minus signs with exponents, think horizontal factoring.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 8: Horizontal Factoring Rule -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Plus/Minus Signs</p>
+          <h2>Horizontal Factoring</h2>
+        </div>
+
+        <p class="text-md mb-16">To add or subtract exponents, you need <strong>both the base and the exponent</strong> to match.</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Expression</th>
+              <th>Can Combine?</th>
+              <th>Result</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>$5x^3 + 3x^3$</td>
+              <td><span class="status-correct">Yes</span></td>
+              <td>$8x^3$</td>
+            </tr>
+            <tr>
+              <td>$5x^5 + 3y^3$</td>
+              <td><span class="status-incorrect">No</span> (different bases)</td>
+              <td>Cannot simplify</td>
+            </tr>
+            <tr>
+              <td>$x^5 - x^3$</td>
+              <td><span class="status-incorrect">No</span> (different exponents)</td>
+              <td>Factor:&nbsp;$x^3(x^2 - 1)$</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="card-alt-green compact mt-16">
+          <p class="text-md">When you cannot combine, <strong>factor out the smaller power</strong>.</p>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          5:10-6:00 | The rule for adding and subtracting exponents: both base and exponent must match. If they don't, factor out the smaller power. This is called horizontal factoring.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 9: Example - Horizontal Factoring -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 2</p>
+          <h2>Factor the Numerator</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-lg">$\frac{19^3 - 3(19^2)}{19^2}$</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md math-step"><strong>Step 1:</strong> Factor numerator:&nbsp;$19^2(19 - 3) = 19^2 \times 16$</p>
+            <p class="text-md math-step"><strong>Step 2:</strong> Cancel:&nbsp;$\frac{19^2 \times 16}{19^2}$</p>
+            <p class="text-lg mt-16">Answer:&nbsp;<span class="ans">$16$</span></p>
+          </div>
+        </div>
+
+        <div class="card-alt compact mt-16">
+          <span class="badge badge-orange">Watch Out</span>
+          <p class="text-md">You cannot cancel $19^2$ from individual terms linked by subtraction. Factor first, then cancel.</p>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          6:00-6:50 | Example 2: factor the numerator. You cannot cancel 19s when they are connected by a minus sign. Factor out 19^2, get 19^2 times 16, then cancel the 19^2 from the denominator. Answer is 16.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 10: Example - Repeated Addition -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 3</p>
+          <h2>Repeated Addition of Exponents</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-lg">$2^{K+1} + 2^{K+1} + 2^{K+1} + 2^{K+1}$</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16"><strong>Step 1:</strong> Factor:&nbsp;$2^{K+1}(1+1+1+1) = 2^{K+1} \times 4$</p>
+            <p class="text-md mb-16"><strong>Step 2:</strong> Get bases same:&nbsp;$4 = 2^2$</p>
+            <p class="text-md mb-16"><strong>Step 3:</strong> Add exponents:&nbsp;$2^{K+1} \times 2^2 = 2^{K+3}$</p>
+            <p class="text-lg mt-16">Answer:&nbsp;<span class="ans">$2^{K+3}$</span></p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          6:50-7:40 | Example 3: four identical terms means factor out the common term and multiply by 4. Then rewrite 4 as 2^2 and add exponents. Answer is 2^(K+3).
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 11: Example - Greatest Prime Factor -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 4</p>
+          <h2>Greatest Prime Factor</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-lg">What is the greatest prime factor of $9^{17} - 27^{10}$?</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md math-step"><strong>Step 1:</strong> Vertical factor:&nbsp;$9^{17} = 3^{34}$,&nbsp;$27^{10} = 3^{30}$</p>
+            <p class="text-md math-step"><strong>Step 2:</strong> Horizontal factor:&nbsp;$3^{30}(3^4 - 1) = 3^{30} \times 80$</p>
+            <p class="text-md math-step"><strong>Step 3:</strong> Factor 80:&nbsp;$80 = 2^4 \times 5$</p>
+            <p class="text-lg mt-16">Greatest prime factor:&nbsp;<span class="ans">$5$</span></p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          7:40-8:40 | Example 4: combines both techniques. First vertical factor to get bases the same as powers of 3. Then horizontal factor because of the minus sign. Factor out 3^30, leaving 3^4 minus 1 which is 80. Factor 80 into 2^4 times 5. The prime factors are 2, 3, and 5. Greatest is 5.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 12: Divider - Denominators -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <p class="part-number">Part 3</p>
+        <h1>Denominators</h1>
+        <p>Negative exponents flip fractions</p>
+
+        <aside class="notes">
+          8:40-8:50 | Transition into Part 3: eliminating denominators with negative exponents.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 13: Negative Exponents -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Denominators</p>
+          <h2>Negative Exponents</h2>
+        </div>
+
+        <div class="card-alt-green compact mb-16">
+          <p class="text-md"><strong>Flipping the sign on an exponent flips numerator and denominator.</strong></p>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Expression</th>
+              <th>Rewrite</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>$4^{-2}$</td>
+              <td>$\frac{1}{4^2}$</td>
+              <td>$\frac{1}{16}$</td>
+            </tr>
+            <tr>
+              <td>$\left(\frac{1}{2}\right)^{-3}$</td>
+              <td>$2^3$</td>
+              <td>$8$</td>
+            </tr>
+            <tr>
+              <td>$x^{-n}$</td>
+              <td>$\frac{1}{x^n}$</td>
+              <td>Flip to denominator</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          8:50-9:30 | Negative exponents flip the fraction. 4 to the negative 2 is 1 over 16. One-half to the negative 3 is 8. This is how we eliminate denominators instantly.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 14: Example - Negative Exponents -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 5</p>
+          <h2>Eliminating Denominators</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-lg">$\left(\frac{1}{2}\right)^{12} \times \left(\frac{1}{27}\right)^k = \left(\frac{1}{18}\right)^{12}$</p>
+            <p class="text-md mt-16">What is $k$?</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md math-step"><strong>Step 1:</strong> Flip signs:&nbsp;$2^{-12} \times 3^{-3k} = 18^{-12}$</p>
+            <p class="text-md math-step"><strong>Step 2:</strong> Expand:&nbsp;$18^{-12} = 2^{-12} \times 3^{-24}$</p>
+            <p class="text-md math-step"><strong>Step 3:</strong> Cancel $2^{-12}$:&nbsp;$3^{-3k} = 3^{-24}$</p>
+            <p class="text-md math-step"><strong>Step 4:</strong>&nbsp;$-3k = -24$, so $k =$&nbsp;<span class="ans">$8$</span></p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          9:30-11:00 | Example 5: use negative exponents to eliminate all fractions. Flip exponent signs so 1/2 becomes 2, 1/27 becomes 27 which is 3^3, and 1/18 becomes 18 which is 2 times 3^2. Cancel the 2^-12 from both sides. Match the powers of 3: -3k equals -24, so k equals 8.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 15: Summary (content-dark) -->
+      <!-- ============================================ -->
+      <section class="content-dark">
+        <div class="slide-header">
+          <p class="eyebrow">Summary</p>
+          <h2>Exponent Rules</h2>
+        </div>
+
+        <ul class="plus-list">
+          <li><strong>Unfactored numbers</strong> - Get bases the same using vertical factoring or dragging the exponent</li>
+          <li><strong>Plus/minus signs</strong> - Use horizontal factoring to pull out the smaller power</li>
+          <li><strong>Denominators</strong> - Flip the sign on the exponent to eliminate fractions</li>
+          <li><strong>Power-to-power</strong> - $(a^m)^n = a^{mn}$; multiply the exponents</li>
+          <li><strong>Same base, multiply</strong> - $a^m \times a^n = a^{m+n}$; add the exponents</li>
+          <li><strong>The key principle</strong> - Every GRE exponent problem is about eliminating these three obstacles</li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="rgba(255,255,255,0.4)"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          11:00-12:00 | Summary: the three things that matter in exponent questions are unfactored numbers, plus/minus signs, and denominators. Vertical factoring and dragging the exponent handle unfactored numbers. Horizontal factoring handles plus/minus signs. Negative exponents handle denominators. Once these obstacles are eliminated, the algebra is simple.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js -->
+  <script src="../assets/reveal/dist/reveal.min.js"></script>
+  <script type="module">
+    import RevealNotes from '../assets/reveal/plugin/notes/notes.esm.js';
+
+    Reveal.initialize({
+      width: 960,
+      height: 540,
+      margin: 0,
+      minScale: 0.5,
+      maxScale: 3.0,
+      hash: true,
+      slideNumber: true,
+      controls: true,
+      progress: true,
+      history: true,
+      center: false,
+      transition: 'none',
+      backgroundTransition: 'none',
+      disableLayout: false,
+      plugins: [ RevealNotes ]
+    });
+  </script>
+</body>
+</html>

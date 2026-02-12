@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en" class="reveal-full-page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Approach DI Questions</title>
+
+  <!-- Reveal.js Core -->
+  <link rel="stylesheet" href="../assets/reveal/dist/reset.css">
+  <link rel="stylesheet" href="../assets/reveal/dist/reveal.css">
+
+  <!-- Leland Theme -->
+  <link rel="stylesheet" href="../assets/reveal/themes/leland.css">
+
+  <!-- KaTeX for math rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false}
+      ]
+    });"></script>
+
+</head>
+<body>
+  <!-- SVG Symbol Definitions (defined once, referenced via <use>) -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="leland-logo" viewBox="0 0 200 45">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z"/>
+      <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z"/>
+      <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z"/>
+      <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z"/>
+      <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z"/>
+      <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z"/>
+    </symbol>
+  </svg>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ============================================ -->
+      <!-- SLIDE 1: Title (Dark) -->
+      <!-- ============================================ -->
+      <section class="title-dark">
+        <div class="leland-logo-top">
+          <svg width="110" height="25" fill="white"><use href="#leland-logo"/></svg>
+        </div>
+
+        <p class="eyebrow">GRE Self-Study Course</p>
+        <h1>How to Approach<br><span class="hl">DI Questions</span></h1>
+
+        <aside class="notes">
+          0:00-0:30 | Hook: DI questions look intimidating with complex graphs and lots of numbers, but they are predictable. The same question types appear repeatedly. The key is a systematic approach: scan first, read second, calculate last.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 2: Anatomy of a DI Set -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">The Basics</p>
+          <h2>Anatomy of a DI Question Set</h2>
+        </div>
+
+        <p class="text-md mb-16">A DI set typically includes 1-3 data displays with 2-4 questions based on that data.</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Display Type</th>
+              <th>What It Shows</th>
+              <th>Common Questions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Bar graph</td>
+              <td>Comparisons</td>
+              <td>Which is largest? Difference?</td>
+            </tr>
+            <tr>
+              <td>Line graph</td>
+              <td>Trends over time</td>
+              <td>Increase/decrease? Rate of change?</td>
+            </tr>
+            <tr>
+              <td>Pie chart</td>
+              <td>Parts of a whole</td>
+              <td>Percentages, fractions</td>
+            </tr>
+            <tr>
+              <td>Table</td>
+              <td>Precise values</td>
+              <td>Calculations, comparisons</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          0:30-2:30 | Walk through the anatomy of a DI set. Explain each data type and the kinds of questions that accompany it. Emphasize that knowing the display type helps predict the question type.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 3: Divider - Three-Step Approach -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <p class="part-number">Part 1</p>
+        <h1>The Three-Step Approach</h1>
+        <p>Scan, Read, Calculate</p>
+
+        <aside class="notes">
+          2:30-2:40 | Transition: Now let's learn the systematic three-step approach that makes DI manageable.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 4: Three-Step Workflow -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Strategy</p>
+          <h2>The Three-Step Workflow</h2>
+        </div>
+
+        <div class="workflow">
+          <div class="workflow-step">
+            <div class="step-num mb-16">1</div>
+            <h3 class="text-md">Scan</h3>
+            <p class="text-md">Title, labels, units, scale (30 sec)</p>
+          </div>
+          <div class="workflow-arrow">&rarr;</div>
+          <div class="workflow-step">
+            <div class="step-num mb-16">2</div>
+            <h3 class="text-md">Read</h3>
+            <p class="text-md">What exactly is being asked? (15 sec)</p>
+          </div>
+          <div class="workflow-arrow">&rarr;</div>
+          <div class="workflow-step">
+            <div class="step-num mb-16">3</div>
+            <h3 class="text-md">Calculate</h3>
+            <p class="text-md">Extract values, compute, verify</p>
+          </div>
+        </div>
+
+        <div class="card-alt-green compact mt-16">
+          <span class="badge badge-green self-start">Key Idea</span>
+          <p class="text-md">Most students jump straight to calculation. Spending 30 seconds scanning saves minutes of confusion later.</p>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          2:40-4:00 | Walk through each step of the workflow. Step 1: Scan the display for title, labels, units, and scale. Step 2: Read the question carefully for exactly what is being asked. Step 3: Extract the specific values and calculate. Emphasize the 30-second scan investment.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 5: Common Traps -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Watch Out</p>
+          <h2>Common DI Traps (1-3)</h2>
+        </div>
+
+        <div class="card-grid-3">
+          <div class="card card-red-bg">
+            <span class="badge badge-red self-start mb-8">Trap 1</span>
+            <h3 class="text-md mb-8">Wrong Units</h3>
+            <p class="text-md">Graph says "in thousands" but you answer in actual numbers.</p>
+          </div>
+          <div class="card card-orange-bg">
+            <span class="badge badge-orange self-start mb-8">Trap 2</span>
+            <h3 class="text-md mb-8">Wrong Base</h3>
+            <p class="text-md">"Percent greater than" is not the same as "percent of."</p>
+          </div>
+          <div class="card card-purple-bg">
+            <span class="badge badge-purple self-start mb-8">Trap 3</span>
+            <h3 class="text-md mb-8">Visual Deception</h3>
+            <p class="text-md">3D graphs and broken axes distort proportions.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          4:00-4:45 | Walk through traps 1-3. Trap 1: always check the unit multiplier in axis labels. Trap 2: percent greater than vs percent of is a classic GRE distinction. Trap 3: always verify visual impressions with actual numbers.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 5b: Common Traps (4-5) -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Watch Out</p>
+          <h2>Common DI Traps (4-5)</h2>
+        </div>
+
+        <div class="two-column gap-24">
+          <div class="card card-blue-bg">
+            <span class="badge badge-blue self-start mb-8">Trap 4</span>
+            <h3 class="text-md mb-8">Wrong Source</h3>
+            <p class="text-md">Using the wrong graph or mismatching years between displays.</p>
+          </div>
+          <div class="card card-green-bg">
+            <span class="badge badge-green self-start mb-8">Trap 5</span>
+            <h3 class="text-md mb-8">Careless Reading</h3>
+            <p class="text-md">"Revenue" vs "Profit," "Total" vs "Average," "2018-2020" vs "from 2018 to&nbsp;2020."</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          4:45-5:30 | Traps 4-5. Trap 4: with multiple displays, confirm you are reading the right one. Trap 5: read every word carefully.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 6: Divider - Approximation -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <p class="part-number">Part 2</p>
+        <h1>Approximation vs. Precision</h1>
+        <p>When to estimate and when to calculate exactly</p>
+
+        <aside class="notes">
+          5:30-5:40 | Transition: Knowing when to approximate is just as important as knowing how to calculate.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 7: When to Approximate -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Efficiency</p>
+          <h2>Approximate or Be Precise?</h2>
+        </div>
+
+        <div class="two-column gap-24">
+          <div class="card card-green-bg">
+            <span class="badge badge-green self-start mb-8">Approximate</span>
+            <ul class="plus-list text-md">
+              <li>Answer choices are spread apart (25%, 40%, 55%)</li>
+              <li>Question says "approximately"</li>
+              <li>You are running low on time</li>
+            </ul>
+          </div>
+          <div class="card card-blue-bg">
+            <span class="badge badge-blue self-start mb-8">Be Precise</span>
+            <ul class="plus-list text-md">
+              <li>Answer choices are close (23%, 25%, 27%)</li>
+              <li>Question asks for "exactly"</li>
+              <li>Small table with exact numbers</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card-alt compact mt-16">
+          <span class="badge badge-orange self-start">Quick Check</span>
+          <p class="text-md">Look at the answer choices first. The spacing between them tells you how precise you need to&nbsp;be.</p>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          5:40-7:00 | Explain the decision framework. Approximate when answer choices are spread apart or the question uses "approximately." Be precise when choices are close together. Always check the answer spacing first.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 8: Approximation Techniques -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Techniques</p>
+          <h2>Approximation Shortcuts</h2>
+        </div>
+
+        <div class="two-column gap-24">
+          <div class="card card-green-bg">
+            <span class="badge badge-green self-start mb-8">Rounding</span>
+            <p class="text-md mb-8">Round messy numbers to nearby clean values.</p>
+            <div class="card-alt compact mb-8">
+              <p class="text-md">47% $\approx$ 50%</p>
+            </div>
+            <div class="card-alt compact">
+              <p class="text-md">\$2,847,000 $\approx$ \$2.8 million</p>
+            </div>
+          </div>
+          <div class="card card-blue-bg">
+            <span class="badge badge-blue self-start mb-8">Benchmarks</span>
+            <p class="text-md mb-8">Use fraction-percent equivalents you&nbsp;know.</p>
+            <div class="card-alt compact mb-8">
+              <p class="text-md">$\frac{1}{3} \approx 33\%$, &nbsp; $\frac{1}{4} = 25\%$</p>
+            </div>
+            <div class="card-alt compact">
+              <p class="text-md">$\frac{3}{4} = 75\%$, &nbsp; $\frac{1}{5} = 20\%$</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-alt-green compact mt-24">
+          <span class="badge badge-green self-start">Example</span>
+          <p class="text-md">What is 19% of 52? Approximate: 20% of 50 = 10. Actual: 9.88. Close&nbsp;enough.</p>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          7:00-8:00 | Two main approximation shortcuts. Rounding: turn messy numbers into nearby clean ones. Benchmarks: use the fraction-percent equivalents you already know. Show the 19% of 52 example to prove approximation works.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 9: Time Management -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Time Management</p>
+          <h2>Budget Your DI Time</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Question Type</th>
+              <th>Time Budget</th>
+              <th>Strategy</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Simple read</td>
+              <td>60-90 seconds</td>
+              <td>Read directly from the display</td>
+            </tr>
+            <tr>
+              <td>Calculation</td>
+              <td>90-120 seconds</td>
+              <td>Extract values, set up, solve</td>
+            </tr>
+            <tr>
+              <td>Multi-step</td>
+              <td>2-3 minutes</td>
+              <td>Combine data from multiple sources</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="card-alt compact mt-24">
+          <span class="badge badge-orange self-start">Skip Signal</span>
+          <p class="text-md">If you have spent 2+ minutes without progress, mark it and move on. Return with fresh&nbsp;eyes.</p>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          8:00-9:30 | Time budgets for each question type. Simple reads should take under 90 seconds. Calculations around 2 minutes. Multi-step questions up to 3 minutes. If stuck, skip and return. Answer easy questions in the set first.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 10: Summary (Dark) -->
+      <!-- ============================================ -->
+      <section class="content-dark">
+        <div class="slide-header">
+          <p class="eyebrow">Summary</p>
+          <h2>How to Approach DI Questions</h2>
+        </div>
+
+        <ul class="plus-list">
+          <li><strong>Scan first</strong> -- Spend 30 seconds on title, labels, units, and scale before reading questions</li>
+          <li><strong>Read precisely</strong> -- Identify exactly what is being asked and which data source to use</li>
+          <li><strong>Calculate last</strong> -- Extract specific values, compute, and verify your answer makes sense</li>
+          <li><strong>Check answer spacing</strong> -- Spread-apart choices allow approximation; close choices demand precision</li>
+          <li><strong>Watch for traps</strong> -- Verify units, comparison bases, and graph scales before finalizing</li>
+          <li><strong>Manage your time</strong> -- Answer easy questions first, skip and return to hard ones</li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="rgba(255,255,255,0.4)"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          9:30-10:00 | Summary: The three-step approach is scan, read, calculate. Check answer spacing to decide precision. Watch for the five common traps. Manage your time by tackling easy questions first.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js -->
+  <script src="../assets/reveal/dist/reveal.min.js"></script>
+  <script type="module">
+    import RevealNotes from '../assets/reveal/plugin/notes/notes.esm.js';
+
+    Reveal.initialize({
+      width: 960,
+      height: 540,
+      margin: 0,
+      minScale: 0.5,
+      maxScale: 3.0,
+      hash: true,
+      slideNumber: true,
+      controls: true,
+      progress: true,
+      history: true,
+      center: false,
+      transition: 'none',
+      backgroundTransition: 'none',
+      disableLayout: false,
+      plugins: [ RevealNotes ]
+    });
+  </script>
+</body>
+</html>
