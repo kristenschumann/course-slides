@@ -1,0 +1,28 @@
+Coach,Course,VideoID,Title,SlidesURL,ScriptPath,Status
+Bruce H.,GRE,ID12,Integers & Order of Operations,https://kristenschumann.github.io/course-slides/gre/ID12_Integers_Order_Ops.html,Script ready,READY
+Bruce H.,GRE,ID14,Fractions Fundamentals,https://kristenschumann.github.io/course-slides/gre/ID14_Fractions_Fundamentals.html,Script ready,READY
+Bruce H.,GRE,ID15,Decimals & Powers of Ten,https://kristenschumann.github.io/course-slides/gre/ID15_Decimals_Powers_of_Ten.html,Script ready,READY
+Bruce H.,GRE,ID17,Percents Made Simple,https://kristenschumann.github.io/course-slides/gre/ID17_Percents_Made_Simple.html,Script ready,READY
+Bruce H.,GRE,ID30,Exponent Rules,NOT YET BUILT,Script ready,NEEDS SLIDES
+Bruce H.,GRE,ID31,Square Roots & Radicals,NOT YET BUILT,Script ready,NEEDS SLIDES
+Andrew C.,GRE,ID2,How This 8-Week Plan Works,https://kristenschumann.github.io/course-slides/gre/ID2_GRE_Structure.html,Script ready,READY
+Andrew C.,GRE,ID3,GRE Structure & Format,https://kristenschumann.github.io/course-slides/gre/ID3_How_GRE_is_Scored.html,Script ready,READY
+Andrew C.,GRE,ID4,How the GRE is Scored,NOT YET BUILT,Script missing,NEEDS BOTH
+Andrew C.,GRE,ID24,How to Learn GRE Vocabulary,https://kristenschumann.github.io/course-slides/gre/ID24_Learn_Vocabulary.html,Script ready,READY
+Andrew C.,GRE,ID109,How to Approach GRE Reading,NOT YET BUILT,Script ready,NEEDS SLIDES
+Andrew C.,GRE,ID110,Passage Mapping in 30 Seconds,NOT YET BUILT,Script ready,NEEDS SLIDES
+Eric V.,GRE,ID85,DI & Statistics Approach,NOT YET BUILT,Script ready,NEEDS SLIDES
+Eric V.,GRE,ID86,Mean Median Mode & Weighted Averages,NOT YET BUILT,Script ready,NEEDS SLIDES
+Eric V.,GRE,ID88,Spread & Distributions,NOT YET BUILT,Script ready,NEEDS SLIDES
+Eric V.,GRE,ID97,Fundamental Counting Principles,NOT YET BUILT,Script ready,NEEDS SLIDES
+Eric V.,GRE,ID129,Slope Distance Midpoint,NOT YET BUILT,Script ready,NEEDS SLIDES
+Eric V.,GRE,ID132,Angles & Triangle Rules,NOT YET BUILT,Script ready,NEEDS SLIDES
+Ben L.,MBA,6.1,MBA Essay Fundamentals,https://kristenschumann.github.io/course-slides/mba/06.01-mba-essay-fundamentals.html,Script ready,READY
+Ben L.,MBA,7.4,Writing "Why This School" Essays,https://kristenschumann.github.io/course-slides/mba/07.04-writing-why-this-school-essays.html,Script ready,READY
+Allie K.,MBA,1.3,Articulating Why You Want an MBA,https://kristenschumann.github.io/course-slides/mba/01.03-articulating-why-you-want-an-mba.html,Script ready,READY
+Allie K.,MBA,3.1,Building a Differentiated MBA Narrative,https://kristenschumann.github.io/course-slides/mba/03.01-building-a-differentiated-mba-narrative.html,Script ready,READY
+Kelsey K.,MBA,4.1,MBA Resume Best Practices,https://kristenschumann.github.io/course-slides/mba/04.01-mba-resume-best-practices.html,Script ready,READY
+Kelsey K.,MBA,9.1,MBA Interview Fundamentals,https://kristenschumann.github.io/course-slides/mba/09.01-mba-interview-fundamentals.html,Script ready,READY
+Matt H.,VC,1.1,How Venture Capital Works,https://kristenschumann.github.io/course-slides/vc/1.1-how-venture-capital-works.html,Script ready,READY
+Natalie L.,VC,1.5,A Week in the Life of a VC Analyst/Associate,https://kristenschumann.github.io/course-slides/vc/1.5-a-week-in-the-life-of-a-vc.html,Script ready,READY
+Katherine M.,VC,1.3,Fund Structure and Lifecycle,https://kristenschumann.github.io/course-slides/vc/1.3-fund-structure-and-lifecycle.html,Script ready,READY
