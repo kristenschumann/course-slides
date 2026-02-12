@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Icon Test</title>
+  <link rel="stylesheet" href="assets/reveal/themes/leland.css">
+  <style>
+    body { padding: 40px; font-family: sans-serif; background: white; }
+    .test-row { display: flex; gap: 24px; align-items: center; margin-bottom: 24px; }
+    .label { width: 200px; font-size: 14px; }
+  </style>
+</head>
+<body>
+  <h2>Icon Rendering Test</h2>
+
+  <div class="test-row">
+    <div class="label">1. CSS mask (current method):</div>
+    <span class="icon icon-lg icon-green" style="--icon: url(assets/icons/bar-chart.svg)"></span>
+    <span class="icon icon-lg icon-blue" style="--icon: url(assets/icons/star.svg)"></span>
+    <span class="icon icon-lg icon-purple" style="--icon: url(assets/icons/lightning.svg)"></span>
+  </div>
+
+  <div class="test-row">
+    <div class="label">2. Direct img tag:</div>
+    <img src="assets/icons/bar-chart.svg" width="32" height="32">
+    <img src="assets/icons/star.svg" width="32" height="32">
+    <img src="assets/icons/lightning.svg" width="32" height="32">
+  </div>
+
+  <div class="test-row">
+    <div class="label">3. Background-image:</div>
+    <span style="display:inline-block; width:32px; height:32px; background-image:url(assets/icons/bar-chart.svg); background-size:contain; background-repeat:no-repeat;"></span>
+    <span style="display:inline-block; width:32px; height:32px; background-image:url(assets/icons/star.svg); background-size:contain; background-repeat:no-repeat;"></span>
+    <span style="display:inline-block; width:32px; height:32px; background-image:url(assets/icons/lightning.svg); background-size:contain; background-repeat:no-repeat;"></span>
+  </div>
+
+  <div class="test-row">
+    <div class="label">4. Inline SVG:</div>
+    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M14.666 3H19.999V21H14.666V3Z" stroke="#15B078" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M14.5 8H9.5V21H14.5V8Z" stroke="#15B078" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M4 13H9.5V21H4V13Z" stroke="#15B078" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+
+  <p style="margin-top: 32px; color: #666; font-size: 13px;">
+    If row 1 is invisible but rows 2-4 show icons, the issue is CSS mask rendering.<br>
+    If rows 2-3 are also invisible, the SVG files aren't loading.
+  </p>
+</body>
+</html>
