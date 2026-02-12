@@ -665,8 +665,6 @@
   vertical-align: middle;
   -webkit-mask-image: var(--icon);
   mask-image: var(--icon);
-  -webkit-mask-mode: alpha;
-  mask-mode: alpha;
   -webkit-mask-size: contain;
   mask-size: contain;
   -webkit-mask-repeat: no-repeat;
