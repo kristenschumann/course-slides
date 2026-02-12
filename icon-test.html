@@ -5,46 +5,106 @@
   <link rel="stylesheet" href="assets/reveal/themes/leland.css">
   <style>
     body { padding: 40px; font-family: sans-serif; background: white; }
-    .test-row { display: flex; gap: 24px; align-items: center; margin-bottom: 24px; }
-    .label { width: 200px; font-size: 14px; }
+    .test-row { display: flex; gap: 24px; align-items: center; margin-bottom: 24px; padding: 12px; border: 1px solid #eee; }
+    .label { width: 300px; font-size: 13px; }
+
+    /* Test: mask with inline url (no custom property) */
+    .mask-direct {
+      display: inline-block;
+      width: 32px;
+      height: 32px;
+      background-color: #15B078;
+      -webkit-mask-image: url(assets/icons/bar-chart.svg);
+      mask-image: url(assets/icons/bar-chart.svg);
+      -webkit-mask-size: contain;
+      mask-size: contain;
+      -webkit-mask-repeat: no-repeat;
+      mask-repeat: no-repeat;
+    }
+
+    /* Test: mask with absolute URL */
+    .mask-absolute {
+      display: inline-block;
+      width: 32px;
+      height: 32px;
+      background-color: #15B078;
+      -webkit-mask-image: url(https://kristenschumann.github.io/course-slides/assets/icons/bar-chart.svg);
+      mask-image: url(https://kristenschumann.github.io/course-slides/assets/icons/bar-chart.svg);
+      -webkit-mask-size: contain;
+      mask-size: contain;
+      -webkit-mask-repeat: no-repeat;
+      mask-repeat: no-repeat;
+    }
+
+    /* Test: mask with data URI (embedded SVG) */
+    .mask-datauri {
+      display: inline-block;
+      width: 32px;
+      height: 32px;
+      background-color: #15B078;
+      -webkit-mask-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.666 3H19.999V21H14.666V3Z' stroke='white' stroke-width='1.5'/%3E%3Cpath d='M14.5 8H9.5V21H14.5V8Z' stroke='white' stroke-width='1.5'/%3E%3Cpath d='M4 13H9.5V21H4V13Z' stroke='white' stroke-width='1.5'/%3E%3C/svg%3E");
+      mask-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.666 3H19.999V21H14.666V3Z' stroke='white' stroke-width='1.5'/%3E%3Cpath d='M14.5 8H9.5V21H14.5V8Z' stroke='white' stroke-width='1.5'/%3E%3Cpath d='M4 13H9.5V21H4V13Z' stroke='white' stroke-width='1.5'/%3E%3C/svg%3E");
+      -webkit-mask-size: contain;
+      mask-size: contain;
+      -webkit-mask-repeat: no-repeat;
+      mask-repeat: no-repeat;
+    }
+
+    /* Test: background-image approach (no mask) */
+    .bg-icon {
+      display: inline-block;
+      width: 32px;
+      height: 32px;
+      background-image: url(assets/icons/star.svg);
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
   </style>
 </head>
 <body>
-  <h2>Icon Rendering Test</h2>
+  <h2>Icon Rendering Test v2</h2>
 
   <div class="test-row">
-    <div class="label">1. CSS mask (current method):</div>
+    <div class="label">1. Original method (CSS var + mask):</div>
     <span class="icon icon-lg icon-green" style="--icon: url(assets/icons/bar-chart.svg)"></span>
-    <span class="icon icon-lg icon-blue" style="--icon: url(assets/icons/star.svg)"></span>
-    <span class="icon icon-lg icon-purple" style="--icon: url(assets/icons/lightning.svg)"></span>
   </div>
 
   <div class="test-row">
-    <div class="label">2. Direct img tag:</div>
-    <img src="assets/icons/bar-chart.svg" width="32" height="32">
-    <img src="assets/icons/star.svg" width="32" height="32">
-    <img src="assets/icons/lightning.svg" width="32" height="32">
+    <div class="label">2. Mask with direct URL in CSS (no var):</div>
+    <span class="mask-direct"></span>
   </div>
 
   <div class="test-row">
-    <div class="label">3. Background-image:</div>
-    <span style="display:inline-block; width:32px; height:32px; background-image:url(assets/icons/bar-chart.svg); background-size:contain; background-repeat:no-repeat;"></span>
-    <span style="display:inline-block; width:32px; height:32px; background-image:url(assets/icons/star.svg); background-size:contain; background-repeat:no-repeat;"></span>
-    <span style="display:inline-block; width:32px; height:32px; background-image:url(assets/icons/lightning.svg); background-size:contain; background-repeat:no-repeat;"></span>
+    <div class="label">3. Mask with absolute URL:</div>
+    <span class="mask-absolute"></span>
   </div>
 
   <div class="test-row">
-    <div class="label">4. Inline SVG:</div>
-    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <div class="label">4. Mask with embedded data URI:</div>
+    <span class="mask-datauri"></span>
+  </div>
+
+  <div class="test-row">
+    <div class="label">5. Background-image (should show white outline on white — may be invisible):</div>
+    <span class="bg-icon" style="background-color: #ddd; padding: 4px;"></span>
+  </div>
+
+  <div class="test-row">
+    <div class="label">6. Direct img (white on gray bg):</div>
+    <span style="background: #999; display: inline-block; padding: 4px;">
+      <img src="assets/icons/bar-chart.svg" width="32" height="32">
+    </span>
+  </div>
+
+  <div class="test-row">
+    <div class="label">7. Inline SVG (green stroke):</div>
+    <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
       <path d="M14.666 3H19.999V21H14.666V3Z" stroke="#15B078" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
       <path d="M14.5 8H9.5V21H14.5V8Z" stroke="#15B078" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
       <path d="M4 13H9.5V21H4V13Z" stroke="#15B078" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
   </div>
 
-  <p style="margin-top: 32px; color: #666; font-size: 13px;">
-    If row 1 is invisible but rows 2-4 show icons, the issue is CSS mask rendering.<br>
-    If rows 2-3 are also invisible, the SVG files aren't loading.
-  </p>
+  <p style="margin-top: 24px; color: #666; font-size: 13px;">Tell me which row numbers show a green bar-chart icon.</p>
 </body>
 </html>
