@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en" class="reveal-full-page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fractions Fundamentals</title>
+
+  <!-- Reveal.js Core -->
+  <link rel="stylesheet" href="../assets/reveal/dist/reset.css">
+  <link rel="stylesheet" href="../assets/reveal/dist/reveal.css">
+
+  <!-- Leland Theme -->
+  <link rel="stylesheet" href="../assets/reveal/themes/leland.css">
+
+  <!-- KaTeX for math rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false}
+      ]
+    });"></script>
+
+</head>
+<body>
+  <!-- SVG Symbol Definitions (defined once, referenced via <use>) -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="leland-logo" viewBox="0 0 200 45">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z"/>
+      <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z"/>
+      <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z"/>
+      <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z"/>
+      <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z"/>
+      <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z"/>
+    </symbol>
+  </svg>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ============================================ -->
+      <!-- SLIDE 1: Title (Dark) -->
+      <!-- ============================================ -->
+      <section class="title-dark">
+        <div class="leland-logo-top">
+          <svg width="110" height="25" fill="white"><use href="#leland-logo"/></svg>
+        </div>
+
+        <p class="eyebrow">GRE Self-Study Course</p>
+        <h1>Fractions<br><span class="hl">Fundamentals</span></h1>
+        <p class="text-lg text-muted">If $\frac{1}{3z} - \frac{1}{2z} = \frac{1}{6}$, what is $z$?</p>
+
+        <aside class="notes">
+          0:00-0:45 | Hook: Show the fraction equation. "Most students try to find common denominators, convert fractions, then solve -- a 2-minute nightmare. There's a faster way. Multiply everything by 6z and the fractions vanish instantly. This video teaches three fraction techniques the GRE doesn't expect you to know."
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 2: Three Techniques Overview -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Overview</p>
+          <h2>Three Techniques to Master</h2>
+        </div>
+
+        <div class="card-grid-3">
+          <div class="card">
+            <div class="type-num mb-16">01</div>
+            <h3>Multiply Through</h3>
+            <p class="text-sm text-light">Eliminate fractions from equations by multiplying every term by the common denominator.</p>
+          </div>
+          <div class="card">
+            <div class="type-num mb-16">02</div>
+            <h3>Flip Fractions</h3>
+            <p class="text-sm text-light">Simplify complex fractions and move fractions across the equals sign instantly.</p>
+          </div>
+          <div class="card">
+            <div class="type-num mb-16">03</div>
+            <h3>Number Properties</h3>
+            <p class="text-sm text-light">Understand fraction behavior to solve Quantitative Comparison problems fast.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          0:45-1:30 | "There are three techniques that make GRE fractions fast and easy. Let's master each one."
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 3: Divider - Section 1 -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <p class="part-number">Part 1</p>
+        <h1>Multiply Through</h1>
+        <p>Eliminate fractions from equations entirely</p>
+
+        <aside class="notes">
+          1:30-1:40 | Transition to Technique 1: Multiplying through by the common denominator.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 4: The Method - Traditional vs Better -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Technique 1</p>
+          <h2>The Multiply-Through Method</h2>
+        </div>
+
+        <div class="two-column gap-32">
+          <div class="card">
+            <div class="status-incorrect text-lg mb-16">&#10007; Traditional Approach</div>
+            <p class="text-light mb-16">Find common denominators, convert each fraction, then solve. Slow and error-prone.</p>
+            <div class="card-alt">
+              <p class="text-sm">Multiple conversion steps with lots of room for arithmetic mistakes.</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="status-correct text-lg mb-16">&#10003; Multiply Through</div>
+            <p class="text-light mb-16">Find the common denominator, then multiply the ENTIRE equation by it. Fractions disappear.</p>
+            <div class="card-alt-green">
+              <p class="text-sm">One multiplication step, then solve a clean equation with no fractions.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          1:40-2:15 | Contrast the traditional approach with the multiply-through method. Traditional: find common denominators, convert, solve. Slow. Better: find one common denominator, multiply everything by it, fractions vanish.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 5: Example 1 -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 1</p>
+          <h2>Solving a Fraction Equation</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-lg">If $\dfrac{1}{3z} - \dfrac{1}{2z} = \dfrac{1}{6}$, what is $z$?</p>
+          </div>
+          <div class="card fragment" data-fragment-index="1">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16 fragment" data-fragment-index="2">Common denominator: $6z$</p>
+            <p class="text-md mb-16 fragment" data-fragment-index="3">Multiply every term by $6z$:<br>$6z \cdot \frac{1}{3z} = 2$, &nbsp; $6z \cdot \frac{1}{2z} = 3$, &nbsp; $6z \cdot \frac{1}{6} = z$</p>
+            <p class="text-md mb-16 fragment" data-fragment-index="4">Solve: $2 - 3 = z$</p>
+            <p class="text-lg mt-16 fragment" data-fragment-index="5">Answer: <span class="ans">$z = -1$</span></p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          2:15-3:15 | Example 1: Hook problem revisited. Click to reveal solution card. Click for common denominator 6z. Click for multiplication results. Click for clean equation. Click for answer z = -1. "No fraction arithmetic at all."
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 6: Example 2 -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 2</p>
+          <h2>Three-Term Fraction Equation</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-lg">If $\dfrac{4}{x} - \dfrac{5}{2x} + \dfrac{6}{4x} = 3$, what is $x$?</p>
+          </div>
+          <div class="card fragment" data-fragment-index="1">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16 fragment" data-fragment-index="2">Common denominator: $4x$</p>
+            <p class="text-md mb-16 fragment" data-fragment-index="3">Multiply every term by $4x$:<br>$16 - 10 + 6 = 12x$</p>
+            <p class="text-md mb-16 fragment" data-fragment-index="4">Simplify: $12 = 12x$</p>
+            <p class="text-lg mt-16 fragment" data-fragment-index="5">Answer: <span class="ans">$x = 1$</span></p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          3:15-4:15 | Example 2: Three-term equation. Click to reveal solution. Click for common denominator 4x. Click for multiplication: 4x(4/x)=16, 4x(5/2x)=10, 4x(6/4x)=6, 4x(3)=12x. Click for simplified 12 = 12x. Click for answer x = 1.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 7: Example 3 - Word Problem -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 3</p>
+          <h2>Budget Word Problem</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-md">Ed and Ned spend $\frac{1}{3}$ of their budget on pizza, $\frac{1}{7}$ on wings, $\frac{1}{5}$ on drinks, and the remaining $\$170$ on beer. What was their total budget?</p>
+          </div>
+          <div class="card fragment" data-fragment-index="1">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16 fragment" data-fragment-index="2">Set up: $\frac{1}{3}b + \frac{1}{7}b + \frac{1}{5}b + 170 = b$</p>
+            <p class="text-md mb-16 fragment" data-fragment-index="3">Multiply by $(3)(7)(5) = 105$:<br>$35b + 15b + 21b + 17{,}850 = 105b$</p>
+            <p class="text-md mb-16 fragment" data-fragment-index="4">Simplify: $71b + 17{,}850 = 105b$<br>$17{,}850 = 34b$</p>
+            <p class="text-lg mt-16 fragment" data-fragment-index="5">Answer: <span class="ans">$b = \$525$</span></p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          4:15-5:15 | Example 3: Word problem. Click to reveal solution. Click for equation setup. Click for multiply through by 105 (product of 3, 7, 5). Click for simplified equation. Click for answer $525.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 8: Pro Tip -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Technique 1</p>
+          <h2>Finding Common Denominators</h2>
+        </div>
+
+        <div class="card-alt-green mb-24">
+          <span class="badge badge-green">Speed Tip</span>
+          <p class="text-lg">When denominators are unusual (like $x$, $2x$, $\sqrt{3}$), just multiply them all together. You do not need the least common denominator. You are going to cancel anyway.</p>
+        </div>
+
+        <div class="workflow">
+          <div class="workflow-step">
+            <div class="step-num mb-16">1</div>
+            <h3 class="text-md">Find LCD</h3>
+            <p class="text-sm text-light">Identify or multiply all denominators</p>
+          </div>
+          <div class="workflow-arrow">&#8594;</div>
+          <div class="workflow-step">
+            <div class="step-num mb-16">2</div>
+            <h3 class="text-md">Multiply All</h3>
+            <p class="text-sm text-light">Multiply every term by the LCD</p>
+          </div>
+          <div class="workflow-arrow">&#8594;</div>
+          <div class="workflow-step">
+            <div class="step-num mb-16">3</div>
+            <h3 class="text-md">Cancel</h3>
+            <p class="text-sm text-light">Fractions vanish, leaving clean numbers</p>
+          </div>
+          <div class="workflow-arrow">&#8594;</div>
+          <div class="workflow-step">
+            <div class="step-num mb-16">4</div>
+            <h3 class="text-md">Solve</h3>
+            <p class="text-sm text-light">Solve the simple equation</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          5:15-5:30 | Pro tip: When denominators are weird, multiply them together. You do not need the LCM. Speed over elegance on the GRE.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 9: Divider - Section 2 -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <p class="part-number">Part 2</p>
+        <h1>Flipping Fractions</h1>
+        <p>Three situations where flipping saves time</p>
+
+        <aside class="notes">
+          5:30-5:40 | Transition to Technique 2: Flipping fractions. "Flipping fractions is essential for speed."
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 10: Three Flipping Situations -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Technique 2</p>
+          <h2>When to Flip Fractions</h2>
+        </div>
+
+        <div class="card-grid-3">
+          <div class="card">
+            <span class="badge badge-green self-start mb-16">Situation 1</span>
+            <h3 class="text-md mb-16">Moving Across =</h3>
+            <p class="text-sm text-light mb-16">If $\frac{3}{4}a = b$</p>
+            <p class="text-sm">Then $a = \frac{4}{3}b$</p>
+          </div>
+          <div class="card">
+            <span class="badge badge-blue self-start mb-16">Situation 2</span>
+            <h3 class="text-md mb-16">Dividing Fractions</h3>
+            <p class="text-sm text-light mb-16">$\frac{a}{b} \div \frac{c}{d}$</p>
+            <p class="text-sm">Flip and multiply: $\frac{a}{b} \times \frac{d}{c}$</p>
+          </div>
+          <div class="card">
+            <span class="badge badge-orange self-start mb-16">Situation 3</span>
+            <h3 class="text-md mb-16">1 Over a Fraction</h3>
+            <p class="text-sm text-light mb-16">$\frac{1}{3/4} = \frac{4}{3}$</p>
+            <p class="text-sm">$\frac{1}{1/10} = 10$, &nbsp; $\frac{1}{a/b} = \frac{b}{a}$</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          5:40-6:30 | Three flipping situations. Situation 1: "The fraction flips when you move it to the other side. You're dividing both sides by 3/4, which is the same as multiplying by 4/3." Situation 2: "Flip the denominator and multiply." Situation 3: "1/(3/4) = 4/3. Just flip the bottom."
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 11: Example 4 - Complex Fraction -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 4</p>
+          <h2>Complex Fraction Simplification</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-lg">Simplify: $\dfrac{\frac{1}{3}}{\frac{2}{3} - \dfrac{(1-2)}{\frac{1}{3}}}$</p>
+          </div>
+          <div class="card fragment" data-fragment-index="1">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16 fragment" data-fragment-index="2">Inner fraction: $\dfrac{-1}{1/3} = -1 \times 3 = -3$</p>
+            <p class="text-md mb-16 fragment" data-fragment-index="3">Denominator: $\frac{2}{3} - (-3) = \frac{2}{3} + 3 = \frac{11}{3}$</p>
+            <p class="text-md mb-16 fragment" data-fragment-index="4">Full fraction: $\frac{1/3}{11/3} = \frac{1}{3} \times \frac{3}{11}$</p>
+            <p class="text-lg mt-16 fragment" data-fragment-index="5">Answer: <span class="ans">$\dfrac{1}{11}$</span></p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          6:30-7:30 | Example 4: Complex fraction. Click to reveal solution. Click for inner fraction simplification using Situation 3. Click for full denominator calculation. Click for final flip-and-multiply. Click for answer 1/11.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 12: Example 5 - Algebraic Fractions -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 5</p>
+          <h2>Combining Algebraic Fractions</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-lg">What is $\dfrac{1}{x} + \dfrac{1}{y}$ equivalent to?</p>
+          </div>
+          <div class="card fragment" data-fragment-index="1">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16 fragment" data-fragment-index="2">Set $\frac{1}{x} + \frac{1}{y} = \text{?}$ and multiply through by $xy$</p>
+            <p class="text-md mb-16 fragment" data-fragment-index="3">$(xy)\frac{1}{x} + (xy)\frac{1}{y} = \text{?}(xy)$<br>$y + x = \text{?}(xy)$</p>
+            <p class="text-lg mt-16 fragment" data-fragment-index="4">Answer: <span class="ans">$\dfrac{x + y}{xy}$</span></p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          7:30-8:15 | Example 5: Algebraic fraction combination. Click to reveal solution. Click for setup. Click for multiplication and simplification. Click for answer (x+y)/(xy). "This combines both techniques -- multiply through and flip."
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 13: Divider - Section 3 -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <p class="part-number">Part 3</p>
+        <h1>Number Properties<br>of Fractions</h1>
+        <p>How fractions behave with signs and variables</p>
+
+        <aside class="notes">
+          8:15-8:25 | Transition to Technique 3: Number properties of fractions. "Understanding how fractions behave helps you solve Quantitative Comparison problems without calculating."
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 14: Fraction Properties Overview -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Technique 3</p>
+          <h2>Fraction Behavior Rules</h2>
+        </div>
+
+        <div class="two-column gap-32">
+          <div class="card">
+            <span class="badge badge-green self-start mb-16">Positive Fractions</span>
+            <ul class="plus-list text-md">
+              <li><strong>Bigger numerator:</strong> bigger fraction<br>$\frac{2}{5} > \frac{1}{5}$</li>
+              <li><strong>Bigger denominator:</strong> smaller fraction<br>$\frac{1}{5} > \frac{1}{6}$</li>
+            </ul>
+          </div>
+          <div class="card">
+            <span class="badge badge-red self-start mb-16">Negative Fractions (Opposite!)</span>
+            <ul class="plus-list text-md">
+              <li><strong>Bigger numerator:</strong> <span class="neg">smaller</span> fraction<br>$-\frac{3}{5} < -\frac{2}{5}$</li>
+              <li><strong>Bigger denominator:</strong> <span class="neg">bigger</span> fraction<br>$-\frac{1}{6} > -\frac{1}{5}$</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          8:25-9:30 | Number properties overview. Positive fractions: bigger numerator = bigger, bigger denominator = smaller. Negative fractions: OPPOSITE rules apply. Why? Closer to zero = larger for negatives. Sign rules: same signs = positive, different signs = negative.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 15: Example 6 - QC Problem -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 6</p>
+          <h2>Quantitative Comparison</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-md mb-16">$x$, $y$, and $z$ are non-zero integers and $\dfrac{x}{y} > \dfrac{z}{y}$</p>
+            <div class="qc-columns">
+              <div class="qc-col">
+                <p class="eyebrow">Quantity A</p>
+                <p class="text-lg">$x$</p>
+              </div>
+              <div class="qc-vs">vs</div>
+              <div class="qc-col">
+                <p class="eyebrow">Quantity B</p>
+                <p class="text-lg">$z$</p>
+              </div>
+            </div>
+          </div>
+          <div class="card fragment" data-fragment-index="1">
+            <h3 class="text-md mb-16">Analysis</h3>
+            <p class="text-md mb-16 fragment" data-fragment-index="2">Try $y > 0$: $x=3, z=2, y=1$<br>$\frac{3}{1} > \frac{2}{1}$ &#10003; &nbsp; So $x > z$</p>
+            <p class="text-md mb-16 fragment" data-fragment-index="3">Try $y < 0$: $x=2, z=3, y=-1$<br>$\frac{2}{-1} > \frac{3}{-1}$, i.e. $-2 > -3$ &#10003; &nbsp; So $z > x$</p>
+            <p class="text-md mb-16 fragment" data-fragment-index="4">The trap: when $y$ is negative, the inequality flips!</p>
+            <p class="text-lg mt-16 fragment" data-fragment-index="5">Answer: <span class="ans">D (Cannot be determined)</span></p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          9:30-10:30 | Example 6: QC problem. Click to reveal analysis. Click for Test 1 where x > z with positive y. Click for Test 2 where z > x with negative y. Click for the trap explained. Click for answer D.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 16: Example 7 - Multiple Choice -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 7</p>
+          <h2>Greatest Value of a Fraction</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-md mb-16">For which value of $x$ is $\dfrac{1}{(-x)^3}$ greatest?</p>
+            <div class="answer-choices">
+              <div class="choice"><span class="choice-letter">(A)</span> $-3$</div>
+              <div class="choice"><span class="choice-letter">(B)</span> $-\frac{3}{2}$</div>
+              <div class="choice"><span class="choice-letter">(C)</span> $0$</div>
+              <div class="choice"><span class="choice-letter">(D)</span> $1$</div>
+              <div class="choice"><span class="choice-letter">(E)</span> $\frac{3}{2}$</div>
+            </div>
+          </div>
+          <div class="card fragment" data-fragment-index="1">
+            <h3 class="text-md mb-16">Analysis</h3>
+            <p class="text-md mb-16 fragment" data-fragment-index="2">For positive result: $(-x)^3$ must be positive, so $x$ must be negative</p>
+            <p class="text-md mb-16 fragment" data-fragment-index="3">Need $(-x)^3$ small and positive for the fraction to be large</p>
+            <p class="text-md mb-16 fragment" data-fragment-index="4">$x = -\frac{3}{2}$: $(\frac{3}{2})^3 = \frac{27}{8}$, giving $\frac{1}{27/8} = \frac{8}{27}$</p>
+            <p class="text-lg mt-16 fragment" data-fragment-index="5">Answer: <span class="ans">B</span></p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          10:30-11:30 | Example 7: Multiple choice. Click to reveal analysis. Click for reasoning: x must be negative for positive result. Click for need small positive denominator. Click for calculation with x = -3/2. Click for answer B.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 17: Summary (content-dark) -->
+      <!-- ============================================ -->
+      <section class="content-dark">
+        <div class="slide-header">
+          <p class="eyebrow">Summary</p>
+          <h2>Three Fraction Techniques</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Technique</th>
+              <th>When to Use</th>
+              <th>Key Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Multiply Through</td>
+              <td>Fractions in equations</td>
+              <td>Multiply every term by the LCD</td>
+            </tr>
+            <tr>
+              <td>Flip Fractions</td>
+              <td>Complex fractions, moving across =</td>
+              <td>Flip denominator and multiply</td>
+            </tr>
+            <tr>
+              <td>Number Properties</td>
+              <td>QC problems, comparing with variables</td>
+              <td>Test positive and negative values</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="card-alt-green compact mt-16">
+          <span class="badge badge-green self-start">Key Idea</span>
+          <p class="text-md">The GRE uses fractions to slow you down. These techniques let you work around them, not through them.</p>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="white"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          11:30-12:00 | Summary of all three techniques. "The GRE uses fractions to slow you down. These techniques let you work around them, not through them."
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js -->
+  <script src="../assets/reveal/dist/reveal.min.js"></script>
+  <script type="module">
+    import RevealNotes from '../assets/reveal/plugin/notes/notes.esm.js';
+
+    Reveal.initialize({
+      width: 960,
+      height: 540,
+      margin: 0,
+      minScale: 0.5,
+      maxScale: 3.0,
+      hash: true,
+      slideNumber: true,
+      controls: true,
+      progress: true,
+      history: true,
+      center: false,
+      transition: 'none',
+      backgroundTransition: 'none',
+      disableLayout: false,
+      plugins: [ RevealNotes ]
+    });
+  </script>
+</body>
+</html>

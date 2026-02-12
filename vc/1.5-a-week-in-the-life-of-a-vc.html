@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en" class="reveal-full-page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Week in the Life of a VC Analyst/Associate</title>
+
+  <!-- Reveal.js Core -->
+  <link rel="stylesheet" href="../assets/reveal/dist/reset.css">
+  <link rel="stylesheet" href="../assets/reveal/dist/reveal.css">
+
+  <!-- Leland Theme -->
+  <link rel="stylesheet" href="../assets/reveal/themes/leland.css">
+
+</head>
+<body>
+  <!-- SVG Symbol Definitions (defined once, referenced via <use>) -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="leland-logo" viewBox="0 0 200 45">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z"/>
+      <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z"/>
+      <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z"/>
+      <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z"/>
+      <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z"/>
+      <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z"/>
+    </symbol>
+  </svg>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ============================================ -->
+      <!-- SLIDE 1: Title Dark -->
+      <!-- ============================================ -->
+      <section class="title-dark">
+        <svg width="110" height="25" fill="white" class="mb-16"><use href="#leland-logo"/></svg>
+        <p class="eyebrow">VC Fundamentals | Lesson 1.5</p>
+        <h1>A Week in the Life of a<br>VC <span class="hl">Analyst/Associate</span></h1>
+        <p class="text-lg text-light">The real daily rhythm of VC investing</p>
+
+        <aside class="notes">
+          0:00-0:30 | Seth Levine of Foundry Group once said "a good VC has some ADD" -- the role demands constant context-switching, genuine intellectual curiosity, and a tolerance for ambiguity that most finance jobs don't require. Knowing this reality, not the highlight reel, is what makes a convincing "Why VC?" story.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 2: What You'll Learn -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Overview</p>
+          <h2>What This Video Covers</h2>
+        </div>
+
+        <ul class="icon-list text-lg">
+          <li class="fragment" data-fragment-index="1">
+            <span class="icon icon-lg icon-green" style="--icon: url(../../../../_global/design/icons/clock.svg)"></span>
+            <span>The five core activities that fill a VC's week -- and how much time each one actually takes</span>
+          </li>
+          <li class="fragment" data-fragment-index="2">
+            <span class="icon icon-lg icon-green" style="--icon: url(../../../../_global/design/icons/calendar.svg)"></span>
+            <span>A detailed Monday-through-Friday walkthrough of how those activities weave together day by day</span>
+          </li>
+          <li class="fragment" data-fragment-index="3">
+            <span class="icon icon-lg icon-green" style="--icon: url(../../../../_global/design/icons/bar-chart.svg)"></span>
+            <span>How the job differs dramatically by fund type -- seed, growth, and multi-stage</span>
+          </li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          0:30-1:00 | Three learning objectives. Click 1: time allocation. Click 2: daily walkthrough. Click 3: fund type differences -- a week at Precursor Ventures looks nothing like a week at General Atlantic. Note: roles and career progression covered in 1.4; Module 5 will use this content to build a "Why VC?" narrative.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 3: Section Divider - Core Activities -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <div class="part-number">Section 1</div>
+        <h1>The Five Core Activities</h1>
+        <p>Where all the time goes</p>
+
+        <aside class="notes">
+          1:00 | Transition. Every junior VC's week revolves around five core activities. The proportions shift by firm, seniority, and time of year -- but these five buckets capture where all the time goes.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 4: Sourcing -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Core Activity 1</p>
+          <h2>Sourcing New Deals</h2>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="card card-blue-bg fragment" data-fragment-index="1">
+            <span class="icon icon-lg icon-green mb-16" style="--icon: url(../../../../_global/design/icons/deal-execution.svg)"></span>
+            <h3>25-30% of Your Time</h3>
+            <p class="text-sm text-light">Finding new companies to potentially invest in -- attending demo days, fielding warm referrals, cold outreach, and reviewing inbound pitches.</p>
+          </div>
+          <div class="card card-green-bg fragment" data-fragment-index="2">
+            <span class="icon icon-lg icon-green mb-16" style="--icon: url(../../../../_global/design/icons/networking.svg)"></span>
+            <h3>Key Stat: 26% from Cold Inbound</h3>
+            <p class="text-sm text-light">HBS research shows only ~26% of funded deals come from cold inbound. The vast majority come through warm referrals and active prospecting.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          1:00-1:45 | Click 1: Sourcing is 25-30% of time. Activities include startup events, demo days, warm referrals from portfolio founders and other VCs, cold outreach via Twitter/Product Hunt/research databases, and reviewing inbound pitches (hundreds to thousands per year at a well-known firm). Click 2: HBS stat -- only 26% of funded deals come from cold inbound. Network building is a core part of the job, not a nice-to-have. Also: most inbound decks get roughly 6 minutes of screening time. You develop rapid pattern-matching for what's worth 30 minutes.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 5: Deal Evaluation and Diligence -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Core Activity 2</p>
+          <h2>Deal Evaluation and Diligence</h2>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="card card-orange-bg fragment" data-fragment-index="1">
+            <span class="icon icon-lg icon-green mb-16" style="--icon: url(../../../../_global/design/icons/search-document.svg)"></span>
+            <h3>25-30% of Your Time</h3>
+            <p class="text-sm text-light">Starts with an initial screen -- read the deck, check team background, market size, traction metrics. Then a 30-minute founder call. Most deals die here by design.</p>
+          </div>
+          <div class="card card-purple-bg fragment" data-fragment-index="2">
+            <span class="icon icon-lg icon-green mb-16" style="--icon: url(../../../../_global/design/icons/document-file.svg)"></span>
+            <h3>Deep Diligence</h3>
+            <p class="text-sm text-light">Customer reference calls (5-15 per deal), market sizing, competitive analysis, financial modeling, and investment memos that go before the partnership for a vote.</p>
+          </div>
+        </div>
+
+        <div class="card-alt-green mb-24">
+          <div style="display: flex; align-items: flex-start; gap: 12px;">
+            <span class="icon icon-md icon-green" style="--icon: url(../../../../_global/design/icons/search.svg)"></span>
+            <p class="text-md"><strong>Five Screening Dimensions:</strong> Team, Market, Product, Traction, Deal Terms -- covered in detail in Module 3.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          1:45-2:30 | Click 1: Deal evaluation is another 25-30% of time. The initial screen is fast -- deck, team, market, traction. If it passes the filter, a 30-min founder call. Most deals die here. Click 2: Surviving deals enter deep diligence. Customer reference calls (5-15 customers), market sizing, competitive analysis, financial modeling on unit economics, and investment memos -- detailed written cases for and against investing. Five screening dimensions: team, market, product, traction, deal terms (covered in Module 3).
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 6: Portfolio Support -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Core Activity 3</p>
+          <h2>Supporting Portfolio Companies</h2>
+        </div>
+
+        <ul class="icon-list text-lg">
+          <li class="fragment" data-fragment-index="1">
+            <span class="icon icon-lg icon-green" style="--icon: url(../../../../_global/design/icons/user-group.svg)"></span>
+            <span><strong>Hiring support</strong> -- sourcing candidates and making introductions to the firm's talent network</span>
+          </li>
+          <li class="fragment" data-fragment-index="2">
+            <span class="icon icon-lg icon-green" style="--icon: url(../../../../_global/design/icons/document-file.svg)"></span>
+            <span><strong>Board meeting prep</strong> -- preparing materials and taking detailed notes during meetings</span>
+          </li>
+          <li class="fragment" data-fragment-index="3">
+            <span class="icon icon-lg icon-green" style="--icon: url(../../../../_global/design/icons/bar-chart.svg)"></span>
+            <span><strong>KPI monitoring</strong> -- reviewing quarterly updates and dashboards to flag concerning trends early</span>
+          </li>
+          <li class="fragment" data-fragment-index="4">
+            <span class="icon icon-lg icon-green" style="--icon: url(../../../../_global/design/icons/networking.svg)"></span>
+            <span><strong>Strategic introductions</strong> -- connecting founders with potential customers or domain experts</span>
+          </li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          2:30-3:00 | 15-20% of time. VCs are expected to be value-add investors. As an analyst/associate, you execute on that promise. Click 1: Hiring support. Click 2: Board meeting prep and note-taking. Click 3: KPI monitoring across portfolio. Click 4: Strategic introductions -- e.g., connecting a founder with an enterprise customer or a go-to-market expert.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 7: Internal Meetings and Market Research -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Core Activities 4 &amp; 5</p>
+          <h2>Meetings and Market Research</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card card-purple-bg fragment" data-fragment-index="1">
+            <h3>Internal Meetings (10-15%)</h3>
+            <p class="text-sm text-light">Monday partnership meeting to review deal pipeline and make investment decisions. Weekly team syncs, sector deep-dive sessions, and LP reporting work. At firms like Benchmark, the Monday meeting is practically sacred.</p>
+          </div>
+          <div class="card card-green-bg fragment" data-fragment-index="2">
+            <h3>Market Research (10-15%)</h3>
+            <p class="text-sm text-light">Reading industry reports, following founders on X, tracking public market comps, and building sector maps and competitive landscapes. This is where you develop genuine expertise that makes you indispensable.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          3:00-3:30 | Click 1: Internal meetings are 10-15% of time. The Monday partnership meeting is the most important event of the week -- full team reviews deal pipeline, debates active opportunities, makes investment decisions. Also weekly syncs, sector deep-dives, and LP quarterly reporting. Click 2: Market research is another 10-15%. The analyst who develops genuine expertise in a vertical -- e.g., vertical SaaS for construction, AI-native dev tools, climate tech supply chains -- becomes the person partners turn to before writing a $10M check.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 8: Time Allocation Breakdown -->
+      <!-- ============================================ -->
+      <section class="content-dark">
+        <div class="slide-header">
+          <p class="eyebrow">Weekly Breakdown</p>
+          <h2>Where Your Time Actually Goes</h2>
+        </div>
+
+        <div class="card-grid-3">
+          <div class="card card-blue-bg fragment" data-fragment-index="1">
+            <h3>Sourcing</h3>
+            <p class="text-lg">27%</p>
+          </div>
+          <div class="card card-green-bg fragment" data-fragment-index="2">
+            <h3>Deal Evaluation &amp; Diligence</h3>
+            <p class="text-lg">28%</p>
+          </div>
+          <div class="card card-orange-bg fragment" data-fragment-index="3">
+            <h3>Portfolio Support</h3>
+            <p class="text-lg">18%</p>
+          </div>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="card card-purple-bg fragment" data-fragment-index="4">
+            <h3>Internal Meetings</h3>
+            <p class="text-lg">13%</p>
+          </div>
+          <div class="card card-green-bg fragment" data-fragment-index="5">
+            <h3>Market Research</h3>
+            <p class="text-lg">14%</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="rgba(255,255,255,0.4)"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          3:25-3:30 | Visual anchor for Section 1. Build up the allocation as each card appears. Click 1: Sourcing 27%. Click 2: Deal Evaluation &amp; Diligence 28%. Click 3: Portfolio Support 18%. Click 4: Internal Meetings 13%. Click 5: Market Research 14%. These proportions shift by firm and seniority but capture the typical week for a junior VC.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 9: Section Divider - Weekly Walkthrough -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <div class="part-number">Section 2</div>
+        <h1>Monday Through Friday</h1>
+        <p>A day-by-day walkthrough at a Series A/B-focused firm</p>
+
+        <aside class="notes">
+          3:30 | Transition. Now the theory becomes concrete -- a day-by-day walkthrough at a Series A/B-focused firm showing how these activities weave together.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 10: Monday - icon-list layout -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Monday</p>
+          <h2>Pipeline and Partnerships</h2>
+        </div>
+
+        <ul class="icon-list text-lg">
+          <li class="fragment" data-fragment-index="1">
+            <span class="icon icon-lg icon-green" style="--icon: url(../../../../_global/design/icons/group.svg)"></span>
+            <span><strong>9:00 AM -- Partnership Meeting.</strong> The whole investment team gathers to review the deal pipeline, debate active deals, and make investment decisions. At Benchmark, partners present deals they're championing and the team votes.</span>
+          </li>
+          <li class="fragment" data-fragment-index="2">
+            <span class="icon icon-lg icon-green" style="--icon: url(../../../../_global/design/icons/search-document.svg)"></span>
+            <span><strong>11:00 AM -- Inbound Deck Review.</strong> Screen 5-8 new pitch decks. Quick assessments: thesis fit, market size, traction. Pass along 1-2 that warrant a closer look.</span>
+          </li>
+          <li class="fragment" data-fragment-index="3">
+            <span class="icon icon-lg icon-green" style="--icon: url(../../../../_global/design/icons/chat.svg)"></span>
+            <span><strong>2:00 PM -- Founder Intro Call.</strong> A warm referral from a portfolio CEO. 30-minute call to learn the company, ask probing questions, assess whether to bring to the broader team.</span>
+          </li>
+          <li class="fragment" data-fragment-index="4">
+            <span class="icon icon-lg icon-green" style="--icon: url(../../../../_global/design/icons/bar-chart.svg)"></span>
+            <span><strong>4:00 PM -- Competitive Landscape.</strong> Build a competitive landscape slide for a deal in diligence -- mapping 15-20 companies, their positioning, funding history, and relative strengths.</span>
+          </li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          3:30-4:15 | Click 1: Monday starts with the partnership meeting -- marquee event of the week. Full team reviews pipeline, debates active deals, makes investment decisions. Click 2: After the meeting, screen 5-8 inbound decks from the weekend. Quick filter: thesis fit, market size, traction. Click 3: Afternoon founder intro call, typically from a warm referral. Active listening is the key skill -- understand the founder's vision, not pitch them on the firm. Click 4: End of day, competitive landscape work for a deal moving into deeper diligence.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 11: Tuesday - card-grid-2 layout -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Tuesday</p>
+          <h2>Diligence and Networking</h2>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="card card-green-bg fragment" data-fragment-index="1">
+            <span class="badge badge-green self-start mb-8">Morning</span>
+            <h3 class="text-md mb-8">Diligence Deep Dive</h3>
+            <p class="text-sm text-light"><strong>9:00 AM -- Customer Reference Calls.</strong> Speak with 3-4 customers -- how they discovered the product, what they used before, how embedded it is, what they'd do if it disappeared.</p>
+            <p class="text-sm text-light"><strong>11:30 AM -- Deal Memo Work.</strong> Write up notes from customer calls and update the investment memo. Clarity and intellectual honesty matter -- the memo argues both sides.</p>
+          </div>
+          <div class="card card-blue-bg fragment" data-fragment-index="2">
+            <span class="badge badge-blue self-start mb-8">Afternoon</span>
+            <h3 class="text-md mb-8">Network &amp; Support</h3>
+            <p class="text-sm text-light"><strong>1:00 PM -- Peer Lunch.</strong> Meet a junior VC from another firm. Trade notes on the market, compare impressions on companies, and build the peer network that surfaces deals early.</p>
+            <p class="text-sm text-light"><strong>3:00 PM -- Portfolio Support Call.</strong> Join a call with a Series A founder and partner to brainstorm enterprise go-to-market strategy and offer introductions.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          4:15-5:00 | Click 1: Tuesday AM is customer reference calls. 3-4 calls, asking about edge cases, what broke, what they'd change -- that's where the real signal on product-market fit lives. Then deal memo writing. The memo goes before the partnership, so every sentence needs to be airtight. Click 2: Peer lunch with a VC from another firm. These relationships surface early deal flow and back-channel references. Then portfolio support -- brainstorming GTM strategy with a Series A company.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 12: Wednesday - timeline-block layout -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Wednesday</p>
+          <h2>Board, Strategy, and Modeling</h2>
+        </div>
+
+        <div style="display: flex; gap: 16px;">
+          <div class="timeline-block light fragment" data-fragment-index="1" style="flex: 1;">
+            <div class="timeline-label">10:00 AM</div>
+            <h3>Board Meeting</h3>
+            <p class="text-sm text-light">Attend a portfolio company board meeting alongside the partner. Take detailed notes, help prepare materials in advance, flag follow-up items.</p>
+          </div>
+          <div class="timeline-block dark fragment" data-fragment-index="2" style="flex: 1;">
+            <div class="timeline-label">1:00 PM</div>
+            <h3>Sector Deep Dive</h3>
+            <p class="text-sm">Weekly 90-minute team session focused on trends in AI infrastructure. Everyone comes prepared with readings, data points, and takes on market direction.</p>
+          </div>
+          <div class="timeline-block light fragment" data-fragment-index="3" style="flex: 1;">
+            <div class="timeline-label">3:00 PM</div>
+            <h3>Relationship Coffee</h3>
+            <p class="text-sm text-light">Meet a founder who isn't fundraising yet. Pure relationship building -- no pressure, no agenda. The best deals come from relationships built 12-18 months before a raise.</p>
+          </div>
+          <div class="timeline-block highlight fragment" data-fragment-index="4" style="flex: 1;">
+            <div class="timeline-label">5:00 PM</div>
+            <h3>Financial Modeling</h3>
+            <p class="text-sm text-light">Build a 3-year revenue model for a growth-stage deal. Revenue build, cohort analysis, unit economics.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          5:00-5:45 | Click 1: Wednesday starts with a board meeting -- incredible learning opportunity to see how experienced operators and investors discuss strategy and metrics at the highest level. Click 2: Weekly sector deep dive -- 90 minutes, AI infrastructure focus. Collective intelligence sharpens individual conviction. Click 3: Relationship coffee with a pre-fundraising founder. No agenda. The best deals often come from relationships built 12-18 months before a round. Click 4: Financial modeling -- 3-year revenue model, cohort analysis, unit economics. Translating operating data into a view of the business at scale.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 13: Thursday - two-column layout -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Thursday</p>
+          <h2>Data Rooms and Demo Days</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="fragment" data-fragment-index="1">
+            <h3 class="mb-16">Morning: Diligence Marathon</h3>
+            <div class="card card-green-bg">
+              <p class="text-sm text-light"><strong>9:00 AM -- Data Room Review.</strong> Deep dive into a data room for a deal nearing close. Review legal documents, parse the cap table, verify financial data against founder presentations. Meticulous, detail-oriented work.</p>
+            </div>
+          </div>
+          <div class="fragment" data-fragment-index="2">
+            <h3 class="mb-16">Afternoon: Events &amp; Research</h3>
+            <div class="card card-blue-bg">
+              <p class="text-sm text-light"><strong>1:00 PM -- Demo Day.</strong> See 8-12 companies present. Note the 2-3 most interesting and follow up with warm outreach. Hallway conversations with other investors are often the real value.</p>
+              <p class="text-sm text-light"><strong>4:00 PM -- Market Map.</strong> A senior partner flagged a new sector. Build a brief market map: key players, positioning, venture activity, and whitespace opportunities.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          5:45-6:25 | Click 1: Thursday AM -- diligence marathon. Data room review for a deal nearing close. Legal docs, cap table, verifying financials. Meticulous, detail-oriented work. Click 2: Afternoon demo day -- 8-12 companies presenting. Note the 2-3 interesting ones and follow up. The hallway conversations between presentations are often where the best signals come from. Then build a market map for a sector a senior partner flagged -- AI-powered drug discovery, vertical fintech, etc. Key players, positioning, venture activity, whitespace.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 14: Friday - plus-list layout -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Friday</p>
+          <h2>Review and Reflection</h2>
+        </div>
+
+        <ul class="plus-list text-lg">
+          <li class="fragment" data-fragment-index="1"><strong>9:00 AM -- LP Call Prep.</strong> Create materials for a quarterly update to the firm's limited partners -- performance summaries, portfolio highlights, and market commentary. The firm itself has investors too.</li>
+          <li class="fragment" data-fragment-index="2"><strong>11:00 AM -- Pipeline Review.</strong> Step back and review the week. Update the deal pipeline tracker with notes on every company evaluated. Prioritize follow-ups for next week.</li>
+          <li class="fragment" data-fragment-index="3"><strong>2:00 PM -- Mentorship.</strong> 1-on-1 with a senior partner. Ask questions, get feedback on deal analysis, discuss professional development.</li>
+          <li class="fragment" data-fragment-index="4"><strong>4:00 PM -- Reading Time.</strong> Industry newsletters, founder blog posts, research papers. StrictlyVC, The Generalist, Meritech's weekly. Staying current builds the intellectual breadth that makes a better investor.</li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          6:25-7:00 | Click 1: Friday starts with LP call prep -- the part of VC most people forget. The firm has its own investors (LPs) and keeping them informed is non-negotiable. Click 2: Pipeline review -- the bookkeeping that keeps everything from falling through the cracks. Click 3: Mentorship -- 1-on-1 with a senior partner. Partners with 20+ years of experience have seen more failure modes than you can imagine. Click 4: Close the week with reading time. StrictlyVC, The Generalist, Meritech's weekly, founder posts, research papers.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 15: Weekly Schedule Summary Table -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Full Week View</p>
+          <h2>The Weekly Schedule at a Glance</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Time</th>
+              <th>Monday</th>
+              <th>Tuesday</th>
+              <th>Wednesday</th>
+              <th>Thursday</th>
+              <th>Friday</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Morning</strong></td>
+              <td>Partnership Meeting; Deck Review</td>
+              <td>Customer Reference Calls</td>
+              <td>Board Meeting</td>
+              <td>Diligence Marathon</td>
+              <td>LP Call Prep; Pipeline Review</td>
+            </tr>
+            <tr>
+              <td><strong>Afternoon</strong></td>
+              <td>Founder Call; Competitive Landscape</td>
+              <td>Peer Lunch; Portfolio Support</td>
+              <td>Sector Deep Dive; Relationship Coffee</td>
+              <td>Demo Day; Market Map</td>
+              <td>Mentorship; Reading Time</td>
+            </tr>
+            <tr>
+              <td><strong>Primary Focus</strong></td>
+              <td>Internal + Sourcing</td>
+              <td>Diligence + Network</td>
+              <td>Portfolio + Research</td>
+              <td>Diligence + Sourcing</td>
+              <td>Admin + Learning</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          ~7:00 | Summary table students can screenshot. Notice how each day blends multiple activity types -- context-switching is the constant. No two days look alike.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 16: Section Divider - Fund Types -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <div class="part-number">Section 3</div>
+        <h1>How It Differs by Fund Type</h1>
+        <p>Seed, growth, and multi-stage firms</p>
+
+        <aside class="notes">
+          7:00 | Transition. The walkthrough describes one version of the job. The week feels fundamentally different depending on the type of fund. Picking the right fund type is as important as getting into VC in the first place.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 17: Seed Funds -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Fund Comparison</p>
+          <h2>Seed Fund: Speed and Network</h2>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="card card-blue-bg fragment" data-fragment-index="1">
+            <span class="icon icon-lg icon-green mb-16" style="--icon: url(../../../../_global/design/icons/deal-execution.svg)"></span>
+            <h3>Volume Is Everything</h3>
+            <p class="text-sm text-light">Evaluate 5-10 new companies per week. Seed investments can go from first meeting to term sheet in 1-2 weeks. Diligence is conviction-based, not spreadsheet-based.</p>
+          </div>
+          <div class="card card-green-bg fragment" data-fragment-index="2">
+            <span class="icon icon-lg icon-green mb-16" style="--icon: url(../../../../_global/design/icons/networking.svg)"></span>
+            <h3>Week Tilts Toward Sourcing</h3>
+            <p class="text-sm text-light">~40% of time on sourcing and founder relationships. Less financial modeling, more meetings, events, and developing market theses. Speed and judgment are the currencies.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          7:00-7:40 | Examples: First Round Capital, Precursor Ventures. Click 1: At seed, volume is everything. 5-10 new companies per week. Decisions happen fast -- 1-2 weeks from first meeting to term sheet. No massive data rooms because companies are often pre-revenue. Conviction-based diligence -- betting on the founder and the market, not a spreadsheet. Click 2: Week tilts heavily toward sourcing (~40%) and relationship building. Much less time on modeling (~10%). If you agonize over decisions, seed investing will be painful.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 18: Growth Funds -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Fund Comparison</p>
+          <h2>Growth Fund: Analysis and Rigor</h2>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="card card-orange-bg fragment" data-fragment-index="1">
+            <span class="icon icon-lg icon-green mb-16" style="--icon: url(../../../../_global/design/icons/bar-chart.svg)"></span>
+            <h3>Fewer, Deeper Deals</h3>
+            <p class="text-sm text-light">Work on just 1-3 new deals per month. Each involves detailed financial modeling -- revenue builds, cohort analysis, public comps, unit economics. Diligence cycles last 4-8 weeks.</p>
+          </div>
+          <div class="card card-purple-bg fragment" data-fragment-index="2">
+            <span class="icon icon-lg icon-green mb-16" style="--icon: url(../../../../_global/design/icons/search-document.svg)"></span>
+            <h3>Week Tilts Toward Modeling</h3>
+            <p class="text-sm text-light">~35% of time in Excel and data rooms. More structured, PE-style evaluation. Preparing detailed investment committee memos. Analytical rigor is the currency.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          7:40-8:20 | Examples: General Atlantic, Insight Partners. Click 1: Growth investing is almost a different profession. 1-3 deals per month. Deep financial analysis with revenue builds, cohort analysis, public comps. Diligence cycles are 4-8 weeks and far more structured -- resembles PE. Click 2: Week tilts toward modeling (~35%). Much less time sourcing (~15%). If you love forensic analysis on a company's numbers, growth equity is where you'll thrive.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 19: Multi-Stage Firms -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Fund Comparison</p>
+          <h2>Multi-Stage: Breadth and Versatility</h2>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="card card-green-bg fragment" data-fragment-index="1">
+            <span class="icon icon-lg icon-green mb-16" style="--icon: url(../../../../_global/design/icons/build-your-career.svg)"></span>
+            <h3>A Mix of Both</h3>
+            <p class="text-sm text-light">Get exposure across stages, but your week depends on which team you're assigned to. A seed team at Sequoia operates very differently from the growth team.</p>
+          </div>
+          <div class="card card-blue-bg fragment" data-fragment-index="2">
+            <span class="icon icon-lg icon-green mb-16" style="--icon: url(../../../../_global/design/icons/info.svg)"></span>
+            <h3>Most Structured Training</h3>
+            <p class="text-sm text-light">Largest platform resources -- dedicated talent teams, marketing support, operating partners. Broadest exposure, but you may specialize earlier than expected.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          8:20-8:45 | Examples: a16z, Sequoia, Bessemer. Click 1: Multi-stage gives a mix of both seed and growth styles, but it depends on team assignment. The partner focused on crypto has a different week than the partner focused on enterprise SaaS. Click 2: Most structured training programs, biggest platform resources. Great place to learn. But go in with eyes open about which team you want -- you may specialize earlier than expected.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 20: Fund Type Comparison Table -->
+      <!-- ============================================ -->
+      <section class="content-dark">
+        <div class="slide-header">
+          <p class="eyebrow">Side-by-Side</p>
+          <h2>Fund Types Compared</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Dimension</th>
+              <th>Seed Fund</th>
+              <th>Growth Fund</th>
+              <th>Multi-Stage</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Weekly deal volume</td>
+              <td>5-10 new companies</td>
+              <td>1-3 per month</td>
+              <td>Varies by team</td>
+            </tr>
+            <tr>
+              <td>Decision speed</td>
+              <td>1-2 weeks</td>
+              <td>4-8 weeks</td>
+              <td>2-6 weeks</td>
+            </tr>
+            <tr>
+              <td>Diligence depth</td>
+              <td>Conviction-based, light</td>
+              <td>PE-style, heavy</td>
+              <td>Stage-dependent</td>
+            </tr>
+            <tr>
+              <td>Time on sourcing</td>
+              <td>~40%</td>
+              <td>~15%</td>
+              <td>~25%</td>
+            </tr>
+            <tr>
+              <td>Time on modeling</td>
+              <td>~10%</td>
+              <td>~35%</td>
+              <td>~20%</td>
+            </tr>
+            <tr>
+              <td>Key skill</td>
+              <td>Network &amp; speed</td>
+              <td>Analytical rigor</td>
+              <td>Versatility</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="rgba(255,255,255,0.4)"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          8:45-9:00 | Key comparison table for students to screenshot. Emphasize: pick the fund type that matches how your brain works, not the one with the most prestigious name. Seed is sourcing-heavy, conviction-driven. Growth is modeling-heavy, process-driven. Multi-stage gives a bit of both.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 21: Section Divider - Career Fit -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <div class="part-number">Section 4</div>
+        <h1>Is This Career Right for You?</h1>
+        <p>An honest self-assessment</p>
+
+        <aside class="notes">
+          9:00 | Transition. Now that the realistic day-to-day is clear, the honest question: is this actually the right fit? VC attracts talented people, but it's genuinely not the right path for everyone. Knowing that early saves time and energy.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 22: Signs VC Is Right for You -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Career Fit</p>
+          <h2>Signs VC Might Be Right</h2>
+        </div>
+
+        <ul class="plus-list text-lg">
+          <li class="fragment" data-fragment-index="1">You love learning about new industries and technologies every week -- the breadth is energizing, not exhausting</li>
+          <li class="fragment" data-fragment-index="2">You're genuinely excited by meeting founders and hearing their visions</li>
+          <li class="fragment" data-fragment-index="3">Ambiguity doesn't paralyze you -- you make the best call with 60% of the information</li>
+          <li class="fragment" data-fragment-index="4">You see patterns where others see noise -- spotting connections across companies, markets, and trends</li>
+          <li class="fragment" data-fragment-index="5">You can write clearly and argue persuasively -- memos and partnership debates are how decisions get made</li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          9:00-9:20 | Click through each sign. Click 1: Love of breadth -- new industries every week. Click 2: Genuine excitement about founders. Click 3: Comfort with ambiguity -- 60% information is the norm. Click 4: Pattern recognition across companies and markets -- core intellectual skill. Click 5: Clear writing and persuasive argumentation -- the medium for VC decisions.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 23: Signs VC Might Not Be Right -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Career Fit</p>
+          <h2>Signs VC Might Not Fit</h2>
+        </div>
+
+        <ul class="plus-list text-lg">
+          <li class="fragment" data-fragment-index="1">You want to build something yourself -- in VC, you're on the other side of the table from founders</li>
+          <li class="fragment" data-fragment-index="2">You prefer depth over breadth -- you want to become the foremost expert on one domain</li>
+          <li class="fragment" data-fragment-index="3">You're uncomfortable saying "no" 99% of the time -- most of the job is passing on companies</li>
+          <li class="fragment" data-fragment-index="4">You want highly structured, predictable daily work -- this role is anything but</li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          9:20-9:40 | Click through each sign. Click 1: If the itch is to create, consider being a founder or operator. Click 2: If deep specialization is the goal, a startup role may be better. Click 3: Saying no is the default mode -- you need to be at peace with that. Click 4: No two days look alike, as the walkthrough demonstrated. Being honest about these tradeoffs helps decide whether to pursue VC -- and also helps articulate a more authentic, credible "Why VC?" story in interviews.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 24: Key Takeaways -->
+      <!-- ============================================ -->
+      <section class="content-dark">
+        <div class="slide-header">
+          <p class="eyebrow">Takeaways</p>
+          <h2>Key Takeaways</h2>
+        </div>
+
+        <ul class="icon-list text-lg">
+          <li class="fragment" data-fragment-index="1">
+            <span class="icon icon-lg icon-green" style="--icon: url(../../../../_global/design/icons/clock.svg)"></span>
+            <span><strong>Five activities define the job.</strong> Sourcing, diligence, portfolio support, internal meetings, and market research -- in roughly that priority order.</span>
+          </li>
+          <li class="fragment" data-fragment-index="2">
+            <span class="icon icon-lg icon-green" style="--icon: url(../../../../_global/design/icons/bar-chart.svg)"></span>
+            <span><strong>Fund type changes everything.</strong> Seed is sourcing-heavy and conviction-driven. Growth is modeling-heavy and process-driven. Pick the one that matches how your brain works.</span>
+          </li>
+          <li class="fragment" data-fragment-index="3">
+            <span class="icon icon-lg icon-green" style="--icon: url(../../../../_global/design/icons/calendar.svg)"></span>
+            <span><strong>No two days look alike.</strong> If you need predictability, this isn't the career. If you thrive on variety, there's no better seat in finance.</span>
+          </li>
+          <li class="fragment" data-fragment-index="4">
+            <span class="icon icon-lg icon-green" style="--icon: url(../../../../_global/design/icons/networking.svg)"></span>
+            <span><strong>Relationships and judgment are the foundation.</strong> Sourcing, diligence, portfolio support -- it all comes back to trust, accurate assessment, and clear communication.</span>
+          </li>
+          <li class="fragment" data-fragment-index="5">
+            <span class="icon icon-lg icon-green" style="--icon: url(../../../../_global/design/icons/star.svg)"></span>
+            <span><strong>Knowing the daily reality wins interviews.</strong> When a partner asks "Why VC?" -- specific answers about customer calls, Monday partnership debates, and early-stage sourcing get offers.</span>
+          </li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="rgba(255,255,255,0.4)"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          9:40-10:00 | Five takeaways, click through each. Click 1: Five core activities in priority order. Click 2: Fund type dramatically changes the balance -- seed vs growth vs multi-stage. Click 3: Embrace the unpredictability. Click 4: Relationships and judgment underpin everything. Spreadsheets matter, but people skills matter more. Click 5: The candidates who speak to the real day-to-day stand out immediately. This is what Module 5's "Why VC?" narrative building will draw on.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 25: What's Next -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Up Next</p>
+          <h2>Next: Understanding Fund Types</h2>
+        </div>
+
+        <div class="card-alt-green mb-24">
+          <div style="display: flex; align-items: flex-start; gap: 12px;">
+            <span class="icon icon-md icon-green" style="--icon: url(../../../../_global/design/icons/arrow-right.svg)"></span>
+            <p class="text-md">Now that the day-to-day is clear, the next question is what kinds of funds are out there. Up next: how seed, Series A, Series B, growth, and late-stage investing each work -- and how the type of fund shapes an entire career trajectory.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          10:00 | Brief outro. Tease the next video on fund type deep dive and how it shapes career trajectory.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js -->
+  <script src="../assets/reveal/dist/reveal.min.js"></script>
+  <script type="module">
+    import RevealNotes from '../assets/reveal/plugin/notes/notes.esm.js';
+
+    Reveal.initialize({
+      width: 960,
+      height: 540,
+      margin: 0,
+      minScale: 0.5,
+      maxScale: 3.0,
+      hash: true,
+      slideNumber: true,
+      controls: true,
+      progress: true,
+      history: true,
+      center: false,
+      transition: 'none',
+      backgroundTransition: 'none',
+      disableLayout: false,
+      plugins: [ RevealNotes ]
+    });
+  </script>
+</body>
+</html>

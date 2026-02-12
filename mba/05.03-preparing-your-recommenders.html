@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en" class="reveal-full-page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Preparing Your Recommenders</title>
+
+  <!-- Reveal.js Core -->
+  <link rel="stylesheet" href="../assets/reveal/dist/reset.css">
+  <link rel="stylesheet" href="../assets/reveal/dist/reveal.css">
+
+  <!-- Leland Theme -->
+  <link rel="stylesheet" href="../assets/reveal/themes/leland.css">
+
+</head>
+<body>
+  <!-- SVG Symbol Definitions (defined once, referenced via <use>) -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="leland-logo" viewBox="0 0 200 45">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z"/>
+      <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z"/>
+      <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z"/>
+      <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z"/>
+      <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z"/>
+      <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z"/>
+    </symbol>
+  </svg>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ============================================ -->
+      <!-- SLIDE 1: Title Dark -->
+      <!-- ============================================ -->
+      <section class="title-dark">
+        <svg width="110" height="25" fill="white" class="mb-16"><use href="#leland-logo"/></svg>
+        <p class="eyebrow">MBA Admissions Course</p>
+        <h1>Preparing Your<br><span class="hl">Recommenders</span></h1>
+
+        <aside class="notes">
+          0:00 - 0:30 | Supporting your recommenders is a critical part of the recommendation process. It often makes all the difference between a mediocre, last-minute recommendation and a thoughtful, rockstar recommendation. These are busy people. If you do the heavy lifting for them, they will reward you with a high-quality, on-time letter.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 2: Plus List — Overview -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Today's Agenda</p>
+          <h2>What We'll Cover</h2>
+        </div>
+
+        <ul class="plus-list text-lg">
+          <li>Why you should avoid writing the letter yourself</li>
+          <li>How to create a recommender prep document</li>
+          <li>The five types of prompts recommenders face</li>
+          <li>How to walk your recommenders through the process</li>
+          <li>What to do if they ask you to write it for them</li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          0:30 - 1:00 | Five things today. Why to avoid writing the letter yourself, how to create a recommender prep document, the five types of prompts recommenders face and how to support each one, how to walk them through the process, and what to do if they insist you write it for them.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 3: Callout — Avoid Writing It Yourself -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Critical Rule</p>
+          <h2>Don't Write the Letter Yourself</h2>
+        </div>
+
+        <div class="card-alt-green" style="display: flex; align-items: flex-start; gap: 16px;">
+          <span class="icon icon-xl icon-green" style="flex-shrink: 0; --icon: url(../../../../_global/design/icons/warning.svg)"></span>
+          <p class="text-lg">Letters written by applicants are much weaker than letters written by recommenders themselves. It's awkward to brag about yourself, and you lose the recommender's unique perspective and voice.</p>
+        </div>
+
+        <p class="text-lg text-light" style="margin-top: 40px;">Instead, use a recommender prep document. It still requires significant effort on your part, but it makes their job easier and produces a better recommendation.</p>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          1:00 - 2:00 | Before we get into how to prepare them, let's address the biggest pitfall: writing the letter yourself. Do everything you can to avoid this. Letters written by applicants are weaker for two reasons. First, it's awkward to brag about yourself and put someone else's name on it. Second, you lose the recommender's unique perspective and voice. Instead, use a recommender prep document. It still requires significant effort, but it makes their job much easier and ensures a better result. If you don't provide help, recommenders often feel overwhelmed about where to start and may ask you to write it for them.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 4: Card Grid 3 — Prep Doc Sections -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Prep Document</p>
+          <h2>Three Sections to Include</h2>
+        </div>
+
+        <div class="card-grid-3">
+          <div class="card card-green-bg">
+            <span class="icon icon-lg icon-green mb-16" style="flex-shrink: 0; --icon: url(../../../../_global/design/icons/info-filled.svg)"></span>
+            <h3>Overview</h3>
+            <p class="text-sm text-light">Schools, deadlines, what strong recommendations look like, and what makes top programs selective</p>
+          </div>
+          <div class="card card-blue-bg">
+            <span class="icon icon-lg icon-green mb-16" style="flex-shrink: 0; --icon: url(../../../../_global/design/icons/document-file.svg)"></span>
+            <h3>Your Narrative</h3>
+            <p class="text-sm text-light">Career goals, the 2-3 themes you're emphasizing, and how you want to be positioned</p>
+          </div>
+          <div class="card card-orange-bg">
+            <span class="icon icon-lg icon-green mb-16" style="flex-shrink: 0; --icon: url(../../../../_global/design/icons/write.svg)"></span>
+            <h3>Question Guidance</h3>
+            <p class="text-sm text-light">Each prompt type with specific stories and examples they can draw from</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          2:00 - 3:15 | Your prep document should have three sections. First, an overview: the schools you're applying to, application deadlines, what strong recommendations look like, and what makes these programs selective. This helps your recommender understand the stakes and caliber required. Second, your narrative and themes: your career goals, the 2-3 themes you're emphasizing in your application, and how you want to be positioned. This ensures their letter reinforces rather than contradicts your story. Third, question-by-question guidance: walk them through each type of question with specific stories and examples they can draw from. This document lets you control and guide their writing while still allowing them to be creative with their words.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 5: Divider -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <p class="part-number">Part 1</p>
+        <h1>The Five Prompt Types</h1>
+        <p>What your recommenders will be asked and how to help</p>
+
+        <aside class="notes">
+          3:15 - 3:20 | Now let's go through the five types of prompts your recommenders will face and how to support them on each one.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 6: Icon List — Prompt Types Overview -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Five Prompt Types</p>
+          <h2>What Recommenders Are Asked</h2>
+        </div>
+
+        <ul class="icon-list text-lg">
+          <li>
+            <span class="icon icon-xl icon-green" style="flex-shrink: 0; --icon: url(../../../../_global/design/icons/user.svg)"></span>
+            <span><strong>History:</strong> How do you know the applicant? Brief context on the relationship.</span>
+          </li>
+          <li>
+            <span class="icon icon-xl icon-green" style="flex-shrink: 0; --icon: url(../../../../_global/design/icons/arrow-up-chart-growth.svg)"></span>
+            <span><strong>Comparison:</strong> How does the applicant compare to peers? The most important prompt.</span>
+          </li>
+          <li>
+            <span class="icon icon-xl icon-green" style="flex-shrink: 0; --icon: url(../../../../_global/design/icons/editing.svg)"></span>
+            <span><strong>Criticism:</strong> What constructive feedback have you given? Shows growth.</span>
+          </li>
+          <li>
+            <span class="icon icon-xl icon-green" style="flex-shrink: 0; --icon: url(../../../../_global/design/icons/lightning.svg)"></span>
+            <span><strong>Behavioral:</strong> "Tell us about a time when..." Requires the STAR method.</span>
+          </li>
+          <li>
+            <span class="icon icon-xl icon-green" style="flex-shrink: 0; --icon: url(../../../../_global/design/icons/question.svg)"></span>
+            <span><strong>Optional:</strong> Anything else we should know? Only for genuine clarifying info.</span>
+          </li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          3:20 - 4:30 | There are five main prompt types. History: a brief question about how they know you, typically limited to a short answer. Comparison: how you compare to peers. This is the most important prompt with the largest word count. Criticism: what constructive feedback they've given you and how you responded. Behavioral: tell us about a time when, requiring specific stories. And optional: anything else we should know. Let's look at how to support each one.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 7: Two Column — Comparison Prompt Pattern -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Comparison Prompt</p>
+          <h2>The Pattern That Works</h2>
+        </div>
+
+        <div class="two-column gap-32">
+          <div>
+            <h3 class="mb-8">The Formula</h3>
+            <ul class="plus-list">
+              <li>Make a bold claim about the applicant</li>
+              <li>Back it up with a specific story</li>
+              <li>Repeat this pattern 2-3 times</li>
+              <li>No more than 3-4 stories total</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="mb-8">In Your Prep Doc</h3>
+            <ul class="plus-list">
+              <li>Recall specific praise they've given you</li>
+              <li>Include compliments that compared you to others</li>
+              <li>Offer at least one strong story per claim</li>
+              <li>Give them concrete details and numbers</li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="text-sm text-light" style="margin-top: 24px;">This prompt usually has the largest word count. Set up your recommender to fill that space with examples and details.</p>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          4:30 - 5:45 | The comparison prompt is the most important. Nine of the top ten programs ask it. Here is the pattern that works: make a bold claim about the applicant, then back it up with a specific story and examples. You can repeat this pattern 2-3 times. We don't recommend more than 3-4 stories because there won't be enough room to properly explain them. In your prep doc, think about specific praise this person has given you, especially any compliment that compared you to others. Offer at least one strong story per claim, with concrete details and numbers. This prompt usually has the largest word count, so set your recommender up to fill that space.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 8: Card Grid 2 — Criticism + STAR -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Criticism and Behavioral Prompts</p>
+          <h2>Showing Growth Through Stories</h2>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="card card-green-bg" style="padding: 16px">
+            <h3 class="mb-8">Criticism Prompt</h3>
+            <p class="text-sm text-light">Remind your recommender of specific feedback they gave you. Then share what you did to change and improve. Choose the criticism where you showed the most growth.</p>
+          </div>
+          <div class="card card-blue-bg" style="padding: 16px">
+            <h3 class="mb-8">STAR Method</h3>
+            <p class="text-sm text-light"><strong>S</strong>ituation, <strong>T</strong>ask, <strong>A</strong>ction, <strong>R</strong>esult. Use this structure for all behavioral prompts. Spend extra time on Action and include numbers in Result.</p>
+          </div>
+          <div class="card card-orange-bg" style="padding: 16px">
+            <h3 class="mb-8">Every Prompt Is Behavioral</h3>
+            <p class="text-sm text-light">Whether or not the question explicitly asks for a story, the strongest answers always include at least one powerful anecdote.</p>
+          </div>
+          <div class="card card-purple-bg" style="padding: 16px">
+            <h3 class="mb-8">The Optional Prompt</h3>
+            <p class="text-sm text-light">Only use this for genuine clarifying info (personal circumstances, gaps in record). If nothing to add, suggest they leave it blank.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          5:45 - 7:30 | The criticism prompt can be uncomfortable because it requires vulnerability. But for admissions committees, these can be the most moving parts of the entire application. Think of times you received criticism from your recommender, write down what you did afterward, and choose the one where you showed the most growth. For behavioral prompts, use the STAR method: Situation, Task, Action, Result. Spend extra time on the Action portion and include numbers in the Result. Here's a big secret: almost every recommender prompt is a behavioral question in disguise. The strongest answers always include a powerful story. For the optional prompt, only use it for genuine clarifying information like personal circumstances. If there's nothing to add, suggest they leave it blank. Don't treat it as extra bragging space.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 9: Workflow — The Prep Meeting -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Walking Them Through It</p>
+          <h2>The 30-45 Minute Prep Meeting</h2>
+        </div>
+
+        <div class="workflow">
+          <div class="workflow-step">
+            <span class="step-num mb-8">1</span>
+            <h3>Thank</h3>
+            <p class="text-sm text-light">Express gratitude for their help</p>
+          </div>
+          <div class="workflow-arrow">&rarr;</div>
+          <div class="workflow-step">
+            <span class="step-num mb-8">2</span>
+            <h3>Narrative</h3>
+            <p class="text-sm text-light">Explain your goals and themes</p>
+          </div>
+          <div class="workflow-arrow">&rarr;</div>
+          <div class="workflow-step">
+            <span class="step-num mb-8">3</span>
+            <h3>Questions</h3>
+            <p class="text-sm text-light">Review each prompt together</p>
+          </div>
+          <div class="workflow-arrow">&rarr;</div>
+          <div class="workflow-step">
+            <span class="step-num mb-8">4</span>
+            <h3>Collaborate</h3>
+            <p class="text-sm text-light">Ask if they have better stories</p>
+          </div>
+        </div>
+
+        <p class="text-sm text-light" style="margin-top: 24px;">This gets you involved from the beginning. Your recommender feels supported, you can clarify confusion, and they may remember stories you forgot.</p>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          7:30 - 9:00 | Once your prep document is finished, set up a 30-45 minute meeting. First, thank them again for agreeing to help. Second, explain your overall narrative and career goals. Third, go through each question they'll be asked and share the stories and examples you've suggested. Fourth, ask if anything is missing or if they have better stories. This accomplishes several things. Your recommender feels supported, not abandoned. You can clarify anything confusing. They may remember stories you forgot. And it shows you're taking this seriously. This meeting gets you involved from the very beginning.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 10: Table — If They Ask You to Write It -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Last Resort</p>
+          <h2>If You Must Write Your Own</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Guideline</th>
+              <th>Why It Matters</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Don't feel guilty</strong></td>
+              <td>It's not immoral as long as you don't fabricate and they approve it</td>
+            </tr>
+            <tr>
+              <td><strong>Study their writing style</strong></td>
+              <td>Read their old emails or publications to match their tone and voice</td>
+            </tr>
+            <tr>
+              <td><strong>Be bolder than you think</strong></td>
+              <td>You are more likely to undersell yourself when writing your own letter</td>
+            </tr>
+            <tr>
+              <td><strong>Get a second opinion</strong></td>
+              <td>Someone who knows you both can spot what sounds like you vs. them</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p class="text-sm text-light">After giving them your prep document, most recommenders will no longer ask you to write it. But if they still insist, follow these guidelines.</p>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          9:00 - 10:30 | Sometimes a recommender will ask you to write the letter for them. Do your best to avoid this, but if they insist after receiving the prep document, here are guidelines. Don't feel guilty. It's not immoral as long as you don't fabricate anything and they approve the final version. Study their writing style by reading old emails or publications. Match their tone, whether serious, lighthearted, or humorous. Be bolder than you think. You will almost certainly undersell yourself when writing your own recommendation. Get out of your own head and make yourself look good. Finally, get a second opinion from someone who knows you both. Ask them what parts sound like the recommender and what parts sound like you.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 11: Callout — Key Insight -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">The Big Picture</p>
+          <h2>Your Effort Equals Their Quality</h2>
+        </div>
+
+        <div class="card-alt-green" style="display: flex; align-items: flex-start; gap: 16px;">
+          <span class="icon icon-xl icon-green" style="flex-shrink: 0; --icon: url(../../../../_global/design/icons/star.svg)"></span>
+          <p class="text-lg">The more work you put into preparing your recommenders, the stronger their letters will be. A detailed prep document, a walkthrough meeting, and regular check-ins transform a generic letter into a powerful advocate statement.</p>
+        </div>
+
+        <p class="text-lg text-light" style="margin-top: 40px;">Your recommenders tell stories about you that others can't tell, and that you can't tell yourself without seeming arrogant. Give them the raw material to tell those stories powerfully.</p>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          10:30 - 11:15 | Here is the big picture. The more work you put into preparing your recommenders, the stronger their letters will be. A detailed prep document, a walkthrough meeting, and regular check-ins transform a generic letter into a powerful advocate statement. Remember: your recommenders tell stories about you that others can't tell, and that you can't tell yourself without seeming arrogant. Give them the raw material. Provide the key details they need. And they will reward you with a thoughtful, rockstar recommendation.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 12: Content Dark — Takeaways -->
+      <!-- ============================================ -->
+      <section class="content-dark">
+        <div class="slide-header">
+          <p class="eyebrow">Key Takeaways</p>
+          <h2>What to Remember</h2>
+        </div>
+
+        <ul class="plus-list text-lg text-white">
+          <li>Avoid writing the letter yourself. Use a prep document instead</li>
+          <li>Include three sections: overview, your narrative, and question-by-question guidance</li>
+          <li>Know the five prompt types: History, Comparison, Criticism, Behavioral, Optional</li>
+          <li>Use "bold claim + supporting story" for comparison prompts</li>
+          <li>Use the STAR method for behavioral and criticism prompts</li>
+          <li>Walk them through the prep doc in a 30-45 minute meeting</li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="rgba(255,255,255,0.4)"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          11:15 - 12:00 | Key takeaways. Avoid writing the letter yourself and use a prep document instead. Include three sections: overview, your narrative, and question-by-question guidance. Know the five prompt types and how to support each one. Use bold claim plus supporting story for comparison prompts. Use the STAR method for behavioral and criticism prompts. And walk them through everything in a dedicated meeting. Put in the work, and your recommenders will reward you with letters that truly set you apart.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js -->
+  <script src="../assets/reveal/dist/reveal.min.js"></script>
+  <script type="module">
+    import RevealNotes from '../assets/reveal/plugin/notes/notes.esm.js';
+
+    Reveal.initialize({
+      width: 960,
+      height: 540,
+      margin: 0,
+      minScale: 0.5,
+      maxScale: 3.0,
+      hash: true,
+      slideNumber: true,
+      controls: true,
+      progress: true,
+      history: true,
+      center: false,
+      transition: 'none',
+      backgroundTransition: 'none',
+      disableLayout: false,
+      plugins: [ RevealNotes ]
+    });
+  </script>
+</body>
+</html>

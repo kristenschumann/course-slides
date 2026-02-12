@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en" class="reveal-full-page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Overview of Different Fund Types and Stages</title>
+
+  <!-- Reveal.js Core -->
+  <link rel="stylesheet" href="../assets/reveal/dist/reset.css">
+  <link rel="stylesheet" href="../assets/reveal/dist/reveal.css">
+
+  <!-- Leland Theme -->
+  <link rel="stylesheet" href="../assets/reveal/themes/leland.css">
+
+</head>
+<body>
+  <!-- SVG Symbol Definitions (defined once, referenced via <use>) -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="leland-logo" viewBox="0 0 200 45">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z"/>
+      <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z"/>
+      <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z"/>
+      <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z"/>
+      <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z"/>
+      <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z"/>
+    </symbol>
+  </svg>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ============================================ -->
+      <!-- SLIDE 1: Title Dark -->
+      <!-- ============================================ -->
+      <section class="title-dark">
+        <svg width="110" height="25" fill="white" class="mb-16"><use href="#leland-logo"/></svg>
+        <p class="eyebrow">VC Fundamentals | Lesson 1.6</p>
+        <h1>Fund Types and<br>Investment <span class="hl">Stages</span></h1>
+
+        <aside class="notes">
+          [0:00] Welcome to lesson 1.6. This video maps the full landscape of VC fund types and investment stages — and connects each one to specific recruiting implications.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 2: The Problem with "A Good One" -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Why This Matters</p>
+          <h2>Not All VC Funds Are Equal</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="panel-box fragment" data-fragment-index="1">
+            <div style="display: flex; align-items: flex-start; gap: 12px;">
+              <span class="icon icon-lg icon-green" style="--icon: url(../../../../_global/design/icons/money.svg)"></span>
+              <div>
+                <h3 class="text-md mb-8">$30M Seed Fund</h3>
+                <p class="text-sm text-light">Small team, conviction investing, pre-revenue companies</p>
+              </div>
+            </div>
+          </div>
+          <div class="panel-box fragment" data-fragment-index="2">
+            <div style="display: flex; align-items: flex-start; gap: 12px;">
+              <span class="icon icon-lg icon-green" style="--icon: url(../../../../_global/design/icons/earnings.svg)"></span>
+              <div>
+                <h3 class="text-md mb-8">$2B Growth Fund</h3>
+                <p class="text-sm text-light">Large team, metrics-driven, pre-IPO companies</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-alt-green fragment" data-fragment-index="3">
+          <div style="display: flex; align-items: flex-start; gap: 12px;">
+            <span class="icon icon-md icon-green" style="--icon: url(../../../../_global/design/icons/lightning.svg)"></span>
+            <p class="text-md">The companies they invest in, the skills they need, the way they evaluate deals — fundamentally different.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          [0:00–0:30] A seed-stage investor at a $30M fund operates in a completely different universe from a growth equity investor at a $2B fund. Candidates who can't articulate which world they belong in are already behind. [Click 1] Seed funds are small, conviction-based. [Click 2] Growth funds are large, analytical machines. [Click 3] Emphasize: these are fundamentally different jobs under the same "VC" label.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 3: What You'll Learn -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Lesson Roadmap</p>
+          <h2>Four Areas to Master</h2>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="card card-green-bg">
+            <span class="icon icon-lg icon-green mb-16" style="--icon: url(../../../../_global/design/icons/bar-chart.svg)"></span>
+            <h3>Investment Stages</h3>
+            <p class="text-sm text-light">Pre-seed through growth equity — round sizes, metrics, and evaluation criteria</p>
+          </div>
+          <div class="card card-blue-bg">
+            <span class="icon icon-lg icon-green mb-16" style="--icon: url(../../../../_global/design/icons/specialization-strategy.svg)"></span>
+            <h3>Fund Types</h3>
+            <p class="text-sm text-light">Micro VC to growth equity — how fund structure shapes your daily work</p>
+          </div>
+          <div class="card card-orange-bg">
+            <span class="icon icon-lg icon-green mb-16" style="--icon: url(../../../../_global/design/icons/user-group.svg)"></span>
+            <h3>Candidate Skills Matrix</h3>
+            <p class="text-sm text-light">What each fund type actually looks for when hiring</p>
+          </div>
+          <div class="card card-purple-bg">
+            <span class="icon icon-lg icon-green mb-16" style="--icon: url(../../../../_global/design/icons/build-your-career.svg)"></span>
+            <h3>Your Personal Fit</h3>
+            <p class="text-sm text-light">How to match your background to the right fund type and stage</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          [0:30–1:00] Four areas to cover. Recall from 1.1 how fund economics vary by fund size — now those differences become concrete and actionable. Investment stages, fund types, what each looks for in candidates, and how to find your personal fit.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 4: Investment Stages Divider -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <div class="part-number">Section 1</div>
+        <h1>Investment Stages Defined</h1>
+        <p>Five stages, five different languages, five different cultures</p>
+
+        <aside class="notes">
+          [1:00] Transition into the five investment stages. Each one has its own language, metrics, and culture. A partner at Benchmark and a partner at General Atlantic are both "venture capitalists" — but they might as well be in different industries.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 5: Pre-Seed Stage (card-grid-2 per QA fix) -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Stage 1</p>
+          <h2>Pre-Seed: Investing in Ideas</h2>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="card card-green-bg fragment" data-fragment-index="1">
+            <span class="icon icon-lg icon-green mb-16" style="--icon: url(../../../../_global/design/icons/user-group.svg)"></span>
+            <h3>Team Conviction</h3>
+            <p class="text-sm text-light">Evaluation is almost entirely about the founders — domain conviction, resilience, genuine insight about a market</p>
+            <p class="text-sm text-light mt-16"><strong>Investors:</strong> Angels, accelerators (YC, Techstars), pre-seed funds</p>
+          </div>
+          <div class="card card-blue-bg fragment" data-fragment-index="2">
+            <span class="icon icon-lg icon-green mb-16" style="--icon: url(../../../../_global/design/icons/star.svg)"></span>
+            <h3>Market Insight</h3>
+            <p class="text-sm text-light">Round size under $2M, checks $25K-$500K. SAFEs and convertible notes — not priced rounds</p>
+            <p class="text-sm text-light mt-16"><strong>Companies:</strong> Often pre-product, almost always pre-revenue</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          [1:00–1:30] Pre-seed is conviction investing in its purest form. [Click 1] Evaluation is almost entirely about the founders: do they have a genuine insight about a market? Companies are often pre-product, almost always pre-revenue. Investors are angels, accelerators like Y Combinator and Techstars, and dedicated pre-seed funds. [Click 2] Rounds under $2M, checks from $25K to $500K. Instruments are SAFEs or convertible notes, not priced rounds.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 6: Seed Stage (two-column per QA fix) -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Stage 2</p>
+          <h2>Seed: Early Traction Signals</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="fragment" data-fragment-index="1">
+            <ul class="icon-list text-lg">
+              <li>
+                <span class="icon icon-lg icon-green" style="--icon: url(../../../../_global/design/icons/deal-execution.svg)"></span>
+                <span><strong>Round size:</strong> $2-5M</span>
+              </li>
+              <li>
+                <span class="icon icon-lg icon-green" style="--icon: url(../../../../_global/design/icons/money.svg)"></span>
+                <span><strong>Check size:</strong> $500K-$3M</span>
+              </li>
+              <li>
+                <span class="icon icon-lg icon-green" style="--icon: url(../../../../_global/design/icons/user-group.svg)"></span>
+                <span><strong>Investors:</strong> First Round Capital, Precursor, Initialized, angels</span>
+              </li>
+              <li>
+                <span class="icon icon-lg icon-green" style="--icon: url(../../../../_global/design/icons/star.svg)"></span>
+                <span><strong>Ownership target:</strong> 10-15%</span>
+              </li>
+            </ul>
+          </div>
+          <div class="card-alt-green fragment" data-fragment-index="2">
+            <h3 class="text-md mb-8">What "traction" actually means at seed</h3>
+            <ul class="plus-list">
+              <li>500 DAUs with 40% week-over-week retention</li>
+              <li>$15K MRR growing 20% month-over-month</li>
+              <li>10,000-person waitlist with zero revenue</li>
+              <li>The job: deciding which signals are real vs. vanity metrics</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          [1:30–2:15] The company has a product — maybe rough, but real users are touching it. [Click 1] Rounds $2-5M, checks $500K-$3M, targeting 10-15% ownership. Key investors: First Round Capital, Precursor Ventures, Initialized Capital. [Click 2] "Traction" is overused — here's what it actually looks like at seed. Evaluation shifts toward product quality, early traction signals, and founder-market fit. The question: is this specific founder uniquely positioned to win in this specific market?
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 7: Series A Stage (icon-list per QA fix) -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Stage 3</p>
+          <h2>Series A: The Great Filter</h2>
+        </div>
+
+        <ul class="icon-list text-lg">
+          <li class="fragment" data-fragment-index="1">
+            <span class="icon icon-lg icon-green" style="--icon: url(../../../../_global/design/icons/deal-execution.svg)"></span>
+            <span><strong>Round size:</strong> $10-25M | <strong>Check size:</strong> $5-15M</span>
+          </li>
+          <li class="fragment" data-fragment-index="2">
+            <span class="icon icon-lg icon-green" style="--icon: url(../../../../_global/design/icons/star.svg)"></span>
+            <span><strong>Ownership target:</strong> 15-25%</span>
+          </li>
+          <li class="fragment" data-fragment-index="3">
+            <span class="icon icon-lg icon-green" style="--icon: url(../../../../_global/design/icons/user-group.svg)"></span>
+            <span><strong>Investors:</strong> Benchmark, Greylock, Bessemer, multi-stage firms</span>
+          </li>
+          <li class="fragment" data-fragment-index="4">
+            <span class="icon icon-lg icon-green" style="--icon: url(../../../../_global/design/icons/bar-chart.svg)"></span>
+            <span><strong>Metrics that matter:</strong> Revenue growth rates, unit economics trajectory, go-to-market efficiency</span>
+          </li>
+          <li class="fragment" data-fragment-index="5">
+            <span class="icon icon-lg icon-green" style="--icon: url(../../../../_global/design/icons/lightning.svg)"></span>
+            <span><strong>Key question:</strong> Is the LTV-to-CAC ratio heading in the right direction?</span>
+          </li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          [2:15–2:50] Series A is the great filter — companies need repeatable revenue and a go-to-market motion that works consistently. [Click 1] Rounds $10-25M, checks $5-15M. [Click 2] Ownership targets 15-25%. [Click 3] The classic early-stage venture firms: Benchmark, Greylock, Bessemer. [Click 4] The evaluation framework shifts: revenue growth rates, unit economics trajectory, GTM efficiency. [Click 5] Data starts to matter as much as narrative — can you acquire customers at a cost that makes economic sense?
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 8: Series B Stage (card-grid-2 per QA fix) -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Stage 4</p>
+          <h2>Series B: Can This Scale?</h2>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="card card-orange-bg fragment" data-fragment-index="1">
+            <span class="icon icon-lg icon-green mb-16" style="--icon: url(../../../../_global/design/icons/deal-execution.svg)"></span>
+            <h3>Execution Risk</h3>
+            <p class="text-sm text-light"><strong>Round size:</strong> $30-60M | <strong>Check size:</strong> $15-40M</p>
+            <p class="text-sm text-light"><strong>Ownership target:</strong> 10-20%</p>
+            <p class="text-sm text-light"><strong>Investors:</strong> a16z, Lightspeed, growth-oriented early-stage firms</p>
+          </div>
+          <div class="card card-purple-bg fragment" data-fragment-index="2">
+            <span class="icon icon-lg icon-green mb-16" style="--icon: url(../../../../_global/design/icons/star.svg)"></span>
+            <h3>Management Evaluation</h3>
+            <p class="text-sm text-light"><strong>Seed risk:</strong> Will this company survive? (Existential)</p>
+            <p class="text-sm text-light"><strong>Series B risk:</strong> Can this team handle hypergrowth? (Execution)</p>
+            <p class="text-sm text-light">Evaluation expands to VP of Sales, CFO — not just founders</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          [2:50–3:25] The model is proven — question becomes: can this scale? SaaS companies at this stage have $5-20M ARR. [Click 1] Rounds $30-60M, checks $15-40M, ownership 10-20%. Investors include a16z and Lightspeed. [Click 2] The nature of risk changes fundamentally. At seed, risk is existential — will this survive? At Series B, it's execution risk — can the management team handle hypergrowth without the wheels coming off? Evaluation expands to the leadership bench, not just founders. Strong unit economics, clear market expansion potential, evidence the team can manage rapid scaling.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 9: Growth / Series C+ (plus-list per QA fix) -->
+      <!-- ============================================ -->
+      <section class="content-dark">
+        <div class="slide-header">
+          <p class="eyebrow">Stage 5</p>
+          <h2>Growth Equity: Path to IPO</h2>
+        </div>
+
+        <ul class="plus-list text-lg text-white">
+          <li class="fragment" data-fragment-index="1"><strong>Round size:</strong> $80M+ | <strong>Check size:</strong> $40-200M+</li>
+          <li class="fragment" data-fragment-index="2"><strong>Ownership target:</strong> 5-15%</li>
+          <li class="fragment" data-fragment-index="3"><strong>Investors:</strong> General Atlantic, Insight Partners, Tiger Global, crossover funds</li>
+          <li class="fragment" data-fragment-index="4"><strong>Evaluation:</strong> Detailed financial metrics, public company comparables, path to profitability, competitive moat durability</li>
+          <li class="fragment" data-fragment-index="5"><strong>Almost like public market analysis</strong> — a fundamentally different discipline from seed investing</li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="rgba(255,255,255,0.4)"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          [3:25–4:00] Growth stage — investing in market leaders with a clear path to IPO or large strategic exit. [Click 1] Rounds $80M+, checks $40M to $200M+. [Click 2] Ownership targets 5-15%. [Click 3] General Atlantic, Insight Partners, Tiger Global, and crossover funds that invest in both private and public markets. Tiger Global became famous — and then infamous — for the velocity at which they deployed capital at this stage. [Click 4] Evaluation looks almost like public market analysis — detailed financials, public comps, profitability path, moat durability. [Click 5] This is a fundamentally different discipline from seed investing.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 10: Stage Comparison Table -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Full Picture</p>
+          <h2>Investment Stages at a Glance</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Stage</th>
+              <th>Round Size</th>
+              <th>Check Size</th>
+              <th>Typical Investors</th>
+              <th>Key Metrics</th>
+              <th>Ownership</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="fragment" data-fragment-index="1">
+              <td><strong>Pre-Seed</strong></td>
+              <td>&lt;$2M</td>
+              <td>$25K-$500K</td>
+              <td>Angels, Accelerators</td>
+              <td>Team conviction, market insight</td>
+              <td>N/A</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="2">
+              <td><strong>Seed</strong></td>
+              <td>$2-5M</td>
+              <td>$500K-$3M</td>
+              <td>Seed funds, Angels</td>
+              <td>Product quality, early traction, founder-market fit</td>
+              <td>10-15%</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="3">
+              <td><strong>Series A</strong></td>
+              <td>$10-25M</td>
+              <td>$5-15M</td>
+              <td>Early-stage VCs</td>
+              <td>Revenue growth, unit economics, GTM efficiency</td>
+              <td>15-25%</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="4">
+              <td><strong>Series B</strong></td>
+              <td>$30-60M</td>
+              <td>$15-40M</td>
+              <td>Growth VCs, Multi-stage</td>
+              <td>Revenue scale, unit economics, market expansion</td>
+              <td>10-20%</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="5">
+              <td><strong>Growth/C+</strong></td>
+              <td>$80M+</td>
+              <td>$40-200M+</td>
+              <td>Growth equity, Crossover</td>
+              <td>Financial metrics, public comps, profitability path</td>
+              <td>5-15%</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          [~3:50–4:00] This is the anchor reference table — know these numbers cold before any interview. [Click 1] Pre-seed: investing in ideas, purely team-based. [Click 2] Seed: early traction signals, product quality. [Click 3] Series A: the great filter, data matters as much as narrative. [Click 4] Series B: proven model, execution risk. [Click 5] Growth: pre-IPO, almost public-market analysis. Mixing up a seed metric with a growth metric is an instant credibility killer.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 11: Fund Types Divider -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <div class="part-number">Section 2</div>
+        <h1>Fund Types and Strategies</h1>
+        <p>The fund you join shapes your entire experience</p>
+
+        <aside class="notes">
+          [4:00] Same landscape, different lens. Instead of investment stages, think about fund types — because the fund you join shapes your entire experience.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 12: Micro VC and Seed Funds -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Small Funds</p>
+          <h2>Micro VC and Seed Funds</h2>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="card card-green-bg fragment" data-fragment-index="1">
+            <span class="icon icon-lg icon-green mb-16" style="--icon: url(../../../../_global/design/icons/money.svg)"></span>
+            <h3>Micro VC / Solo GP</h3>
+            <p class="text-sm text-light">Under $50M fund | 1-3 person teams</p>
+            <p class="text-sm text-light">Thesis-driven, high volume of pre-seed and seed checks</p>
+            <p class="text-sm text-light">Hustle Fund, Weekend Fund, Precursor Ventures</p>
+            <span class="badge badge-green self-start mt-16">You do everything — sourcing, diligence, portfolio support, LP reporting</span>
+          </div>
+          <div class="card card-blue-bg fragment" data-fragment-index="2">
+            <span class="icon icon-lg icon-green mb-16" style="--icon: url(../../../../_global/design/icons/user-group.svg)"></span>
+            <h3>Seed Funds</h3>
+            <p class="text-sm text-light">$50-250M fund | 5-15 person teams</p>
+            <p class="text-sm text-light">Defined roles: sourcing, operations, platform team</p>
+            <p class="text-sm text-light">First Round Capital, Initialized Capital, Floodgate</p>
+            <span class="badge badge-blue self-start mt-16">Strong sourcing skills and product intuition required</span>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          [4:00–5:00] [Click 1] Micro VCs are 1-3 person teams managing under $50M. Often deeply thesis-driven — a solo GP with 15 years in healthcare investing exclusively in digital health, for example. Important economic reality: a $30M fund at 2% fee generates $600K/year — covering office, legal, travel, and all salaries. The GP bets everything on carry that won't mature for 7-10 years. That affects comp, team size, and daily operations. [Click 2] Seed funds are the professional-scale version — $50-250M with 5-15 people in defined roles. Need strong sourcing skills and genuine product intuition. Evaluating companies with minimal data, so judgment matters as much as spreadsheets.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 13: Early-Stage and Multi-Stage Funds -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Established Platforms</p>
+          <h2>Early-Stage and Multi-Stage Funds</h2>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="card card-orange-bg fragment" data-fragment-index="1">
+            <span class="icon icon-lg icon-green mb-16" style="--icon: url(../../../../_global/design/icons/search-document.svg)"></span>
+            <h3>Early-Stage Funds</h3>
+            <p class="text-sm text-light">$250M-$1B | Series A and B focus</p>
+            <p class="text-sm text-light">Deep diligence, meaningful board seats, small experienced partnerships</p>
+            <p class="text-sm text-light">Benchmark, Greylock, Founders Fund</p>
+            <span class="badge badge-orange self-start mt-16">Analytical rigor + sector expertise + complex deal execution</span>
+          </div>
+          <div class="card card-purple-bg fragment" data-fragment-index="2">
+            <span class="icon icon-lg icon-green mb-16" style="--icon: url(../../../../_global/design/icons/specialization-strategy.svg)"></span>
+            <h3>Multi-Stage Funds</h3>
+            <p class="text-sm text-light">$1B+ | Seed through growth</p>
+            <p class="text-sm text-light">Large teams organized by stage and/or sector. Massive platform services — recruiting, marketing, engineering.</p>
+            <p class="text-sm text-light">a16z ($35B+ AUM), Sequoia, Lightspeed, Bessemer</p>
+            <span class="badge badge-purple self-start mt-16">Specialist roles — hired for growth team, fintech vertical, or platform org</span>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          [5:00–5:45] [Click 1] Early-stage funds ($250M-$1B) focus on Series A and B. Benchmark, Greylock, Founders Fund. Small, highly experienced partnerships running deep diligence and taking board seats. You need to build a detailed market model and defend it to partners who've done this for decades — if your analysis has a gap, they'll find it fast. [Click 2] Multi-stage funds ($1B+) invest across the entire spectrum. a16z has $35B+ AUM. Large teams organized by stage, sector, or both. They also run massive platform services for portfolio companies. Candidate profile skews toward specialists.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 14: Growth Equity and CVC -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Later Stage</p>
+          <h2>Growth Equity and Corporate VC</h2>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="card card-green-bg fragment" data-fragment-index="1">
+            <span class="icon icon-lg icon-green mb-16" style="--icon: url(../../../../_global/design/icons/arrow-up-chart-growth.svg)"></span>
+            <h3>Growth Equity</h3>
+            <p class="text-sm text-light">$2B+ funds | Closer to PE than traditional VC</p>
+            <p class="text-sm text-light">Heavily metrics-driven, detailed financial models, public market knowledge essential</p>
+            <p class="text-sm text-light">General Atlantic, Insight Partners, Tiger Global</p>
+            <span class="badge badge-green self-start mt-16">Natural entry point from investment banking or PE</span>
+          </div>
+          <div class="card card-blue-bg fragment" data-fragment-index="2">
+            <span class="icon icon-lg icon-green mb-16" style="--icon: url(../../../../_global/design/icons/globe.svg)"></span>
+            <h3>Corporate Venture Capital</h3>
+            <p class="text-sm text-light">Strategic + financial returns for parent company</p>
+            <p class="text-sm text-light">Technology integration, market intelligence, strategic positioning</p>
+            <p class="text-sm text-light">Google Ventures, Salesforce Ventures, Intel Capital</p>
+            <span class="badge badge-blue self-start mt-16">Domain expertise in parent company's business is key</span>
+            <p class="text-sm text-light mt-16"><strong>Trade-offs:</strong> CVCs can move slower due to internal corporate approval. Some top startups won't take CVC money to avoid a competitor on their cap table.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          [5:45–6:30] [Click 1] Growth equity firms operate much closer to private equity. $2B+ funds, heavily metrics-driven. General Atlantic, Insight Partners, Tiger Global. If you're coming from banking or PE, this is often the most natural entry point — skill sets overlap significantly. [Click 2] CVCs — Google Ventures, Salesforce Ventures, Intel Capital. Strategic investors seeking both financial returns and strategic value. Candidate profile favors domain expertise in the parent company's business. Important trade-off: CVCs can move slower on deals because of internal corporate approval processes. Some top startups won't take CVC money because they don't want a potential acquirer or competitor on their cap table — that shapes which deals you'll see and which you won't.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 15: Fund Type Spectrum (timeline-block per QA fix) -->
+      <!-- ============================================ -->
+      <section class="content-dark">
+        <div class="slide-header">
+          <p class="eyebrow">The Full Landscape</p>
+          <h2>Fund Size Shapes Everything</h2>
+        </div>
+
+        <div style="display: flex; gap: 16px;">
+          <div class="timeline-block light fragment" data-fragment-index="1" style="flex: 1;">
+            <div class="timeline-label">Micro VC</div>
+            <h3>&lt;$50M</h3>
+            <p class="text-sm text-light">Pre-seed / Seed</p>
+          </div>
+          <div class="timeline-block light fragment" data-fragment-index="2" style="flex: 1;">
+            <div class="timeline-label">Seed Fund</div>
+            <h3>$50-250M</h3>
+            <p class="text-sm text-light">Seed</p>
+          </div>
+          <div class="timeline-block dark fragment" data-fragment-index="3" style="flex: 1;">
+            <div class="timeline-label">Early-Stage</div>
+            <h3>$250M-$1B</h3>
+            <p class="text-sm">Series A / B</p>
+          </div>
+          <div class="timeline-block dark fragment" data-fragment-index="4" style="flex: 1;">
+            <div class="timeline-label">Multi-Stage</div>
+            <h3>$1B+</h3>
+            <p class="text-sm">Seed &rarr; Growth</p>
+          </div>
+          <div class="timeline-block highlight fragment" data-fragment-index="5" style="flex: 1;">
+            <div class="timeline-label">Growth Equity</div>
+            <h3>$2B+</h3>
+            <p class="text-sm text-light">Series C+</p>
+          </div>
+        </div>
+
+        <div class="fragment" data-fragment-index="6">
+          <span class="badge badge-green mt-16">CVC spans across all stages depending on strategic interest</span>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="rgba(255,255,255,0.4)"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          [~6:15–6:30] Visual spectrum from smallest to largest. [Click 1-5] Fund size increases from left to right, stage focus shifts from early to late. Note how multi-stage funds span the entire range. [Click 6] CVCs operate across all stages depending on strategic interest. The fund you join shapes your entire experience — daily work, career trajectory, compensation structure.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 16: Candidate Skills Divider -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <div class="part-number">Section 3</div>
+        <h1>What Each Fund Wants in You</h1>
+        <p>Where context becomes personal</p>
+
+        <aside class="notes">
+          [6:30] This section should directly change how you target your job search. Everything above is context — this is where it gets personal.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 17: Seed Fund Candidate Profile -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Seed Funds</p>
+          <h2>Hustlers and Scouts Wanted</h2>
+        </div>
+
+        <ul class="plus-list text-lg">
+          <li class="fragment" data-fragment-index="1"><strong>Sourcing ability:</strong> Find great companies before anyone else — events, launch platforms, founder relationships</li>
+          <li class="fragment" data-fragment-index="2"><strong>Product intuition:</strong> Evaluate potential from limited data — 10 users, 6 months of runway</li>
+          <li class="fragment" data-fragment-index="3"><strong>Founder empathy:</strong> Startup operating experience translates to understanding founders deeply</li>
+          <li class="fragment" data-fragment-index="4"><strong>Generalist mindset:</strong> Small teams mean you do everything — sourcing, portfolio support, LP meetings</li>
+        </ul>
+
+        <div class="card-alt-green fragment" data-fragment-index="5">
+          <div style="display: flex; align-items: flex-start; gap: 12px;">
+            <span class="icon icon-md icon-green" style="--icon: url(../../../../_global/design/icons/lightning.svg)"></span>
+            <p class="text-md"><strong>The minimum bar:</strong> Candidates who get hired already have a deal flow engine running. They've tracked startups, built founder relationships, and can point to three companies they would have invested in — with reasoning.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          [6:30–7:15] Seed funds want sourcing ability above all else. [Click 1] Can you find great companies before anyone else? Being deeply embedded in the startup ecosystem. [Click 2] Product intuition — evaluating potential from minimal data. [Click 3] Founder empathy — operating experience is a huge advantage. [Click 4] Generalist mindset required because teams are small. [Click 5] The real minimum bar: already having a deal flow engine running before the interview. Tracking startups in a space, having founder relationships, being able to name three companies you would have invested in and explain why.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 18: Series A/B Fund Candidate Profile -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Early-Stage Funds</p>
+          <h2>Analysts and Strategists Wanted</h2>
+        </div>
+
+        <ul class="plus-list text-lg">
+          <li class="fragment" data-fragment-index="1"><strong>Analytical depth:</strong> Build rigorous market models and defend them under scrutiny</li>
+          <li class="fragment" data-fragment-index="2"><strong>Sector expertise:</strong> Genuine, differentiated knowledge — dev tools, climate tech, fintech infrastructure</li>
+          <li class="fragment" data-fragment-index="3"><strong>Deal judgment:</strong> Distinguish between a good company and a good investment — they're not always the same thing</li>
+          <li class="fragment" data-fragment-index="4"><strong>Board-ready thinking:</strong> Even at junior levels, firms expect the ability to add strategic value in board settings</li>
+        </ul>
+
+        <div class="card-alt-green fragment" data-fragment-index="5">
+          <div style="display: flex; align-items: flex-start; gap: 12px;">
+            <span class="icon icon-md icon-green" style="--icon: url(../../../../_global/design/icons/lightning.svg)"></span>
+            <p class="text-md"><strong>Standout candidates</strong> have a point of view. They can explain why a market is about to inflect — backed by data and primary research, not a TechCrunch article.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          [7:15–7:50] Series A/B funds raise the evaluation bar significantly. [Click 1] Analytical depth — can you build a rigorous market model and defend it? [Click 2] Sector expertise — genuine, differentiated knowledge in a specific area. [Click 3] Deal judgment — the subtle but critical skill of distinguishing a good company from a good investment. A great company at the wrong price or stage isn't a great investment. [Click 4] Board-ready thinking, even at the junior level. [Click 5] The standout factor: having a point of view backed by data and primary research, not surface-level reading.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 19: Growth Fund Candidate Profile -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Growth Funds</p>
+          <h2>Finance Athletes Wanted</h2>
+        </div>
+
+        <ul class="plus-list text-lg">
+          <li class="fragment" data-fragment-index="1"><strong>Financial modeling:</strong> Three-statement models with revenue scenarios — "Show me this company at a $5B market cap"</li>
+          <li class="fragment" data-fragment-index="2"><strong>Data-driven evaluation:</strong> Cohort analysis, unit economics deep dives, customer concentration risk</li>
+          <li class="fragment" data-fragment-index="3"><strong>Market sizing precision:</strong> Credible bottoms-up TAM — underwriting to specific outcomes</li>
+          <li class="fragment" data-fragment-index="4"><strong>Transaction experience:</strong> Investment banking or PE background translates directly — language and execution under pressure</li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          [7:50–8:30] Growth investing is the most analytically rigorous part of VC. [Click 1] Detailed financial modeling — build a three-statement model and show how the company looks at a $5B market cap. [Click 2] Data-driven evaluation: cohort analysis, unit economics deep dives, customer concentration risk. [Click 3] Market sizing precision matters because you're underwriting to specific outcomes — need credible bottoms-up TAM. [Click 4] Transaction experience from banking or PE is highly valued — you speak the language and have executed deals under pressure.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 20: Skills Matrix Table -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Skills Comparison</p>
+          <h2>What Matters Where</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Skill</th>
+              <th class="fragment" data-fragment-index="1">Seed Funds</th>
+              <th class="fragment" data-fragment-index="2">Series A/B Funds</th>
+              <th class="fragment" data-fragment-index="3">Growth Funds</th>
+              <th class="fragment" data-fragment-index="4">CVCs</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Sourcing / Network</strong></td>
+              <td class="fragment" data-fragment-index="1">Critical</td>
+              <td class="fragment" data-fragment-index="2">Important</td>
+              <td class="fragment" data-fragment-index="3">Nice-to-have</td>
+              <td class="fragment" data-fragment-index="4">Important</td>
+            </tr>
+            <tr>
+              <td><strong>Product Intuition</strong></td>
+              <td class="fragment" data-fragment-index="1">Critical</td>
+              <td class="fragment" data-fragment-index="2">Important</td>
+              <td class="fragment" data-fragment-index="3">Nice-to-have</td>
+              <td class="fragment" data-fragment-index="4">Important</td>
+            </tr>
+            <tr>
+              <td><strong>Financial Modeling</strong></td>
+              <td class="fragment" data-fragment-index="1">Nice-to-have</td>
+              <td class="fragment" data-fragment-index="2">Important</td>
+              <td class="fragment" data-fragment-index="3">Critical</td>
+              <td class="fragment" data-fragment-index="4">Important</td>
+            </tr>
+            <tr>
+              <td><strong>Sector Expertise</strong></td>
+              <td class="fragment" data-fragment-index="1">Important</td>
+              <td class="fragment" data-fragment-index="2">Critical</td>
+              <td class="fragment" data-fragment-index="3">Important</td>
+              <td class="fragment" data-fragment-index="4">Critical</td>
+            </tr>
+            <tr>
+              <td><strong>Deal Judgment</strong></td>
+              <td class="fragment" data-fragment-index="1">Important</td>
+              <td class="fragment" data-fragment-index="2">Critical</td>
+              <td class="fragment" data-fragment-index="3">Critical</td>
+              <td class="fragment" data-fragment-index="4">Important</td>
+            </tr>
+            <tr>
+              <td><strong>Data Analysis</strong></td>
+              <td class="fragment" data-fragment-index="1">Nice-to-have</td>
+              <td class="fragment" data-fragment-index="2">Important</td>
+              <td class="fragment" data-fragment-index="3">Critical</td>
+              <td class="fragment" data-fragment-index="4">Important</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          [~8:20–8:30] The skills matrix — this is the cheat sheet for self-assessment. [Click 1] Seed funds: sourcing and product intuition are critical. [Click 2] Series A/B: sector expertise and deal judgment rise to critical. [Click 3] Growth: financial modeling and data analysis dominate. [Click 4] CVCs: sector expertise is critical because domain knowledge in the parent company's business is the differentiator. Use this to identify your strengths and gaps.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 21: Worked Examples Divider -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <div class="part-number">Section 4</div>
+        <h1>Choosing Your Target</h1>
+        <p>Three candidates, three different paths</p>
+
+        <aside class="notes">
+          [8:30] Three candidates. Three different paths. Watch how background maps to fit.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 22: Three Candidate Profiles -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Background &rarr; Fit</p>
+          <h2>Where Each Candidate Belongs</h2>
+        </div>
+
+        <div class="card-grid-3">
+          <div class="card card-green-bg fragment" data-fragment-index="1">
+            <h3>Candidate A</h3>
+            <p class="text-sm text-light">Former PM at B2B SaaS startup</p>
+            <p class="text-sm text-light">3 years operating experience, strong startup network</p>
+            <div class="mt-16 mb-16">
+              <span class="badge badge-green">Product intuition</span>
+              <span class="badge badge-green">Founder empathy</span>
+            </div>
+            <p class="text-sm"><strong>Best fit &rarr; Seed or early-stage fund</strong></p>
+            <p class="text-sm text-light">Product intuition and founder empathy are the most valuable currencies here</p>
+          </div>
+          <div class="card card-blue-bg fragment" data-fragment-index="2">
+            <h3>Candidate B</h3>
+            <p class="text-sm text-light">2 years at Goldman Sachs, TMT group</p>
+            <p class="text-sm text-light">Airtight financial modeling, evaluated dozens of companies</p>
+            <div class="mt-16 mb-16">
+              <span class="badge badge-blue">Financial modeling</span>
+              <span class="badge badge-blue">Analytical rigor</span>
+            </div>
+            <p class="text-sm"><strong>Best fit &rarr; Growth equity or Series B+ at multi-stage firm</strong></p>
+            <p class="text-sm text-light">Analytical toolkit maps directly to growth-stage work</p>
+          </div>
+          <div class="card card-purple-bg fragment" data-fragment-index="3">
+            <h3>Candidate C</h3>
+            <p class="text-sm text-light">Former founder, sold consumer tech company</p>
+            <p class="text-sm text-light">Deep domain expertise in social/consumer, exit credibility</p>
+            <div class="mt-16 mb-16">
+              <span class="badge badge-purple">Founder credibility</span>
+              <span class="badge badge-purple">Domain expertise</span>
+            </div>
+            <p class="text-sm"><strong>Best fit &rarr; Consumer-focused seed fund or consumer practice at multi-stage (e.g., a16z)</strong></p>
+            <p class="text-sm text-light">Founders trust ex-founders — credibility almost impossible to replicate otherwise</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          [8:30–9:15] [Click 1] Candidate A: PM at B2B SaaS, 3 years operating experience, strong startup network. Natural fit is seed or early-stage where product intuition and founder empathy are most valuable. A growth fund would waste her best skills — spreadsheets instead of founder conversations. [Click 2] Candidate B: Goldman Sachs TMT, 2 years. Airtight financial modeling. Natural fit is growth equity or Series B+ at a multi-stage firm. Putting him at a seed fund would be like hiring a marathoner for the 100-meter dash. Different event entirely. [Click 3] Candidate C: Former founder, sold consumer tech company. Deep domain expertise, exit credibility. Natural fit is consumer-focused seed fund or consumer practice at a firm like a16z. Founders trust ex-founders.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 23: Recruiting Implications -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">How Hiring Works</p>
+          <h2>Recruiting Varies by Fund Type</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="fragment" data-fragment-index="1">
+            <div class="card card-green-bg">
+              <span class="icon icon-lg icon-green mb-16" style="--icon: url(../../../../_global/design/icons/user-group.svg)"></span>
+              <h3>Seed &amp; Early-Stage</h3>
+              <p class="text-sm text-light">Hire through relationships — less structure, more serendipity</p>
+              <p class="text-sm text-light">Founder introduction &rarr; coffee with partner &rarr; offer in weeks</p>
+              <p class="text-sm text-light">No formal application process</p>
+            </div>
+            <div class="card-alt-green mt-16">
+              <p class="text-sm"><strong>Applying cold to a seed fund means you've already lost.</strong> You need a warm introduction.</p>
+            </div>
+          </div>
+          <div class="fragment" data-fragment-index="2">
+            <div class="card card-blue-bg">
+              <span class="icon icon-lg icon-green mb-16" style="--icon: url(../../../../_global/design/icons/search-document.svg)"></span>
+              <h3>Growth &amp; Multi-Stage</h3>
+              <p class="text-sm text-light">Structured recruiting cycles</p>
+              <p class="text-sm text-light">Formal applications, case studies, modeling tests, multiple rounds</p>
+              <p class="text-sm text-light">Familiar cadence for banking and consulting backgrounds</p>
+            </div>
+            <div class="card-alt-green mt-16">
+              <p class="text-sm"><strong>The fund type you're targeting tells you not just what to study,</strong> but how to position yourself.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          [9:15–9:40] The recruiting process itself varies dramatically — most candidates don't realize this. [Click 1] Seed and early-stage funds hire through relationships. Less structure, more serendipity — introduced by a founder, coffee with a partner, offer within weeks. Cold applications to seed funds rarely work — you need a warm introduction. [Click 2] Growth funds and multi-stage firms run structured recruiting: formal cycles, case studies, modeling tests, multiple rounds. If coming from banking or consulting, this cadence will feel familiar. Module 4 covers investment thesis development that early-stage funds value; Module 5 covers interview prep for each fund type.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 24: Key Takeaways -->
+      <!-- ============================================ -->
+      <section class="content-dark">
+        <div class="slide-header">
+          <p class="eyebrow">Remember This</p>
+          <h2>Key Takeaways</h2>
+        </div>
+
+        <ul class="icon-list text-lg text-white">
+          <li class="fragment" data-fragment-index="1">
+            <span class="icon icon-lg icon-green" style="--icon: url(../../../../_global/design/icons/bar-chart.svg)"></span>
+            <span>Five investment stages from pre-seed through growth each have distinct check sizes, metrics, and evaluation criteria. Know them cold before any interview.</span>
+          </li>
+          <li class="fragment" data-fragment-index="2">
+            <span class="icon icon-lg icon-green" style="--icon: url(../../../../_global/design/icons/specialization-strategy.svg)"></span>
+            <span>Fund types range from solo GPs managing $20M to multi-stage platforms managing tens of billions. The daily experience and career trajectory are radically different.</span>
+          </li>
+          <li class="fragment" data-fragment-index="3">
+            <span class="icon icon-lg icon-green" style="--icon: url(../../../../_global/design/icons/lightning.svg)"></span>
+            <span>Seed investing is conviction-based and relationship-driven. Growth investing is metrics-driven and analytically rigorous. Almost different professions.</span>
+          </li>
+          <li class="fragment" data-fragment-index="4">
+            <span class="icon icon-lg icon-green" style="--icon: url(../../../../_global/design/icons/check.svg)"></span>
+            <span>Match your background to the right fund type and stage. Play to your strengths first, then build toward where you want to end up.</span>
+          </li>
+          <li class="fragment" data-fragment-index="5">
+            <span class="icon icon-lg icon-green" style="--icon: url(../../../../_global/design/icons/star.svg)"></span>
+            <span>When asked "why this fund?" — show you understand what makes their stage, strategy, and fund size different from every other firm.</span>
+          </li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="rgba(255,255,255,0.4)"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          [9:40–9:55] Five takeaways. [Click 1] Know the five stages cold — mixing up a seed metric with a growth metric is an instant credibility killer. [Click 2] Fund types shape daily experience — pick the one matching how you actually want to spend your time. [Click 3] Seed vs. growth is almost two different professions. Respect the distinction. [Click 4] Match background to fund type. Strengths first, then build toward your goal. [Click 5] The "why this fund?" answer needs to show genuine understanding of their specific stage, strategy, and fund size. That specificity is what separates candidates who get callbacks.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 25: Transition / Next Steps -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Up Next</p>
+          <h2>The Complete VC Industry Map</h2>
+        </div>
+
+        <div class="card-alt-green mb-24">
+          <div style="display: flex; align-items: flex-start; gap: 12px;">
+            <span class="icon icon-md icon-green" style="--icon: url(../../../../_global/design/icons/build-your-career.svg)"></span>
+            <div>
+              <p class="text-md mb-16">You now have the complete map of the VC industry — economics, structure, fund types, and stages.</p>
+              <p class="text-md">In Module 2, we pivot to making you a compelling candidate for the fund type that fits your background and goals.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          [9:55–10:00] That completes the VC industry fundamentals module. Module 2 pivots to candidate positioning — making you compelling for the specific fund type that fits your background and goals.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js -->
+  <script src="../assets/reveal/dist/reveal.min.js"></script>
+  <script type="module">
+    import RevealNotes from '../assets/reveal/plugin/notes/notes.esm.js';
+
+    Reveal.initialize({
+      width: 960,
+      height: 540,
+      margin: 0,
+      minScale: 0.5,
+      maxScale: 3.0,
+      hash: true,
+      slideNumber: true,
+      controls: true,
+      progress: true,
+      history: true,
+      center: false,
+      transition: 'none',
+      backgroundTransition: 'none',
+      disableLayout: false,
+      plugins: [ RevealNotes ]
+    });
+  </script>
+</body>
+</html>

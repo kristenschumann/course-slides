@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en" class="reveal-full-page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quick Conversions</title>
+
+  <!-- Reveal.js Core -->
+  <link rel="stylesheet" href="../assets/reveal/dist/reset.css">
+  <link rel="stylesheet" href="../assets/reveal/dist/reveal.css">
+
+  <!-- Leland Theme -->
+  <link rel="stylesheet" href="../assets/reveal/themes/leland.css">
+
+  <!-- KaTeX for math rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false}
+      ]
+    });"></script>
+
+</head>
+<body>
+  <!-- SVG Symbol Definitions (defined once, referenced via <use>) -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="leland-logo" viewBox="0 0 200 45">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z"/>
+      <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z"/>
+      <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z"/>
+      <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z"/>
+      <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z"/>
+      <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z"/>
+    </symbol>
+  </svg>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ============================================ -->
+      <!-- SLIDE 1: Title (Dark) -->
+      <!-- ============================================ -->
+      <section class="title-dark">
+        <div class="leland-logo-top">
+          <svg width="110" height="25" fill="white"><use href="#leland-logo"/></svg>
+        </div>
+
+        <p class="eyebrow">GRE Self-Study Course</p>
+        <h1>Quick<br><span class="hl">Conversions</span></h1>
+
+        <aside class="notes">
+          0:00 - 0:05 | Title slide. This video covers the essential fraction-decimal-percent conversions every GRE student must memorize.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 2: Hook -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Speed Test</p>
+          <h2>How Fast Can You Convert?</h2>
+        </div>
+
+        <p class="text-lg mb-24">What's 37.5% as a fraction?</p>
+
+        <div class="two-column gap-32">
+          <div class="card">
+            <div class="status-incorrect text-md mb-16">The Slow Way</div>
+            <p class="text-sm text-light mb-8">$37.5\% = \frac{37.5}{100} = \frac{375}{1000} = \frac{3}{8}$</p>
+            <p class="text-sm text-light">Takes 20+ seconds</p>
+          </div>
+          <div class="card">
+            <div class="status-correct text-md mb-16">The Fast Way</div>
+            <p class="text-sm text-light mb-8">$37.5\% = \frac{3}{8}$</p>
+            <p class="text-sm text-light">Instant recall: <span class="ans">2 seconds</span></p>
+          </div>
+        </div>
+
+        <div class="card-alt-green compact mt-24">
+          <p class="text-md"><strong>The GRE rewards students who KNOW these conversions instantly.</strong> This video gives you the essential conversions to memorize and tricks to remember them.</p>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          0:05 - 0:30 | Hook: If you have to calculate 37.5% as a fraction, you're too slow. The GRE rewards instant recall. This video covers what to memorize and how.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 3: Halves, Quarters, Eighths -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Core Table</p>
+          <h2>Halves, Quarters, and Eighths</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Fraction</th>
+              <th>Decimal</th>
+              <th>Percent</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>$\frac{1}{2}$</td>
+              <td>0.5</td>
+              <td>50%</td>
+            </tr>
+            <tr>
+              <td>$\frac{1}{4}$</td>
+              <td>0.25</td>
+              <td>25%</td>
+            </tr>
+            <tr>
+              <td>$\frac{3}{4}$</td>
+              <td>0.75</td>
+              <td>75%</td>
+            </tr>
+            <tr>
+              <td>$\frac{1}{8}$</td>
+              <td>0.125</td>
+              <td>12.5%</td>
+            </tr>
+            <tr>
+              <td>$\frac{3}{8}$</td>
+              <td>0.375</td>
+              <td>37.5%</td>
+            </tr>
+            <tr>
+              <td>$\frac{5}{8}$</td>
+              <td>0.625</td>
+              <td>62.5%</td>
+            </tr>
+            <tr>
+              <td>$\frac{7}{8}$</td>
+              <td>0.875</td>
+              <td>87.5%</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          0:30 - 1:30 | Walk through the halves, quarters, and eighths family. Point out the pattern: each eighth adds 0.125. These appear constantly on the GRE.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 4: Thirds and Sixths -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Core Table</p>
+          <h2>Thirds and Sixths</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Fraction</th>
+              <th>Decimal</th>
+              <th>Percent</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>$\frac{1}{3}$</td>
+              <td>$0.333...$</td>
+              <td>$33.\overline{3}\%$</td>
+            </tr>
+            <tr>
+              <td>$\frac{2}{3}$</td>
+              <td>$0.666...$</td>
+              <td>$66.\overline{6}\%$</td>
+            </tr>
+            <tr>
+              <td>$\frac{1}{6}$</td>
+              <td>$0.1666...$</td>
+              <td>$16.\overline{6}\%$</td>
+            </tr>
+            <tr>
+              <td>$\frac{5}{6}$</td>
+              <td>$0.8333...$</td>
+              <td>$83.\overline{3}\%$</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="card-alt-green compact mt-16">
+          <span class="badge self-start">Key Idea</span>
+          <p class="text-sm">These are repeating decimals. On the GRE, you'll see them rounded or as fractions. If you see .333... or .666..., think thirds.</p>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          1:30 - 2:15 | Cover the thirds and sixths. Emphasize the repeating decimal pattern. On the GRE these often appear as fractions or rounded values.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 5: Fifths Family -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Core Table</p>
+          <h2>The Fifths Family</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Fraction</th>
+              <th>Decimal</th>
+              <th>Percent</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>$\frac{1}{5}$</td>
+              <td>0.2</td>
+              <td>20%</td>
+            </tr>
+            <tr>
+              <td>$\frac{2}{5}$</td>
+              <td>0.4</td>
+              <td>40%</td>
+            </tr>
+            <tr>
+              <td>$\frac{3}{5}$</td>
+              <td>0.6</td>
+              <td>60%</td>
+            </tr>
+            <tr>
+              <td>$\frac{4}{5}$</td>
+              <td>0.8</td>
+              <td>80%</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="card-alt-green compact mt-16">
+          <span class="badge self-start">Key Idea</span>
+          <p class="text-sm">Fifths = multiples of 0.2 or 20%. The cleanest decimal family.</p>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          2:15 - 3:00 | The fifths are the easiest to memorize. Clean 0.2 increments, clean 20% increments. Students usually know these already.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 6: Divider -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <p class="part-number">Part 2</p>
+        <h1>Conversion Methods</h1>
+
+        <aside class="notes">
+          3:00 - 3:05 | Section divider. Now cover the methods for converting between forms.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 7: Conversion Methods -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Methods</p>
+          <h2>The Conversion Chain</h2>
+        </div>
+
+        <div class="card-grid-3">
+          <div class="card">
+            <h3 class="text-md mb-8">Fraction to Decimal</h3>
+            <p class="text-sm text-light mb-8">Divide numerator by denominator</p>
+            <p class="text-sm">$\frac{3}{8} = 3 \div 8 = 0.375$</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-8">Decimal to Percent</h3>
+            <p class="text-sm text-light mb-8">Multiply by 100 (shift decimal 2 right)</p>
+            <p class="text-sm">$0.375 \rightarrow 37.5\%$</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-8">Percent to Decimal</h3>
+            <p class="text-sm text-light mb-8">Divide by 100 (shift decimal 2 left)</p>
+            <p class="text-sm">$45\% \rightarrow 0.45$</p>
+          </div>
+        </div>
+
+        <div class="card-alt-green compact mt-16">
+          <span class="badge badge-orange self-start">Watch Out</span>
+          <p class="text-sm">$0.5\% = 0.005$, NOT 0.5. Always count your decimal places carefully when converting percents less than 1%.</p>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          3:05 - 4:00 | Walk through the three conversion directions. Emphasize that memorization is always faster than calculation, but you need the methods as backup. Highlight the 0.5% trap.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 8: Percent to Fraction -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Methods</p>
+          <h2>Percent to Fraction</h2>
+        </div>
+
+        <p class="text-md mb-16">Put over 100, then simplify.</p>
+
+        <div class="two-column gap-32">
+          <div class="card">
+            <h3 class="text-md mb-16">Example A</h3>
+            <p class="text-md mb-8">$35\% = \frac{35}{100}$</p>
+            <p class="text-sm text-light mb-8">Divide both by 5:</p>
+            <p class="text-lg"><span class="ans">$\frac{7}{20}$</span></p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Example B</h3>
+            <p class="text-md mb-8">$12.5\% = \frac{12.5}{100} = \frac{125}{1000}$</p>
+            <p class="text-sm text-light mb-8">Divide both by 125:</p>
+            <p class="text-lg"><span class="ans">$\frac{1}{8}$</span></p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          4:00 - 4:30 | Two examples of percent-to-fraction conversion. The 12.5% example connects back to the eighths family. If you memorize the table, you can skip the calculation entirely.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 9: Divider -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <p class="part-number">Part 3</p>
+        <h1>Memory Tricks</h1>
+
+        <aside class="notes">
+          4:30 - 4:35 | Section divider. Now share the memory tricks that make these conversions stick.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 10: 12.5% Pattern -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Memory Trick 1</p>
+          <h2>The 12.5% Pattern</h2>
+        </div>
+
+        <p class="text-md mb-16">Each eighth adds exactly 12.5%. Count up from zero:</p>
+
+        <div class="card-alt mb-24">
+          <p class="text-md">$0\% \xrightarrow{+12.5} 12.5\% \xrightarrow{+12.5} 25\% \xrightarrow{+12.5} 37.5\% \xrightarrow{+12.5} 50\% \xrightarrow{+12.5} 62.5\% \xrightarrow{+12.5} 75\% \xrightarrow{+12.5} 87.5\% \xrightarrow{+12.5} 100\%$</p>
+        </div>
+
+        <div class="two-column gap-32">
+          <div class="card">
+            <p class="text-sm text-light mb-8">This means:</p>
+            <p class="text-sm mb-8">$12.5\% = \frac{1}{8}$</p>
+            <p class="text-sm mb-8">$25\% = \frac{2}{8} = \frac{1}{4}$</p>
+            <p class="text-sm mb-8">$37.5\% = \frac{3}{8}$</p>
+            <p class="text-sm">$50\% = \frac{4}{8} = \frac{1}{2}$</p>
+          </div>
+          <div class="card">
+            <p class="text-sm text-light mb-8">And continuing:</p>
+            <p class="text-sm mb-8">$62.5\% = \frac{5}{8}$</p>
+            <p class="text-sm mb-8">$75\% = \frac{6}{8} = \frac{3}{4}$</p>
+            <p class="text-sm mb-8">$87.5\% = \frac{7}{8}$</p>
+            <p class="text-sm">$100\% = \frac{8}{8} = 1$</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          4:35 - 5:15 | The 12.5% pattern is the single most useful memory trick. If you know that each eighth is 12.5%, you can derive any eighth instantly. Walk through the counting pattern.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 11: Other Tricks -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Memory Tricks</p>
+          <h2>More Patterns to Remember</h2>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="card">
+            <h3 class="text-md mb-8 text-green">Nice Fifths</h3>
+            <p class="text-sm text-light">Fifths give clean decimals: 0.2, 0.4, 0.6, 0.8. Just count by 20%.</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-8 text-green">Repeating Decimal Clue</h3>
+            <p class="text-sm text-light">See .333..., .666..., or repeating 3s/6s? Think thirds or sixths. $0.1666... = \frac{1}{6}$</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-8 text-green">The Complement Trick</h3>
+            <p class="text-sm text-light mb-8">Know one, get the other free:</p>
+            <p class="text-sm">$\frac{1}{4} = 25\%$, so $\frac{3}{4} = 75\%$</p>
+            <p class="text-sm">$\frac{1}{8} = 12.5\%$, so $\frac{7}{8} = 87.5\%$</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-8 text-green">Fraction to Decimal</h3>
+            <p class="text-sm text-light mb-8">If you forget, just divide:</p>
+            <p class="text-sm">$\frac{3}{8} = 3 \div 8 = 0.375$</p>
+            <p class="text-sm text-light mt-8">But memorization is always faster!</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          5:15 - 5:45 | Four more memory tricks. The complement trick is particularly useful: if you know one fraction in a family, you can derive its complement by subtracting from 100%.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 12: Divider -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <p class="part-number">Part 4</p>
+        <h1>Practice</h1>
+
+        <aside class="notes">
+          5:45 - 5:50 | Section divider. Now apply these conversions in GRE-style problems.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 13: Examples 1-3 -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Quick-Fire Practice</p>
+          <h2>Conversions in Action</h2>
+        </div>
+
+        <div class="card-grid-3">
+          <div class="card">
+            <h3 class="text-sm mb-8 text-light">Example 1</h3>
+            <p class="text-md mb-16">A price drops by $\frac{1}{5}$. What percent decrease?</p>
+            <p class="text-md fragment" data-fragment-index="1">$\frac{1}{5} = 20\%$</p>
+            <p class="text-md fragment" data-fragment-index="1"><span class="ans">20% decrease</span></p>
+          </div>
+          <div class="card">
+            <h3 class="text-sm mb-8 text-light">Example 2</h3>
+            <p class="text-md mb-16">37.5% of students passed. What fraction?</p>
+            <p class="text-md fragment" data-fragment-index="2">$37.5\% = \frac{3}{8}$</p>
+            <p class="text-md fragment" data-fragment-index="2"><span class="ans">$\frac{3}{8}$ passed</span></p>
+          </div>
+          <div class="card">
+            <h3 class="text-sm mb-8 text-light">Example 3</h3>
+            <p class="text-md mb-16">Which is greater: 0.7 or $\frac{5}{8}$?</p>
+            <p class="text-md fragment" data-fragment-index="3">$\frac{5}{8} = 0.625$</p>
+            <p class="text-md fragment" data-fragment-index="3"><span class="ans">0.7 is greater</span></p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          5:50 - 6:20 | Quick-fire examples. Click 1: reveal Example 1 answer (1/5 = 20%). Click 2: reveal Example 2 answer (37.5% = 3/8). Click 3: reveal Example 3 answer (5/8 = 0.625, so 0.7 is greater).
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 14: Examples 4-5 -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">More Practice</p>
+          <h2>Applied Conversions</h2>
+        </div>
+
+        <div class="two-column gap-32">
+          <div class="card">
+            <h3 class="text-md mb-16">Example 4</h3>
+            <p class="text-md mb-16">$33\frac{1}{3}\%$ of 150 = ?</p>
+            <p class="text-md fragment" data-fragment-index="1">$33\frac{1}{3}\% = \frac{1}{3}$</p>
+            <p class="text-md fragment" data-fragment-index="2">$\frac{1}{3} \times 150 = $ <span class="ans">50</span></p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Example 5</h3>
+            <p class="text-md mb-16">Express 0.875 as a fraction.</p>
+            <p class="text-md fragment" data-fragment-index="3">Recognize from the table:</p>
+            <p class="text-md fragment" data-fragment-index="4">$0.875 = $ <span class="ans">$\frac{7}{8}$</span></p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          6:20 - 6:50 | Click 1: convert 33 1/3% to 1/3. Click 2: multiply to get 50. Click 3: prompt recognition. Click 4: reveal 7/8. Both examples reward instant recall from the memorized table.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 15: Full Reference Table -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Reference</p>
+          <h2>Complete Conversion Table</h2>
+        </div>
+
+        <div class="two-column gap-32">
+          <table class="text-sm">
+            <thead>
+              <tr>
+                <th>Fraction</th>
+                <th>Decimal</th>
+                <th>Percent</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>$\frac{1}{2}$</td>
+                <td>0.5</td>
+                <td>50%</td>
+              </tr>
+              <tr>
+                <td>$\frac{1}{3}$</td>
+                <td>0.333</td>
+                <td>$33\frac{1}{3}\%$</td>
+              </tr>
+              <tr>
+                <td>$\frac{2}{3}$</td>
+                <td>0.667</td>
+                <td>$66\frac{2}{3}\%$</td>
+              </tr>
+              <tr>
+                <td>$\frac{1}{4}$</td>
+                <td>0.25</td>
+                <td>25%</td>
+              </tr>
+              <tr>
+                <td>$\frac{3}{4}$</td>
+                <td>0.75</td>
+                <td>75%</td>
+              </tr>
+              <tr>
+                <td>$\frac{1}{5}$</td>
+                <td>0.2</td>
+                <td>20%</td>
+              </tr>
+              <tr>
+                <td>$\frac{2}{5}$</td>
+                <td>0.4</td>
+                <td>40%</td>
+              </tr>
+              <tr>
+                <td>$\frac{3}{5}$</td>
+                <td>0.6</td>
+                <td>60%</td>
+              </tr>
+              <tr>
+                <td>$\frac{4}{5}$</td>
+                <td>0.8</td>
+                <td>80%</td>
+              </tr>
+            </tbody>
+          </table>
+          <table class="text-sm">
+            <thead>
+              <tr>
+                <th>Fraction</th>
+                <th>Decimal</th>
+                <th>Percent</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>$\frac{1}{6}$</td>
+                <td>0.167</td>
+                <td>$16\frac{2}{3}\%$</td>
+              </tr>
+              <tr>
+                <td>$\frac{5}{6}$</td>
+                <td>0.833</td>
+                <td>$83\frac{1}{3}\%$</td>
+              </tr>
+              <tr>
+                <td>$\frac{1}{8}$</td>
+                <td>0.125</td>
+                <td>12.5%</td>
+              </tr>
+              <tr>
+                <td>$\frac{3}{8}$</td>
+                <td>0.375</td>
+                <td>37.5%</td>
+              </tr>
+              <tr>
+                <td>$\frac{5}{8}$</td>
+                <td>0.625</td>
+                <td>62.5%</td>
+              </tr>
+              <tr>
+                <td>$\frac{7}{8}$</td>
+                <td>0.875</td>
+                <td>87.5%</td>
+              </tr>
+              <tr>
+                <td>$\frac{1}{10}$</td>
+                <td>0.1</td>
+                <td>10%</td>
+              </tr>
+              <tr>
+                <td>$\frac{1}{20}$</td>
+                <td>0.05</td>
+                <td>5%</td>
+              </tr>
+              <tr>
+                <td>$\frac{1}{25}$</td>
+                <td>0.04</td>
+                <td>4%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          6:50 - 7:20 | The complete reference table. All 18 conversions students should memorize. Suggest making flashcards and quizzing until these are automatic.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 16: Summary (Dark) -->
+      <!-- ============================================ -->
+      <section class="content-dark">
+        <div class="slide-header">
+          <p class="eyebrow">Summary</p>
+          <h2>Quick Conversions</h2>
+        </div>
+
+        <div class="two-column gap-32">
+          <table>
+            <thead>
+              <tr>
+                <th>Pattern</th>
+                <th>Rule</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Eighths</td>
+                <td>12.5% increments</td>
+              </tr>
+              <tr>
+                <td>Fifths</td>
+                <td>20% increments</td>
+              </tr>
+              <tr>
+                <td>Repeating decimals</td>
+                <td>Think thirds or sixths</td>
+              </tr>
+              <tr>
+                <td>Complements</td>
+                <td>Know one, derive the other from 100%</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="card-alt-green compact">
+            <span class="badge badge-green self-start">Speed Tip</span>
+            <p class="text-sm">Make flashcards and quiz yourself until these conversions are automatic. You should be able to convert any of these 18 values in under 3 seconds.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="white"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          7:20 - 8:00 | Summary slide. Recap the three families to prioritize, the key patterns, and the practice tip. These conversions are foundational for speed on the GRE quant section.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js -->
+  <script src="../assets/reveal/dist/reveal.min.js"></script>
+  <script type="module">
+    import RevealNotes from '../assets/reveal/plugin/notes/notes.esm.js';
+
+    Reveal.initialize({
+      width: 960,
+      height: 540,
+      margin: 0,
+      minScale: 0.5,
+      maxScale: 3.0,
+      hash: true,
+      slideNumber: true,
+      controls: true,
+      progress: true,
+      history: true,
+      center: false,
+      transition: 'none',
+      backgroundTransition: 'none',
+      disableLayout: false,
+      plugins: [ RevealNotes ]
+    });
+  </script>
+</body>
+</html>

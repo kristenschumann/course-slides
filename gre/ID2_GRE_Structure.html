@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en" class="reveal-full-page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ID2: GRE Structure & Format</title>
+
+  <!-- Reveal.js Core -->
+  <link rel="stylesheet" href="../assets/reveal/dist/reset.css">
+  <link rel="stylesheet" href="../assets/reveal/dist/reveal.css">
+
+  <!-- Leland Theme -->
+  <link rel="stylesheet" href="../assets/reveal/themes/leland.css">
+
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+
+  <style>
+    /* Data table layout — no template equivalent for structured test tables */
+    .test-table { width: 100%; display: flex; flex-direction: column; gap: 6px; }
+    .test-table-header { display: flex; padding: 10px 20px; background-color: var(--leland-dark); border-radius: 6px; }
+    .test-table-header div { color: white; font-weight: 600; font-size: 14px; }
+    .test-table-row { display: flex; padding: 10px 20px; border-radius: 6px; align-items: center; }
+    .test-table-row.alt { background-color: var(--leland-offwhite); }
+    .test-table-row.bordered { background-color: var(--leland-white); border: 1px solid var(--leland-stroke); }
+    .test-table-row .col-section, .test-table-header .col-section { flex: 2; }
+    .test-table-row .col-section { color: var(--leland-text-dark); font-weight: 600; font-size: 14px; }
+    .test-table-row .col-questions, .test-table-header .col-questions { flex: 1; text-align: center; font-size: 14px; }
+    .test-table-row .col-questions { color: var(--leland-text-light); }
+    .test-table-row .col-time, .test-table-header .col-time { flex: 1; text-align: center; font-size: 14px; }
+    .test-table-row .col-time { color: var(--leland-green); font-weight: 600; }
+
+    /* Totals bar */
+    .totals-bar { display: flex; justify-content: center; gap: 48px; padding: 14px 24px; background-color: var(--leland-dark); border-radius: 8px; }
+    .totals-bar .total-value { color: var(--leland-green); font-size: 24px; font-weight: 600; }
+    .totals-bar .total-label { color: white; font-size: 12px; text-align: center; }
+
+    /* Scoring box */
+    .scoring-box { text-align: center; padding: 24px; background-color: white; border-radius: 8px; margin-bottom: 20px; }
+    .scoring-box .score-range { color: var(--leland-green); font-size: 48px; font-weight: 600; }
+    .scoring-box .score-detail { color: var(--leland-text-light); font-size: 14px; }
+
+    /* Question type cards */
+    .qtype-card { padding: 24px; border-radius: 12px; }
+    .qtype-card.green-bg { background-color: rgba(21, 176, 120, 0.08); border: 1px solid rgba(21, 176, 120, 0.2); }
+    .qtype-card.gray-bg { background-color: var(--leland-offwhite); }
+    .qtype-card .qtype-pct { color: var(--leland-green); font-size: 28px; font-weight: 600; margin-bottom: 8px; }
+    .qtype-card h3 { font-size: 18px; margin: 0 0 12px 0; }
+    .qtype-card ul { list-style: none; padding: 0; margin: 0; }
+    .qtype-card ul li { color: var(--leland-text-light); font-size: 13px; line-height: 1.6; margin-bottom: 6px; }
+    .qtype-card ul li:last-child { margin-bottom: 0; }
+
+    /* Flow diagram */
+    .flow-diagram { display: flex; align-items: center; justify-content: center; gap: 20px; }
+    .flow-box { padding: 24px 32px; background-color: var(--leland-green); border-radius: 12px; text-align: center; }
+    .flow-box .flow-label { color: rgba(255,255,255,0.7); font-size: 12px; font-weight: 600; text-transform: uppercase; margin-bottom: 8px; }
+    .flow-box .flow-title { color: white; font-size: 18px; font-weight: 600; }
+    .flow-arrow { color: var(--leland-green); font-size: 28px; }
+    .flow-branch { display: flex; flex-direction: column; gap: 12px; }
+    .flow-path { display: flex; align-items: center; gap: 16px; }
+    .flow-path-trigger { padding: 16px 24px; border-radius: 8px; }
+    .flow-path-trigger.good { background-color: rgba(21, 176, 120, 0.15); border: 2px solid var(--leland-green); }
+    .flow-path-trigger.good .trigger-text { color: var(--leland-green); font-size: 14px; font-weight: 600; }
+    .flow-path-trigger.weak { background-color: var(--leland-offwhite); border: 2px solid var(--leland-stroke); }
+    .flow-path-trigger.weak .trigger-text { color: var(--leland-text-light); font-size: 14px; font-weight: 600; }
+    .flow-path-arrow { color: var(--leland-text-light); }
+    .flow-path-result { padding: 16px 24px; background-color: var(--leland-offwhite); border-radius: 8px; }
+    .flow-path-result .result-title { color: var(--leland-text-dark); font-size: 14px; font-weight: 600; }
+    .flow-path-result .result-detail.positive { color: var(--leland-green); font-size: 12px; }
+    .flow-path-result .result-detail.neutral { color: var(--leland-text-muted); font-size: 12px; }
+
+    /* Summary cards */
+    .summary-card { flex: 1; padding: 24px; background-color: var(--leland-offwhite); border-radius: 12px; display: flex; flex-direction: column; }
+    .summary-card .summary-label { color: var(--leland-green); font-size: 14px; font-weight: 600; text-transform: uppercase; margin-bottom: 12px; }
+    .summary-card .summary-title { color: var(--leland-text-dark); font-size: 18px; font-weight: 600; margin-bottom: 8px; }
+    .summary-card .summary-detail { color: var(--leland-text-light); font-size: 14px; margin-bottom: auto; }
+    .summary-card .summary-score { margin-top: 16px; padding: 12px; background-color: white; border-radius: 6px; text-align: center; }
+    .summary-card .summary-score span { color: var(--leland-green); font-weight: 600; }
+
+    /* Summary totals */
+    .summary-totals { display: flex; justify-content: center; gap: 48px; padding: 20px; background-color: var(--leland-dark); border-radius: 8px; }
+    .summary-totals .total-value { color: var(--leland-green); font-size: 28px; font-weight: 600; }
+    .summary-totals .total-label { color: white; font-size: 14px; text-align: center; }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ============================================ -->
+      <!-- SLIDE 1: Title (Dark) -->
+      <!-- ============================================ -->
+      <section class="title-dark">
+        <!-- Top Logo (white) -->
+        <div class="leland-logo-top">
+          <svg width="110" height="25" viewBox="0 0 200 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z" fill="white"/>
+            <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z" fill="white"/>
+            <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z" fill="white"/>
+            <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z" fill="white"/>
+            <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z" fill="white"/>
+            <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z" fill="white"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z" fill="white"/>
+          </svg>
+        </div>
+
+        <p class="eyebrow">GRE Self-Study Course</p>
+        <h1>GRE Structure<br><span class="hl">& Format</span></h1>
+        <p class="text-lg" style="color: rgba(255,255,255,0.7);">Know exactly what you're preparing for</p>
+
+        <aside class="notes">
+          0:00 - 0:30 | Opening title. Set up the topic: understanding the GRE structure before diving into content.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 2: The Big Picture -->
+      <!-- ============================================ -->
+      <section class="content" style="display: flex; flex-direction: column;">
+        <!-- Header -->
+        <div class="mb-16">
+          <p class="eyebrow">Overview</p>
+          <h2>The Big Picture</h2>
+        </div>
+
+        <!-- Test Structure Table -->
+        <div class="test-table" style="flex: 1;">
+          <!-- Header Row -->
+          <div class="test-table-header">
+            <div class="col-section">Section</div>
+            <div class="col-questions">Questions</div>
+            <div class="col-time">Time</div>
+          </div>
+
+          <!-- Analytical Writing -->
+          <div class="test-table-row alt">
+            <div class="col-section">Analytical Writing</div>
+            <div class="col-questions">1 essay</div>
+            <div class="col-time">30 min</div>
+          </div>
+
+          <!-- Verbal 1 -->
+          <div class="test-table-row bordered">
+            <div class="col-section">Verbal Reasoning 1</div>
+            <div class="col-questions">12 questions</div>
+            <div class="col-time">18 min</div>
+          </div>
+
+          <!-- Verbal 2 -->
+          <div class="test-table-row alt">
+            <div class="col-section">Verbal Reasoning 2</div>
+            <div class="col-questions">15 questions</div>
+            <div class="col-time">23 min</div>
+          </div>
+
+          <!-- Quant 1 -->
+          <div class="test-table-row bordered">
+            <div class="col-section">Quantitative Reasoning 1</div>
+            <div class="col-questions">12 questions</div>
+            <div class="col-time">21 min</div>
+          </div>
+
+          <!-- Quant 2 -->
+          <div class="test-table-row alt">
+            <div class="col-section">Quantitative Reasoning 2</div>
+            <div class="col-questions">15 questions</div>
+            <div class="col-time">26 min</div>
+          </div>
+        </div>
+
+        <!-- Totals -->
+        <div class="totals-bar mt-16">
+          <div class="total-item">
+            <div class="total-value">1:58</div>
+            <div class="total-label">Total Time</div>
+          </div>
+          <div class="total-item">
+            <div class="total-value">54</div>
+            <div class="total-label">Questions</div>
+          </div>
+          <div class="total-item">
+            <div class="total-value">1</div>
+            <div class="total-label">Essay</div>
+          </div>
+        </div>
+
+        <!-- Footer Logo -->
+        <div class="leland-footer">
+          <svg width="80" height="18" viewBox="0 0 200 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z" fill="#9B9B9B"/>
+            <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z" fill="#9B9B9B"/>
+            <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z" fill="#9B9B9B"/>
+            <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z" fill="#9B9B9B"/>
+            <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z" fill="#9B9B9B"/>
+            <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z" fill="#9B9B9B"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z" fill="#9B9B9B"/>
+          </svg>
+        </div>
+
+        <aside class="notes">
+          0:30 - 1:30 | Walk through the full test structure. 5 sections, about 2 hours total. The table shows exactly what to expect on test day.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 3: Analytical Writing -->
+      <!-- ============================================ -->
+      <section class="content" style="display: flex; flex-direction: column;">
+        <!-- Header -->
+        <div class="mb-24">
+          <p class="eyebrow">Section 1</p>
+          <h2>Analytical Writing</h2>
+        </div>
+
+        <!-- Content -->
+        <div class="two-column" style="flex: 1;">
+          <!-- Left: Task Description -->
+          <div class="card-alt" style="display: flex; flex-direction: column; padding: 28px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+              <span class="text-green text-sm" style="font-weight: 600; text-transform: uppercase;">The Task</span>
+              <span class="text-muted text-sm">30 minutes</span>
+            </div>
+
+            <p style="line-height: 1.6; margin: 0 0 20px 0;">
+              You'll receive a prompt presenting an issue or claim. Your job is to take a position and support your argument with reasoning and examples.
+            </p>
+
+            <div style="padding: 16px; background-color: white; border-radius: 8px; margin-top: auto;">
+              <p class="text-sm" style="margin: 0; line-height: 1.5; color: var(--leland-text-light);">
+                <strong style="color: var(--leland-text-dark);">What matters</strong> Clear structure, logical reasoning, and relevant examples. Not fancy vocabulary.
+              </p>
+            </div>
+          </div>
+
+          <!-- Right: Scoring -->
+          <div style="flex: 1; padding: 28px; background-color: rgba(21, 176, 120, 0.08); border-radius: 12px; display: flex; flex-direction: column;">
+            <div class="text-green text-sm" style="font-weight: 600; text-transform: uppercase; margin-bottom: 20px;">Scoring</div>
+
+            <div class="scoring-box">
+              <div class="score-range">0 - 6</div>
+              <div class="score-detail">Half-point increments</div>
+            </div>
+
+            <p class="text-sm text-light" style="line-height: 1.6; margin: 0;">
+              Scored separately from Verbal and Quant. Many programs weight it less heavily, but a very low score can raise questions.
+            </p>
+          </div>
+        </div>
+
+        <!-- Footer Logo -->
+        <div class="leland-footer">
+          <svg width="80" height="18" viewBox="0 0 200 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z" fill="#9B9B9B"/>
+            <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z" fill="#9B9B9B"/>
+            <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z" fill="#9B9B9B"/>
+            <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z" fill="#9B9B9B"/>
+            <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z" fill="#9B9B9B"/>
+            <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z" fill="#9B9B9B"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z" fill="#9B9B9B"/>
+          </svg>
+        </div>
+
+        <aside class="notes">
+          1:30 - 3:00 | Explain the writing section. One essay, 30 minutes, scored 0-6. Emphasize that clear structure matters more than vocabulary. Separate score from Verbal/Quant.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 4: Section Divider - Verbal -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <p class="eyebrow">Sections 2-3</p>
+        <h2>Verbal Reasoning</h2>
+        <p class="text-lg" style="color: rgba(255,255,255,0.7); margin-top: 16px;">27 questions total | 41 minutes combined</p>
+
+        <aside class="notes">
+          3:00 - 3:10 | Transition slide into Verbal Reasoning sections.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 5: Verbal Question Types -->
+      <!-- ============================================ -->
+      <section class="content" style="display: flex; flex-direction: column;">
+        <!-- Header -->
+        <div class="mb-16">
+          <p class="eyebrow">Verbal Reasoning</p>
+          <h2>Three Question Types</h2>
+        </div>
+
+        <!-- Question Types Grid -->
+        <div class="grid-3" style="flex: 1;">
+          <!-- Reading Comp -->
+          <div class="qtype-card green-bg">
+            <div class="qtype-pct">~50%</div>
+            <h3>Reading Comprehension</h3>
+            <ul>
+              <li>+ Short and long passages</li>
+              <li>+ Main ideas and inferences</li>
+              <li>+ Argument analysis</li>
+            </ul>
+          </div>
+
+          <!-- Text Completion -->
+          <div class="qtype-card gray-bg">
+            <div class="qtype-pct">~25%</div>
+            <h3>Text Completion</h3>
+            <ul>
+              <li>+ 1, 2, or 3 blanks to fill</li>
+              <li>+ Vocabulary + context clues</li>
+              <li>+ All blanks must be correct</li>
+            </ul>
+          </div>
+
+          <!-- Sentence Equivalence -->
+          <div class="qtype-card gray-bg">
+            <div class="qtype-pct">~25%</div>
+            <h3>Sentence Equivalence</h3>
+            <ul>
+              <li>+ One blank, six choices</li>
+              <li>+ Pick TWO that create same meaning</li>
+              <li>+ Tests synonyms + context</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Key Skills -->
+        <div class="callout-green mt-16">
+          <p class="text-sm" style="margin: 0;"><strong>Key skills:</strong> Strong vocabulary and the ability to read carefully for context clues. Active reading to understand how passages are structured.</p>
+        </div>
+
+        <!-- Footer Logo -->
+        <div class="leland-footer">
+          <svg width="80" height="18" viewBox="0 0 200 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z" fill="#9B9B9B"/>
+            <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z" fill="#9B9B9B"/>
+            <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z" fill="#9B9B9B"/>
+            <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z" fill="#9B9B9B"/>
+            <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z" fill="#9B9B9B"/>
+            <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z" fill="#9B9B9B"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z" fill="#9B9B9B"/>
+          </svg>
+        </div>
+
+        <aside class="notes">
+          3:10 - 5:00 | Walk through the three verbal question types. Reading Comp is the biggest chunk at 50%. Text Completion and Sentence Equivalence each about 25%. Key skills are vocabulary and careful reading.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 6: Section Divider - Quantitative -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <p class="eyebrow">Sections 4-5</p>
+        <h2>Quantitative Reasoning</h2>
+        <p class="text-lg" style="color: rgba(255,255,255,0.7); margin-top: 16px;">27 questions total | 47 minutes combined | Calculator available</p>
+
+        <aside class="notes">
+          5:00 - 5:10 | Transition slide into Quantitative Reasoning sections.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 7: Quant Question Types -->
+      <!-- ============================================ -->
+      <section class="content" style="display: flex; flex-direction: column;">
+        <!-- Header -->
+        <div class="mb-16">
+          <p class="eyebrow">Quantitative Reasoning</p>
+          <h2>Four Question Types</h2>
+        </div>
+
+        <!-- Question Types Grid -->
+        <div class="grid-2" style="flex: 1;">
+          <!-- QC -->
+          <div class="type-box">
+            <div class="type-num">01</div>
+            <div>
+              <h3>Quantitative Comparison</h3>
+              <p>Compare Quantity A vs B. Decide if A is greater, B is greater, they're equal, or the relationship can't be determined.</p>
+            </div>
+          </div>
+
+          <!-- Problem Solving -->
+          <div class="type-box">
+            <div class="type-num">02</div>
+            <div>
+              <h3>Problem Solving</h3>
+              <p>Standard math problems. Some are multiple choice with one answer, some let you select multiple answers.</p>
+            </div>
+          </div>
+
+          <!-- Data Interpretation -->
+          <div class="type-box">
+            <div class="type-num">03</div>
+            <div>
+              <h3>Data Interpretation</h3>
+              <p>Charts, graphs, and tables. Often come in sets of 2-3 questions about the same data.</p>
+            </div>
+          </div>
+
+          <!-- Numeric Entry -->
+          <div class="type-box" style="background-color: rgba(21, 176, 120, 0.08); border: 1px solid rgba(21, 176, 120, 0.2);">
+            <div class="type-num">04</div>
+            <div>
+              <h3>Numeric Entry</h3>
+              <p>Type your answer. No choices means no process of elimination. You have to calculate exactly.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Content areas -->
+        <div class="callout-green mt-16">
+          <p class="text-sm" style="margin: 0;"><strong>Content areas:</strong> Arithmetic, Algebra, Geometry, Data Analysis. Concepts you've likely seen before, tested in specific ways.</p>
+        </div>
+
+        <!-- Footer Logo -->
+        <div class="leland-footer">
+          <svg width="80" height="18" viewBox="0 0 200 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z" fill="#9B9B9B"/>
+            <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z" fill="#9B9B9B"/>
+            <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z" fill="#9B9B9B"/>
+            <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z" fill="#9B9B9B"/>
+            <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z" fill="#9B9B9B"/>
+            <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z" fill="#9B9B9B"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z" fill="#9B9B9B"/>
+          </svg>
+        </div>
+
+        <aside class="notes">
+          5:10 - 7:00 | Cover the four quant question types. QC is unique to the GRE. Problem Solving is standard math. Data Interpretation uses charts/graphs. Numeric Entry has no answer choices. Content areas are Arithmetic, Algebra, Geometry, Data Analysis.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 8: Section-Level Adaptive Testing -->
+      <!-- ============================================ -->
+      <section class="content" style="display: flex; flex-direction: column;">
+        <!-- Header -->
+        <div class="mb-16">
+          <p class="eyebrow">How It Works</p>
+          <h2>Section-Level Adaptive Testing</h2>
+        </div>
+
+        <!-- Visual Diagram -->
+        <div style="flex: 1; display: flex; flex-direction: column; justify-content: center;">
+          <div class="flow-diagram">
+            <!-- Section 1 -->
+            <div class="flow-box">
+              <div class="flow-label">First Section</div>
+              <div class="flow-title">Verbal 1 or Quant 1</div>
+            </div>
+
+            <!-- Arrow -->
+            <div class="flow-arrow">&rarr;</div>
+
+            <!-- Branch -->
+            <div class="flow-branch">
+              <!-- High Path -->
+              <div class="flow-path">
+                <div class="flow-path-trigger good">
+                  <div class="trigger-text">Perform Well</div>
+                </div>
+                <div class="flow-path-arrow">&rarr;</div>
+                <div class="flow-path-result">
+                  <div class="result-title">Harder Section 2</div>
+                  <div class="result-detail positive">Higher score ceiling</div>
+                </div>
+              </div>
+
+              <!-- Low Path -->
+              <div class="flow-path">
+                <div class="flow-path-trigger weak">
+                  <div class="trigger-text">Struggle</div>
+                </div>
+                <div class="flow-path-arrow">&rarr;</div>
+                <div class="flow-path-result">
+                  <div class="result-title">Easier Section 2</div>
+                  <div class="result-detail neutral">Lower score ceiling</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Key Takeaway -->
+        <div class="callout-dark" style="text-align: center;">
+          <p>The first section of each type is crucial. Take your time there.</p>
+        </div>
+
+        <!-- Footer Logo -->
+        <div class="leland-footer">
+          <svg width="80" height="18" viewBox="0 0 200 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z" fill="#9B9B9B"/>
+            <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z" fill="#9B9B9B"/>
+            <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z" fill="#9B9B9B"/>
+            <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z" fill="#9B9B9B"/>
+            <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z" fill="#9B9B9B"/>
+            <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z" fill="#9B9B9B"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z" fill="#9B9B9B"/>
+          </svg>
+        </div>
+
+        <aside class="notes">
+          7:00 - 8:30 | Explain the adaptive mechanism. The GRE adapts at the section level, not question by question. Your performance on Section 1 determines the difficulty of Section 2. Doing well on Section 1 unlocks a harder Section 2 with a higher score ceiling.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 9: Summary - GRE at a Glance -->
+      <!-- ============================================ -->
+      <section class="content" style="display: flex; flex-direction: column;">
+        <!-- Header -->
+        <div class="mb-24">
+          <p class="eyebrow">Summary</p>
+          <h2>GRE at a Glance</h2>
+        </div>
+
+        <!-- Summary Cards -->
+        <div style="display: flex; gap: 20px; flex: 1;">
+          <!-- Writing -->
+          <div class="summary-card">
+            <div class="summary-label">Writing</div>
+            <div class="summary-title">1 Essay</div>
+            <div class="summary-detail">30 minutes</div>
+            <div class="summary-score">
+              <span>Score: 0-6</span>
+            </div>
+          </div>
+
+          <!-- Verbal -->
+          <div class="summary-card">
+            <div class="summary-label">Verbal</div>
+            <div class="summary-title">2 Sections</div>
+            <div class="summary-detail">27 questions, 41 minutes</div>
+            <div class="summary-score">
+              <span>Score: 130-170</span>
+            </div>
+          </div>
+
+          <!-- Quant -->
+          <div class="summary-card">
+            <div class="summary-label">Quant</div>
+            <div class="summary-title">2 Sections</div>
+            <div class="summary-detail">27 questions, 47 minutes</div>
+            <div class="summary-score">
+              <span>Score: 130-170</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Total Time + Validity -->
+        <div class="summary-totals mt-24">
+          <div class="total-item">
+            <div class="total-value">1 hr 58 min</div>
+            <div class="total-label">Total Test Time</div>
+          </div>
+          <div class="total-item">
+            <div class="total-value">Section Adaptive</div>
+            <div class="total-label">First sections are crucial</div>
+          </div>
+          <div class="total-item">
+            <div class="total-value">5 Years</div>
+            <div class="total-label">Score Validity</div>
+          </div>
+        </div>
+
+        <!-- Footer Logo -->
+        <div class="leland-footer">
+          <svg width="80" height="18" viewBox="0 0 200 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z" fill="#9B9B9B"/>
+            <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z" fill="#9B9B9B"/>
+            <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z" fill="#9B9B9B"/>
+            <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z" fill="#9B9B9B"/>
+            <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z" fill="#9B9B9B"/>
+            <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z" fill="#9B9B9B"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z" fill="#9B9B9B"/>
+          </svg>
+        </div>
+
+        <aside class="notes">
+          8:30 - 9:30 | Recap everything. Three score components: Writing (0-6), Verbal (130-170), Quant (130-170). Total time under 2 hours. Section adaptive means first sections matter most. Scores valid for 5 years.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js -->
+  <script src="../assets/reveal/dist/reveal.min.js"></script>
+  <script type="module">
+    import RevealNotes from '../assets/reveal/plugin/notes/notes.esm.js';
+
+    Reveal.initialize({
+      width: 960,
+      height: 540,
+      margin: 0,
+      minScale: 0.5,
+      maxScale: 3.0,
+      hash: true,
+      slideNumber: true,
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+      transition: 'none',
+      backgroundTransition: 'none',
+      disableLayout: false,
+      plugins: [ RevealNotes ]
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en" class="reveal-full-page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Behavioral Interview Frameworks</title>
+
+  <!-- Reveal.js Core -->
+  <link rel="stylesheet" href="../assets/reveal/dist/reset.css">
+  <link rel="stylesheet" href="../assets/reveal/dist/reveal.css">
+
+  <!-- Leland Theme -->
+  <link rel="stylesheet" href="../assets/reveal/themes/leland.css">
+
+</head>
+<body>
+  <!-- SVG Symbol Definitions (defined once, referenced via <use>) -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="leland-logo" viewBox="0 0 200 45">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z"/>
+      <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z"/>
+      <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z"/>
+      <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z"/>
+      <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z"/>
+      <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z"/>
+    </symbol>
+  </svg>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ============================================ -->
+      <!-- SLIDE 1: Title Dark -->
+      <!-- ============================================ -->
+      <section class="title-dark">
+        <svg width="110" height="25" fill="white" class="mb-16"><use href="#leland-logo"/></svg>
+        <p class="eyebrow">MBA Admissions Course</p>
+        <h1>Behavioral Interview<br><span class="hl">Frameworks</span></h1>
+
+        <aside class="notes">
+          0:00 - 0:30 | "Tell me about a time you led a team through a difficult situation." Behavioral questions like this trip up a lot of candidates. They know their experiences but ramble, get lost in details, or forget to make their point. Today we master the STAR framework so behavioral questions become predictable.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 2: Plus List — Overview -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">MBA Admissions Course</p>
+          <h2>What We'll Cover</h2>
+        </div>
+
+        <ul class="plus-list text-lg">
+          <li>Why behavioral questions matter so much</li>
+          <li>The STAR framework in detail</li>
+          <li>How to build your story bank</li>
+          <li>Handling failure questions with confidence</li>
+          <li>Practicing effectively</li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          0:30 - 1:00 | Five topics today. Why behavioral questions matter so much in MBA interviews. The STAR framework in full detail. How to build a story bank of 5-8 ready-to-go examples. How to handle failure questions, one of the trickiest categories. And how to practice effectively so your answers sound natural.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 3: Callout — Why Behavioral Questions Matter -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Why They Matter</p>
+          <h2>Past Behavior Predicts Future Behavior</h2>
+        </div>
+
+        <div class="card-alt-green" style="display: flex; align-items: flex-start; gap: 16px;">
+          <span class="icon icon-xl icon-green" style="flex-shrink: 0; --icon: url(../../../../_global/design/icons/lightning.svg)"></span>
+          <p class="text-lg">Interviewers don't want to know what you <strong>think</strong> leadership is. They want to see that you've <strong>already done it</strong>. Always give a specific example.</p>
+        </div>
+
+        <p class="text-lg text-light" style="margin-top: 40px;">Behavioral questions reveal how you actually behave in situations, your real skills, how you think about challenges, and what you've learned from experience.</p>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          1:00 - 2:00 | Behavioral questions are based on a simple premise: past behavior predicts future behavior. When they ask "tell me about a time you led a team," they don't want hypotheticals. They want proof you've done it. The biggest mistake candidates make is talking about what they think leadership is instead of describing what they actually did. Always give a specific example. Always.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 4: Card Grid 3 — STAR Framework -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">STAR Framework</p>
+          <h2>The Four Parts of Every Answer</h2>
+        </div>
+
+        <div class="card-grid-3">
+          <div class="card card-green-bg">
+            <span class="type-num mb-8">S</span>
+            <h3>Situation</h3>
+            <p class="text-sm text-light">Briefly set the scene. Where were you? What was the context? Keep this to 10-15 seconds</p>
+          </div>
+          <div class="card card-blue-bg">
+            <span class="type-num mb-8">T</span>
+            <h3>Task</h3>
+            <p class="text-sm text-light">Your specific responsibility. What was your role? Distinguish your job from the team's</p>
+          </div>
+          <div class="card card-orange-bg">
+            <span class="type-num mb-8">A+R</span>
+            <h3>Action + Result</h3>
+            <p class="text-sm text-light">What YOU did (spend 60% here) and the outcome with what you learned</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          2:00 - 3:30 | STAR stands for Situation, Task, Action, Result. Situation: briefly set the scene. Just enough context so the interviewer understands the scenario. Keep it short. Task: what was your specific responsibility? This distinguishes what you did from what the team did. Action: what did YOU do? This is the heart of your answer. Use "I" not "we." Be specific with active verbs: I proposed, I organized, I convinced. Result: what was the outcome? Quantify when possible. And include your reflection on what you learned.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 5: Table — Time Allocation -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">STAR Framework</p>
+          <h2>Where to Spend Your Time</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Component</th>
+              <th>Time</th>
+              <th>What to Include</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Situation</strong></td>
+              <td>~20%</td>
+              <td>Context in 1-2 sentences. Where, when, what was happening</td>
+            </tr>
+            <tr>
+              <td><strong>Task</strong></td>
+              <td>~10%</td>
+              <td>Your specific role and responsibility</td>
+            </tr>
+            <tr>
+              <td><strong>Action</strong></td>
+              <td>~50%</td>
+              <td>3-5 specific things YOU did. Use active verbs, be concrete</td>
+            </tr>
+            <tr>
+              <td><strong>Result</strong></td>
+              <td>~20%</td>
+              <td>Quantified outcome + what you learned</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p class="text-sm text-light">Target 2 minutes total per answer. Too short feels underprepared; too long loses the interviewer.</p>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          3:30 - 4:30 | Here's the time allocation that most candidates get wrong. They spend 80% on Situation and Task and rush through Action and Result. Flip it. Spend about 20% on Situation, 10% on Task, 50% on Action, and 20% on Result. The Action section is where you demonstrate your skills and judgment. That's where the interviewer learns the most about you. Aim for about 2 minutes total per answer.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 6: Icon List — Common STAR Mistakes -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Common Mistakes</p>
+          <h2>Five STAR Mistakes to Avoid</h2>
+        </div>
+
+        <ul class="icon-list text-lg">
+          <li>
+            <span class="icon icon-xl icon-green" style="flex-shrink: 0; --icon: url(../../../../_global/design/icons/clock-alt.svg)"></span>
+            <span><strong>Too much setup:</strong> Spending 80% on Situation and Task leaves no room for Action.</span>
+          </li>
+          <li>
+            <span class="icon icon-xl icon-green" style="flex-shrink: 0; --icon: url(../../../../_global/design/icons/group.svg)"></span>
+            <span><strong>Using "we" instead of "I":</strong> They want to know what you did, not the team.</span>
+          </li>
+          <li>
+            <span class="icon icon-xl icon-green" style="flex-shrink: 0; --icon: url(../../../../_global/design/icons/search.svg)"></span>
+            <span><strong>Vague actions:</strong> "I communicated effectively" means nothing. What did you actually do?</span>
+          </li>
+          <li>
+            <span class="icon icon-xl icon-green" style="flex-shrink: 0; --icon: url(../../../../_global/design/icons/warning.svg)"></span>
+            <span><strong>Forgetting the result:</strong> Always land the plane. What happened? What changed?</span>
+          </li>
+          <li>
+            <span class="icon icon-xl icon-green" style="flex-shrink: 0; --icon: url(../../../../_global/design/icons/cancel.svg)"></span>
+            <span><strong>Weak story choice:</strong> If the story doesn't demonstrate the skill asked about, pick a different one.</span>
+          </li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          4:30 - 6:00 | Five common STAR mistakes. First, too much setup. Don't spend the bulk of your answer on context. Second, using "we" instead of "I." Even in collaborative situations, describe your specific contribution. Third, vague actions. "I communicated effectively with stakeholders" tells the interviewer nothing. What specifically did you do? Did you send a weekly update? Set up a meeting? Fourth, forgetting the result. Always land the plane with what happened and what you learned. Fifth, choosing a weak story that doesn't actually demonstrate the skill being asked about.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 7: Workflow — Building Your Story Bank -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Story Bank</p>
+          <h2>Four Steps to Build Your Bank</h2>
+        </div>
+
+        <div class="workflow">
+          <div class="workflow-step">
+            <span class="step-num mb-8">1</span>
+            <h3>List Experiences</h3>
+            <p class="text-sm text-light">Work, volunteer, academic, personal</p>
+          </div>
+          <div class="workflow-arrow">&#8594;</div>
+          <div class="workflow-step">
+            <span class="step-num mb-8">2</span>
+            <h3>Write STAR Outlines</h3>
+            <p class="text-sm text-light">1-2 sentence S, role T, 3-5 actions, result + learning</p>
+          </div>
+          <div class="workflow-arrow">&#8594;</div>
+          <div class="workflow-step">
+            <span class="step-num mb-8">3</span>
+            <h3>Map to Questions</h3>
+            <p class="text-sm text-light">Leadership, teamwork, conflict, failure, innovation</p>
+          </div>
+          <div class="workflow-arrow">&#8594;</div>
+          <div class="workflow-step">
+            <span class="step-num mb-8">4</span>
+            <h3>Practice Telling</h3>
+            <p class="text-sm text-light">Say them out loud, aim for 2 minutes each</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          6:00 - 7:30 | Build your story bank in four steps. First, list your significant experiences from work, volunteering, academics, and personal life. Think about moments of leadership, overcoming obstacles, handling conflict. Second, write a STAR outline for each. Third, map stories to common question categories like leadership, teamwork, conflict resolution, failure, and innovation. Each story might work for multiple categories. Fourth, practice telling each story out loud. Get comfortable with 2-minute answers that hit all four parts of STAR.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 8: Card Grid 2 — When Questions Don't Match -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Story Bank</p>
+          <h2>When the Question Doesn't Match</h2>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="card card-green-bg" style="padding: 16px">
+            <span class="icon icon-lg icon-green mb-8" style="--icon: url(../../../../_global/design/icons/edit.svg)"></span>
+            <h3 class="mb-8">Adapt Your Story</h3>
+            <p class="text-sm text-light">Most stories demonstrate multiple qualities. A leadership story often shows conflict resolution too. Lean into the angle that fits the question</p>
+          </div>
+          <div class="card card-blue-bg" style="padding: 16px">
+            <span class="icon icon-lg icon-blue mb-8" style="--icon: url(../../../../_global/design/icons/hourglass-time.svg)"></span>
+            <h3 class="mb-8">Ask for a Moment</h3>
+            <p class="text-sm text-light">"That's a great question, let me think about the best example." Take five seconds to scan your bank. Better than rambling unprepared</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          7:30 - 8:30 | What if the question doesn't match your prepared stories? This will happen. You have two moves. First, adapt. Most stories demonstrate multiple qualities. If you're asked about innovation but your best example also involves teamwork, lean into the innovation angle and emphasize the creative thinking. Second, ask for a moment. Say "That's a great question, let me think about the best example." Then take five seconds to scan your story bank. This is far better than rambling into an unprepared answer.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 9: Two Column + Status — Failure Questions -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Failure Questions</p>
+          <h2>How to Answer "Tell Me About a Time You Failed"</h2>
+        </div>
+
+        <div class="two-column gap-32">
+          <div class="card card-orange-bg" style="padding: 16px;">
+            <div class="status-incorrect">Don't Do This</div>
+            <ul class="plus-list text-sm" style="margin-top: 12px;">
+              <li>Pick a fake failure ("I worked too hard")</li>
+              <li>Humble brag about a big achievement</li>
+              <li>Blame others for what went wrong</li>
+              <li>Skip the reflection and learning</li>
+            </ul>
+          </div>
+          <div class="card card-green-bg" style="padding: 16px;">
+            <div class="status-correct">Do This Instead</div>
+            <ul class="plus-list text-sm" style="margin-top: 12px;">
+              <li>Choose a genuine failure with a real mistake</li>
+              <li>Take ownership of your part</li>
+              <li>Explain what you learned honestly</li>
+              <li>Show how you changed your behavior</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          8:30 - 10:00 | Failure questions are the hardest because candidates want to look good. But the question is testing self-awareness, not perfection. What not to do: don't pick a fake failure like "I worked too hard." Don't humble brag. Don't blame others. What to do: pick a genuine failure where you made a real mistake. Describe what happened honestly. Take responsibility. Then explain what you learned and how you changed. The formula is: real failure, ownership, reflection, change. That's what impresses interviewers.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 10: Icon List — Practicing Effectively -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Practice Tips</p>
+          <h2>How to Practice Effectively</h2>
+        </div>
+
+        <ul class="icon-list text-lg">
+          <li>
+            <span class="icon icon-xl icon-green" style="flex-shrink: 0; --icon: url(../../../../_global/design/icons/chat-bubbles.svg)"></span>
+            <span><strong>Practice out loud:</strong> Thinking through answers is not the same as speaking them.</span>
+          </li>
+          <li>
+            <span class="icon icon-xl icon-green" style="flex-shrink: 0; --icon: url(../../../../_global/design/icons/clock.svg)"></span>
+            <span><strong>Time yourself:</strong> Aim for 2 minutes per answer. Adjust for pacing.</span>
+          </li>
+          <li>
+            <span class="icon icon-xl icon-green" style="flex-shrink: 0; --icon: url(../../../../_global/design/icons/user-group.svg)"></span>
+            <span><strong>Get feedback:</strong> Practice with a friend, family member, or coach.</span>
+          </li>
+          <li>
+            <span class="icon icon-xl icon-green" style="flex-shrink: 0; --icon: url(../../../../_global/design/icons/eye-open.svg)"></span>
+            <span><strong>Record yourself:</strong> Watch for filler words, nervous habits, and pacing.</span>
+          </li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          10:00 - 11:15 | Four ways to practice effectively. Practice out loud, because thinking through an answer is not the same as speaking it. Time yourself and aim for 2 minutes per answer. Too short feels underprepared, too long loses the interviewer. Get feedback from a friend, family member, or coach. Ask them: was that clear? Did you understand what I did? Was it too long? And record yourself. Watch for filler words, nervous habits, and pacing. You'll notice things you can improve.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 11: Content Dark — Takeaways -->
+      <!-- ============================================ -->
+      <section class="content-dark">
+        <div class="slide-header">
+          <p class="eyebrow">Key Takeaways</p>
+          <h2>What to Remember</h2>
+        </div>
+
+        <ul class="plus-list text-lg text-white">
+          <li>STAR gives you structure: Situation, Task, Action, Result.</li>
+          <li>Spend most of your time on Action: what did YOU do?</li>
+          <li>Always include the Result with outcome and learning.</li>
+          <li>Build a story bank of 5-8 stories mapped to question types.</li>
+          <li>Handle failure questions honestly: real failure + ownership + change.</li>
+          <li>Practice out loud and aim for 2 minutes per answer.</li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="rgba(255,255,255,0.4)"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          11:15 - 12:00 | Key takeaways. STAR gives you structure for every behavioral answer. Spend most of your time on the Action section, describing what you specifically did. Always include the Result with a quantified outcome and what you learned. Build a story bank of 5-8 stories mapped to common question types. Handle failure questions with honesty: real failure, ownership, reflection, and change. And practice out loud. Behavioral questions become predictable when you prepare. Master STAR and you'll be ready for anything.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js -->
+  <script src="../assets/reveal/dist/reveal.min.js"></script>
+  <script type="module">
+    import RevealNotes from '../assets/reveal/plugin/notes/notes.esm.js';
+
+    Reveal.initialize({
+      width: 960,
+      height: 540,
+      margin: 0,
+      minScale: 0.5,
+      maxScale: 3.0,
+      hash: true,
+      slideNumber: true,
+      controls: true,
+      progress: true,
+      history: true,
+      center: false,
+      transition: 'none',
+      backgroundTransition: 'none',
+      disableLayout: false,
+      plugins: [ RevealNotes ]
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en" class="reveal-full-page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ID6: Why You Should Use an Error Log</title>
+
+  <!-- Reveal.js Core -->
+  <link rel="stylesheet" href="../assets/reveal/dist/reset.css">
+  <link rel="stylesheet" href="../assets/reveal/dist/reveal.css">
+
+  <!-- Leland Theme -->
+  <link rel="stylesheet" href="../assets/reveal/themes/leland.css">
+
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false}
+      ]
+    });"></script>
+
+  <style>
+    /* Slide-specific overrides */
+</style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ============================================ -->
+      <!-- SLIDE 1: Title (Dark) -->
+      <!-- ============================================ -->
+      <section class="title-dark">
+        <!-- Top Logo (white) -->
+        <div class="leland-logo-top">
+          <svg width="110" height="25" viewBox="0 0 200 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z" fill="white"/>
+            <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z" fill="white"/>
+            <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z" fill="white"/>
+            <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z" fill="white"/>
+            <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z" fill="white"/>
+            <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z" fill="white"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z" fill="white"/>
+          </svg>
+        </div>
+
+        <div style="margin-top: 20px;">
+          <p class="eyebrow">GRE Self-Study Course</p>
+          <h1>Why You Should Use<br><span class="hl">an Error Log</span></h1>
+          <p style="color: #9B9B9B; font-size: 18px; font-weight: 400; margin-top: 20px;">The tool that separates students who improve from those who plateau</p>
+        </div>
+
+        <aside class="notes">
+          0:00 - 0:30 | Opening title. Set up the premise that an error log is the key differentiator between students who improve and those who plateau.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 2: Why Errors Are Valuable -->
+      <!-- ============================================ -->
+      <section class="content" style="padding: 48px 64px; display: flex; flex-direction: column; padding-bottom: 70px;">
+        <!-- Header -->
+        <div style="margin-bottom: 24px;">
+          <p class="eyebrow">The Problem</p>
+          <h2 style="font-size: 36px; margin: 0;">Every Wrong Answer Is Information</h2>
+        </div>
+
+        <!-- Content -->
+        <div class="two-column" style="flex: 1; gap: 28px;">
+
+          <!-- Left: The Common Trap -->
+          <div class="card" style="background-color: rgba(251, 90, 66, 0.08); border: 1px solid rgba(251, 90, 66, 0.2); padding: 24px;">
+            <div style="color: #FB5A42; font-size: 14px; font-weight: 600; text-transform: uppercase; margin-bottom: 16px;">The Common Trap</div>
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+              <div style="display: flex; gap: 12px; align-items: center;">
+                <div style="width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; color: white; background-color: #FB5A42; flex-shrink: 0;">1</div>
+                <p style="font-size: 14px; margin: 0;">Make a mistake</p>
+              </div>
+              <div style="display: flex; gap: 12px; align-items: center;">
+                <div style="width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; color: white; background-color: #FB5A42; flex-shrink: 0;">2</div>
+                <p style="font-size: 14px; margin: 0;">Feel bad about it</p>
+              </div>
+              <div style="display: flex; gap: 12px; align-items: center;">
+                <div style="width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; color: white; background-color: #FB5A42; flex-shrink: 0;">3</div>
+                <p style="font-size: 14px; margin: 0;">Glance at the right answer</p>
+              </div>
+              <div style="display: flex; gap: 12px; align-items: center;">
+                <div style="width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; color: white; background-color: #FB5A42; flex-shrink: 0;">4</div>
+                <p style="font-size: 14px; margin: 0;">Move on</p>
+              </div>
+              <div style="display: flex; gap: 12px; align-items: center;">
+                <div style="width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; color: white; background-color: #FB5A42; flex-shrink: 0;">5</div>
+                <p style="font-size: 14px; margin: 0;"><strong>Make the SAME mistake a week later</strong></p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: The Key Insight -->
+          <div class="card" style="background-color: rgba(21, 176, 120, 0.08); border: 1px solid rgba(21, 176, 120, 0.2); padding: 24px;">
+            <div style="color: #15B078; font-size: 14px; font-weight: 600; text-transform: uppercase; margin-bottom: 16px;">The Key Insight</div>
+            <p style="font-size: 17px; line-height: 1.6; margin: 0 0 16px 0;">
+              <strong>Most students make the same 3-5 types of mistakes over and over.</strong>
+            </p>
+            <ul class="plus-list" style="font-size: 14px; color: var(--leland-text-light);">
+              <li>Maybe they always mess up percent change</li>
+              <li>Maybe they pick trap answers on inference</li>
+              <li>Maybe they rush and make careless errors</li>
+            </ul>
+          </div>
+
+        </div>
+
+        <!-- Bottom Callout -->
+        <div class="callout-dark" style="margin-top: 16px; text-align: center;">
+          <p style="font-size: 15px; margin: 0;">If you had a list of the <span class="hl-bold">exact 10 things</span> costing you the most points, wouldn't you study those? Your error log creates that list.</p>
+        </div>
+
+        <!-- Footer Logo -->
+        <div class="leland-footer">
+          <svg width="80" height="18" viewBox="0 0 200 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z" fill="#9B9B9B"/>
+            <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z" fill="#9B9B9B"/>
+            <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z" fill="#9B9B9B"/>
+            <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z" fill="#9B9B9B"/>
+            <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z" fill="#9B9B9B"/>
+            <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z" fill="#9B9B9B"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z" fill="#9B9B9B"/>
+          </svg>
+        </div>
+
+        <aside class="notes">
+          0:30 - 2:00 | Explain the common trap cycle that most students fall into. Contrast with the key insight that most errors are repetitive. Lead into the error log as the solution.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 3: What to Record -->
+      <!-- ============================================ -->
+      <section class="content" style="padding: 44px 56px; display: flex; flex-direction: column; padding-bottom: 70px;">
+        <!-- Header -->
+        <div style="margin-bottom: 16px;">
+          <p class="eyebrow">The Template</p>
+          <h2 style="font-size: 32px; margin: 0;">What to Record for Every Wrong Answer</h2>
+        </div>
+
+        <!-- Fields Table -->
+        <div style="flex: 1; display: flex; flex-direction: column; gap: 2px; background-color: #E5E5E5; border-radius: 12px; overflow: hidden;">
+
+          <!-- Header Row -->
+          <div style="display: flex; background-color: #113A2D;">
+            <div style="flex: 1; padding: 10px 16px; color: white; font-weight: 600; font-size: 13px;">Field</div>
+            <div style="flex: 2; padding: 10px 16px; color: white; font-weight: 600; font-size: 13px;">What to Write</div>
+          </div>
+
+          <div style="display: flex; background-color: white;">
+            <div style="flex: 1; padding: 10px 16px; color: #15B078; font-weight: 600; font-size: 14px;">Date &amp; Source</div>
+            <div style="flex: 2; padding: 10px 16px; color: var(--leland-text-light); font-size: 14px;">When it happened, from which drill or practice test</div>
+          </div>
+
+          <div style="display: flex; background-color: #F8F8F8;">
+            <div style="flex: 1; padding: 10px 16px; color: #15B078; font-weight: 600; font-size: 14px;">Topic</div>
+            <div style="flex: 2; padding: 10px 16px; color: var(--leland-text-light); font-size: 14px;">What type of question was this?</div>
+          </div>
+
+          <div style="display: flex; background-color: white;">
+            <div style="flex: 1; padding: 10px 16px; color: #15B078; font-weight: 600; font-size: 14px;">What Went Wrong</div>
+            <div style="flex: 2; padding: 10px 16px; color: var(--leland-text-light); font-size: 14px;">Your actual mistake, be specific</div>
+          </div>
+
+          <div style="display: flex; background-color: #F8F8F8;">
+            <div style="flex: 1; padding: 10px 16px; color: #15B078; font-weight: 600; font-size: 14px;">Error Type</div>
+            <div style="flex: 2; padding: 10px 16px; color: var(--leland-text-light); font-size: 14px;">Content gap (C), Process error (P), or Strategy error (S)</div>
+          </div>
+
+          <div style="display: flex; background-color: white;">
+            <div style="flex: 1; padding: 10px 16px; color: #15B078; font-weight: 600; font-size: 14px;">What to Remember</div>
+            <div style="flex: 2; padding: 10px 16px; color: var(--leland-text-light); font-size: 14px;">The rule or approach to use next time</div>
+          </div>
+
+          <div style="display: flex; background-color: #F8F8F8;">
+            <div style="flex: 1; padding: 10px 16px; color: #15B078; font-weight: 600; font-size: 14px;">Redo Date</div>
+            <div style="flex: 2; padding: 10px 16px; color: var(--leland-text-light); font-size: 14px;">When you'll try this problem again (optional but powerful)</div>
+          </div>
+
+        </div>
+
+        <!-- Bottom Note -->
+        <div class="callout-green" style="margin-top: 14px;">
+          <p style="font-size: 14px; margin: 0;"><span class="hl-bold">Tip</span> You don't need to write a novel. A few sentences is enough. The act of writing forces you to actually think about what went wrong.</p>
+        </div>
+
+        <!-- Footer Logo -->
+        <div class="leland-footer">
+          <svg width="80" height="18" viewBox="0 0 200 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z" fill="#9B9B9B"/>
+            <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z" fill="#9B9B9B"/>
+            <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z" fill="#9B9B9B"/>
+            <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z" fill="#9B9B9B"/>
+            <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z" fill="#9B9B9B"/>
+            <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z" fill="#9B9B9B"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z" fill="#9B9B9B"/>
+          </svg>
+        </div>
+
+        <aside class="notes">
+          2:00 - 3:00 | Walk through each field in the error log template. Emphasize that entries should be short and specific. The act of writing itself is a learning tool.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 4: Error Categories -->
+      <!-- ============================================ -->
+      <section class="content" style="padding: 44px 56px; display: flex; flex-direction: column; padding-bottom: 70px;">
+        <!-- Header -->
+        <div style="margin-bottom: 20px;">
+          <p class="eyebrow">Error Types</p>
+          <h2 style="font-size: 32px; margin: 0;">Three Categories of Mistakes</h2>
+        </div>
+
+        <!-- Three Categories -->
+        <div class="grid-3" style="flex: 1; gap: 18px;">
+
+          <!-- Content Gaps -->
+          <div class="card" style="border-top: 4px solid #15B078; padding: 20px;">
+            <div style="color: #15B078; font-size: 28px; font-weight: 700; margin-bottom: 6px;">C</div>
+            <h3 style="font-size: 17px; margin: 0 0 10px 0;">Content Gaps</h3>
+            <ul style="color: var(--leland-text-light); font-size: 13px; line-height: 1.6; list-style: none; padding: 0; margin: 0;">
+              <li style="margin-bottom: 6px; padding-left: 24px; position: relative;"><span style="position: absolute; left: 0; font-weight: 600;">C1</span> Didn't know the concept</li>
+              <li style="margin-bottom: 6px; padding-left: 24px; position: relative;"><span style="position: absolute; left: 0; font-weight: 600;">C2</span> Knew it but applied wrong</li>
+              <li style="padding-left: 24px; position: relative;"><span style="position: absolute; left: 0; font-weight: 600;">C3</span> Didn't know the vocab</li>
+            </ul>
+          </div>
+
+          <!-- Process Errors -->
+          <div class="card" style="border-top: 4px solid #EF8509; padding: 20px;">
+            <div style="color: #EF8509; font-size: 28px; font-weight: 700; margin-bottom: 6px;">P</div>
+            <h3 style="font-size: 17px; margin: 0 0 10px 0;">Process Errors</h3>
+            <ul style="color: var(--leland-text-light); font-size: 13px; line-height: 1.6; list-style: none; padding: 0; margin: 0;">
+              <li style="margin-bottom: 6px; padding-left: 24px; position: relative;"><span style="position: absolute; left: 0; font-weight: 600;">P1</span> Misread the question</li>
+              <li style="margin-bottom: 6px; padding-left: 24px; position: relative;"><span style="position: absolute; left: 0; font-weight: 600;">P2</span> Calculation mistake</li>
+              <li style="margin-bottom: 6px; padding-left: 24px; position: relative;"><span style="position: absolute; left: 0; font-weight: 600;">P3</span> Ran out of time</li>
+              <li style="padding-left: 24px; position: relative;"><span style="position: absolute; left: 0; font-weight: 600;">P4</span> Changed correct to wrong</li>
+            </ul>
+          </div>
+
+          <!-- Strategy Errors -->
+          <div class="card" style="border-top: 4px solid #FB5A42; padding: 20px;">
+            <div style="color: #FB5A42; font-size: 28px; font-weight: 700; margin-bottom: 6px;">S</div>
+            <h3 style="font-size: 17px; margin: 0 0 10px 0;">Strategy Errors</h3>
+            <ul style="color: var(--leland-text-light); font-size: 13px; line-height: 1.6; list-style: none; padding: 0; margin: 0;">
+              <li style="margin-bottom: 6px; padding-left: 24px; position: relative;"><span style="position: absolute; left: 0; font-weight: 600;">S1</span> Didn't use POE well</li>
+              <li style="margin-bottom: 6px; padding-left: 24px; position: relative;"><span style="position: absolute; left: 0; font-weight: 600;">S2</span> Picked trap answer</li>
+              <li style="margin-bottom: 6px; padding-left: 24px; position: relative;"><span style="position: absolute; left: 0; font-weight: 600;">S3</span> Didn't check work</li>
+              <li style="padding-left: 24px; position: relative;"><span style="position: absolute; left: 0; font-weight: 600;">S4</span> Wrong approach</li>
+            </ul>
+          </div>
+
+        </div>
+
+        <!-- Fix Callouts - Aligned Horizontally -->
+        <div class="grid-3" style="gap: 18px; margin-top: 12px;">
+          <div style="padding: 10px 14px; background-color: rgba(21, 176, 120, 0.08); border-radius: 8px; border-left: 3px solid #15B078;">
+            <p style="font-size: 13px; margin: 0; color: var(--leland-text-dark);"><strong>Fix:</strong> Study the underlying concepts</p>
+          </div>
+          <div style="padding: 10px 14px; background-color: rgba(239, 133, 9, 0.08); border-radius: 8px; border-left: 3px solid #EF8509;">
+            <p style="font-size: 13px; margin: 0; color: var(--leland-text-dark);"><strong>Fix:</strong> Slow down and be careful</p>
+          </div>
+          <div style="padding: 10px 14px; background-color: rgba(251, 90, 66, 0.08); border-radius: 8px; border-left: 3px solid #FB5A42;">
+            <p style="font-size: 13px; margin: 0; color: var(--leland-text-dark);"><strong>Fix:</strong> Review question strategies</p>
+          </div>
+        </div>
+
+        <!-- Footer Logo -->
+        <div class="leland-footer">
+          <svg width="80" height="18" viewBox="0 0 200 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z" fill="#9B9B9B"/>
+            <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z" fill="#9B9B9B"/>
+            <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z" fill="#9B9B9B"/>
+            <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z" fill="#9B9B9B"/>
+            <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z" fill="#9B9B9B"/>
+            <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z" fill="#9B9B9B"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z" fill="#9B9B9B"/>
+          </svg>
+        </div>
+
+        <aside class="notes">
+          3:00 - 3:30 | Walk through the three error categories. Content gaps mean you need to study concepts. Process errors mean you need to slow down. Strategy errors mean you need to review techniques.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 5: Real Examples -->
+      <!-- ============================================ -->
+      <section class="content-alt" style="padding: 44px 56px; display: flex; flex-direction: column; padding-bottom: 70px;">
+        <!-- Header -->
+        <div style="margin-bottom: 16px;">
+          <p class="eyebrow">Real Examples</p>
+          <h2 style="font-size: 28px; margin: 0;">What Error Log Entries Look Like</h2>
+        </div>
+
+        <!-- Examples Grid -->
+        <div class="grid-2" style="flex: 1; gap: 14px;">
+
+          <!-- Example 1: Content Gap C1 -->
+          <div class="card" style="padding: 18px; border-left: 4px solid #15B078;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+              <span style="color: #15B078; font-size: 12px; font-weight: 600; text-transform: uppercase;">Content Gap (C1)</span>
+              <span style="color: #9B9B9B; font-size: 12px;">Jan 13</span>
+            </div>
+            <p style="font-size: 13px; font-weight: 600; margin: 0 0 6px 0;">Exponents Drill, #6</p>
+            <p class="neg" style="font-size: 12px; margin: 0 0 6px 0;">Thought x&#x2070; = 0 instead of x&#x2070; = 1</p>
+            <p style="color: var(--leland-text-light); font-size: 12px; margin: 0;">Remember, any non-zero number to the 0 power equals 1</p>
+          </div>
+
+          <!-- Example 2: Process Error P2 -->
+          <div class="card" style="padding: 18px; border-left: 4px solid #EF8509;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+              <span style="color: #EF8509; font-size: 12px; font-weight: 600; text-transform: uppercase;">Process Error (P2)</span>
+              <span style="color: #9B9B9B; font-size: 12px;">Jan 17</span>
+            </div>
+            <p style="font-size: 13px; font-weight: 600; margin: 0 0 6px 0;">Practice Test 1, QC #8</p>
+            <p class="neg" style="font-size: 12px; margin: 0 0 6px 0;">Forgot to consider negative numbers</p>
+            <p style="color: var(--leland-text-light); font-size: 12px; margin: 0;">Remember, for QC always test positive, negative, zero, and fractions</p>
+          </div>
+
+          <!-- Example 3: Strategy Error S2 -->
+          <div class="card" style="padding: 18px; border-left: 4px solid #FB5A42;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+              <span style="color: #FB5A42; font-size: 12px; font-weight: 600; text-transform: uppercase;">Strategy Error (S2)</span>
+              <span style="color: #9B9B9B; font-size: 12px;">Jan 16</span>
+            </div>
+            <p style="font-size: 13px; font-weight: 600; margin: 0 0 6px 0;">SE Drill, #4</p>
+            <p class="neg" style="font-size: 12px; margin: 0 0 6px 0;">Picked words that fit individually but weren't synonyms</p>
+            <p style="color: var(--leland-text-light); font-size: 12px; margin: 0;">Remember, SE answers must be synonyms creating the same meaning</p>
+          </div>
+
+          <!-- Example 4: Content Gap C3 -->
+          <div class="card" style="padding: 18px; border-left: 4px solid #15B078;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+              <span style="color: #15B078; font-size: 12px; font-weight: 600; text-transform: uppercase;">Content Gap (C3)</span>
+              <span style="color: #9B9B9B; font-size: 12px;">Jan 16</span>
+            </div>
+            <p style="font-size: 13px; font-weight: 600; margin: 0 0 6px 0;">TC Practice Set, #7</p>
+            <p class="neg" style="font-size: 12px; margin: 0 0 6px 0;">Missed contrast signal "although"</p>
+            <p style="color: var(--leland-text-light); font-size: 12px; margin: 0;">Remember, "although," "however," "despite" signal contrast</p>
+          </div>
+
+        </div>
+
+        <!-- Footer Logo -->
+        <div class="leland-footer">
+          <svg width="80" height="18" viewBox="0 0 200 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z" fill="#9B9B9B"/>
+            <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z" fill="#9B9B9B"/>
+            <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z" fill="#9B9B9B"/>
+            <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z" fill="#9B9B9B"/>
+            <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z" fill="#9B9B9B"/>
+            <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z" fill="#9B9B9B"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z" fill="#9B9B9B"/>
+          </svg>
+        </div>
+
+        <aside class="notes">
+          3:30 - 5:00 | Walk through four real examples of error log entries. Show how each one captures the key information: what happened, what type of error it was, and what to remember. These examples make the template concrete.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 6: Finding Patterns -->
+      <!-- ============================================ -->
+      <section class="content" style="padding: 40px 56px; display: flex; flex-direction: column; padding-bottom: 70px;">
+        <!-- Header -->
+        <div style="margin-bottom: 14px;">
+          <p class="eyebrow">Weekly Review</p>
+          <h2 style="font-size: 30px; margin: 0;">Finding Patterns in Your Errors</h2>
+        </div>
+
+        <!-- Content -->
+        <div class="two-column" style="flex: 1; gap: 20px;">
+
+          <!-- Left: How to Analyze -->
+          <div>
+            <p style="color: var(--leland-text-light); font-size: 13px; margin: 0 0 12px 0;">Once you have 15-20 entries, patterns emerge</p>
+
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+              <div style="display: flex; gap: 12px; padding: 12px; background-color: #F8F8F8; border-radius: 8px;">
+                <div class="step-num" style="width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; flex-shrink: 0; background-color: #15B078; color: white;">1</div>
+                <div>
+                  <p style="font-size: 13px; font-weight: 600; margin: 0 0 2px 0;">Count by error type</p>
+                  <p style="color: var(--leland-text-light); font-size: 12px; margin: 0;">How many C vs P vs S? This tells you what to fix.</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 12px; padding: 12px; background-color: #F8F8F8; border-radius: 8px;">
+                <div class="step-num" style="width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; flex-shrink: 0; background-color: #15B078; color: white;">2</div>
+                <div>
+                  <p style="font-size: 13px; font-weight: 600; margin: 0 0 2px 0;">Count by topic</p>
+                  <p style="color: var(--leland-text-light); font-size: 12px; margin: 0;">More geometry? More SE? This tells you where to focus.</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 12px; padding: 12px; background-color: #F8F8F8; border-radius: 8px;">
+                <div class="step-num" style="width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; flex-shrink: 0; background-color: #15B078; color: white;">3</div>
+                <div>
+                  <p style="font-size: 13px; font-weight: 600; margin: 0 0 2px 0;">Look for repeats</p>
+                  <p style="color: var(--leland-text-light); font-size: 12px; margin: 0;">Same note appearing multiple times? That's priority #1.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Example Summary -->
+          <div class="card" style="background-color: rgba(21, 176, 120, 0.08); border: 1px solid rgba(21, 176, 120, 0.2); padding: 18px;">
+            <div style="color: #15B078; font-size: 13px; font-weight: 600; text-transform: uppercase; margin-bottom: 10px;">Sample Pattern Analysis</div>
+
+            <div style="margin-bottom: 14px;">
+              <p style="font-size: 12px; font-weight: 600; margin: 0 0 8px 0;">By Error Type (20 total)</p>
+              <div style="display: flex; gap: 8px;">
+                <div style="flex: 1; padding: 8px; background-color: white; border-radius: 4px; text-align: center;">
+                  <div style="color: #15B078; font-size: 18px; font-weight: 600;">8</div>
+                  <div style="color: var(--leland-text-light); font-size: 11px;">Content</div>
+                </div>
+                <div style="flex: 1; padding: 8px; background-color: white; border-radius: 4px; text-align: center;">
+                  <div style="color: #EF8509; font-size: 18px; font-weight: 600;">7</div>
+                  <div style="color: var(--leland-text-light); font-size: 11px;">Process</div>
+                </div>
+                <div style="flex: 1; padding: 8px; background-color: white; border-radius: 4px; text-align: center;">
+                  <div style="color: #FB5A42; font-size: 18px; font-weight: 600;">5</div>
+                  <div style="color: var(--leland-text-light); font-size: 11px;">Strategy</div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <p style="font-size: 12px; font-weight: 600; margin: 0 0 6px 0;">Top 3 Topics</p>
+              <ol style="color: var(--leland-text-light); font-size: 12px; line-height: 1.5; margin: 0; padding-left: 16px;">
+                <li>Percent Change (4 errors)</li>
+                <li>Sentence Equivalence (3 errors)</li>
+                <li>Data Interpretation (3 errors)</li>
+              </ol>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Bottom -->
+        <div class="callout-dark" style="margin-top: 12px; text-align: center;">
+          <p style="font-size: 14px; margin: 0;"><span class="hl-bold">Weekly Question:</span> "If I could only fix three things before my next practice test, what would have the biggest impact?"</p>
+        </div>
+
+        <!-- Footer Logo -->
+        <div class="leland-footer">
+          <svg width="80" height="18" viewBox="0 0 200 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z" fill="#9B9B9B"/>
+            <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z" fill="#9B9B9B"/>
+            <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z" fill="#9B9B9B"/>
+            <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z" fill="#9B9B9B"/>
+            <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z" fill="#9B9B9B"/>
+            <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z" fill="#9B9B9B"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z" fill="#9B9B9B"/>
+          </svg>
+        </div>
+
+        <aside class="notes">
+          5:00 - 6:00 | Explain how to analyze error log entries weekly. Count by type, count by topic, look for repeats. Show the sample pattern analysis. Encourage asking the weekly question to prioritize study efforts.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 7: The Redo System -->
+      <!-- ============================================ -->
+      <section class="content" style="padding: 40px 56px; display: flex; flex-direction: column; padding-bottom: 70px;">
+        <!-- Header -->
+        <div style="margin-bottom: 16px;">
+          <p class="eyebrow">Spaced Repetition</p>
+          <h2 style="font-size: 36px; margin: 0;">The Redo System</h2>
+        </div>
+
+        <!-- Flow Diagram -->
+        <div style="flex: 1; display: flex; flex-direction: column; justify-content: center;">
+          <div style="display: flex; align-items: center; justify-content: center; gap: 20px;">
+
+            <!-- Step 1: Log Error -->
+            <div style="padding: 22px; background-color: #15B078; border-radius: 12px; text-align: center; width: 180px;">
+              <div style="color: rgba(255,255,255,0.7); font-size: 12px; font-weight: 600; text-transform: uppercase; margin-bottom: 8px;">Step 1</div>
+              <div style="color: white; font-size: 16px; font-weight: 600;">Log the Error</div>
+              <div style="color: rgba(255,255,255,0.7); font-size: 12px; margin-top: 6px;">Set redo date: 1 week</div>
+            </div>
+
+            <div style="color: #15B078; font-size: 28px;">&#8594;</div>
+
+            <!-- Step 2: Redo -->
+            <div style="padding: 22px; background-color: #F8F8F8; border-radius: 12px; text-align: center; width: 180px;">
+              <div style="color: #15B078; font-size: 12px; font-weight: 600; text-transform: uppercase; margin-bottom: 8px;">Step 2</div>
+              <div style="color: #333333; font-size: 16px; font-weight: 600;">Redo Problem</div>
+              <div style="color: var(--leland-text-light); font-size: 12px; margin-top: 6px;">Without looking at notes</div>
+            </div>
+
+            <div style="color: #15B078; font-size: 28px;">&#8594;</div>
+
+            <!-- Branch -->
+            <div style="display: flex; flex-direction: column; gap: 14px;">
+              <!-- Got it right -->
+              <div style="display: flex; align-items: center; gap: 14px;">
+                <div class="ans" style="padding: 14px 20px; background-color: rgba(21, 176, 120, 0.15); border-radius: 8px; border: 2px solid #15B078;">
+                  <div style="color: #15B078; font-size: 14px; font-weight: 600;">Got it right</div>
+                </div>
+                <div style="color: var(--leland-text-light); font-size: 18px;">&#8594;</div>
+                <div style="padding: 14px 20px; background-color: #F8F8F8; border-radius: 8px;">
+                  <div style="color: #333333; font-size: 14px; font-weight: 600;">Monthly Review</div>
+                </div>
+              </div>
+
+              <!-- Got it wrong -->
+              <div style="display: flex; align-items: center; gap: 14px;">
+                <div style="padding: 14px 20px; background-color: rgba(251, 90, 66, 0.1); border-radius: 8px; border: 2px solid rgba(251, 90, 66, 0.3);">
+                  <div class="neg" style="font-size: 14px; font-weight: 600;">Got it wrong</div>
+                </div>
+                <div style="color: var(--leland-text-light); font-size: 18px;">&#8594;</div>
+                <div style="padding: 14px 20px; background-color: #F8F8F8; border-radius: 8px;">
+                  <div style="color: #333333; font-size: 14px; font-weight: 600;">Redo in 3-4 days</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Key Insight -->
+        <div class="callout-green" style="margin-top: 12px;">
+          <p style="font-size: 15px; margin: 0;">Understanding something once isn't enough. You need to practice until it's automatic. Spaced repetition is how learning gets cemented.</p>
+        </div>
+
+        <!-- Footer Logo -->
+        <div class="leland-footer">
+          <svg width="80" height="18" viewBox="0 0 200 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z" fill="#9B9B9B"/>
+            <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z" fill="#9B9B9B"/>
+            <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z" fill="#9B9B9B"/>
+            <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z" fill="#9B9B9B"/>
+            <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z" fill="#9B9B9B"/>
+            <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z" fill="#9B9B9B"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z" fill="#9B9B9B"/>
+          </svg>
+        </div>
+
+        <aside class="notes">
+          6:00 - 7:00 | Explain the redo system as spaced repetition. Log the error, set a redo date for one week, then redo without notes. If right, move to monthly review. If wrong, redo in 3-4 days. This is how learning gets cemented.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 8: Summary (Dark) -->
+      <!-- ============================================ -->
+      <section class="title-dark">
+        <!-- Top Logo (white) -->
+        <div class="leland-logo-top">
+          <svg width="110" height="25" viewBox="0 0 200 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z" fill="white"/>
+            <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z" fill="white"/>
+            <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z" fill="white"/>
+            <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z" fill="white"/>
+            <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z" fill="white"/>
+            <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z" fill="white"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z" fill="white"/>
+          </svg>
+        </div>
+
+        <!-- Header -->
+        <div style="margin-top: 20px; margin-bottom: 28px;">
+          <p class="eyebrow">Summary</p>
+          <h2 style="font-size: 36px;">The Bottom Line</h2>
+        </div>
+
+        <!-- Key Points -->
+        <div style="display: flex; flex-direction: column; gap: 12px; max-width: 700px;">
+          <div style="display: flex; gap: 12px; align-items: flex-start;">
+            <span style="color: #15B078; font-size: 16px;">+</span>
+            <p class="text-muted" style="font-size: 16px; margin: 0;">Every wrong answer is <span class="text-white" style="font-weight: 500;">data</span> about what you need to learn</p>
+          </div>
+          <div style="display: flex; gap: 12px; align-items: flex-start;">
+            <span style="color: #15B078; font-size: 16px;">+</span>
+            <p class="text-muted" style="font-size: 16px; margin: 0;">An error log turns that data into <span class="text-white" style="font-weight: 500;">patterns</span> you can act on</p>
+          </div>
+          <div style="display: flex; gap: 12px; align-items: flex-start;">
+            <span style="color: #15B078; font-size: 16px;">+</span>
+            <p class="text-muted" style="font-size: 16px; margin: 0;">Recording what went wrong forces you to <span class="text-white" style="font-weight: 500;">actually understand</span> it</p>
+          </div>
+          <div style="display: flex; gap: 12px; align-items: flex-start;">
+            <span style="color: #15B078; font-size: 16px;">+</span>
+            <p class="text-muted" style="font-size: 16px; margin: 0;">Weekly review <span class="text-white" style="font-weight: 500;">guides your study priorities</span></p>
+          </div>
+          <div style="display: flex; gap: 12px; align-items: flex-start;">
+            <span style="color: #15B078; font-size: 16px;">+</span>
+            <p class="text-muted" style="font-size: 16px; margin: 0;">Redoing problems is how you <span class="text-white" style="font-weight: 500;">cement the learning</span></p>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div style="margin-top: 28px; margin-bottom: 16px; padding: 18px 24px; background-color: rgba(21, 176, 120, 0.15); border-radius: 8px; border-left: 4px solid #15B078;">
+          <p class="text-white" style="font-size: 16px; margin: 0;"><span class="hl-bold">Next step:</span> Download the error log template included below. Even just 5 entries will teach you something useful about your own patterns.</p>
+        </div>
+
+        <aside class="notes">
+          7:00 - 7:30 | Wrap up with five key takeaways. End with the call to action: download the template and start with just 5 entries. Even a small amount of error logging reveals useful patterns.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js -->
+  <script src="../assets/reveal/dist/reveal.min.js"></script>
+  <script type="module">
+    import RevealNotes from '../assets/reveal/plugin/notes/notes.esm.js';
+
+    Reveal.initialize({
+      width: 960,
+      height: 540,
+      margin: 0,
+      minScale: 0.5,
+      maxScale: 3.0,
+      hash: true,
+      slideNumber: true,
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+      transition: 'none',
+      backgroundTransition: 'none',
+      disableLayout: false,
+      plugins: [ RevealNotes ]
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en" class="reveal-full-page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ID19: Absolute Value and the Number Line</title>
+
+  <!-- Reveal.js Core -->
+  <link rel="stylesheet" href="../assets/reveal/dist/reset.css">
+  <link rel="stylesheet" href="../assets/reveal/dist/reveal.css">
+
+  <!-- Leland Theme -->
+  <link rel="stylesheet" href="../assets/reveal/themes/leland.css">
+
+  <!-- KaTeX for math rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+
+  <style>
+    /* Slide-specific overrides */
+.math-box {
+      background: var(--leland-offwhite);
+      border-radius: 8px;
+      padding: 16px 20px;
+      font-family: 'Calibre', monospace;
+      font-size: 18px;
+    }
+    .step-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+    .step-circle {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--leland-green);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+    .number-line {
+      background: #F8F8F8;
+      border-radius: 8px;
+      padding: 16px 20px;
+      text-align: center;
+    }
+    .number-line svg {
+      max-width: 100%;
+    }
+    .trap-card {
+      background: rgba(251, 90, 66, 0.04);
+      border-left: 4px solid rgba(251, 90, 66, 0.6);
+      border-radius: 0 8px 8px 0;
+      padding: 12px 16px;
+      margin-bottom: 12px;
+    }
+    .trap-card h4 {
+      color: #FB5A42;
+      font-size: 14px;
+      margin: 0 0 6px 0;
+    }
+    .trap-card p {
+      font-size: 13px;
+      margin: 0;
+      color: var(--leland-text-dark);
+    }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ============================================ -->
+      <!-- SLIDE 1: Title (Dark) -->
+      <!-- ============================================ -->
+      <section class="title-dark">
+        <!-- Top Logo (white) -->
+        <div class="leland-logo-top">
+          <svg width="110" height="25" viewBox="0 0 200 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z" fill="white"/>
+            <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z" fill="white"/>
+            <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z" fill="white"/>
+            <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z" fill="white"/>
+            <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z" fill="white"/>
+            <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z" fill="white"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z" fill="white"/>
+          </svg>
+        </div>
+
+        <div style="margin-top: 20px;">
+          <p class="eyebrow">GRE Self-Study Course</p>
+          <h1>Absolute Value<br><span class="hl">and the Number Line</span></h1>
+        </div>
+
+        <aside class="notes">
+          0:00 - 0:30 | Hook: Most people remember that |−5| = 5, but the real power of absolute value is understanding it as distance on a number line. When you see it this way, tricky problems become straightforward.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 2: Core Concept - Distance from Zero -->
+      <!-- ============================================ -->
+      <section class="content" style="padding: 48px 64px; display: flex; flex-direction: column; padding-bottom: 70px;">
+        <!-- Header -->
+        <div style="margin-bottom: 20px;">
+          <p class="eyebrow">Core Concept</p>
+          <h2 style="font-size: 32px; margin: 0;">Absolute Value = Distance</h2>
+        </div>
+
+        <!-- Main content -->
+        <div style="display: flex; gap: 24px; flex: 1;">
+          <!-- Left: Basic definition -->
+          <div style="flex: 1;">
+            <div class="math-box" style="margin-bottom: 16px;">
+              <p style="margin: 0; font-size: 18px; text-align: center;">
+                $|x|$ = <strong>distance</strong> from $x$ to $0$
+              </p>
+            </div>
+
+            <div style="background: rgba(21, 176, 120, 0.06); padding: 16px; border-radius: 8px; margin-bottom: 16px;">
+              <p style="font-size: 15px; margin: 0 0 8px 0;">$|5| = 5$ because 5 is <strong>five units</strong> from 0</p>
+              <p style="font-size: 15px; margin: 0;">$|-5| = 5$ because −5 is also <strong>five units</strong> from 0</p>
+            </div>
+
+            <div class="callout-green" style="margin-top: 16px;">
+              <p style="font-size: 14px; margin: 0;">Distance is always positive (or zero). You can't have a negative distance.</p>
+            </div>
+          </div>
+
+          <!-- Right: Extended definition -->
+          <div style="flex: 1;">
+            <div class="math-box" style="margin-bottom: 16px;">
+              <p style="margin: 0; font-size: 18px; text-align: center;">
+                $|x - a|$ = <strong>distance</strong> from $x$ to $a$
+              </p>
+            </div>
+
+            <h3 style="font-size: 14px; color: var(--leland-text-muted); margin: 16px 0 12px 0; text-transform: uppercase; letter-spacing: 0.08em;">Examples</h3>
+
+            <div style="background: #F8F8F8; padding: 14px 16px; border-radius: 8px;">
+              <p style="font-size: 14px; margin: 0 0 10px 0;">
+                If $x = 7$: $|7 - 3| = |4| = $ <span style="color: var(--leland-green); font-weight: 600;">4</span><br>
+                <span style="color: var(--leland-text-light); font-size: 13px;">7 is 4 units from 3</span>
+              </p>
+              <p style="font-size: 14px; margin: 0;">
+                If $x = 1$: $|1 - 3| = |-2| = $ <span style="color: var(--leland-green); font-weight: 600;">2</span><br>
+                <span style="color: var(--leland-text-light); font-size: 13px;">1 is 2 units from 3</span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer Logo -->
+        <div class="leland-footer">
+          <svg width="80" height="18" viewBox="0 0 200 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z" fill="#9B9B9B"/>
+            <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z" fill="#9B9B9B"/>
+            <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z" fill="#9B9B9B"/>
+            <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z" fill="#9B9B9B"/>
+            <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z" fill="#9B9B9B"/>
+            <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z" fill="#9B9B9B"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z" fill="#9B9B9B"/>
+          </svg>
+        </div>
+
+        <aside class="notes">
+          0:30 - 2:00 | Core concept: |x| is distance from x to 0. Both 5 and −5 are five units from 0. Extended: |x − a| is distance from x to a. Examples with x = 7 and x = 1 relative to 3.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 3: Absolute Value Equations -->
+      <!-- ============================================ -->
+      <section class="content" style="padding: 48px 64px; display: flex; flex-direction: column; padding-bottom: 70px;">
+        <!-- Header -->
+        <div style="margin-bottom: 16px;">
+          <p class="eyebrow">Equations</p>
+          <h2 style="font-size: 28px; margin: 0;">Solving Absolute Value Equations</h2>
+        </div>
+
+        <!-- Two columns -->
+        <div style="display: flex; gap: 24px; flex: 1;">
+          <!-- Example 1 -->
+          <div style="flex: 1;">
+            <h3 style="font-size: 14px; color: var(--leland-text-muted); margin: 0 0 12px 0; text-transform: uppercase; letter-spacing: 0.08em;">Example 1</h3>
+            <div class="math-box" style="margin-bottom: 12px;">
+              <p style="margin: 0; font-size: 17px; text-align: center;">$|x| = 7$</p>
+            </div>
+            <p style="font-size: 14px; color: var(--leland-text-light); margin: 0 0 12px 0;">
+              "Distance from $x$ to 0 is 7"
+            </p>
+            <p style="font-size: 15px; margin: 0;">
+              What numbers are 7 units from 0?<br>
+              <strong style="color: var(--leland-green);">$x = 7$ or $x = -7$</strong>
+            </p>
+          </div>
+
+          <!-- Example 2 -->
+          <div style="flex: 1;">
+            <h3 style="font-size: 14px; color: var(--leland-text-muted); margin: 0 0 12px 0; text-transform: uppercase; letter-spacing: 0.08em;">Example 2</h3>
+            <div class="math-box" style="margin-bottom: 12px;">
+              <p style="margin: 0; font-size: 17px; text-align: center;">$|x - 3| = 5$</p>
+            </div>
+            <p style="font-size: 14px; color: var(--leland-text-light); margin: 0 0 12px 0;">
+              "Distance from $x$ to 3 is 5"
+            </p>
+            <p style="font-size: 15px; margin: 0;">
+              5 units right of 3: $3 + 5 = 8$<br>
+              5 units left of 3: $3 - 5 = -2$<br>
+              <strong style="color: var(--leland-green);">$x = 8$ or $x = -2$</strong>
+            </p>
+          </div>
+
+          <!-- Example 3 -->
+          <div style="flex: 1;">
+            <h3 style="font-size: 14px; color: var(--leland-text-muted); margin: 0 0 12px 0; text-transform: uppercase; letter-spacing: 0.08em;">Example 3</h3>
+            <div class="math-box" style="margin-bottom: 12px;">
+              <p style="margin: 0; font-size: 17px; text-align: center;">$|2x + 1| = 9$</p>
+            </div>
+            <p style="font-size: 14px; color: var(--leland-text-light); margin: 0 0 12px 0;">
+              The expression $(2x + 1)$ is 9 from 0
+            </p>
+            <div style="font-size: 14px;">
+              <p style="margin: 0;">$2x + 1 = 9 \Rightarrow x = 4$</p>
+              <p style="margin: 4px 0 0 0;">$2x + 1 = -9 \Rightarrow x = -5$</p>
+              <p style="margin: 8px 0 0 0;"><strong style="color: var(--leland-green);">$x = 4$ or $x = -5$</strong></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- General Pattern -->
+        <div class="callout-green" style="margin-top: 16px;">
+          <p style="font-size: 15px; margin: 0;">For $|\text{expression}| = k$, set up two equations: expression $= k$ and expression $= -k$</p>
+        </div>
+
+        <!-- Footer Logo -->
+        <div class="leland-footer">
+          <svg width="80" height="18" viewBox="0 0 200 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z" fill="#9B9B9B"/>
+            <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z" fill="#9B9B9B"/>
+            <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z" fill="#9B9B9B"/>
+            <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z" fill="#9B9B9B"/>
+            <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z" fill="#9B9B9B"/>
+            <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z" fill="#9B9B9B"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z" fill="#9B9B9B"/>
+          </svg>
+        </div>
+
+        <aside class="notes">
+          2:00 - 4:30 | Equations: |x| = 7 gives x = 7 or x = −7. |x − 3| = 5 means distance from x to 3 is 5, so x = 8 or x = −2. |2x + 1| = 9 splits into two cases. Pattern: always set up two equations.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 4: Absolute Value Inequalities - Less Than -->
+      <!-- ============================================ -->
+      <section class="content" style="padding: 48px 64px; display: flex; flex-direction: column; padding-bottom: 70px;">
+        <!-- Header -->
+        <div style="margin-bottom: 16px;">
+          <p class="eyebrow">Inequalities</p>
+          <h2 style="font-size: 28px; margin: 0;">Less Than = Between</h2>
+        </div>
+
+        <!-- Main content -->
+        <div style="display: flex; gap: 24px; flex: 1;">
+          <!-- Example 1 -->
+          <div style="flex: 1;">
+            <div class="math-box" style="margin-bottom: 12px; text-align: center;">
+              <p style="margin: 0; font-size: 20px;">$|x| < 4$</p>
+            </div>
+            <p style="font-size: 14px; color: var(--leland-text-light); margin: 0 0 12px 0;">
+              "$x$ is <strong>less than 4 units</strong> from 0"
+            </p>
+            <p style="font-size: 15px; margin: 0 0 16px 0;">
+              What numbers are closer than 4 units to 0?<br>
+              Everything <strong>between</strong> −4 and 4.
+            </p>
+            <div style="background: rgba(21, 176, 120, 0.08); padding: 12px 16px; border-radius: 8px; text-align: center;">
+              <p style="margin: 0; font-size: 18px; color: var(--leland-green); font-weight: 600;">$-4 < x < 4$</p>
+            </div>
+          </div>
+
+          <!-- Example 2 -->
+          <div style="flex: 1;">
+            <div class="math-box" style="margin-bottom: 12px; text-align: center;">
+              <p style="margin: 0; font-size: 20px;">$|x - 2| \leq 3$</p>
+            </div>
+            <p style="font-size: 14px; color: var(--leland-text-light); margin: 0 0 12px 0;">
+              "Distance from $x$ to 2 is <strong>at most 3</strong>"
+            </p>
+            <p style="font-size: 15px; margin: 0 0 16px 0;">
+              $x$ is within 3 units of 2:<br>
+              From $2 - 3$ to $2 + 3$
+            </p>
+            <div style="background: rgba(21, 176, 120, 0.08); padding: 12px 16px; border-radius: 8px; text-align: center;">
+              <p style="margin: 0; font-size: 18px; color: var(--leland-green); font-weight: 600;">$-1 \leq x \leq 5$</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pattern Box -->
+        <div style="background: #113A2D; border-radius: 8px; padding: 20px 24px; margin-top: 16px;">
+          <p style="color: white; font-size: 16px; margin: 0; text-align: center;">
+            <span style="color: #15B078; font-weight: 600;">Pattern:</span> $|x| < k$ means $-k < x < k$ (one interval, between)
+          </p>
+        </div>
+
+        <!-- Footer Logo -->
+        <div class="leland-footer">
+          <svg width="80" height="18" viewBox="0 0 200 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z" fill="#9B9B9B"/>
+            <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z" fill="#9B9B9B"/>
+            <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z" fill="#9B9B9B"/>
+            <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z" fill="#9B9B9B"/>
+            <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z" fill="#9B9B9B"/>
+            <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z" fill="#9B9B9B"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z" fill="#9B9B9B"/>
+          </svg>
+        </div>
+
+        <aside class="notes">
+          4:30 - 6:00 | Less than inequalities: |x| < 4 means x is between −4 and 4. |x − 2| ≤ 3 means x is within 3 of 2, so −1 ≤ x ≤ 5. Pattern: less than = between (one interval).
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 5: Absolute Value Inequalities - Greater Than -->
+      <!-- ============================================ -->
+      <section class="content" style="padding: 48px 64px; display: flex; flex-direction: column; padding-bottom: 70px;">
+        <!-- Header -->
+        <div style="margin-bottom: 16px;">
+          <p class="eyebrow">Inequalities</p>
+          <h2 style="font-size: 28px; margin: 0;">Greater Than = Outside</h2>
+        </div>
+
+        <!-- Main content -->
+        <div style="display: flex; gap: 24px; flex: 1;">
+          <!-- Example 1 -->
+          <div style="flex: 1;">
+            <div class="math-box" style="margin-bottom: 12px; text-align: center;">
+              <p style="margin: 0; font-size: 20px;">$|x| > 4$</p>
+            </div>
+            <p style="font-size: 14px; color: var(--leland-text-light); margin: 0 0 12px 0;">
+              "$x$ is <strong>more than 4 units</strong> from 0"
+            </p>
+            <p style="font-size: 15px; margin: 0 0 16px 0;">
+              What numbers are farther than 4 units from 0?<br>
+              Everything <strong>outside</strong> the interval.
+            </p>
+            <div style="background: rgba(21, 176, 120, 0.08); padding: 12px 16px; border-radius: 8px; text-align: center;">
+              <p style="margin: 0; font-size: 18px; color: var(--leland-green); font-weight: 600;">$x < -4$ or $x > 4$</p>
+            </div>
+          </div>
+
+          <!-- Example 2 -->
+          <div style="flex: 1;">
+            <div class="math-box" style="margin-bottom: 12px; text-align: center;">
+              <p style="margin: 0; font-size: 20px;">$|x + 5| > 2$</p>
+            </div>
+            <p style="font-size: 14px; color: var(--leland-text-light); margin: 0 0 12px 0;">
+              This is $|x - (-5)| > 2$<br>
+              "Distance from $x$ to −5 is <strong>more than 2</strong>"
+            </p>
+            <p style="font-size: 15px; margin: 0 0 12px 0;">
+              $x < -5 - 2$ or $x > -5 + 2$
+            </p>
+            <div style="background: rgba(21, 176, 120, 0.08); padding: 12px 16px; border-radius: 8px; text-align: center;">
+              <p style="margin: 0; font-size: 18px; color: var(--leland-green); font-weight: 600;">$x < -7$ or $x > -3$</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pattern Box -->
+        <div style="background: #113A2D; border-radius: 8px; padding: 20px 24px; margin-top: 16px;">
+          <p style="color: white; font-size: 16px; margin: 0; text-align: center;">
+            <span style="color: #15B078; font-weight: 600;">Pattern:</span> $|x| > k$ means $x < -k$ or $x > k$ (two pieces, outside)
+          </p>
+        </div>
+
+        <!-- Footer Logo -->
+        <div class="leland-footer">
+          <svg width="80" height="18" viewBox="0 0 200 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z" fill="#9B9B9B"/>
+            <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z" fill="#9B9B9B"/>
+            <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z" fill="#9B9B9B"/>
+            <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z" fill="#9B9B9B"/>
+            <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z" fill="#9B9B9B"/>
+            <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z" fill="#9B9B9B"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z" fill="#9B9B9B"/>
+          </svg>
+        </div>
+
+        <aside class="notes">
+          6:00 - 7:30 | Greater than inequalities: |x| > 4 means x < −4 or x > 4. |x + 5| > 2 is distance from x to −5 more than 2, giving x < −7 or x > −3. Pattern: greater than = outside (two pieces).
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 6: Common Traps -->
+      <!-- ============================================ -->
+      <section class="content" style="padding: 48px 64px; display: flex; flex-direction: column; padding-bottom: 70px;">
+        <!-- Header -->
+        <div style="margin-bottom: 16px;">
+          <p class="eyebrow">Traps to Avoid</p>
+          <h2 style="font-size: 28px; margin: 0;">Four Common Mistakes</h2>
+        </div>
+
+        <!-- Traps grid -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; flex: 1;">
+          <!-- Trap 1 -->
+          <div class="trap-card">
+            <h4>Trap 1: Forgetting the Second Solution</h4>
+            <p>$|x - 3| = 5$ gives <strong>two</strong> answers: $x = 8$ and $x = -2$.<br>Always solve both cases.</p>
+          </div>
+
+          <!-- Trap 2 -->
+          <div class="trap-card">
+            <h4>Trap 2: Negative Result Issues</h4>
+            <p>$|x| = -3$ has <strong>no solution</strong>.<br>Distance is never negative. If you see this, answer is "no solution."</p>
+          </div>
+
+          <!-- Trap 3 -->
+          <div class="trap-card">
+            <h4>Trap 3: Confusing &lt; and &gt;</h4>
+            <p><strong>Less than (&lt;)</strong> = between (one interval)<br>
+            <strong>Greater than (&gt;)</strong> = outside (two pieces)<br>
+            Mixing these gives wrong answers.</p>
+          </div>
+
+          <!-- Trap 4 -->
+          <div class="trap-card">
+            <h4>Trap 4: Endpoints with ≤ and ≥</h4>
+            <p>Same logic, but include endpoints.<br>
+            $|x| \leq 4$ includes $-4 \leq x \leq 4$ (closed interval).</p>
+          </div>
+        </div>
+
+        <!-- Footer Logo -->
+        <div class="leland-footer">
+          <svg width="80" height="18" viewBox="0 0 200 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z" fill="#9B9B9B"/>
+            <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z" fill="#9B9B9B"/>
+            <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z" fill="#9B9B9B"/>
+            <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z" fill="#9B9B9B"/>
+            <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z" fill="#9B9B9B"/>
+            <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z" fill="#9B9B9B"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z" fill="#9B9B9B"/>
+          </svg>
+        </div>
+
+        <aside class="notes">
+          7:30 - 9:00 | Four common traps: 1) Forgetting second solution for equations. 2) |x| = negative has no solution. 3) Confusing < (between) and > (outside). 4) Remember endpoints with ≤ and ≥.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 7: Summary (Dark) -->
+      <!-- ============================================ -->
+      <section class="title-dark">
+        <!-- Top Logo (white) -->
+        <div class="leland-logo-top">
+          <svg width="110" height="25" viewBox="0 0 200 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z" fill="white"/>
+            <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z" fill="white"/>
+            <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z" fill="white"/>
+            <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z" fill="white"/>
+            <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z" fill="white"/>
+            <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z" fill="white"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z" fill="white"/>
+          </svg>
+        </div>
+
+        <!-- Header with spacing -->
+        <div style="margin-top: 20px; margin-bottom: 16px;">
+          <p class="eyebrow">Summary</p>
+          <h2 style="font-size: 28px;">Key Patterns</h2>
+        </div>
+
+        <!-- Summary table -->
+        <div style="background: rgba(255, 255, 255, 0.05); border-radius: 8px; padding: 16px 24px;">
+          <table style="width: 100%; border-collapse: collapse; color: white; font-size: 14px;">
+            <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+              <td style="padding: 8px 0; color: #15B078; font-weight: 600;">Core Concept</td>
+              <td style="padding: 8px 0;">$|x| = $ distance from 0; $|x - a| = $ distance from $a$</td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+              <td style="padding: 8px 0; color: #15B078; font-weight: 600;">Equations</td>
+              <td style="padding: 8px 0;">$|\text{expr}| = k$ → solve expr $= k$ and expr $= -k$</td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+              <td style="padding: 8px 0; color: #15B078; font-weight: 600;">Less Than</td>
+              <td style="padding: 8px 0;">$|x| < k$ → between: $-k < x < k$</td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+              <td style="padding: 8px 0; color: #15B078; font-weight: 600;">Greater Than</td>
+              <td style="padding: 8px 0;">$|x| > k$ → outside: $x < -k$ or $x > k$</td>
+            </tr>
+            <tr>
+              <td style="padding: 8px 0; color: #FB5A42; font-weight: 600;">No Solution</td>
+              <td style="padding: 8px 0;">$|\text{something}| = $ negative number</td>
+            </tr>
+          </table>
+        </div>
+
+        <aside class="notes">
+          9:00 - 10:00 | Summary: Core concept is distance. Equations split into two cases. Less than = between, greater than = outside. No solution when set equal to negative. Think distance for clarity.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js -->
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.js"></script>
+  <script src="../assets/reveal/plugin/notes/notes.js"></script>
+  <script type="module">
+    import RevealNotes from '../assets/reveal/plugin/notes/notes.esm.js';
+    
+    Reveal.initialize({
+      width: 960,
+      height: 540,
+      margin: 0,
+      minScale: 0.5,
+      maxScale: 3.0,
+      hash: true,
+      slideNumber: true,
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+      transition: 'none',
+      backgroundTransition: 'none',
+      disableLayout: false,
+      plugins: [ RevealNotes ]
+    });
+  </script>
+</body>
+</html>

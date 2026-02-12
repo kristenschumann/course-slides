@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en" class="reveal-full-page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Integers &amp; Order of Operations</title>
+
+  <!-- Reveal.js Core -->
+  <link rel="stylesheet" href="../assets/reveal/dist/reset.css">
+  <link rel="stylesheet" href="../assets/reveal/dist/reveal.css">
+
+  <!-- Leland Theme -->
+  <link rel="stylesheet" href="../assets/reveal/themes/leland.css">
+
+  <!-- KaTeX for math rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false}
+      ]
+    });"></script>
+
+</head>
+<body>
+  <!-- SVG Symbol Definitions (defined once, referenced via <use>) -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="leland-logo" viewBox="0 0 200 45">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z"/>
+      <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z"/>
+      <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z"/>
+      <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z"/>
+      <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z"/>
+      <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z"/>
+    </symbol>
+  </svg>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ============================================ -->
+      <!-- SLIDE 1: Title (Dark) -->
+      <!-- ============================================ -->
+      <section class="title-dark">
+        <div class="leland-logo-top">
+          <svg width="110" height="25" fill="white"><use href="#leland-logo"/></svg>
+        </div>
+
+        <p class="eyebrow">GRE Self-Study Course</p>
+        <h1>Integers &amp;<br><span class="hl">Order of Operations</span></h1>
+
+        <aside class="notes">
+          0:00-0:45 | Hook: Arithmetic errors are the number one reason students lose points they shouldn't on the GRE. Not because the math is hard, but because under pressure, signs get flipped and operations get done in the wrong order. This video covers two foundational skills: signed number arithmetic and order of operations. Master these rules, and you will stop making careless mistakes that cost you points.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 2: Divider - Signed Numbers -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <p class="part-number">Part 1</p>
+        <h1>Signed Number Rules</h1>
+        <p>Addition, subtraction, multiplication, and division</p>
+
+        <aside class="notes">
+          0:45-0:55 | Transition into signed number rules.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 3: Addition Rules -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Signed Numbers</p>
+          <h2>Addition Rules</h2>
+        </div>
+
+        <div class="two-column gap-32">
+          <div class="card card-green-bg">
+            <span class="badge badge-green self-start mb-16">Same Signs</span>
+            <p class="text-md mb-16">Add the absolute values, keep the sign.</p>
+            <div class="card-alt compact mb-8">
+              <p class="text-sm">$6 + 3 = $ <span class="ans">$9$</span></p>
+            </div>
+            <div class="card-alt compact">
+              <p class="text-sm">$(-6) + (-3) = $ <span class="neg">$-9$</span></p>
+            </div>
+          </div>
+          <div class="card card-blue-bg">
+            <span class="badge badge-blue self-start mb-16">Different Signs</span>
+            <p class="text-md mb-16">Subtract the smaller absolute value from the larger. Keep the larger's sign.</p>
+            <div class="card-alt compact mb-8">
+              <p class="text-sm">$6 + (-3) = $ <span class="ans">$3$</span> <span class="text-light">(positive wins)</span></p>
+            </div>
+            <div class="card-alt compact">
+              <p class="text-sm">$(-6) + 3 = $ <span class="neg">$-3$</span> <span class="text-light">(negative wins)</span></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          0:55-1:55 | Walk through the two addition rules. Same signs: add absolutes and keep the sign. Different signs: subtract and keep the sign of the larger absolute value. Show each example.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 4: Subtraction Rule -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Signed Numbers</p>
+          <h2>Subtraction: Add the Opposite</h2>
+        </div>
+
+        <p class="text-md mb-16"><span class="badge badge-green">Remember</span> &nbsp;Subtracting a negative is adding a positive. The two negatives cancel.</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Expression</th>
+              <th>Rewrite as Addition</th>
+              <th>Result</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>$6 - 3$</td>
+              <td>$6 + (-3)$</td>
+              <td>$3$</td>
+            </tr>
+            <tr>
+              <td>$6 - (-3)$</td>
+              <td>$6 + (+3)$</td>
+              <td>$9$</td>
+            </tr>
+            <tr>
+              <td>$-6 - 3$</td>
+              <td>$-6 + (-3)$</td>
+              <td>$-9$</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          1:55-2:40 | Subtraction is addition in disguise. Convert every subtraction to adding the opposite. Walk through each row. Emphasize that subtracting a negative is adding a positive.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 5: Multiplication & Division Signs -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Signed Numbers</p>
+          <h2>Multiplication &amp; Division Signs</h2>
+        </div>
+
+        <div class="card-alt-green compact mb-16">
+          <p class="text-md"><strong>Same signs</strong> $\rightarrow$ Positive &nbsp;&nbsp;|&nbsp;&nbsp; <strong>Different signs</strong> $\rightarrow$ Negative</p>
+        </div>
+
+        <div class="two-column gap-24">
+          <div>
+            <h3 class="text-md mb-8">Multiplication</h3>
+            <table>
+              <thead>
+                <tr><th>Expression</th><th>Result</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>$(6)(3)$</td><td><span class="ans">$18$</span></td></tr>
+                <tr><td>$(-6)(-3)$</td><td><span class="ans">$18$</span></td></tr>
+                <tr><td>$(-6)(3)$</td><td><span class="neg">$-18$</span></td></tr>
+                <tr><td>$(6)(-3)$</td><td><span class="neg">$-18$</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h3 class="text-md mb-8">Division</h3>
+            <table>
+              <thead>
+                <tr><th>Expression</th><th>Result</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>$6 \div 3$</td><td><span class="ans">$2$</span></td></tr>
+                <tr><td>$(-6) \div (-3)$</td><td><span class="ans">$2$</span></td></tr>
+                <tr><td>$(-6) \div 3$</td><td><span class="neg">$-2$</span></td></tr>
+                <tr><td>$6 \div (-3)$</td><td><span class="neg">$-2$</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          2:40-3:40 | The sign rules are the same for multiplication and division. Same signs give a positive result, different signs give a negative result. Walk through examples in each table.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 6: Special Cases -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Signed Numbers</p>
+          <h2>Special Cases the GRE Loves</h2>
+        </div>
+
+        <div class="card-grid-3">
+          <div class="card card-green-bg">
+            <h3 class="text-md mb-8">Multiply by Zero</h3>
+            <p class="text-lg mb-8">$a \times 0 = 0$</p>
+            <p class="text-sm text-light">Anything times zero is always zero.</p>
+          </div>
+          <div class="card card-green-bg">
+            <h3 class="text-md mb-8">Zero Divided</h3>
+            <p class="text-lg mb-8">$0 \div a = 0$</p>
+            <p class="text-sm text-light">Zero divided by any nonzero number is zero.</p>
+          </div>
+          <div class="card card-red-bg">
+            <h3 class="text-md mb-8">Divide by Zero</h3>
+            <p class="text-lg mb-8">$a \div 0 = \text{?}$</p>
+            <p class="text-sm"><strong class="neg">UNDEFINED</strong> (not zero!)</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          3:40-4:15 | Three special cases the GRE loves to test. Anything times zero is zero. Zero divided by any number is zero. But dividing by zero is undefined, not zero. This is a classic trap.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 7: Divider - Order of Operations -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <p class="part-number">Part 2</p>
+        <h1>Order of Operations</h1>
+        <p>PEMDAS hierarchy and common traps</p>
+
+        <aside class="notes">
+          4:15-4:25 | Transition: Now that we can handle individual operations, let's talk about what happens when multiple operations appear in the same expression.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 8: PEMDAS Hierarchy -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Order of Operations</p>
+          <h2>The PEMDAS Hierarchy</h2>
+        </div>
+
+        <div class="workflow">
+          <div class="workflow-step">
+            <div class="step-num mb-16">P</div>
+            <h3 class="text-md">Parentheses</h3>
+            <p class="text-sm text-light">Brackets, braces, fraction bars</p>
+          </div>
+          <div class="workflow-arrow">&rarr;</div>
+          <div class="workflow-step">
+            <div class="step-num mb-16">E</div>
+            <h3 class="text-md">Exponents</h3>
+            <p class="text-sm text-light">Powers and roots</p>
+          </div>
+          <div class="workflow-arrow">&rarr;</div>
+          <div class="workflow-step">
+            <div class="step-num mb-16">MD</div>
+            <h3 class="text-md">Multiply / Divide</h3>
+            <p class="text-sm text-light">Equal priority, left to right</p>
+          </div>
+          <div class="workflow-arrow">&rarr;</div>
+          <div class="workflow-step">
+            <div class="step-num mb-16">AS</div>
+            <h3 class="text-md">Add / Subtract</h3>
+            <p class="text-sm text-light">Equal priority, left to right</p>
+          </div>
+        </div>
+
+        <div class="card-alt-green compact mt-24">
+          <span class="badge badge-orange">Watch Out</span>
+          <p class="text-md">M and D have <strong>equal</strong> priority. Go left to right, not all multiplication first. Same for A and S.</p>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          4:25-5:15 | Walk through PEMDAS hierarchy. Emphasize that M and D are done together left to right, not multiplication first. Same for A and S. This is the number one PEMDAS trap on the GRE.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 9: Two Classic Traps -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Order of Operations</p>
+          <h2>Two Classic GRE Traps</h2>
+        </div>
+
+        <div class="two-column gap-32">
+          <div class="card">
+            <span class="badge badge-red self-start mb-16">Trap 1: Left-to-Right</span>
+            <p class="text-sm mb-8">$24 \div 4 \times 2$</p>
+            <div class="card-alt compact mb-8">
+              <p class="text-sm"><span class="status-incorrect">Wrong:</span> $24 \div 8 = 3$</p>
+            </div>
+            <div class="card-alt-green compact">
+              <p class="text-sm"><span class="status-correct">Right:</span> $6 \times 2 = $ <span class="ans">$12$</span></p>
+            </div>
+          </div>
+          <div class="card">
+            <span class="badge badge-red self-start mb-16">Trap 2: Negative-Squared</span>
+            <p class="text-sm text-light mb-8">Watch where the negative sign sits:</p>
+            <div class="card-alt-green compact mb-8">
+              <p class="text-sm">$(-3)^2 = (-3)(-3) = $ <span class="ans">$9$</span></p>
+            </div>
+            <div class="card-alt compact mb-8">
+              <p class="text-sm">$-3^2 = -(3^2) = $ <span class="neg">$-9$</span></p>
+            </div>
+            <p class="text-sm text-light">Parentheses matter!</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          5:15-5:55 | Two classic traps. Trap 1: Division and multiplication go left to right, so 24 divided by 4 is 6, then times 2 is 12. Trap 2: Negative squared depends on parentheses. With parentheses around the negative 3, the answer is 9. Without parentheses, it is negative 9.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 10: Nested Grouping Symbols -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Order of Operations</p>
+          <h2>Nested Grouping Symbols</h2>
+        </div>
+
+        <p class="text-md mb-16">Work from the <strong>innermost</strong> grouping outward.</p>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-lg">$-[12 - (-4 - 3)]^2$</p>
+          </div>
+          <div class="card fragment" data-fragment-index="1">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16 fragment" data-fragment-index="2"><strong>Step 1:</strong> Innermost: $(-4 - 3) = -7$</p>
+            <p class="text-md mb-16 fragment" data-fragment-index="3"><strong>Step 2:</strong> Brackets: $[12 - (-7)] = 19$</p>
+            <p class="text-md mb-16 fragment" data-fragment-index="4"><strong>Step 3:</strong> Negative and exponent: $-(19)^2$</p>
+            <p class="text-lg mt-16 fragment" data-fragment-index="5">Answer: <span class="ans">$-361$</span></p>
+          </div>
+        </div>
+
+        <div class="card-alt compact mt-16">
+          <p class="text-sm"><strong>Fraction bars</strong> also count as grouping symbols. Evaluate the entire numerator and denominator before dividing.</p>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          5:55-7:10 | Nested grouping: work from innermost outward. Click to reveal solution card. Click for Step 1: innermost parentheses give negative 7. Click for Step 2: brackets give 19. Click for Step 3: apply the negative and exponent. Click for the answer: negative 361. Also note that fraction bars are grouping symbols.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 11: Example 1 - Basic Signed Arithmetic -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 1</p>
+          <h2>Basic Signed Arithmetic</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-lg">$-5 + (-6) - 8$</p>
+          </div>
+          <div class="card fragment" data-fragment-index="1">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16 fragment" data-fragment-index="2">Same signs, add absolutes: $-5 + (-6) = -11$</p>
+            <p class="text-md mb-16 fragment" data-fragment-index="3">Convert subtraction: $-11 - 8 = -11 + (-8)$</p>
+            <p class="text-lg mt-16 fragment" data-fragment-index="4">Answer: <span class="ans">$-19$</span></p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          7:10-7:45 | Example 1. Click to reveal solution card. Click for Step 1: same signs, add absolutes to get negative 11. Click for Step 2: convert subtraction to adding negative 8. Click for the answer: negative 19.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 12: Example 2 - Mixed Operations -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 2</p>
+          <h2>Mixed Operations with Exponents</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-lg">$8 \cdot 8^2 - 4 \cdot 5^2$</p>
+          </div>
+          <div class="card fragment" data-fragment-index="1">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16 fragment" data-fragment-index="2">Exponents first: $8 \cdot 64 - 4 \cdot 25$</p>
+            <p class="text-md mb-16 fragment" data-fragment-index="3">Multiply left to right: $512 - 100$</p>
+            <p class="text-lg mt-16 fragment" data-fragment-index="4">Answer: <span class="ans">$412$</span></p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          7:45-8:20 | Example 2. Click to reveal solution. Click for Step 1: exponents first, 8 squared is 64 and 5 squared is 25. Click for Step 2: multiply to get 512 minus 100. Click for the answer: 412.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 13: Example 3 - Left-to-Right Trap -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 3</p>
+          <h2>The Left-to-Right Trap</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-lg">$25 \div 5 \cdot 5 + 8 - 5$</p>
+          </div>
+          <div class="card fragment" data-fragment-index="1">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16 fragment" data-fragment-index="2">M/D left to right: $25 \div 5 = 5$, then $5 \cdot 5 = 25$</p>
+            <p class="text-md mb-16 fragment" data-fragment-index="3">A/S left to right: $25 + 8 = 33$, then $33 - 5$</p>
+            <p class="text-lg mt-16 fragment" data-fragment-index="4">Answer: <span class="ans">$28$</span></p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          8:20-8:55 | Example 3: tests the left-to-right rule. Click to reveal solution. Click for Step 1: division then multiplication left to right. Click for Step 2: addition then subtraction left to right. Click for the answer: 28.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 14: Example 4 - Nested Grouping -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 4</p>
+          <h2>Nested Grouping Symbols</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-lg">$4[6 + (6 \div 2)^2] - 1$</p>
+          </div>
+          <div class="card fragment" data-fragment-index="1">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16 fragment" data-fragment-index="2">Innermost first: $6 \div 2 = 3$</p>
+            <p class="text-md mb-16 fragment" data-fragment-index="3">Exponent: $3^2 = 9$</p>
+            <p class="text-md mb-16 fragment" data-fragment-index="4">Brackets: $6 + 9 = 15$</p>
+            <p class="text-md mb-16 fragment" data-fragment-index="5">Multiply then subtract: $4 \cdot 15 = 60$, then $60 - 1$</p>
+            <p class="text-lg mt-16 fragment" data-fragment-index="6">Answer: <span class="ans">$59$</span></p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          8:55-9:40 | Example 4: nested grouping. Click to reveal solution. Click for Step 1: innermost, 6 divided by 2 is 3. Click for Step 2: exponent, 3 squared is 9. Click for Step 3: brackets, 6 plus 9 is 15. Click for Step 4: multiply by 4 to get 60, minus 1. Click for the answer: 59.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 15: Example 5 - Dividing Negative Fractions -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 5</p>
+          <h2>Dividing Negative Fractions</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-lg">$\left(\frac{-6}{7}\right) \div \left(\frac{-41}{42}\right)$</p>
+          </div>
+          <div class="card fragment" data-fragment-index="1">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md math-step fragment" data-fragment-index="2">Multiply by reciprocal: $\frac{-6}{7} \times \frac{42}{-41}$</p>
+            <p class="text-md math-step fragment" data-fragment-index="3">Same signs (both negative) $\rightarrow$ positive: $\frac{6 \times 42}{7 \times 41}$</p>
+            <p class="text-md math-step fragment" data-fragment-index="4">Simplify: $\frac{252}{287} = \frac{36}{41}$</p>
+            <p class="text-lg mt-16 fragment" data-fragment-index="5">Answer: <span class="ans">$\frac{36}{41}$</span></p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          9:40-10:20 | Example 5: dividing negative fractions. Click to reveal solution. Click for Step 1: multiply by the reciprocal. Click for Step 2: both negatives make a positive. Click for Step 3: simplify by dividing both by 7. Click for the answer: 36 over 41.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 16: Example 6 - GRE-Style Expression -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 6</p>
+          <h2>GRE-Style Expression</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-lg">$[(3 - 6)^2 + 4]^2 + 3 \cdot 4 - 12 \div 3$</p>
+          </div>
+          <div class="card fragment" data-fragment-index="1">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-sm mb-8 fragment" data-fragment-index="2"><strong>Step 1:</strong> Innermost: $(3 - 6) = -3$</p>
+            <p class="text-sm mb-8 fragment" data-fragment-index="3"><strong>Step 2:</strong> Exponent &amp; brackets: $(-3)^2 = 9$, then $[9 + 4] = 13$</p>
+            <p class="text-sm mb-8 fragment" data-fragment-index="4"><strong>Step 3:</strong> Outer exponent: $13^2 = 169$; M/D: $3 \cdot 4 = 12$, $12 \div 3 = 4$</p>
+            <p class="text-lg mt-16 fragment" data-fragment-index="5">Answer: $169 + 12 - 4 = $ <span class="ans">$177$</span></p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          10:20-11:15 | Example 6: full GRE-style expression combining everything. Click to reveal solution. Click for Step 1: innermost parentheses, 3 minus 6 is negative 3. Click for Step 2: exponent gives 9, add 4 inside brackets to get 13. Click for Step 3: outer exponent 169, then multiply and divide to get 12 and 4. Click for the final answer: 169 plus 12 minus 4 equals 177.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 17: Summary (content-dark) -->
+      <!-- ============================================ -->
+      <section class="content-dark">
+        <div class="slide-header">
+          <p class="eyebrow">Summary</p>
+          <h2>Quick Reference</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Operation</th>
+              <th>Same Signs</th>
+              <th>Different Signs</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Add</td>
+              <td>Add absolutes, keep sign</td>
+              <td>Subtract absolutes, keep larger's sign</td>
+            </tr>
+            <tr>
+              <td>Subtract</td>
+              <td>Convert to addition</td>
+              <td>Convert to addition</td>
+            </tr>
+            <tr>
+              <td>Multiply</td>
+              <td>Positive</td>
+              <td>Negative</td>
+            </tr>
+            <tr>
+              <td>Divide</td>
+              <td>Positive</td>
+              <td>Negative</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="card-alt compact mt-16">
+          <span class="badge badge-orange self-start">Watch Out</span>
+          <p class="text-sm">M/D have equal priority (left to right, not multiplication first), $(-3)^2 = 9$ but $-3^2 = -9$ (parentheses matter), and dividing by zero is undefined, not zero.</p>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="white"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          11:15-12:00 | Summary: review the quick reference table for signed number rules. Reiterate the three key traps to avoid. Next up: put these skills to work in the Order of Operations Drill.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js -->
+  <script src="../assets/reveal/dist/reveal.min.js"></script>
+  <script type="module">
+    import RevealNotes from '../assets/reveal/plugin/notes/notes.esm.js';
+
+    Reveal.initialize({
+      width: 960,
+      height: 540,
+      margin: 0,
+      minScale: 0.5,
+      maxScale: 3.0,
+      hash: true,
+      slideNumber: true,
+      controls: true,
+      progress: true,
+      history: true,
+      center: false,
+      transition: 'none',
+      backgroundTransition: 'none',
+      disableLayout: false,
+      plugins: [ RevealNotes ]
+    });
+  </script>
+</body>
+</html>

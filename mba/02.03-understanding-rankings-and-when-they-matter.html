@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en" class="reveal-full-page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Understanding Rankings and When They Matter</title>
+
+  <!-- Reveal.js Core -->
+  <link rel="stylesheet" href="../assets/reveal/dist/reset.css">
+  <link rel="stylesheet" href="../assets/reveal/dist/reveal.css">
+
+  <!-- Leland Theme -->
+  <link rel="stylesheet" href="../assets/reveal/themes/leland.css">
+
+</head>
+<body>
+  <!-- SVG Symbol Definitions (defined once, referenced via <use>) -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="leland-logo" viewBox="0 0 200 45">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z"/>
+      <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z"/>
+      <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z"/>
+      <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z"/>
+      <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z"/>
+      <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z"/>
+    </symbol>
+  </svg>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ============================================ -->
+      <!-- SLIDE 1: Title Dark -->
+      <!-- ============================================ -->
+      <section class="title-dark">
+        <svg width="110" height="25" fill="white" class="mb-16"><use href="#leland-logo"/></svg>
+        <p class="eyebrow">MBA Admissions Course</p>
+        <h1>Understanding <span class="hl">Rankings</span><br>and When They Matter</h1>
+
+        <aside class="notes">
+          0:00 - 0:30 | What is the best MBA program? If you have asked this question, you have probably ended up staring at rankings from U.S. News, Financial Times, and Bloomberg Businessweek. They all say different things. Stanford is number 1 on one list and number 4 on another. So which rankings are right? And more importantly, how much should you actually care? Let me give you a framework.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 2: Plus List — Overview -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Today's Agenda</p>
+          <h2>What We'll Cover</h2>
+        </div>
+
+        <ul class="plus-list text-lg">
+          <li>How rankings are actually constructed and why they disagree</li>
+          <li>The tier system: a more useful way to think about school quality</li>
+          <li>When rankings matter (and when they really don't)</li>
+          <li>How to use rankings strategically in your decision-making</li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          0:30 - 1:00 | Three things today. First, how rankings are actually constructed, which explains why they disagree. Second, the tier system, a more useful lens than specific rank numbers. Third, when rankings matter, when they do not, and how to use them strategically.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 3: Icon List — What Goes Into Rankings -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">How Rankings Work</p>
+          <h2>What the Numbers Measure</h2>
+        </div>
+
+        <ul class="icon-list text-lg">
+          <li>
+            <span class="icon icon-xl icon-green" style="flex-shrink: 0; --icon: url(../../../../_global/design/icons/earnings.svg)"></span>
+            <span><strong>Salaries and employment:</strong> Starting compensation and job placement rates.</span>
+          </li>
+          <li>
+            <span class="icon icon-xl icon-green" style="flex-shrink: 0; --icon: url(../../../../_global/design/icons/search-document.svg)"></span>
+            <span><strong>Selectivity:</strong> Acceptance rates, average GMAT, and GPA.</span>
+          </li>
+          <li>
+            <span class="icon icon-xl icon-green" style="flex-shrink: 0; --icon: url(../../../../_global/design/icons/chat-bubbles.svg)"></span>
+            <span><strong>Reputation surveys:</strong> Opinions from deans, professors, and recruiters.</span>
+          </li>
+          <li>
+            <span class="icon icon-xl icon-green" style="flex-shrink: 0; --icon: url(../../../../_global/design/icons/networking.svg)"></span>
+            <span><strong>Alumni outcomes:</strong> Long-term career success and network strength.</span>
+          </li>
+        </ul>
+
+        <p class="text-sm text-light">Different publications weight these factors differently. Change the weights and the rankings shuffle. That is why Stanford can be #1 on one list and #4 on another.</p>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          1:00 - 2:30 | Most rankings weight some combination of starting salaries and employment rates, selectivity metrics like acceptance rates and average GMAT, academic reputation from surveys of professors and deans and recruiters, and alumni outcomes measuring long-term career success. The key insight: these weights are somewhat arbitrary. U.S. News might put 25% weight on peer assessment. Bloomberg might weight salary gains more heavily. Change the weights and the rankings shuffle. That is why Stanford can be number 1 on one list and number 4 on another. Both schools are excellent. The difference is methodology, not actual quality. Rankings are also politically contested. Some schools have submitted inaccurate data. Others have temporarily withdrawn from certain rankings. This does not mean rankings are useless, but it means you should treat any single list as one imperfect input, not gospel.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 4: Card Grid 3 — The Three Tiers -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Think in Tiers</p>
+          <h2>A More Useful Framework</h2>
+        </div>
+
+        <div class="card-grid-3">
+          <div class="card card-green-bg">
+            <span class="icon icon-lg icon-green mb-16" style="flex-shrink: 0; --icon: url(../../../../_global/design/icons/star.svg)"></span>
+            <h3>The M7</h3>
+            <p class="text-sm text-light">Harvard, Stanford, Wharton, Columbia, Booth, Kellogg, Sloan. Globally recognized, recruit for any industry.</p>
+          </div>
+          <div class="card card-blue-bg">
+            <span class="icon icon-lg icon-blue mb-16" style="flex-shrink: 0; --icon: url(../../../../_global/design/icons/checkmark-badge.svg)"></span>
+            <h3>The T15</h3>
+            <p class="text-sm text-light">Haas, Yale SOM, Fuqua, Tuck, Ross, Darden, Stern, Anderson. Excellent outcomes with regional or industry-specific strengths.</p>
+          </div>
+          <div class="card card-orange-bg">
+            <span class="icon icon-lg icon-orange mb-16" style="flex-shrink: 0; --icon: url(../../../../_global/design/icons/lightning.svg)"></span>
+            <h3>Beyond T15</h3>
+            <p class="text-sm text-light">McCombs, Kelley, Kenan-Flagler, Georgetown, and others. Great for specific goals with more targeted brand recognition.</p>
+          </div>
+        </div>
+
+        <p class="text-sm text-light">Top international programs — INSEAD, LBS, IESE, and HEC Paris — are not included in U.S. rankings but are globally competitive.</p>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          2:30 - 3:45 | Rather than obsessing over specific ranks, think in tiers. The M7 are seven schools that are globally recognized and recruit for any industry: Harvard, Stanford, Wharton, Columbia, Booth, Kellogg, and MIT Sloan. The T15 fills out the next tier with schools like Berkeley Haas, Yale SOM, Duke Fuqua, Tuck, Michigan Ross, Darden, NYU Stern, and UCLA Anderson. These are excellent programs with strong outcomes, but may have more regional or industry-specific strengths. Beyond T15, strong programs like Texas McCombs, Indiana Kelley, UNC Kenan-Flagler, and Georgetown are great for specific goals, but brand recognition is more targeted. Also note that top international programs like INSEAD, LBS, IESE, and HEC Paris are not included in U.S. rankings but are globally competitive. Within tiers, differences are marginal. The gap between number 3 and 7 is often noise. The gap between 5 and 25 is meaningful for some career paths but not others.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 5: Table — When Rankings Matter vs. Don't -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Rankings in Context</p>
+          <h2>When They Matter (and When They Don't)</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Rankings Matter More</th>
+              <th>Rankings Matter Less</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Consulting and banking recruiting</td>
+              <td>Specific career goals with clear pipelines</td>
+            </tr>
+            <tr>
+              <td>International career plans</td>
+              <td>Culture and fit are your priority</td>
+            </tr>
+            <tr>
+              <td>Major career switches</td>
+              <td>Cost is a significant constraint</td>
+            </tr>
+            <tr>
+              <td>Long-term optionality</td>
+              <td>10+ years of experience (resume > diploma)</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p class="text-sm text-light">Indiana Kelley's marketing placement rates rival schools ranked 10+ spots higher. Look at specific employment data for your target function.</p>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          3:45 - 5:15 | Rankings matter most in prestige-conscious industries. Consulting and banking firms recruit heavily at top schools and thin out as you go down the list. International career plans benefit from globally recognized brands. If you are making a major career switch, school brand provides credibility your unrelated work experience cannot. And if you do not know exactly what you want to do, higher-ranked schools give you more optionality later. But rankings matter less than you think in other situations. If you have a specific career goal with a clear pipeline, look at specific employment data. Indiana Kelley's marketing placement rates rival schools ranked 10 spots higher. If culture and fit are your priority, that matters more for your two-year experience than a rank number. If cost is a major factor, a full scholarship at a number 20 school may beat full price at number 8. And for experienced hires with 10+ years, your resume carries more weight than your diploma.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 6: Card Grid 2 — Using Tiers in Practice -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Practical Application</p>
+          <h2>How to Apply Tiers to Your List</h2>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="card card-green-bg" style="padding: 16px">
+            <h3 class="mb-8">Focus Your Range</h3>
+            <p class="text-sm text-light">Apply across 1-2 tiers, not 4+. If your profile fits T15, reach into T5-T10, target T10-T15, and safety T15-T25.</p>
+          </div>
+          <div class="card card-blue-bg" style="padding: 16px">
+            <h3 class="mb-8">Adjust Your Narrative</h3>
+            <p class="text-sm text-light">Each tier shift requires a different essay approach. At reach schools, show what makes you exceptional. At safeties, show genuine interest.</p>
+          </div>
+          <div class="card card-orange-bg" style="padding: 16px">
+            <h3 class="mb-8">Use for Initial Filtering</h3>
+            <p class="text-sm text-light">Rankings quickly identify schools worth researching. But don't use them for final decisions between similar-tier schools.</p>
+          </div>
+          <div class="card card-purple-bg" style="padding: 16px">
+            <h3 class="mb-8">Go Beyond the Number</h3>
+            <p class="text-sm text-light">Look at employment reports, industry placement rates, and median salary in your target field directly.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          5:15 - 6:15 | How to use tiers in practice. Focus your range: apply across 1-2 tiers, not 4+. Scattering applications across too many tiers signals uncertainty and makes it harder to write compelling "why this school" essays. Adjust your narrative for each tier. At reach schools, explain what makes you exceptional. At safeties, explain why you are genuinely interested. Use rankings for initial filtering. They quickly identify schools worth researching further. But once you are comparing schools in the same tier, rankings are noise. Focus on fit, outcomes, and culture. And go beyond the composite number. Look at employment reports yourself. What percentage of graduates enter your target industry? What is the median salary in that specific field?
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 7: Callout — The Confidence Interval -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Key Perspective</p>
+          <h2>Consider the Confidence Interval</h2>
+        </div>
+
+        <div class="card-alt-green" style="display: flex; align-items: flex-start; gap: 16px;">
+          <span class="icon icon-xl icon-green" style="flex-shrink: 0; --icon: url(../../../../_global/design/icons/info-filled.svg)"></span>
+          <p class="text-lg">Is there a meaningful difference between #7 and #11? <strong>Probably not.</strong> But there might be between #7 and #30. Think in ranges, not specific positions.</p>
+        </div>
+
+        <p class="text-lg text-light" style="margin-top: 40px;">Rankings shift year to year based on methodology changes, employment outcomes, and reputation trends. A school that was #15 ten years ago might be #8 now. Use rankings as a starting point, not an ending point.</p>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          6:15 - 7:00 | Here is the key perspective to keep in mind. Consider the confidence interval. Is there really a meaningful difference between number 7 and number 11? Probably not. But there might be between number 7 and number 30. Think in ranges, not specific positions. Rankings change year to year based on methodology changes, employment outcomes, and reputation shifts. A school that was number 15 ten years ago might be number 8 now. Dig into the methodology. If one ranking emphasizes salary and another emphasizes research, think about which factors matter to you personally. Use rankings as a starting point for research, not the ending point for your decision.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 8: Icon List — Misconceptions -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Common Misconceptions</p>
+          <h2>Myths About Rankings</h2>
+        </div>
+
+        <ul class="icon-list text-lg">
+          <li>
+            <span class="icon icon-xl icon-green" style="flex-shrink: 0; --icon: url(../../../../_global/design/icons/warning.svg)"></span>
+            <span><strong>"#1 is always best for everyone."</strong> Stanford is not the best choice if you want Wall Street and prefer the East Coast.</span>
+          </li>
+          <li>
+            <span class="icon icon-xl icon-green" style="flex-shrink: 0; --icon: url(../../../../_global/design/icons/cancel.svg)"></span>
+            <span><strong>"Lower ranked means backup."</strong> Michigan Ross is not a backup. It is a top school with specific strengths.</span>
+          </li>
+          <li>
+            <span class="icon icon-xl icon-green" style="flex-shrink: 0; --icon: url(../../../../_global/design/icons/arrow-up-chart-growth.svg)"></span>
+            <span><strong>"Rankings don't change."</strong> They shift regularly with methodology changes and outcome data.</span>
+          </li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          7:00 - 7:30 | Three myths to let go of. Number 1 is always the best for everyone. Not true. Stanford is not the best choice if you want to work on Wall Street and prefer the East Coast. Fit matters. Lower ranked means backup school. Michigan Ross is not a backup. It is a top school with specific strengths. That kind of thinking dismisses excellent programs. And rankings never change. They do. Schools rise and fall based on methodology, employment outcomes, and reputation shifts over time.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 9: Content Dark — Takeaways -->
+      <!-- ============================================ -->
+      <section class="content-dark">
+        <div class="slide-header">
+          <p class="eyebrow">Key Takeaways</p>
+          <h2>What to Remember</h2>
+        </div>
+
+        <ul class="plus-list text-lg text-white">
+          <li>Think in tiers, not specific ranks. #4 vs. #7 is noise</li>
+          <li>Rankings matter most for prestige-dependent paths like consulting and banking</li>
+          <li>Rankings matter less when you have specific goals with clear pipelines</li>
+          <li>Look at employment reports and outcomes data directly</li>
+          <li>Fit and culture matter. Two years is a long time to be somewhere that doesn't suit you</li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="rgba(255,255,255,0.4)"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          7:30 - 8:00 | Key takeaways. Think in tiers, not specific ranks. The difference between number 4 and number 7 is noise. Rankings matter most for prestige-dependent paths like consulting and banking and for international recognition. Rankings matter less when you have specific career goals with clear industry pipelines. Look at employment reports and outcomes data directly instead of trusting composite rankings to weight things correctly. And remember, fit and culture matter. Two years is a long time to be somewhere that does not suit you. Use rankings as a starting point, not an ending point.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js -->
+  <script src="../assets/reveal/dist/reveal.min.js"></script>
+  <script type="module">
+    import RevealNotes from '../assets/reveal/plugin/notes/notes.esm.js';
+
+    Reveal.initialize({
+      width: 960,
+      height: 540,
+      margin: 0,
+      minScale: 0.5,
+      maxScale: 3.0,
+      hash: true,
+      slideNumber: true,
+      controls: true,
+      progress: true,
+      history: true,
+      center: false,
+      transition: 'none',
+      backgroundTransition: 'none',
+      disableLayout: false,
+      plugins: [ RevealNotes ]
+    });
+  </script>
+</body>
+</html>

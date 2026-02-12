@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en" class="reveal-full-page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fund Structure and Lifecycle</title>
+
+  <!-- Reveal.js Core -->
+  <link rel="stylesheet" href="../assets/reveal/dist/reset.css">
+  <link rel="stylesheet" href="../assets/reveal/dist/reveal.css">
+
+  <!-- Leland Theme -->
+  <link rel="stylesheet" href="../assets/reveal/themes/leland.css">
+
+</head>
+<body>
+  <!-- SVG Symbol Definitions (defined once, referenced via <use>) -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="leland-logo" viewBox="0 0 200 45">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z"/>
+      <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z"/>
+      <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z"/>
+      <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z"/>
+      <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z"/>
+      <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z"/>
+    </symbol>
+  </svg>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ============================================ -->
+      <!-- SLIDE 1: Title Dark -->
+      <!-- ============================================ -->
+      <section class="title-dark">
+        <svg width="110" height="25" fill="white" class="mb-16"><use href="#leland-logo"/></svg>
+        <p class="eyebrow">VC Fundamentals | Lesson 1.3</p>
+        <h1>Fund Structure<br><span class="hl">and Lifecycle</span></h1>
+
+        <aside class="notes">
+          [0:00] Welcome slide. This video covers the full lifecycle of a venture capital fund — from thesis definition through final distributions. "How a VC fund lives, deploys, and returns capital over ten years."
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 2: The Fund Is a Clock -->
+      <!-- ============================================ -->
+      <section class="content-dark">
+        <div class="slide-header">
+          <p class="eyebrow">Core Concept</p>
+          <h2>A VC Fund Is a Clock</h2>
+        </div>
+
+        <div class="card-alt-green mb-24">
+          <div style="display: flex; align-items: flex-start; gap: 12px;">
+            <span class="icon icon-md icon-green" style="--icon: url(../../../../_global/design/icons/clock.svg)"></span>
+            <p class="text-md">Every dollar has a timestamp, and every phase of the fund's life changes what a GP can and cannot do. Understanding that clock is how you understand why VCs behave the way they do.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="rgba(255,255,255,0.4)"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          [0:00-0:30] Hook — frame the central metaphor. A fund is not a bank account. It has a fixed lifespan, and the phase of the fund determines GP behavior. A GP who loves a deal in year two might pass on the exact same deal in year six — because the clock changed, not the deal.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 3: What You'll Learn -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Learning Goals</p>
+          <h2>By the End of This Video</h2>
+        </div>
+
+        <ul class="icon-list text-lg">
+          <li class="fragment" data-fragment-index="1">
+            <span class="icon icon-lg icon-green" style="--icon: url(../../../../_global/design/icons/star.svg)"></span>
+            <span>Walk through the full lifecycle of a fund — thesis to dissolution</span>
+          </li>
+          <li class="fragment" data-fragment-index="2">
+            <span class="icon icon-lg icon-green" style="--icon: url(../../../../_global/design/icons/star.svg)"></span>
+            <span>Explain why VC behavior changes at each phase</span>
+          </li>
+          <li class="fragment" data-fragment-index="3">
+            <span class="icon icon-lg icon-green" style="--icon: url(../../../../_global/design/icons/star.svg)"></span>
+            <span>Understand the forces behind every GP decision at every stage</span>
+          </li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          [0:30-1:00] Preview — set expectations. By the end, viewers will be able to walk through a fund lifecycle in an interview and explain the underlying forces, not just list phases. [click] Full lifecycle. [click] Behavior shifts. [click] Decision forces.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 4: Divider — Investment Thesis -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <div class="part-number">Part 1</div>
+        <h1>Defining the Investment Thesis</h1>
+        <p>The architectural blueprint for a fund</p>
+
+        <aside class="notes">
+          [1:00] Transition to first section.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 5: Thesis Components -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Fund Architecture</p>
+          <h2>The Investment Thesis Framework</h2>
+        </div>
+
+        <div class="card-grid-3">
+          <div class="card card-green-bg fragment" data-fragment-index="1">
+            <span class="icon icon-lg icon-green mb-16" style="--icon: url(../../../../_global/design/icons/deal-execution.svg)"></span>
+            <h3>Sector &amp; Stage</h3>
+            <p class="text-sm text-light">Fintech, healthcare, AI, climate tech. Seed, Series A, or growth equity.</p>
+          </div>
+          <div class="card card-blue-bg fragment" data-fragment-index="2">
+            <span class="icon icon-lg icon-green mb-16" style="--icon: url(../../../../_global/design/icons/bar-chart.svg)"></span>
+            <h3>Geography &amp; Portfolio</h3>
+            <p class="text-sm text-light">US-only or global. Check size, ownership targets, number of companies.</p>
+          </div>
+          <div class="card card-orange-bg fragment" data-fragment-index="3">
+            <span class="icon icon-lg icon-green mb-16" style="--icon: url(../../../../_global/design/icons/money-chat.svg)"></span>
+            <h3>LP Alignment</h3>
+            <p class="text-sm text-light">The thesis must sell. Endowments, family offices, and fund-of-funds each have different portfolio objectives.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          [1:00-2:00] The thesis is not a fluffy mission statement — it is the architecture. Everything else is downstream. [click] Sector and stage define the opportunity set. [click] Geography and portfolio construction parameters — check size, ownership targets, fund size, number of companies — define the operating model. [click] The thesis also needs to attract LPs whose own objectives align with the strategy.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 6: Example Thesis Statement -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Putting It Together</p>
+          <h2>One Sentence, Full Strategy</h2>
+        </div>
+
+        <div class="card-alt-green mb-24">
+          <div style="display: flex; align-items: flex-start; gap: 12px;">
+            <span class="icon icon-md icon-green" style="--icon: url(../../../../_global/design/icons/lightning.svg)"></span>
+            <p class="text-md">"$150M early-stage fund focused on enterprise SaaS, writing $3-8M Series A checks, targeting 20-25% ownership in 20-25 companies."</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          [2:00-2:30] A well-defined thesis can be expressed in a single sentence — and that sentence tells you almost everything about how the fund will operate. In interviews, when a partner asks "Why do we invest in enterprise SaaS and not consumer?" — they are testing whether you understand the thesis and can reason about portfolio construction from first principles.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 7: Divider — Fund Formation -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <div class="part-number">Part 2</div>
+        <h1>Fund Formation and Fundraising</h1>
+        <p>Building the legal and financial foundation</p>
+
+        <aside class="notes">
+          [2:30] Transition to fund formation.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 8: Legal Architecture -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Legal Structure</p>
+          <h2>The LPA Is the Constitution</h2>
+        </div>
+
+        <div class="workflow">
+          <div class="workflow-step fragment" data-fragment-index="1">
+            <span class="icon icon-md icon-green mb-16" style="--icon: url(../../../../_global/design/icons/document-file.svg)"></span>
+            <h3 class="text-md">GP Entity</h3>
+            <p class="text-sm text-light">General partners who manage the fund</p>
+          </div>
+          <div class="workflow-arrow">
+            <span class="icon icon-md icon-green" style="--icon: url(../../../../_global/design/icons/arrow-right.svg)"></span>
+          </div>
+          <div class="workflow-step fragment" data-fragment-index="2">
+            <span class="icon icon-md icon-green mb-16" style="--icon: url(../../../../_global/design/icons/user-group.svg)"></span>
+            <h3 class="text-md">Management Company</h3>
+            <p class="text-sm text-light">Employs team, handles operations, funded by management fees</p>
+          </div>
+          <div class="workflow-arrow">
+            <span class="icon icon-md icon-green" style="--icon: url(../../../../_global/design/icons/arrow-right.svg)"></span>
+          </div>
+          <div class="workflow-step fragment" data-fragment-index="3">
+            <span class="icon icon-md icon-green mb-16" style="--icon: url(../../../../_global/design/icons/money.svg)"></span>
+            <h3 class="text-md">Fund LP</h3>
+            <p class="text-sm text-light">The investment vehicle holding committed capital</p>
+          </div>
+          <div class="workflow-arrow">
+            <span class="icon icon-md icon-green" style="--icon: url(../../../../_global/design/icons/arrow-right.svg)"></span>
+          </div>
+          <div class="workflow-step fragment" data-fragment-index="4">
+            <span class="icon icon-md icon-green mb-16" style="--icon: url(../../../../_global/design/icons/deal-execution.svg)"></span>
+            <h3 class="text-md">Portfolio Companies</h3>
+            <p class="text-sm text-light">Where capital is deployed</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          [2:30-3:15] The centerpiece document is the Limited Partnership Agreement — the LPA. It outlines fund duration, management fee structure, carried interest terms, the distribution waterfall, and investment restrictions. [click] GP entity at the top. [click] The Management Company handles day-to-day operations — employs the investment team, pays rent, covers travel — funded by management fees. As covered in 1.1, management fees typically run at 2% of committed capital during the investment period. [click] The Fund LP is the actual investment vehicle. [click] Capital flows down into portfolio companies.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 9: Fundraising Mechanics -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Raising Capital</p>
+          <h2>Closes, Commitments, and Skin in the Game</h2>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="card card-blue-bg fragment" data-fragment-index="1">
+            <span class="icon icon-lg icon-green mb-16" style="--icon: url(../../../../_global/design/icons/earnings.svg)"></span>
+            <h3>First &amp; Final Close</h3>
+            <p class="text-sm text-light">First close at 40-60% of target lets deployment begin. Fundraising continues until final close.</p>
+          </div>
+          <div class="card card-purple-bg fragment" data-fragment-index="2">
+            <span class="icon icon-lg icon-green mb-16" style="--icon: url(../../../../_global/design/icons/money.svg)"></span>
+            <h3>GP Commitment</h3>
+            <p class="text-sm text-light">GPs contribute 1-3% of total fund size. For a $200M fund, that is $2-6M from the GP team's own pockets.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          [3:15-4:30] Fundraising mirrors startup fundraising — pitch decks, data rooms, LP meetings. [click] The first close — typically 40 to 60 percent of target — lets the GP start deploying while continuing to raise. [click] GP commitment of 1-3% is skin in the game that LPs insist on. As covered in 1.1, this alignment of incentives is fundamental to the LP-GP relationship. For a $200M fund, that is $2-6M from the partners personally. This shapes who can and cannot start a fund — you need personal capital or partners who have it.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 10: Divider — Investment Period -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <div class="part-number">Part 3</div>
+        <h1>The Investment Period</h1>
+        <p>Deploying capital and building the portfolio</p>
+
+        <aside class="notes">
+          [4:30] Transition to the investment period — the most active phase.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 11: Capital Calls and the Deal Funnel -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Years 1-5</p>
+          <h2>Deploying Capital Just-in-Time</h2>
+        </div>
+
+        <div class="workflow">
+          <div class="workflow-step fragment" data-fragment-index="1">
+            <span class="icon icon-md icon-green mb-16" style="--icon: url(../../../../_global/design/icons/money.svg)"></span>
+            <h3 class="text-md">Capital Call</h3>
+            <p class="text-sm text-light">GP issues notice; LPs wire pro-rata share within 10-15 business days</p>
+          </div>
+          <div class="workflow-arrow">
+            <span class="icon icon-md icon-green" style="--icon: url(../../../../_global/design/icons/arrow-right.svg)"></span>
+          </div>
+          <div class="workflow-step fragment" data-fragment-index="2">
+            <span class="icon icon-md icon-green mb-16" style="--icon: url(../../../../_global/design/icons/search-document.svg)"></span>
+            <h3 class="text-md">Deal Flow &amp; Screening</h3>
+            <p class="text-sm text-light">Sourcing and filtering investment opportunities</p>
+          </div>
+          <div class="workflow-arrow">
+            <span class="icon icon-md icon-green" style="--icon: url(../../../../_global/design/icons/arrow-right.svg)"></span>
+          </div>
+          <div class="workflow-step fragment" data-fragment-index="3">
+            <span class="icon icon-md icon-green mb-16" style="--icon: url(../../../../_global/design/icons/document-file.svg)"></span>
+            <h3 class="text-md">Due Diligence</h3>
+            <p class="text-sm text-light">Deep analysis of target companies</p>
+          </div>
+          <div class="workflow-arrow">
+            <span class="icon icon-md icon-green" style="--icon: url(../../../../_global/design/icons/arrow-right.svg)"></span>
+          </div>
+          <div class="workflow-step fragment" data-fragment-index="4">
+            <span class="icon icon-md icon-green mb-16" style="--icon: url(../../../../_global/design/icons/deal-execution.svg)"></span>
+            <h3 class="text-md">Term Sheet &amp; Wire</h3>
+            <p class="text-sm text-light">Negotiate terms and deploy capital</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          [4:30-5:15] LPs do not write a single check on day one. As covered in 1.1, capital is called as needed — just-in-time. [click] When the fund closes a deal, the GP sends a capital call notice, and LPs wire their pro-rata share within 10-15 business days. LPs committed across multiple funds can face overlapping capital calls in the same quarter. [click] Deal flow and screening. [click] Deep due diligence. [click] Term sheet negotiation and wiring the investment.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 12: Follow-On Reserves -->
+      <!-- ============================================ -->
+      <section class="content-dark">
+        <div class="slide-header">
+          <p class="eyebrow">Critical Decision</p>
+          <h2>Reserves Separate the Best Funds</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="fragment" data-fragment-index="1">
+            <h3 class="mb-16">The $200M Split</h3>
+            <ul class="plus-list text-white">
+              <li>$80-100M for initial investments (40-50%)</li>
+              <li>$100-120M reserved for follow-on rounds (50-60%)</li>
+            </ul>
+          </div>
+          <div class="fragment" data-fragment-index="2">
+            <h3 class="mb-16">Why It Matters</h3>
+            <ul class="plus-list text-white">
+              <li>Without reserves, a fund cannot exercise pro-rata rights on its own winners</li>
+              <li>Deploying too fast means getting diluted out of the best deals</li>
+              <li>Management fees run at full rate: 2% of committed capital</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="rgba(255,255,255,0.4)"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          [5:15-6:00] This is where funds live or die. [click] Best practice: reserve 50-60% of capital for follow-on investments in strongest portfolio companies. A $200M fund deploys $80-100M into initial checks and holds $100-120M for follow-ons. [click] Without reserves, a fund finds a winner, holds pro-rata rights, and cannot exercise them. Getting this ratio right is one of the most consequential portfolio construction decisions a GP makes. During this period, management fees run at the full 2% of committed capital.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 13: Divider — Portfolio Management -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <div class="part-number">Part 4</div>
+        <h1>Portfolio Management</h1>
+        <p>Supporting winners and cutting losses</p>
+
+        <aside class="notes">
+          [6:00] Transition to portfolio management phase.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 14: Active Management -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Years 3-8</p>
+          <h2>Where GPs Earn Their Carry</h2>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="card card-green-bg fragment" data-fragment-index="1">
+            <span class="icon icon-lg icon-green mb-16" style="--icon: url(../../../../_global/design/icons/user-group.svg)"></span>
+            <h3>Board-Level Work</h3>
+            <p class="text-sm text-light">Governance decisions, strategic pivots, crisis management, executive hiring, business development, follow-on financing strategy.</p>
+          </div>
+          <div class="card card-orange-bg fragment" data-fragment-index="2">
+            <span class="icon icon-lg icon-green mb-16" style="--icon: url(../../../../_global/design/icons/bar-chart.svg)"></span>
+            <h3>Quarterly Monitoring</h3>
+            <p class="text-sm text-light">KPIs, burn rates, revenue growth, customer metrics, company health versus underwriting assumptions.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          [6:00-7:00] Starting around year three, the balance shifts from sourcing new deals to supporting existing ones. GPs take board seats — they are in the room for governance, pivots, and crises. [click] Board-level work includes executive hiring, opening doors for BD, advising on financing strategy, and having direct, uncomfortable conversations when needed. [click] On the monitoring side, quarterly portfolio reviews track KPIs, burn rates, revenue, customer metrics, and overall health relative to original underwriting assumptions.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 15: Lemons Ripen Early -->
+      <!-- ============================================ -->
+      <section class="content-dark">
+        <div class="slide-header">
+          <p class="eyebrow">Industry Wisdom</p>
+          <h2>"Lemons Ripen Early"</h2>
+        </div>
+
+        <div class="card-alt-green mb-24">
+          <div style="display: flex; align-items: flex-start; gap: 12px;">
+            <span class="icon icon-md icon-green" style="--icon: url(../../../../_global/design/icons/info.svg)"></span>
+            <p class="text-md">Underperformers show themselves within the first 2-3 years. Missed milestones, founder-market fit questions, and burn rates that do not match traction are early warning signals. Recognizing this early and reallocating follow-on capital to the winners separates great fund managers from average ones.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="rgba(255,255,255,0.4)"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          [7:00-7:30] Classic industry saying. The companies that will struggle tend to signal it well before the winners become obvious. This forces some of the hardest decisions in venture — cutting losses on underperformers and concentrating follow-on capital into the portfolio companies showing real traction and momentum.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 16: Divider — Exits and Distributions -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <div class="part-number">Part 5</div>
+        <h1>Exit and Harvesting</h1>
+        <p>Turning paper gains into real returns</p>
+
+        <aside class="notes">
+          [7:30] Transition to exits and distributions.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 17: Exit Routes -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Years 5-10+</p>
+          <h2>Three Primary Exit Paths</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Exit Type</th>
+              <th>Description</th>
+              <th>Key Consideration</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="fragment" data-fragment-index="1">
+              <td><strong>M&amp;A</strong></td>
+              <td>Larger company acquires portfolio company</td>
+              <td>Most common exit route</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="2">
+              <td><strong>IPO</strong></td>
+              <td>Company lists on public exchange</td>
+              <td>Headline-grabbing; less frequent</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="3">
+              <td><strong>Secondary Sale</strong></td>
+              <td>GP sells stake to another investor</td>
+              <td>Structured transaction or direct share sale</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          [7:30-8:15] Exits are when everything becomes real. "Marks are opinions. Distributions are cash." [click] M&amp;A is the most common path — a larger company acquires the portfolio company. [click] IPOs grab headlines but are less frequent. [click] Secondary sales — selling stakes to other investors — offer liquidity outside of traditional exits. Timing exits is part art, part science: balancing remaining growth potential against market conditions and the fund's own timeline pressures.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 18: The Distribution Waterfall (QA FIX: hurdle rate) -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Follow the Money</p>
+          <h2>How Profits Flow Back</h2>
+        </div>
+
+        <div class="workflow">
+          <div class="workflow-step fragment" data-fragment-index="1">
+            <span class="icon icon-md icon-green mb-16" style="--icon: url(../../../../_global/design/icons/money.svg)"></span>
+            <h3 class="text-md">Return of Capital</h3>
+            <p class="text-sm text-light">LPs receive every contributed dollar back first</p>
+          </div>
+          <div class="workflow-arrow">
+            <span class="icon icon-md icon-green" style="--icon: url(../../../../_global/design/icons/arrow-right.svg)"></span>
+          </div>
+          <div class="workflow-step fragment" data-fragment-index="2">
+            <span class="icon icon-md icon-green mb-16" style="--icon: url(../../../../_global/design/icons/arrow-right.svg)"></span>
+            <h3 class="text-md">Preferred Return</h3>
+            <p class="text-sm text-light">If applicable — 8% hurdle is standard in PE but rare in VC. When present, LPs receive this before carry kicks in.</p>
+          </div>
+          <div class="workflow-arrow">
+            <span class="icon icon-md icon-green" style="--icon: url(../../../../_global/design/icons/arrow-right.svg)"></span>
+          </div>
+          <div class="workflow-step fragment" data-fragment-index="3">
+            <span class="icon icon-md icon-green mb-16" style="--icon: url(../../../../_global/design/icons/earnings.svg)"></span>
+            <h3 class="text-md">Carried Interest</h3>
+            <p class="text-sm text-light">Remaining profits split 80/20 (LP/GP)</p>
+          </div>
+          <div class="workflow-arrow">
+            <span class="icon icon-md icon-green" style="--icon: url(../../../../_global/design/icons/arrow-right.svg)"></span>
+          </div>
+          <div class="workflow-step fragment" data-fragment-index="4">
+            <span class="icon icon-md icon-green mb-16" style="--icon: url(../../../../_global/design/icons/arrow-right.svg)"></span>
+            <h3 class="text-md">Fee Step-Down</h3>
+            <p class="text-sm text-light">Management fees drop to 1-1.5% on invested capital</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          [8:15-9:00] The distribution waterfall is defined in the LPA and governs the order profits flow. [click] First: LPs get every dollar of contributed capital back. No one else sees a dime. [click] Then the preferred return — if applicable. An 8% annual hurdle is standard in PE buyout funds, but many VC funds do not include one. When present, LPs receive this return before carry kicks in. [click] Only after those hurdles are cleared does carry kick in: 80% to LPs, 20% to the GP. Carry is the reward for performance — not for showing up, not for trying, but for actually returning cash above the hurdle. [click] Management fees also step down after the investment period — from 2% of committed to 1-1.5% of invested capital, reflecting reduced operational intensity.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 19: The $200M Worked Example -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Putting It All Together</p>
+          <h2>$200M Fund I Timeline</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Year</th>
+              <th>Event</th>
+              <th>Capital Flow</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="fragment" data-fragment-index="1">
+              <td><strong>0</strong></td>
+              <td>First close at $120M; fundraise to $200M</td>
+              <td>Capital committed</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="1">
+              <td><strong>1-3</strong></td>
+              <td>Deploy $80M into 22 deals (enterprise software + fintech)</td>
+              <td>$80M out</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="1">
+              <td><strong>3-5</strong></td>
+              <td>$40M in follow-on rounds to strongest performers</td>
+              <td>$40M out</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="2">
+              <td><strong>4</strong></td>
+              <td>First exit: M&amp;A returns $15M</td>
+              <td>$15M in</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="2">
+              <td><strong>7</strong></td>
+              <td>Portfolio company IPO generates $90M</td>
+              <td>$90M in</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="3">
+              <td><strong>10</strong></td>
+              <td>Wind-down: remaining exits via M&amp;A and secondaries</td>
+              <td>Remaining distributions</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="3">
+              <td><strong>Final</strong></td>
+              <td>$500M total returned on $200M fund</td>
+              <td>2.5x TVPI, ~15% net IRR</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          [9:00-10:30] Tying it all together with a hypothetical $200M Fund I. [click] Year zero: raise $200M with a first close at $120M. Years 1-3: deploy $80M into 22 initial investments. Years 3-5: deploy $40M in follow-ons to the strongest companies, keeping $80M in reserve. [click] Year 4: first exit, an M&amp;A deal returning $15M. Solid but not a fund-maker. Year 7: a portfolio company IPOs — the fund's stake generates $90M. That is the kind of outcome that defines a fund. [click] Year 10: remaining positions wound down. Final math: $500M total value on $200M invested. 2.5x TVPI, approximately 15% net IRR — a strong result, comfortably above most LP benchmarks. Note the overlapping fund structure: by years 8-10, the GP has usually raised and begun deploying Fund II, III, even Fund IV.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 20: The J-Curve (with vintage year mention) -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Return Patterns</p>
+          <h2>The J-Curve Explained</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="fragment" data-fragment-index="1">
+            <div class="card card-green-bg">
+              <span class="icon icon-lg icon-green mb-16" style="--icon: url(../../../../_global/design/icons/arrow-up-chart-growth.svg)"></span>
+              <h3 class="mb-16">NAV Over Fund Life</h3>
+              <p class="text-sm text-light">Plot Net Asset Value over 10 years. The curve dips below zero in years 1-3, inflects upward years 4-6, then rises sharply through years 6-10+.</p>
+            </div>
+          </div>
+          <div>
+            <div class="card card-blue-bg fragment" data-fragment-index="2">
+              <h3>Early Years: Negative Returns</h3>
+              <p class="text-sm text-light">Capital deployment, management fees, early write-offs pull NAV below contributed capital.</p>
+            </div>
+            <div class="card card-blue-bg fragment" data-fragment-index="3">
+              <h3>Inflection (Years 4-6)</h3>
+              <p class="text-sm text-light">First meaningful exits and follow-on markups.</p>
+            </div>
+            <div class="card card-blue-bg fragment" data-fragment-index="4">
+              <h3>Harvest (Years 6-10+)</h3>
+              <p class="text-sm text-light">Strong exits drive NAV sharply upward.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          [10:30-11:15] Most people expect steady growth from day one. It does not work that way. [click] Plot NAV over ten years and you see the J-curve. [click] Early years: returns are negative. Deploying capital, paying fees, absorbing early write-offs. This is the model working as designed. [click] Inflection around years 4-6 as first exits materialize and surviving companies get marked up from follow-on rounds. [click] Then the harvest years, where strong exits drive NAV sharply upward. The J-curve is also why the industry uses vintage year comparisons — much like wine. A 2019 fund is compared to other 2019 funds because macro conditions, valuations, and exit markets affect all funds from the same era equally. As covered in 1.1, vintage year is essential context for benchmarking performance.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 21: Wind-Down and Extensions (QA FIX: new slide) -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Years 10+</p>
+          <h2>Wind-Down, Extensions, and Overlapping Funds</h2>
+        </div>
+
+        <div class="card-grid-3">
+          <div class="card card-green-bg fragment" data-fragment-index="1">
+            <span class="icon icon-lg icon-green mb-16" style="--icon: url(../../../../_global/design/icons/clock.svg)"></span>
+            <h3>Fund Extensions</h3>
+            <p class="text-sm text-light">Most LPAs include 1-2 year extension provisions. GPs request extensions to maximize exit value on remaining positions rather than forcing fire sales.</p>
+          </div>
+          <div class="card card-blue-bg fragment" data-fragment-index="2">
+            <span class="icon icon-lg icon-green mb-16" style="--icon: url(../../../../_global/design/icons/document-file.svg)"></span>
+            <h3>Orderly Wind-Down</h3>
+            <p class="text-sm text-light">Remaining portfolio companies are exited via M&amp;A, secondaries, or in some cases written off. Final distributions are made and the fund formally dissolves.</p>
+          </div>
+          <div class="card card-orange-bg fragment" data-fragment-index="3">
+            <span class="icon icon-lg icon-green mb-16" style="--icon: url(../../../../_global/design/icons/arrow-recurring.svg)"></span>
+            <h3>Overlapping Funds</h3>
+            <p class="text-sm text-light">By years 8-10, a GP is typically managing Fund I wind-down, Fund II portfolio management, and Fund III deployment — simultaneously.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          [11:15-11:45] The 10-year fund life is a starting point, not a hard stop. [click] Most LPAs include provisions for 1-2 year extensions, typically requiring LP advisory committee approval. GPs use these to avoid forced exits at unfavorable valuations. [click] During wind-down, remaining positions are exited through M&amp;A, secondary sales, or write-offs. Final distributions flow through the waterfall, and the fund formally dissolves. [click] Here is the reality of a successful GP's life: they are simultaneously managing wind-down on Fund I, active portfolio management on Fund II, and deploying capital from Fund III. This overlapping fund structure means GPs are perpetually in multiple phases of the lifecycle at once — which is why understanding the full cycle matters so much.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 22: Key Takeaways (QA FIX: standardized title) -->
+      <!-- ============================================ -->
+      <section class="content-dark">
+        <div class="slide-header">
+          <p class="eyebrow">Takeaways</p>
+          <h2>Key Takeaways</h2>
+        </div>
+
+        <ul class="plus-list text-lg text-white">
+          <li class="fragment" data-fragment-index="1"><strong>A VC fund is a clock, not a bank account</strong> — the 10-year lifecycle creates urgency at every phase</li>
+          <li class="fragment" data-fragment-index="2"><strong>Know the LPA cold</strong> — it governs fees, carry, distributions, and restrictions</li>
+          <li class="fragment" data-fragment-index="3"><strong>Follow-on reserves (50-60%)</strong> separate the best funds from the rest</li>
+          <li class="fragment" data-fragment-index="4"><strong>The J-curve means negative early returns are a feature,</strong> not a bug</li>
+          <li class="fragment" data-fragment-index="5"><strong>Understanding the lifecycle explains all VC behavior</strong> — aggressive in year two, cautious in year eight, always fundraising</li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="rgba(255,255,255,0.4)"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          [11:45-12:15] Recap the five key takeaways. [click] The fund is a clock — every phase changes what the GP can and should do. [click] The LPA is the governing document for everything. In interviews, you must speak to LPA mechanics. [click] Reserving 50-60% for follow-ons sounds conservative until a fund gets diluted out of its own best deal. [click] The J-curve: patience is literally engineered into the venture model. [click] When you understand the lifecycle, you understand VC behavior — why they act differently at each stage, and why they are always fundraising.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 23: What's Next -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Up Next</p>
+          <h2>Roles Within a VC Firm</h2>
+        </div>
+
+        <div class="card-alt-green mb-24">
+          <div style="display: flex; align-items: flex-start; gap: 12px;">
+            <span class="icon icon-md icon-green" style="--icon: url(../../../../_global/design/icons/arrow-right.svg)"></span>
+            <p class="text-md">Now that you understand how a fund lives and dies over ten years, the next question is: who does the work at each stage? Next video: roles within a VC firm and how careers progress from analyst to managing partner.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          [12:15-12:30] Tease the next video. The fund lifecycle provides context for why each role exists and what each person is responsible for at different stages.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js -->
+  <script src="../assets/reveal/dist/reveal.min.js"></script>
+  <script type="module">
+    import RevealNotes from '../assets/reveal/plugin/notes/notes.esm.js';
+
+    Reveal.initialize({
+      width: 960,
+      height: 540,
+      margin: 0,
+      minScale: 0.5,
+      maxScale: 3.0,
+      hash: true,
+      slideNumber: true,
+      controls: true,
+      progress: true,
+      history: true,
+      center: false,
+      transition: 'none',
+      backgroundTransition: 'none',
+      disableLayout: false,
+      plugins: [ RevealNotes ]
+    });
+  </script>
+</body>
+</html>

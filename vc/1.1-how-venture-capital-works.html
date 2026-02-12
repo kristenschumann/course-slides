@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en" class="reveal-full-page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How Venture Capital Works</title>
+
+  <!-- Reveal.js Core -->
+  <link rel="stylesheet" href="../assets/reveal/dist/reset.css">
+  <link rel="stylesheet" href="../assets/reveal/dist/reveal.css">
+
+  <!-- Leland Theme -->
+  <link rel="stylesheet" href="../assets/reveal/themes/leland.css">
+
+</head>
+<body>
+  <!-- SVG Symbol Definitions (defined once, referenced via <use>) -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="leland-logo" viewBox="0 0 200 45">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z"/>
+      <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z"/>
+      <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z"/>
+      <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z"/>
+      <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z"/>
+      <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z"/>
+    </symbol>
+  </svg>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ============================================ -->
+      <!-- SLIDE 1: Title Dark -->
+      <!-- ============================================ -->
+      <section class="title-dark">
+        <svg width="110" height="25" fill="white" class="mb-16"><use href="#leland-logo"/></svg>
+        <p class="eyebrow">VC Fundamentals | Lesson 1.1</p>
+        <h1>How Venture<br><span class="hl">Capital Works</span></h1>
+
+        <aside class="notes">
+          [0:00] Welcome slide. Brief pause before launching into hook. Subtitle: Fund economics, the power law, and the metrics that matter.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 2: The Outsized Impact of VC -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">The Big Picture</p>
+          <h2>A Tiny Industry, Outsized Impact</h2>
+        </div>
+
+        <div class="card-grid-3">
+          <div class="card card-green-bg fragment" data-fragment-index="1">
+            <span class="icon icon-lg icon-green mb-16" style="--icon: url(../../../../_global/design/icons/bar-chart.svg)"></span>
+            <h3>43%</h3>
+            <p class="text-sm text-light">of all US public companies are VC-backed</p>
+          </div>
+          <div class="card card-blue-bg fragment" data-fragment-index="2">
+            <span class="icon icon-lg icon-green mb-16" style="--icon: url(../../../../_global/design/icons/bar-chart.svg)"></span>
+            <h3>57%</h3>
+            <p class="text-sm text-light">of total US public market capitalization</p>
+          </div>
+          <div class="card card-purple-bg fragment" data-fragment-index="3">
+            <span class="icon icon-lg icon-green mb-16" style="--icon: url(../../../../_global/design/icons/bar-chart.svg)"></span>
+            <h3>82%</h3>
+            <p class="text-sm text-light">of all corporate R&D spending</p>
+          </div>
+        </div>
+
+        <p class="text-sm text-light">Source: Stanford University study</p>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          [0:00-0:30] US VC firms raise ~$28B in new fund commitments per year -- JPMorgan Chase alone generates more revenue than that in a single quarter. Yet VC-backed companies dominate public markets. [Click] 43% of public companies. [Click] 57% of market cap. [Click] 82% of R&D. A small pool of capital producing an outsized impact. This video explains how the engine works under the hood.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 3: What You'll Learn -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Lesson Overview</p>
+          <h2>Four Building Blocks of VC</h2>
+        </div>
+
+        <ul class="icon-list text-lg">
+          <li>
+            <span class="icon icon-lg icon-green" style="--icon: url(../../../../_global/design/icons/money-chat.svg)"></span>
+            <span><strong>Where VC money actually comes from</strong> (it's not the VCs' own money)</span>
+          </li>
+          <li>
+            <span class="icon icon-lg icon-green" style="--icon: url(../../../../_global/design/icons/earnings.svg)"></span>
+            <span><strong>The "2 and 20" compensation model</strong></span>
+          </li>
+          <li>
+            <span class="icon icon-lg icon-green" style="--icon: url(../../../../_global/design/icons/arrow-up-chart-growth.svg)"></span>
+            <span><strong>The power law</strong> -- the most important concept in VC</span>
+          </li>
+          <li>
+            <span class="icon icon-lg icon-green" style="--icon: url(../../../../_global/design/icons/bar-chart.svg)"></span>
+            <span><strong>Key performance metrics</strong> that separate great funds from mediocre ones</span>
+          </li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          [0:30-1:00] Four topics today. Once you understand the economics, every decision a VC makes starts to make sense.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 4: Section Divider - Where the Money Comes From -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <div class="part-number">Part 1</div>
+        <h1>Where the Money Comes From</h1>
+        <p>LP-GP structure and capital sources</p>
+
+        <aside class="notes">
+          [1:00] Transition into LP/GP structure.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 5: The LP-GP Structure -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Fund Structure</p>
+          <h2>LPs Provide Capital, GPs Deploy It</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="fragment" data-fragment-index="1">
+            <span class="icon icon-lg icon-green mb-16" style="--icon: url(../../../../_global/design/icons/user-group.svg)"></span>
+            <h3 class="mb-16">Limited Partners (LPs)</h3>
+            <p class="text-light">Institutional investors who commit capital to a venture fund. They are passive -- they do not make investment decisions.</p>
+          </div>
+          <div class="fragment" data-fragment-index="2">
+            <span class="icon icon-lg icon-green mb-16" style="--icon: url(../../../../_global/design/icons/deal-execution.svg)"></span>
+            <h3 class="mb-16">General Partners (GPs)</h3>
+            <p class="text-light">The VC firm itself. GPs deploy LP capital into startups. They are intermediaries between institutional capital and early-stage companies.</p>
+          </div>
+        </div>
+
+        <div class="card-alt-green mb-24">
+          <div style="display: flex; align-items: flex-start; gap: 12px;">
+            <span class="icon icon-md icon-green" style="--icon: url(../../../../_global/design/icons/info.svg)"></span>
+            <p class="text-md">GPs commit 1-3% of the fund alongside LPs ("skin in the game").</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          [1:00-1:45] VCs are not investing their own money -- they invest other people's money. That single fact explains almost everything about how the industry operates. LPs commit capital; GPs deploy it. GPs themselves put in 1-3% of the fund -- meaningful personal commitment, but a small fraction of the total. [Click] LPs. [Click] GPs.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 6: Who Are the LPs? -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Capital Sources</p>
+          <h2>Types of Limited Partners</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>LP Type</th>
+              <th>Examples</th>
+              <th>Typical VC Allocation</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>University Endowments</td>
+              <td>Yale, Stanford, MIT, Harvard</td>
+              <td>5-16%</td>
+            </tr>
+            <tr>
+              <td>Foundations</td>
+              <td>Ford Foundation, Gates Foundation</td>
+              <td>3-8%</td>
+            </tr>
+            <tr>
+              <td>Pension Funds</td>
+              <td>CalPERS, CalSTRS</td>
+              <td>1-5%</td>
+            </tr>
+            <tr>
+              <td>Family Offices</td>
+              <td>HNW family investment vehicles</td>
+              <td>5-15%</td>
+            </tr>
+            <tr>
+              <td>Sovereign Wealth Funds</td>
+              <td>GIC (Singapore), Mubadala (Abu Dhabi)</td>
+              <td>2-5%</td>
+            </tr>
+            <tr>
+              <td>Insurance Companies</td>
+              <td>MetLife, Prudential</td>
+              <td>1-3%</td>
+            </tr>
+            <tr>
+              <td>Fund-of-Funds</td>
+              <td>HarbourVest, Hamilton Lane</td>
+              <td>100%</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          [1:45-2:30] Most LPs allocate 5% or less to VC. Endowments pioneered heavy VC allocation -- the Yale Endowment under David Swensen allocated ~16% to VC and generated 18%+ annualized returns over multiple decades. Every other endowment tried to copy it; most couldn't because they lacked access to top-tier funds. Fund-of-funds allocate 100% because that's their entire strategy.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 7: What LPs Expect -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Return Expectations</p>
+          <h2>Capital Calls and Target Returns</h2>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="card card-green-bg">
+            <span class="icon icon-lg icon-green mb-16" style="--icon: url(../../../../_global/design/icons/money.svg)"></span>
+            <h3>Target Returns</h3>
+            <p class="text-sm text-light">LPs expect 12-15% net annualized returns, roughly 500-800 basis points above the S&P 500. That premium compensates for illiquidity, risk, and a 10+ year time horizon.</p>
+          </div>
+          <div class="card card-orange-bg">
+            <span class="icon icon-lg icon-green mb-16" style="--icon: url(../../../../_global/design/icons/info.svg)"></span>
+            <h3>Capital Calls</h3>
+            <p class="text-sm text-light">LPs don't write a check on day one. GPs issue drawdown notices as investments close. A $10M commitment is called over the first several years, just in time. Cash management is a constant LP concern.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          [2:30-3:30] LPs lock up capital for 10+ years and expect 12-15% net annualized returns for that illiquidity premium. Key detail: capital is not deployed all at once. GPs issue capital calls -- drawdown notices -- over the first several years. If an LP has committed $50M across six funds and three issue capital calls in the same quarter, they need that cash ready.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 8: Section Divider - The 2 and 20 Model -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <div class="part-number">Part 2</div>
+        <h1>The 2 and 20 Model</h1>
+        <p>How GPs get compensated</p>
+
+        <aside class="notes">
+          [3:30] Transition into GP compensation.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 9: Management Fees Explained -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">GP Compensation</p>
+          <h2>Management Fees Keep the Lights On</h2>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="card card-blue-bg fragment" data-fragment-index="1">
+            <span class="icon icon-lg icon-green mb-16" style="--icon: url(../../../../_global/design/icons/money.svg)"></span>
+            <h3>2% of Committed Capital</h3>
+            <p class="text-sm text-light">Annual fee paid to the GP covering salaries, office space, travel, legal, and accounting. On a $100M fund: $2M/year.</p>
+          </div>
+          <div class="card card-purple-bg fragment" data-fragment-index="2">
+            <span class="icon icon-lg icon-green mb-16" style="--icon: url(../../../../_global/design/icons/info.svg)"></span>
+            <h3>Fees Step Down Over Time</h3>
+            <p class="text-sm text-light">During the investment period (first ~5 years), fees are on committed capital. After that, fees reduce ~25 bps/year or switch to invested capital. Total fees over 10 years on a $100M fund: ~$15-18M.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          [3:30-4:30] Two components of VC compensation. Management fee is the operational engine -- 2% of committed capital annually. [Click] $100M fund = $2M/year. [Click] Fees step down in the back half of the fund's life as workload shifts from new investments to managing/exiting. Over 10 years, total fees run $15-18M -- that's a lot of capital going to overhead before a dollar returns to LPs. Which is why LPs care so much about carry.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 10: Carried Interest - The Real Money -->
+      <!-- ============================================ -->
+      <section class="content-dark">
+        <div class="slide-header">
+          <p class="eyebrow">The Incentive</p>
+          <h2>Carry Is Where GPs Get Rich</h2>
+        </div>
+
+        <div class="card-alt-green mb-24">
+          <div style="display: flex; align-items: flex-start; gap: 12px;">
+            <span class="icon icon-md icon-green" style="--icon: url(../../../../_global/design/icons/star.svg)"></span>
+            <p class="text-md"><strong>Carried interest is the GP's share of the profits -- 20% of net profits after LPs have received their capital back.</strong></p>
+          </div>
+        </div>
+
+        <p class="text-lg text-white">Management fees keep the lights on. Carry is what makes venture capital venture capital. The GP only gets rich if the LPs get rich first.</p>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="rgba(255,255,255,0.4)"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          [4:30-5:00] This is the core incentive alignment of the entire model. Carry = 20% of net profits, but only after LPs have gotten their money back. That alignment -- GP only wins when LP wins -- is the backbone of the industry.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 11: Fund Economics Example -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Worked Example</p>
+          <h2>A $100M Fund That Returns 3x</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Component</th>
+              <th>Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Fund Size (Committed Capital)</td>
+              <td>$100M</td>
+            </tr>
+            <tr>
+              <td>Total Management Fees (10 yrs)</td>
+              <td>~$17M</td>
+            </tr>
+            <tr>
+              <td>Capital Deployed into Startups</td>
+              <td>~$83M</td>
+            </tr>
+            <tr>
+              <td>Total Fund Returns (Exit Proceeds)</td>
+              <td>$300M</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="1">
+              <td>Return of LP Capital</td>
+              <td>$100M</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="1">
+              <td>Profit</td>
+              <td>$200M</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="1">
+              <td>GP Carry (20% of Profit)</td>
+              <td>$40M</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="1">
+              <td>LP Share of Profit</td>
+              <td>$160M</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="1">
+              <td><strong>Total LP Distributions</strong></td>
+              <td><strong>$260M</strong></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          [5:00-5:45] Walk through the math. $100M fund, ~$17M goes to management fees, leaving $83M deployed. If exits generate $300M total -- [Click] -- LPs get their $100M back first, then 80% of the $200M profit = $160M. Total LP distributions: $260M. GPs earn $40M in carry on top of $17M in fees. That's the model working well.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 12a: Carry Details (1 of 2) -->
+      <!-- QA FIX: Split 4 dense cards into 2 slides -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Key Provisions</p>
+          <h2>Nuances of Carried Interest</h2>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="card card-green-bg fragment" data-fragment-index="1">
+            <span class="icon icon-lg icon-green mb-16" style="--icon: url(../../../../_global/design/icons/star.svg)"></span>
+            <h3>Premium Carry</h3>
+            <p class="text-sm text-light">Top-performing GPs negotiate 25-30% carry on subsequent funds. Strong track record = LPs happily pay more because they're still earning exceptional returns.</p>
+          </div>
+          <div class="card card-orange-bg fragment" data-fragment-index="2">
+            <span class="icon icon-lg icon-green mb-16" style="--icon: url(../../../../_global/design/icons/info.svg)"></span>
+            <h3>Hurdle Rates</h3>
+            <p class="text-sm text-light">Common in PE (8% preferred return), but rare in VC. VC returns are lumpier, take longer to materialize, and power law dynamics make hurdles less practical.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          [5:45-6:20] Two important carry nuances. [Click] Premium carry -- if you returned 5x on Fund I and 4x on Fund II, LPs will happily pay 25% on Fund III. [Click] Hurdle rates are standard in PE (8% pref) but rare in VC because returns are lumpy and power-law driven.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 12b: Carry Details (2 of 2) -->
+      <!-- QA FIX: Split 4 dense cards into 2 slides -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Key Provisions</p>
+          <h2>Clawbacks and Waterfall Structures</h2>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="card card-blue-bg fragment" data-fragment-index="1">
+            <span class="icon icon-lg icon-green mb-16" style="--icon: url(../../../../_global/design/icons/shield-check-filled.svg)"></span>
+            <h3>Clawback Provisions</h3>
+            <p class="text-sm text-light">If early exits look great but the fund ultimately underperforms, the GP must return excess carry. Ensures carry is calculated on whole-fund performance, not cherry-picked wins.</p>
+          </div>
+          <div class="card card-purple-bg fragment" data-fragment-index="2">
+            <span class="icon icon-lg icon-green mb-16" style="--icon: url(../../../../_global/design/icons/arrow-right.svg)"></span>
+            <h3>Waterfall Structures</h3>
+            <p class="text-sm text-light">European (whole-fund): GP receives carry only after all LP capital is returned. American (deal-by-deal): GP takes carry on individual profitable exits. American is more common in US VC but comes with stronger clawbacks.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          [6:20-7:00] Two more carry nuances. [Click] Clawback provisions protect LPs -- GP must return excess carry if early wins don't hold up across the whole fund. [Click] Two waterfall structures: European = whole-fund carry, American = deal-by-deal. American is more GP-friendly and more common in US venture.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 13: Section Divider - The Power Law -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <div class="part-number">Part 3</div>
+        <h1>The Power Law</h1>
+        <p>The most important concept in venture capital</p>
+
+        <aside class="notes">
+          [7:00] Transition into the most important concept in the module.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 14: Power Law vs. Normal Distribution -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Core Concept</p>
+          <h2>Not a Bell Curve -- A Power Law</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="fragment" data-fragment-index="1">
+            <span class="icon icon-lg icon-green mb-16" style="--icon: url(../../../../_global/design/icons/bar-chart.svg)"></span>
+            <h3 class="mb-16">Normal Distribution</h3>
+            <p class="text-light">Most outcomes cluster around the average. A few slightly better, a few slightly worse. Predictable. (Think: diversified bond portfolio.)</p>
+          </div>
+          <div class="fragment" data-fragment-index="2">
+            <span class="icon icon-lg icon-green mb-16" style="--icon: url(../../../../_global/design/icons/arrow-up-chart-growth.svg)"></span>
+            <h3 class="mb-16">Power Law Distribution</h3>
+            <p class="text-light">The vast majority of investments return very little or nothing. A tiny handful produce absolutely enormous, fund-defining outcomes. (Think: venture capital.)</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          [7:00-7:45] If you take one idea from this entire module, make it this. VC returns follow a power law distribution -- not a bell curve. [Click] Normal distribution: outcomes cluster around the average. [Click] Power law: most investments return little or nothing, but a tiny handful produce enormous outcomes. This changes everything about how VCs think and behave.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 15: Anatomy of a 20-Company Portfolio -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Portfolio Reality</p>
+          <h2>What a Typical Fund Looks Like</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Outcome</th>
+              <th># of Companies</th>
+              <th>Return Multiple</th>
+              <th>What It Means</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="fragment" data-fragment-index="1">
+              <td>Total losses</td>
+              <td>6-8</td>
+              <td>0x</td>
+              <td>Complete loss of invested capital</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="2">
+              <td>Partial returns</td>
+              <td>4-6</td>
+              <td>0.5-1x</td>
+              <td>Essentially break-even</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="3">
+              <td>Moderate winners</td>
+              <td>3-5</td>
+              <td>2-5x</td>
+              <td>Solid but not fund-makers</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="4">
+              <td>Strong winners</td>
+              <td>1-2</td>
+              <td>10-20x</td>
+              <td>Meaningful fund contributors</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="5">
+              <td><strong>Grand slam</strong></td>
+              <td><strong>0-1</strong></td>
+              <td><strong>50-100x+</strong></td>
+              <td><strong>Single investment defines the fund</strong></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          [7:45-8:30] Here's what a typical 20-company portfolio actually looks like. [Click] 6-8 companies are total losses. [Click] Another 4-6 essentially break even. [Click] 3-5 are moderate winners -- solid but not fund-makers. [Click] 1-2 strong winners that meaningfully contribute. [Click] And 0-1 grand slams that define the entire fund. The top one or two investments generate more return than everything else combined.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 16: The Babe Ruth Effect -->
+      <!-- ============================================ -->
+      <section class="content-dark">
+        <div class="slide-header">
+          <p class="eyebrow">Key Insight</p>
+          <h2>Slugging Percentage, Not Batting Average</h2>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="card card-green-bg fragment" data-fragment-index="1">
+            <span class="icon icon-lg icon-green mb-16" style="--icon: url(../../../../_global/design/icons/star.svg)"></span>
+            <h3>Peter Thiel + Facebook</h3>
+            <p class="text-sm text-light">$500K invested in 2004. Stake eventually worth $1.1 billion -- a 2,200x return. Founders Fund could have lost money on every other investment and still returned an extraordinary result.</p>
+          </div>
+          <div class="card card-blue-bg fragment" data-fragment-index="2">
+            <span class="icon icon-lg icon-green mb-16" style="--icon: url(../../../../_global/design/icons/lightning.svg)"></span>
+            <h3>The Implication</h3>
+            <p class="text-sm text-light">VCs don't optimize for the highest percentage of successful investments. They optimize for finding the one or two companies that return 50x or 100x. A 10% chance at $10B beats a 90% chance at $100M.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="rgba(255,255,255,0.4)"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          [8:30-9:15] This is called the Babe Ruth effect -- Ruth led the league in strikeouts AND home runs. The home runs more than compensated. [Click] The most famous example: Peter Thiel invested $500K in Facebook in 2004, eventually worth $1.1B -- 2,200x. One bet. [Click] This means VCs would rather invest in a company with a 10% chance of being worth $10B than a 90% chance at $100M. Expected value is everything in a power law world.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 17: The J-Curve -->
+      <!-- QA FIX: Brief callout card only, not full two-column -->
+      <!-- QA FIX: "Lemons ripen early" in speaker notes only -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Fund Lifecycle</p>
+          <h2>The J-Curve</h2>
+        </div>
+
+        <div class="card-alt-green mb-24">
+          <div style="display: flex; align-items: flex-start; gap: 12px;">
+            <span class="icon icon-md icon-green" style="--icon: url(../../../../_global/design/icons/info.svg)"></span>
+            <p class="text-md"><strong>Fund returns follow a J-shaped curve:</strong> negative in the early years as fees are charged and bad investments surface, then rising sharply as winners emerge and exits materialize. We'll visualize this in detail in Lesson 1.3.</p>
+          </div>
+        </div>
+
+        <ul class="plus-list text-lg">
+          <li><strong>Years 1-3:</strong> Fund shows negative returns -- management fees, capital deployment, and early failures</li>
+          <li><strong>Years 4-10:</strong> Winners take time to emerge, but breakout companies can transform the portfolio</li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          [9:15-10:00] The J-curve is a direct consequence of the power law. In years 1-3, fund returns look terrible -- fees are charged, capital is deployed, and the only news is bad news. Bad investments reveal themselves fast. "Lemons ripen early" is the industry saying. But by year 4-6, the winners start to emerge. The portfolio that looked like a graveyard transforms when two companies break out and return more than the entire fund. We'll cover the J-curve in much more visual detail in Lesson 1.3.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 18: Section Divider - Performance Metrics -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <div class="part-number">Part 4</div>
+        <h1>Performance Metrics</h1>
+        <p>How LPs evaluate fund performance</p>
+
+        <aside class="notes">
+          [10:00] Transition into fund evaluation metrics.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 19: The Four Key Metrics -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Fund Evaluation</p>
+          <h2>Metrics LPs Use to Judge Funds</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Metric</th>
+              <th>What It Measures</th>
+              <th>"Good" Benchmark</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>DPI</strong></td>
+              <td>Cash returned to LPs / capital called</td>
+              <td>> 1.0x</td>
+            </tr>
+            <tr>
+              <td><strong>TVPI</strong></td>
+              <td>(Distributions + unrealized value) / capital called</td>
+              <td>> 2.0x</td>
+            </tr>
+            <tr>
+              <td><strong>Net IRR</strong></td>
+              <td>Annualized return to LPs, net of fees and carry</td>
+              <td>> 15%</td>
+            </tr>
+            <tr>
+              <td><strong>Gross MOIC</strong></td>
+              <td>Gross multiple on capital deployed into deals</td>
+              <td>> 3.0x</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          [10:00-10:30] Four key metrics. DPI: actual cash returned divided by capital called. TVPI: realized distributions plus unrealized portfolio value divided by capital called. Net IRR: annualized rate of return after fees and carry. Gross MOIC: raw multiple on deployed capital before fees.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 20: DPI - The Metric That Doesn't Lie -->
+      <!-- ============================================ -->
+      <section class="content-dark">
+        <div class="slide-header">
+          <p class="eyebrow">Most Important Metric</p>
+          <h2>DPI Is the Ultimate Scorecard</h2>
+        </div>
+
+        <div class="card-alt-green mb-24">
+          <div style="display: flex; align-items: flex-start; gap: 12px;">
+            <span class="icon icon-md icon-green" style="--icon: url(../../../../_global/design/icons/shield-check-filled.svg)"></span>
+            <p class="text-md"><strong>"Marks are opinions. DPI is fact."</strong></p>
+          </div>
+        </div>
+
+        <p class="text-lg text-white">A DPI of 1.5x means for every dollar an LP put in, they've received $1.50 back in their bank account. Real cash, not paper markups. Funds with a 4x TVPI on paper can ultimately return just 1.2x in actual cash.</p>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="rgba(255,255,255,0.4)"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          [10:30-11:00] DPI is the only metric that doesn't lie. Paper valuations can be wildly optimistic -- a company marked at $500M today might IPO at $2B or go to zero. DPI measures what actually landed in LP bank accounts. When evaluating funds or discussing them in interviews, anchor on cash returned, not unrealized markups.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 21: TVPI, IRR, and MOIC -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Supporting Metrics</p>
+          <h2>Context Around Each Metric</h2>
+        </div>
+
+        <div class="card-grid-3">
+          <div class="card card-blue-bg fragment" data-fragment-index="1">
+            <span class="icon icon-lg icon-green mb-16" style="--icon: url(../../../../_global/design/icons/bar-chart.svg)"></span>
+            <h3>TVPI</h3>
+            <p class="text-sm text-light">Includes realized returns + estimated value of companies still private. Captures unrealized upside but can be misleading. LPs view with healthy skepticism.</p>
+          </div>
+          <div class="card card-orange-bg fragment" data-fragment-index="2">
+            <span class="icon icon-lg icon-green mb-16" style="--icon: url(../../../../_global/design/icons/earnings.svg)"></span>
+            <h3>Net IRR</h3>
+            <p class="text-sm text-light">The annualized return after all fees and carry. Gross IRR looks better but isn't what LPs take home. LPs care about net.</p>
+          </div>
+          <div class="card card-purple-bg fragment" data-fragment-index="3">
+            <span class="icon icon-lg icon-green mb-16" style="--icon: url(../../../../_global/design/icons/arrow-up-chart-growth.svg)"></span>
+            <h3>Gross MOIC</h3>
+            <p class="text-sm text-light">Raw multiple on capital deployed. If $80M invested across 20 companies is now worth $240M, MOIC = 3.0x. Useful for evaluating investment selection skill.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          [11:00-11:20] Quick context on each. [Click] TVPI includes unrealized value -- useful but can be misleading. [Click] Net IRR is what matters to LPs. Always specify net vs. gross. [Click] Gross MOIC isolates the GP's investment selection skill before fees.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 22: Vintage Year Benchmarking -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Critical Context</p>
+          <h2>Always Compare by Vintage Year</h2>
+        </div>
+
+        <div class="card-alt-green mb-24">
+          <div style="display: flex; align-items: flex-start; gap: 12px;">
+            <span class="icon icon-md icon-green" style="--icon: url(../../../../_global/design/icons/info.svg)"></span>
+            <p class="text-md"><strong>Never evaluate a fund in isolation.</strong> Compare to other funds raised in the same year -- the same "vintage."</p>
+          </div>
+        </div>
+
+        <p class="text-lg">A 2.5x TVPI might be outstanding for a 2019 vintage but mediocre for a 2012 vintage. Market conditions and exit environments vary enormously. Cambridge Associates and PitchBook publish the industry-standard vintage year benchmarks.</p>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          [11:20-11:30] Final detail on metrics: vintage year benchmarking. A 2.5x TVPI means nothing without context -- you compare against all funds raised the same year. Cambridge Associates and PitchBook are the standard sources.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 23: Key Takeaways -->
+      <!-- QA FIX: Title standardized to "Key Takeaways" -->
+      <!-- ============================================ -->
+      <section class="content-dark">
+        <div class="slide-header">
+          <p class="eyebrow">Takeaways</p>
+          <h2>Key Takeaways</h2>
+        </div>
+
+        <ul class="plus-list text-lg text-white">
+          <li class="fragment" data-fragment-index="1"><strong>VCs invest other people's money.</strong> That single fact explains 90% of their behavior. Know who the LPs are and what they expect.</li>
+          <li class="fragment" data-fragment-index="2"><strong>The GP only gets rich if LPs get rich first.</strong> Management fees keep the lights on; carry is the real payoff, and it only materializes when the fund performs.</li>
+          <li class="fragment" data-fragment-index="3"><strong>The power law is the operating principle of VC.</strong> VCs need home runs, not base hits. Every investment decision comes back to this.</li>
+          <li class="fragment" data-fragment-index="4"><strong>DPI separates real performance from paper performance.</strong> Anchor on cash returned, not unrealized markups.</li>
+          <li class="fragment" data-fragment-index="5"><strong>Connect economics to behavior.</strong> "Why do VCs care about market size?" Because the power law means you need companies that can return the entire fund -- a $50M outcome in a $500M fund doesn't move the needle. That's the answer that gets you hired.</li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="rgba(255,255,255,0.4)"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          [11:30-12:00] Five takeaways. [Click] VCs invest OPM -- other people's money. [Click] GP-LP alignment: GP only wins when LP wins. [Click] The power law governs everything -- home runs, not base hits. [Click] DPI is the metric that doesn't lie. [Click] When someone asks "Why do VCs care about market size?" -- it's because the power law means you need companies that can return the entire fund. A $50M exit in a $500M fund doesn't move the needle. That's the interview answer that gets you hired.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 24: What's Next -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Up Next</p>
+          <h2>Coming in 1.2 and 1.3</h2>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="card card-green-bg">
+            <span class="icon icon-lg icon-green mb-16" style="--icon: url(../../../../_global/design/icons/arrow-right.svg)"></span>
+            <h3>1.2 -- VC Glossary</h3>
+            <p class="text-sm text-light">The essential terminology to speak the language fluently.</p>
+          </div>
+          <div class="card card-blue-bg">
+            <span class="icon icon-lg icon-green mb-16" style="--icon: url(../../../../_global/design/icons/arrow-right.svg)"></span>
+            <h3>1.3 -- Fund Structure & Lifecycle</h3>
+            <p class="text-sm text-light">How a fund is legally organized, how capital flows over its lifetime, and what happens at each stage.</p>
+          </div>
+        </div>
+
+        <p class="text-sm text-light">These metrics return in Module 7 (VC Technical Skills) for deeper analysis.</p>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          [12:00] Next up: 1.2 covers the essential VC glossary, and 1.3 goes deeper into fund structure and lifecycle. We'll also cross-reference these metrics in Module 7 when we cover VC Technical Skills in much more depth.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js -->
+  <script src="../assets/reveal/dist/reveal.min.js"></script>
+  <script type="module">
+    import RevealNotes from '../assets/reveal/plugin/notes/notes.esm.js';
+
+    Reveal.initialize({
+      width: 960,
+      height: 540,
+      margin: 0,
+      minScale: 0.5,
+      maxScale: 3.0,
+      hash: true,
+      slideNumber: true,
+      controls: true,
+      progress: true,
+      history: true,
+      center: false,
+      transition: 'none',
+      backgroundTransition: 'none',
+      disableLayout: false,
+      plugins: [ RevealNotes ]
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en" class="reveal-full-page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ID8: Calculator vs. Scratch Paper</title>
+
+  <!-- Reveal.js Core -->
+  <link rel="stylesheet" href="../assets/reveal/dist/reset.css">
+  <link rel="stylesheet" href="../assets/reveal/dist/reveal.css">
+
+  <!-- Leland Theme -->
+  <link rel="stylesheet" href="../assets/reveal/themes/leland.css">
+
+  <style>
+    /* Slide-specific overrides */
+</style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ============================================ -->
+      <!-- SLIDE 1: Title (Dark) -->
+      <!-- ============================================ -->
+      <section class="title-dark">
+        <!-- Top Logo (white) -->
+        <div class="leland-logo-top">
+          <svg width="110" height="25" viewBox="0 0 200 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z" fill="white"/>
+            <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z" fill="white"/>
+            <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z" fill="white"/>
+            <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z" fill="white"/>
+            <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z" fill="white"/>
+            <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z" fill="white"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z" fill="white"/>
+          </svg>
+        </div>
+
+        <div style="margin-top: 20px;">
+          <p class="eyebrow">GRE Self-Study Course</p>
+          <h1>Calculator vs.<br><span class="hl">Scratch Paper</span></h1>
+        </div>
+
+        <aside class="notes">
+          0:00 - 0:30 | Hook: The GRE gives you an on-screen calculator. That sounds like good news, but the calculator can actually slow you down if you don't use it strategically.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 2: What the Calculator Can Do -->
+      <!-- ============================================ -->
+      <section class="content" style="padding: 48px 64px; display: flex; flex-direction: column; padding-bottom: 70px;">
+        <!-- Header -->
+        <div style="margin-bottom: 24px;">
+          <p class="eyebrow">The Basics</p>
+          <h2 style="font-size: 32px; margin: 0;">What the Calculator Can Do</h2>
+        </div>
+
+        <!-- Main content -->
+        <div style="display: flex; gap: 32px; flex: 1; align-items: flex-start;">
+          <!-- Capabilities list -->
+          <div style="flex: 1;">
+            <p style="font-size: 16px; color: var(--leland-text-dark); margin: 0 0 20px 0; line-height: 1.6;">
+              The GRE calculator is <strong>basic</strong>. It handles:
+            </p>
+            <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 24px;">
+              <span style="background: rgba(21, 176, 120, 0.08); color: var(--leland-green); padding: 8px 16px; border-radius: 20px; font-size: 14px; font-weight: 500;">Addition</span>
+              <span style="background: rgba(21, 176, 120, 0.08); color: var(--leland-green); padding: 8px 16px; border-radius: 20px; font-size: 14px; font-weight: 500;">Subtraction</span>
+              <span style="background: rgba(21, 176, 120, 0.08); color: var(--leland-green); padding: 8px 16px; border-radius: 20px; font-size: 14px; font-weight: 500;">Multiplication</span>
+              <span style="background: rgba(21, 176, 120, 0.08); color: var(--leland-green); padding: 8px 16px; border-radius: 20px; font-size: 14px; font-weight: 500;">Division</span>
+              <span style="background: rgba(21, 176, 120, 0.08); color: var(--leland-green); padding: 8px 16px; border-radius: 20px; font-size: 14px; font-weight: 500;">Square Roots</span>
+            </div>
+            <p style="font-size: 14px; color: var(--leland-text-light); margin: 0; line-height: 1.6;">
+              Also supports parentheses and a memory function. That's it. No exponents, no trig, no fractions.
+            </p>
+          </div>
+
+          <!-- Key limitation -->
+          <div style="flex: 0.8; background: rgba(239, 133, 9, 0.06); border-radius: 12px; padding: 24px; border-left: 4px solid var(--leland-orange);">
+            <h3 style="font-size: 16px; margin: 0 0 12px 0; color: var(--leland-orange);">The Trade-Off</h3>
+            <p style="font-size: 15px; line-height: 1.6; margin: 0; color: var(--leland-text-dark);">
+              The calculator is <strong>on-screen only</strong>. You click buttons with your mouse. No keyboard shortcuts.
+            </p>
+            <p style="font-size: 14px; line-height: 1.5; margin: 16px 0 0 0; color: var(--leland-text-light);">
+              Every calculation requires multiple clicks. Accuracy comes at the cost of time.
+            </p>
+          </div>
+        </div>
+
+        <!-- Rule of thumb -->
+        <div class="callout-green" style="margin-top: 20px;">
+          <p style="font-size: 15px; margin: 0;"><span class="hl-bold">Rule of thumb:</span> If you can solve it in your head in under 10 seconds, don't use the calculator.</p>
+        </div>
+
+        <!-- Footer Logo -->
+        <div class="leland-footer">
+          <svg width="80" height="18" viewBox="0 0 200 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z" fill="#9B9B9B"/>
+            <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z" fill="#9B9B9B"/>
+            <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z" fill="#9B9B9B"/>
+            <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z" fill="#9B9B9B"/>
+            <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z" fill="#9B9B9B"/>
+            <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z" fill="#9B9B9B"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z" fill="#9B9B9B"/>
+          </svg>
+        </div>
+
+        <aside class="notes">
+          0:30 - 1:30 | The GRE calculator is basic: +, -, x, /, square roots, parentheses, memory. No exponents, no trig, no fractions. On-screen only, click with mouse. This clicking takes time.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 3: When to Use Each -->
+      <!-- ============================================ -->
+      <section class="content" style="padding: 48px 64px; display: flex; flex-direction: column; padding-bottom: 70px;">
+        <!-- Header -->
+        <div style="margin-bottom: 20px;">
+          <p class="eyebrow">Strategic Choices</p>
+          <h2 style="font-size: 32px; margin: 0;">When to Use Each</h2>
+        </div>
+
+        <!-- Two columns -->
+        <div style="display: flex; gap: 24px; flex: 1;">
+          <!-- Calculator column -->
+          <div class="card" style="flex: 1; display: flex; flex-direction: column; border-top: 4px solid var(--leland-green);">
+            <h3 style="font-size: 18px; color: var(--leland-green); margin: 0 0 16px 0;">Use the Calculator</h3>
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+              <div style="display: flex; align-items: flex-start; gap: 12px;">
+                <span style="color: var(--leland-green); font-weight: 600;">1.</span>
+                <div>
+                  <p style="font-size: 14px; font-weight: 600; margin: 0; color: var(--leland-text-dark);">Large or messy numbers</p>
+                  <p style="font-size: 13px; margin: 4px 0 0 0; color: var(--leland-text-light);">847 x 36, 127.5 / 8.5</p>
+                </div>
+              </div>
+              <div style="display: flex; align-items: flex-start; gap: 12px;">
+                <span style="color: var(--leland-green); font-weight: 600;">2.</span>
+                <div>
+                  <p style="font-size: 14px; font-weight: 600; margin: 0; color: var(--leland-text-dark);">Decimal arithmetic</p>
+                  <p style="font-size: 13px; margin: 4px 0 0 0; color: var(--leland-text-light);">Avoid decimal place errors</p>
+                </div>
+              </div>
+              <div style="display: flex; align-items: flex-start; gap: 12px;">
+                <span style="color: var(--leland-green); font-weight: 600;">3.</span>
+                <div>
+                  <p style="font-size: 14px; font-weight: 600; margin: 0; color: var(--leland-text-dark);">Checking your work</p>
+                  <p style="font-size: 13px; margin: 4px 0 0 0; color: var(--leland-text-light);">Quick verification of hand calculations</p>
+                </div>
+              </div>
+              <div style="display: flex; align-items: flex-start; gap: 12px;">
+                <span style="color: var(--leland-green); font-weight: 600;">4.</span>
+                <div>
+                  <p style="font-size: 14px; font-weight: 600; margin: 0; color: var(--leland-text-dark);">Multi-step chains</p>
+                  <p style="font-size: 13px; margin: 4px 0 0 0; color: var(--leland-text-light);">(15% of 340) + (23% of 280)</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Scratch paper column -->
+          <div class="card" style="flex: 1; display: flex; flex-direction: column; border-top: 4px solid #5B8DEF;">
+            <h3 style="font-size: 18px; color: #5B8DEF; margin: 0 0 16px 0;">Use Scratch Paper</h3>
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+              <div style="display: flex; align-items: flex-start; gap: 12px;">
+                <span style="color: #5B8DEF; font-weight: 600;">1.</span>
+                <div>
+                  <p style="font-size: 14px; font-weight: 600; margin: 0; color: var(--leland-text-dark);">Simple arithmetic</p>
+                  <p style="font-size: 13px; margin: 4px 0 0 0; color: var(--leland-text-light);">48 / 6, 7 x 8, 125 - 39</p>
+                </div>
+              </div>
+              <div style="display: flex; align-items: flex-start; gap: 12px;">
+                <span style="color: #5B8DEF; font-weight: 600;">2.</span>
+                <div>
+                  <p style="font-size: 14px; font-weight: 600; margin: 0; color: var(--leland-text-dark);">Fractions</p>
+                  <p style="font-size: 13px; margin: 4px 0 0 0; color: var(--leland-text-light);">Keep as fractions, don't convert to decimals</p>
+                </div>
+              </div>
+              <div style="display: flex; align-items: flex-start; gap: 12px;">
+                <span style="color: #5B8DEF; font-weight: 600;">3.</span>
+                <div>
+                  <p style="font-size: 14px; font-weight: 600; margin: 0; color: var(--leland-text-dark);">Estimation</p>
+                  <p style="font-size: 13px; margin: 4px 0 0 0; color: var(--leland-text-light);">When answer choices are far apart</p>
+                </div>
+              </div>
+              <div style="display: flex; align-items: flex-start; gap: 12px;">
+                <span style="color: #5B8DEF; font-weight: 600;">4.</span>
+                <div>
+                  <p style="font-size: 14px; font-weight: 600; margin: 0; color: var(--leland-text-dark);">Setting up problems</p>
+                  <p style="font-size: 13px; margin: 4px 0 0 0; color: var(--leland-text-light);">Write the equation first, then decide</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer Logo -->
+        <div class="leland-footer">
+          <svg width="80" height="18" viewBox="0 0 200 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z" fill="#9B9B9B"/>
+            <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z" fill="#9B9B9B"/>
+            <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z" fill="#9B9B9B"/>
+            <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z" fill="#9B9B9B"/>
+            <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z" fill="#9B9B9B"/>
+            <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z" fill="#9B9B9B"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z" fill="#9B9B9B"/>
+          </svg>
+        </div>
+
+        <aside class="notes">
+          1:30 - 4:30 | Calculator: large numbers, decimals, checking work, multi-step chains. Scratch paper: simple math, fractions, estimation, setting up problems.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 4: Calculator Traps -->
+      <!-- ============================================ -->
+      <section class="content" style="padding: 48px 64px; display: flex; flex-direction: column; padding-bottom: 70px;">
+        <!-- Header -->
+        <div style="margin-bottom: 20px;">
+          <p class="eyebrow" style="color: var(--leland-orange);">Watch Out</p>
+          <h2 style="font-size: 32px; margin: 0;">Calculator Traps</h2>
+        </div>
+
+        <!-- 4 Trap cards -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; flex: 1;">
+          <!-- Trap 1 -->
+          <div style="background: rgba(251, 90, 66, 0.04); border-left: 4px solid rgba(251, 90, 66, 0.6); border-radius: 8px; padding: 20px;">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+              <span style="font-size: 14px; font-weight: 600; color: #D94A3A;">1</span>
+              <h3 style="font-size: 16px; margin: 0; color: var(--leland-text-dark);">Order of Operations Errors</h3>
+            </div>
+            <p style="font-size: 14px; line-height: 1.5; margin: 0; color: var(--leland-text-light);">
+              The calculator follows PEMDAS, but if you enter things wrong, you get wrong answers. Use parentheses explicitly.
+            </p>
+          </div>
+
+          <!-- Trap 2 -->
+          <div style="background: rgba(251, 90, 66, 0.04); border-left: 4px solid rgba(251, 90, 66, 0.6); border-radius: 8px; padding: 20px;">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+              <span style="font-size: 14px; font-weight: 600; color: #D94A3A;">2</span>
+              <h3 style="font-size: 16px; margin: 0; color: var(--leland-text-dark);">Converting Fractions Too Early</h3>
+            </div>
+            <p style="font-size: 14px; line-height: 1.5; margin: 0; color: var(--leland-text-light);">
+              Entering 1/3 as 0.333 creates rounding errors when you multiply. Keep fractions as fractions.
+            </p>
+          </div>
+
+          <!-- Trap 3 -->
+          <div style="background: rgba(251, 90, 66, 0.04); border-left: 4px solid rgba(251, 90, 66, 0.6); border-radius: 8px; padding: 20px;">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+              <span style="font-size: 14px; font-weight: 600; color: #D94A3A;">3</span>
+              <h3 style="font-size: 16px; margin: 0; color: var(--leland-text-dark);">Typing Errors</h3>
+            </div>
+            <p style="font-size: 14px; line-height: 1.5; margin: 0; color: var(--leland-text-light);">
+              When clicking fast, it's easy to hit the wrong button. If your answer seems weird, clear and try again.
+            </p>
+          </div>
+
+          <!-- Trap 4 -->
+          <div style="background: rgba(251, 90, 66, 0.04); border-left: 4px solid rgba(251, 90, 66, 0.6); border-radius: 8px; padding: 20px;">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+              <span style="font-size: 14px; font-weight: 600; color: #D94A3A;">4</span>
+              <h3 style="font-size: 16px; margin: 0; color: var(--leland-text-dark);">Over-Reliance</h3>
+            </div>
+            <p style="font-size: 14px; line-height: 1.5; margin: 0; color: var(--leland-text-light);">
+              Reaching for the calculator for everything wastes time and doesn't develop number sense that makes you faster.
+            </p>
+          </div>
+        </div>
+
+        <!-- Footer Logo -->
+        <div class="leland-footer">
+          <svg width="80" height="18" viewBox="0 0 200 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z" fill="#9B9B9B"/>
+            <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z" fill="#9B9B9B"/>
+            <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z" fill="#9B9B9B"/>
+            <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z" fill="#9B9B9B"/>
+            <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z" fill="#9B9B9B"/>
+            <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z" fill="#9B9B9B"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z" fill="#9B9B9B"/>
+          </svg>
+        </div>
+
+        <aside class="notes">
+          4:30 - 5:30 | Four traps: 1) Order of operations errors, 2) Converting fractions to decimals too early, 3) Typing errors when clicking fast, 4) Over-reliance on calculator for everything.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 5: Summary (Dark) -->
+      <!-- ============================================ -->
+      <section class="title-dark">
+        <!-- Top Logo (white) -->
+        <div class="leland-logo-top">
+          <svg width="110" height="25" viewBox="0 0 200 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z" fill="white"/>
+            <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z" fill="white"/>
+            <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z" fill="white"/>
+            <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z" fill="white"/>
+            <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z" fill="white"/>
+            <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z" fill="white"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z" fill="white"/>
+          </svg>
+        </div>
+
+        <!-- Header with spacing -->
+        <div style="margin-top: 20px; margin-bottom: 24px;">
+          <p class="eyebrow">Summary</p>
+          <h2 style="font-size: 36px;">The Strategy</h2>
+        </div>
+
+        <!-- Content -->
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          <p class="text-muted text-lg" style="line-height: 1.6;">
+            <span class="text-white" style="font-weight: 500;">Use calculator:</span> Large/messy numbers, decimals, checking work
+          </p>
+          <p class="text-muted text-lg" style="line-height: 1.6;">
+            <span class="text-white" style="font-weight: 500;">Use scratch paper:</span> Simple arithmetic, fractions, estimation
+          </p>
+          <p class="text-muted text-lg" style="line-height: 1.6;">
+            <span class="text-white" style="font-weight: 500;">Always:</span> Set up the problem on paper before reaching for calculator
+          </p>
+          <p class="text-muted text-lg" style="line-height: 1.6;">
+            <span class="text-white" style="font-weight: 500;">Watch out for:</span> Order of operations errors and rounding issues
+          </p>
+        </div>
+
+        <!-- Key Insight -->
+        <div class="mt-24" style="padding: 20px 24px; background-color: rgba(21, 176, 120, 0.15); border-radius: 8px; border-left: 4px solid var(--leland-green);">
+          <p class="text-white" style="font-size: 17px; margin: 0; line-height: 1.5;"><span class="hl-bold">The calculator is a tool. But so is your brain. Use both strategically.</span></p>
+        </div>
+
+        <aside class="notes">
+          5:30 - 6:00 | Summary: Calculator for messy numbers, scratch paper for simple math. Always set up on paper first. Watch for order of operations and rounding. Use both tools strategically.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js -->
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.js"></script>
+  <script src="../assets/reveal/plugin/notes/notes.js"></script>
+  <script type="module">
+    import RevealNotes from '../assets/reveal/plugin/notes/notes.esm.js';
+    
+    Reveal.initialize({
+      width: 960,
+      height: 540,
+      margin: 0,
+      minScale: 0.5,
+      maxScale: 3.0,
+      hash: true,
+      slideNumber: true,
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+      transition: 'none',
+      backgroundTransition: 'none',
+      disableLayout: false,
+      plugins: [ RevealNotes ]
+    });
+  </script>
+</body>
+</html>

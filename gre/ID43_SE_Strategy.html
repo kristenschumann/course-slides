@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en" class="reveal-full-page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ID43: Sentence Equivalence Pairing Strategy</title>
+
+  <!-- Reveal.js Core -->
+  <link rel="stylesheet" href="../assets/reveal/dist/reset.css">
+  <link rel="stylesheet" href="../assets/reveal/dist/reveal.css">
+
+  <!-- Leland Theme -->
+  <link rel="stylesheet" href="../assets/reveal/themes/leland.css">
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- SLIDE 1: Title -->
+      <section class="title-dark">
+        <div class="leland-logo-top">
+          <svg width="110" height="25" viewBox="0 0 200 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z" fill="white"/>
+            <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z" fill="white"/>
+            <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z" fill="white"/>
+            <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z" fill="white"/>
+            <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z" fill="white"/>
+            <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z" fill="white"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z" fill="white"/>
+          </svg>
+        </div>
+        <div style="margin-top: 20px;">
+          <p class="eyebrow">GRE Self-Study Course</p>
+          <h1>Sentence Equivalence<br><span class="hl">Pairing Strategy</span></h1>
+        </div>
+        <aside class="notes">0:00 - 0:10 | Opening title.</aside>
+      </section>
+
+      <!-- SLIDE 2: Hook -->
+      <section class="content" style="display: flex; flex-direction: column; padding: 48px 64px;">
+        <div style="margin-bottom: 20px;">
+          <p class="eyebrow">The Key Insight</p>
+          <h2 style="font-size: 36px;">The Twist Many Students Miss</h2>
+        </div>
+        <div style="flex: 1; display: flex; flex-direction: column; justify-content: flex-start; padding-bottom: 60px;">
+          <p style="font-size: 18px; color: var(--leland-text-dark); margin: 0 0 24px 0; line-height: 1.6;">
+            You're not just looking for two words that fit the blank. You're looking for two words that create sentences with the <strong>SAME MEANING</strong>.
+          </p>
+          <div style="background: rgba(21, 176, 120, 0.08); border-left: 4px solid var(--leland-green); padding: 20px 24px; margin-bottom: 24px;">
+            <p style="font-size: 17px; color: var(--leland-text-dark); margin: 0; line-height: 1.6;">
+              This means the right answers are almost always <strong>synonyms</strong>. Once you understand this, SE questions become much more predictable.
+            </p>
+          </div>
+          <div class="callout-green" style="margin-top: auto;">
+            <p style="font-size: 15px; margin: 0;"><span class="hl-bold">Today's strategy:</span> Use synonym pairs to your advantage. Find the pair first, then verify it fits.</p>
+          </div>
+        </div>
+        <div class="leland-footer">
+          <svg width="80" height="18" viewBox="0 0 200 45" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z" fill="#9B9B9B"/><path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z" fill="#9B9B9B"/><path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z" fill="#9B9B9B"/><path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z" fill="#9B9B9B"/><path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z" fill="#9B9B9B"/><path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z" fill="#9B9B9B"/><path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z" fill="#9B9B9B"/></svg>
+        </div>
+        <aside class="notes">0:10 - 0:55 | Hook explaining the key insight that SE requires same-meaning sentences.</aside>
+      </section>
+
+      <!-- SLIDE 3: SE vs TC -->
+      <section class="content" style="padding: 48px 64px; display: flex; flex-direction: column;">
+        <div style="margin-bottom: 24px;">
+          <p class="eyebrow">Know the Difference</p>
+          <h2 style="font-size: 32px; margin: 0;">How SE Differs from Text Completion</h2>
+        </div>
+        <div style="flex: 1; display: flex; gap: 24px;">
+          <!-- TC Column -->
+          <div style="flex: 1; background: #F8F8F8; border-radius: 8px; padding: 24px;">
+            <h3 style="font-size: 18px; color: var(--leland-text-dark); margin: 0 0 16px 0;">Text Completion</h3>
+            <ul style="font-size: 14px; color: var(--leland-text-light); margin: 0; padding-left: 20px; line-height: 1.8;">
+              <li>1-3 blanks</li>
+              <li>Select <strong>ONE</strong> answer per blank</li>
+              <li>5 choices (single) or 3 per blank (multi)</li>
+              <li>Find the word that fits</li>
+            </ul>
+          </div>
+          <!-- SE Column -->
+          <div style="flex: 1; background: rgba(21, 176, 120, 0.08); border-radius: 8px; padding: 24px; border: 2px solid var(--leland-green);">
+            <h3 style="font-size: 18px; color: var(--leland-green); margin: 0 0 16px 0;">Sentence Equivalence</h3>
+            <ul style="font-size: 14px; color: var(--leland-text-dark); margin: 0; padding-left: 20px; line-height: 1.8;">
+              <li>Always 1 blank</li>
+              <li>Select <strong>TWO</strong> answers</li>
+              <li>6 choices total</li>
+              <li>Find a <strong>PAIR</strong> that creates equivalent sentences</li>
+            </ul>
+          </div>
+        </div>
+        <div class="callout-dark mt-16" style="text-align: center;">
+          <p style="font-size: 14px;"><span class="hl-bold">Key difference:</span> Getting just one right earns zero points. You need the pair.</p>
+        </div>
+        <div class="leland-footer">
+          <svg width="80" height="18" viewBox="0 0 200 45" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z" fill="#9B9B9B"/><path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z" fill="#9B9B9B"/><path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z" fill="#9B9B9B"/><path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z" fill="#9B9B9B"/><path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z" fill="#9B9B9B"/><path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z" fill="#9B9B9B"/><path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z" fill="#9B9B9B"/></svg>
+        </div>
+        <aside class="notes">0:55 - 2:00 | Compare SE and TC formats side by side.</aside>
+      </section>
+
+      <!-- SLIDE 4: The Two-Pass Approach -->
+      <section class="content" style="padding: 40px 64px 70px; display: flex; flex-direction: column;">
+        <div style="margin-bottom: 20px;">
+          <p class="eyebrow">The Method</p>
+          <h2 style="font-size: 32px; margin: 0;">The <span class="hl">Two-Pass</span> Approach</h2>
+        </div>
+        <div style="flex: 1; display: flex; gap: 24px;">
+          <!-- Pass 1 -->
+          <div style="flex: 1; background: #F8F8F8; border-radius: 8px; padding: 24px;">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+              <div style="background: var(--leland-green); color: white; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600;">1</div>
+              <h3 style="font-size: 18px; color: var(--leland-text-dark); margin: 0;">Synonym Identification</h3>
+            </div>
+            <p style="font-size: 14px; color: var(--leland-text-light); margin: 0 0 12px 0; line-height: 1.6;">Before re-reading the sentence, scan all six choices:</p>
+            <ul style="font-size: 14px; color: var(--leland-text-light); margin: 0; padding-left: 20px; line-height: 1.8;">
+              <li>Group words that are synonyms</li>
+              <li>Mark "orphan" words with no synonym partner</li>
+              <li>If a word has no synonym, it CANNOT be correct</li>
+            </ul>
+          </div>
+          <!-- Pass 2 -->
+          <div style="flex: 1; background: #F8F8F8; border-radius: 8px; padding: 24px;">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+              <div style="background: var(--leland-green); color: white; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600;">2</div>
+              <h3 style="font-size: 18px; color: var(--leland-text-dark); margin: 0;">Context Matching</h3>
+            </div>
+            <p style="font-size: 14px; color: var(--leland-text-light); margin: 0 0 12px 0; line-height: 1.6;">Now apply Text Completion skills:</p>
+            <ul style="font-size: 14px; color: var(--leland-text-light); margin: 0; padding-left: 20px; line-height: 1.8;">
+              <li>Find the clue in the sentence</li>
+              <li>Note signal words (contrast or same-direction)</li>
+              <li>Match your prediction to one of the synonym pairs</li>
+            </ul>
+          </div>
+        </div>
+        <div class="callout-green" style="margin-top: 16px;">
+          <p style="font-size: 14px; margin: 0;">This two-pass method is faster than testing each word individually and dramatically reduces errors.</p>
+        </div>
+        <div class="leland-footer">
+          <svg width="80" height="18" viewBox="0 0 200 45" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z" fill="#9B9B9B"/><path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z" fill="#9B9B9B"/><path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z" fill="#9B9B9B"/><path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z" fill="#9B9B9B"/><path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z" fill="#9B9B9B"/><path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z" fill="#9B9B9B"/><path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z" fill="#9B9B9B"/></svg>
+        </div>
+        <aside class="notes">2:00 - 3:30 | Explain the two-pass approach in detail.</aside>
+      </section>
+
+      <!-- SLIDE 5: Same Meaning ≠ Identical -->
+      <section class="content" style="padding: 40px 64px 70px; display: flex; flex-direction: column;">
+        <div style="margin-bottom: 20px;">
+          <p class="eyebrow">Important Distinction</p>
+          <h2 style="font-size: 32px; margin: 0;">"Equivalent Meaning" ≠ Identical Sentences</h2>
+        </div>
+        <div style="flex: 1; display: flex; flex-direction: column; gap: 16px;">
+          <p style="font-size: 16px; color: var(--leland-text-light); margin: 0; line-height: 1.6;">
+            The two correct answers must create sentences that convey the <strong>same basic idea</strong>, not identical wording.
+          </p>
+          <!-- Example 1: Works -->
+          <div style="background: rgba(21, 176, 120, 0.06); border-left: 4px solid var(--leland-green); padding: 16px 20px; border-radius: 0 8px 8px 0;">
+            <p style="font-size: 13px; color: var(--leland-green); font-weight: 600; margin: 0 0 8px 0; text-transform: uppercase; letter-spacing: 0.05em;">Works: Same Meaning</p>
+            <p style="font-size: 15px; color: var(--leland-text-dark); margin: 0 0 4px 0;">"The professor was <strong>harsh</strong> in her criticism."</p>
+            <p style="font-size: 15px; color: var(--leland-text-dark); margin: 0;">= "The professor was <strong>severe</strong> in her criticism."</p>
+            <p style="font-size: 13px; color: var(--leland-text-light); margin: 8px 0 0 0;">Both mean: The criticism was very negative/strong.</p>
+          </div>
+          <!-- Example 2: Doesn't work -->
+          <div style="background: rgba(251, 90, 66, 0.06); border-left: 4px solid rgba(251, 90, 66, 0.6); padding: 16px 20px; border-radius: 0 8px 8px 0;">
+            <p style="font-size: 13px; color: #D94A3A; font-weight: 600; margin: 0 0 8px 0; text-transform: uppercase; letter-spacing: 0.05em;">Doesn't Work: Different Meanings</p>
+            <p style="font-size: 15px; color: var(--leland-text-dark); margin: 0 0 4px 0;">"The professor was <strong>harsh</strong> in her criticism." (negative criticism)</p>
+            <p style="font-size: 15px; color: var(--leland-text-dark); margin: 0;">≠ "The professor was <strong>thorough</strong> in her criticism." (comprehensive criticism)</p>
+            <p style="font-size: 13px; color: var(--leland-text-light); margin: 8px 0 0 0;">Thorough criticism could be positive or negative. These aren't equivalent.</p>
+          </div>
+        </div>
+        <div class="leland-footer">
+          <svg width="80" height="18" viewBox="0 0 200 45" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z" fill="#9B9B9B"/><path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z" fill="#9B9B9B"/><path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z" fill="#9B9B9B"/><path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z" fill="#9B9B9B"/><path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z" fill="#9B9B9B"/><path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z" fill="#9B9B9B"/><path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z" fill="#9B9B9B"/></svg>
+        </div>
+        <aside class="notes">3:30 - 4:45 | Clarify what "equivalent meaning" actually means with examples.</aside>
+      </section>
+
+      <!-- SLIDE 6: Common Traps -->
+      <section class="content" style="padding: 40px 64px 70px; display: flex; flex-direction: column;">
+        <div style="margin-bottom: 20px;">
+          <p class="eyebrow">Watch Out</p>
+          <h2 style="font-size: 32px; margin: 0;">Common SE Traps</h2>
+        </div>
+        <div style="flex: 1; display: flex; flex-direction: column; gap: 12px;">
+          <!-- Trap 1 -->
+          <div style="display: flex; gap: 16px; align-items: flex-start;">
+            <div style="background: #FB5A42; color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; flex-shrink: 0; font-size: 14px;">1</div>
+            <div>
+              <h3 style="font-size: 16px; margin: 0 0 4px 0; color: var(--leland-text-dark);">"Same Topic" Words</h3>
+              <p style="font-size: 14px; color: var(--leland-text-light); margin: 0;">"Hungry" and "eating" relate to food, but they're not synonyms that create equivalent sentences.</p>
+            </div>
+          </div>
+          <!-- Trap 2 -->
+          <div style="display: flex; gap: 16px; align-items: flex-start;">
+            <div style="background: #FB5A42; color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; flex-shrink: 0; font-size: 14px;">2</div>
+            <div>
+              <h3 style="font-size: 16px; margin: 0 0 4px 0; color: var(--leland-text-dark);">"Almost Synonyms"</h3>
+              <p style="font-size: 14px; color: var(--leland-text-light); margin: 0;">"Careful" and "fearful" both involve caution, but they have different implications.</p>
+            </div>
+          </div>
+          <!-- Trap 3 -->
+          <div style="display: flex; gap: 16px; align-items: flex-start;">
+            <div style="background: #FB5A42; color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; flex-shrink: 0; font-size: 14px;">3</div>
+            <div>
+              <h3 style="font-size: 16px; margin: 0 0 4px 0; color: var(--leland-text-dark);">Synonym Pair That Doesn't Fit</h3>
+              <p style="font-size: 14px; color: var(--leland-text-light); margin: 0;">A synonym pair might exist in the choices but not fit the sentence context. Always verify both words work.</p>
+            </div>
+          </div>
+          <!-- Trap 4 -->
+          <div style="display: flex; gap: 16px; align-items: flex-start;">
+            <div style="background: #FB5A42; color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; flex-shrink: 0; font-size: 14px;">4</div>
+            <div>
+              <h3 style="font-size: 16px; margin: 0 0 4px 0; color: var(--leland-text-dark);">One Word Fits But Has No Pair</h3>
+              <p style="font-size: 14px; color: var(--leland-text-light); margin: 0;">A word might fit perfectly, but if it has no synonym partner among the choices, it cannot be correct.</p>
+            </div>
+          </div>
+        </div>
+        <div class="leland-footer">
+          <svg width="80" height="18" viewBox="0 0 200 45" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z" fill="#9B9B9B"/><path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z" fill="#9B9B9B"/><path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z" fill="#9B9B9B"/><path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z" fill="#9B9B9B"/><path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z" fill="#9B9B9B"/><path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z" fill="#9B9B9B"/><path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z" fill="#9B9B9B"/></svg>
+        </div>
+        <aside class="notes">4:45 - 6:00 | Walk through the four common traps students fall into.</aside>
+      </section>
+
+      <!-- SLIDE 7: Worked Example -->
+      <section class="content" style="padding: 40px 64px 70px; display: flex; flex-direction: column;">
+        <div style="margin-bottom: 16px;">
+          <p class="eyebrow">Putting It Together</p>
+          <h2 style="font-size: 32px; margin: 0;">Worked Example</h2>
+        </div>
+        <div style="flex: 1; display: flex; flex-direction: column; gap: 12px;">
+          <!-- Sentence -->
+          <div style="background: #F8F8F8; padding: 16px 20px; border-radius: 8px;">
+            <p style="font-size: 16px; color: var(--leland-text-dark); margin: 0; line-height: 1.6;">
+              "The politician's speech was so _______ that even supporters found it difficult to discern her actual position on the issue."
+            </p>
+          </div>
+          <!-- Choices -->
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <span style="background: white; border: 1px solid #E5E5E5; padding: 6px 12px; border-radius: 4px; font-size: 14px;">lucid</span>
+            <span style="background: rgba(21, 176, 120, 0.15); border: 2px solid var(--leland-green); padding: 6px 12px; border-radius: 4px; font-size: 14px; font-weight: 500;">ambiguous</span>
+            <span style="background: white; border: 1px solid #E5E5E5; padding: 6px 12px; border-radius: 4px; font-size: 14px;">eloquent</span>
+            <span style="background: rgba(21, 176, 120, 0.15); border: 2px solid var(--leland-green); padding: 6px 12px; border-radius: 4px; font-size: 14px; font-weight: 500;">vague</span>
+            <span style="background: white; border: 1px solid #E5E5E5; padding: 6px 12px; border-radius: 4px; font-size: 14px;">inspiring</span>
+            <span style="background: white; border: 1px solid #E5E5E5; padding: 6px 12px; border-radius: 4px; font-size: 14px;">divisive</span>
+          </div>
+          <!-- Two-column analysis -->
+          <div style="display: flex; gap: 16px;">
+            <div style="flex: 1;">
+              <p style="font-size: 13px; color: var(--leland-green); font-weight: 600; margin: 0 0 8px 0;">PASS 1: Identify Pairs</p>
+              <ul style="font-size: 13px; color: var(--leland-text-light); margin: 0; padding-left: 16px; line-height: 1.6;">
+                <li><strong>Ambiguous/vague</strong> = both mean unclear</li>
+                <li>Orphans: lucid, eloquent, inspiring, divisive</li>
+              </ul>
+            </div>
+            <div style="flex: 1;">
+              <p style="font-size: 13px; color: var(--leland-green); font-weight: 600; margin: 0 0 8px 0;">PASS 2: Context Match</p>
+              <ul style="font-size: 13px; color: var(--leland-text-light); margin: 0; padding-left: 16px; line-height: 1.6;">
+                <li>Clue: "difficult to discern her position"</li>
+                <li>Prediction: Something meaning unclear</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="callout-green" style="margin-top: auto;">
+          <p style="font-size: 14px; margin: 0;"><span class="hl-bold">Answer:</span> Ambiguous and Vague. Both create equivalent sentences meaning the speech was unclear.</p>
+        </div>
+        <div class="leland-footer">
+          <svg width="80" height="18" viewBox="0 0 200 45" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z" fill="#9B9B9B"/><path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z" fill="#9B9B9B"/><path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z" fill="#9B9B9B"/><path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z" fill="#9B9B9B"/><path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z" fill="#9B9B9B"/><path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z" fill="#9B9B9B"/><path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z" fill="#9B9B9B"/></svg>
+        </div>
+        <aside class="notes">6:00 - 8:00 | Walk through a complete example using the two-pass method.</aside>
+      </section>
+
+      <!-- SLIDE 8: Summary -->
+      <section class="content" style="padding: 40px 64px 70px; display: flex; flex-direction: column;">
+        <div style="margin-bottom: 20px;">
+          <p class="eyebrow">Summary</p>
+          <h2 style="font-size: 32px; margin: 0;">Master Sentence Equivalence</h2>
+        </div>
+        <div style="flex: 1; display: flex; flex-direction: column; gap: 10px;">
+          <div style="display: flex; gap: 12px; align-items: flex-start;">
+            <span style="color: var(--leland-green); font-weight: 600; font-size: 16px;">1.</span>
+            <p style="font-size: 16px; color: var(--leland-text-dark); margin: 0;">You need two answers that create EQUIVALENT sentences</p>
+          </div>
+          <div style="display: flex; gap: 12px; align-items: flex-start;">
+            <span style="color: var(--leland-green); font-weight: 600; font-size: 16px;">2.</span>
+            <p style="font-size: 16px; color: var(--leland-text-dark); margin: 0;">Use the two-pass approach: identify synonym pairs first, then match to context</p>
+          </div>
+          <div style="display: flex; gap: 12px; align-items: flex-start;">
+            <span style="color: var(--leland-green); font-weight: 600; font-size: 16px;">3.</span>
+            <p style="font-size: 16px; color: var(--leland-text-dark); margin: 0;">Orphan words (with no synonym in the choices) cannot be correct</p>
+          </div>
+          <div style="display: flex; gap: 12px; align-items: flex-start;">
+            <span style="color: var(--leland-green); font-weight: 600; font-size: 16px;">4.</span>
+            <p style="font-size: 16px; color: var(--leland-text-dark); margin: 0;">Both words must independently fit the sentence AND be synonyms</p>
+          </div>
+          <div style="display: flex; gap: 12px; align-items: flex-start;">
+            <span style="color: var(--leland-green); font-weight: 600; font-size: 16px;">5.</span>
+            <p style="font-size: 16px; color: var(--leland-text-dark); margin: 0;">"Equivalent meaning" = same basic message, not identical sentences</p>
+          </div>
+        </div>
+        <div class="callout-green" style="margin-top: auto;">
+          <p style="font-size: 15px; margin: 0;">SE questions become predictable once you look for synonym pairs. Practice identifying pairs quickly.</p>
+        </div>
+        <div class="leland-footer">
+          <svg width="80" height="18" viewBox="0 0 200 45" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z" fill="#9B9B9B"/><path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z" fill="#9B9B9B"/><path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z" fill="#9B9B9B"/><path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z" fill="#9B9B9B"/><path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z" fill="#9B9B9B"/><path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z" fill="#9B9B9B"/><path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z" fill="#9B9B9B"/></svg>
+        </div>
+        <aside class="notes">8:00 - 10:00 | Summarize the five key points for mastering SE.</aside>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.js"></script>
+  <script type="module">
+    import RevealNotes from '../assets/reveal/plugin/notes/notes.esm.js';
+    
+    Reveal.initialize({
+      width: 960,
+      height: 540,
+      margin: 0,
+      minScale: 0.5,
+      maxScale: 3.0,
+      hash: true,
+      slideNumber: true,
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+      transition: 'none',
+      backgroundTransition: 'none',
+      disableLayout: false,
+      plugins: [ RevealNotes ]
+    });
+  </script>
+</body>
+</html>

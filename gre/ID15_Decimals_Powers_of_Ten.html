@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en" class="reveal-full-page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Decimals &amp; Powers of Ten</title>
+
+  <!-- Reveal.js Core -->
+  <link rel="stylesheet" href="../assets/reveal/dist/reset.css">
+  <link rel="stylesheet" href="../assets/reveal/dist/reveal.css">
+
+  <!-- Leland Theme -->
+  <link rel="stylesheet" href="../assets/reveal/themes/leland.css">
+
+  <!-- KaTeX for math rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false}
+      ]
+    });"></script>
+
+</head>
+<body>
+  <!-- SVG Symbol Definitions (defined once, referenced via <use>) -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="leland-logo" viewBox="0 0 200 45">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z"/>
+      <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z"/>
+      <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z"/>
+      <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z"/>
+      <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z"/>
+      <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z"/>
+    </symbol>
+  </svg>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ============================================ -->
+      <!-- SLIDE 1: Title (Dark) -->
+      <!-- ============================================ -->
+      <section class="title-dark">
+        <div class="leland-logo-top">
+          <svg width="110" height="25" fill="white"><use href="#leland-logo"/></svg>
+        </div>
+
+        <p class="eyebrow">GRE Self-Study Course</p>
+        <h1>Decimals &amp; Powers<br>of <span class="hl">Ten</span></h1>
+
+        <aside class="notes">
+          0:00 - 0:30 | Hook: "What's 0.025 times 1000?" If you need to work this out longhand, you're wasting valuable GRE time. Decimals and powers of 10 have a beautiful shortcut: just shift the decimal point. Master this skill and you'll save 30+ seconds on every decimal problem.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 2: Hook -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">The Shortcut</p>
+          <h2>What's $0.025 \times 1{,}000$?</h2>
+        </div>
+
+        <p class="text-lg mb-24">If you need to work this out longhand, you're wasting valuable GRE time.</p>
+
+        <div class="card-alt-green mb-24">
+          <p class="text-md"><strong>The shortcut:</strong> Just shift the decimal point. No multiplication needed.</p>
+        </div>
+
+        <p class="text-md">Master this skill and you'll save <strong>30+ seconds</strong> on every decimal problem.</p>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          0:00 - 0:30 | Pose the hook question. Emphasize that decimal shifting is faster than longhand multiplication. This video will teach the shortcut.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 3: Place Value Review -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Foundations</p>
+          <h2>Place Value Review</h2>
+        </div>
+
+        <p class="text-md mb-16">Every digit in a decimal has a place value based on powers of 10. Consider <strong>7,532.418</strong>:</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Position</th>
+              <th>Thousands</th>
+              <th>Hundreds</th>
+              <th>Tens</th>
+              <th>Ones</th>
+              <th>.</th>
+              <th>Tenths</th>
+              <th>Hundredths</th>
+              <th>Thousandths</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Digit</strong></td>
+              <td>7</td>
+              <td>5</td>
+              <td>3</td>
+              <td>2</td>
+              <td>.</td>
+              <td>4</td>
+              <td>1</td>
+              <td>8</td>
+            </tr>
+            <tr>
+              <td><strong>Value</strong></td>
+              <td>$10^3$</td>
+              <td>$10^2$</td>
+              <td>$10^1$</td>
+              <td>$10^0$</td>
+              <td></td>
+              <td>$10^{-1}$</td>
+              <td>$10^{-2}$</td>
+              <td>$10^{-3}$</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <ul class="plus-list text-md">
+          <li><strong>Moving LEFT</strong> = multiply by 10 (bigger)</li>
+          <li><strong>Moving RIGHT</strong> = divide by 10 (smaller)</li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          0:30 - 2:00 | Walk through each place value position. Emphasize that the decimal point is the anchor. Moving left multiplies by 10, moving right divides by 10. This is the foundation for decimal shifting.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 4: Multiplying by Powers of 10 -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Multiplying</p>
+          <h2>Multiplying by Powers of 10</h2>
+        </div>
+
+        <div class="card-alt-green compact mb-16">
+          <p class="text-md"><strong>Rule:</strong> When multiplying by $10^n$, move the decimal point <strong>n places to the RIGHT</strong>.</p>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Expression</th>
+              <th>Shift</th>
+              <th>Result</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>$3.456 \times 10$</td>
+              <td>1 place right</td>
+              <td><span class="ans">$34.56$</span></td>
+            </tr>
+            <tr>
+              <td>$3.456 \times 100$</td>
+              <td>2 places right</td>
+              <td><span class="ans">$345.6$</span></td>
+            </tr>
+            <tr>
+              <td>$3.456 \times 1{,}000$</td>
+              <td>3 places right</td>
+              <td><span class="ans">$3{,}456$</span></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p class="text-sm text-light">Note: $10^0 = 1$, so multiplying by $10^0$ changes nothing.</p>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          2:00 - 3:15 | Present the rule for multiplying by powers of 10. Walk through examples 1-3 showing 3.456 multiplied by 10, 100, and 1000. Each time count the zeros and shift right that many places.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 5: Multiplying Example 4 (Fragments) -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Multiplying</p>
+          <h2>Worked Example</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-lg">$0.0072 \times 10{,}000 = \;?$</p>
+          </div>
+
+          <div class="card fragment" data-fragment-index="1">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16 fragment" data-fragment-index="2">$10{,}000 = 10^4$, so move <strong>4 places right</strong></p>
+            <p class="text-md mb-16 fragment" data-fragment-index="3">$0.0072 \to 0.072 \to 0.72 \to 7.2 \to 72$</p>
+            <p class="text-lg mt-16 fragment" data-fragment-index="4">Answer: <span class="ans">$72$</span></p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          3:15 - 4:00 | Click to reveal the solution card. Click to show that 10,000 = 10^4. Click to walk through each decimal shift one at a time. Click to reveal the final answer of 72.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 6: Dividing by Powers of 10 -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Dividing</p>
+          <h2>Dividing by Powers of 10</h2>
+        </div>
+
+        <div class="card-alt-green compact mb-16">
+          <p class="text-md"><strong>Rule:</strong> When dividing by $10^n$, move the decimal point <strong>n places to the LEFT</strong>.</p>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Expression</th>
+              <th>Shift</th>
+              <th>Result</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>$456.7 \div 10$</td>
+              <td>1 place left</td>
+              <td><span class="ans">$45.67$</span></td>
+            </tr>
+            <tr>
+              <td>$456.7 \div 100$</td>
+              <td>2 places left</td>
+              <td><span class="ans">$4.567$</span></td>
+            </tr>
+            <tr>
+              <td>$456.7 \div 1{,}000$</td>
+              <td>3 places left</td>
+              <td><span class="ans">$0.4567$</span></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          4:00 - 5:15 | Present the rule for dividing by powers of 10. Walk through examples showing 456.7 divided by 10, 100, and 1000. Each time count the zeros and shift left that many places.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 7: Dividing Example 4 (Fragments) -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Dividing</p>
+          <h2>Worked Example</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-lg">$8.3 \div 10{,}000 = \;?$</p>
+          </div>
+
+          <div class="card fragment" data-fragment-index="1">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16 fragment" data-fragment-index="2">Move <strong>4 places left</strong> (add zeros as needed)</p>
+            <p class="text-md mb-16 fragment" data-fragment-index="3">$8.3 \to 0.83 \to 0.083 \to 0.0083 \to 0.00083$</p>
+            <p class="text-lg mt-16 fragment" data-fragment-index="4">Answer: <span class="ans">$0.00083$</span></p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          5:15 - 5:45 | Click to reveal the solution card. Click to show the rule. Click to walk through each shift, noting how we add placeholder zeros. Click to reveal the final answer.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 8: Negative Exponents -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Negative Exponents</p>
+          <h2>Multiplying by $10^{-n}$</h2>
+        </div>
+
+        <div class="card-alt-green compact mb-16">
+          <p class="text-md"><strong>Key insight:</strong> Multiplying by $10^{-n}$ is the same as dividing by $10^n$.</p>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Example</h3>
+            <p class="text-md mb-8">$5.6 \times 10^{-3}$</p>
+            <p class="text-md mb-8">$= 5.6 \div 1{,}000$</p>
+            <p class="text-md">$=$ <span class="ans">$0.0056$</span></p>
+          </div>
+
+          <div class="card">
+            <h3 class="text-md mb-16">Rule Summary</h3>
+            <ul class="plus-list text-sm">
+              <li>$\times 10^{-n}$ = move decimal <strong>left</strong> n places</li>
+              <li>$\div 10^{-n}$ = move decimal <strong>right</strong> n places</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          5:45 - 6:15 | Explain that negative exponents flip the direction. Multiplying by 10^-3 is the same as dividing by 1000. Move the decimal 3 places left.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 9: Converting Decimals to Fractions -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Conversions</p>
+          <h2>Decimals to Fractions</h2>
+        </div>
+
+        <div class="card-alt-green compact mb-16">
+          <p class="text-md"><strong>Rule:</strong> Count decimal places, then use that power of 10 as the denominator.</p>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Decimal</th>
+              <th>Places</th>
+              <th>Fraction</th>
+              <th>Simplified</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>$0.375$</td>
+              <td>3</td>
+              <td>$\frac{375}{1000}$</td>
+              <td><span class="ans">$\frac{3}{8}$</span></td>
+            </tr>
+            <tr>
+              <td>$2.4$</td>
+              <td>1</td>
+              <td>$\frac{24}{10}$</td>
+              <td><span class="ans">$\frac{12}{5}$</span></td>
+            </tr>
+            <tr>
+              <td>$0.08$</td>
+              <td>2</td>
+              <td>$\frac{8}{100}$</td>
+              <td><span class="ans">$\frac{2}{25}$</span></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          6:15 - 7:00 | Walk through each conversion. Count the decimal places to determine the denominator. Then simplify by dividing numerator and denominator by the GCF.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 10: Quick Reference Table -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Memorize These</p>
+          <h2>Common Decimal-Fraction Pairs</h2>
+        </div>
+
+        <div class="two-column">
+          <table>
+            <thead>
+              <tr>
+                <th>Decimal</th>
+                <th>Fraction</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>$0.5$</td>
+                <td>$\frac{1}{2}$</td>
+              </tr>
+              <tr>
+                <td>$0.25$</td>
+                <td>$\frac{1}{4}$</td>
+              </tr>
+              <tr>
+                <td>$0.75$</td>
+                <td>$\frac{3}{4}$</td>
+              </tr>
+              <tr>
+                <td>$0.2$</td>
+                <td>$\frac{1}{5}$</td>
+              </tr>
+              <tr>
+                <td>$0.125$</td>
+                <td>$\frac{1}{8}$</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="card-alt-green">
+            <h3 class="text-md mb-16">Why memorize?</h3>
+            <p class="text-sm text-light">These conversions appear constantly on the GRE. Knowing them instantly saves time and prevents calculation errors.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          7:00 - 7:30 | Go through the five most common decimal-fraction pairs. Students should commit these to memory for test day.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 11: Scientific Notation -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Scientific Notation</p>
+          <h2>The $a \times 10^n$ Format</h2>
+        </div>
+
+        <div class="card-alt-green compact mb-16">
+          <p class="text-md"><strong>Format:</strong> $a \times 10^n$ where $1 \leq a &lt; 10$</p>
+        </div>
+
+        <div class="two-column mt-24">
+          <div class="card">
+            <h3 class="text-md mb-16">To Scientific Notation</h3>
+            <p class="text-sm mb-8">Move the decimal until you have a number between 1 and 10</p>
+            <p class="text-sm">Count the number of places moved = exponent</p>
+          </div>
+
+          <div class="card">
+            <h3 class="text-md mb-16">From Scientific Notation</h3>
+            <p class="text-sm mb-8">Positive exponent: shift decimal right</p>
+            <p class="text-sm">Negative exponent: shift decimal left</p>
+          </div>
+        </div>
+
+        <span class="badge mt-16">Key Idea</span>
+        <p class="text-sm text-light">Scientific notation appears in data interpretation and word problems involving very large or very small numbers.</p>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          7:30 - 8:00 | Introduce scientific notation format. Explain the constraint that a must be between 1 and 10. Cover the two directions: to and from scientific notation.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 12: Scientific Notation Example 1 -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Scientific Notation</p>
+          <h2>Large Number Conversion</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-lg">Write $45{,}000$ in scientific notation</p>
+          </div>
+
+          <div class="card fragment" data-fragment-index="1">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16 fragment" data-fragment-index="2">Move decimal to get $4.5$</p>
+            <p class="text-md mb-16 fragment" data-fragment-index="3">Moved 4 places left</p>
+            <p class="text-lg mt-16 fragment" data-fragment-index="4">Answer: <span class="ans">$4.5 \times 10^4$</span></p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          8:00 - 8:15 | Click to reveal solution for 45,000. Move the decimal left until you have 4.5. That's 4 places, so the exponent is 4. Answer: 4.5 times 10 to the 4th.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 13: Scientific Notation Example 2 -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Scientific Notation</p>
+          <h2>Small Number Conversion</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-lg">Write $0.00036$ in scientific notation</p>
+          </div>
+
+          <div class="card fragment" data-fragment-index="1">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16 fragment" data-fragment-index="2">Move decimal to get $3.6$</p>
+            <p class="text-md mb-16 fragment" data-fragment-index="3">Moved 4 places right (negative exponent)</p>
+            <p class="text-lg mt-16 fragment" data-fragment-index="4">Answer: <span class="ans">$3.6 \times 10^{-4}$</span></p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          8:15 - 8:30 | Click to reveal solution for 0.00036. Move the decimal right until you have 3.6. That's 4 places right, so the exponent is negative 4. Note the negative exponent for small numbers.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 14: Summary (Dark) -->
+      <!-- ============================================ -->
+      <section class="content-dark">
+        <div class="slide-header">
+          <p class="eyebrow">Summary</p>
+          <h2>Decimals &amp; Powers of Ten</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Operation</th>
+              <th>Decimal Movement</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>$\times 10^n$</td>
+              <td>Move <strong>RIGHT</strong> n places</td>
+            </tr>
+            <tr>
+              <td>$\div 10^n$</td>
+              <td>Move <strong>LEFT</strong> n places</td>
+            </tr>
+            <tr>
+              <td>$\times 10^{-n}$</td>
+              <td>Move <strong>LEFT</strong> n places</td>
+            </tr>
+            <tr>
+              <td>$\div 10^{-n}$</td>
+              <td>Move <strong>RIGHT</strong> n places</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="card-alt compact mt-16">
+          <span class="badge badge-orange self-start">Watch Out</span>
+          <p class="text-sm">Wrong direction, miscounting places, and missing placeholder zeros are the top mistakes. Remember: <strong>M</strong>ultiply = <strong>M</strong>ore = <strong>R</strong>ight, <strong>D</strong>ivide = <strong>D</strong>iminish = <strong>L</strong>eft.</p>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="white"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          8:30 - 9:00 | Recap the four core rules. Highlight the top three mistakes to avoid. Share the memory trick: Multiply = More = Right, Divide = Diminish = Left.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js -->
+  <script src="../assets/reveal/dist/reveal.min.js"></script>
+  <script type="module">
+    import RevealNotes from '../assets/reveal/plugin/notes/notes.esm.js';
+
+    Reveal.initialize({
+      width: 960,
+      height: 540,
+      margin: 0,
+      minScale: 0.5,
+      maxScale: 3.0,
+      hash: true,
+      slideNumber: true,
+      controls: true,
+      progress: true,
+      history: true,
+      center: false,
+      transition: 'none',
+      backgroundTransition: 'none',
+      disableLayout: false,
+      plugins: [ RevealNotes ]
+    });
+  </script>
+</body>
+</html>

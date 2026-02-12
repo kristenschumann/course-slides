@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en" class="reveal-full-page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ID40: Consecutive Integers and Number Lines</title>
+
+  <!-- Reveal.js Core -->
+  <link rel="stylesheet" href="../assets/reveal/dist/reset.css">
+  <link rel="stylesheet" href="../assets/reveal/dist/reveal.css">
+
+  <!-- Leland Theme -->
+  <link rel="stylesheet" href="../assets/reveal/themes/leland.css">
+
+  <!-- KaTeX for math rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+
+  <style>
+    /* Slide-specific overrides */
+.math-box {
+      background: var(--leland-offwhite);
+      border-radius: 8px;
+      padding: 16px 20px;
+      font-family: 'Calibre', monospace;
+      font-size: 18px;
+    }
+    .step-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+    .step-circle {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--leland-green);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+    .formula-box {
+      background: rgba(21, 176, 120, 0.08);
+      border-left: 4px solid var(--leland-green);
+      border-radius: 0 8px 8px 0;
+      padding: 14px 18px;
+      margin-bottom: 12px;
+    }
+    .formula-box .formula {
+      font-size: 18px;
+      color: var(--leland-green);
+      font-weight: 600;
+      margin: 0;
+    }
+    .formula-box .label {
+      font-size: 13px;
+      color: var(--leland-text-light);
+      margin: 4px 0 0 0;
+    }
+    .example-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+    .example-table th {
+      background: #F8F8F8;
+      padding: 8px 12px;
+      text-align: left;
+      font-weight: 600;
+      border-bottom: 2px solid #E5E5E5;
+    }
+    .example-table td {
+      padding: 8px 12px;
+      border-bottom: 1px solid #F0F0F0;
+    }
+    .example-table .answer {
+      color: var(--leland-green);
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ============================================ -->
+      <!-- SLIDE 1: Title (Dark) -->
+      <!-- ============================================ -->
+      <section class="title-dark">
+        <!-- Top Logo (white) -->
+        <div class="leland-logo-top">
+          <svg width="110" height="25" viewBox="0 0 200 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z" fill="white"/>
+            <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z" fill="white"/>
+            <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z" fill="white"/>
+            <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z" fill="white"/>
+            <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z" fill="white"/>
+            <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z" fill="white"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z" fill="white"/>
+          </svg>
+        </div>
+
+        <div style="margin-top: 20px;">
+          <p class="eyebrow">GRE Self-Study Course</p>
+          <h1>Consecutive Integers<br><span class="hl">and Number Lines</span></h1>
+        </div>
+
+        <aside class="notes">
+          0:00 - 0:30 | Hook: "How many integers are there from 7 to 83, inclusive?" Common wrong answer: 83 − 7 = 76. Right answer: 83 − 7 + 1 = 77. The "+1" catches most students.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 2: The Fencepost Problem -->
+      <!-- ============================================ -->
+      <section class="content" style="padding: 48px 64px; display: flex; flex-direction: column; padding-bottom: 70px;">
+        <!-- Header -->
+        <div style="margin-bottom: 20px;">
+          <p class="eyebrow">The "+1" Trap</p>
+          <h2 style="font-size: 32px; margin: 0;">Why Most Students Get It Wrong</h2>
+        </div>
+
+        <!-- Main content -->
+        <div style="display: flex; gap: 24px; flex: 1;">
+          <!-- Problem -->
+          <div style="flex: 1;">
+            <div class="math-box" style="margin-bottom: 16px;">
+              <p style="margin: 0; font-size: 17px;">How many integers from 7 to 83, inclusive?</p>
+            </div>
+
+            <div style="background: rgba(251, 90, 66, 0.04); border-left: 4px solid rgba(251, 90, 66, 0.6); padding: 12px 16px; border-radius: 0 8px 8px 0; margin-bottom: 16px;">
+              <p style="font-size: 14px; margin: 0; color: #D94A3A;"><strong>Common wrong answer:</strong></p>
+              <p style="font-size: 15px; margin: 4px 0 0 0;">83 − 7 = 76</p>
+            </div>
+
+            <div style="background: rgba(21, 176, 120, 0.08); border-left: 4px solid var(--leland-green); padding: 12px 16px; border-radius: 0 8px 8px 0;">
+              <p style="font-size: 14px; margin: 0; color: var(--leland-green);"><strong>Correct answer:</strong></p>
+              <p style="font-size: 15px; margin: 4px 0 0 0;">83 − 7 + 1 = <strong style="color: var(--leland-green);">77</strong></p>
+            </div>
+          </div>
+
+          <!-- Explanation -->
+          <div style="flex: 1.2;">
+            <h3 style="font-size: 14px; color: var(--leland-text-muted); margin: 0 0 12px 0; text-transform: uppercase; letter-spacing: 0.08em;">The Fencepost Analogy</h3>
+
+            <p style="font-size: 14px; line-height: 1.6; margin: 0 0 16px 0; color: var(--leland-text-dark);">
+              To build 10 feet of fence with posts every foot, you need <strong>11 posts</strong> (one at each end).
+            </p>
+
+            <div class="formula-box">
+              <p class="formula">Count from a to b (inclusive) = b − a + 1</p>
+              <p class="label">The "+1" accounts for including both endpoints</p>
+            </div>
+
+            <table class="example-table" style="margin-top: 16px;">
+              <tr>
+                <th>From</th>
+                <th>To</th>
+                <th>Formula</th>
+                <th>Count</th>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>10</td>
+                <td>10 − 1 + 1</td>
+                <td class="answer">10</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>12</td>
+                <td>12 − 5 + 1</td>
+                <td class="answer">8</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td>83</td>
+                <td>83 − 7 + 1</td>
+                <td class="answer">77</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <!-- Footer Logo -->
+        <div class="leland-footer">
+          <svg width="80" height="18" viewBox="0 0 200 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z" fill="#9B9B9B"/>
+            <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z" fill="#9B9B9B"/>
+            <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z" fill="#9B9B9B"/>
+            <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z" fill="#9B9B9B"/>
+            <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z" fill="#9B9B9B"/>
+            <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z" fill="#9B9B9B"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z" fill="#9B9B9B"/>
+          </svg>
+        </div>
+
+        <aside class="notes">
+          0:30 - 2:30 | The fencepost formula: b − a + 1 for inclusive counting. Like building fence with posts at each end. Examples: 1 to 10 = 10, 5 to 12 = 8, 7 to 83 = 77.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 3: Counting Variations -->
+      <!-- ============================================ -->
+      <section class="content" style="padding: 48px 64px; display: flex; flex-direction: column; padding-bottom: 70px;">
+        <!-- Header -->
+        <div style="margin-bottom: 16px;">
+          <p class="eyebrow">Counting Integers</p>
+          <h2 style="font-size: 28px; margin: 0;">Three Scenarios</h2>
+        </div>
+
+        <!-- Three cards -->
+        <div style="display: flex; gap: 16px; flex: 1;">
+          <!-- Inclusive -->
+          <div class="card" style="flex: 1; display: flex; flex-direction: column; border-top: 4px solid var(--leland-green);">
+            <h3 style="font-size: 16px; margin: 0 0 8px 0; color: var(--leland-green);">Inclusive (Both Endpoints)</h3>
+            <p style="font-size: 13px; color: var(--leland-text-light); margin: 0 0 12px 0;">
+              "from a to b, inclusive"
+            </p>
+            <div class="formula-box" style="margin-bottom: 12px;">
+              <p class="formula" style="font-size: 16px;">b − a + 1</p>
+            </div>
+            <p style="font-size: 14px; margin: 0;">
+              <strong>Example:</strong> From 10 to 50, inclusive<br>
+              50 − 10 + 1 = <span style="color: var(--leland-green); font-weight: 600;">41</span>
+            </p>
+          </div>
+
+          <!-- Exclusive -->
+          <div class="card" style="flex: 1; display: flex; flex-direction: column; border-top: 4px solid #5B8DEF;">
+            <h3 style="font-size: 16px; margin: 0 0 8px 0; color: #5B8DEF;">Exclusive (Neither Endpoint)</h3>
+            <p style="font-size: 13px; color: var(--leland-text-light); margin: 0 0 12px 0;">
+              "strictly between a and b"
+            </p>
+            <div class="formula-box" style="border-color: #5B8DEF; margin-bottom: 12px;">
+              <p class="formula" style="font-size: 16px; color: #5B8DEF;">b − a − 1</p>
+            </div>
+            <p style="font-size: 14px; margin: 0;">
+              <strong>Example:</strong> Strictly between 10 and 50<br>
+              Integers: 11, 12, ..., 49<br>
+              50 − 10 − 1 = <span style="color: #5B8DEF; font-weight: 600;">39</span>
+            </p>
+          </div>
+
+          <!-- One endpoint -->
+          <div class="card" style="flex: 1; display: flex; flex-direction: column; border-top: 4px solid #7C6BBF;">
+            <h3 style="font-size: 16px; margin: 0 0 8px 0; color: #7C6BBF;">One Endpoint Only</h3>
+            <p style="font-size: 13px; color: var(--leland-text-light); margin: 0 0 12px 0;">
+              "from a to b" (unclear) or "a &lt; x ≤ b"
+            </p>
+            <div class="formula-box" style="border-color: #7C6BBF; margin-bottom: 12px;">
+              <p class="formula" style="font-size: 16px; color: #7C6BBF;">b − a</p>
+            </div>
+            <p style="font-size: 14px; margin: 0;">
+              <strong>Example:</strong> 10 &lt; x ≤ 50<br>
+              Integers: 11, 12, ..., 50<br>
+              50 − 10 = <span style="color: #7C6BBF; font-weight: 600;">40</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Callout -->
+        <div class="callout-green" style="margin-top: 16px;">
+          <p style="font-size: 14px; margin: 0;"><span class="hl-bold">Watch the wording:</span> "From 1 to 10" is ambiguous. "From 1 to 10, inclusive" or "including 1 and 10" is clear.</p>
+        </div>
+
+        <!-- Footer Logo -->
+        <div class="leland-footer">
+          <svg width="80" height="18" viewBox="0 0 200 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z" fill="#9B9B9B"/>
+            <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z" fill="#9B9B9B"/>
+            <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z" fill="#9B9B9B"/>
+            <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z" fill="#9B9B9B"/>
+            <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z" fill="#9B9B9B"/>
+            <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z" fill="#9B9B9B"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z" fill="#9B9B9B"/>
+          </svg>
+        </div>
+
+        <aside class="notes">
+          2:30 - 3:30 | Three counting scenarios: inclusive (b − a + 1), exclusive (b − a − 1), one endpoint (b − a). Watch the wording carefully.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 4: Sum and Middle Term Properties -->
+      <!-- ============================================ -->
+      <section class="content" style="padding: 48px 64px; display: flex; flex-direction: column; padding-bottom: 70px;">
+        <!-- Header -->
+        <div style="margin-bottom: 16px;">
+          <p class="eyebrow">Properties</p>
+          <h2 style="font-size: 28px; margin: 0;">Sum Formula and Middle Term</h2>
+        </div>
+
+        <!-- Two columns -->
+        <div style="display: flex; gap: 24px; flex: 1;">
+          <!-- Sum Formula -->
+          <div style="flex: 1;">
+            <h3 style="font-size: 14px; color: var(--leland-green); margin: 0 0 12px 0; text-transform: uppercase; letter-spacing: 0.08em;">Sum of Consecutive Integers</h3>
+
+            <div class="formula-box" style="margin-bottom: 16px;">
+              <p class="formula">Sum = n × $\frac{\text{first} + \text{last}}{2}$</p>
+              <p class="label">Or: Sum = n × (average of endpoints)</p>
+            </div>
+
+            <div class="math-box" style="margin-bottom: 12px;">
+              <p style="margin: 0; font-size: 15px;"><strong>Example:</strong> Sum of integers from 1 to 100</p>
+              <p style="margin: 8px 0 0 0; font-size: 14px;">
+                n = 100<br>
+                Sum = 100 × $\frac{1 + 100}{2}$ = 100 × 50.5 = <span style="color: var(--leland-green); font-weight: 600;">5,050</span>
+              </p>
+            </div>
+          </div>
+
+          <!-- Middle Term -->
+          <div style="flex: 1;">
+            <h3 style="font-size: 14px; color: #5B8DEF; margin: 0 0 12px 0; text-transform: uppercase; letter-spacing: 0.08em;">Middle Term Shortcut</h3>
+
+            <div class="formula-box" style="border-color: #5B8DEF; margin-bottom: 16px;">
+              <p class="formula" style="color: #5B8DEF;">Sum = n × (middle term)</p>
+              <p class="label">For odd n: middle term = average</p>
+            </div>
+
+            <div class="math-box" style="margin-bottom: 12px;">
+              <p style="margin: 0; font-size: 15px;"><strong>Example:</strong> Sum of 5 consecutive integers is 45. Find the middle integer.</p>
+              <p style="margin: 8px 0 0 0; font-size: 14px;">
+                45 = 5 × middle<br>
+                middle = <span style="color: #5B8DEF; font-weight: 600;">9</span><br>
+                <span style="color: var(--leland-text-light);">The integers: 7, 8, 9, 10, 11</span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Callout -->
+        <div class="callout-green" style="margin-top: 12px;">
+          <p style="font-size: 14px; margin: 0;"><span class="hl-bold">Quick trick:</span> For consecutive integers, the sum divided by the count equals the middle value (or average).</p>
+        </div>
+
+        <!-- Footer Logo -->
+        <div class="leland-footer">
+          <svg width="80" height="18" viewBox="0 0 200 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z" fill="#9B9B9B"/>
+            <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z" fill="#9B9B9B"/>
+            <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z" fill="#9B9B9B"/>
+            <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z" fill="#9B9B9B"/>
+            <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z" fill="#9B9B9B"/>
+            <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z" fill="#9B9B9B"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z" fill="#9B9B9B"/>
+          </svg>
+        </div>
+
+        <aside class="notes">
+          3:30 - 5:00 | Sum formula: n × (first + last)/2. Example: 1 to 100 = 5,050. Middle term shortcut: sum = n × middle. Example: sum of 5 consecutive = 45, so middle = 9.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 5: Product Divisibility -->
+      <!-- ============================================ -->
+      <section class="content" style="padding: 48px 64px; display: flex; flex-direction: column; padding-bottom: 70px;">
+        <!-- Header -->
+        <div style="margin-bottom: 16px;">
+          <p class="eyebrow">Properties</p>
+          <h2 style="font-size: 28px; margin: 0;">Product of Consecutive Integers</h2>
+        </div>
+
+        <!-- Main content -->
+        <div style="display: flex; gap: 24px; flex: 1;">
+          <!-- Rule -->
+          <div style="flex: 1;">
+            <div style="background: #113A2D; border-radius: 8px; padding: 20px 24px; margin-bottom: 16px;">
+              <p style="color: #15B078; font-size: 14px; margin: 0 0 8px 0; font-weight: 600;">KEY RULE</p>
+              <p style="color: white; font-size: 17px; margin: 0;">
+                The product of <strong>n consecutive integers</strong> is always divisible by <strong>n!</strong>
+              </p>
+            </div>
+
+            <h3 style="font-size: 14px; color: var(--leland-text-muted); margin: 0 0 12px 0; text-transform: uppercase; letter-spacing: 0.08em;">Why This Works</h3>
+            <p style="font-size: 14px; line-height: 1.6; margin: 0; color: var(--leland-text-dark);">
+              In any set of n consecutive integers:
+            </p>
+            <ul style="font-size: 14px; margin: 8px 0 0 0; padding-left: 20px; color: var(--leland-text-dark);">
+              <li>One is divisible by 1</li>
+              <li>One is divisible by 2</li>
+              <li>One is divisible by 3</li>
+              <li>...and so on up to n</li>
+            </ul>
+          </div>
+
+          <!-- Examples -->
+          <div style="flex: 1;">
+            <h3 style="font-size: 14px; color: var(--leland-green); margin: 0 0 12px 0; text-transform: uppercase; letter-spacing: 0.08em;">Examples</h3>
+
+            <table class="example-table">
+              <tr>
+                <th>Consecutive Set</th>
+                <th>Divisible By</th>
+              </tr>
+              <tr>
+                <td>Any <strong>2</strong> consecutive integers</td>
+                <td>2! = <span class="answer">2</span></td>
+              </tr>
+              <tr>
+                <td>Any <strong>3</strong> consecutive integers</td>
+                <td>3! = <span class="answer">6</span></td>
+              </tr>
+              <tr>
+                <td>Any <strong>4</strong> consecutive integers</td>
+                <td>4! = <span class="answer">24</span></td>
+              </tr>
+              <tr>
+                <td>Any <strong>5</strong> consecutive integers</td>
+                <td>5! = <span class="answer">120</span></td>
+              </tr>
+            </table>
+
+            <div style="background: rgba(21, 176, 120, 0.06); padding: 12px 16px; border-radius: 8px; margin-top: 16px;">
+              <p style="font-size: 14px; margin: 0;"><strong>Example:</strong> 4 × 5 × 6 = 120</p>
+              <p style="font-size: 13px; margin: 4px 0 0 0; color: var(--leland-text-light);">120 ÷ 6 = 20 ✓ (divisible by 3! = 6)</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer Logo -->
+        <div class="leland-footer">
+          <svg width="80" height="18" viewBox="0 0 200 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z" fill="#9B9B9B"/>
+            <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z" fill="#9B9B9B"/>
+            <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z" fill="#9B9B9B"/>
+            <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z" fill="#9B9B9B"/>
+            <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z" fill="#9B9B9B"/>
+            <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z" fill="#9B9B9B"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z" fill="#9B9B9B"/>
+          </svg>
+        </div>
+
+        <aside class="notes">
+          5:00 - 5:45 | Product divisibility: product of n consecutive integers is divisible by n!. Why: each set contains one multiple of 1, 2, 3, etc. Examples: 2 consecutive ÷ 2, 3 consecutive ÷ 6.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 6: Spacing Problems -->
+      <!-- ============================================ -->
+      <section class="content" style="padding: 48px 64px; display: flex; flex-direction: column; padding-bottom: 70px;">
+        <!-- Header -->
+        <div style="margin-bottom: 16px;">
+          <p class="eyebrow">Spacing</p>
+          <h2 style="font-size: 28px; margin: 0;">Equally Spaced Objects</h2>
+        </div>
+
+        <!-- Main content -->
+        <div style="display: flex; gap: 24px; flex: 1;">
+          <!-- Rule -->
+          <div style="flex: 1;">
+            <div class="formula-box" style="margin-bottom: 16px;">
+              <p class="formula">Number of gaps = Objects − 1</p>
+            </div>
+
+            <div class="math-box" style="margin-bottom: 16px;">
+              <p style="margin: 0; font-size: 15px;"><strong>Example 1:</strong> Trees Problem</p>
+              <p style="margin: 8px 0 0 0; font-size: 14px; color: var(--leland-text-dark);">
+                8 trees planted in a row, equally spaced. First and last are 35 meters apart. Distance between adjacent trees?
+              </p>
+              <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid #E5E5E5;">
+                <p style="margin: 0; font-size: 14px;">
+                  Gaps = 8 − 1 = 7<br>
+                  Distance = 35 ÷ 7 = <span style="color: var(--leland-green); font-weight: 600;">5 meters</span>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Second formula and example -->
+          <div style="flex: 1;">
+            <div class="formula-box" style="border-color: #5B8DEF; margin-bottom: 16px;">
+              <p class="formula" style="color: #5B8DEF;">Objects = $\frac{\text{Total distance}}{\text{Spacing}}$ + 1</p>
+            </div>
+
+            <div class="math-box" style="margin-bottom: 16px;">
+              <p style="margin: 0; font-size: 15px;"><strong>Example 2:</strong> Fence Posts</p>
+              <p style="margin: 8px 0 0 0; font-size: 14px; color: var(--leland-text-dark);">
+                Posts every 4 feet along a 100-foot fence (including both ends). How many posts?
+              </p>
+              <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid #E5E5E5;">
+                <p style="margin: 0; font-size: 14px;">
+                  Gaps = 100 ÷ 4 = 25<br>
+                  Posts = 25 + 1 = <span style="color: #5B8DEF; font-weight: 600;">26 posts</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Callout -->
+        <div class="callout-green" style="margin-top: 12px;">
+          <p style="font-size: 14px; margin: 0;"><span class="hl-bold">Same "+1" pattern:</span> Just like counting integers, counting objects includes both endpoints.</p>
+        </div>
+
+        <!-- Footer Logo -->
+        <div class="leland-footer">
+          <svg width="80" height="18" viewBox="0 0 200 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z" fill="#9B9B9B"/>
+            <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z" fill="#9B9B9B"/>
+            <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z" fill="#9B9B9B"/>
+            <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z" fill="#9B9B9B"/>
+            <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z" fill="#9B9B9B"/>
+            <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z" fill="#9B9B9B"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z" fill="#9B9B9B"/>
+          </svg>
+        </div>
+
+        <aside class="notes">
+          5:45 - 7:00 | Spacing problems: gaps = objects − 1. Example: 8 trees 35m apart, each gap is 5m. Reverse: objects = distance/spacing + 1. Example: 100ft fence with posts every 4ft = 26 posts.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 7: Summary (Dark) -->
+      <!-- ============================================ -->
+      <section class="title-dark">
+        <!-- Top Logo (white) -->
+        <div class="leland-logo-top">
+          <svg width="110" height="25" viewBox="0 0 200 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z" fill="white"/>
+            <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z" fill="white"/>
+            <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z" fill="white"/>
+            <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z" fill="white"/>
+            <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z" fill="white"/>
+            <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z" fill="white"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z" fill="white"/>
+          </svg>
+        </div>
+
+        <!-- Header with spacing -->
+        <div style="margin-top: 20px; margin-bottom: 24px;">
+          <p class="eyebrow">Summary</p>
+          <h2 style="font-size: 32px;">Key Formulas</h2>
+        </div>
+
+        <!-- Summary table -->
+        <div style="background: rgba(255, 255, 255, 0.05); border-radius: 8px; padding: 20px 24px;">
+          <table style="width: 100%; border-collapse: collapse; color: white; font-size: 15px;">
+            <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+              <td style="padding: 10px 0; color: #15B078; font-weight: 600; width: 40%;">Count (inclusive)</td>
+              <td style="padding: 10px 0;">b − a + 1</td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+              <td style="padding: 10px 0; color: #15B078; font-weight: 600;">Sum of consecutive</td>
+              <td style="padding: 10px 0;">n × (first + last) / 2</td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+              <td style="padding: 10px 0; color: #15B078; font-weight: 600;">Product divisibility</td>
+              <td style="padding: 10px 0;">n consecutive ÷ n!</td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+              <td style="padding: 10px 0; color: #15B078; font-weight: 600;">Gaps between objects</td>
+              <td style="padding: 10px 0;">Objects − 1</td>
+            </tr>
+            <tr>
+              <td style="padding: 10px 0; color: #15B078; font-weight: 600;">Objects along distance</td>
+              <td style="padding: 10px 0;">Distance / Spacing + 1</td>
+            </tr>
+          </table>
+        </div>
+
+        <!-- Key Insight -->
+        <div class="mt-24" style="padding: 16px 24px; background-color: rgba(251, 90, 66, 0.15); border-radius: 8px; border-left: 4px solid #FB5A42;">
+          <p class="text-white" style="font-size: 16px; margin: 0;"><span style="color: #FB5A42; font-weight: 600;">Common trap:</span> Forgetting the "+1" when counting endpoints.</p>
+        </div>
+
+        <aside class="notes">
+          7:00 - 8:00 | Summary: Five key formulas for consecutive integers and spacing. Common trap: forgetting +1 when counting endpoints.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js -->
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.js"></script>
+  <script src="../assets/reveal/plugin/notes/notes.js"></script>
+  <script type="module">
+    import RevealNotes from '../assets/reveal/plugin/notes/notes.esm.js';
+    
+    Reveal.initialize({
+      width: 960,
+      height: 540,
+      margin: 0,
+      minScale: 0.5,
+      maxScale: 3.0,
+      hash: true,
+      slideNumber: true,
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+      transition: 'none',
+      backgroundTransition: 'none',
+      disableLayout: false,
+      plugins: [ RevealNotes ]
+    });
+  </script>
+</body>
+</html>

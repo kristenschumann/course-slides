@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en" class="reveal-full-page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ID3: How the GRE is Scored</title>
+
+  <!-- Reveal.js Core -->
+  <link rel="stylesheet" href="../assets/reveal/dist/reset.css">
+  <link rel="stylesheet" href="../assets/reveal/dist/reveal.css">
+
+  <!-- Leland Theme -->
+  <link rel="stylesheet" href="../assets/reveal/themes/leland.css">
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ============================================ -->
+      <!-- SLIDE 1: Title (Dark) -->
+      <!-- ============================================ -->
+      <section class="title-dark">
+        <!-- Top Logo (white) -->
+        <div class="leland-logo-top">
+          <svg width="110" height="25" viewBox="0 0 200 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z" fill="white"/>
+            <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z" fill="white"/>
+            <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z" fill="white"/>
+            <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z" fill="white"/>
+            <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z" fill="white"/>
+            <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z" fill="white"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z" fill="white"/>
+          </svg>
+        </div>
+
+        <p class="eyebrow">GRE Self-Study Course</p>
+        <h1>How the GRE<br><span class="hl">is Scored</span></h1>
+
+        <aside class="notes">
+          0:00 - 0:30 | Hook: Understanding the scoring system helps you set realistic goals and interpret practice test results. Let's break down exactly how your answers turn into scores.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 2: The Score Ranges -->
+      <!-- ============================================ -->
+      <section class="content" style="display: flex; flex-direction: column;">
+        <!-- Header -->
+        <div class="mb-24">
+          <p class="eyebrow">The Basics</p>
+          <h2>The Score Ranges</h2>
+        </div>
+
+        <!-- 3 Score Cards -->
+        <div class="card-grid-3" style="flex: 1; align-items: center;">
+          <!-- Verbal -->
+          <div class="card" style="text-align: center; padding: 32px 24px;">
+            <div class="text-muted text-sm" style="text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px;">Verbal Reasoning</div>
+            <div class="text-green" style="font-size: 48px; font-weight: 600; margin-bottom: 8px;">130-170</div>
+            <div class="text-light text-sm">1-point increments</div>
+          </div>
+
+          <!-- Quant -->
+          <div class="card" style="text-align: center; padding: 32px 24px;">
+            <div class="text-muted text-sm" style="text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px;">Quantitative Reasoning</div>
+            <div class="text-green" style="font-size: 48px; font-weight: 600; margin-bottom: 8px;">130-170</div>
+            <div class="text-light text-sm">1-point increments</div>
+          </div>
+
+          <!-- AWA -->
+          <div class="card" style="text-align: center; padding: 32px 24px;">
+            <div class="text-muted text-sm" style="text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px;">Analytical Writing</div>
+            <div class="text-green" style="font-size: 48px; font-weight: 600; margin-bottom: 8px;">0-6</div>
+            <div class="text-light text-sm">0.5-point increments</div>
+          </div>
+        </div>
+
+        <!-- Note -->
+        <div class="callout-green mt-24">
+          <p style="font-size: 15px; margin: 0;">When people talk about their "GRE score," they usually mean Verbal and Quant. The writing score is reported separately and often weighted less.</p>
+        </div>
+
+        <!-- Footer Logo -->
+        <div class="leland-footer">
+          <svg width="80" height="18" viewBox="0 0 200 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z" fill="#9B9B9B"/>
+            <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z" fill="#9B9B9B"/>
+            <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z" fill="#9B9B9B"/>
+            <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z" fill="#9B9B9B"/>
+            <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z" fill="#9B9B9B"/>
+            <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z" fill="#9B9B9B"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z" fill="#9B9B9B"/>
+          </svg>
+        </div>
+
+        <aside class="notes">
+          0:30 - 1:30 | Cover the basics: Verbal and Quant both 130-170 in 1-point increments. AWA is 0-6 in half-point increments. Verbal and Quant are what most people focus on.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 3: Verbal & Quant Percentiles -->
+      <!-- ============================================ -->
+      <section class="content" style="display: flex; flex-direction: column;">
+        <!-- Header -->
+        <div class="mb-16">
+          <p class="eyebrow">Understanding Percentiles</p>
+          <h2>Verbal & Quant Percentiles</h2>
+        </div>
+
+        <!-- Comparison intro -->
+        <div class="callout-dark mb-16">
+          <p style="font-size: 15px; margin: 0;"><span class="hl-bold">Quant scores skew higher overall.</span> The same score means different things on each section. It takes a higher Quant score to stand out.</p>
+        </div>
+
+        <!-- Two column comparison -->
+        <div style="flex: 1; display: flex; gap: 24px; align-items: flex-start;">
+          <!-- Percentiles Table -->
+          <div style="flex: 1.2;">
+            <table style="width: 100%; border-collapse: collapse;">
+              <thead>
+                <tr>
+                  <th style="text-align: left; padding: 10px 12px; font-size: 12px; font-weight: 600; color: var(--leland-text-muted); text-transform: uppercase; letter-spacing: 0.08em; border-bottom: 2px solid var(--leland-stroke);">Score</th>
+                  <th style="text-align: left; padding: 10px 12px; font-size: 12px; font-weight: 600; color: #6B9FE8; text-transform: uppercase; letter-spacing: 0.08em; border-bottom: 2px solid var(--leland-stroke);">Quant %</th>
+                  <th style="text-align: left; padding: 10px 12px; font-size: 12px; font-weight: 600; color: var(--leland-green); text-transform: uppercase; letter-spacing: 0.08em; border-bottom: 2px solid var(--leland-stroke);">Verbal %</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="padding: 10px 12px; font-size: 16px; font-weight: 600; border-bottom: 1px solid var(--leland-stroke);">170</td>
+                  <td style="padding: 10px 12px; font-size: 16px; font-weight: 600; color: #6B9FE8; border-bottom: 1px solid var(--leland-stroke);">94%</td>
+                  <td style="padding: 10px 12px; font-size: 16px; font-weight: 600; color: var(--leland-green); border-bottom: 1px solid var(--leland-stroke);">99%</td>
+                </tr>
+                <tr style="background: rgba(21, 176, 120, 0.04);">
+                  <td style="padding: 10px 12px; font-size: 16px; font-weight: 600; border-bottom: 1px solid var(--leland-stroke);">165</td>
+                  <td style="padding: 10px 12px; font-size: 16px; font-weight: 600; color: #6B9FE8; border-bottom: 1px solid var(--leland-stroke);">76%</td>
+                  <td style="padding: 10px 12px; font-size: 16px; font-weight: 600; color: var(--leland-green); border-bottom: 1px solid var(--leland-stroke);">95%</td>
+                </tr>
+                <tr>
+                  <td style="padding: 10px 12px; font-size: 16px; font-weight: 600; border-bottom: 1px solid var(--leland-stroke);">160</td>
+                  <td style="padding: 10px 12px; font-size: 16px; font-weight: 600; color: #6B9FE8; border-bottom: 1px solid var(--leland-stroke);">61%</td>
+                  <td style="padding: 10px 12px; font-size: 16px; font-weight: 600; color: var(--leland-green); border-bottom: 1px solid var(--leland-stroke);">84%</td>
+                </tr>
+                <tr style="background: rgba(21, 176, 120, 0.04);">
+                  <td style="padding: 10px 12px; font-size: 16px; font-weight: 600; border-bottom: 1px solid var(--leland-stroke);">155</td>
+                  <td style="padding: 10px 12px; font-size: 16px; font-weight: 600; color: #6B9FE8; border-bottom: 1px solid var(--leland-stroke);">46%</td>
+                  <td style="padding: 10px 12px; font-size: 16px; font-weight: 600; color: var(--leland-green); border-bottom: 1px solid var(--leland-stroke);">65%</td>
+                </tr>
+                <tr>
+                  <td style="padding: 10px 12px; font-size: 16px; font-weight: 600; border-bottom: 1px solid var(--leland-stroke);">150</td>
+                  <td style="padding: 10px 12px; font-size: 16px; font-weight: 600; color: #6B9FE8; border-bottom: 1px solid var(--leland-stroke);">30%</td>
+                  <td style="padding: 10px 12px; font-size: 16px; font-weight: 600; color: var(--leland-green); border-bottom: 1px solid var(--leland-stroke);">41%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Highlight Box -->
+          <div class="card-alt" style="flex: 0.8; border-left: 4px solid var(--leland-green);">
+            <h3 class="text-green" style="font-size: 18px; margin: 0 0 16px 0;">The Key Takeaway</h3>
+            <p style="font-size: 15px; line-height: 1.6; margin: 0 0 16px 0;">
+              A <strong class="text-green">160 in Verbal</strong> = 84th percentile
+            </p>
+            <p style="font-size: 15px; line-height: 1.6; margin: 0 0 16px 0;">
+              A <strong style="color: #6B9FE8;">160 in Quant</strong> = 61st percentile
+            </p>
+            <p class="text-light text-sm" style="line-height: 1.5; margin: 0;">
+              Average scores: Verbal 151, Quant 155
+            </p>
+          </div>
+        </div>
+
+        <!-- Footer Logo -->
+        <div class="leland-footer">
+          <svg width="80" height="18" viewBox="0 0 200 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z" fill="#9B9B9B"/>
+            <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z" fill="#9B9B9B"/>
+            <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z" fill="#9B9B9B"/>
+            <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z" fill="#9B9B9B"/>
+            <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z" fill="#9B9B9B"/>
+            <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z" fill="#9B9B9B"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z" fill="#9B9B9B"/>
+          </svg>
+        </div>
+
+        <aside class="notes">
+          2:30 - 3:30 | Critical point: Verbal and Quant have different percentile distributions. The same score means different things. A 160 Verbal is 84th percentile, but 160 Quant is only 61st. Quant scores skew higher.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 5: Section-Adaptive Scoring -->
+      <!-- ============================================ -->
+      <section class="content" style="display: flex; flex-direction: column;">
+        <!-- Header -->
+        <div class="mb-24">
+          <p class="eyebrow">How It Works</p>
+          <h2>Section-Adaptive Scoring</h2>
+        </div>
+
+        <!-- Diagram -->
+        <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 24px;">
+          <!-- Flow diagram -->
+          <div style="display: flex; align-items: center; justify-content: center; gap: 16px;">
+            <!-- Section 1 -->
+            <div style="background: var(--leland-dark); color: white; padding: 20px 32px; border-radius: 12px; text-align: center;">
+              <div class="text-sm" style="text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.6); margin-bottom: 4px;">Section 1</div>
+              <div style="font-size: 18px; font-weight: 600;">Your Performance</div>
+            </div>
+
+            <!-- Arrow -->
+            <div class="text-green" style="font-size: 24px;">→</div>
+
+            <!-- Determines -->
+            <div style="background: var(--leland-green); color: white; padding: 20px 24px; border-radius: 12px; text-align: center;">
+              <div style="font-size: 14px; font-weight: 600;">Determines</div>
+            </div>
+
+            <!-- Arrow -->
+            <div class="text-green" style="font-size: 24px;">→</div>
+
+            <!-- Section 2 -->
+            <div class="card-alt" style="padding: 20px 32px; border: 2px solid var(--leland-stroke); text-align: center;">
+              <div class="text-muted text-sm" style="text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 4px;">Section 2</div>
+              <div style="font-size: 18px; font-weight: 600;">Difficulty Level</div>
+            </div>
+          </div>
+
+          <!-- Two outcomes -->
+          <div class="two-column">
+            <!-- Good performance -->
+            <div class="card" style="border-left: 4px solid var(--leland-green);">
+              <h3 class="text-green" style="font-size: 16px; margin: 0 0 8px 0;">Do Well on Section 1</h3>
+              <p class="text-sm" style="margin: 0 0 8px 0; line-height: 1.5;">
+                You get a <strong>harder</strong> Section 2. Questions in the harder section are worth more toward your final score.
+              </p>
+              <p class="text-light text-sm" style="margin: 0;">This is where high scores come from.</p>
+            </div>
+
+            <!-- Struggle -->
+            <div class="card" style="border-left: 4px solid var(--leland-orange);">
+              <h3 style="font-size: 16px; color: var(--leland-orange); margin: 0 0 8px 0;">Struggle on Section 1</h3>
+              <p class="text-sm" style="margin: 0 0 8px 0; line-height: 1.5;">
+                You get an <strong>easier</strong> Section 2. Even getting most questions right won't yield as high a score.
+              </p>
+              <p class="text-light text-sm" style="margin: 0;">The scoring ceiling is lower.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Callout -->
+        <div class="callout-green mt-16">
+          <p style="font-size: 15px; margin: 0;"><span class="hl-bold">Key strategy:</span> Don't rush through Section 1. If running low on time, guess rather than leaving questions blank.</p>
+        </div>
+
+        <!-- Footer Logo -->
+        <div class="leland-footer">
+          <svg width="80" height="18" viewBox="0 0 200 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z" fill="#9B9B9B"/>
+            <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z" fill="#9B9B9B"/>
+            <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z" fill="#9B9B9B"/>
+            <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z" fill="#9B9B9B"/>
+            <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z" fill="#9B9B9B"/>
+            <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z" fill="#9B9B9B"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z" fill="#9B9B9B"/>
+          </svg>
+        </div>
+
+        <aside class="notes">
+          3:30 - 5:00 | Explain section-adaptive scoring. First section performance determines second section difficulty. Doing well unlocks harder questions worth more points. Key strategy: don't rush Section 1, always guess rather than skip.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 6: What Scores Mean for Admissions -->
+      <!-- ============================================ -->
+      <section class="content" style="display: flex; flex-direction: column;">
+        <!-- Header -->
+        <div class="mb-16">
+          <p class="eyebrow">Program Expectations</p>
+          <h2>What Scores Mean for Admissions</h2>
+        </div>
+
+        <!-- Intro -->
+        <p class="text-light mb-16" style="line-height: 1.5; margin-top: 0;">
+          Different programs weight sections differently. There's no universal "good" GRE score. What matters is how your score compares to your target programs.
+        </p>
+
+        <!-- 3 Program Cards -->
+        <div class="card-grid-3" style="flex: 1;">
+          <!-- STEM -->
+          <div class="card" style="display: flex; flex-direction: column;">
+            <div style="background: #5B8DEF; color: white; padding: 12px 16px; margin: -24px -24px 16px -24px; border-radius: 12px 12px 0 0;">
+              <h3 style="font-size: 16px; margin: 0;">STEM Programs</h3>
+            </div>
+            <p class="text-sm" style="line-height: 1.6; margin: 0 0 12px 0;">
+              Typically prioritize <strong>Quant scores</strong>. A 165 Quant with 155 Verbal might be perfectly fine.
+            </p>
+            <div style="margin-top: auto; padding-top: 12px; border-top: 1px solid var(--leland-stroke);">
+              <span class="text-muted text-sm">Focus: Quantitative</span>
+            </div>
+          </div>
+
+          <!-- Humanities -->
+          <div class="card" style="display: flex; flex-direction: column;">
+            <div style="background: #7C6BBF; color: white; padding: 12px 16px; margin: -24px -24px 16px -24px; border-radius: 12px 12px 0 0;">
+              <h3 style="font-size: 16px; margin: 0;">Humanities & Social Sciences</h3>
+            </div>
+            <p class="text-sm" style="line-height: 1.6; margin: 0 0 12px 0;">
+              Often prioritize <strong>Verbal scores</strong>. A 165 Verbal with 155 Quant might work well.
+            </p>
+            <div style="margin-top: auto; padding-top: 12px; border-top: 1px solid var(--leland-stroke);">
+              <span class="text-muted text-sm">Focus: Verbal</span>
+            </div>
+          </div>
+
+          <!-- MBA -->
+          <div class="card" style="display: flex; flex-direction: column;">
+            <div style="background: var(--leland-green); color: white; padding: 12px 16px; margin: -24px -24px 16px -24px; border-radius: 12px 12px 0 0;">
+              <h3 style="font-size: 16px; margin: 0;">MBA & Business</h3>
+            </div>
+            <p class="text-sm" style="line-height: 1.6; margin: 0 0 12px 0;">
+              Typically want <strong>strong scores in both</strong>. Top programs often look for 160+ in each section.
+            </p>
+            <div style="margin-top: auto; padding-top: 12px; border-top: 1px solid var(--leland-stroke);">
+              <span class="text-muted text-sm">Focus: Both sections</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Callout -->
+        <div class="callout-green mt-16">
+          <p style="font-size: 15px; margin: 0;"><span class="hl-bold">Research your target programs.</span> Find their median GRE scores and aim to match or exceed them.</p>
+        </div>
+
+        <!-- Footer Logo -->
+        <div class="leland-footer">
+          <svg width="80" height="18" viewBox="0 0 200 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z" fill="#9B9B9B"/>
+            <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z" fill="#9B9B9B"/>
+            <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z" fill="#9B9B9B"/>
+            <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z" fill="#9B9B9B"/>
+            <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z" fill="#9B9B9B"/>
+            <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z" fill="#9B9B9B"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z" fill="#9B9B9B"/>
+          </svg>
+        </div>
+
+        <aside class="notes">
+          5:00 - 6:30 | Different programs care about different sections. STEM focuses on Quant. Humanities on Verbal. MBA wants both. There's no universal good score. Research your specific programs.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 7: Score Choice & Reporting -->
+      <!-- ============================================ -->
+      <section class="content" style="display: flex; flex-direction: column;">
+        <!-- Header -->
+        <div class="mb-24">
+          <p class="eyebrow">Reporting Options</p>
+          <h2>Score Choice & Reporting</h2>
+        </div>
+
+        <!-- 3 Info Boxes -->
+        <div class="card-grid-3" style="flex: 1;">
+          <!-- ScoreSelect -->
+          <div class="type-box" style="display: flex; flex-direction: column;">
+            <div class="type-num">01</div>
+            <div style="flex: 1;">
+              <h3 style="margin-top: 0;">ScoreSelect</h3>
+              <p class="text-sm" style="line-height: 1.6;">Choose which test date's scores to send. If you take the GRE multiple times, you can send only your best scores to programs.</p>
+            </div>
+          </div>
+
+          <!-- Superscoring -->
+          <div class="type-box" style="display: flex; flex-direction: column;">
+            <div class="type-num">02</div>
+            <div style="flex: 1;">
+              <h3 style="margin-top: 0;">Superscoring</h3>
+              <p class="text-sm" style="line-height: 1.6;">Some schools take your highest Verbal from one date and highest Quant from another. Check with your programs to see if they superscore.</p>
+            </div>
+          </div>
+
+          <!-- Validity -->
+          <div class="type-box" style="display: flex; flex-direction: column;">
+            <div class="type-num">03</div>
+            <div style="flex: 1;">
+              <h3 style="margin-top: 0;">5-Year Validity</h3>
+              <p class="text-sm" style="line-height: 1.6;">Scores are valid for 5 years from your test date. You have flexibility in when you apply to programs.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cancellation note -->
+        <div class="callout-dark mt-24">
+          <p style="font-size: 15px; margin: 0;">
+            <span class="hl-bold">About canceling scores:</span> You can cancel immediately after the test before seeing them. But most students don't need to worry about this. Take the test, see your scores, and if needed, retake and use ScoreSelect.
+          </p>
+        </div>
+
+        <!-- Footer Logo -->
+        <div class="leland-footer">
+          <svg width="80" height="18" viewBox="0 0 200 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z" fill="#9B9B9B"/>
+            <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z" fill="#9B9B9B"/>
+            <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z" fill="#9B9B9B"/>
+            <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z" fill="#9B9B9B"/>
+            <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z" fill="#9B9B9B"/>
+            <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z" fill="#9B9B9B"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z" fill="#9B9B9B"/>
+          </svg>
+        </div>
+
+        <aside class="notes">
+          6:30 - 7:30 | Cover score reporting options. ScoreSelect lets you choose which dates to send. Some schools superscore. Scores valid 5 years. Most students don't need to worry about canceling.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 8: Summary (Dark) -->
+      <!-- ============================================ -->
+      <section class="title-dark">
+        <!-- Top Logo (white) -->
+        <div class="leland-logo-top">
+          <svg width="110" height="25" viewBox="0 0 200 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z" fill="white"/>
+            <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z" fill="white"/>
+            <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z" fill="white"/>
+            <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z" fill="white"/>
+            <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z" fill="white"/>
+            <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z" fill="white"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z" fill="white"/>
+          </svg>
+        </div>
+
+        <!-- Header with spacing -->
+        <div class="mb-24">
+          <p class="eyebrow">Summary</p>
+          <h2>Key Takeaways</h2>
+        </div>
+
+        <!-- Content -->
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          <p class="text-muted text-lg" style="line-height: 1.6;">
+            <span class="text-white" style="font-weight: 500;">Verbal and Quant:</span> 130-170 each. <span class="text-white" style="font-weight: 500;">Writing:</span> 0-6.
+          </p>
+          <p class="text-muted text-lg" style="line-height: 1.6;">
+            <span class="text-white" style="font-weight: 500;">Percentiles differ:</span> The same score means different things on each section. Quant skews higher.
+          </p>
+          <p class="text-muted text-lg" style="line-height: 1.6;">
+            <span class="text-white" style="font-weight: 500;">Section-adaptive:</span> First section performance determines second section difficulty.
+          </p>
+          <p class="text-muted text-lg" style="line-height: 1.6;">
+            <span class="text-white" style="font-weight: 500;">No universal "good" score:</span> What matters is your target programs.
+          </p>
+        </div>
+
+        <!-- Key Insight -->
+        <div class="card-alt mt-24" style="background: rgba(21, 176, 120, 0.15);">
+          <p class="text-white" style="font-size: 17px; margin: 0; line-height: 1.5;"><span class="hl-bold">Research your programs, set your target scores, and now you know exactly what you're aiming for.</span></p>
+        </div>
+
+        <aside class="notes">
+          7:30 - 8:00 | Recap: Score ranges, percentile differences, section-adaptive scoring, program-specific targets. Final message: research programs and set realistic goals.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js -->
+  <script src="../assets/reveal/dist/reveal.min.js"></script>
+  <script type="module">
+    import RevealNotes from '../assets/reveal/plugin/notes/notes.esm.js';
+
+    Reveal.initialize({
+      width: 960,
+      height: 540,
+      margin: 0,
+      minScale: 0.5,
+      maxScale: 3.0,
+      hash: true,
+      slideNumber: true,
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+      transition: 'none',
+      backgroundTransition: 'none',
+      disableLayout: false,
+      plugins: [ RevealNotes ]
+    });
+  </script>
+</body>
+</html>

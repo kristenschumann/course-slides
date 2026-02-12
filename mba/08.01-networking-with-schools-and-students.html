@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en" class="reveal-full-page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Networking with Schools and Students</title>
+
+  <!-- Reveal.js Core -->
+  <link rel="stylesheet" href="../assets/reveal/dist/reset.css">
+  <link rel="stylesheet" href="../assets/reveal/dist/reveal.css">
+
+  <!-- Leland Theme -->
+  <link rel="stylesheet" href="../assets/reveal/themes/leland.css">
+
+</head>
+<body>
+  <!-- SVG Symbol Definitions (defined once, referenced via <use>) -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="leland-logo" viewBox="0 0 200 45">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z"/>
+      <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z"/>
+      <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z"/>
+      <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z"/>
+      <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z"/>
+      <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z"/>
+    </symbol>
+  </svg>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ============================================ -->
+      <!-- SLIDE 1: Title Dark -->
+      <!-- ============================================ -->
+      <section class="title-dark">
+        <svg width="110" height="25" fill="white" class="mb-16"><use href="#leland-logo"/></svg>
+        <p class="eyebrow">MBA Admissions Course</p>
+        <h1>Networking with <span class="hl">Schools</span><br>and Students</h1>
+
+        <aside class="notes">
+          0:00 - 0:30 | Your MBA application isn't just paperwork. Building relationships with schools, connecting with students, attending events, and reaching out to alumni can strengthen your application in ways that aren't immediately obvious. This is about demonstrating genuine interest and learning enough to write compelling essays.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 2: Plus List — Overview -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">MBA Admissions Course</p>
+          <h2>What We'll Cover</h2>
+        </div>
+
+        <ul class="plus-list text-lg">
+          <li>Why networking matters for your application</li>
+          <li>How to leverage your personal network first</li>
+          <li>Finding students and club leaders on LinkedIn</li>
+          <li>School-offered resources you should use</li>
+          <li>Networking etiquette and common mistakes</li>
+          <li>Using what you learn in essays and interviews</li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          0:30 - 1:00 | Six topics today. Why networking matters, how to start with people you already know, using LinkedIn to find students and club leaders, taking advantage of school resources like campus visits, etiquette rules, and how to turn your conversations into stronger essays and interviews.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 3: Card Grid 2 — Why Networking Matters -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">MBA Admissions Course</p>
+          <h2>Why Networking Matters</h2>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="card card-green-bg" style="padding: 16px">
+            <h3 class="mb-8">Demonstrates Interest</h3>
+            <p class="text-sm text-light">Schools track who attends info sessions, visits campus, and reaches out to students</p>
+          </div>
+          <div class="card card-blue-bg" style="padding: 16px">
+            <h3 class="mb-8">Strengthens Essays</h3>
+            <p class="text-sm text-light">Conversations give you specific details and stories that make "why this school" essays authentic</p>
+          </div>
+          <div class="card card-orange-bg" style="padding: 16px">
+            <h3 class="mb-8">Helps Assess Fit</h3>
+            <p class="text-sm text-light">Learn about culture, people, and vibe before you accept an offer</p>
+          </div>
+          <div class="card card-purple-bg" style="padding: 16px">
+            <h3 class="mb-8">Builds Advocacy</h3>
+            <p class="text-sm text-light">Students who are impressed may send a note to admissions on your behalf</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          1:00 - 2:30 | Four reasons networking matters. First, it demonstrates genuine interest. Schools have CRM systems and track who attends sessions and visits campus. Second, it strengthens your essays. Generic "why this school" essays fail because applicants don't know enough. Real conversations give you specific stories. Third, it helps you assess fit. Better to learn about culture before you accept than after you arrive. Fourth, if you impress a current student enough, they might send an unsolicited note to admissions on your behalf. You can't ask for this, but you can earn it by being prepared and genuine.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 4: Icon List — Your Personal Network -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">MBA Admissions Course</p>
+          <h2>Start with Who You Know</h2>
+        </div>
+
+        <ul class="icon-list text-lg">
+          <li>
+            <span class="icon icon-xl icon-green" style="flex-shrink: 0; --icon: url(../../../../_global/design/icons/graduate-hat.svg)"></span>
+            <span><strong>College alumni:</strong> People from your undergrad who attended your target MBA programs</span>
+          </li>
+          <li>
+            <span class="icon icon-xl icon-green" style="flex-shrink: 0; --icon: url(../../../../_global/design/icons/build-your-career.svg)"></span>
+            <span><strong>Colleagues:</strong> Current or former coworkers who have MBAs</span>
+          </li>
+          <li>
+            <span class="icon icon-xl icon-green" style="flex-shrink: 0; --icon: url(../../../../_global/design/icons/networking.svg)"></span>
+            <span><strong>Extended network:</strong> Friends of friends and professional contacts from events</span>
+          </li>
+        </ul>
+
+        <p class="text-lg text-light" style="margin-top: 24px;">Warm connections respond more often and give more candid advice. Ask: "Do you know anyone who went to [school]? I'd love an introduction."</p>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          2:30 - 3:45 | Before you reach out cold to strangers, mine your existing network. College alumni who attended your target programs, colleagues with MBAs, friends of friends, professional contacts from conferences. These warm connections are more likely to respond and give candid advice. A referral from someone in your network carries more weight than cold outreach. Ask people: do you know anyone who went to this school? You'll be surprised how often the answer is yes.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 5: Callout — LinkedIn Strategy -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">MBA Admissions Course</p>
+          <h2>The LinkedIn Playbook</h2>
+        </div>
+
+        <div class="card-alt-green" style="display: flex; align-items: flex-start; gap: 16px;">
+          <span class="icon icon-xl icon-green" style="flex-shrink: 0; --icon: url(../../../../_global/design/icons/search.svg)"></span>
+          <p class="text-lg"><strong>Target club leaders specifically.</strong> Consulting Club, Finance Club, and affinity group presidents are visible, engaged, and often happy to talk. Cross-reference school websites with LinkedIn.</p>
+        </div>
+
+        <p class="text-lg text-light" style="margin-top: 32px;"><strong>Sample message:</strong> "Hi Sarah, I'm applying to Booth and saw you lead the Entrepreneurship Club. I'm a PM interested in startups post-MBA and would love to hear about the New Venture Challenge. Would you have 15 minutes for a call?"</p>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          3:45 - 5:30 | LinkedIn is your most powerful tool. Search for current students by filtering for the school name and "currently attending." Target club leaders specifically, like the Consulting Club or Finance Club presidents. They're visible, engaged, and happy to talk. Also look for admissions ambassadors who have volunteered to speak with prospective students. Keep your outreach brief, specific, and personalized. Show you've done research. Make a reasonable ask. You may need to message 10 people to get 3 responses, and that's normal. But don't copy-paste the same generic message. People can tell.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 6: Table — What to Ask -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">MBA Admissions Course</p>
+          <h2>Questions Worth Asking</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Ask This</th>
+              <th>Why It Works</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>"What surprised you most about the program?"</td>
+              <td>Reveals insider perspective you can't find online</td>
+            </tr>
+            <tr>
+              <td>"What drew you to this school over others?"</td>
+              <td>Uncovers differentiators for your essays</td>
+            </tr>
+            <tr>
+              <td>"What's the student culture really like?"</td>
+              <td>Gets beyond marketing language to real culture</td>
+            </tr>
+            <tr>
+              <td>"How do students support each other?"</td>
+              <td>Shows community dynamics and collaboration</td>
+            </tr>
+            <tr>
+              <td>"What would you do differently applying now?"</td>
+              <td>Practical advice from someone who's been through it</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          5:30 - 7:00 | Focus on learning, not extracting admissions tips. Ask what surprised them about the program. Ask what drew them to this school over others. Ask what the culture is really like beyond the marketing. Ask how students support each other. Ask what they'd do differently if they were applying now. These questions get you real insights that will make your essays specific and authentic. After each conversation, send a thank-you note. And if you're admitted, let them know.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 7: Divider -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <p class="part-number">Part 2</p>
+        <h1>School-Offered Resources</h1>
+        <p>Events, visits, and engagement that schools track</p>
+
+        <aside class="notes">
+          7:00 - 7:10 | Now let's talk about the resources schools themselves offer, and why taking advantage of them matters more than you might think.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 8: Card Grid 3 — School Resources -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">MBA Admissions Course</p>
+          <h2>Resources Schools Offer You</h2>
+        </div>
+
+        <div class="card-grid-3">
+          <div class="card card-green-bg">
+            <span class="icon icon-lg icon-green mb-16" style="--icon: url(../../../../_global/design/icons/calendar-check.svg)"></span>
+            <h3>Events and Webinars</h3>
+            <p class="text-sm text-light">Info sessions, MBA fairs, diversity conferences, and regional dinners. Ask questions during Q&A.</p>
+          </div>
+          <div class="card card-blue-bg">
+            <span class="icon icon-lg icon-green mb-16" style="--icon: url(../../../../_global/design/icons/search-document.svg)"></span>
+            <h3>Campus Visits</h3>
+            <p class="text-sm text-light">Official tours, class sits, student ambassador meetings. One of the highest-signal ways to show interest.</p>
+          </div>
+          <div class="card card-orange-bg">
+            <span class="icon icon-lg icon-green mb-16" style="--icon: url(../../../../_global/design/icons/chat-bubbles.svg)"></span>
+            <h3>Virtual Engagement</h3>
+            <p class="text-sm text-light">Virtual class visits, one-on-one ambassador chats, recorded sessions. Tracked just like in-person visits.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          7:10 - 9:00 | Schools invest heavily in helping prospective students learn about their programs. Three main channels. First, events and webinars, both online and in-person. Attend the ones for schools you're serious about. Ask thoughtful questions during Q&A. Schools notice who attends and who asks good questions. Second, campus visits. If you can swing it, visit. Schedule an official tour, sit in on a class, meet a student ambassador. This is one of the highest-signal demonstrations of interest. Third, virtual engagement. Most T15 schools now offer virtual class visits, one-on-one ambassador chats, and recorded sessions. If you can't visit in person, these carry real weight. Schools track all of it.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 9: Two Column — Do vs Don't -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">MBA Admissions Course</p>
+          <h2>Networking Etiquette</h2>
+        </div>
+
+        <div class="two-column gap-32">
+          <div class="card card-green-bg" style="padding: 16px">
+            <div class="status-correct" style="margin-bottom: 12px;">Do</div>
+            <ul class="plus-list text-sm">
+              <li>Be genuine in your interest</li>
+              <li>Keep calls to 15-20 minutes</li>
+              <li>Prepare thoughtful questions</li>
+              <li>Follow up with thanks</li>
+              <li>Reference conversations in essays</li>
+            </ul>
+          </div>
+          <div class="card card-orange-bg" style="padding: 16px">
+            <div class="status-incorrect" style="margin-bottom: 12px;">Don't</div>
+            <ul class="plus-list text-sm">
+              <li>Send the same generic message to many people</li>
+              <li>Ask for insider admissions tips</li>
+              <li>Be transactional or pushy</li>
+              <li>Exaggerate your interactions</li>
+              <li>Pester people who don't respond</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          9:00 - 10:30 | Here's the etiquette. Do be genuine, keep calls brief at 15 to 20 minutes, prepare thoughtful questions, follow up with thanks, and reference what you learned in your essays. Don't send generic copy-paste messages, ask for admissions tips, be transactional, exaggerate your interactions, or pester people who don't respond. Admissions officers can tell the difference between "I spoke with six students and here's what they all said," which is performative, versus "My conversation with Mark changed how I think about Kellogg's team-based approach," which is genuine.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 10: Callout — Using What You Learn -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">MBA Admissions Course</p>
+          <h2>Turn Conversations into Essays</h2>
+        </div>
+
+        <div class="card-alt-green" style="display: flex; align-items: flex-start; gap: 16px;">
+          <span class="icon icon-xl icon-green" style="flex-shrink: 0; --icon: url(../../../../_global/design/icons/write.svg)"></span>
+          <p class="text-lg">"When I spoke with current student Alex Chen, she described how the Entrepreneurship Lab let her test a business concept while getting real-time feedback from professors and peers. That hands-on approach resonates with how I develop best."</p>
+        </div>
+
+        <p class="text-lg text-light" style="margin-top: 32px;">This is specific, authentic, and shows you did the work. Use the same approach in interviews by referencing conversations about culture and community.</p>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          10:30 - 12:00 | Here's where networking pays off in your application. In your "why this school" essay, instead of generic statements, you can write something like this example: referencing a specific conversation about a specific program. It's specific, it shows you did the work, and it's authentic. Use the same approach in interviews. Reference conversations about culture and community. What you learn also helps you decide where to apply, how to position yourself, and what aspects of the school to emphasize.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 11: Workflow — Timeline -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">MBA Admissions Course</p>
+          <h2>When to Start Networking</h2>
+        </div>
+
+        <div class="workflow">
+          <div class="workflow-step">
+            <span class="step-num mb-8">1</span>
+            <h3>6-12 Months</h3>
+            <p class="text-sm text-light">Explore schools, attend webinars, begin connecting</p>
+          </div>
+          <div class="workflow-arrow">→</div>
+          <div class="workflow-step">
+            <span class="step-num mb-8">2</span>
+            <h3>4-6 Months</h3>
+            <p class="text-sm text-light">Deeper research, campus visits, meaningful conversations</p>
+          </div>
+          <div class="workflow-arrow">→</div>
+          <div class="workflow-step">
+            <span class="step-num mb-8">3</span>
+            <h3>Final Months</h3>
+            <p class="text-sm text-light">Follow up, attend remaining events, finalize insights</p>
+          </div>
+        </div>
+
+        <p class="text-sm text-light" style="margin-top: 24px;">Even late in the process, one or two genuine conversations can still improve your application. Three meaningful conversations beat ten superficial ones.</p>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          12:00 - 13:15 | Start early, but don't panic if you're late. Ideally 6 to 12 months before your deadline, begin exploring schools, attending webinars, and connecting with students. At 4 to 6 months, go deeper with campus visits and meaningful conversations. In the final months, follow up, attend remaining events, and finalize your understanding. But even if you're behind, one or two genuine conversations can still improve your application significantly. Quality over quantity. Three meaningful conversations beat ten superficial ones.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 12: Content Dark — Takeaways -->
+      <!-- ============================================ -->
+      <section class="content-dark">
+        <div class="slide-header">
+          <p class="eyebrow">Key Takeaways</p>
+          <h2>What to Remember</h2>
+        </div>
+
+        <ul class="plus-list text-lg text-white">
+          <li>Strategic engagement matters for top programs, and schools track everything</li>
+          <li>Start with your personal network before reaching out cold</li>
+          <li>Use LinkedIn to find club leaders and student ambassadors</li>
+          <li>Attend info sessions, visit campus, and use virtual resources</li>
+          <li>Be genuine, be brief, and always follow up with thanks</li>
+          <li>Use what you learn to write specific, authentic essays</li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="rgba(255,255,255,0.4)"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          13:15 - 14:00 | Key takeaways. Strategic engagement matters at top programs, and schools track everything in their CRM. Start with people you already know before cold outreach. Use LinkedIn to find club leaders and ambassadors. Attend info sessions, visit campus, and use virtual resources. Be genuine, be brief, and always follow up with thanks. And use what you learn to write specific, authentic essays. Build real relationships, and let that genuine engagement strengthen every part of your application.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js -->
+  <script src="../assets/reveal/dist/reveal.min.js"></script>
+  <script type="module">
+    import RevealNotes from '../assets/reveal/plugin/notes/notes.esm.js';
+
+    Reveal.initialize({
+      width: 960,
+      height: 540,
+      margin: 0,
+      minScale: 0.5,
+      maxScale: 3.0,
+      hash: true,
+      slideNumber: true,
+      controls: true,
+      progress: true,
+      history: true,
+      center: false,
+      transition: 'none',
+      backgroundTransition: 'none',
+      disableLayout: false,
+      plugins: [ RevealNotes ]
+    });
+  </script>
+</body>
+</html>
