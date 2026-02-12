@@ -593,7 +593,7 @@
 }
 
 .reveal table tbody tr:nth-child(even) {
-  background: var(--leland-offwhite);
+  background: #EFEFEF;
 }
 
 /* ----- Plus List ----- */
@@ -835,9 +835,10 @@
 }
 
 /* ----- Math Step Spacing ----- */
+/* Extra margin + line-height to prevent KaTeX fraction overlap */
 .math-step {
-  margin-bottom: 12px;
-  line-height: 1.6;
+  margin-bottom: 20px;
+  line-height: 1.8;
 }
 .math-step:last-child {
   margin-bottom: 0;
