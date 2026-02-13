@@ -635,6 +635,17 @@
   text-decoration: none;
 }
 
+/* Hide navigation arrows */
+.reveal .controls {
+  display: none !important;
+}
+
+/* Align slide number with footer baseline */
+.reveal .slide-number {
+  bottom: 24px;
+  right: 48px;
+}
+
 /* ----- Positioning ----- */
 .leland-footer {
   position: absolute;
