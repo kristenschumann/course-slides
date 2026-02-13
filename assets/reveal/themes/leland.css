@@ -627,7 +627,9 @@
   background: none;
   color: var(--leland-text-muted);
   font-family: 'Calibre', 'Inter', Arial, sans-serif;
-  font-size: 14px;
+  font-size: calc(14px * var(--slide-scale, 1));
+  line-height: 1;
+  padding: 0;
 }
 
 .reveal .slide-number a {
@@ -640,10 +642,20 @@
   display: none !important;
 }
 
-/* Align slide number with footer baseline */
+/* Align slide number with footer baseline.
+   .leland-footer is position:absolute inside each <section> at bottom:24px.
+   .slide-number is a child of .reveal (the viewport), not the slide.
+   We use Reveal.js CSS custom properties to convert slide-space coordinates
+   to viewport-space coordinates so both elements align perfectly. */
 .reveal .slide-number {
-  bottom: 24px;
-  right: 48px;
+  bottom: calc(
+    (var(--viewport-height) - var(--slide-height) * var(--slide-scale, 1)) / 2
+    + 24px * var(--slide-scale, 1)
+  );
+  right: calc(
+    (var(--viewport-width) - var(--slide-width) * var(--slide-scale, 1)) / 2
+    + 48px * var(--slide-scale, 1)
+  );
 }
 
 /* ----- Positioning ----- */
