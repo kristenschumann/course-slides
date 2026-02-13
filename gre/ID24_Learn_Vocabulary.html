@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ID24: How to Learn GRE Vocabulary Efficiently</title>
+  <title>How to Learn GRE Vocabulary Efficiently</title>
 
   <!-- Reveal.js Core -->
   <link rel="stylesheet" href="../assets/reveal/dist/reset.css">
@@ -12,11 +12,32 @@
   <!-- Leland Theme -->
   <link rel="stylesheet" href="../assets/reveal/themes/leland.css">
 
-  <style>
-    /* Slide-specific overrides */
-</style>
+  <!-- KaTeX for math rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false}
+      ]
+    });"></script>
+
 </head>
 <body>
+  <!-- SVG Symbol Definitions (defined once, referenced via <use>) -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="leland-logo" viewBox="0 0 200 45">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z"/>
+      <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z"/>
+      <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z"/>
+      <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z"/>
+      <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z"/>
+      <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z"/>
+    </symbol>
+  </svg>
+
   <div class="reveal">
     <div class="slides">
 
@@ -24,664 +45,409 @@
       <!-- SLIDE 1: Title (Dark) -->
       <!-- ============================================ -->
       <section class="title-dark">
-        <!-- Top Logo (white) -->
         <div class="leland-logo-top">
-          <svg width="110" height="25" viewBox="0 0 200 45" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z" fill="white"/>
-            <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z" fill="white"/>
-            <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z" fill="white"/>
-            <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z" fill="white"/>
-            <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z" fill="white"/>
-            <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z" fill="white"/>
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z" fill="white"/>
-          </svg>
+          <svg width="110" height="25" fill="white"><use href="#leland-logo"/></svg>
         </div>
 
-        <div style="margin-top: 20px;">
-          <p class="eyebrow">GRE Self-Study Course</p>
-          <h1>How to Learn GRE<br><span class="hl">Vocabulary Efficiently</span></h1>
-        </div>
+        <p class="eyebrow">GRE Self-Study Course</p>
+        <h1>How to Learn GRE<br><span class="hl">Vocabulary Efficiently</span></h1>
 
         <aside class="notes">
-          0:00 - 0:10 | Opening title. Brief pause before transitioning.
+          0:00 - 0:30 | Hook: Vocabulary knowledge accounts for roughly 50% of your GRE Verbal score. Not just because questions directly test it, but because understanding words is essential for TC, SE, and RC. This video covers how to build vocabulary efficiently.
         </aside>
       </section>
 
       <!-- ============================================ -->
-      <!-- SLIDE 2: Hook - 50% Stat -->
+      <!-- SLIDE 2: Why Vocabulary Matters -->
       <!-- ============================================ -->
-      <section class="content" style="display: flex; flex-direction: column; padding: 48px 64px;">
-        <!-- Header -->
-        <div style="margin-bottom: 20px;">
-          <p class="eyebrow">The Big Picture</p>
-          <h2 style="font-size: 36px;">Why Vocabulary Matters</h2>
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">The Foundation</p>
+          <h2>Why Vocabulary Matters</h2>
         </div>
 
-        <!-- Content - above logo with proper spacing -->
-        <div style="flex: 1; display: flex; flex-direction: column; justify-content: flex-start; padding-bottom: 60px;">
-          <div style="text-align: center; margin-bottom: 24px;">
-            <p style="font-size: 72px; font-weight: 700; color: var(--leland-green); margin: 0;">~50%</p>
-            <p style="font-size: 24px; color: var(--leland-text-dark); margin-top: 8px;">of your Verbal score depends on vocabulary</p>
-          </div>
-          <p style="font-size: 17px; color: var(--leland-text-light); margin: 0; line-height: 1.6; text-align: center; max-width: 700px; margin: 0 auto 20px auto;">
-            Not because half the questions directly test vocabulary, but because understanding sophisticated words is essential for Text Completion, Sentence Equivalence, AND Reading Comprehension.
-          </p>
+        <p class="text-lg mb-24">Vocabulary affects every question type on GRE Verbal, not just the ones that directly test&nbsp;words.</p>
 
-          <!-- Key Insight - moved inside content area -->
-          <div class="callout-green" style="margin-top: auto;">
-            <p style="font-size: 15px; margin: 0;"><span class="hl-bold">Today's goal:</span> Learn how to build vocabulary efficiently, so you're not just memorizing words, but learning to think like the GRE.</p>
+        <div class="card-grid-3">
+          <div class="card card-green-bg">
+            <h3 class="text-md mb-8">Text Completion &amp; SE</h3>
+            <p class="text-sm">Directly test whether you know words. If you don't know what "perfunctory" means, you'll struggle with questions that use&nbsp;it.</p>
+          </div>
+          <div class="card card-blue-bg">
+            <h3 class="text-md mb-8">Reading Comprehension</h3>
+            <p class="text-sm">Stumbling over unfamiliar words kills comprehension and wastes time. You can't analyze what you can't&nbsp;understand.</p>
+          </div>
+          <div class="card card-purple-bg">
+            <h3 class="text-md mb-8">Logical Structure</h3>
+            <p class="text-sm">Words like "notwithstanding," "albeit," and "ostensibly" signal specific logical relationships. Miss the word, miss the&nbsp;meaning.</p>
           </div>
         </div>
 
-        <!-- Footer Logo - positioned at bottom -->
         <div class="leland-footer">
-          <svg width="80" height="18" viewBox="0 0 200 45" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z" fill="#9B9B9B"/>
-            <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z" fill="#9B9B9B"/>
-            <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z" fill="#9B9B9B"/>
-            <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z" fill="#9B9B9B"/>
-            <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z" fill="#9B9B9B"/>
-            <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z" fill="#9B9B9B"/>
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z" fill="#9B9B9B"/>
-          </svg>
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
         </div>
 
         <aside class="notes">
-          0:10 - 0:55 | Hook with the 50% statistic. Explain that vocabulary isn't just tested directly, it affects comprehension across all question types.
+          0:30 - 2:00 | Three ways vocabulary matters: TC/SE directly test it, RC becomes harder without it, and logical structure words signal relationships. Vocabulary is the foundation for all of Verbal.
         </aside>
       </section>
 
       <!-- ============================================ -->
-      <!-- SLIDE 3: Three Ways GRE Tests Vocabulary -->
+      <!-- SLIDE 3: What Doesn't Work -->
       <!-- ============================================ -->
-      <section class="content" style="padding: 48px 64px; display: flex; flex-direction: column;">
-        <!-- Header -->
-        <div style="margin-bottom: 24px;">
-          <p class="eyebrow">Why It Matters</p>
-          <h2 style="font-size: 32px; margin: 0;">Three Ways the GRE Tests Vocabulary</h2>
-        </div>
-
-        <!-- Three boxes -->
-        <div class="grid-3" style="flex: 1; gap: 20px;">
-          <!-- Way 1 -->
-          <div class="type-box">
-            <div class="type-num">01</div>
-            <div>
-              <h3>Direct Testing</h3>
-              <p style="font-size: 14px;">Text Completion and Sentence Equivalence directly test whether you know words. If you don't know "perfunctory," you'll struggle with questions that use it.</p>
-            </div>
-          </div>
-
-          <!-- Way 2 -->
-          <div class="type-box">
-            <div class="type-num">02</div>
-            <div>
-              <h3>Comprehension</h3>
-              <p style="font-size: 14px;">Reading Comprehension becomes much harder if you're stumbling over unfamiliar words. Guessing word meanings mid-passage costs you time and accuracy.</p>
-            </div>
-          </div>
-
-          <!-- Way 3 -->
-          <div class="type-box">
-            <div class="type-num">03</div>
-            <div>
-              <h3>Logic Signals</h3>
-              <p style="font-size: 14px;">Words like "notwithstanding," "albeit," and "ostensibly" signal logical relationships. Miss those signals, and you'll miss the meaning.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Key Point -->
-        <div class="callout-dark mt-16" style="text-align: center;">
-          <p style="font-size: 14px;"><span class="hl-bold">The takeaway:</span> This isn't about memorizing the dictionary. It's about strategic learning of high-value words.</p>
-        </div>
-
-        <!-- Footer Logo -->
-        <div class="leland-footer">
-          <svg width="80" height="18" viewBox="0 0 200 45" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z" fill="#9B9B9B"/>
-            <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z" fill="#9B9B9B"/>
-            <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z" fill="#9B9B9B"/>
-            <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z" fill="#9B9B9B"/>
-            <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z" fill="#9B9B9B"/>
-            <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z" fill="#9B9B9B"/>
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z" fill="#9B9B9B"/>
-          </svg>
-        </div>
-
-        <aside class="notes">
-          0:55 - 2:15 | Walk through the three ways vocabulary impacts your score. Direct testing is obvious, but emphasize points 2 and 3 which students often miss.
-        </aside>
-      </section>
-
-      <!-- ============================================ -->
-      <!-- SLIDE 4: The Wrong Way -->
-      <!-- ============================================ -->
-      <section class="content" style="display: flex; flex-direction: column; padding-bottom: 70px;">
-        <!-- Header -->
-        <div class="mb-24">
+      <section class="content math-content">
+        <div class="slide-header">
           <p class="eyebrow">Common Mistakes</p>
-          <h2 style="font-size: 36px;">The Wrong Way to Study Vocabulary</h2>
+          <h2>What Doesn't Work</h2>
         </div>
 
-        <!-- Three Mistakes -->
-        <div style="flex: 1; display: flex; flex-direction: column; gap: 16px; justify-content: center;">
-          <!-- Mistake 1 -->
-          <div style="display: flex; gap: 16px; align-items: flex-start;">
-            <div style="background: #FF4444; color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; flex-shrink: 0;">1</div>
-            <div>
-              <h3 style="font-size: 18px; margin: 0 0 4px 0; color: var(--leland-text-dark);">Memorizing Long Lists in Order</h3>
-              <p style="font-size: 14px; color: var(--leland-text-light); margin: 0; line-height: 1.5;">Going through alphabetical lists means you'll remember "abase" and "aberration" but forget everything by "zealot." Your brain needs variety.</p>
-            </div>
+        <div class="card-grid-3">
+          <div class="card card-red-bg">
+            <h3 class="text-md mb-8">Memorizing Long Lists</h3>
+            <p class="text-sm">Going through alphabetical lists means you remember "abase" and "aberration" but forget everything by "zealot." Your brain needs&nbsp;variety.</p>
           </div>
-
-          <!-- Mistake 2 -->
-          <div style="display: flex; gap: 16px; align-items: flex-start;">
-            <div style="background: #FF4444; color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; flex-shrink: 0;">2</div>
-            <div>
-              <h3 style="font-size: 18px; margin: 0 0 4px 0; color: var(--leland-text-dark);">Learning Definitions Without Context</h3>
-              <p style="font-size: 14px; color: var(--leland-text-light); margin: 0; line-height: 1.5;">Knowing that "sanguine" means "optimistic" isn't enough. You need to see it in sentences, understand its connotations, and know what situations it describes.</p>
-            </div>
+          <div class="card card-orange-bg">
+            <h3 class="text-md mb-8">Definitions Without Context</h3>
+            <p class="text-sm">Knowing "sanguine" means "optimistic" isn't enough. You need to see it in sentences and understand its&nbsp;connotations.</p>
           </div>
-
-          <!-- Mistake 3 -->
-          <div style="display: flex; gap: 16px; align-items: flex-start;">
-            <div style="background: #FF4444; color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; flex-shrink: 0;">3</div>
-            <div>
-              <h3 style="font-size: 18px; margin: 0 0 4px 0; color: var(--leland-text-dark);">Passive Review</h3>
-              <p style="font-size: 14px; color: var(--leland-text-light); margin: 0; line-height: 1.5;">Looking at a flashcard and thinking "yeah, I know that one" doesn't create lasting memory. You need to actively retrieve the meaning.</p>
-            </div>
+          <div class="card card-purple-bg">
+            <h3 class="text-md mb-8">Passive Review</h3>
+            <p class="text-sm">Looking at a flashcard and thinking "yeah, I know that" doesn't create lasting memory. You need active&nbsp;retrieval.</p>
           </div>
         </div>
 
-        <!-- Footer Logo -->
+        <div class="card-alt compact mt-16">
+          <span class="badge badge-orange self-start">Save Your Time</span>
+          <p class="text-md">These approaches feel productive but don't build the deep word knowledge the GRE&nbsp;requires.</p>
+        </div>
+
         <div class="leland-footer">
-          <svg width="80" height="18" viewBox="0 0 200 45" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z" fill="#9B9B9B"/>
-            <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z" fill="#9B9B9B"/>
-            <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z" fill="#9B9B9B"/>
-            <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z" fill="#9B9B9B"/>
-            <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z" fill="#9B9B9B"/>
-            <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z" fill="#9B9B9B"/>
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z" fill="#9B9B9B"/>
-          </svg>
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
         </div>
 
         <aside class="notes">
-          2:15 - 3:30 | Explain the three common mistakes. These are relatable, most students will recognize themselves in at least one. This sets up the solution coming next.
+          2:00 - 3:30 | Three common mistakes: memorizing alphabetical lists, learning definitions without context, and passive flashcard review. All feel productive but don't create lasting, usable vocabulary knowledge.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 4: Divider - The Right Approach -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <p class="eyebrow">The Right Approach</p>
+        <h2>The CUES Method</h2>
+
+        <aside class="notes">
+          3:30 - 3:45 | Transition: Now that we know what doesn't work, here's the system that does. The CUES method gives you a framework for learning words that actually stick.
         </aside>
       </section>
 
       <!-- ============================================ -->
       <!-- SLIDE 5: The CUES Method -->
       <!-- ============================================ -->
-      <section class="content" style="padding: 40px 64px 70px; display: flex; flex-direction: column;">
-        <!-- Header -->
-        <div style="margin-bottom: 20px;">
-          <p class="eyebrow">The Right Way</p>
-          <h2 style="font-size: 32px; margin: 0;">The <span class="hl">CUES</span> Method</h2>
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Active Learning</p>
+          <h2>The CUES Method</h2>
         </div>
 
-        <!-- Four Steps Grid -->
-        <div style="flex: 1; display: flex; gap: 16px;">
-          <!-- C -->
-          <div class="study-block highlight" style="flex: 1; padding: 20px;">
-            <div style="font-size: 36px; font-weight: 700; color: var(--leland-green); margin-bottom: 8px;">C</div>
-            <h3 style="font-size: 16px; margin: 0 0 8px 0;">Context First</h3>
-            <p class="text-light" style="font-size: 13px; margin: 0; line-height: 1.5;">Read the word in a sentence before looking up the definition. Try to guess the meaning. This primes your brain for learning.</p>
+        <div class="card-grid-2" style="padding-bottom: 0">
+          <div class="card card-green-bg" style="padding: 16px">
+            <h3 class="text-md mb-8 text-green">C - Context First</h3>
+            <p class="text-sm">Read the word in a sentence before looking up the definition. Try to guess the meaning.</p>
           </div>
-
-          <!-- U -->
-          <div class="study-block" style="flex: 1; padding: 20px;">
-            <div style="font-size: 36px; font-weight: 700; color: var(--leland-green); margin-bottom: 8px;">U</div>
-            <h3 style="font-size: 16px; margin: 0 0 8px 0;">Understand, Don't Memorize</h3>
-            <p class="text-light" style="font-size: 13px; margin: 0; line-height: 1.5;">Learn roots, connotations, and related words. "Bellicose" shares a root with "rebel" and "belligerent." Now you know a word family.</p>
+          <div class="card card-blue-bg" style="padding: 16px">
+            <h3 class="text-md mb-8">U - Understand, Don't Memorize</h3>
+            <p class="text-sm">Learn roots, connotations, and related words. "Bellicose" shares a root with "rebel" and "belligerent."</p>
           </div>
-
-          <!-- E -->
-          <div class="study-block" style="flex: 1; padding: 20px;">
-            <div style="font-size: 36px; font-weight: 700; color: var(--leland-green); margin-bottom: 8px;">E</div>
-            <h3 style="font-size: 16px; margin: 0 0 8px 0;">Examples Matter</h3>
-            <p class="text-light" style="font-size: 13px; margin: 0; line-height: 1.5;">Create your own sentence. Think of a real person or situation the word describes. "Loquacious" = that friend who never stops talking.</p>
+          <div class="card card-orange-bg" style="padding: 16px">
+            <h3 class="text-md mb-8">E - Examples Matter</h3>
+            <p class="text-sm">Create your own sentence or think of a real person. "Loquacious" = talkative.</p>
           </div>
-
-          <!-- S -->
-          <div class="study-block" style="flex: 1; padding: 20px;">
-            <div style="font-size: 36px; font-weight: 700; color: var(--leland-green); margin-bottom: 8px;">S</div>
-            <h3 style="font-size: 16px; margin: 0 0 8px 0;">Spaced Repetition</h3>
-            <p class="text-light" style="font-size: 13px; margin: 0; line-height: 1.5;">Review at increasing intervals: 1 day, 3 days, 7 days, 14 days. Each successful recall strengthens the memory.</p>
+          <div class="card card-purple-bg" style="padding: 16px">
+            <h3 class="text-md mb-8">S - Spaced Repetition</h3>
+            <p class="text-sm">Review at intervals: 1, 3, 7, 14 days. Each recall strengthens the&nbsp;memory.</p>
           </div>
         </div>
 
-        <!-- Bottom Note -->
-        <div class="callout-dark mt-16" style="text-align: center;">
-          <p style="font-size: 14px;">Active engagement beats passive exposure every time.</p>
-        </div>
-
-        <!-- Footer Logo -->
         <div class="leland-footer">
-          <svg width="80" height="18" viewBox="0 0 200 45" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z" fill="#9B9B9B"/>
-            <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z" fill="#9B9B9B"/>
-            <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z" fill="#9B9B9B"/>
-            <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z" fill="#9B9B9B"/>
-            <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z" fill="#9B9B9B"/>
-            <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z" fill="#9B9B9B"/>
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z" fill="#9B9B9B"/>
-          </svg>
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
         </div>
 
         <aside class="notes">
-          3:30 - 5:30 | Introduce the CUES method. Walk through each letter with the examples. This is the core framework students should remember.
+          3:45 - 5:30 | The CUES method: Context first (read in sentence, guess meaning), Understand don't memorize (learn roots and word families), Examples matter (personal associations), Spaced repetition (increasing intervals). Demonstrate with "perfunctory": context sentence, root per- + fungi (going through motions), related words cursory/superficial, personal example.
         </aside>
       </section>
 
       <!-- ============================================ -->
-      <!-- SLIDE 6: Word Roots Visual -->
+      <!-- SLIDE 6: Word Roots -->
       <!-- ============================================ -->
-      <section class="content" style="padding: 40px 64px 70px; display: flex; flex-direction: column;">
-        <!-- Header -->
-        <div style="margin-bottom: 16px;">
-          <p class="eyebrow">Power Strategy</p>
-          <h2 style="font-size: 32px; margin: 0;">Learn Word Roots to Decode New Words</h2>
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Unlock New Words</p>
+          <h2>The 10 Most Valuable Word Roots</h2>
         </div>
 
-        <!-- Root examples in 2 columns -->
-        <div class="two-column" style="flex: 1; gap: 24px;">
-          <div>
-            <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
-              <tr style="border-bottom: 1px solid #E5E5E5;">
-                <td style="padding: 8px 0; font-weight: 600; color: var(--leland-green); width: 100px;">BENE/BON</td>
-                <td style="padding: 8px 0; color: var(--leland-text-light); width: 60px;">good</td>
-                <td style="padding: 8px 0;">benevolent, bonus, boon</td>
+        <div class="two-column gap-24">
+          <table>
+            <thead>
+              <tr>
+                <th>Root</th>
+                <th>Meaning</th>
+                <th>Examples</th>
               </tr>
-              <tr style="border-bottom: 1px solid #E5E5E5;">
-                <td style="padding: 8px 0; font-weight: 600; color: var(--leland-green);">MAL/MALE</td>
-                <td style="padding: 8px 0; color: var(--leland-text-light);">bad</td>
-                <td style="padding: 8px 0;">malicious, malevolent, malady</td>
-              </tr>
-              <tr style="border-bottom: 1px solid #E5E5E5;">
-                <td style="padding: 8px 0; font-weight: 600; color: var(--leland-green);">CRED</td>
-                <td style="padding: 8px 0; color: var(--leland-text-light);">believe</td>
-                <td style="padding: 8px 0;">credible, incredulous, credence</td>
-              </tr>
-              <tr style="border-bottom: 1px solid #E5E5E5;">
-                <td style="padding: 8px 0; font-weight: 600; color: var(--leland-green);">DICT</td>
-                <td style="padding: 8px 0; color: var(--leland-text-light);">say</td>
-                <td style="padding: 8px 0;">dictate, contradict, verdict</td>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>BENE/BON</strong></td>
+                <td>good</td>
+                <td>benevolent, bonus</td>
               </tr>
               <tr>
-                <td style="padding: 8px 0; font-weight: 600; color: var(--leland-green);">SPEC/SPIC</td>
-                <td style="padding: 8px 0; color: var(--leland-text-light);">look</td>
-                <td style="padding: 8px 0;">inspect, conspicuous, retrospect</td>
-              </tr>
-            </table>
-          </div>
-          <div>
-            <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
-              <tr style="border-bottom: 1px solid #E5E5E5;">
-                <td style="padding: 8px 0; font-weight: 600; color: var(--leland-green); width: 100px;">VERT/VERS</td>
-                <td style="padding: 8px 0; color: var(--leland-text-light); width: 60px;">turn</td>
-                <td style="padding: 8px 0;">convert, versatile, aversion</td>
-              </tr>
-              <tr style="border-bottom: 1px solid #E5E5E5;">
-                <td style="padding: 8px 0; font-weight: 600; color: var(--leland-green);">DUC/DUCT</td>
-                <td style="padding: 8px 0; color: var(--leland-text-light);">lead</td>
-                <td style="padding: 8px 0;">conduct, deduce, induce</td>
-              </tr>
-              <tr style="border-bottom: 1px solid #E5E5E5;">
-                <td style="padding: 8px 0; font-weight: 600; color: var(--leland-green);">MIT/MISS</td>
-                <td style="padding: 8px 0; color: var(--leland-text-light);">send</td>
-                <td style="padding: 8px 0;">transmit, dismiss, remit</td>
-              </tr>
-              <tr style="border-bottom: 1px solid #E5E5E5;">
-                <td style="padding: 8px 0; font-weight: 600; color: var(--leland-green);">SCRIB/SCRIPT</td>
-                <td style="padding: 8px 0; color: var(--leland-text-light);">write</td>
-                <td style="padding: 8px 0;">describe, manuscript, prescribe</td>
+                <td><strong>MAL/MALE</strong></td>
+                <td>bad</td>
+                <td>malicious, malady</td>
               </tr>
               <tr>
-                <td style="padding: 8px 0; font-weight: 600; color: var(--leland-green);">VOC/VOK</td>
-                <td style="padding: 8px 0; color: var(--leland-text-light);">call</td>
-                <td style="padding: 8px 0;">evoke, advocate, revoke</td>
+                <td><strong>CRED</strong></td>
+                <td>believe</td>
+                <td>credible, incredulous</td>
               </tr>
-            </table>
-          </div>
+              <tr>
+                <td><strong>DICT</strong></td>
+                <td>say/speak</td>
+                <td>dictate, verdict</td>
+              </tr>
+              <tr>
+                <td><strong>SPEC/SPIC</strong></td>
+                <td>look</td>
+                <td>inspect, conspicuous</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Root</th>
+                <th>Meaning</th>
+                <th>Examples</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>VERT/VERS</strong></td>
+                <td>turn</td>
+                <td>convert, aversion</td>
+              </tr>
+              <tr>
+                <td><strong>DUC/DUCT</strong></td>
+                <td>lead</td>
+                <td>conduct, deduce</td>
+              </tr>
+              <tr>
+                <td><strong>MIT/MISS</strong></td>
+                <td>send</td>
+                <td>transmit, dismiss</td>
+              </tr>
+              <tr>
+                <td><strong>SCRIB/SCRIPT</strong></td>
+                <td>write</td>
+                <td>describe, manuscript</td>
+              </tr>
+              <tr>
+                <td><strong>VOC/VOK</strong></td>
+                <td>call/voice</td>
+                <td>evoke, advocate</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
 
-        <!-- Key Insight -->
-        <div class="callout-green" style="margin-top: 16px;">
-          <p style="font-size: 14px; margin: 0;">If you know "bene-" means good, you can decode "benevolent," "benefactor," "beneficial," and "benediction," even if you've never seen them.</p>
+        <div class="card-alt-green compact mt-16">
+          <span class="badge badge-green self-start">Key Idea</span>
+          <p class="text-md">One root unlocks dozens of words. Learn roots to decode words you've never&nbsp;seen.</p>
         </div>
 
-        <!-- Footer Logo -->
         <div class="leland-footer">
-          <svg width="80" height="18" viewBox="0 0 200 45" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z" fill="#9B9B9B"/>
-            <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z" fill="#9B9B9B"/>
-            <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z" fill="#9B9B9B"/>
-            <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z" fill="#9B9B9B"/>
-            <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z" fill="#9B9B9B"/>
-            <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z" fill="#9B9B9B"/>
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z" fill="#9B9B9B"/>
-          </svg>
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
         </div>
 
         <aside class="notes">
-          5:30 - 6:30 | Present the 10 most valuable roots. Walk through a few examples showing how one root unlocks multiple words.
+          5:30 - 7:00 | Ten most valuable GRE word roots. Each root unlocks multiple words. If you know "bene-" means good, you can decode benevolent, benefactor, beneficial, and benediction even if you've never studied them individually.
         </aside>
       </section>
 
       <!-- ============================================ -->
-      <!-- SLIDE 7: Immerse in Advanced Content -->
+      <!-- SLIDE 7: Connotation and Tone -->
       <!-- ============================================ -->
-      <section class="content" style="padding: 48px 64px; display: flex; flex-direction: column;">
-        <!-- Header -->
-        <div style="margin-bottom: 20px;">
-          <p class="eyebrow">Power Strategy</p>
-          <h2 style="font-size: 32px; margin: 0;">Immerse Yourself in Advanced Content</h2>
-        </div>
-
-        <!-- Main Content -->
-        <div style="flex: 1; display: flex; flex-direction: column; gap: 16px;">
-          <p style="font-size: 17px; color: var(--leland-text-light); margin: 0; line-height: 1.6;">
-            Flashcards are useful, but nothing beats encountering words in their natural habitat. Make advanced vocabulary part of your daily life.
-          </p>
-
-          <!-- Two columns of sources -->
-          <div class="two-column" style="gap: 24px; margin-top: 8px;">
-            <div>
-              <h3 style="font-size: 18px; color: var(--leland-green); margin: 0 0 12px 0;">Read</h3>
-              <ul style="font-size: 14px; color: var(--leland-text-dark); margin: 0; padding-left: 20px; line-height: 1.8;">
-                <li><strong>The Economist</strong> or <strong>The Atlantic</strong> for current events</li>
-                <li><strong>The New Yorker</strong> for longform essays</li>
-                <li><strong>Scientific American</strong> for science writing</li>
-                <li>Classic literature (Dickens, Austen, etc.)</li>
-              </ul>
-            </div>
-            <div>
-              <h3 style="font-size: 18px; color: var(--leland-green); margin: 0 0 12px 0;">Listen</h3>
-              <ul style="font-size: 14px; color: var(--leland-text-dark); margin: 0; padding-left: 20px; line-height: 1.8;">
-                <li><strong>Podcasts:</strong> Radiolab, Freakonomics, Hidden Brain</li>
-                <li><strong>Audiobooks:</strong> Non-fiction by Malcolm Gladwell, Mary Roach</li>
-                <li><strong>Lectures:</strong> TED Talks, university lectures</li>
-                <li>News analysis programs (NPR, BBC)</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <!-- Key Insight -->
-        <div class="callout-green" style="margin-top: 16px;">
-          <p style="font-size: 14px; margin: 0;">When you encounter an unfamiliar word, pause and look it up. Then keep reading. This context-first approach is far more effective than flashcards alone.</p>
-        </div>
-
-        <!-- Footer Logo -->
-        <div class="leland-footer">
-          <svg width="80" height="18" viewBox="0 0 200 45" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z" fill="#9B9B9B"/>
-            <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z" fill="#9B9B9B"/>
-            <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z" fill="#9B9B9B"/>
-            <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z" fill="#9B9B9B"/>
-            <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z" fill="#9B9B9B"/>
-            <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z" fill="#9B9B9B"/>
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z" fill="#9B9B9B"/>
-          </svg>
-        </div>
-
-        <aside class="notes">
-          6:30 - 7:30 | Encourage immersion in advanced content. This is about making vocabulary learning part of daily life, not just study sessions.
-        </aside>
-      </section>
-
-      <!-- ============================================ -->
-      <!-- SLIDE 8: Memory Palace Technique -->
-      <!-- ============================================ -->
-      <section class="content" style="padding: 48px 64px; display: flex; flex-direction: column;">
-        <!-- Header -->
-        <div style="margin-bottom: 12px;">
-          <p class="eyebrow">Power Strategy</p>
-          <h2 style="font-size: 32px; margin: 0;">The Memory Palace Technique</h2>
-        </div>
-
-        <!-- Main Content - with bottom padding to clear footer -->
-        <div style="flex: 1; display: flex; flex-direction: column; gap: 12px; padding-bottom: 50px;">
-          <p style="font-size: 16px; color: var(--leland-text-light); margin: 0; line-height: 1.5;">
-            Link new vocabulary to vivid mental images in familiar places. The stranger the image, the better you'll remember it.
-          </p>
-
-          <!-- How it works -->
-          <div style="display: flex; gap: 16px; margin-top: 4px;">
-            <!-- Step 1 -->
-            <div class="study-block" style="flex: 1; padding: 14px;">
-              <div style="font-size: 22px; font-weight: 700; color: var(--leland-green); margin-bottom: 6px;">1</div>
-              <h3 style="font-size: 14px; margin: 0 0 4px 0;">Choose a Location</h3>
-              <p class="text-light" style="font-size: 11px; margin: 0; line-height: 1.4;">Pick a place you know well: your home, school route, or favorite coffee shop.</p>
-            </div>
-
-            <!-- Step 2 -->
-            <div class="study-block" style="flex: 1; padding: 14px;">
-              <div style="font-size: 22px; font-weight: 700; color: var(--leland-green); margin-bottom: 6px;">2</div>
-              <h3 style="font-size: 14px; margin: 0 0 4px 0;">Create Vivid Images</h3>
-              <p class="text-light" style="font-size: 11px; margin: 0; line-height: 1.4;">For "bellicose" (warlike), imagine a bell at your front door dressed in battle armor.</p>
-            </div>
-
-            <!-- Step 3 -->
-            <div class="study-block" style="flex: 1; padding: 14px;">
-              <div style="font-size: 22px; font-weight: 700; color: var(--leland-green); margin-bottom: 6px;">3</div>
-              <h3 style="font-size: 14px; margin: 0 0 4px 0;">Walk Through</h3>
-              <p class="text-light" style="font-size: 11px; margin: 0; line-height: 1.4;">Mentally walk through your palace. Each location triggers the word and its meaning.</p>
-            </div>
-          </div>
-
-          <!-- Example -->
-          <div style="background: #F5F5F5; border-radius: 8px; padding: 14px 18px; margin-top: 4px;">
-            <p style="font-size: 13px; margin: 0; color: var(--leland-text-dark); line-height: 1.5;">
-              <strong style="color: var(--leland-green);">Example:</strong> To remember "obsequious" (excessively eager to please), picture an <strong>OBoe player</strong> at your kitchen table, <strong>SEQUInS</strong> on their outfit, bowing and nodding frantically trying to please everyone.
-            </p>
-          </div>
-
-          <!-- Key Insight - moved inside content area -->
-          <div class="callout-dark" style="margin-top: auto;">
-            <p style="font-size: 13px; margin: 0;">Your brain evolved to remember locations and images, not abstract definitions. Use this to your advantage.</p>
-          </div>
-        </div>
-
-        <!-- Footer Logo -->
-        <div class="leland-footer">
-          <svg width="80" height="18" viewBox="0 0 200 45" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z" fill="#9B9B9B"/>
-            <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z" fill="#9B9B9B"/>
-            <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z" fill="#9B9B9B"/>
-            <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z" fill="#9B9B9B"/>
-            <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z" fill="#9B9B9B"/>
-            <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z" fill="#9B9B9B"/>
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z" fill="#9B9B9B"/>
-          </svg>
-        </div>
-
-        <aside class="notes">
-          7:30 - 8:30 | Explain the memory palace technique. Emphasize that bizarre, vivid images are key. This ancient technique is still used by memory champions.
-        </aside>
-      </section>
-
-      <!-- ============================================ -->
-      <!-- SLIDE 9: Connotation and Tone -->
-      <!-- ============================================ -->
-      <section class="content" style="display: flex; flex-direction: column; padding: 48px 64px;">
-        <!-- Header -->
-        <div style="margin-bottom: 20px;">
+      <section class="content math-content">
+        <div class="slide-header">
           <p class="eyebrow">Beyond Definitions</p>
-          <h2 style="font-size: 36px;">Connotation Matters</h2>
+          <h2>Connotation and Tone</h2>
         </div>
 
-        <!-- Main content -->
-        <div style="flex: 1; display: flex; flex-direction: column; justify-content: center;">
-          <p style="font-size: 18px; color: var(--leland-text-light); margin-bottom: 24px; line-height: 1.5;">
-            Words have emotional weight beyond their definitions. Consider these three words that all mean "thin":
-          </p>
+        <p class="text-lg mb-16">Words have emotional weight beyond their definitions. The GRE often tests whether you can match&nbsp;tone.</p>
 
-          <!-- Connotation examples -->
-          <div style="display: flex; gap: 24px; justify-content: center; margin-bottom: 32px;">
-            <div style="text-align: center; padding: 20px 32px; background: rgba(21, 176, 120, 0.1); border-radius: 8px;">
-              <p style="font-size: 24px; font-weight: 600; color: var(--leland-green); margin: 0;">Slender</p>
-              <p style="font-size: 14px; color: var(--leland-text-light); margin: 4px 0 0 0;">Positive, elegant</p>
-            </div>
-            <div style="text-align: center; padding: 20px 32px; background: #F5F5F5; border-radius: 8px;">
-              <p style="font-size: 24px; font-weight: 600; color: var(--leland-text-dark); margin: 0;">Skinny</p>
-              <p style="font-size: 14px; color: var(--leland-text-light); margin: 4px 0 0 0;">Neutral to slightly negative</p>
-            </div>
-            <div style="text-align: center; padding: 20px 32px; background: rgba(255, 68, 68, 0.1); border-radius: 8px;">
-              <p style="font-size: 24px; font-weight: 600; color: #CC3333; margin: 0;">Gaunt</p>
-              <p style="font-size: 14px; color: var(--leland-text-light); margin: 4px 0 0 0;">Negative, unhealthy</p>
-            </div>
-          </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Concept</th>
+              <th class="text-green">Positive</th>
+              <th>Neutral</th>
+              <th class="neg">Negative</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Thin</strong></td>
+              <td class="text-green">Slender</td>
+              <td>Skinny</td>
+              <td class="neg">Gaunt</td>
+            </tr>
+            <tr>
+              <td><strong>Self-assured</strong></td>
+              <td class="text-green">Confident</td>
+              <td>Assertive</td>
+              <td class="neg">Arrogant</td>
+            </tr>
+            <tr>
+              <td><strong>Careful with money</strong></td>
+              <td class="text-green">Frugal</td>
+              <td>Thrifty</td>
+              <td class="neg">Miserly</td>
+            </tr>
+            <tr>
+              <td><strong>Interested</strong></td>
+              <td class="text-green">Curious</td>
+              <td>Inquisitive</td>
+              <td class="neg">Nosy</td>
+            </tr>
+          </tbody>
+        </table>
 
-          <p style="font-size: 16px; color: var(--leland-text-dark); margin: 0; line-height: 1.6; text-align: center;">
-            On the GRE, you'll often choose between words with similar meanings but different connotations.<br>
-            The right answer often depends on matching the <strong>tone</strong>, not just the definition.
-          </p>
+        <div class="card-alt-green compact mt-16">
+          <span class="badge badge-green self-start">Study Tip</span>
+          <p class="text-md">When learning a new word, ask: Is this positive, negative, or neutral? Tone helps eliminate wrong&nbsp;answers.</p>
         </div>
 
-        <!-- Key Insight -->
-        <div class="callout-dark" style="margin-top: 16px;">
-          <p style="font-size: 14px; margin: 0;"><span class="hl-bold">Always ask,</span> is this word positive, negative, or neutral? Would I use it to praise or criticize?</p>
-        </div>
-
-        <!-- Footer Logo -->
         <div class="leland-footer">
-          <svg width="80" height="18" viewBox="0 0 200 45" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z" fill="#9B9B9B"/>
-            <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z" fill="#9B9B9B"/>
-            <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z" fill="#9B9B9B"/>
-            <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z" fill="#9B9B9B"/>
-            <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z" fill="#9B9B9B"/>
-            <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z" fill="#9B9B9B"/>
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z" fill="#9B9B9B"/>
-          </svg>
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
         </div>
 
         <aside class="notes">
-          8:30 - 9:30 | Explain connotation using the slender/skinny/gaunt example. This is a concept many students miss but it's crucial for GRE success.
+          7:00 - 8:30 | Connotation matters: words with similar definitions can have very different emotional weight. Slender vs gaunt, confident vs arrogant, frugal vs miserly. On the GRE, the right answer often depends on matching tone, not just definition.
         </aside>
       </section>
 
       <!-- ============================================ -->
-      <!-- SLIDE 10: Daily Study Plan -->
+      <!-- SLIDE 8: Divider - Your Plan -->
       <!-- ============================================ -->
-      <section class="content" style="display: flex; flex-direction: column;">
-        <!-- Header -->
-        <div style="margin-bottom: 24px;">
-          <p class="eyebrow">Your Action Plan</p>
-          <h2 style="font-size: 32px; margin: 0;">Daily Vocabulary Routine</h2>
+      <section class="divider">
+        <p class="eyebrow">Make It Happen</p>
+        <h2>Your Study Plan</h2>
+
+        <aside class="notes">
+          8:30 - 8:45 | Transition: Now let's put this into a concrete, actionable study plan you can start today.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 9: Your Vocabulary Study Plan -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">8-10 Week Plan</p>
+          <h2>Your Vocabulary Study Plan</h2>
         </div>
 
-        <!-- Daily targets -->
-        <div class="callout-green mb-24" style="text-align: center;">
-          <p style="font-size: 16px;"><span class="hl-bold">Daily targets:</span> 10-15 new words + review 20-30 old words = 700-1000 words over 8-10 weeks</p>
-        </div>
-
-        <!-- Schedule -->
-        <div style="flex: 1; display: flex; gap: 20px;">
-          <!-- Morning -->
-          <div class="study-block highlight" style="flex: 1; padding: 20px;">
-            <div class="study-block-header">
-              <span class="study-block-label">Morning</span>
-              <span class="study-block-time">10 min</span>
-            </div>
-            <h3 style="font-size: 18px; margin: 0 0 8px 0;">Learn New Words</h3>
-            <p class="text-light" style="font-size: 13px; margin: 0; line-height: 1.5;">Study 10-15 new words using the CUES method. Context first, understand roots, create examples.</p>
+        <div class="card-grid-3">
+          <div class="card card-green-bg">
+            <h3 class="text-md mb-8 text-green">Daily: New Words</h3>
+            <p class="text-sm">Learn 10-15 new words using the CUES method. That's 700-1,000 words total, covering high-frequency GRE&nbsp;vocabulary.</p>
           </div>
-
-          <!-- Lunch -->
-          <div class="study-block" style="flex: 1; padding: 20px;">
-            <div class="study-block-header">
-              <span class="study-block-label">Midday</span>
-              <span class="study-block-time">5 min</span>
-            </div>
-            <h3 style="font-size: 18px; margin: 0 0 8px 0;">Quick Review</h3>
-            <p class="text-light" style="font-size: 13px; margin: 0; line-height: 1.5;">Review yesterday's words. Can you recall definitions without looking? Mark any you missed.</p>
+          <div class="card card-blue-bg">
+            <h3 class="text-md mb-8">Daily: Review</h3>
+            <p class="text-sm">Review 20-30 old words using spaced repetition. Focus on words you've missed&nbsp;before.</p>
           </div>
-
-          <!-- Evening -->
-          <div class="study-block" style="flex: 1; padding: 20px;">
-            <div class="study-block-header">
-              <span class="study-block-label">Evening</span>
-              <span class="study-block-time">5 min</span>
-            </div>
-            <h3 style="font-size: 18px; margin: 0 0 8px 0;">Spaced Review</h3>
-            <p class="text-light" style="font-size: 13px; margin: 0; line-height: 1.5;">Review older words due for repetition. Focus on words you've missed before.</p>
+          <div class="card card-orange-bg">
+            <h3 class="text-md mb-8">Weekly: Test Yourself</h3>
+            <p class="text-sm">Take a vocabulary quiz under pressure. Testing creates stronger memories than passive&nbsp;review.</p>
           </div>
         </div>
 
-        <!-- Bottom Note -->
-        <div class="mt-20 text-center">
-          <p class="text-light" style="font-size: 14px; margin: 0;"><span class="text-dark" style="font-weight: 500;">Consistency beats cramming.</span> Fifteen minutes every day beats two hours once a week.</p>
+        <div class="card-alt-green compact mt-16">
+          <span class="badge badge-green self-start">Consistency Wins</span>
+          <p class="text-md">Fifteen minutes daily beats two hours weekly. Vocabulary is built through repeated exposure, not&nbsp;cramming.</p>
         </div>
 
-        <!-- Footer Logo -->
         <div class="leland-footer">
-          <svg width="80" height="18" viewBox="0 0 200 45" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z" fill="#9B9B9B"/>
-            <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z" fill="#9B9B9B"/>
-            <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z" fill="#9B9B9B"/>
-            <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z" fill="#9B9B9B"/>
-            <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z" fill="#9B9B9B"/>
-            <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z" fill="#9B9B9B"/>
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z" fill="#9B9B9B"/>
-          </svg>
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
         </div>
 
         <aside class="notes">
-          9:30 - 10:30 | Present the concrete daily schedule. Morning for new words, midday for yesterday's review, evening for spaced repetition. Emphasize consistency.
+          8:45 - 10:00 | Concrete study plan: 10-15 new words daily with CUES method, review 20-30 old words with spaced repetition, weekly quizzes. Sample schedule: morning 10 min for new words, lunch 5 min for yesterday's review, evening 5 min for older words. Consistency beats cramming.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 10: Cement Your Vocabulary -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Active Use</p>
+          <h2>Cement Your Vocabulary</h2>
+        </div>
+
+        <p class="text-lg mb-24">The best way to lock in vocabulary is to actively use it. Three ways to&nbsp;practice:</p>
+
+        <div class="card-grid-3">
+          <div class="card card-green-bg">
+            <h3 class="text-md mb-8">Practice Questions</h3>
+            <p class="text-sm">Do TC and SE questions regularly. When you miss one because of vocabulary, add that word to your&nbsp;list.</p>
+          </div>
+          <div class="card card-blue-bg">
+            <h3 class="text-md mb-8">Challenging Reading</h3>
+            <p class="text-sm">Read The Economist, The Atlantic, or academic abstracts. Notice how words you've studied are used in&nbsp;context.</p>
+          </div>
+          <div class="card card-purple-bg">
+            <h3 class="text-md mb-8">Practice Writing</h3>
+            <p class="text-sm">Deliberately use new words in practice essays. Using a word in your own writing creates the strongest&nbsp;memory.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          10:00 - 11:00 | Three ways to actively cement vocabulary: practice TC/SE questions and add missed words to your list, read challenging material and notice studied words in context, and use new words in practice essays for the strongest memory formation.
         </aside>
       </section>
 
       <!-- ============================================ -->
       <!-- SLIDE 11: Summary (Dark) -->
       <!-- ============================================ -->
-      <section class="title-dark">
-        <!-- Top Logo (white) -->
-        <div class="leland-logo-top">
-          <svg width="110" height="25" viewBox="0 0 200 45" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z" fill="white"/>
-            <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z" fill="white"/>
-            <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z" fill="white"/>
-            <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z" fill="white"/>
-            <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z" fill="white"/>
-            <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z" fill="white"/>
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z" fill="white"/>
-          </svg>
-        </div>
-
-        <!-- Header with spacing to clear logo -->
-        <div style="margin-top: 20px; margin-bottom: 24px;">
+      <section class="content-dark">
+        <div class="slide-header">
           <p class="eyebrow">Summary</p>
-          <h2 style="font-size: 36px;">Key Takeaways</h2>
+          <h2>How to Learn GRE Vocabulary Efficiently</h2>
         </div>
 
-        <!-- Content -->
-        <div style="display: flex; flex-direction: column; gap: 10px; text-align: left;">
-          <p class="text-muted" style="font-size: 16px; line-height: 1.5;">
-            <span class="text-white" style="font-weight: 500;">Vocabulary is half the battle</span> on GRE Verbal. It affects every question type.
-          </p>
-          <p class="text-muted" style="font-size: 16px; line-height: 1.5;">
-            Use the <span class="hl-bold">CUES method</span>: Context, Understand, Examples, Spaced repetition.
-          </p>
-          <p class="text-muted" style="font-size: 16px; line-height: 1.5;">
-            Learn <span class="text-white" style="font-weight: 500;">word roots</span> to decode unfamiliar words. <span class="text-white" style="font-weight: 500;">Immerse yourself</span> in advanced content.
-          </p>
-          <p class="text-muted" style="font-size: 16px; line-height: 1.5;">
-            Use the <span class="text-white" style="font-weight: 500;">memory palace</span> for difficult words. Pay attention to <span class="text-white" style="font-weight: 500;">connotation</span>, not just definition.
-          </p>
-        </div>
+        <ul class="plus-list">
+          <li><strong>Vocabulary is half the battle</strong> on GRE Verbal, affecting TC, SE, and RC question&nbsp;types</li>
+          <li><strong>Use the CUES method</strong> for lasting learning: Context, Understand, Examples, Spaced&nbsp;repetition</li>
+          <li><strong>Learn word roots</strong> to decode unfamiliar words. Ten key roots unlock dozens of GRE&nbsp;words</li>
+          <li><strong>Pay attention to connotation</strong> and tone, not just definitions. The right answer often depends on emotional&nbsp;weight</li>
+          <li><strong>Study a little every day</strong> with 15 minutes daily beating 2 hours weekly. Consistency builds lasting&nbsp;vocabulary</li>
+        </ul>
 
-        <!-- Key Insight -->
-        <div class="mt-24" style="padding: 20px 24px; background-color: rgba(21, 176, 120, 0.15); border-radius: 8px; border-left: 4px solid var(--leland-green);">
-          <p class="text-white" style="font-size: 17px; margin: 0; line-height: 1.5;"><span class="hl-bold">Most importantly:</span> Study a little bit every day. Consistency builds vocabulary, not cramming.</p>
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="rgba(255,255,255,0.4)"><use href="#leland-logo"/></svg>
         </div>
 
         <aside class="notes">
-          10:30 - 12:00 | Recap all key points: 50% of Verbal, CUES method, word roots, immersion, memory palace, connotation, and daily consistency. End with encouragement to start applying these methods immediately.
+          11:00 - 12:00 | Summary: Vocabulary is half the battle on GRE Verbal. The CUES method builds lasting knowledge. Word roots unlock unfamiliar words. Connotation matters as much as definition. Study consistently every day. In the next lessons, we'll dive into specific high-frequency word lists.
         </aside>
       </section>
 
@@ -692,7 +458,7 @@
   <script src="../assets/reveal/dist/reveal.min.js"></script>
   <script type="module">
     import RevealNotes from '../assets/reveal/plugin/notes/notes.esm.js';
-    
+
     Reveal.initialize({
       width: 960,
       height: 540,
@@ -704,7 +470,7 @@
       controls: true,
       progress: true,
       history: true,
-      center: true,
+      center: false,
       transition: 'none',
       backgroundTransition: 'none',
       disableLayout: false,
