@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en" class="reveal-full-page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Structuring Cases: Beyond Frameworks</title>
+
+  <!-- Reveal.js Core -->
+  <link rel="stylesheet" href="../assets/reveal/dist/reset.css">
+  <link rel="stylesheet" href="../assets/reveal/dist/reveal.css">
+
+  <!-- Leland Theme -->
+  <link rel="stylesheet" href="../assets/reveal/themes/leland.css">
+
+</head>
+<body>
+  <!-- SVG Symbol Definitions (defined once, referenced via <use>) -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="leland-logo" viewBox="0 0 200 45">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z"/>
+      <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z"/>
+      <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z"/>
+      <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z"/>
+      <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z"/>
+      <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z"/>
+    </symbol>
+  </svg>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ============================================ -->
+      <!-- SLIDE 1: Title Dark -->
+      <!-- ============================================ -->
+      <section class="title-dark">
+        <svg width="110" height="25" fill="white" class="mb-16"><use href="#leland-logo"/></svg>
+        <p class="eyebrow">Break Into Management Consulting</p>
+        <h1>Structuring Cases:<br>Beyond Frameworks</h1>
+        <aside class="notes">
+          0:00 - 0:45 | Hook. The fastest way to fail the structuring portion: say "I'd like to apply the 3Cs framework." Interviewers check out immediately.
+          Key points:
+          - Naming a textbook framework signals reciting, not thinking
+          - Strong candidates tank interviews by forcing every problem into memorized frameworks
+          - This video: how to build custom issue trees using MECE logic
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 2: Divider - Why Frameworks Fail -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <div class="part-number">Part 1</div>
+        <h1>Why Memorized Frameworks Fail</h1>
+        <p>Designed for classrooms, not for real-time problem solving</p>
+        <aside class="notes">
+          0:45 - 0:55 | Transition to the framework critique section.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 3: The Framework Trap (Card Grid 3) -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Break Into Management Consulting</p>
+          <h2>The Framework Trap</h2>
+        </div>
+
+        <div class="card-grid-3">
+          <div class="card card-green-bg">
+            <span class="icon icon-lg icon-green mb-16" style="-webkit-mask-image: url(../assets/icons/bar-chart.svg); mask-image: url(../assets/icons/bar-chart.svg)"></span>
+            <h3>Porter's Five Forces</h3>
+            <p class="text-sm text-light">Designed for industry analysis, not solving a specific client problem. No actionable recommendations.</p>
+          </div>
+          <div class="card card-blue-bg">
+            <span class="icon icon-lg icon-blue mb-16" style="-webkit-mask-image: url(../assets/icons/user-group.svg); mask-image: url(../assets/icons/user-group.svg)"></span>
+            <h3>3Cs Framework</h3>
+            <p class="text-sm text-light">Too generic. Not all three components are relevant in every case. No way to prioritize.</p>
+          </div>
+          <div class="card card-orange-bg">
+            <span class="icon icon-lg icon-orange mb-16" style="-webkit-mask-image: url(../assets/icons/store.svg); mask-image: url(../assets/icons/store.svg)"></span>
+            <h3>4Ps Framework</h3>
+            <p class="text-sm text-light">Irrelevant for service businesses, B2B, or operational cases. Misses key dimensions.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          0:55 - 2:00 | Walk through why each framework fails in interviews.
+          - Porter's: tells you the landscape, not what to do about it
+          - 3Cs: comprehensiveness makes them inflexible
+          - 4Ps: falls apart for services or B2B
+          - McKinsey cases specifically test adaptability. BCG/Bain give cases that don't fit templates.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 4: Frameworks as Ingredients (Callout) -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Break Into Management Consulting</p>
+          <h2>Frameworks as Ingredients</h2>
+        </div>
+
+        <div class="card-alt-green mb-24">
+          <div style="display: flex; align-items: flex-start; gap: 12px;">
+            <span class="icon icon-xl icon-green" style="-webkit-mask-image: url(../assets/icons/lightning.svg); mask-image: url(../assets/icons/lightning.svg); flex-shrink: 0"></span>
+            <p class="text-lg"><strong>Think of frameworks as ingredients, not recipes.</strong> You need to know them so you can pull the right elements into a custom structure. You don't serve them whole.</p>
+          </div>
+        </div>
+
+        <p class="text-sm text-light mt-8">Understanding profitability decomposition, market dynamics, and competitive analysis still helps. The problem is applying them rigidly instead of adapting them to each case.</p>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          2:00 - 2:30 | Key reframe. Knowing frameworks helps, but applying them rigidly is the mistake.
+          - Profitability decomposition, market dynamics, competitive analysis are useful building blocks
+          - The problem isn't knowing frameworks, it's applying them rigidly
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 5: Divider - Issue Tree Approach -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <div class="part-number">Part 2</div>
+        <h1>The Issue Tree Approach</h1>
+        <p>A custom-built structure for every case</p>
+        <aside class="notes">
+          2:30 - 2:40 | Transition to issue tree methodology.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 6: What Is an Issue Tree (Icon List) -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Break Into Management Consulting</p>
+          <h2>What Is an Issue Tree?</h2>
+        </div>
+
+        <ul class="icon-list text-lg">
+          <li>
+            <span class="icon icon-xl icon-green" style="-webkit-mask-image: url(../assets/icons/shapes.svg); mask-image: url(../assets/icons/shapes.svg); flex-shrink: 0"></span>
+            <span><strong>Hierarchical breakdown</strong> of a problem into sub-questions, then into specific testable items.</span>
+          </li>
+          <li>
+            <span class="icon icon-xl icon-green" style="-webkit-mask-image: url(../assets/icons/sparkle.svg); mask-image: url(../assets/icons/sparkle.svg); flex-shrink: 0"></span>
+            <span><strong>Custom-built</strong> for every case. Branches reflect the unique dynamics of that business situation.</span>
+          </li>
+          <li>
+            <span class="icon icon-xl icon-green" style="-webkit-mask-image: url(../assets/icons/chat-bubbles.svg); mask-image: url(../assets/icons/chat-bubbles.svg); flex-shrink: 0"></span>
+            <span><strong>Dual purpose:</strong> a roadmap for investigation and a communication tool for the interviewer.</span>
+          </li>
+        </ul>
+
+        <p class="text-sm text-light" style="margin-top: 8px;">Adding "color commentary" to explain why each branch matters for this specific case is what separates top candidates.</p>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          2:40 - 4:30 | Explain the issue tree concept.
+          - Start with core question at top, branch into sub-questions
+          - Every tree is custom, no single tree works for all problems
+          - Serves as roadmap (what to investigate) and communication tool (shows interviewer your thinking)
+          - Color commentary: explaining why each branch matters shows business intuition
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 7: Divider - Building Your Structure -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <div class="part-number">Part 3</div>
+        <h1>Building Your Structure</h1>
+        <p>A repeatable process for any case prompt</p>
+        <aside class="notes">
+          4:30 - 4:40 | Transition to the step-by-step building process.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 8: The 4-Phase Process (Workflow) -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Break Into Management Consulting</p>
+          <h2>The 4-Phase Process</h2>
+        </div>
+
+        <div class="workflow">
+          <div class="workflow-step">
+            <div class="step-num mb-16">1</div>
+            <h3 class="text-md">Listen & Clarify</h3>
+            <p class="text-sm text-light">Restate the problem, ask 2-3 narrowing questions.</p>
+          </div>
+          <div class="workflow-arrow">
+            <span class="icon icon-md icon-green" style="-webkit-mask-image: url(../assets/icons/arrow-right.svg); mask-image: url(../assets/icons/arrow-right.svg)"></span>
+          </div>
+          <div class="workflow-step">
+            <div class="step-num mb-16">2</div>
+            <h3 class="text-md">Build the Tree</h3>
+            <p class="text-sm text-light">60-90 seconds of silence. Core question plus 3-4 MECE branches.</p>
+          </div>
+          <div class="workflow-arrow">
+            <span class="icon icon-md icon-green" style="-webkit-mask-image: url(../assets/icons/arrow-right.svg); mask-image: url(../assets/icons/arrow-right.svg)"></span>
+          </div>
+          <div class="workflow-step">
+            <div class="step-num mb-16">3</div>
+            <h3 class="text-md">Decompose</h3>
+            <p class="text-sm text-light">Add 2-3 specific, testable sub-questions per branch.</p>
+          </div>
+          <div class="workflow-arrow">
+            <span class="icon icon-md icon-green" style="-webkit-mask-image: url(../assets/icons/arrow-right.svg); mask-image: url(../assets/icons/arrow-right.svg)"></span>
+          </div>
+          <div class="workflow-step">
+            <div class="step-num mb-16">4</div>
+            <h3 class="text-md">Present Top-Down</h3>
+            <p class="text-sm text-light">State a hypothesis, walk through your logic at each level.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          4:40 - 6:00 | Walk through the 4-phase process in detail.
+          - Phase 1: Restate and clarify. "Domestic or global? Timeframe? Financial target?"
+          - Phase 2: Take 60-90 seconds. Interviewers expect and respect thinking time. Sketch on paper.
+          - Phase 3: Sub-questions should be specific enough to answer with data.
+          - Phase 4: Don't read a list. Narrate your thinking. State which branch you'd investigate first and why.
+          - Note: experienced hires can add industry knowledge. Undergrads focus on clean logic.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 9: MECE Quality Test (Two Column) -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Break Into Management Consulting</p>
+          <h2>The MECE Quality Test</h2>
+        </div>
+
+        <div class="two-column">
+          <div>
+            <h3 class="mb-16">Mutually Exclusive</h3>
+            <ul class="plus-list">
+              <li>Each branch must be distinct with no overlap.</li>
+              <li>Test: "Could this item fit under another branch?"</li>
+              <li>If yes, redefine until each item has one home.</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="mb-16">Collectively Exhaustive</h3>
+            <ul class="plus-list">
+              <li>Branches must cover all possible angles.</li>
+              <li>Test: "Would full investigation give a complete answer?"</li>
+              <li>If a topic has no home, add a branch.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          6:00 - 7:00 | Explain MECE as the gold standard for logical structures.
+          - ME: no overlap. "Revenue per customer" includes "pricing," so they can't be separate branches.
+          - CE: no gaps. Profit decline analysis without examining costs has a hole.
+          - Natural MECE dichotomies: revenue vs cost, internal vs external, supply vs demand.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 10: Common MECE Violation (Callout Grey) -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Break Into Management Consulting</p>
+          <h2>Common MECE Violation</h2>
+        </div>
+
+        <p class="text-lg mb-24">Mixing "what" and "why" at the same level. "Market share decline" is what happened. "Competitor pricing" is why it happened. They cannot sit side by side as branches.</p>
+
+        <div class="card-alt compact">
+          <div style="display: flex; align-items: flex-start; gap: 12px;">
+            <span class="icon icon-xl icon-dark" style="-webkit-mask-image: url(../assets/icons/info.svg); mask-image: url(../assets/icons/info.svg); flex-shrink: 0"></span>
+            <p class="text-md"><strong>Shortcut:</strong> Start with natural MECE dichotomies. Revenue vs. cost for profitability. Internal vs. external for cause analysis. Supply vs. demand for market dynamics.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          7:00 - 7:30 | Most common violation: mixing what happened with why it happened.
+          - Keep each level of the tree at the same logical type
+          - Natural dichotomies give you a starting point, then customize from there
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 11: Live Demo - Zoo Case (Card Grid 3) -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Break Into Management Consulting</p>
+          <h2>Building a Zoo Case Structure</h2>
+        </div>
+
+        <div class="card-grid-3">
+          <div class="card card-green-bg">
+            <span class="icon icon-lg icon-green mb-16" style="-webkit-mask-image: url(../assets/icons/globe.svg); mask-image: url(../assets/icons/globe.svg)"></span>
+            <h3>Market Factors</h3>
+            <p class="text-sm text-light">Is the UK leisure market shrinking? Are competitor attractions growing while the zoo declines?</p>
+          </div>
+          <div class="card card-blue-bg">
+            <span class="icon icon-lg icon-blue mb-16" style="-webkit-mask-image: url(../assets/icons/star.svg); mask-image: url(../assets/icons/star.svg)"></span>
+            <h3>Zoo Experience</h3>
+            <p class="text-sm text-light">Has exhibit quality declined? How does pricing compare to alternatives? What do reviews say?</p>
+          </div>
+          <div class="card card-orange-bg">
+            <span class="icon icon-lg icon-orange mb-16" style="-webkit-mask-image: url(../assets/icons/search.svg); mask-image: url(../assets/icons/search.svg)"></span>
+            <h3>Awareness & Access</h3>
+            <p class="text-sm text-light">Has marketing changed? Are there transport issues? Is the digital presence driving or deterring visits?</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          7:30 - 9:00 | Live demo with the zoo attendance case.
+          - Case prompt: mid-sized UK zoo, 15% visitor decline over 3 years.
+          - Clarifying questions: Is decline across all segments? Is broader leisure market declining?
+          - Three MECE branches: external forces, internal product, connection between the two.
+          - Hypothesis: likely a zoo experience issue since 3-year gradual decline suggests erosion, not sudden shock.
+          - That took about 75 seconds. No framework required.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 12: What Interviewers Score (Card Grid 2) -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Break Into Management Consulting</p>
+          <h2>What Interviewers Score</h2>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="card card-green-bg" style="padding: 16px">
+            <h3 class="mb-8">Tailoring</h3>
+            <p class="text-sm text-light">Did you use case-specific information to customize, or could this apply to any business?</p>
+          </div>
+          <div class="card card-blue-bg" style="padding: 16px">
+            <h3 class="mb-8">Depth over Breadth</h3>
+            <p class="text-sm text-light">Three well-decomposed branches beat five generic categories every time.</p>
+          </div>
+          <div class="card card-orange-bg" style="padding: 16px">
+            <h3 class="mb-8">Clear Logic</h3>
+            <p class="text-sm text-light">Can you explain why you chose these branches and not others? Which matters most?</p>
+          </div>
+          <div class="card card-purple-bg" style="padding: 16px">
+            <h3 class="mb-8">Thinking, Not Scripting</h3>
+            <p class="text-sm text-light">An adapted structure scores high. A recited framework scores low regardless.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          9:00 - 9:30 | Four criteria interviewers use to evaluate your structure.
+          - Top BCG candidates build structures reflecting unique case dynamics
+          - Tailoring signals: did you use info from the prompt?
+          - Depth beats breadth every time
+          - Explaining the logic behind your choices is what gets top marks
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 13: Key Takeaways (Content Dark) -->
+      <!-- ============================================ -->
+      <section class="content-dark">
+        <div class="slide-header">
+          <p class="eyebrow">Key Takeaways</p>
+          <h2>What to Remember</h2>
+        </div>
+
+        <ul class="plus-list text-lg">
+          <li><strong>Stop reciting frameworks.</strong> Naming a memorized framework signals you're not thinking about the specific problem.</li>
+          <li><strong>Build issue trees.</strong> Start with the core question, create 3-4 MECE branches, decompose into testable sub-questions.</li>
+          <li><strong>Test with MECE checks.</strong> Overlap test: could any item fit elsewhere? Completeness test: would you have a full answer?</li>
+          <li><strong>Practice on unfamiliar problems.</strong> Build a presentable structure in 60-90 seconds on cases you have never seen before.</li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="rgba(255,255,255,0.4)"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          9:30 - 10:00 | Wrap up with four key takeaways.
+          - Frameworks as ingredients, not recipes
+          - Issue tree is your replacement tool
+          - MECE is the quality gate
+          - Real skill develops from practicing on unfamiliar problems
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js -->
+  <script src="../assets/reveal/dist/reveal.min.js"></script>
+  <script type="module">
+    import RevealNotes from '../assets/reveal/plugin/notes/notes.esm.js';
+
+    Reveal.initialize({
+      width: 960,
+      height: 540,
+      margin: 0,
+      minScale: 0.5,
+      maxScale: 3.0,
+      hash: true,
+      slideNumber: true,
+      controls: true,
+      progress: true,
+      history: true,
+      center: false,
+      transition: 'none',
+      backgroundTransition: 'none',
+      disableLayout: false,
+      plugins: [ RevealNotes ]
+    });
+  </script>
+</body>
+</html>

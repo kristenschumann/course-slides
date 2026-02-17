@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en" class="reveal-full-page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mental Math for Cases</title>
+
+  <!-- Reveal.js Core -->
+  <link rel="stylesheet" href="../assets/reveal/dist/reset.css">
+  <link rel="stylesheet" href="../assets/reveal/dist/reveal.css">
+
+  <!-- Leland Theme -->
+  <link rel="stylesheet" href="../assets/reveal/themes/leland.css">
+
+</head>
+<body>
+  <!-- SVG Symbol Definitions (defined once, referenced via <use>) -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="leland-logo" viewBox="0 0 200 45">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z"/>
+      <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z"/>
+      <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z"/>
+      <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z"/>
+      <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z"/>
+      <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z"/>
+    </symbol>
+  </svg>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ============================================ -->
+      <!-- SLIDE 1: Title Dark -->
+      <!-- ============================================ -->
+      <section class="title-dark">
+        <svg width="110" height="25" fill="white" class="mb-16"><use href="#leland-logo"/></svg>
+        <p class="eyebrow">Break Into Management Consulting</p>
+        <h1>Mental Math<br>for Cases</h1>
+        <aside class="notes">
+          0:00 - 0:25 | Hook: Mental math errors are the #1 reason candidates get rejected. The candidates who get offers aren't math geniuses, they've learned a handful of shortcuts.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 2: Divider - Percentages -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <div class="part-number">Part 1</div>
+        <h1>Percentages: The 10% Anchor</h1>
+        <p>Start with 10% and build from there</p>
+        <aside class="notes">
+          0:25 - 0:30 | Transition to percentages section.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 3: The 10% Anchor - Worked Examples -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Break Into Management Consulting</p>
+          <h2>The 10% Anchor Method</h2>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="card card-green-bg">
+            <h3>15% of 800</h3>
+            <p class="text-sm text-light">10% = 80</p>
+            <p class="text-sm text-light">5% = 40</p>
+            <p class="text-md"><strong>Total = 120</strong></p>
+          </div>
+          <div class="card card-blue-bg">
+            <h3>35% of 2,000</h3>
+            <p class="text-sm text-light">30% = 600</p>
+            <p class="text-sm text-light">5% = 100</p>
+            <p class="text-md"><strong>Total = 700</strong></p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          0:30 - 0:50 | Walk through two percentage examples using the 10% anchor.
+          Key points:
+          - Never calculate percentages from scratch
+          - Move decimal one place left for 10%
+          - Build up from there: 5% is half of 10%, 30% is 3x of 10%
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 4: Fraction Shortcuts Table -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Break Into Management Consulting</p>
+          <h2>Fraction Shortcuts</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Percentage</th>
+              <th>Think</th>
+              <th>Example</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>25%</strong></td>
+              <td>Divide by 4</td>
+              <td>25% of 840 = 210</td>
+            </tr>
+            <tr>
+              <td><strong>33%</strong></td>
+              <td>Divide by 3</td>
+              <td>33% of 900 = 300</td>
+            </tr>
+            <tr>
+              <td><strong>20%</strong></td>
+              <td>Divide by 5</td>
+              <td>20% of 450 = 90</td>
+            </tr>
+            <tr>
+              <td><strong>12.5%</strong></td>
+              <td>Divide by 8</td>
+              <td>12.5% of 640 = 80</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          0:50 - 1:10 | Fraction shortcuts are faster than long multiplication.
+          Key points:
+          - 25% of 840? Divide by 4 = 210
+          - Most candidates do long multiplication, top candidates think in fractions
+          - Memorize these four conversions
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 5: Divider - Multiplication -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <div class="part-number">Part 2</div>
+        <h1>Multiplication: Strip, Multiply, Label</h1>
+        <p>Eliminate zero errors with label arithmetic</p>
+        <aside class="notes">
+          1:10 - 1:15 | Transition to multiplication section.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 6: Label Arithmetic -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Break Into Management Consulting</p>
+          <h2>Label Arithmetic</h2>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="card card-orange-bg">
+            <h3>Strip the Zeros</h3>
+            <p class="text-sm text-light">Write 5 x 3M = 15M, not 5 x 3,000,000. Never write out all the zeros.</p>
+          </div>
+          <div class="card card-purple-bg">
+            <h3>Label Rules</h3>
+            <p class="text-sm text-light">K x K = M</p>
+            <p class="text-sm text-light">M x K = B</p>
+            <p class="text-sm text-light">B / M = K</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          1:15 - 1:45 | Label arithmetic eliminates the most common case math error.
+          Key points:
+          - Zero errors are the #1 killer in case math
+          - Use K, M, B labels instead of writing full numbers
+          - K x K = M, M x K = B: memorize these rules
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 7: Halving-Doubling Trick -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Break Into Management Consulting</p>
+          <h2>The Halving-Doubling Trick</h2>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="card card-green-bg">
+            <h3>35 x 16</h3>
+            <p class="text-sm text-light">Halve 16, double 35</p>
+            <p class="text-sm text-light">70 x 8</p>
+            <p class="text-md"><strong>= 560</strong></p>
+          </div>
+          <div class="card card-blue-bg">
+            <h3>25 x 48</h3>
+            <p class="text-sm text-light">Halve 48, double 25</p>
+            <p class="text-sm text-light">50 x 24</p>
+            <p class="text-md"><strong>= 1,200</strong></p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          1:45 - 2:15 | Halving and doubling makes awkward multiplications easy.
+          Key points:
+          - When one factor is awkward, halve it and double the other
+          - 35 x 16 becomes 70 x 8 = 560
+          - 25 x 48 becomes 50 x 24 = 1,200
+          - Practice a few times and it becomes automatic
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 8: Divider - Division and Growth -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <div class="part-number">Part 3</div>
+        <h1>Division and Growth</h1>
+        <p>Shortcuts for division and compound growth</p>
+        <aside class="notes">
+          2:15 - 2:20 | Transition to division section.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 9: Division Shortcuts -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Break Into Management Consulting</p>
+          <h2>Division Shortcuts</h2>
+        </div>
+
+        <ul class="plus-list text-lg">
+          <li><strong>Divide by 5:</strong> multiply by 2, then divide by 10. 730 / 5 = 1,460 / 10 = 146</li>
+          <li><strong>Divide by 25:</strong> multiply by 4, then divide by 100. 3,200 / 25 = 12,800 / 100 = 128</li>
+          <li><strong>Flip to multiplication:</strong> 600 / 4? Ask "4 times what is 600?" Answer: 150</li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          2:20 - 2:50 | Three division shortcuts that save time under pressure.
+          Key points:
+          - Dividing by 5: multiply by 2, divide by 10
+          - Dividing by 25: multiply by 4, divide by 100
+          - When division feels hard, flip it to multiplication
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 10: Rule of 72 -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Break Into Management Consulting</p>
+          <h2>The Rule of 72</h2>
+        </div>
+
+        <div class="card-alt-green mb-24">
+          <div style="display: flex; align-items: flex-start; gap: 12px;">
+            <span class="icon icon-xl icon-green" style="flex-shrink: 0; -webkit-mask-image: url(../assets/icons/sparkle.svg); mask-image: url(../assets/icons/sparkle.svg);"></span>
+            <p class="text-lg"><strong>Divide 72 by the growth rate</strong> to find the doubling time. At 8% growth, assets double in about 9 years.</p>
+          </div>
+        </div>
+
+        <p class="text-sm text-light mt-8">It works in reverse too. Revenue doubled in 6 years? CAGR is roughly 72 / 6 = 12%. Accurate enough for any case interview.</p>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          2:50 - 3:15 | The Rule of 72 handles compound growth quickly.
+          Key points:
+          - 72 / growth rate = doubling time
+          - Works in reverse: 72 / years to double = implied growth rate
+          - Accurate enough for case interview purposes
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 11: Anchor Numbers -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Break Into Management Consulting</p>
+          <h2>Anchor Numbers to Memorize</h2>
+        </div>
+
+        <div class="two-column">
+          <div>
+            <h3 class="mb-16">United States</h3>
+            <ul class="plus-list">
+              <li>Population: 330M</li>
+              <li>Households: 130M</li>
+              <li>Working hours/year: ~2,000</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="mb-16">Global and Income</h3>
+            <ul class="plus-list">
+              <li>Global population: 8B</li>
+              <li>Avg US household income: ~$75K</li>
+              <li>Working days/year: ~250</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          3:15 - 3:55 | Key anchor numbers for estimation and market sizing.
+          Key points:
+          - These anchors plus shortcuts turn vague questions into structured calculations
+          - Round aggressively: 328M becomes 330M, $47,500 becomes $50K
+          - Always do an order-of-magnitude sanity check
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 12: Presenting Math - Workflow -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Break Into Management Consulting</p>
+          <h2>Presenting Your Math</h2>
+        </div>
+
+        <div class="workflow">
+          <div class="workflow-step">
+            <div class="step-num mb-16">1</div>
+            <h3 class="text-md">Structure</h3>
+            <p class="text-sm text-light">State the formula before calculating</p>
+          </div>
+          <div class="workflow-arrow">
+            <span class="icon icon-md icon-green" style="flex-shrink: 0; -webkit-mask-image: url(../assets/icons/arrow-right.svg); mask-image: url(../assets/icons/arrow-right.svg);"></span>
+          </div>
+          <div class="workflow-step">
+            <div class="step-num mb-16">2</div>
+            <h3 class="text-md">Narrate</h3>
+            <p class="text-sm text-light">Talk through each step as you compute</p>
+          </div>
+          <div class="workflow-arrow">
+            <span class="icon icon-md icon-green" style="flex-shrink: 0; -webkit-mask-image: url(../assets/icons/arrow-right.svg); mask-image: url(../assets/icons/arrow-right.svg);"></span>
+          </div>
+          <div class="workflow-step">
+            <div class="step-num mb-16">3</div>
+            <h3 class="text-md">Sanity-Check</h3>
+            <p class="text-sm text-light">Verify the result makes sense out loud</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          3:55 - 4:25 | Three steps for presenting math in an interview.
+          Key points:
+          - Structure: "Revenue is price times quantity" before calculating
+          - Narrate: "40 x 200K is 8M, plus 5 x 200K is 1M, 9M total"
+          - Sanity-check: "9M seems right for 200K units at $45"
+          - Most candidates calculate silently. The best treat math as a conversation.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 13: Key Takeaways -->
+      <!-- ============================================ -->
+      <section class="content-dark">
+        <div class="slide-header">
+          <p class="eyebrow">Key Takeaways</p>
+          <h2>Mental Math for Cases</h2>
+        </div>
+
+        <ul class="plus-list text-lg text-white">
+          <li><strong>Math errors are the #1 rejection reason.</strong> Speed matters, but accuracy matters more.</li>
+          <li><strong>Use K, M, B labels.</strong> Never write out full numbers. This eliminates the most common arithmetic mistake.</li>
+          <li><strong>Convert percentages to fractions.</strong> Dividing by 4 is always faster than multiplying by 0.25 in your head.</li>
+          <li><strong>Never calculate silently.</strong> Structure, narrate, and sanity-check every calculation out loud.</li>
+          <li><strong>25 minutes a day for 20 sessions.</strong> That is all it takes to build reliable speed.</li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="rgba(255,255,255,0.4)"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          5:45 - 6:00 | Wrap up with five key takeaways.
+          Key points:
+          - Mental math errors are the most common rejection reason
+          - Labels, fractions, narration are the core habits
+          - Consistent daily practice makes the difference
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js -->
+  <script src="../assets/reveal/dist/reveal.min.js"></script>
+  <script type="module">
+    import RevealNotes from '../assets/reveal/plugin/notes/notes.esm.js';
+
+    Reveal.initialize({
+      width: 960,
+      height: 540,
+      margin: 0,
+      minScale: 0.5,
+      maxScale: 3.0,
+      hash: true,
+      slideNumber: true,
+      controls: true,
+      progress: true,
+      history: true,
+      center: false,
+      transition: 'none',
+      backgroundTransition: 'none',
+      disableLayout: false,
+      plugins: [ RevealNotes ]
+    });
+  </script>
+</body>
+</html>

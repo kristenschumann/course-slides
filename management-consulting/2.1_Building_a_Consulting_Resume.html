@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en" class="reveal-full-page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Building a Consulting Resume</title>
+
+  <!-- Reveal.js Core -->
+  <link rel="stylesheet" href="../assets/reveal/dist/reset.css">
+  <link rel="stylesheet" href="../assets/reveal/dist/reveal.css">
+
+  <!-- Leland Theme -->
+  <link rel="stylesheet" href="../assets/reveal/themes/leland.css">
+
+</head>
+<body>
+  <!-- SVG Symbol Definitions (defined once, referenced via <use>) -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="leland-logo" viewBox="0 0 200 45">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z"/>
+      <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z"/>
+      <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z"/>
+      <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z"/>
+      <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z"/>
+      <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z"/>
+    </symbol>
+  </svg>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ============================================ -->
+      <!-- SLIDE 1: Title Dark -->
+      <!-- ============================================ -->
+      <section class="title-dark">
+        <svg width="110" height="25" fill="white" class="mb-16"><use href="#leland-logo"/></svg>
+        <p class="eyebrow">Management Consulting Course</p>
+        <h1>Building a<br>Consulting Resume</h1>
+        <aside class="notes">
+          0:00 - 0:10 | Opening. Introduce the topic of building a consulting resume that survives the first 10-second scan.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 2: Divider -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <div class="part-number">Part 1</div>
+        <h1>The 30-Second Screening Test</h1>
+        <p>What recruiters actually look for in your resume</p>
+        <aside class="notes">
+          0:10 - 0:35 | Transition. The uncomfortable truth: ATS scan first, then a human with 200 resumes to review. 7.4 seconds average per resume.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 3: Icon List - What Recruiters Scan For -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Management Consulting Course</p>
+          <h2>What Recruiters Scan For</h2>
+        </div>
+
+        <ul class="icon-list text-lg">
+          <li>
+            <span class="icon icon-xl icon-green" style="flex-shrink: 0; -webkit-mask-image: url(../assets/icons/graduate-hat.svg); mask-image: url(../assets/icons/graduate-hat.svg)"></span>
+            <span><strong>Academic achievement:</strong> School name, GPA, honors, and analytical major</span>
+          </li>
+          <li>
+            <span class="icon icon-xl icon-green" style="flex-shrink: 0; -webkit-mask-image: url(../assets/icons/experiences.svg); mask-image: url(../assets/icons/experiences.svg)"></span>
+            <span><strong>Impact-driven experience:</strong> Recognizable companies and quantified results</span>
+          </li>
+          <li>
+            <span class="icon icon-xl icon-green" style="flex-shrink: 0; -webkit-mask-image: url(../assets/icons/arrow-up-chart-growth.svg); mask-image: url(../assets/icons/arrow-up-chart-growth.svg)"></span>
+            <span><strong>Quantified results:</strong> Numbers, action verbs, and specific outcomes in every bullet</span>
+          </li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          0:35 - 1:30 | Recruiters spend 7.4 seconds per resume on first pass. They scan for academic markers first, then experience section for recognizable companies and quantified results. If they see numbers, action verbs, and specific outcomes in the first two bullets, you pass the scan.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 4: Divider -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <div class="part-number">Part 2</div>
+        <h1>Format and Structure</h1>
+        <p>The non-negotiable formatting rules for consulting resumes</p>
+        <aside class="notes">
+          1:30 - 1:40 | Transition to format and structure requirements.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 5: Callout Green - One Page Rule -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Management Consulting Course</p>
+          <h2>The One-Page Rule</h2>
+        </div>
+
+        <div class="card-alt-green mb-24">
+          <div style="display: flex; align-items: flex-start; gap: 12px;">
+            <span class="icon icon-xl icon-green" style="flex-shrink: 0; -webkit-mask-image: url(../assets/icons/document-file.svg); mask-image: url(../assets/icons/document-file.svg)"></span>
+            <p class="text-lg"><strong>One page. Always.</strong> Even with 10+ years of experience, your consulting resume fits on one page. PDF format, clean minimalist design, no colors or graphics.</p>
+          </div>
+        </div>
+
+        <p class="text-sm text-light mt-8">Consulting values concision. If you cannot distill your career into one page, you are signaling that you cannot prioritize what matters.</p>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          1:40 - 2:15 | One-page rule is universal. PDF format, no exceptions. Clean minimalist design signals consulting mindset. Every slide deck you build for clients will require ruthless editing. Your resume is the first test of that skill.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 6: Plus List - Formatting Rules -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Management Consulting Course</p>
+          <h2>Essential Formatting Rules</h2>
+        </div>
+
+        <ul class="plus-list text-lg">
+          <li>Single clean font: Times New Roman or Arial, 10-12pt body</li>
+          <li>Margins no narrower than 10mm on all sides</li>
+          <li>PDF format for every submission</li>
+          <li>Consistent date formatting throughout (pick one style)</li>
+          <li>Reverse chronological order in every section</li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          2:15 - 2:45 | Body text 10-12pt, headers 14-16pt. No colors, no graphics. Consistent date formatting is a common trap. If you write "December 2024" in one section, don't switch to "12/2024" in another.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 7: Two Column Text - Section Order -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Management Consulting Course</p>
+          <h2>Resume Section Order</h2>
+        </div>
+
+        <div class="two-column">
+          <div>
+            <h3 class="mb-16">Undergrad / Recent Grad</h3>
+            <ul class="plus-list">
+              <li>Education (lead with school + GPA)</li>
+              <li>Professional Experience</li>
+              <li>Leadership and Service</li>
+              <li>Personal and Additional Info</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="mb-16">Experienced Hire (1+ years)</h3>
+            <ul class="plus-list">
+              <li>Professional Experience (lead)</li>
+              <li>Education</li>
+              <li>Extracurriculars</li>
+              <li>Skills and Personal</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          2:45 - 3:00 | Section order depends on career stage. Undergrads lead with education because school and GPA are strongest credentials. Experienced hires flip it and lead with work experience.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 8: Divider -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <div class="part-number">Part 3</div>
+        <h1>The Action-Result Bullet Formula</h1>
+        <p>The single most important skill for your consulting resume</p>
+        <aside class="notes">
+          3:00 - 3:10 | Transition to the bullet formula. This is the core skill that separates good resumes from great ones.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 9: Card Grid 3-Col - Bullet Formula -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Management Consulting Course</p>
+          <h2>The Bullet Formula</h2>
+        </div>
+
+        <div class="card-grid-3">
+          <div class="card card-green-bg">
+            <h3>Action</h3>
+            <p class="text-sm text-light">Start with a strong past-tense verb. The recruiter identifies your skill from the first word.</p>
+          </div>
+          <div class="card card-blue-bg">
+            <h3>Context</h3>
+            <p class="text-sm text-light">Describe what you did and for whom. Make your achievement real and specific.</p>
+          </div>
+          <div class="card card-orange-bg">
+            <h3>Result</h3>
+            <p class="text-sm text-light">Close with a quantified outcome. Revenue, cost savings, efficiency gains, or scope.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          3:10 - 3:45 | Every bullet follows Action + Context + Measurable Result. Start with a verb like analyzed, designed, implemented, led, delivered. Add context: what you did, for whom. Close with a number. Non-negotiable.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 10: Two Column Status - Specificity -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Management Consulting Course</p>
+          <h2>Bullet Comparison: Specificity</h2>
+        </div>
+
+        <div class="two-column gap-32">
+          <div class="card">
+            <div class="status-incorrect text-lg mb-16">
+              <span class="icon icon-sm icon-red" style="-webkit-mask-image: url(../assets/icons/x.svg); mask-image: url(../assets/icons/x.svg)"></span> Weak
+            </div>
+            <p class="text-light mb-16">Vague achievement with no context</p>
+            <div class="card-alt">
+              <p class="text-sm">"Improved process efficiency by 40%."</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="status-correct text-lg mb-16">
+              <span class="icon icon-sm icon-green" style="-webkit-mask-image: url(../assets/icons/check.svg); mask-image: url(../assets/icons/check.svg)"></span> Strong
+            </div>
+            <p class="text-light mb-16">Specific action, method, and result</p>
+            <div class="card-alt-green">
+              <p class="text-sm">"Designed an operational efficiency framework that streamlined workflow automation, reducing processing time by 20%."</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          3:45 - 4:15 | Weak: the number exists but the bullet is hollow. What process? What did you do? Strong: now I know what you built, how you built it, and the outcome.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 11: Two Column Status - Impact -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Management Consulting Course</p>
+          <h2>Bullet Comparison: Impact</h2>
+        </div>
+
+        <div class="two-column gap-32">
+          <div class="card">
+            <div class="status-incorrect text-lg mb-16">
+              <span class="icon icon-sm icon-red" style="-webkit-mask-image: url(../assets/icons/x.svg); mask-image: url(../assets/icons/x.svg)"></span> Weak
+            </div>
+            <p class="text-light mb-16">Activity description, no outcome</p>
+            <div class="card-alt">
+              <p class="text-sm">"Worked on strategic framework for client."</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="status-correct text-lg mb-16">
+              <span class="icon icon-sm icon-green" style="-webkit-mask-image: url(../assets/icons/check.svg); mask-image: url(../assets/icons/check.svg)"></span> Strong
+            </div>
+            <p class="text-light mb-16">Specific action, client context, dollar result</p>
+            <div class="card-alt-green">
+              <p class="text-sm">"Developed and implemented a cost-reduction strategy for a logistics client, resulting in $250K in annual savings."</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          4:15 - 4:45 | Weak: sounds like consulting, means nothing. Strong: specific action, specific client context, dollar-value result. That is what gets you noticed.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 12: Divider -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <div class="part-number">Part 4</div>
+        <h1>Quantification Strategies</h1>
+        <p>What to do when you don't have revenue numbers</p>
+        <aside class="notes">
+          5:00 - 5:10 | Transition. Not every role produces revenue or cost savings. But you still need numbers.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 13: Card Grid 2-Col - Two Ways to Quantify -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Management Consulting Course</p>
+          <h2>Two Ways to Quantify Impact</h2>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="card card-green-bg">
+            <h3>Business Metrics</h3>
+            <p class="text-sm text-light">Revenue growth, cost savings, market share gains, customers acquired, efficiency improvements.</p>
+          </div>
+          <div class="card card-blue-bg">
+            <h3>Scope Metrics</h3>
+            <p class="text-sm text-light">Team size led, stakeholders managed, reports produced, events organized, budget managed.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          5:10 - 5:45 | Preferred metrics: revenue, cost, market share, efficiency. If you don't have those, quantify scope. "Led a team of 12 volunteers to organize a 300-person fundraising event" is better than "Organized events for nonprofit."
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 14: Callout Green - Clarify the Baseline -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Management Consulting Course</p>
+          <h2>Clarify the Baseline</h2>
+        </div>
+
+        <div class="card-alt-green mb-24">
+          <div style="display: flex; align-items: flex-start; gap: 12px;">
+            <span class="icon icon-xl icon-green" style="flex-shrink: 0; -webkit-mask-image: url(../assets/icons/warning.svg); mask-image: url(../assets/icons/warning.svg)"></span>
+            <p class="text-lg"><strong>Context matters.</strong> A 40% increase from $1,000 is $400. A 40% increase from $1M is $400,000. If the baseline is small, use absolute numbers instead of percentages.</p>
+          </div>
+        </div>
+
+        <p class="text-sm text-light mt-8">Be honest about the scale of your impact. Recruiters will ask follow-up questions in interviews.</p>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          5:45 - 6:15 | Always clarify the baseline. 40% sounds impressive but context matters. If the baseline is small, use absolute numbers. Be honest about scale.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 15: Card Grid 2-Col (2x2) - Action Verbs -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Management Consulting Course</p>
+          <h2>Choose Action Verbs Strategically</h2>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="card card-green-bg" style="padding: 16px">
+            <h3 class="mb-8">Results / Achievement</h3>
+            <p class="text-sm text-light">Delivered, Achieved, Exceeded, Increased, Reduced, Generated</p>
+          </div>
+          <div class="card card-blue-bg" style="padding: 16px">
+            <h3 class="mb-8">Analysis / Strategy</h3>
+            <p class="text-sm text-light">Analyzed, Evaluated, Designed, Formulated, Assessed, Identified</p>
+          </div>
+          <div class="card card-orange-bg" style="padding: 16px">
+            <h3 class="mb-8">Leadership</h3>
+            <p class="text-sm text-light">Led, Managed, Implemented, Launched, Mentored, Directed</p>
+          </div>
+          <div class="card card-purple-bg" style="padding: 16px">
+            <h3 class="mb-8">Communication</h3>
+            <p class="text-sm text-light">Presented, Negotiated, Advised, Collaborated, Partnered, Articulated</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          6:15 - 7:00 | The verb signals your skill set. Results verbs for achievement. Analytical verbs for strategy work. Leadership verbs for management. Communication verbs for collaboration. Vary verbs across bullets to signal breadth.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 16: Callout Grey - GPA Decision -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Management Consulting Course</p>
+          <h2>The GPA Decision</h2>
+        </div>
+
+        <p class="text-lg mb-24">There is no official GPA cutoff at MBB, but 3.5 or higher is considered safe. A 3.6+ insures against any academic questions. Context matters: a 3.3 in engineering is stronger than a 3.7 in communications.</p>
+
+        <div class="card-alt compact">
+          <div style="display: flex; align-items: flex-start; gap: 12px;">
+            <span class="icon icon-xl icon-dark" style="flex-shrink: 0; -webkit-mask-image: url(../assets/icons/info.svg); mask-image: url(../assets/icons/info.svg)"></span>
+            <p class="text-md"><strong>3.5+</strong> always include. <strong>3.2-3.5</strong> judgment call, compensate with strong achievements. <strong>Below 3.2</strong> consider omitting and let your experience carry the weight.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          7:00 - 7:30 | No official cutoff but 3.5+ is safe. Analytical majors treated favorably. GPA gets you on the interview list, case performance gets you the offer.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 17: Icon List - What Kills Resumes -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Management Consulting Course</p>
+          <h2>What Kills Resumes</h2>
+        </div>
+
+        <ul class="icon-list text-md">
+          <li>
+            <span class="icon icon-xl icon-red" style="flex-shrink: 0; -webkit-mask-image: url(../assets/icons/x.svg); mask-image: url(../assets/icons/x.svg)"></span>
+            <span><strong>Generic language:</strong> Vague bullets like "responsible for managing" signal vague thinking</span>
+          </li>
+          <li>
+            <span class="icon icon-xl icon-red" style="flex-shrink: 0; -webkit-mask-image: url(../assets/icons/x.svg); mask-image: url(../assets/icons/x.svg)"></span>
+            <span><strong>No quantification:</strong> Every bullet needs a number, no exceptions</span>
+          </li>
+          <li>
+            <span class="icon icon-xl icon-red" style="flex-shrink: 0; -webkit-mask-image: url(../assets/icons/x.svg); mask-image: url(../assets/icons/x.svg)"></span>
+            <span><strong>Untranslated jargon:</strong> Company acronyms and insider terms get skipped</span>
+          </li>
+          <li>
+            <span class="icon icon-xl icon-red" style="flex-shrink: 0; -webkit-mask-image: url(../assets/icons/x.svg); mask-image: url(../assets/icons/x.svg)"></span>
+            <span><strong>Team language:</strong> "We implemented" is weak. Take credit for your contribution</span>
+          </li>
+          <li>
+            <span class="icon icon-xl icon-red" style="flex-shrink: 0; -webkit-mask-image: url(../assets/icons/x.svg); mask-image: url(../assets/icons/x.svg)"></span>
+            <span><strong>Inconsistent formatting:</strong> Mixed date styles, bullet types, or fonts</span>
+          </li>
+          <li>
+            <span class="icon icon-xl icon-red" style="flex-shrink: 0; -webkit-mask-image: url(../assets/icons/x.svg); mask-image: url(../assets/icons/x.svg)"></span>
+            <span><strong>More than one page:</strong> Two pages signals you cannot edit</span>
+          </li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          7:30 - 8:30 | Six common resume killers. Generic language, missing numbers, jargon, team framing, inconsistent formatting, and going beyond one page. Each of these gets your resume thrown in the "no" pile.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 18: Content Dark - Key Takeaways -->
+      <!-- ============================================ -->
+      <section class="content-dark">
+        <div class="slide-header">
+          <p class="eyebrow">Key Takeaways</p>
+          <h2>Building Your Consulting Resume</h2>
+        </div>
+
+        <ul class="plus-list">
+          <li class="text-lg text-white"><strong>Survive the 7-second scan.</strong> Clean formatting, quantified results, no vague language. Structure your resume for a skim, not a deep read.</li>
+          <li class="text-lg text-white"><strong>One page, always.</strong> PDF format, consistent fonts and dates, margins no narrower than 10mm. Ruthless editing is the first test of consulting skill.</li>
+          <li class="text-lg text-white"><strong>Every bullet: Action + Context + Result.</strong> Start with a strong verb, describe what you did, end with a number.</li>
+          <li class="text-lg text-white"><strong>MBB screeners look for three traits:</strong> inclusive leadership, entrepreneurial drive, and personal impact.</li>
+          <li class="text-lg text-white"><strong>Your resume gets you the interview.</strong> Your case performance gets you the offer. Get the resume right, then move on to cases and fit.</li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="rgba(255,255,255,0.4)"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          9:00 - 10:00 | Five key takeaways. Resume is the gatekeeper. One page. Action-Context-Result formula. Demonstrate leadership, drive, and impact. Resume gets you the interview, cases get you the offer.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js -->
+  <script src="../assets/reveal/dist/reveal.min.js"></script>
+  <script type="module">
+    import RevealNotes from '../assets/reveal/plugin/notes/notes.esm.js';
+
+    Reveal.initialize({
+      width: 960,
+      height: 540,
+      margin: 0,
+      minScale: 0.5,
+      maxScale: 3.0,
+      hash: true,
+      slideNumber: true,
+      controls: true,
+      progress: true,
+      history: true,
+      center: false,
+      transition: 'none',
+      backgroundTransition: 'none',
+      disableLayout: false,
+      plugins: [ RevealNotes ]
+    });
+  </script>
+</body>
+</html>

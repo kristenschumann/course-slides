@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en" class="reveal-full-page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Market Sizing Mastery</title>
+
+  <!-- Reveal.js Core -->
+  <link rel="stylesheet" href="../assets/reveal/dist/reset.css">
+  <link rel="stylesheet" href="../assets/reveal/dist/reveal.css">
+
+  <!-- Leland Theme -->
+  <link rel="stylesheet" href="../assets/reveal/themes/leland.css">
+
+</head>
+<body>
+  <!-- SVG Symbol Definitions (defined once, referenced via <use>) -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="leland-logo" viewBox="0 0 200 45">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z"/>
+      <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z"/>
+      <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z"/>
+      <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z"/>
+      <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z"/>
+      <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z"/>
+    </symbol>
+  </svg>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ============================================ -->
+      <!-- SLIDE 1: Title (Dark) -->
+      <!-- ============================================ -->
+      <section class="title-dark">
+        <svg width="110" height="25" fill="white" class="mb-16"><use href="#leland-logo"/></svg>
+        <p class="eyebrow">Break Into Management Consulting</p>
+        <h1>Market Sizing<br><span class="hl">Mastery</span></h1>
+        <aside class="notes">
+          0:00 - 0:10 | Opening. Market sizing questions aren't math tests. The interviewer cares about your structure, not your number.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 2: Divider -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <div class="part-number">Part 1</div>
+        <h1>Segmentation: The Foundation</h1>
+        <p>Break the market into distinct groups, estimate each separately, add them up.</p>
+        <aside class="notes">
+          0:40 - 0:50 | Transition. Segmentation is the core method for all market sizing. Instead of one giant number, break into groups.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 3: Two Column (Right vs Wrong) -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Break Into Management Consulting</p>
+          <h2>Why Segmentation Works</h2>
+        </div>
+
+        <div class="two-column gap-32">
+          <div class="card">
+            <div class="status-incorrect text-lg mb-16">
+              <span class="icon icon-sm icon-red" style="-webkit-mask-image: url(../assets/icons/x.svg); mask-image: url(../assets/icons/x.svg)"></span> Without Segmentation
+            </div>
+            <p class="text-light mb-16">Uses a single average for the entire population. Hides critical differences between groups.</p>
+            <div class="card-alt">
+              <p class="text-sm">"The average American drinks X cups of coffee per day. Multiply by 330 million."</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="status-correct text-lg mb-16">
+              <span class="icon icon-sm icon-green" style="-webkit-mask-image: url(../assets/icons/check.svg); mask-image: url(../assets/icons/check.svg)"></span> With Segmentation
+            </div>
+            <p class="text-light mb-16">Breaks the population into groups with meaningfully different behaviors. Each group gets its own estimate.</p>
+            <div class="card-alt-green">
+              <p class="text-sm">"Adults 16-30 drink moderately. Adults 31-65 are heavy consumers. Estimate each group separately."</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          0:50 - 1:20 | The first approach is what most candidates do. The second gets offers. Averages hide critical differences. A 10-year-old and a 35-year-old professional have completely different coffee consumption.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 4: Callout (Green Tip) -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Break Into Management Consulting</p>
+          <h2>The Segmentation Sweet Spot</h2>
+        </div>
+
+        <div class="card-alt-green mb-24">
+          <div style="display: flex; align-items: flex-start; gap: 12px;">
+            <span class="icon icon-xl icon-green" style="-webkit-mask-image: url(../assets/icons/shapes.svg); mask-image: url(../assets/icons/shapes.svg); flex-shrink: 0"></span>
+            <p class="text-lg"><strong>Aim for 3 to 5 segments.</strong> Fewer than three is too rough. More than five adds complexity without improving accuracy. Three to five shows structured thinking without burning interview time on arithmetic.</p>
+          </div>
+        </div>
+
+        <p class="text-sm text-light mt-8">This applies to any market sizing question. Whether you're segmenting by age, geography, or usage pattern, the sweet spot stays the same.</p>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          1:20 - 1:40 | The 3-5 segment rule. Fewer is too rough, more adds complexity without improving accuracy. This is the sweet spot for structured thinking.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 5: Divider -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <div class="part-number">Part 2</div>
+        <h1>Two Ways to Attack Any Market Sizing</h1>
+        <p>Top-down from the population, or bottom-up from a single unit.</p>
+        <aside class="notes">
+          1:40 - 1:50 | Transition. Two approaches: top-down and bottom-up. Knowing when to use each separates solid answers from great ones.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 6: Two Column (Text) -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Break Into Management Consulting</p>
+          <h2>Top-Down vs Bottom-Up</h2>
+        </div>
+
+        <div class="two-column">
+          <div>
+            <h3 class="mb-16">Top-Down</h3>
+            <ul class="plus-list">
+              <li>Start with a big, known number (e.g., 330M US population)</li>
+              <li>Filter down through relevant segments and usage rates</li>
+              <li>Best for revenue and volume questions</li>
+              <li>Most common approach interviewers expect</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="mb-16">Bottom-Up</h3>
+            <ul class="plus-list">
+              <li>Start with a single small unit (one store, one day)</li>
+              <li>Scale up by multiplying units across the market</li>
+              <li>Best for capacity and supply-side questions</li>
+              <li>Stronger when physical constraints are easy to picture</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          1:50 - 2:30 | Top-down is most common. Bottom-up works for physical constraints. Caution on top-down: each filter introduces an assumption, and errors compound. If you overestimate two filters by 20% each, you're 44% off.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 7: Divider -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <div class="part-number">Part 3</div>
+        <h1>Know Which Type You're Solving</h1>
+        <p>Identify the question type before you start calculating.</p>
+        <aside class="notes">
+          2:30 - 2:40 | Transition. Four types of market sizing questions. Getting the type right means building the right structure from the first sentence.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 8: Card Grid 2-Column (2x2 Colored) -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Break Into Management Consulting</p>
+          <h2>Four Market Sizing Types</h2>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="card card-green-bg" style="padding: 16px">
+            <h3 class="mb-8">Revenue</h3>
+            <p class="text-sm text-light">Estimate both volume and price. Most common type. Use top-down segmentation.</p>
+          </div>
+          <div class="card card-blue-bg" style="padding: 16px">
+            <h3 class="mb-8">Volume</h3>
+            <p class="text-sm text-light">Units only, no price. Segment by consumer group and usage frequency.</p>
+          </div>
+          <div class="card card-orange-bg" style="padding: 16px">
+            <h3 class="mb-8">Population</h3>
+            <p class="text-sm text-light">Estimate demand for a service, then calculate how many providers are needed.</p>
+          </div>
+          <div class="card card-purple-bg" style="padding: 16px">
+            <h3 class="mb-8">Capacity</h3>
+            <p class="text-sm text-light">Start from physical constraints like runways or turnaround time, not demand.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          2:40 - 3:15 | Before any calculation, identify the type. Revenue and volume use top-down segmentation. Population chains demand and supply. Capacity starts from physical constraints.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 9: Divider -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <div class="part-number">Example 1</div>
+        <h1>Piano Tuners in Chicago</h1>
+        <p>A classic population-based market sizing question.</p>
+        <aside class="notes">
+          3:15 - 3:25 | Transition. Walk through a classic example step by step, exactly how you'd talk through it in an interview.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 10: Workflow (4-Step) -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Break Into Management Consulting</p>
+          <h2>Piano Tuners Step by Step</h2>
+        </div>
+
+        <div class="workflow">
+          <div class="workflow-step">
+            <div class="step-num mb-16">1</div>
+            <h3 class="text-md">Estimate Pianos</h3>
+            <p class="text-sm text-light">3M people, 1M households, 5% own pianos = 55K total</p>
+          </div>
+          <div class="workflow-arrow">
+            <span class="icon icon-md icon-green" style="-webkit-mask-image: url(../assets/icons/arrow-right.svg); mask-image: url(../assets/icons/arrow-right.svg)"></span>
+          </div>
+          <div class="workflow-step">
+            <div class="step-num mb-16">2</div>
+            <h3 class="text-md">Tuning Demand</h3>
+            <p class="text-sm text-light">55K pianos x 2 tunings/year = 110K tunings needed</p>
+          </div>
+          <div class="workflow-arrow">
+            <span class="icon icon-md icon-green" style="-webkit-mask-image: url(../assets/icons/arrow-right.svg); mask-image: url(../assets/icons/arrow-right.svg)"></span>
+          </div>
+          <div class="workflow-step">
+            <div class="step-num mb-16">3</div>
+            <h3 class="text-md">Tuner Capacity</h3>
+            <p class="text-sm text-light">4 tunings/day x 5 days x 50 weeks = 1,000/year</p>
+          </div>
+          <div class="workflow-arrow">
+            <span class="icon icon-md icon-green" style="-webkit-mask-image: url(../assets/icons/arrow-right.svg); mask-image: url(../assets/icons/arrow-right.svg)"></span>
+          </div>
+          <div class="workflow-step">
+            <div class="step-num mb-16">4</div>
+            <h3 class="text-md">Calculate</h3>
+            <p class="text-sm text-light">110K / 1,000 = approximately 110 piano tuners</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          3:25 - 4:30 | Walk through each step. Chicago: 3M people, ~1M households, 5% own pianos = 50K + 5K institutional = 55K. Each piano tuned twice/year = 110K tunings. A tuner does 4/day, 5 days, 50 weeks = 1,000/year. 110K / 1,000 = 110 piano tuners.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 11: Callout (Green Tip) -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Break Into Management Consulting</p>
+          <h2>Does 110 Make Sense?</h2>
+        </div>
+
+        <div class="card-alt-green mb-24">
+          <div style="display: flex; align-items: flex-start; gap: 12px;">
+            <span class="icon icon-xl icon-green" style="-webkit-mask-image: url(../assets/icons/check.svg); mask-image: url(../assets/icons/check.svg); flex-shrink: 0"></span>
+            <p class="text-lg"><strong>Sanity check passed.</strong> One piano tuner per ~27,000 people in the third-largest US city. For a niche service profession, the order of magnitude checks out.</p>
+          </div>
+        </div>
+
+        <p class="text-sm text-light mt-8">The structure was clean, every assumption was stated and reasonable, and the math was easy to follow. That is what gets you full marks.</p>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          4:30 - 4:45 | Sanity check. 110 tuners for Chicago feels right. Not hundreds, not a handful. The structure and stated assumptions matter more than the exact number.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 12: Divider -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <div class="part-number">Example 2</div>
+        <h1>US Coffee Shop Revenue</h1>
+        <p>A top-down revenue estimation using segmentation.</p>
+        <aside class="notes">
+          4:45 - 4:55 | Transition. Now a top-down revenue estimation. This one is longer because it involves segmentation, which is where you demonstrate structured thinking.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 13: Table -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Break Into Management Consulting</p>
+          <h2>Segment by Consumption</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Segment</th>
+              <th>% of Drinkers</th>
+              <th>People</th>
+              <th>Visits / Week</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Heavy drinkers</td>
+              <td>20%</td>
+              <td>~53M</td>
+              <td>5</td>
+            </tr>
+            <tr>
+              <td>Moderate drinkers</td>
+              <td>30%</td>
+              <td>~79M</td>
+              <td>2</td>
+            </tr>
+            <tr>
+              <td>Light drinkers</td>
+              <td>20%</td>
+              <td>~53M</td>
+              <td>0.5</td>
+            </tr>
+            <tr>
+              <td>Non-drinkers</td>
+              <td>30%</td>
+              <td>~79M</td>
+              <td>0</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p class="text-sm text-light mt-8">Starting from 330M US population, excluding ages 0-15 (~20%) leaves 264M potential coffee drinkers.</p>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          4:55 - 5:45 | Start with 330M, exclude kids under 15 (20%) = 264M potential drinkers. Split into four segments with meaningfully different behaviors. A heavy drinker buying five coffees a week is a completely different economic unit than someone who grabs one every other week.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 14: Content Paragraph -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Break Into Management Consulting</p>
+          <h2>Calculate Annual Revenue</h2>
+        </div>
+
+        <p class="text-lg mb-24"><strong>Weekly purchases:</strong> Heavy (53M x 5) + Moderate (79M x 2) + Light (53M x 0.5) = roughly <strong>450 million per week</strong>.</p>
+
+        <p class="text-lg mb-24"><strong>Annualize and price:</strong> 450M x 52 weeks = ~23.4 billion purchases. At ~$5 average transaction, that is roughly <strong>$117 billion in annual revenue</strong>.</p>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          5:45 - 6:15 | Heavy: 265M. Moderate: 158M. Light: 27M. Total ~450M weekly purchases. Times 52 weeks = 23.4B. Average transaction ~$5 including occasional food. Total: ~$117B annually.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 15: Callout (Green Tip) -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Break Into Management Consulting</p>
+          <h2>Coffee Revenue Sanity Check</h2>
+        </div>
+
+        <div class="card-alt-green mb-24">
+          <div style="display: flex; align-items: flex-start; gap: 12px;">
+            <span class="icon icon-xl icon-green" style="-webkit-mask-image: url(../assets/icons/search.svg); mask-image: url(../assets/icons/search.svg); flex-shrink: 0"></span>
+            <p class="text-lg"><strong>$117B is high — roughly 60-70% over the ~$70B actual market.</strong> The frequency assumptions were aggressive. Flagging this shows the commercial judgment firms are testing for.</p>
+          </div>
+        </div>
+
+        <p class="text-sm text-light mt-8">$117B / 330M people = ~$355 per person per year. That is plausible but aggressive, which tells us to revisit the "buy out" frequency. The right order of magnitude is what matters.</p>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          6:15 - 6:30 | Per-capita test: $355/person/year or ~$6.80/week including non-drinkers. Plausible but high. Actual market ~$70B. Our estimate is roughly 60-70% over. Flag your own errors: "My frequency assumptions may be aggressive, the actual number is probably lower." That's the expert move.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 16: Divider -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <div class="part-number">Part 4</div>
+        <h1>The Step Most Candidates Skip</h1>
+        <p>A 15-second sanity check shows commercial awareness, not just arithmetic skills.</p>
+        <aside class="notes">
+          6:30 - 6:40 | Transition. Sanity checks. Most candidates build a clean, structured estimate then just stop. That leaves points on the table.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 17: Icon List (5 items, text-md) -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Break Into Management Consulting</p>
+          <h2>Five Essential Sanity Checks</h2>
+        </div>
+
+        <ul class="icon-list text-md">
+          <li>
+            <span class="icon icon-xl icon-green" style="-webkit-mask-image: url(../assets/icons/bar-chart.svg); mask-image: url(../assets/icons/bar-chart.svg); flex-shrink: 0"></span>
+            <span><strong>Per-capita test.</strong> Divide your total by the population. Does the per-person number feel right?</span>
+          </li>
+          <li>
+            <span class="icon icon-xl icon-green" style="-webkit-mask-image: url(../assets/icons/switch.svg); mask-image: url(../assets/icons/switch.svg); flex-shrink: 0"></span>
+            <span><strong>Cross-method check.</strong> Sketch the opposite approach. If both land in the same ballpark, you're solid.</span>
+          </li>
+          <li>
+            <span class="icon icon-xl icon-green" style="-webkit-mask-image: url(../assets/icons/store.svg); mask-image: url(../assets/icons/store.svg); flex-shrink: 0"></span>
+            <span><strong>Benchmark against known players.</strong> If your total is smaller than one major company's revenue, something is wrong.</span>
+          </li>
+          <li>
+            <span class="icon icon-xl icon-green" style="-webkit-mask-image: url(../assets/icons/search.svg); mask-image: url(../assets/icons/search.svg); flex-shrink: 0"></span>
+            <span><strong>Order of magnitude check.</strong> Step back. Is your number in the right range: thousands, millions, or billions?</span>
+          </li>
+          <li>
+            <span class="icon icon-xl icon-green" style="-webkit-mask-image: url(../assets/icons/globe.svg); mask-image: url(../assets/icons/globe.svg); flex-shrink: 0"></span>
+            <span><strong>Analogous comparison.</strong> Compare to a similar market you know. Does your number scale proportionally?</span>
+          </li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          6:40 - 7:15 | Five sanity checks. You don't need all five in an interview. Pick two that fit. The per-capita test and benchmark check are the fastest and most powerful combination.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 18: Plus List -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Break Into Management Consulting</p>
+          <h2>Where Candidates Go Wrong</h2>
+        </div>
+
+        <ul class="plus-list text-lg">
+          <li><strong>Not segmenting at all.</strong> Using a single average for 330 million people is lazy and inaccurate. Always segment into 3 to 5 groups.</li>
+          <li><strong>Confusing revenue and volume.</strong> If the question asks for dollars, you need volume and price. If it asks for units, do not multiply by price. Clarify if unsure.</li>
+          <li><strong>Skipping the sanity check.</strong> You spent three minutes building a structured estimate. Take 15 more seconds to validate it. The sanity check is part of the method.</li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          7:15 - 7:40 | Three common mistakes. Not segmenting, confusing revenue vs volume, and skipping the sanity check. These come up repeatedly in interviews.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 19: Summary (Dark Background) -->
+      <!-- ============================================ -->
+      <section class="content-dark">
+        <div class="slide-header">
+          <p class="eyebrow">Key Takeaways</p>
+          <h2>Market Sizing Mastery</h2>
+        </div>
+
+        <ul class="plus-list">
+          <li><strong>The method matters more than the number.</strong> Interviewers score your structure and logic. A well-built estimate that is 20-30% off beats a lucky guess every time.</li>
+          <li><strong>Segment into 3-5 groups.</strong> Break the population into groups with meaningfully different behaviors. This is the most important move in any market sizing answer.</li>
+          <li><strong>Know when to go top-down vs bottom-up.</strong> Top-down from population for revenue and volume. Bottom-up from a single unit for capacity. Both for cross-validation.</li>
+          <li><strong>Always sanity check.</strong> Per-capita test, benchmark against known companies, order of magnitude gut check. Fifteen seconds of validation turns a good answer into a great one.</li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="rgba(255,255,255,0.4)"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          7:40 - 8:00 | Four key takeaways. Method over number. Segment into 3-5 groups. Top-down vs bottom-up. Always sanity check.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js -->
+  <script src="../assets/reveal/dist/reveal.min.js"></script>
+  <script type="module">
+    import RevealNotes from '../assets/reveal/plugin/notes/notes.esm.js';
+
+    Reveal.initialize({
+      width: 960,
+      height: 540,
+      margin: 0,
+      minScale: 0.5,
+      maxScale: 3.0,
+      hash: true,
+      slideNumber: true,
+      controls: true,
+      progress: true,
+      history: true,
+      center: false,
+      transition: 'none',
+      backgroundTransition: 'none',
+      disableLayout: false,
+      plugins: [ RevealNotes ]
+    });
+  </script>
+</body>
+</html>
