@@ -4,24 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AI-Powered Job Search Bootcamp | Leland</title>
-  <link rel="stylesheet" href="../../assets/reveal/themes/leland.css">
+  <link rel="stylesheet" href="../../../_design/revealjs/themes/leland.css">
   <style>
     /* Font faces for standalone page */
     @font-face {
       font-family: 'Calibre';
-      src: url('../../assets/reveal/fonts/Calibre-Regular.otf') format('opentype');
+      src: url('../../../_design/revealjs/fonts/Calibre-Regular.otf') format('opentype');
       font-weight: 400;
       font-style: normal;
     }
     @font-face {
       font-family: 'Calibre';
-      src: url('../../assets/reveal/fonts/Calibre-Medium.otf') format('opentype');
+      src: url('../../../_design/revealjs/fonts/Calibre-Medium.otf') format('opentype');
       font-weight: 500;
       font-style: normal;
     }
     @font-face {
       font-family: 'Calibre';
-      src: url('../../assets/reveal/fonts/Calibre-Semibold.otf') format('opentype');
+      src: url('../../../_design/revealjs/fonts/Calibre-Semibold.otf') format('opentype');
       font-weight: 600;
       font-style: normal;
     }
@@ -105,15 +105,6 @@
       color: rgba(255, 255, 255, 0.85);
     }
 
-    .hero-detail strong {
-      color: var(--leland-white);
-      font-weight: 600;
-    }
-
-    .hero-detail .dot {
-      display: none;
-    }
-
     /* Sections */
     .section {
       padding: 56px 0;
@@ -148,6 +139,59 @@
       max-width: 640px;
     }
 
+    /* Intake survey CTA */
+    .survey-cta {
+      background: rgba(21, 176, 120, 0.06);
+      border-radius: 10px;
+      padding: 28px 32px;
+      margin-top: 24px;
+    }
+
+    .survey-cta h3 {
+      font-size: 20px;
+      font-weight: 600;
+      margin: 0 0 8px;
+      color: var(--leland-text-dark);
+    }
+
+    .survey-cta p {
+      font-size: 16px;
+      color: var(--leland-text-light);
+      margin: 0 0 16px;
+      line-height: 1.5;
+    }
+
+    .btn {
+      display: inline-block;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 10px 24px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: opacity 0.15s ease;
+    }
+
+    .btn:hover {
+      opacity: 0.85;
+      text-decoration: none;
+    }
+
+    .btn-green {
+      background: var(--leland-green);
+      color: var(--leland-white);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--leland-green);
+      border: 1.5px solid var(--leland-green);
+    }
+
+    .btn-dark {
+      background: var(--leland-dark);
+      color: var(--leland-white);
+    }
+
     /* What you get grid */
     .included-grid {
       display: grid;
@@ -176,28 +220,38 @@
       line-height: 1.4;
     }
 
-    /* Session cards */
-    .session-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
+    /* Session list (single column) */
+    .session-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
       margin-top: 24px;
     }
 
-    .session-card {
+    .session-row {
       background: var(--leland-offwhite);
       border-radius: 10px;
       padding: 24px;
-      display: flex;
-      flex-direction: column;
       text-decoration: none;
       color: inherit;
-      transition: box-shadow 0.15s ease, transform 0.15s ease;
+      transition: box-shadow 0.15s ease;
     }
 
-    .session-card:hover {
+    .session-row:hover {
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-      transform: translateY(-2px);
+      text-decoration: none;
+    }
+
+    .session-row-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 10px;
+    }
+
+    .session-row-left {
+      flex: 1;
     }
 
     .session-number {
@@ -206,23 +260,36 @@
       letter-spacing: 1px;
       text-transform: uppercase;
       color: var(--leland-green);
-      margin-bottom: 8px;
+      margin-bottom: 4px;
     }
 
-    .session-card h3 {
+    .session-row h3 {
       font-size: 20px;
       font-weight: 600;
-      margin: 0 0 8px;
+      margin: 0 0 6px;
       color: var(--leland-text-dark);
       line-height: 1.25;
     }
 
-    .session-card .session-desc {
+    .session-date {
+      font-size: 14px;
+      color: var(--leland-text-light);
+      margin-bottom: 0;
+    }
+
+    .session-row .session-desc {
       font-size: 15px;
       color: var(--leland-text-light);
       margin: 0 0 14px;
       line-height: 1.45;
-      flex-grow: 1;
+    }
+
+    .session-row-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
     }
 
     .session-deliverable {
@@ -230,13 +297,47 @@
       color: var(--leland-text-dark);
       background: var(--leland-white);
       border-radius: 6px;
-      padding: 10px 12px;
+      padding: 8px 12px;
       line-height: 1.4;
     }
 
     .session-deliverable strong {
       font-weight: 600;
       color: var(--leland-green);
+    }
+
+    .session-links {
+      display: flex;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .session-links .btn {
+      font-size: 13px;
+      padding: 6px 14px;
+    }
+
+    /* Zoom info */
+    .zoom-info {
+      background: var(--leland-offwhite);
+      border-radius: 10px;
+      padding: 20px 24px;
+      margin-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .zoom-info p {
+      font-size: 15px;
+      color: var(--leland-text-light);
+      margin: 0;
+    }
+
+    .zoom-info strong {
+      color: var(--leland-text-dark);
     }
 
     /* After bootcamp */
@@ -331,13 +432,22 @@
         font-size: 26px;
       }
 
-      .included-grid,
-      .session-grid {
+      .included-grid {
         grid-template-columns: 1fr;
       }
 
-      .session-card {
-        padding: 20px;
+      .session-row-top {
+        flex-direction: column;
+      }
+
+      .session-row-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .zoom-info {
+        flex-direction: column;
+        align-items: flex-start;
       }
     }
   </style>
@@ -348,7 +458,7 @@
   <header class="hero">
     <div class="page-container">
       <img
-        src="../../assets/logos/leland-logo-white.svg"
+        src="../../../_design/logos/leland-logo-white.svg"
         alt="Leland"
         class="hero-logo"
       >
@@ -364,10 +474,23 @@
     </div>
   </header>
 
-  <!-- What You Get -->
   <main>
     <div class="page-container">
 
+      <!-- First Step: Intake Survey -->
+      <section class="section">
+        <p class="section-eyebrow">First Step</p>
+        <h2>Complete your intake survey</h2>
+        <p class="section-subtitle">Before Session 1, fill out a quick intake survey so your coach can tailor the bootcamp to your background and goals. Completing the survey also unlocks your $20 in AI credits, which will be emailed to you before the first session.</p>
+
+        <div class="survey-cta">
+          <h3>Intake Survey</h3>
+          <p>Takes about 5 minutes. Your answers help us personalize exercises and pair you with the right breakout partners.</p>
+          <a href="https://joinleland.typeform.com/to/qOZX8GgS" target="_blank" class="btn btn-green">Complete Intake Survey</a>
+        </div>
+      </section>
+
+      <!-- What You Get -->
       <section class="section">
         <p class="section-eyebrow">What's Included</p>
         <h2>Everything you need to run a modern job search</h2>
@@ -395,49 +518,126 @@
         <h2>6 sessions. 6 deliverables. 1 complete system.</h2>
         <p class="section-subtitle">Each session is 90 minutes of live coaching with a hands-on workshop. You leave every session with something you can use the next day.</p>
 
-        <div class="session-grid">
+        <div class="zoom-info">
+          <p><strong>All sessions are on Zoom.</strong> The link is the same for every session.</p>
+          <a href="#" class="btn btn-outline">Zoom Link (coming soon)</a>
+        </div>
 
-          <a class="session-card" href="session-1.html">
-            <span class="session-number">Session 1</span>
-            <h3>Build Your AI Job-Search Engine</h3>
+        <div class="session-list">
+
+          <div class="session-row">
+            <div class="session-row-top">
+              <div class="session-row-left">
+                <p class="session-number">Session 1</p>
+                <h3>Build Your AI Job-Search Engine</h3>
+                <p class="session-date">Tuesday, March 17 &middot; 2:00 PM PT / 5:00 PM ET</p>
+              </div>
+              <div class="session-links">
+                <a href="#" class="btn btn-green">Join Live</a>
+                <a href="#" class="btn btn-outline">Recording</a>
+              </div>
+            </div>
             <p class="session-desc">Define what "good fit" means for you across four dimensions, then build an AI agent that finds matching roles daily.</p>
-            <div class="session-deliverable"><strong>Deliverable:</strong> Working AI agent that sources opportunities daily</div>
-          </a>
+            <div class="session-row-bottom">
+              <div class="session-deliverable"><strong>Deliverable:</strong> Working AI agent that sources opportunities daily</div>
+              <a href="session-1.html" style="font-size: 14px; font-weight: 600;">Session details &rarr;</a>
+            </div>
+          </div>
 
-          <a class="session-card" href="session-2.html">
-            <span class="session-number">Session 2</span>
-            <h3>Turn Cold Outreach into Warm Conversations</h3>
+          <div class="session-row">
+            <div class="session-row-top">
+              <div class="session-row-left">
+                <p class="session-number">Session 2</p>
+                <h3>Turn Cold Outreach into Warm Conversations</h3>
+                <p class="session-date">Friday, March 20 &middot; 9:00 AM PT / 12:00 PM ET</p>
+              </div>
+              <div class="session-links">
+                <a href="#" class="btn btn-green">Join Live</a>
+                <a href="#" class="btn btn-outline">Recording</a>
+              </div>
+            </div>
             <p class="session-desc">Find the right people at your target companies, write messages that get replies, and practice informational interviews live.</p>
-            <div class="session-deliverable"><strong>Deliverable:</strong> 5 real outreach messages sent + 1 live role-play</div>
-          </a>
+            <div class="session-row-bottom">
+              <div class="session-deliverable"><strong>Deliverable:</strong> 5 real outreach messages sent + 1 live role-play</div>
+              <a href="session-2.html" style="font-size: 14px; font-weight: 600;">Session details &rarr;</a>
+            </div>
+          </div>
 
-          <a class="session-card" href="session-3.html">
-            <span class="session-number">Session 3</span>
-            <h3>Beat the Bots, Impress the Humans</h3>
+          <div class="session-row">
+            <div class="session-row-top">
+              <div class="session-row-left">
+                <p class="session-number">Session 3</p>
+                <h3>Craft a Resume and LinkedIn to Impress Humans</h3>
+                <p class="session-date">Tuesday, March 24 &middot; 2:00 PM PT / 5:00 PM ET</p>
+              </div>
+              <div class="session-links">
+                <a href="#" class="btn btn-green">Join Live</a>
+                <a href="#" class="btn btn-outline">Recording</a>
+              </div>
+            </div>
             <p class="session-desc">Optimize your resume for ATS systems, rebuild your LinkedIn profile for recruiter visibility, and publish your first post.</p>
-            <div class="session-deliverable"><strong>Deliverable:</strong> ATS-optimized resume + refreshed LinkedIn + published post</div>
-          </a>
+            <div class="session-row-bottom">
+              <div class="session-deliverable"><strong>Deliverable:</strong> ATS-optimized resume + refreshed LinkedIn + published post</div>
+              <a href="session-3.html" style="font-size: 14px; font-weight: 600;">Session details &rarr;</a>
+            </div>
+          </div>
 
-          <a class="session-card" href="session-4.html">
-            <span class="session-number">Session 4</span>
-            <h3>Build an AI Project That Gets You Hired</h3>
+          <div class="session-row">
+            <div class="session-row-top">
+              <div class="session-row-left">
+                <p class="session-number">Session 4</p>
+                <h3>Build an AI Project That Gets You Hired</h3>
+                <p class="session-date">Friday, March 27 &middot; 9:00 AM PT / 12:00 PM ET</p>
+              </div>
+              <div class="session-links">
+                <a href="#" class="btn btn-green">Join Live</a>
+                <a href="#" class="btn btn-outline">Recording</a>
+              </div>
+            </div>
             <p class="session-desc">Build a portfolio-ready AI project that shows hiring managers you can do more than just use ChatGPT.</p>
-            <div class="session-deliverable"><strong>Deliverable:</strong> Working AI workflow + GitHub repo + LinkedIn post draft</div>
-          </a>
+            <div class="session-row-bottom">
+              <div class="session-deliverable"><strong>Deliverable:</strong> Working AI workflow + GitHub repo + LinkedIn post draft</div>
+              <a href="session-4.html" style="font-size: 14px; font-weight: 600;">Session details &rarr;</a>
+            </div>
+          </div>
 
-          <a class="session-card" href="session-5.html">
-            <span class="session-number">Session 5</span>
-            <h3>Own Your Story: Behavioral Interview Excellence</h3>
+          <div class="session-row">
+            <div class="session-row-top">
+              <div class="session-row-left">
+                <p class="session-number">Session 5</p>
+                <h3>Sell Your Story in Behavioral Interviews and Networking Convos</h3>
+                <p class="session-date">Tuesday, March 31 &middot; 2:00 PM PT / 5:00 PM ET</p>
+              </div>
+              <div class="session-links">
+                <a href="#" class="btn btn-green">Join Live</a>
+                <a href="#" class="btn btn-outline">Recording</a>
+              </div>
+            </div>
             <p class="session-desc">Craft a compelling personal narrative, build a bank of STAR-format answers, and practice with live mock interviews.</p>
-            <div class="session-deliverable"><strong>Deliverable:</strong> Polished "tell me about yourself" script + 5 STAR answers</div>
-          </a>
+            <div class="session-row-bottom">
+              <div class="session-deliverable"><strong>Deliverable:</strong> Polished "tell me about yourself" script + 5 STAR answers</div>
+              <a href="session-5.html" style="font-size: 14px; font-weight: 600;">Session details &rarr;</a>
+            </div>
+          </div>
 
-          <a class="session-card" href="session-6.html">
-            <span class="session-number">Session 6</span>
-            <h3>Ace Cases, Take-Homes, and Live Challenges</h3>
+          <div class="session-row">
+            <div class="session-row-top">
+              <div class="session-row-left">
+                <p class="session-number">Session 6</p>
+                <h3>Ace Case and Take-Home Interviews</h3>
+                <p class="session-date">Friday, April 3 &middot; 9:00 AM PT / 12:00 PM ET</p>
+              </div>
+              <div class="session-links">
+                <a href="#" class="btn btn-green">Join Live</a>
+                <a href="#" class="btn btn-outline">Recording</a>
+              </div>
+            </div>
             <p class="session-desc">Master a universal framework for skills assessments, complete a timed practice round, and assemble your full job search playbook.</p>
-            <div class="session-deliverable"><strong>Deliverable:</strong> Completed practice assessment + reusable framework + complete playbook</div>
-          </a>
+            <div class="session-row-bottom">
+              <div class="session-deliverable"><strong>Deliverable:</strong> Completed practice assessment + reusable framework + complete playbook</div>
+              <a href="session-6.html" style="font-size: 14px; font-weight: 600;">Session details &rarr;</a>
+            </div>
+          </div>
 
         </div>
       </section>
@@ -458,8 +658,6 @@
         </ul>
       </section>
 
-
-
     </div>
   </main>
 
@@ -467,7 +665,7 @@
   <footer class="page-footer">
     <div class="page-container">
       <img
-        src="../../assets/logos/leland-logo-white.svg"
+        src="../../../_design/logos/leland-logo-white.svg"
         alt="Leland"
         class="footer-logo"
       >

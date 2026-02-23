@@ -131,7 +131,7 @@ Key point: Demand is high, supply is low. A single project puts you in the top q
         <div class="two-column gap-32">
           <div class="card">
             <div class="status-incorrect text-lg mb-16">
-              <span class="icon icon-sm icon-red" style="--icon: url(../../assets/icons/x.svg)"></span> Using AI
+              <span class="icon icon-sm icon-red" style="-webkit-mask-image: url(../../assets/icons/x.svg); mask-image: url(../../assets/icons/x.svg)"></span> Using AI
             </div>
             <p class="text-light mb-16">"I use ChatGPT to help me write emails."</p>
             <div class="card-alt">
@@ -140,7 +140,7 @@ Key point: Demand is high, supply is low. A single project puts you in the top q
           </div>
           <div class="card">
             <div class="status-correct text-lg mb-16">
-              <span class="icon icon-sm icon-green" style="--icon: url(../../assets/icons/check.svg)"></span> Building with AI
+              <span class="icon icon-sm icon-green" style="-webkit-mask-image: url(../../assets/icons/check.svg); mask-image: url(../../assets/icons/check.svg)"></span> Building with AI
             </div>
             <p class="text-light mb-16">"I built an automated workflow that saves 3 hours per week."</p>
             <div class="card-alt-green">
@@ -263,7 +263,7 @@ Key point: Small, specific, useful. Not flashy demos.
 
         <div class="card-alt-green mb-24">
           <div style="display: flex; align-items: flex-start; gap: 12px;">
-            <span class="icon icon-xl icon-green" style="--icon: url(../../assets/icons/sparkle.svg); flex-shrink: 0"></span>
+            <span class="icon icon-xl icon-green" style="flex-shrink: 0; -webkit-mask-image: url(../../assets/icons/sparkle.svg); mask-image: url(../../assets/icons/sparkle.svg)"></span>
             <div>
               <p class="text-lg"><strong>Every project becomes a STAR story.</strong></p>
               <p class="text-sm text-light mt-8">When an interviewer asks "Tell me about a time you used AI," you'll have a specific project with a measurable result. That's the kind of answer that gets second-round invitations.</p>
@@ -309,7 +309,7 @@ TRANSITION: "Now let me show you how to build one. Live."
             <p class="text-sm text-light">A real workflow you do manually</p>
           </div>
           <div class="workflow-arrow">
-            <span class="icon icon-md icon-green" style="--icon: url(../../assets/icons/arrow-right.svg)"></span>
+            <span class="icon icon-md icon-green" style="-webkit-mask-image: url(../../assets/icons/arrow-right.svg); mask-image: url(../../assets/icons/arrow-right.svg)"></span>
           </div>
           <div class="workflow-step">
             <div class="step-num mb-16">2</div>
@@ -317,7 +317,7 @@ TRANSITION: "Now let me show you how to build one. Live."
             <p class="text-sm text-light">Give it clear instructions and examples</p>
           </div>
           <div class="workflow-arrow">
-            <span class="icon icon-md icon-green" style="--icon: url(../../assets/icons/arrow-right.svg)"></span>
+            <span class="icon icon-md icon-green" style="-webkit-mask-image: url(../../assets/icons/arrow-right.svg); mask-image: url(../../assets/icons/arrow-right.svg)"></span>
           </div>
           <div class="workflow-step">
             <div class="step-num mb-16">3</div>
@@ -325,7 +325,7 @@ TRANSITION: "Now let me show you how to build one. Live."
             <p class="text-sm text-light">Run it, fix edge cases, improve output</p>
           </div>
           <div class="workflow-arrow">
-            <span class="icon icon-md icon-green" style="--icon: url(../../assets/icons/arrow-right.svg)"></span>
+            <span class="icon icon-md icon-green" style="-webkit-mask-image: url(../../assets/icons/arrow-right.svg); mask-image: url(../../assets/icons/arrow-right.svg)"></span>
           </div>
           <div class="workflow-step">
             <div class="step-num mb-16">4</div>
@@ -353,13 +353,29 @@ TRANSITION: "Let me show you. I'm going to pick a real problem and build a solut
           <h2>Demo: Meeting Notes Summarizer</h2>
         </div>
 
-        <div class="card-alt compact">
-          <ul class="plus-list text-md">
-            <li><strong>Problem:</strong> Meeting transcripts are long and hard to scan</li>
-            <li><strong>Input:</strong> Sample Zoom transcript (pre-loaded)</li>
-            <li><strong>Tool:</strong> Claude Code (or ChatGPT)</li>
-            <li><strong>Goal:</strong> Extract action items, decisions, and follow-ups automatically</li>
-          </ul>
+        <div style="display: flex; gap: 16px; align-items: stretch;">
+          <div class="card-alt" style="flex: 1; padding: 12px 14px;">
+            <p class="text-xs text-muted mb-8"><strong>INPUT: Zoom Transcript</strong></p>
+            <div style="font-size: 11px; line-height: 1.5; color: #666;">
+              <p style="margin: 0 0 4px;">[00:02] Sarah: Let's review the Q2 pipeline numbers...</p>
+              <p style="margin: 0 0 4px;">[00:14] Mike: Revenue is up 12% but churn spiked...</p>
+              <p style="margin: 0 0 4px;">[00:31] Sarah: We need to fix onboarding by March...</p>
+              <p style="margin: 0; color: #999;">... 45 minutes of transcript ...</p>
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; flex-shrink: 0;">
+            <span class="icon icon-lg icon-green" style="-webkit-mask-image: url(../../assets/icons/arrow-right.svg); mask-image: url(../../assets/icons/arrow-right.svg)"></span>
+          </div>
+          <div class="card-alt-green" style="flex: 1; padding: 12px 14px;">
+            <p class="text-xs mb-8" style="color: var(--leland-green);"><strong>OUTPUT: Structured Summary</strong></p>
+            <div style="font-size: 11px; line-height: 1.5;">
+              <p style="margin: 0 0 4px;"><strong>Action Items:</strong></p>
+              <p style="margin: 0 0 2px; padding-left: 12px;">1. Fix onboarding flow — Sarah, by Mar 15</p>
+              <p style="margin: 0 0 4px; padding-left: 12px;">2. Churn analysis report — Mike, by Friday</p>
+              <p style="margin: 0 0 4px;"><strong>Decisions:</strong> Approved Q2 budget increase</p>
+              <p style="margin: 0;"><strong>Follow-ups:</strong> Reconnect in 2 weeks</p>
+            </div>
+          </div>
         </div>
 
         <p class="text-sm text-light mt-16">Watch the process, not just the result. You'll follow these same steps in 15 minutes.</p>
@@ -600,20 +616,32 @@ TRANSITION: "Love it. Now let's make these projects visible to hiring managers."
         </div>
 
         <div class="card-grid-3">
-          <div class="card">
-            <div class="type-num mb-16">01</div>
-            <h3>GitHub README</h3>
-            <p class="text-sm text-light">The technical audience. Problem, solution, how to use it.</p>
+          <div class="card" style="padding: 16px;">
+            <div class="type-num mb-8">01</div>
+            <h3 class="mb-8">GitHub README</h3>
+            <div class="card-alt" style="padding: 8px 10px; font-size: 11px; line-height: 1.5;">
+              <p style="margin: 0 0 2px; font-weight: bold;">sarahj/meeting-summarizer</p>
+              <p style="margin: 0; color: #999;">AI workflow that turns Zoom transcripts into structured action items</p>
+              <div style="margin-top: 4px; display: flex; gap: 8px; font-size: 10px; color: #999;">
+                <span>&#9733; 12</span><span>Python</span>
+              </div>
+            </div>
           </div>
-          <div class="card">
-            <div class="type-num mb-16">02</div>
-            <h3>LinkedIn Post</h3>
-            <p class="text-sm text-light">The professional network. Story format, results, lessons learned.</p>
+          <div class="card" style="padding: 16px;">
+            <div class="type-num mb-8">02</div>
+            <h3 class="mb-8">LinkedIn Post</h3>
+            <div class="card-alt" style="padding: 8px 10px; font-size: 11px; line-height: 1.5;">
+              <p style="margin: 0;">"I built an AI workflow that turns 45-min meeting transcripts into action items in 30 seconds..."</p>
+              <div style="margin-top: 4px; font-size: 10px; color: #999;">87 reactions &middot; 14 comments</div>
+            </div>
           </div>
-          <div class="card">
-            <div class="type-num mb-16">03</div>
-            <h3>Interview Answer</h3>
-            <p class="text-sm text-light">The hiring manager. STAR format with measurable impact.</p>
+          <div class="card" style="padding: 16px;">
+            <div class="type-num mb-8">03</div>
+            <h3 class="mb-8">Interview Answer</h3>
+            <div class="card-alt" style="padding: 8px 10px; font-size: 11px; line-height: 1.5;">
+              <p style="margin: 0;"><em>"I noticed my team spent 2 hrs/week on meeting notes. I built an AI tool that cut it to 30 seconds..."</em></p>
+              <div style="margin-top: 4px; font-size: 10px; color: #999;">STAR format &middot; 90-second answer</div>
+            </div>
           </div>
         </div>
 
