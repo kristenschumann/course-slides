@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI-Powered Job Search Bootcamp | Leland</title>
+  <link rel="stylesheet" href="../../assets/reveal/themes/leland.css">
+  <style>
+    /* Font faces for standalone page */
+    @font-face {
+      font-family: 'Calibre';
+      src: url('../../assets/reveal/fonts/Calibre-Regular.otf') format('opentype');
+      font-weight: 400;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Calibre';
+      src: url('../../assets/reveal/fonts/Calibre-Medium.otf') format('opentype');
+      font-weight: 500;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Calibre';
+      src: url('../../assets/reveal/fonts/Calibre-Semibold.otf') format('opentype');
+      font-weight: 600;
+      font-style: normal;
+    }
+
+    /* Page layout (not a slide deck) */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Calibre', 'Inter', Arial, sans-serif;
+      font-size: 17px;
+      line-height: 1.6;
+      color: var(--leland-text-dark);
+      background: var(--leland-white);
+    }
+
+    .page-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Hero header */
+    .hero {
+      background-color: var(--leland-dark);
+      color: var(--leland-white);
+      padding: 64px 24px 56px;
+    }
+
+    .hero .page-container {
+      padding: 0;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero-logo {
+      width: 120px;
+      margin-bottom: 32px;
+      display: block;
+    }
+
+    .hero-eyebrow {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--leland-green);
+      margin-bottom: 12px;
+    }
+
+    .hero h1 {
+      font-size: 44px;
+      font-weight: 600;
+      line-height: 1.12;
+      margin: 0 0 16px;
+      color: var(--leland-white);
+    }
+
+    .hero p {
+      font-size: 19px;
+      color: rgba(255, 255, 255, 0.75);
+      margin: 0 0 32px;
+      max-width: 640px;
+      line-height: 1.5;
+    }
+
+    .hero-details {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .hero-detail {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 15px;
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .hero-detail strong {
+      color: var(--leland-white);
+      font-weight: 600;
+    }
+
+    .hero-detail .dot {
+      display: none;
+    }
+
+    /* Sections */
+    .section {
+      padding: 56px 0;
+      border-bottom: 1px solid var(--leland-stroke);
+    }
+
+    .section:last-child {
+      border-bottom: none;
+    }
+
+    .section-eyebrow {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--leland-green);
+      margin-bottom: 8px;
+    }
+
+    .section h2 {
+      font-size: 32px;
+      font-weight: 600;
+      color: var(--leland-text-dark);
+      margin: 0 0 8px;
+      line-height: 1.2;
+    }
+
+    .section .section-subtitle {
+      font-size: 17px;
+      color: var(--leland-text-light);
+      margin: 0 0 32px;
+      max-width: 640px;
+    }
+
+    /* What you get grid */
+    .included-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .included-item {
+      background: var(--leland-offwhite);
+      border-radius: 8px;
+      padding: 20px;
+    }
+
+    .included-item strong {
+      display: block;
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 4px;
+      color: var(--leland-text-dark);
+    }
+
+    .included-item span {
+      font-size: 15px;
+      color: var(--leland-text-light);
+      line-height: 1.4;
+    }
+
+    /* Session cards */
+    .session-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-top: 24px;
+    }
+
+    .session-card {
+      background: var(--leland-offwhite);
+      border-radius: 10px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      color: inherit;
+      transition: box-shadow 0.15s ease, transform 0.15s ease;
+    }
+
+    .session-card:hover {
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+      transform: translateY(-2px);
+    }
+
+    .session-number {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--leland-green);
+      margin-bottom: 8px;
+    }
+
+    .session-card h3 {
+      font-size: 20px;
+      font-weight: 600;
+      margin: 0 0 8px;
+      color: var(--leland-text-dark);
+      line-height: 1.25;
+    }
+
+    .session-card .session-desc {
+      font-size: 15px;
+      color: var(--leland-text-light);
+      margin: 0 0 14px;
+      line-height: 1.45;
+      flex-grow: 1;
+    }
+
+    .session-deliverable {
+      font-size: 14px;
+      color: var(--leland-text-dark);
+      background: var(--leland-white);
+      border-radius: 6px;
+      padding: 10px 12px;
+      line-height: 1.4;
+    }
+
+    .session-deliverable strong {
+      font-weight: 600;
+      color: var(--leland-green);
+    }
+
+    /* After bootcamp */
+    .plan-list {
+      list-style: none;
+      padding: 0;
+      margin: 24px 0 0;
+    }
+
+    .plan-list li {
+      position: relative;
+      padding-left: 28px;
+      margin-bottom: 16px;
+      font-size: 16px;
+      line-height: 1.5;
+      color: var(--leland-text-dark);
+    }
+
+    .plan-list li::before {
+      content: "+";
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--leland-green);
+      line-height: 1.3;
+    }
+
+    /* Footer */
+    .page-footer {
+      background: var(--leland-dark);
+      color: rgba(255, 255, 255, 0.6);
+      padding: 40px 24px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .page-footer a {
+      color: var(--leland-green);
+      text-decoration: none;
+    }
+
+    .page-footer a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-logo {
+      width: 100px;
+      margin-bottom: 12px;
+      opacity: 0.5;
+    }
+
+    /* Links */
+    a {
+      color: var(--leland-green);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive */
+    @media (max-width: 700px) {
+      .hero {
+        padding: 48px 20px 40px;
+      }
+
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      .hero p {
+        font-size: 17px;
+      }
+
+      .hero-details {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .page-container {
+        padding: 0 20px;
+      }
+
+      .section {
+        padding: 40px 0;
+      }
+
+      .section h2 {
+        font-size: 26px;
+      }
+
+      .included-grid,
+      .session-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .session-card {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="page-container">
+      <img
+        src="../../assets/logos/leland-logo-white.svg"
+        alt="Leland"
+        class="hero-logo"
+      >
+      <p class="hero-eyebrow">Live Bootcamp</p>
+      <h1>AI-Powered Job Search Bootcamp</h1>
+      <p>Learn how to use AI tools and real human connection to land a role you're excited about. Six live sessions, hands-on coaching, and a system you'll use long after the bootcamp ends.</p>
+      <div class="hero-details">
+        <div class="hero-detail">6 live sessions</div>
+        <div class="hero-detail">90 min each</div>
+        <div class="hero-detail">Recordings included</div>
+        <div class="hero-detail">$20 AI credits</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- What You Get -->
+  <main>
+    <div class="page-container">
+
+      <section class="section">
+        <p class="section-eyebrow">What's Included</p>
+        <h2>Everything you need to run a modern job search</h2>
+        <p class="section-subtitle">Six live sessions with hands-on coaching, plus recordings, AI prompt templates, outreach scripts, resume frameworks, $20 in AI credits, and an alumni Slack community that stays active after the bootcamp ends.</p>
+
+        <div class="included-grid">
+          <div class="included-item">
+            <strong>Tools you'll need</strong>
+            <span>A free ChatGPT or Claude account, LinkedIn, and a free GitHub account (for Session 4). That's it.</span>
+          </div>
+          <div class="included-item">
+            <strong>AI Credits Included</strong>
+            <span>$20 in Claude or OpenAI credits so you can follow along with every exercise.</span>
+          </div>
+          <div class="included-item">
+            <strong>Alumni Slack</strong>
+            <span>Your cohort stays connected for job leads, mock interview partners, and accountability.</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6-Session Overview -->
+      <section class="section">
+        <p class="section-eyebrow">The Curriculum</p>
+        <h2>6 sessions. 6 deliverables. 1 complete system.</h2>
+        <p class="section-subtitle">Each session is 90 minutes of live coaching with a hands-on workshop. You leave every session with something you can use the next day.</p>
+
+        <div class="session-grid">
+
+          <a class="session-card" href="session-1.html">
+            <span class="session-number">Session 1</span>
+            <h3>Build Your AI Job-Search Engine</h3>
+            <p class="session-desc">Define what "good fit" means for you across four dimensions, then build an AI agent that finds matching roles daily.</p>
+            <div class="session-deliverable"><strong>Deliverable:</strong> Working AI agent that sources opportunities daily</div>
+          </a>
+
+          <a class="session-card" href="session-2.html">
+            <span class="session-number">Session 2</span>
+            <h3>Turn Cold Outreach into Warm Conversations</h3>
+            <p class="session-desc">Find the right people at your target companies, write messages that get replies, and practice informational interviews live.</p>
+            <div class="session-deliverable"><strong>Deliverable:</strong> 5 real outreach messages sent + 1 live role-play</div>
+          </a>
+
+          <a class="session-card" href="session-3.html">
+            <span class="session-number">Session 3</span>
+            <h3>Beat the Bots, Impress the Humans</h3>
+            <p class="session-desc">Optimize your resume for ATS systems, rebuild your LinkedIn profile for recruiter visibility, and publish your first post.</p>
+            <div class="session-deliverable"><strong>Deliverable:</strong> ATS-optimized resume + refreshed LinkedIn + published post</div>
+          </a>
+
+          <a class="session-card" href="session-4.html">
+            <span class="session-number">Session 4</span>
+            <h3>Build an AI Project That Gets You Hired</h3>
+            <p class="session-desc">Build a portfolio-ready AI project that shows hiring managers you can do more than just use ChatGPT.</p>
+            <div class="session-deliverable"><strong>Deliverable:</strong> Working AI workflow + GitHub repo + LinkedIn post draft</div>
+          </a>
+
+          <a class="session-card" href="session-5.html">
+            <span class="session-number">Session 5</span>
+            <h3>Own Your Story: Behavioral Interview Excellence</h3>
+            <p class="session-desc">Craft a compelling personal narrative, build a bank of STAR-format answers, and practice with live mock interviews.</p>
+            <div class="session-deliverable"><strong>Deliverable:</strong> Polished "tell me about yourself" script + 5 STAR answers</div>
+          </a>
+
+          <a class="session-card" href="session-6.html">
+            <span class="session-number">Session 6</span>
+            <h3>Ace Cases, Take-Homes, and Live Challenges</h3>
+            <p class="session-desc">Master a universal framework for skills assessments, complete a timed practice round, and assemble your full job search playbook.</p>
+            <div class="session-deliverable"><strong>Deliverable:</strong> Completed practice assessment + reusable framework + complete playbook</div>
+          </a>
+
+        </div>
+      </section>
+
+      <!-- After the Bootcamp -->
+      <section class="section">
+        <p class="section-eyebrow">After the Bootcamp</p>
+        <h2>Your 30-day launch plan</h2>
+        <p class="section-subtitle">The bootcamp gives you the system. The 30 days after are where you put it to work. Here's what your routine looks like.</p>
+
+        <ul class="plan-list">
+          <li><strong>Run your AI agent every morning</strong> (10 minutes). Review top matches and add the best ones to your target list.</li>
+          <li><strong>Post on LinkedIn once per week.</strong> Share insights, lessons, or updates from your search. Consistency builds visibility.</li>
+          <li><strong>Send 5-10 personalized outreach messages per week.</strong> Use the templates from Session 2. Focus on quality over quantity.</li>
+          <li><strong>Practice one mock interview per week.</strong> Use AI or a peer pod partner. Reps build confidence.</li>
+          <li><strong>Track your metrics.</strong> Applications sent, callbacks received, interviews landed, offers made. What gets measured gets managed.</li>
+          <li><strong>Stay active in the alumni Slack.</strong> Share wins, ask for advice, and hold each other accountable.</li>
+        </ul>
+      </section>
+
+
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="page-footer">
+    <div class="page-container">
+      <img
+        src="../../assets/logos/leland-logo-white.svg"
+        alt="Leland"
+        class="footer-logo"
+      >
+      <p>AI-Powered Job Search Bootcamp &middot; <a href="https://www.leland.com">leland.com</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>
