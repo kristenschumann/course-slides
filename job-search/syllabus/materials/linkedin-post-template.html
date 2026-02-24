@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LinkedIn Post Template for AI Projects | Leland Job Search Bootcamp</title>
+  <meta name="description" content="A ready-to-use template for sharing your AI project on LinkedIn. Copy, fill in the blanks, and publish.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    body { font-family: 'Inter', Arial, sans-serif; font-size: 18px; line-height: 1.6; color: #333333; background: #ffffff; }
+    .container { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+
+    /* Header */
+    .header { background: #113A2D; color: #ffffff; padding: 48px 0 56px; }
+    .header .logo { margin-bottom: 32px; }
+    .header .logo svg { width: 120px; height: auto; }
+    .nav-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px; }
+    .nav-link { font-size: 15px; font-weight: 600; color: #15B078; text-decoration: none; }
+    .nav-link:hover { opacity: 0.8; }
+    .eyebrow { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: #15B078; margin-bottom: 12px; }
+    .header h1 { font-size: 40px; font-weight: 700; line-height: 1.2; margin-bottom: 12px; }
+    .header .subtitle { font-size: 18px; color: rgba(255,255,255,0.7); line-height: 1.6; max-width: 640px; }
+
+    /* Content Sections */
+    .content-section { padding: 48px 0; border-bottom: 1px solid #E5E5E5; }
+    .content-section:last-child { border-bottom: none; }
+    .content-section h2 { font-size: 24px; font-weight: 700; margin-bottom: 20px; }
+
+    /* Prompt Box */
+    .prompt-box { position: relative; background: #F8F8F8; border-radius: 10px; padding: 24px; padding-top: 56px; }
+    .prompt-box pre { white-space: pre-wrap; word-wrap: break-word; font-family: 'Inter', Arial, sans-serif; font-size: 15px; line-height: 1.7; color: #333; margin: 0; }
+    .copy-btn { position: absolute; top: 16px; right: 16px; background: #15B078; color: #fff; border: none; font-family: 'Inter', Arial, sans-serif; font-size: 14px; font-weight: 600; padding: 8px 18px; border-radius: 6px; cursor: pointer; transition: background 0.2s; }
+    .copy-btn:hover { background: #129e6a; }
+    .copy-btn.copied { background: #113A2D; }
+
+    /* Example Cards */
+    .example-card { border-left: 3px solid #15B078; background: rgba(21, 176, 120, 0.04); border-radius: 0 8px 8px 0; padding: 24px; margin-bottom: 20px; }
+    .example-card:last-child { margin-bottom: 0; }
+    .example-card h3 { font-size: 18px; font-weight: 600; margin-bottom: 16px; }
+    .example-card pre { white-space: pre-wrap; word-wrap: break-word; font-family: 'Inter', Arial, sans-serif; font-size: 15px; line-height: 1.7; color: #333; margin: 0; }
+
+    /* Tips list */
+    .tips-list { list-style: none; padding: 0; }
+    .tips-list li { padding: 10px 0 10px 24px; position: relative; font-size: 16px; line-height: 1.6; border-bottom: 1px solid #F0F0F0; }
+    .tips-list li:last-child { border-bottom: none; }
+    .tips-list li::before { content: ""; position: absolute; left: 0; top: 18px; width: 8px; height: 8px; border-radius: 50%; background: #15B078; }
+
+    /* Footer */
+    .footer { padding: 32px 0; background: #0D2E23; text-align: center; }
+    .footer svg { width: 80px; height: auto; opacity: 0.5; margin-bottom: 8px; }
+    .footer p { font-size: 14px; color: rgba(255,255,255,0.35); }
+
+    /* Bottom Nav */
+    .bottom-nav { display: flex; justify-content: space-between; align-items: center; padding: 32px 0; }
+    .bottom-nav a { font-size: 15px; font-weight: 600; color: #15B078; text-decoration: none; }
+    .bottom-nav a:hover { opacity: 0.8; }
+
+    /* Responsive */
+    @media (max-width: 700px) {
+      .header h1 { font-size: 28px; }
+      .nav-row { flex-direction: column; gap: 8px; align-items: flex-start; }
+      .prompt-box { padding: 16px; padding-top: 52px; }
+      .prompt-box pre, .example-card pre { font-size: 14px; }
+      .example-card { padding: 16px; }
+    }
+
+    /* Print */
+    @media print {
+      .header { background: none !important; color: #000 !important; padding: 24px 0; }
+      .header h1, .header .subtitle, .eyebrow { color: #000 !important; }
+      .nav-row, .bottom-nav, .footer, .copy-btn { display: none !important; }
+      .header .logo svg path { fill: #113A2D !important; }
+      body { font-size: 12pt; color: #000; }
+      .content-section { border-bottom-color: #ccc; }
+      .prompt-box { background: #f5f5f5 !important; border: 1px solid #ccc; padding-top: 24px; }
+      .example-card { background: #f9f9f9 !important; border-left-color: #333; }
+      a { color: #000 !important; text-decoration: underline; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <svg width="200" height="45" viewBox="0 0 200 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z" fill="white"/>
+          <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z" fill="white"/>
+          <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z" fill="white"/>
+          <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z" fill="white"/>
+          <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z" fill="white"/>
+          <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z" fill="white"/>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z" fill="white"/>
+        </svg>
+      </div>
+
+      <div class="nav-row">
+        <a href="../session-4.html" class="nav-link">&larr; Back to Session 4</a>
+        <a href="../index.html" class="nav-link">Back to Syllabus &rarr;</a>
+      </div>
+
+      <p class="eyebrow">Session 4 Resource</p>
+      <h1>LinkedIn Post Template for AI Projects</h1>
+      <p class="subtitle">A ready-to-use template for sharing your AI project on LinkedIn. Copy, fill in the blanks, and publish.</p>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+
+      <!-- THE TEMPLATE -->
+      <div class="content-section">
+        <h2>The Template</h2>
+        <p style="font-size: 16px; color: #707070; margin-bottom: 20px;">Copy this template, replace the bracketed sections with your details, and post it to LinkedIn.</p>
+
+        <div class="prompt-box" id="prompt-box">
+          <button class="copy-btn" id="copy-btn" onclick="copyPrompt()">Copy</button>
+          <pre id="prompt-text">[HOOK — one compelling line that makes people stop scrolling]
+
+I just built [WHAT YOU BUILT — one sentence].
+
+Here's why: [THE PROBLEM — 1-2 sentences explaining the pain point you solved]
+
+What it does:
+→ [STEP/FEATURE 1]
+→ [STEP/FEATURE 2]
+→ [STEP/FEATURE 3]
+
+The result: [QUANTIFIED OUTCOME — time saved, accuracy improved, etc.]
+
+What I learned: [ONE KEY INSIGHT about building with AI]
+
+[CALL TO ACTION — question or invitation]
+
+🔗 [Link to GitHub repo or demo]
+
+#AI #[YourIndustry] #CareerGrowth</pre>
+        </div>
+      </div>
+
+      <!-- EXAMPLE POSTS -->
+      <div class="content-section">
+        <h2>Example Posts</h2>
+        <p style="font-size: 16px; color: #707070; margin-bottom: 20px;">Two real-world examples showing how the template looks when filled in. Use these as inspiration for your own post.</p>
+
+        <div class="example-card">
+          <h3>Example 1: Data Analysis Project</h3>
+          <pre>I spent 4 hours every week copy-pasting data between spreadsheets. So I built an AI workflow that does it in 30 seconds.
+
+Here's why: My team needed weekly competitive pricing reports, but the data came from 5 different sources in 5 different formats. Every Monday was "spreadsheet hell."
+
+What it does:
+→ Pulls pricing data from 5 competitor websites automatically
+→ Normalizes formats and flags price changes >5%
+→ Generates a clean summary report with key insights
+
+The result: 4 hours → 30 seconds. That's 200+ hours saved per year.
+
+What I learned: The hardest part of AI isn't the technology—it's defining exactly what "done" looks like before you start building.
+
+What repetitive task are you spending hours on that could be automated? I'd love to hear.
+
+🔗 github.com/yourname/pricing-analyzer
+
+#AI #DataAnalysis #Automation</pre>
+        </div>
+
+        <div class="example-card">
+          <h3>Example 2: Content/Operations Project</h3>
+          <pre>My team reviews 50+ customer support tickets every morning. I built an AI agent that triages them before anyone starts their coffee.
+
+Here's why: We were spending the first hour of every day just sorting and prioritizing tickets. Critical issues sometimes waited 2+ hours while we manually scanned everything.
+
+What it does:
+→ Reads incoming tickets and classifies urgency (Critical/High/Medium/Low)
+→ Routes each ticket to the right team based on topic
+→ Generates a morning brief: top issues, trends, and suggested responses
+
+The result: Response time to critical issues dropped from 2.5 hours to 15 minutes.
+
+What I learned: AI is best at the boring, repetitive work that drains your team's energy for the work that actually matters.
+
+What's the first task you'd automate if you could? Drop it below.
+
+🔗 github.com/yourname/ticket-triage-ai
+
+#AI #Operations #CustomerSuccess</pre>
+        </div>
+      </div>
+
+      <!-- TIPS -->
+      <div class="content-section">
+        <h2>Tips for LinkedIn Posts About AI Projects</h2>
+        <ul class="tips-list">
+          <li><strong>The hook is everything.</strong> Write 5 versions and pick the most specific one. Generic hooks like "AI is changing everything" get scrolled past instantly.</li>
+          <li><strong>Lead with the problem, not the technology.</strong> "I automated a 4-hour task" beats "I built a Python script using the OpenAI API." People care about outcomes, not tools.</li>
+          <li><strong>Include a number.</strong> Posts with quantified results get 2-3x more engagement. Time saved, accuracy improved, hours reclaimed — pick the most impressive metric.</li>
+          <li><strong>End with a genuine question, not a generic "thoughts?"</strong> Ask something people have an opinion about. "What repetitive task would you automate first?" invites real responses.</li>
+          <li><strong>Post Tuesday-Thursday, 8-10 AM.</strong> Engage with every comment for the first hour. The algorithm rewards early engagement, and your replies keep the post visible longer.</li>
+        </ul>
+      </div>
+
+      <!-- BOTTOM NAV -->
+      <div class="bottom-nav">
+        <a href="../session-4.html">&larr; Back to Session 4</a>
+        <a href="../index.html">Back to Syllabus &rarr;</a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <svg width="200" height="45" viewBox="0 0 200 45" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Leland">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z" fill="white"/>
+        <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z" fill="white"/>
+        <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z" fill="white"/>
+        <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z" fill="white"/>
+        <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z" fill="white"/>
+        <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z" fill="white"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z" fill="white"/>
+      </svg>
+      <p>&copy; 2026 Leland</p>
+    </div>
+  </footer>
+
+  <script>
+    function copyPrompt() {
+      var text = document.getElementById('prompt-text').textContent;
+      var btn = document.getElementById('copy-btn');
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function() {
+          btn.textContent = 'Copied!';
+          btn.classList.add('copied');
+          setTimeout(function() {
+            btn.textContent = 'Copy';
+            btn.classList.remove('copied');
+          }, 2000);
+        });
+      } else {
+        var textarea = document.createElement('textarea');
+        textarea.value = text;
+        textarea.style.position = 'fixed';
+        textarea.style.opacity = '0';
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+        btn.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(function() {
+          btn.textContent = 'Copy';
+          btn.classList.remove('copied');
+        }, 2000);
+      }
+    }
+  </script>
+
+</body>
+</html>

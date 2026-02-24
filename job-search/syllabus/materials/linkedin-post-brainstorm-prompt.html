@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LinkedIn Post Brainstorm Prompt — Session 3 | Leland Job Search Bootcamp</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #333333;
+      line-height: 1.6;
+      background: #FFFFFF;
+    }
+
+    /* ── Header ── */
+    .site-header {
+      background: #113A2D;
+      color: #FFFFFF;
+      padding: 48px 24px 56px;
+    }
+    .site-header .container {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .header-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .header-nav a {
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .header-nav a:hover { color: #FFFFFF; }
+    .header-logo { margin-bottom: 32px; }
+    .header-logo svg { display: block; }
+    .eyebrow {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #15B078;
+      margin-bottom: 12px;
+    }
+    .site-header h1 {
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+    .site-header .subtitle {
+      font-size: 17px;
+      line-height: 1.55;
+      color: rgba(255,255,255,0.8);
+      max-width: 680px;
+    }
+
+    /* ── Main ── */
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    main { padding: 56px 0 80px; }
+
+    section { margin-bottom: 56px; }
+    section:last-child { margin-bottom: 0; }
+
+    h2 {
+      font-size: 26px;
+      font-weight: 700;
+      color: #113A2D;
+      margin-bottom: 20px;
+    }
+    h3 {
+      font-size: 18px;
+      font-weight: 600;
+      color: #113A2D;
+      margin-bottom: 10px;
+    }
+    p { margin-bottom: 16px; }
+
+    /* ── Prompt Box ── */
+    .prompt-box {
+      background: #F8F8F8;
+      border: 1px solid #E5E5E5;
+      border-radius: 10px;
+      padding: 28px 32px;
+      position: relative;
+    }
+    .prompt-box pre {
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      line-height: 1.7;
+      color: #333333;
+    }
+    .copy-btn {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: #113A2D;
+      color: #FFFFFF;
+      border: none;
+      border-radius: 6px;
+      padding: 8px 16px;
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .copy-btn:hover { background: #15B078; }
+
+    /* ── Format Cards ── */
+    .format-cards {
+      display: grid;
+      gap: 24px;
+    }
+    .format-card {
+      background: #FFFFFF;
+      border: 1px solid #E5E5E5;
+      border-radius: 12px;
+      padding: 32px;
+      transition: box-shadow 0.2s;
+    }
+    .format-card:hover {
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+    .format-badge {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #FFFFFF;
+      background: #15B078;
+      border-radius: 4px;
+      padding: 4px 12px;
+      margin-bottom: 14px;
+    }
+    .format-card h3 {
+      font-size: 22px;
+      margin-bottom: 14px;
+    }
+    .format-structure {
+      font-size: 14px;
+      font-weight: 600;
+      color: #707070;
+      margin-bottom: 16px;
+    }
+    .format-structure span {
+      color: #15B078;
+    }
+    .format-card .description {
+      font-size: 15px;
+      color: #333333;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+    .example-block {
+      background: #F8F8F8;
+      border-left: 3px solid #15B078;
+      border-radius: 0 8px 8px 0;
+      padding: 16px 20px;
+      font-size: 15px;
+      font-style: italic;
+      color: #333333;
+      line-height: 1.6;
+    }
+    .example-label {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #707070;
+      margin-bottom: 8px;
+      font-style: normal;
+    }
+
+    /* ── Tips ── */
+    .tip-list { list-style: none; padding: 0; }
+    .tip-list li {
+      padding: 14px 20px;
+      background: #F8F8F8;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      font-size: 15px;
+      line-height: 1.55;
+      position: relative;
+      padding-left: 48px;
+    }
+    .tip-list li::before {
+      content: "→";
+      position: absolute;
+      left: 20px;
+      top: 14px;
+      color: #15B078;
+      font-weight: 700;
+      font-size: 16px;
+    }
+
+    /* ── Footer ── */
+    .site-footer {
+      background: #113A2D;
+      color: rgba(255,255,255,0.7);
+      padding: 40px 24px;
+      text-align: center;
+    }
+    .site-footer .container { max-width: 860px; margin: 0 auto; }
+    .site-footer svg { margin-bottom: 16px; opacity: 0.7; }
+    .site-footer p { font-size: 14px; margin-bottom: 0; }
+
+    /* ── Responsive ── */
+    @media (max-width: 700px) {
+      .site-header { padding: 32px 20px 40px; }
+      .site-header h1 { font-size: 28px; }
+      .site-header .subtitle { font-size: 15px; }
+      .prompt-box { padding: 20px; }
+      .prompt-box pre { font-size: 13px; }
+      .format-card { padding: 24px; }
+      .format-card h3 { font-size: 19px; }
+      main { padding: 40px 0 60px; }
+      h2 { font-size: 22px; }
+    }
+
+    /* ── Print ── */
+    @media print {
+      .site-header { background: #113A2D !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .site-footer { background: #113A2D !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .copy-btn { display: none; }
+      .format-card, .prompt-box, .tip-list li { break-inside: avoid; }
+      body { font-size: 12px; }
+      main { padding: 32px 0; }
+      section { margin-bottom: 36px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ════════ HEADER ════════ -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="header-nav">
+        <a href="../session-3.html">&larr; Back to Session 3</a>
+        <a href="../index.html">Back to Syllabus &rarr;</a>
+      </nav>
+      <div class="header-logo">
+        <svg width="200" height="45" viewBox="0 0 200 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z" fill="white"/>
+          <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z" fill="white"/>
+          <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z" fill="white"/>
+          <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z" fill="white"/>
+          <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z" fill="white"/>
+          <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z" fill="white"/>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z" fill="white"/>
+        </svg>
+      </div>
+      <p class="eyebrow">Session 3 Resource</p>
+      <h1>LinkedIn Post Brainstorm Prompt</h1>
+      <p class="subtitle">Generate compelling post ideas from your career story, then write using three proven formats that drive engagement.</p>
+    </div>
+  </header>
+
+  <!-- ════════ MAIN ════════ -->
+  <main>
+    <div class="container">
+
+      <!-- Section 1: The Brainstorm Prompt -->
+      <section>
+        <h2>The Brainstorm Prompt</h2>
+        <p>Copy this prompt into ChatGPT or Claude. Replace the bracketed sections with your background, and you will get five tailored post ideas ready to draft.</p>
+        <div class="prompt-box">
+          <button class="copy-btn" onclick="copyPrompt(this)">Copy Prompt</button>
+          <pre id="brainstorm-prompt">I want to start posting on LinkedIn to build my professional brand during my job search. Help me brainstorm 5 post ideas based on my background.
+
+MY BACKGROUND:
+Current/recent role: [YOUR ROLE]
+Industry: [YOUR INDUSTRY]
+Key accomplishments: [LIST 3-5 THINGS YOU'RE PROUD OF]
+Skills/expertise: [YOUR TOP SKILLS]
+Career transition (if applicable): [WHAT YOU'RE MOVING FROM/TO]
+Interests/opinions: [WHAT DO YOU HAVE STRONG VIEWS ON IN YOUR FIELD?]
+
+For each post idea, provide:
+1. A compelling first line (the hook that makes people stop scrolling)
+2. The post format (Insight Post, Career Story, or Industry Take)
+3. A 2-sentence summary of what the post would cover
+4. Why this post would resonate with hiring managers and peers</pre>
+        </div>
+      </section>
+
+      <!-- Section 2: Three Post Formats -->
+      <section>
+        <h2>Three Post Formats That Work</h2>
+        <p>These three formats consistently drive engagement on LinkedIn. Each one works because it delivers value while showcasing your expertise to hiring managers.</p>
+
+        <div class="format-cards">
+
+          <!-- Insight Post -->
+          <div class="format-card">
+            <span class="format-badge">Format 1</span>
+            <h3>Insight Post</h3>
+            <p class="format-structure">
+              <span>Hook</span> &rarr; Context &rarr; <span>The Insight</span> &rarr; Why It Matters &rarr; <span>Question</span>
+            </p>
+            <p class="description">Share a lesson from your work. This format positions you as someone who doesn't just do the work -- you think deeply about it. Pick a moment where you learned something counterintuitive, saved time, or changed your approach.</p>
+            <div class="example-block">
+              <div class="example-label">Example Hook</div>
+              "I automated a 4-hour weekly report into a 10-minute process. Here's what that taught me about the difference between being busy and being productive..."
+            </div>
+          </div>
+
+          <!-- Career Story -->
+          <div class="format-card">
+            <span class="format-badge">Format 2</span>
+            <h3>Career Story</h3>
+            <p class="format-structure">
+              <span>Hook</span> &rarr; The Situation &rarr; <span>What You Did</span> &rarr; What Changed &rarr; <span>The Lesson</span>
+            </p>
+            <p class="description">Share a turning point or challenge. Career stories are the highest-engagement format on LinkedIn because they are relatable and human. Vulnerability wins -- talk about a failure, a pivot, or a moment of doubt.</p>
+            <div class="example-block">
+              <div class="example-label">Example Hook</div>
+              "Two years ago, I was rejected from my dream job. It was the best thing that happened to my career. Here's why..."
+            </div>
+          </div>
+
+          <!-- Industry Take -->
+          <div class="format-card">
+            <span class="format-badge">Format 3</span>
+            <h3>Industry Take</h3>
+            <p class="format-structure">
+              <span>Bold Statement</span> &rarr; Why Most Get It Wrong &rarr; <span>Your Perspective</span> &rarr; Evidence &rarr; <span>Call to Discussion</span>
+            </p>
+            <p class="description">Share a perspective on your field. This format works because it sparks debate and positions you as a thought leader. The key: don't be contrarian for the sake of it. Share a genuine belief backed by your experience.</p>
+            <div class="example-block">
+              <div class="example-label">Example Hook</div>
+              "Hot take: Most companies don't have a data problem. They have a 'nobody knows what question to ask' problem..."
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Section 3: Posting Tips -->
+      <section>
+        <h2>Posting Tips</h2>
+        <ul class="tip-list">
+          <li><strong>Post Tuesday through Thursday, 8-10 AM in your timezone.</strong> This is when LinkedIn engagement peaks. Avoid weekends and Monday mornings when feeds are flooded.</li>
+          <li><strong>Your first line is everything.</strong> It is the only thing people see before "...see more." Treat it like an email subject line -- if it does not spark curiosity, nobody clicks.</li>
+          <li><strong>End with a question to drive comments.</strong> LinkedIn's algorithm rewards posts that generate conversation. A specific question ("What's your version of this?") outperforms a generic one ("Thoughts?").</li>
+          <li><strong>Aim for 1 post per week.</strong> Consistency beats volume. One thoughtful post weekly builds more credibility than daily posts that feel rushed or forced.</li>
+          <li><strong>Engage with 5-10 posts before and after you publish.</strong> Comment meaningfully on others' content in the 30 minutes surrounding your post. This signals to LinkedIn's algorithm that you are an active participant, not just a broadcaster.</li>
+        </ul>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ════════ FOOTER ════════ -->
+  <footer class="site-footer">
+    <div class="container">
+      <svg width="120" height="27" viewBox="0 0 200 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z" fill="white"/>
+        <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z" fill="white"/>
+        <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z" fill="white"/>
+        <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z" fill="white"/>
+        <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z" fill="white"/>
+        <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z" fill="white"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z" fill="white"/>
+      </svg>
+      <p>Leland Job Search Bootcamp &middot; Session 3: LinkedIn &amp; Personal Branding</p>
+    </div>
+  </footer>
+
+  <script>
+    function copyPrompt(btn) {
+      const text = document.getElementById('brainstorm-prompt').textContent;
+      navigator.clipboard.writeText(text).then(() => {
+        btn.textContent = 'Copied!';
+        setTimeout(() => { btn.textContent = 'Copy Prompt'; }, 2000);
+      });
+    }
+  </script>
+
+</body>
+</html>

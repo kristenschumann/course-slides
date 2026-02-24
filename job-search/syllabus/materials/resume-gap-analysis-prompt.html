@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume Gap Analysis Prompt | Leland Job Search Bootcamp</title>
+  <meta name="description" content="AI prompt for resume gap analysis: keyword matching, skills gap identification, bullet rewrites, and a curated action verbs reference.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    body { font-family: 'Inter', Arial, sans-serif; font-size: 18px; line-height: 1.6; color: #333333; background: #ffffff; }
+    .container { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+
+    .header { background: #113A2D; color: #ffffff; padding: 48px 0 56px; }
+    .header .logo { margin-bottom: 32px; }
+    .header .logo svg { width: 120px; height: auto; }
+    .nav-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px; }
+    .nav-link { font-size: 15px; font-weight: 600; color: #15B078; text-decoration: none; }
+    .nav-link:hover { opacity: 0.8; }
+    .eyebrow { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: #15B078; margin-bottom: 12px; }
+    .header h1 { font-size: 40px; font-weight: 700; line-height: 1.2; margin-bottom: 12px; }
+    .header .subtitle { font-size: 18px; color: rgba(255,255,255,0.7); line-height: 1.6; max-width: 640px; }
+
+    .section-label { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #707070; margin-bottom: 12px; }
+    .content-section { padding: 48px 0; border-bottom: 1px solid #E5E5E5; }
+    .content-section:last-child { border-bottom: none; }
+    .content-section h2 { font-size: 24px; font-weight: 700; margin-bottom: 20px; }
+
+    .info-box { background: rgba(21, 176, 120, 0.06); border-radius: 10px; padding: 24px; }
+    .info-box ul { list-style: none; padding: 0; }
+    .info-box li { padding-left: 24px; position: relative; margin-bottom: 10px; font-size: 16px; line-height: 1.5; }
+    .info-box li:last-child { margin-bottom: 0; }
+    .info-box li::before { content: ""; position: absolute; left: 0; top: 8px; width: 8px; height: 8px; border-radius: 50%; background: #15B078; }
+
+    .prompt-box { background: #F8F8F8; border-radius: 10px; padding: 24px 24px 16px; position: relative; }
+    .prompt-box pre { white-space: pre-wrap; word-wrap: break-word; font-family: 'Inter', Arial, sans-serif; font-size: 15px; line-height: 1.7; color: #333; margin: 0; }
+    .prompt-box .placeholder { color: #15B078; font-weight: 600; }
+    .copy-btn { position: absolute; top: 16px; right: 16px; background: #113A2D; color: #fff; border: none; padding: 8px 16px; border-radius: 6px; font-family: 'Inter', Arial, sans-serif; font-size: 13px; font-weight: 600; cursor: pointer; transition: background 0.2s; }
+    .copy-btn:hover { background: #15B078; }
+    .copy-btn.copied { background: #15B078; }
+    .prompt-label { font-size: 14px; color: #707070; margin-top: 16px; padding-top: 12px; border-top: 1px solid #E5E5E5; }
+
+    .verb-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .verb-card { background: #F8F8F8; border-radius: 10px; padding: 20px; }
+    .verb-card h4 { font-size: 16px; font-weight: 700; margin-bottom: 8px; color: #113A2D; }
+    .verb-card p { font-size: 15px; color: #555; line-height: 1.6; }
+
+    .tips-list { list-style: none; padding: 0; }
+    .tips-list li { padding-left: 24px; position: relative; margin-bottom: 12px; font-size: 16px; line-height: 1.5; }
+    .tips-list li:last-child { margin-bottom: 0; }
+    .tips-list li::before { content: ""; position: absolute; left: 0; top: 8px; width: 8px; height: 8px; border-radius: 50%; background: #15B078; }
+
+    .bottom-nav { display: flex; justify-content: space-between; align-items: center; padding: 32px 0; }
+    .bottom-nav a { font-size: 15px; font-weight: 600; color: #15B078; text-decoration: none; }
+    .bottom-nav a:hover { opacity: 0.8; }
+
+    .footer { padding: 32px 0; background: #0D2E23; text-align: center; }
+    .footer svg { width: 80px; height: auto; opacity: 0.5; margin-bottom: 8px; }
+    .footer p { font-size: 14px; color: rgba(255,255,255,0.35); }
+
+    @media (max-width: 700px) {
+      .header h1 { font-size: 28px; }
+      .nav-row { flex-direction: column; gap: 8px; align-items: flex-start; }
+      .verb-grid { grid-template-columns: 1fr; }
+    }
+
+    @media print {
+      .header { background: #113A2D !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .copy-btn { display: none; }
+      .footer { background: #0D2E23 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .info-box, .prompt-box, .verb-card { break-inside: avoid; }
+      .content-section { page-break-inside: avoid; }
+      body { font-size: 14px; }
+      .container { max-width: 100%; padding: 0 16px; }
+      .nav-row, .bottom-nav { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <svg width="200" height="45" viewBox="0 0 200 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z" fill="white"/>
+          <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z" fill="white"/>
+          <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z" fill="white"/>
+          <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z" fill="white"/>
+          <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z" fill="white"/>
+          <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z" fill="white"/>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z" fill="white"/>
+        </svg>
+      </div>
+
+      <div class="nav-row">
+        <a href="../session-3.html" class="nav-link">&larr; Back to Session 3</a>
+        <a href="../index.html" class="nav-link">Back to Syllabus &rarr;</a>
+      </div>
+
+      <p class="eyebrow">Session 3 Resource</p>
+      <h1>Resume Gap Analysis Prompt</h1>
+      <p class="subtitle">Use AI to compare your resume against any job posting. Get keyword match analysis, missing skills identification, and rewritten bullets.</p>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+
+      <!-- SECTION 1: THE ATS 80/20 RULE -->
+      <div class="content-section">
+        <h2>The ATS 80/20 Rule</h2>
+        <div class="info-box">
+          <ul>
+            <li>75% of resumes are rejected by ATS before a human sees them</li>
+            <li>The top factors: job title match, skills keyword alignment, clean formatting</li>
+            <li>Focus on the 20% that matters most: title, hard skills, and quantified results</li>
+            <li>ATS doesn't penalize for extra content &mdash; it rewards for keyword matches</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- SECTION 2: THE PROMPT -->
+      <div class="content-section">
+        <h2>The Prompt</h2>
+        <p style="font-size: 16px; color: #707070; margin-bottom: 20px;">Copy this prompt into ChatGPT, Claude, or any AI tool. Paste your resume and target job posting where indicated.</p>
+
+        <div class="prompt-box">
+          <button class="copy-btn" onclick="copyPrompt(this)" aria-label="Copy prompt to clipboard">Copy</button>
+          <pre id="prompt-text">I need you to perform a detailed gap analysis between my resume and a target job posting.
+
+INSTRUCTIONS:
+1. Compare my resume against the job posting
+2. Identify keyword matches and gaps
+3. Suggest specific rewrites for my weakest bullets
+4. Score my overall match
+
+MY RESUME:
+<span class="placeholder">[PASTE YOUR FULL RESUME TEXT HERE]</span>
+
+TARGET JOB POSTING:
+<span class="placeholder">[PASTE THE FULL JOB POSTING HERE]</span>
+
+ANALYSIS REQUESTED:
+
+1. KEYWORD MATCH ANALYSIS
+   - List all keywords/skills from the job posting
+   - Mark each as: &#x2705; Found in resume | &#x274C; Missing | &#x26A0;&#xFE0F; Partially matched
+   - Calculate overall match percentage
+
+2. SKILLS GAP IDENTIFICATION
+   - Hard skills missing from my resume that appear in the posting
+   - Soft skills emphasized in the posting but absent from my resume
+   - Industry-specific terminology I should incorporate
+
+3. BULLET REWRITES (Top 5)
+   - For my 5 weakest resume bullets, provide a rewritten version that:
+     a) Incorporates missing keywords naturally
+     b) Starts with a strong action verb
+     c) Includes a quantified result (ask me for numbers if needed)
+     d) Answers "so what?" &mdash; why this accomplishment mattered
+
+4. TITLE AND SUMMARY ALIGNMENT
+   - Does my resume title/headline match the job posting's title?
+   - Suggested headline rewrite if needed
+   - 2-3 sentence summary optimized for this role
+
+5. OVERALL ASSESSMENT
+   - Match score: __/100
+   - Top 3 strengths (what already aligns well)
+   - Top 3 gaps (what to address first)
+   - Honest verdict: Ready to apply / Needs moderate work / Significant gap</pre>
+          <p class="prompt-label">Works with ChatGPT, Claude, Gemini, or any AI assistant.</p>
+        </div>
+      </div>
+
+      <!-- SECTION 3: ACTION VERBS -->
+      <div class="content-section">
+        <h2>Action Verbs by Category</h2>
+        <p style="font-size: 16px; color: #707070; margin-bottom: 20px;">Replace weak verbs like "responsible for" and "helped with." Start every bullet with one of these.</p>
+
+        <div class="verb-grid">
+          <div class="verb-card">
+            <h4>Leadership &amp; Management</h4>
+            <p>Directed, Spearheaded, Orchestrated, Championed, Oversaw, Mentored, Mobilized, Cultivated</p>
+          </div>
+          <div class="verb-card">
+            <h4>Achievement &amp; Results</h4>
+            <p>Achieved, Delivered, Exceeded, Generated, Accelerated, Maximized, Surpassed, Captured</p>
+          </div>
+          <div class="verb-card">
+            <h4>Analysis &amp; Strategy</h4>
+            <p>Analyzed, Assessed, Evaluated, Identified, Forecasted, Mapped, Diagnosed, Synthesized</p>
+          </div>
+          <div class="verb-card">
+            <h4>Creation &amp; Innovation</h4>
+            <p>Designed, Developed, Built, Launched, Pioneered, Architected, Engineered, Established</p>
+          </div>
+          <div class="verb-card">
+            <h4>Improvement &amp; Optimization</h4>
+            <p>Streamlined, Optimized, Transformed, Revamped, Elevated, Modernized, Consolidated, Restructured</p>
+          </div>
+          <div class="verb-card">
+            <h4>Communication &amp; Influence</h4>
+            <p>Presented, Negotiated, Persuaded, Articulated, Influenced, Advocated, Facilitated, Brokered</p>
+          </div>
+          <div class="verb-card">
+            <h4>Collaboration</h4>
+            <p>Partnered, Coordinated, Aligned, Integrated, Unified, Collaborated</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 4: TIPS -->
+      <div class="content-section">
+        <h2>Tips for Using This Prompt</h2>
+        <ul class="tips-list">
+          <li>Run this prompt for each job you're seriously considering, not every posting you see</li>
+          <li>Focus on closing the top 3 gaps &mdash; you don't need 100% keyword match</li>
+          <li>Use the rewritten bullets as a starting point, then edit in your voice</li>
+          <li>Keep a "master resume" with all bullets, then customize for each application</li>
+          <li>Re-run the analysis after making changes to verify improvement</li>
+        </ul>
+      </div>
+
+      <!-- BOTTOM NAV -->
+      <div class="bottom-nav">
+        <a href="../session-3.html">&larr; Back to Session 3</a>
+        <a href="../index.html">Back to Syllabus &rarr;</a>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <svg width="200" height="45" viewBox="0 0 200 45" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Leland">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z" fill="white"/>
+        <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z" fill="white"/>
+        <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z" fill="white"/>
+        <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z" fill="white"/>
+        <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z" fill="white"/>
+        <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z" fill="white"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z" fill="white"/>
+      </svg>
+      <p>&copy; 2026 Leland</p>
+    </div>
+  </footer>
+
+  <script>
+    function copyPrompt(btn) {
+      var el = document.getElementById('prompt-text');
+      var text = el.innerText || el.textContent;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function() {
+          btn.textContent = 'Copied!';
+          btn.classList.add('copied');
+          setTimeout(function() { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+        });
+      } else {
+        var range = document.createRange();
+        range.selectNodeContents(el);
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(range);
+        document.execCommand('copy');
+        sel.removeAllRanges();
+        btn.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(function() { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+      }
+    }
+  </script>
+
+</body>
+</html>

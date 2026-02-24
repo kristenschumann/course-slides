@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assessment Framework Reference | Leland Job Search Bootcamp</title>
+  <meta name="description" content="A one-page reference card for the 5-step framework that works for case studies, take-home projects, and presentations.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    body { font-family: 'Inter', Arial, sans-serif; font-size: 18px; line-height: 1.6; color: #333333; background: #ffffff; }
+    .container { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+
+    /* Header */
+    .header { background: #113A2D; color: #ffffff; padding: 48px 0 56px; }
+    .header .logo { margin-bottom: 32px; }
+    .header .logo svg { width: 120px; height: auto; }
+    .nav-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px; }
+    .nav-link { font-size: 15px; font-weight: 600; color: #15B078; text-decoration: none; }
+    .nav-link:hover { opacity: 0.8; }
+    .eyebrow { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: #15B078; margin-bottom: 12px; }
+    .header h1 { font-size: 40px; font-weight: 700; line-height: 1.2; margin-bottom: 12px; }
+    .header .subtitle { font-size: 18px; color: rgba(255,255,255,0.7); line-height: 1.6; max-width: 640px; }
+
+    /* Content Sections */
+    .content-section { padding: 48px 0; border-bottom: 1px solid #E5E5E5; }
+    .content-section:last-child { border-bottom: none; }
+    .content-section h2 { font-size: 24px; font-weight: 700; margin-bottom: 20px; }
+
+    /* Framework Steps */
+    .framework-steps { display: flex; flex-direction: column; gap: 16px; }
+    .step-card { background: #F8F8F8; border-radius: 10px; padding: 24px; position: relative; padding-left: 80px; }
+    .step-number { position: absolute; left: 24px; top: 24px; width: 40px; height: 40px; border-radius: 50%; background: #15B078; color: #fff; font-size: 18px; font-weight: 700; display: flex; align-items: center; justify-content: center; line-height: 1; }
+    .step-header { display: flex; align-items: baseline; gap: 10px; margin-bottom: 8px; }
+    .step-card h3 { font-size: 20px; font-weight: 700; color: #113A2D; }
+    .step-time { font-size: 14px; font-weight: 600; color: #15B078; }
+    .step-card > p { font-size: 16px; line-height: 1.6; color: #333; margin-bottom: 10px; }
+    .step-mistake { font-size: 14px; color: #707070; line-height: 1.5; }
+    .step-mistake strong { color: #333; }
+
+    /* Assessment Type Table */
+    .table-wrap { overflow-x: auto; margin-top: 4px; }
+    .ref-table { width: 100%; border-collapse: collapse; font-size: 15px; }
+    .ref-table th { text-align: left; font-weight: 700; font-size: 14px; color: #113A2D; padding: 12px 16px; background: #F8F8F8; border-bottom: 2px solid #E5E5E5; }
+    .ref-table td { padding: 14px 16px; border-bottom: 1px solid #E5E5E5; vertical-align: top; line-height: 1.5; color: #333; }
+    .ref-table tr:last-child td { border-bottom: none; }
+    .ref-table td:first-child { font-weight: 600; color: #113A2D; white-space: nowrap; }
+
+    /* Checklist */
+    .checklist-group { margin-bottom: 24px; }
+    .checklist-group:last-child { margin-bottom: 0; }
+    .checklist-group h3 { font-size: 18px; font-weight: 700; color: #113A2D; margin-bottom: 12px; }
+    .checklist { list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; }
+    .checklist li { font-size: 15px; line-height: 1.5; padding-left: 28px; position: relative; color: #333; }
+    .checklist li::before { content: ""; position: absolute; left: 0; top: 4px; width: 16px; height: 16px; border: 2px solid #E5E5E5; border-radius: 3px; background: #fff; }
+
+    /* Footer */
+    .footer { padding: 32px 0; background: #0D2E23; text-align: center; }
+    .footer svg { width: 80px; height: auto; opacity: 0.5; margin-bottom: 8px; }
+    .footer p { font-size: 14px; color: rgba(255,255,255,0.35); }
+
+    /* Bottom Nav */
+    .bottom-nav { display: flex; justify-content: space-between; align-items: center; padding: 32px 0; }
+    .bottom-nav a { font-size: 15px; font-weight: 600; color: #15B078; text-decoration: none; }
+    .bottom-nav a:hover { opacity: 0.8; }
+
+    /* Responsive */
+    @media (max-width: 700px) {
+      .header h1 { font-size: 28px; }
+      .nav-row { flex-direction: column; gap: 8px; align-items: flex-start; }
+      .step-card { padding-left: 24px; padding-top: 72px; }
+      .step-number { top: 24px; left: 24px; }
+      .checklist { grid-template-columns: 1fr; }
+      .ref-table { font-size: 14px; }
+      .ref-table th, .ref-table td { padding: 10px 12px; }
+    }
+
+    /* Print */
+    @media print {
+      .header { background: none !important; color: #000 !important; padding: 24px 0; }
+      .header h1, .header .subtitle, .eyebrow { color: #000 !important; }
+      .nav-row, .bottom-nav, .footer { display: none !important; }
+      .header .logo svg path { fill: #113A2D !important; }
+      body { font-size: 11pt; color: #000; }
+      .content-section { border-bottom-color: #ccc; page-break-inside: avoid; }
+      .step-card { background: #f5f5f5 !important; border: 1px solid #ddd; }
+      .step-number { background: #333 !important; }
+      .ref-table th { background: #eee !important; }
+      .checklist li::before { border-color: #999; }
+      a { color: #000 !important; text-decoration: underline; }
+      .framework-steps { gap: 10px; }
+      .step-card { padding: 16px 16px 16px 64px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <svg width="200" height="45" viewBox="0 0 200 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z" fill="white"/>
+          <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z" fill="white"/>
+          <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z" fill="white"/>
+          <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z" fill="white"/>
+          <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z" fill="white"/>
+          <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z" fill="white"/>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z" fill="white"/>
+        </svg>
+      </div>
+
+      <div class="nav-row">
+        <a href="../session-6.html" class="nav-link">&larr; Back to Session 6</a>
+        <a href="../index.html" class="nav-link">Back to Syllabus &rarr;</a>
+      </div>
+
+      <p class="eyebrow">Session 6 Resource</p>
+      <h1>Assessment Framework Reference</h1>
+      <p class="subtitle">A one-page reference card for the 5-step framework that works for case studies, take-home projects, and presentations.</p>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+
+      <!-- THE 5-STEP FRAMEWORK -->
+      <div class="content-section">
+        <h2>The 5-Step Framework</h2>
+
+        <div class="framework-steps">
+          <div class="step-card">
+            <div class="step-number">1</div>
+            <div class="step-header">
+              <h3>Clarify</h3>
+              <span class="step-time">5-10% of time</span>
+            </div>
+            <p>Read the brief twice. List your assumptions. Identify exactly what "done" looks like. Ask clarifying questions if you can.</p>
+            <p class="step-mistake"><strong>Common mistake:</strong> Jumping in before understanding the real question.</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">2</div>
+            <div class="step-header">
+              <h3>Structure</h3>
+              <span class="step-time">10-15% of time</span>
+            </div>
+            <p>Create an outline before building anything. Break the problem into 3-4 components. Map your approach to what they're evaluating.</p>
+            <p class="step-mistake"><strong>Common mistake:</strong> Going deep on one area before seeing the whole picture.</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">3</div>
+            <div class="step-header">
+              <h3>Execute</h3>
+              <span class="step-time">50-60% of time</span>
+            </div>
+            <p>Work your structure from top to bottom. Prioritize the 2-3 areas with the most impact. Show your work -- partial credit matters.</p>
+            <p class="step-mistake"><strong>Common mistake:</strong> Spending too long on polish before the substance is complete.</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">4</div>
+            <div class="step-header">
+              <h3>Polish</h3>
+              <span class="step-time">10-15% of time</span>
+            </div>
+            <p>Check for errors and consistency. Ensure your narrative is clear. Add a brief executive summary if relevant.</p>
+            <p class="step-mistake"><strong>Common mistake:</strong> Skipping this step because you ran out of time.</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">5</div>
+            <div class="step-header">
+              <h3>Present</h3>
+              <span class="step-time">10-15% of time</span>
+            </div>
+            <p>Lead with your recommendation, then show your work. Anticipate the top 3 questions they'll ask. Stay calm on follow-ups -- they're testing how you think, not if you're perfect.</p>
+            <p class="step-mistake"><strong>Common mistake:</strong> Presenting chronologically instead of leading with the answer.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- BY ASSESSMENT TYPE -->
+      <div class="content-section">
+        <h2>By Assessment Type</h2>
+
+        <div class="table-wrap">
+          <table class="ref-table">
+            <thead>
+              <tr>
+                <th>Assessment Type</th>
+                <th>What They Say</th>
+                <th>What They're Really Testing</th>
+                <th>Key Tip</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Case Study</td>
+                <td>"Analyze this business problem"</td>
+                <td>Structured thinking, prioritization, business judgment</td>
+                <td>Lead with a hypothesis, then test it</td>
+              </tr>
+              <tr>
+                <td>Take-Home Project</td>
+                <td>"Complete this by Friday"</td>
+                <td>Quality of work, communication, time management</td>
+                <td>Spend 60% on substance, 20% on presentation, 20% on polish</td>
+              </tr>
+              <tr>
+                <td>Live Challenge</td>
+                <td>"Solve this in 45 minutes"</td>
+                <td>How you think under pressure, collaboration style</td>
+                <td>Narrate your thinking out loud</td>
+              </tr>
+              <tr>
+                <td>Presentation</td>
+                <td>"Present your findings"</td>
+                <td>Communication skills, executive presence, storytelling</td>
+                <td>Practice out loud 3x minimum</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- QUICK-REFERENCE CHECKLIST -->
+      <div class="content-section">
+        <h2>Quick-Reference Checklist</h2>
+
+        <div class="checklist-group">
+          <h3>Before You Start</h3>
+          <ul class="checklist">
+            <li>Read brief twice</li>
+            <li>List assumptions</li>
+            <li>Define "done"</li>
+            <li>Set time allocations</li>
+          </ul>
+        </div>
+
+        <div class="checklist-group">
+          <h3>While Working</h3>
+          <ul class="checklist">
+            <li>Follow your structure</li>
+            <li>Prioritize high-impact areas</li>
+            <li>Check the clock at 50% time</li>
+            <li>Leave buffer for polish</li>
+          </ul>
+        </div>
+
+        <div class="checklist-group">
+          <h3>Before Submitting</h3>
+          <ul class="checklist">
+            <li>Proofread everything</li>
+            <li>Executive summary present</li>
+            <li>Narrative is clear</li>
+            <li>Would you hire someone who submitted this?</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- BOTTOM NAV -->
+      <div class="bottom-nav">
+        <a href="../session-6.html">&larr; Back to Session 6</a>
+        <a href="../index.html">Back to Syllabus &rarr;</a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <svg width="200" height="45" viewBox="0 0 200 45" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Leland">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z" fill="white"/>
+        <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z" fill="white"/>
+        <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z" fill="white"/>
+        <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z" fill="white"/>
+        <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z" fill="white"/>
+        <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z" fill="white"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z" fill="white"/>
+      </svg>
+      <p>&copy; 2026 Leland</p>
+    </div>
+  </footer>
+
+</body>
+</html>

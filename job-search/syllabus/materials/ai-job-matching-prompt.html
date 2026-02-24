@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Job-Matching Prompt | Leland Job Search Bootcamp</title>
+  <meta name="description" content="A copy-paste AI prompt template that analyzes job postings against your Role-Fit Scorecard and returns ranked matches with reasoning.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    body { font-family: 'Inter', Arial, sans-serif; font-size: 18px; line-height: 1.6; color: #333333; background: #ffffff; }
+    .container { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+
+    /* Header */
+    .header { background: #113A2D; color: #ffffff; padding: 48px 0 56px; }
+    .header .logo { margin-bottom: 32px; }
+    .header .logo svg { width: 120px; height: auto; }
+    .nav-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px; }
+    .nav-link { font-size: 15px; font-weight: 600; color: #15B078; text-decoration: none; }
+    .nav-link:hover { opacity: 0.8; }
+    .eyebrow { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: #15B078; margin-bottom: 12px; }
+    .header h1 { font-size: 40px; font-weight: 700; line-height: 1.2; margin-bottom: 12px; }
+    .header .subtitle { font-size: 18px; color: rgba(255,255,255,0.7); line-height: 1.6; max-width: 640px; }
+
+    /* Content Sections */
+    .content-section { padding: 48px 0; border-bottom: 1px solid #E5E5E5; }
+    .content-section:last-child { border-bottom: none; }
+    .content-section h2 { font-size: 24px; font-weight: 700; margin-bottom: 20px; }
+
+    /* Instructions list */
+    .instructions-list { list-style: none; padding: 0; counter-reset: instructions; }
+    .instructions-list li { padding: 8px 0 8px 36px; position: relative; font-size: 16px; line-height: 1.6; color: #333; }
+    .instructions-list li::before { counter-increment: instructions; content: counter(instructions); position: absolute; left: 0; top: 8px; width: 24px; height: 24px; border-radius: 50%; background: #15B078; color: #fff; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; line-height: 1; }
+
+    /* Prompt Box */
+    .prompt-box { position: relative; background: #F8F8F8; border-radius: 10px; padding: 24px; padding-top: 56px; }
+    .prompt-box pre { white-space: pre-wrap; word-wrap: break-word; font-family: 'Inter', Arial, sans-serif; font-size: 15px; line-height: 1.7; color: #333; margin: 0; }
+    .copy-btn { position: absolute; top: 16px; right: 16px; background: #15B078; color: #fff; border: none; font-family: 'Inter', Arial, sans-serif; font-size: 14px; font-weight: 600; padding: 8px 18px; border-radius: 6px; cursor: pointer; transition: background 0.2s; }
+    .copy-btn:hover { background: #129e6a; }
+    .copy-btn.copied { background: #113A2D; }
+
+    /* Example Box */
+    .example-box { border-left: 3px solid #15B078; background: rgba(21, 176, 120, 0.04); border-radius: 0 8px 8px 0; padding: 24px; }
+    .example-box pre { white-space: pre-wrap; word-wrap: break-word; font-family: 'Inter', Arial, sans-serif; font-size: 15px; line-height: 1.7; color: #333; margin: 0; }
+    .example-box h3 { font-size: 18px; font-weight: 600; margin-bottom: 16px; }
+
+    /* Sample Output */
+    .sample-output { border-left: 3px solid #15B078; background: rgba(21, 176, 120, 0.04); border-radius: 0 8px 8px 0; padding: 24px; }
+    .sample-output h3 { font-size: 18px; font-weight: 600; margin-bottom: 16px; }
+    .sample-output h4 { font-size: 16px; font-weight: 600; margin: 16px 0 8px; color: #113A2D; }
+    .sample-output h4:first-of-type { margin-top: 0; }
+    .sample-output p, .sample-output li { font-size: 15px; line-height: 1.6; color: #333; }
+    .sample-output ul { padding-left: 20px; margin: 8px 0; }
+    .sample-output li { margin-bottom: 4px; }
+    .score-bar { display: flex; align-items: center; gap: 12px; margin: 8px 0; }
+    .score-label { font-size: 14px; font-weight: 500; color: #707070; min-width: 160px; }
+    .score-track { flex: 1; height: 8px; background: #E5E5E5; border-radius: 4px; overflow: hidden; }
+    .score-fill { height: 100%; background: #15B078; border-radius: 4px; }
+    .score-value { font-size: 14px; font-weight: 600; color: #333; min-width: 36px; text-align: right; }
+    .verdict-badge { display: inline-block; font-size: 14px; font-weight: 700; color: #15B078; background: rgba(21, 176, 120, 0.12); padding: 6px 14px; border-radius: 6px; margin-top: 8px; }
+
+    /* Tips list */
+    .tips-list { list-style: none; padding: 0; }
+    .tips-list li { padding: 10px 0 10px 24px; position: relative; font-size: 16px; line-height: 1.6; border-bottom: 1px solid #F0F0F0; }
+    .tips-list li:last-child { border-bottom: none; }
+    .tips-list li::before { content: ""; position: absolute; left: 0; top: 18px; width: 8px; height: 8px; border-radius: 50%; background: #15B078; }
+
+    /* Footer */
+    .footer { padding: 32px 0; background: #0D2E23; text-align: center; }
+    .footer svg { width: 80px; height: auto; opacity: 0.5; margin-bottom: 8px; }
+    .footer p { font-size: 14px; color: rgba(255,255,255,0.35); }
+
+    /* Bottom Nav */
+    .bottom-nav { display: flex; justify-content: space-between; align-items: center; padding: 32px 0; }
+    .bottom-nav a { font-size: 15px; font-weight: 600; color: #15B078; text-decoration: none; }
+    .bottom-nav a:hover { opacity: 0.8; }
+
+    /* Responsive */
+    @media (max-width: 700px) {
+      .header h1 { font-size: 28px; }
+      .nav-row { flex-direction: column; gap: 8px; align-items: flex-start; }
+      .prompt-box { padding: 16px; padding-top: 52px; }
+      .prompt-box pre, .example-box pre { font-size: 14px; }
+      .example-box, .sample-output { padding: 16px; }
+      .score-label { min-width: 120px; font-size: 13px; }
+    }
+
+    /* Print */
+    @media print {
+      .header { background: none !important; color: #000 !important; padding: 24px 0; }
+      .header h1, .header .subtitle, .eyebrow { color: #000 !important; }
+      .nav-row, .bottom-nav, .footer, .copy-btn { display: none !important; }
+      .header .logo svg path { fill: #113A2D !important; }
+      body { font-size: 12pt; color: #000; }
+      .content-section { border-bottom-color: #ccc; }
+      .prompt-box { background: #f5f5f5 !important; border: 1px solid #ccc; padding-top: 24px; }
+      .example-box, .sample-output { background: #f9f9f9 !important; border-left-color: #333; }
+      .score-fill { background: #333 !important; }
+      a { color: #000 !important; text-decoration: underline; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <svg width="200" height="45" viewBox="0 0 200 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z" fill="white"/>
+          <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z" fill="white"/>
+          <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z" fill="white"/>
+          <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z" fill="white"/>
+          <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z" fill="white"/>
+          <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z" fill="white"/>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z" fill="white"/>
+        </svg>
+      </div>
+
+      <div class="nav-row">
+        <a href="../session-1.html" class="nav-link">&larr; Back to Session 1</a>
+        <a href="../index.html" class="nav-link">Back to Syllabus &rarr;</a>
+      </div>
+
+      <p class="eyebrow">Session 1 Resource</p>
+      <h1>AI Job-Matching Prompt</h1>
+      <p class="subtitle">A copy-paste prompt template that analyzes job postings against your Role-Fit Scorecard and returns ranked matches with reasoning.</p>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+
+      <!-- HOW TO USE -->
+      <div class="content-section">
+        <h2>How to Use This Prompt</h2>
+        <ol class="instructions-list">
+          <li>Copy the prompt below into ChatGPT, Claude, or any AI assistant</li>
+          <li>Fill in the bracketed sections with your personal information</li>
+          <li>Paste 5-10 job postings for analysis</li>
+          <li>Review the ranked results and add top matches to your target list</li>
+          <li>Iterate: adjust your criteria if results don't feel right</li>
+        </ol>
+      </div>
+
+      <!-- THE PROMPT -->
+      <div class="content-section">
+        <h2>The Prompt</h2>
+        <p style="font-size: 16px; color: #707070; margin-bottom: 20px;">This is a three-part prompt. Copy the entire thing, fill in your details, and paste it into your AI tool along with job postings at the end.</p>
+
+        <div class="prompt-box" id="prompt-box">
+          <button class="copy-btn" id="copy-btn" onclick="copyPrompt()">Copy</button>
+          <pre id="prompt-text">PART 1: CONTEXT SETTING
+
+I'm conducting a targeted job search and need your help analyzing job postings against my personal criteria. Here's my background:
+
+Current/most recent role: [YOUR CURRENT ROLE, e.g., "Senior Marketing Manager at a B2B SaaS company"]
+Years of experience: [NUMBER]
+Key skills: [LIST 5-8 CORE SKILLS, e.g., "demand generation, content strategy, marketing automation, data analysis, team management"]
+Industry background: [YOUR INDUSTRIES, e.g., "tech, SaaS, fintech"]
+Target role type: [WHAT YOU'RE LOOKING FOR, e.g., "Director of Marketing or VP Marketing at a growth-stage startup"]
+
+PART 2: MY ROLE-FIT SCORECARD
+
+Rate each job against these criteria on a 1-5 scale:
+
+FUNCTION FIT (weight: 30%)
+- Role matches my target title and level: [MUST-HAVE / NICE-TO-HAVE]
+- Uses my core skills daily: [LIST YOUR TOP 3 SKILLS]
+- Growth trajectory aligns with my 3-year goal: [YOUR GOAL, e.g., "VP Marketing"]
+- Dealbreakers: [e.g., "No pure individual contributor roles", "Must include team management"]
+
+CULTURE FIT (weight: 25%)
+- Company stage: [YOUR PREFERENCE, e.g., "Series A-C, 50-500 employees"]
+- Work style: [e.g., "Hybrid preferred, open to remote"]
+- Values alignment: [e.g., "Mission-driven, data-informed culture, low bureaucracy"]
+- Dealbreakers: [e.g., "No fully in-office 5 days/week"]
+
+GROWTH TRAJECTORY (weight: 25%)
+- Learning opportunities: [WHAT YOU WANT TO LEARN, e.g., "international expansion, enterprise sales"]
+- Promotion path: [e.g., "Clear path to VP within 2-3 years"]
+- Mentorship/leadership: [e.g., "Reports to C-suite, manages team of 3+"]
+- Dealbreakers: [e.g., "No dead-end lateral moves"]
+
+COMPENSATION ALIGNMENT (weight: 20%)
+- Base salary range: [YOUR RANGE, e.g., "$150K-$190K"]
+- Equity importance: [e.g., "Important — prefer meaningful equity at growth stage"]
+- Benefits priorities: [e.g., "Health insurance, 401k match, flexible PTO"]
+- Dealbreakers: [e.g., "Below $140K base"]
+
+PART 3: ANALYSIS INSTRUCTIONS
+
+For each job posting I share, provide:
+
+1. MATCH SCORE (out of 100) with breakdown by dimension
+2. TOP 3 REASONS this role fits (be specific to my criteria)
+3. TOP 3 CONCERNS or gaps (be honest about mismatches)
+4. MISSING INFORMATION — what's not in the posting that I should ask about
+5. VERDICT: Strong Match / Worth Exploring / Likely Skip
+
+After analyzing all postings, rank them from strongest to weakest match and explain your top recommendation in 2-3 sentences.
+
+---
+
+Here are the job postings to analyze:
+
+[PASTE JOB POSTINGS HERE — separate each with "---"]</pre>
+        </div>
+      </div>
+
+      <!-- EXAMPLE: COMPLETED PROMPT -->
+      <div class="content-section">
+        <h2>Example: Completed Prompt</h2>
+        <p style="font-size: 16px; color: #707070; margin-bottom: 20px;">Here is what the prompt looks like filled in for a marketing professional. Use this as a reference when completing your own.</p>
+
+        <div class="example-box">
+          <h3>Filled-In Example</h3>
+          <pre>PART 1: CONTEXT SETTING
+
+I'm conducting a targeted job search and need your help analyzing job postings against my personal criteria. Here's my background:
+
+Current/most recent role: Senior Marketing Manager at a B2B SaaS company (Series C, 200 employees)
+Years of experience: 7
+Key skills: demand generation, content strategy, marketing automation (HubSpot, Marketo), data analysis, paid media management, team leadership, cross-functional collaboration
+Industry background: B2B SaaS, fintech, martech
+Target role type: Director of Marketing or Head of Marketing at a growth-stage startup (Series A-C)
+
+PART 2: MY ROLE-FIT SCORECARD
+
+Rate each job against these criteria on a 1-5 scale:
+
+FUNCTION FIT (weight: 30%)
+- Role matches my target title and level: MUST-HAVE (Director or Head-level)
+- Uses my core skills daily: demand generation, content strategy, marketing automation
+- Growth trajectory aligns with my 3-year goal: VP of Marketing
+- Dealbreakers: No pure individual contributor roles. Must include team management (3+ direct reports).
+
+CULTURE FIT (weight: 25%)
+- Company stage: Series A-C, 50-500 employees
+- Work style: Hybrid preferred, open to fully remote
+- Values alignment: Mission-driven, data-informed culture, low bureaucracy, fast decision-making
+- Dealbreakers: No fully in-office 5 days/week. No companies with primarily outbound sales culture.
+
+GROWTH TRAJECTORY (weight: 25%)
+- Learning opportunities: International expansion, enterprise go-to-market, board-level reporting
+- Promotion path: Clear path to VP Marketing within 2-3 years
+- Mentorship/leadership: Reports to CEO or CRO, manages team of 3+
+- Dealbreakers: No dead-end lateral moves. No reporting to a junior manager.
+
+COMPENSATION ALIGNMENT (weight: 20%)
+- Base salary range: $155K-$190K
+- Equity importance: Important — prefer meaningful equity at growth stage (0.05%+)
+- Benefits priorities: Health insurance, 401k match, flexible PTO, professional development budget
+- Dealbreakers: Below $140K base. No equity offered.</pre>
+        </div>
+      </div>
+
+      <!-- SAMPLE AI OUTPUT -->
+      <div class="content-section">
+        <h2>Sample AI Output</h2>
+        <p style="font-size: 16px; color: #707070; margin-bottom: 20px;">Here is what a typical AI response looks like for a single job posting. Your results will follow this same structure for each role you submit.</p>
+
+        <div class="sample-output">
+          <h3>Job 1: Director of Growth Marketing -- Streamline (Series B, 120 employees)</h3>
+
+          <h4>Match Score: 84/100</h4>
+
+          <div class="score-bar">
+            <span class="score-label">Function Fit (30%)</span>
+            <div class="score-track"><div class="score-fill" style="width: 90%;"></div></div>
+            <span class="score-value">27/30</span>
+          </div>
+          <div class="score-bar">
+            <span class="score-label">Culture Fit (25%)</span>
+            <div class="score-track"><div class="score-fill" style="width: 84%;"></div></div>
+            <span class="score-value">21/25</span>
+          </div>
+          <div class="score-bar">
+            <span class="score-label">Growth Trajectory (25%)</span>
+            <div class="score-track"><div class="score-fill" style="width: 80%;"></div></div>
+            <span class="score-value">20/25</span>
+          </div>
+          <div class="score-bar">
+            <span class="score-label">Compensation (20%)</span>
+            <div class="score-track"><div class="score-fill" style="width: 80%;"></div></div>
+            <span class="score-value">16/20</span>
+          </div>
+
+          <h4>Top 3 Reasons This Role Fits</h4>
+          <ul>
+            <li>Director-level title with 4 direct reports matches your must-have for team management and aligns with your VP trajectory.</li>
+            <li>Core responsibilities (demand gen, content strategy, marketing automation) map directly to your top 3 skills.</li>
+            <li>Series B at 120 employees is squarely in your preferred company stage, and the hybrid policy (3 days in office) meets your flexibility needs.</li>
+          </ul>
+
+          <h4>Top 3 Concerns</h4>
+          <ul>
+            <li>Reports to VP of Marketing, not CEO/CRO -- this may limit your board-level exposure and slow the path to VP.</li>
+            <li>No mention of international expansion plans, which was a stated learning priority.</li>
+            <li>Salary range listed as $145K-$175K, which overlaps with your range but the low end is near your dealbreaker floor.</li>
+          </ul>
+
+          <h4>Missing Information</h4>
+          <ul>
+            <li>Equity package details (amount, vesting schedule, strike price)</li>
+            <li>Professional development budget</li>
+            <li>Promotion timeline and criteria for advancement to VP</li>
+            <li>Current marketing team structure and planned growth</li>
+          </ul>
+
+          <span class="verdict-badge">Strong Match</span>
+        </div>
+      </div>
+
+      <!-- TIPS -->
+      <div class="content-section">
+        <h2>Tips for Better Results</h2>
+        <ul class="tips-list">
+          <li><strong>Start with 5-10 postings, not 50.</strong> Quality analysis beats batch volume. The AI gives better reasoning when it can deeply compare a manageable set.</li>
+          <li><strong>Be specific in your dealbreakers.</strong> Vague criteria like "good culture" give vague results. Say exactly what you mean: "No fully in-office 5 days/week" or "Must manage 3+ people."</li>
+          <li><strong>Update your scorecard weekly.</strong> After running the prompt a few times, you'll discover criteria you forgot. Add them. Remove ones that don't matter as much as you thought.</li>
+          <li><strong>Compare the AI's scoring against your gut feeling.</strong> When they disagree, figure out why. You might be missing a criterion, or you might be weighting something incorrectly.</li>
+          <li><strong>Save your completed prompt somewhere permanent.</strong> You'll reuse it every morning as part of your daily routine. Keep it in a note, doc, or text file you can access quickly.</li>
+        </ul>
+      </div>
+
+      <!-- BOTTOM NAV -->
+      <div class="bottom-nav">
+        <a href="../session-1.html">&larr; Back to Session 1</a>
+        <a href="../index.html">Back to Syllabus &rarr;</a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <svg width="200" height="45" viewBox="0 0 200 45" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Leland">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z" fill="white"/>
+        <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z" fill="white"/>
+        <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z" fill="white"/>
+        <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z" fill="white"/>
+        <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z" fill="white"/>
+        <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z" fill="white"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z" fill="white"/>
+      </svg>
+      <p>&copy; 2026 Leland</p>
+    </div>
+  </footer>
+
+  <script>
+    function copyPrompt() {
+      var text = document.getElementById('prompt-text').textContent;
+      var btn = document.getElementById('copy-btn');
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function() {
+          btn.textContent = 'Copied!';
+          btn.classList.add('copied');
+          setTimeout(function() {
+            btn.textContent = 'Copy';
+            btn.classList.remove('copied');
+          }, 2000);
+        });
+      } else {
+        var textarea = document.createElement('textarea');
+        textarea.value = text;
+        textarea.style.position = 'fixed';
+        textarea.style.opacity = '0';
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+        btn.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(function() {
+          btn.textContent = 'Copy';
+          btn.classList.remove('copied');
+        }, 2000);
+      }
+    }
+  </script>
+
+</body>
+</html>

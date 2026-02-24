@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Starter AI Project Ideas | Leland Job Search Bootcamp</title>
+  <meta name="description" content="15 portfolio-worthy AI projects across industries. Each includes tools needed, time estimate, and quick-start steps.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    body { font-family: 'Inter', Arial, sans-serif; font-size: 18px; line-height: 1.6; color: #333333; background: #ffffff; }
+    .container { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+
+    /* Header */
+    .header { background: #113A2D; color: #ffffff; padding: 48px 0 56px; }
+    .header .logo { margin-bottom: 32px; }
+    .header .logo svg { width: 120px; height: auto; }
+    .nav-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px; }
+    .nav-link { font-size: 15px; font-weight: 600; color: #15B078; text-decoration: none; }
+    .nav-link:hover { opacity: 0.8; }
+    .eyebrow { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: #15B078; margin-bottom: 12px; }
+    .header h1 { font-size: 40px; font-weight: 700; line-height: 1.2; margin-bottom: 12px; }
+    .header .subtitle { font-size: 18px; color: rgba(255,255,255,0.7); line-height: 1.6; max-width: 640px; }
+
+    /* Content Sections */
+    .content-section { padding: 48px 0; border-bottom: 1px solid #E5E5E5; }
+    .content-section:last-child { border-bottom: none; }
+    .content-section h2 { font-size: 24px; font-weight: 700; margin-bottom: 8px; }
+
+    /* Tier Header */
+    .tier-header { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+    .tier-badge { display: inline-block; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; padding: 5px 12px; border-radius: 5px; color: #fff; }
+    .tier-badge.green { background: #15B078; }
+    .tier-badge.blue { background: #2563EB; }
+    .tier-badge.purple { background: #7C3AED; }
+    .tier-desc { font-size: 15px; color: #707070; font-weight: 500; }
+
+    /* Project Card */
+    .project-card { background: #F8F8F8; border-radius: 10px; padding: 24px; margin-bottom: 16px; }
+    .project-card:last-child { margin-bottom: 0; }
+    .project-card h4 { font-size: 18px; font-weight: 700; margin-bottom: 8px; color: #113A2D; }
+    .project-card > p { font-size: 16px; color: #333; line-height: 1.6; margin-bottom: 16px; }
+
+    /* Meta Grid */
+    .meta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 20px; margin-bottom: 16px; }
+    .meta-item { font-size: 14px; line-height: 1.5; }
+    .meta-label { font-weight: 600; color: #707070; }
+    .meta-value { color: #333; }
+
+    /* Quick Start */
+    .quick-start { border-top: 1px solid #E5E5E5; padding-top: 14px; }
+    .quick-start-title { font-size: 14px; font-weight: 700; color: #113A2D; margin-bottom: 8px; }
+    .quick-start ol { padding-left: 20px; margin: 0; }
+    .quick-start li { font-size: 14px; line-height: 1.6; color: #333; margin-bottom: 2px; }
+
+    /* Footer */
+    .footer { padding: 32px 0; background: #0D2E23; text-align: center; }
+    .footer svg { width: 80px; height: auto; opacity: 0.5; margin-bottom: 8px; }
+    .footer p { font-size: 14px; color: rgba(255,255,255,0.35); }
+
+    /* Bottom Nav */
+    .bottom-nav { display: flex; justify-content: space-between; align-items: center; padding: 32px 0; }
+    .bottom-nav a { font-size: 15px; font-weight: 600; color: #15B078; text-decoration: none; }
+    .bottom-nav a:hover { opacity: 0.8; }
+
+    /* Responsive */
+    @media (max-width: 700px) {
+      .header h1 { font-size: 28px; }
+      .nav-row { flex-direction: column; gap: 8px; align-items: flex-start; }
+      .meta-grid { grid-template-columns: 1fr; }
+      .project-card { padding: 20px; }
+      .tier-header { flex-direction: column; align-items: flex-start; gap: 6px; }
+    }
+
+    /* Print */
+    @media print {
+      .header { background: none !important; color: #000 !important; padding: 24px 0; }
+      .header h1, .header .subtitle, .eyebrow { color: #000 !important; }
+      .nav-row, .bottom-nav, .footer { display: none !important; }
+      .header .logo svg path { fill: #113A2D !important; }
+      body { font-size: 11pt; color: #000; }
+      .content-section { border-bottom-color: #ccc; page-break-inside: avoid; }
+      .project-card { background: #f5f5f5 !important; border: 1px solid #ddd; page-break-inside: avoid; }
+      .tier-badge { color: #000 !important; background: #ddd !important; }
+      a { color: #000 !important; text-decoration: underline; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <svg width="200" height="45" viewBox="0 0 200 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z" fill="white"/>
+          <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z" fill="white"/>
+          <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z" fill="white"/>
+          <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z" fill="white"/>
+          <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z" fill="white"/>
+          <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z" fill="white"/>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z" fill="white"/>
+        </svg>
+      </div>
+
+      <div class="nav-row">
+        <a href="../session-4.html" class="nav-link">&larr; Back to Session 4</a>
+        <a href="../index.html" class="nav-link">Back to Syllabus &rarr;</a>
+      </div>
+
+      <p class="eyebrow">Session 4 Resource</p>
+      <h1>Starter AI Project Ideas</h1>
+      <p class="subtitle">15 portfolio-worthy AI projects across industries. Each includes tools needed, time estimate, and quick-start steps.</p>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+
+      <!-- BEGINNER TIER -->
+      <div class="content-section">
+        <div class="tier-header">
+          <span class="tier-badge green">Beginner</span>
+          <span class="tier-desc">2-4 hours, no coding required</span>
+        </div>
+
+        <div class="project-card">
+          <h4>1. Meeting Notes Summarizer</h4>
+          <p>Takes meeting transcripts and generates structured summaries with action items, owners, and deadlines extracted automatically.</p>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="meta-label">Tools: </span><span class="meta-value">ChatGPT / Claude</span></div>
+            <div class="meta-item"><span class="meta-label">Time: </span><span class="meta-value">2 hours</span></div>
+            <div class="meta-item"><span class="meta-label">Skills Demonstrated: </span><span class="meta-value">Prompt engineering, AI tool usage</span></div>
+            <div class="meta-item"><span class="meta-label">Best For: </span><span class="meta-value">Anyone in a meetings-heavy role</span></div>
+          </div>
+          <div class="quick-start">
+            <p class="quick-start-title">Quick Start</p>
+            <ol>
+              <li>Record or transcribe your next meeting using Otter.ai, Zoom transcription, or manual notes</li>
+              <li>Write a prompt that extracts: summary, decisions made, action items with owners, and open questions</li>
+              <li>Test with 3 different meeting types and refine your prompt for each</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <h4>2. Email Draft Generator</h4>
+          <p>Paste context about a situation and get polished professional emails written in your voice and tone.</p>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="meta-label">Tools: </span><span class="meta-value">ChatGPT / Claude</span></div>
+            <div class="meta-item"><span class="meta-label">Time: </span><span class="meta-value">2 hours</span></div>
+            <div class="meta-item"><span class="meta-label">Skills Demonstrated: </span><span class="meta-value">Prompt engineering, writing</span></div>
+            <div class="meta-item"><span class="meta-label">Best For: </span><span class="meta-value">Sales, BD, customer-facing roles</span></div>
+          </div>
+          <div class="quick-start">
+            <p class="quick-start-title">Quick Start</p>
+            <ol>
+              <li>Collect 5-10 emails you've sent that represent your best writing and voice</li>
+              <li>Create a system prompt that captures your tone, common phrases, and formatting preferences</li>
+              <li>Test across scenarios: cold outreach, follow-ups, difficult conversations, and thank-yous</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <h4>3. Weekly Report Automator</h4>
+          <p>Compiles data from multiple sources into a formatted, consistent weekly report ready to send to stakeholders.</p>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="meta-label">Tools: </span><span class="meta-value">ChatGPT / Claude + spreadsheets</span></div>
+            <div class="meta-item"><span class="meta-label">Time: </span><span class="meta-value">3 hours</span></div>
+            <div class="meta-item"><span class="meta-label">Skills Demonstrated: </span><span class="meta-value">Data synthesis, reporting</span></div>
+            <div class="meta-item"><span class="meta-label">Best For: </span><span class="meta-value">Analysts, project managers, ops</span></div>
+          </div>
+          <div class="quick-start">
+            <p class="quick-start-title">Quick Start</p>
+            <ol>
+              <li>Map out every data source you pull from for your current weekly report</li>
+              <li>Create a prompt that accepts raw data and outputs your exact report format with highlights and trends</li>
+              <li>Run it for 2 weeks in parallel with your manual process to validate accuracy</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <h4>4. Job Posting Analyzer</h4>
+          <p>Batch-analyze job postings to find patterns in required skills, experience levels, and salary signals across a target market.</p>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="meta-label">Tools: </span><span class="meta-value">ChatGPT / Claude</span></div>
+            <div class="meta-item"><span class="meta-label">Time: </span><span class="meta-value">2 hours</span></div>
+            <div class="meta-item"><span class="meta-label">Skills Demonstrated: </span><span class="meta-value">Research, pattern recognition</span></div>
+            <div class="meta-item"><span class="meta-label">Best For: </span><span class="meta-value">Career changers researching new fields</span></div>
+          </div>
+          <div class="quick-start">
+            <p class="quick-start-title">Quick Start</p>
+            <ol>
+              <li>Collect 10-15 job postings for your target role from LinkedIn, Indeed, or company career pages</li>
+              <li>Paste them into an AI tool and ask for patterns: most common skills, recurring phrases, experience ranges</li>
+              <li>Create a summary document showing the "ideal candidate" profile based on real market data</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <h4>5. Customer Feedback Categorizer</h4>
+          <p>Sort unstructured customer feedback (reviews, surveys, support tickets) into themes with sentiment scores.</p>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="meta-label">Tools: </span><span class="meta-value">ChatGPT / Claude</span></div>
+            <div class="meta-item"><span class="meta-label">Time: </span><span class="meta-value">3 hours</span></div>
+            <div class="meta-item"><span class="meta-label">Skills Demonstrated: </span><span class="meta-value">Data analysis, customer insights</span></div>
+            <div class="meta-item"><span class="meta-label">Best For: </span><span class="meta-value">Product, marketing, CX roles</span></div>
+          </div>
+          <div class="quick-start">
+            <p class="quick-start-title">Quick Start</p>
+            <ol>
+              <li>Export 50-100 pieces of customer feedback from any source (reviews, NPS comments, support tickets)</li>
+              <li>Build a prompt that categorizes each into themes and assigns positive/negative/neutral sentiment</li>
+              <li>Generate a summary report with top themes, sentiment distribution, and actionable recommendations</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <!-- INTERMEDIATE TIER -->
+      <div class="content-section">
+        <div class="tier-header">
+          <span class="tier-badge blue">Intermediate</span>
+          <span class="tier-desc">4-8 hours, basic tool comfort needed</span>
+        </div>
+
+        <div class="project-card">
+          <h4>6. Competitive Intelligence Brief</h4>
+          <p>Auto-research competitors using publicly available information and generate a formatted briefing document with key findings.</p>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="meta-label">Tools: </span><span class="meta-value">Claude / ChatGPT + web search</span></div>
+            <div class="meta-item"><span class="meta-label">Time: </span><span class="meta-value">5 hours</span></div>
+            <div class="meta-item"><span class="meta-label">Skills Demonstrated: </span><span class="meta-value">Research, strategy, analysis</span></div>
+            <div class="meta-item"><span class="meta-label">Best For: </span><span class="meta-value">Strategy, marketing, BD</span></div>
+          </div>
+          <div class="quick-start">
+            <p class="quick-start-title">Quick Start</p>
+            <ol>
+              <li>Pick 3-5 competitors and list the information you want to track (pricing, features, positioning, recent news)</li>
+              <li>Create a structured prompt that organizes findings into a consistent briefing format</li>
+              <li>Add a comparison matrix and "so what" analysis section that highlights strategic implications</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <h4>7. Content Calendar Generator</h4>
+          <p>Generate a full month of social media content ideas based on brand voice, industry trends, and content pillars.</p>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="meta-label">Tools: </span><span class="meta-value">ChatGPT / Claude</span></div>
+            <div class="meta-item"><span class="meta-label">Time: </span><span class="meta-value">4 hours</span></div>
+            <div class="meta-item"><span class="meta-label">Skills Demonstrated: </span><span class="meta-value">Content strategy, marketing</span></div>
+            <div class="meta-item"><span class="meta-label">Best For: </span><span class="meta-value">Marketing, communications</span></div>
+          </div>
+          <div class="quick-start">
+            <p class="quick-start-title">Quick Start</p>
+            <ol>
+              <li>Define your content pillars (3-5 themes), target audience, and brand voice guidelines</li>
+              <li>Create a prompt that generates 30 days of posts with hooks, captions, and suggested formats (carousel, video, text)</li>
+              <li>Add a review layer that checks for variety, balance across pillars, and alignment with upcoming events</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <h4>8. Interview Prep Bot</h4>
+          <p>A custom AI interviewer that asks role-specific behavioral and technical questions and provides structured feedback on your answers.</p>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="meta-label">Tools: </span><span class="meta-value">ChatGPT / Claude custom instructions</span></div>
+            <div class="meta-item"><span class="meta-label">Time: </span><span class="meta-value">4 hours</span></div>
+            <div class="meta-item"><span class="meta-label">Skills Demonstrated: </span><span class="meta-value">HR knowledge, prompt engineering</span></div>
+            <div class="meta-item"><span class="meta-label">Best For: </span><span class="meta-value">HR, recruiting, anyone job searching</span></div>
+          </div>
+          <div class="quick-start">
+            <p class="quick-start-title">Quick Start</p>
+            <ol>
+              <li>Research common interview questions for your target role (behavioral, technical, case-based)</li>
+              <li>Build a system prompt that acts as a hiring manager, asks one question at a time, and scores answers using STAR format</li>
+              <li>Add follow-up question logic and a final scorecard that highlights strengths and areas to improve</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <h4>9. Data Cleaning Pipeline</h4>
+          <p>Automate messy spreadsheet cleanup: deduplication, format standardization, validation rules, and error flagging.</p>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="meta-label">Tools: </span><span class="meta-value">Claude Code or ChatGPT + Python</span></div>
+            <div class="meta-item"><span class="meta-label">Time: </span><span class="meta-value">6 hours</span></div>
+            <div class="meta-item"><span class="meta-label">Skills Demonstrated: </span><span class="meta-value">Data management, basic logic</span></div>
+            <div class="meta-item"><span class="meta-label">Best For: </span><span class="meta-value">Analysts, operations, finance</span></div>
+          </div>
+          <div class="quick-start">
+            <p class="quick-start-title">Quick Start</p>
+            <ol>
+              <li>Take a real messy dataset (anonymized if needed) and document every type of error you find</li>
+              <li>Use AI to generate cleaning rules: standardize dates, remove duplicates, validate email formats, flag outliers</li>
+              <li>Create a before/after comparison showing data quality improvements with specific metrics</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <h4>10. Proposal / SOW Generator</h4>
+          <p>Template-based AI that generates client proposals and statements of work from brief intake notes and past examples.</p>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="meta-label">Tools: </span><span class="meta-value">ChatGPT / Claude</span></div>
+            <div class="meta-item"><span class="meta-label">Time: </span><span class="meta-value">5 hours</span></div>
+            <div class="meta-item"><span class="meta-label">Skills Demonstrated: </span><span class="meta-value">Business writing, client management</span></div>
+            <div class="meta-item"><span class="meta-label">Best For: </span><span class="meta-value">Consulting, agencies, sales</span></div>
+          </div>
+          <div class="quick-start">
+            <p class="quick-start-title">Quick Start</p>
+            <ol>
+              <li>Collect 3-5 past proposals you've written (or good examples from your industry) as reference templates</li>
+              <li>Create a prompt that takes client name, problem summary, and scope notes and generates a full proposal draft</li>
+              <li>Add sections for pricing options, timeline, and terms — then test with a real upcoming opportunity</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <!-- ADVANCED TIER -->
+      <div class="content-section">
+        <div class="tier-header">
+          <span class="tier-badge purple">Advanced</span>
+          <span class="tier-desc">8-15 hours, some technical comfort</span>
+        </div>
+
+        <div class="project-card">
+          <h4>11. Multi-Source Research Agent</h4>
+          <p>An AI agent that searches multiple sources, cross-references findings, synthesizes insights, and generates a structured research memo.</p>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="meta-label">Tools: </span><span class="meta-value">Claude Code, web APIs</span></div>
+            <div class="meta-item"><span class="meta-label">Time: </span><span class="meta-value">10 hours</span></div>
+            <div class="meta-item"><span class="meta-label">Skills Demonstrated: </span><span class="meta-value">Research design, AI orchestration</span></div>
+            <div class="meta-item"><span class="meta-label">Best For: </span><span class="meta-value">Strategy, consulting, policy</span></div>
+          </div>
+          <div class="quick-start">
+            <p class="quick-start-title">Quick Start</p>
+            <ol>
+              <li>Define a research question and identify 3-5 source types (news, academic papers, industry reports, social media)</li>
+              <li>Build an agent workflow that queries each source, extracts key findings, and flags contradictions</li>
+              <li>Create an output template: executive summary, findings by source, confidence levels, and recommended next steps</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <h4>12. Automated Reporting Dashboard</h4>
+          <p>Pull data from APIs, generate visualizations, compile insights, and email weekly update reports to stakeholders automatically.</p>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="meta-label">Tools: </span><span class="meta-value">Claude Code + Python</span></div>
+            <div class="meta-item"><span class="meta-label">Time: </span><span class="meta-value">12 hours</span></div>
+            <div class="meta-item"><span class="meta-label">Skills Demonstrated: </span><span class="meta-value">Data viz, automation, basic programming</span></div>
+            <div class="meta-item"><span class="meta-label">Best For: </span><span class="meta-value">Analytics, finance, operations</span></div>
+          </div>
+          <div class="quick-start">
+            <p class="quick-start-title">Quick Start</p>
+            <ol>
+              <li>Pick a report you currently build manually and identify every data source it pulls from</li>
+              <li>Use Claude Code to write scripts that fetch data, create charts, and format everything into a report template</li>
+              <li>Add scheduling (cron job or Zapier trigger) and email delivery to make it fully hands-off</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <h4>13. Document Q&amp;A System</h4>
+          <p>Upload internal documents and ask natural language questions to get cited answers with source references from your own knowledge base.</p>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="meta-label">Tools: </span><span class="meta-value">Claude Code or OpenAI + embedding</span></div>
+            <div class="meta-item"><span class="meta-label">Time: </span><span class="meta-value">10 hours</span></div>
+            <div class="meta-item"><span class="meta-label">Skills Demonstrated: </span><span class="meta-value">Information architecture, AI integration</span></div>
+            <div class="meta-item"><span class="meta-label">Best For: </span><span class="meta-value">Legal, compliance, knowledge management</span></div>
+          </div>
+          <div class="quick-start">
+            <p class="quick-start-title">Quick Start</p>
+            <ol>
+              <li>Gather 10-20 internal documents (policies, guides, FAQs) and organize them by topic</li>
+              <li>Build a system that chunks documents, creates embeddings, and retrieves relevant sections for any question</li>
+              <li>Add citation tracking so every answer links back to the specific document and section it came from</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <h4>14. Sales Lead Scorer</h4>
+          <p>Analyze prospect data from CRM exports and score leads based on custom criteria like fit, engagement, and timing signals.</p>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="meta-label">Tools: </span><span class="meta-value">Claude Code + CRM export</span></div>
+            <div class="meta-item"><span class="meta-label">Time: </span><span class="meta-value">8 hours</span></div>
+            <div class="meta-item"><span class="meta-label">Skills Demonstrated: </span><span class="meta-value">Sales ops, data analysis</span></div>
+            <div class="meta-item"><span class="meta-label">Best For: </span><span class="meta-value">Sales, BD, revenue operations</span></div>
+          </div>
+          <div class="quick-start">
+            <p class="quick-start-title">Quick Start</p>
+            <ol>
+              <li>Export your lead/prospect data and identify which past leads converted (and which didn't)</li>
+              <li>Define scoring criteria: company size, industry fit, engagement level, budget signals, timeline indicators</li>
+              <li>Build a scoring model that ranks current leads and generates a prioritized outreach list with reasoning</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <h4>15. Process Automation Workflow</h4>
+          <p>End-to-end automation of a multi-step business process, from trigger event through execution to completion notification.</p>
+          <div class="meta-grid">
+            <div class="meta-item"><span class="meta-label">Tools: </span><span class="meta-value">Claude Code + Zapier / Make</span></div>
+            <div class="meta-item"><span class="meta-label">Time: </span><span class="meta-value">15 hours</span></div>
+            <div class="meta-item"><span class="meta-label">Skills Demonstrated: </span><span class="meta-value">Process design, systems thinking</span></div>
+            <div class="meta-item"><span class="meta-label">Best For: </span><span class="meta-value">Operations, IT, project management</span></div>
+          </div>
+          <div class="quick-start">
+            <p class="quick-start-title">Quick Start</p>
+            <ol>
+              <li>Map a manual process end-to-end: every step, decision point, handoff, and output</li>
+              <li>Identify which steps can be automated (data entry, routing, notifications) vs. which need human judgment</li>
+              <li>Build the automation using Zapier/Make for integrations and Claude Code for the AI decision-making steps</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <!-- BOTTOM NAV -->
+      <div class="bottom-nav">
+        <a href="../session-4.html">&larr; Back to Session 4</a>
+        <a href="../index.html">Back to Syllabus &rarr;</a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <svg width="200" height="45" viewBox="0 0 200 45" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Leland">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z" fill="white"/>
+        <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z" fill="white"/>
+        <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z" fill="white"/>
+        <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z" fill="white"/>
+        <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z" fill="white"/>
+        <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z" fill="white"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z" fill="white"/>
+      </svg>
+      <p>&copy; 2026 Leland</p>
+    </div>
+  </footer>
+
+</body>
+</html>
