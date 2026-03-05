@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en" class="reveal-full-page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analytical Writing Overview</title>
+
+  <!-- Reveal.js Core -->
+  <link rel="stylesheet" href="../../../assets/reveal/dist/reset.css">
+  <link rel="stylesheet" href="../../../assets/reveal/dist/reveal.css">
+
+  <!-- Leland Theme -->
+  <link rel="stylesheet" href="../../../assets/reveal/themes/leland.css">
+
+  <!-- KaTeX for math rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false}
+      ]
+    });"></script>
+
+</head>
+<body>
+  <!-- SVG Symbol Definitions (defined once, referenced via <use>) -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="leland-logo" viewBox="0 0 200 45">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z"/>
+      <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z"/>
+      <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z"/>
+      <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z"/>
+      <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z"/>
+      <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z"/>
+    </symbol>
+  </svg>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ============================================ -->
+      <!-- SLIDE 1: Title (Dark) -->
+      <!-- ============================================ -->
+      <section class="title-dark">
+        <svg width="110" height="25" fill="white" class="mb-16"><use href="#leland-logo"/></svg>
+        <p class="eyebrow">GRE Self-Study Course</p>
+        <h1>Analytical Writing<br><span class="hl">Overview</span></h1>
+
+        <aside class="notes">
+          0:00 - 0:05 | Title slide. This video covers the AWA section: what it is, how it's scored, and what scores you should target.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 2: AWA Section Overview -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">The AWA</p>
+          <h2>One essay, 30 minutes</h2>
+        </div>
+
+        <p class="text-lg mb-24">The Analytical Writing Assessment is the first section of the GRE. You write a single essay in response to a prompt you will not see until test&nbsp;day.</p>
+
+        <div class="card-grid-3">
+          <div class="card card-green-bg">
+            <h3 class="text-md mb-8">The Task</h3>
+            <p class="text-sm">Analyze an Issue: take a position on a claim and support it with reasoning and&nbsp;examples.</p>
+          </div>
+          <div class="card card-blue-bg">
+            <h3 class="text-md mb-8">Time Limit</h3>
+            <p class="text-sm">30 minutes. No breaks before or after. It always comes first on test&nbsp;day.</p>
+          </div>
+          <div class="card card-purple-bg">
+            <h3 class="text-md mb-8">Score Range</h3>
+            <p class="text-sm">Scored 0 to 6 in half-point increments. Reported separately from Verbal and&nbsp;Quant.</p>
+          </div>
+        </div>
+
+        <div class="card-alt compact mt-24">
+          <div style="display: flex; align-items: flex-start; gap: 12px;">
+            <span class="icon icon-xl icon-dark" style="flex-shrink: 0; -webkit-mask-image: url(../../../assets/icons/info.svg); mask-image: url(../../../assets/icons/info.svg)"></span>
+            <p class="text-md"><strong>What changed:</strong> Before September 2023, the GRE had two essays (Issue + Argument). ETS removed the Argument Essay, so you now write only the Issue&nbsp;Essay.</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          0:05 - 1:30 | Introduce the AWA section. Key point: this used to be two essays, but ETS removed the Argument Essay in September 2023 as part of the shorter GRE format. Now it's one essay, 30 minutes, Issue task only.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 3: How AWA Is Scored -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Scoring Rubric</p>
+          <h2>What the 0-6 scale means</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr><th>Score</th><th>Level</th><th>Description</th></tr>
+          </thead>
+          <tbody>
+            <tr class="fragment" data-fragment-index="1"><td>6</td><td>Outstanding</td><td>Insightful analysis, compelling support, well organized, skillful&nbsp;language</td></tr>
+            <tr class="fragment" data-fragment-index="2"><td>5</td><td>Strong</td><td>Thoughtful analysis, strong support, clear organization, good&nbsp;control</td></tr>
+            <tr class="fragment" data-fragment-index="3"><td>4</td><td>Adequate</td><td>Competent analysis, sufficient support, acceptable organization, minor&nbsp;errors</td></tr>
+            <tr class="fragment" data-fragment-index="4"><td>3</td><td>Limited</td><td>Some analysis but weak development, unclear organization, noticeable&nbsp;errors</td></tr>
+            <tr class="fragment" data-fragment-index="5"><td>2</td><td>Seriously Flawed</td><td>Weak analysis, little support, poor organization, frequent&nbsp;errors</td></tr>
+            <tr class="fragment" data-fragment-index="6"><td>1</td><td>Fundamentally Deficient</td><td>Little or no analysis, off-topic, severely flawed&nbsp;writing</td></tr>
+          </tbody>
+        </table>
+
+        <aside class="notes">
+          1:30 - 3:00 | Walk through the scoring rubric. Emphasize that a 4 is "adequate" and perfectly fine for most programs. The jump from 4 to 5 requires noticeably stronger reasoning and examples, not just better grammar.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 4: ETS Scoring Criteria -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Scoring Rubric</p>
+          <h2>Four criteria scorers evaluate</h2>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="card card-green-bg" style="padding: 16px">
+            <h3 class="mb-8">Quality of Reasoning</h3>
+            <p class="text-sm">How well you analyze the issue, consider complexities, and develop your&nbsp;position.</p>
+          </div>
+          <div class="card card-blue-bg" style="padding: 16px">
+            <h3 class="mb-8">Use of Evidence</h3>
+            <p class="text-sm">Whether your examples and reasons are specific, relevant, and clearly connected to your&nbsp;thesis.</p>
+          </div>
+          <div class="card card-purple-bg" style="padding: 16px">
+            <h3 class="mb-8">Organization</h3>
+            <p class="text-sm">Clear structure with logical flow. Each paragraph serves a purpose and transitions are&nbsp;smooth.</p>
+          </div>
+          <div class="card card-orange-bg" style="padding: 16px">
+            <h3 class="mb-8">Language Facility</h3>
+            <p class="text-sm">Sentence variety, appropriate vocabulary, and grammar. Minor errors are fine if they do not obscure&nbsp;meaning.</p>
+          </div>
+        </div>
+
+        <div class="card-alt-green compact mt-24">
+          <div style="display: flex; align-items: flex-start; gap: 12px;">
+            <span class="icon icon-xl icon-green" style="flex-shrink: 0; -webkit-mask-image: url(../../../assets/icons/sparkle.svg); mask-image: url(../../../assets/icons/sparkle.svg)"></span>
+            <p class="text-md"><strong>Key insight:</strong> Reasoning and evidence matter most. You do not need perfect grammar or creative prose to score&nbsp;well.</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          3:00 - 4:30 | Break down the four criteria. Emphasize that reasoning and evidence carry the most weight. Students who focus on clear thinking and specific examples will outscore students who focus on fancy vocabulary. For detailed Issue Essay writing strategy, see Lesson 8.5.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 5: E-rater Explanation -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Scoring Process</p>
+          <h2>How your essay is actually graded</h2>
+        </div>
+
+        <p class="text-lg mb-24">Your essay is scored by one human reader and one automated system called&nbsp;e-rater.</p>
+
+        <div class="two-column gap-32">
+          <div class="card card-green-bg">
+            <h3 class="text-md mb-8">Human Reader</h3>
+            <p class="text-sm">A trained ETS scorer reads your essay holistically and assigns a score from 0 to&nbsp;6.</p>
+          </div>
+          <div class="card card-blue-bg">
+            <h3 class="text-md mb-8">E-rater (Automated)</h3>
+            <p class="text-sm">An AI system evaluates grammar, usage, mechanics, style, organization, and&nbsp;development.</p>
+          </div>
+        </div>
+
+        <div class="card-alt compact mt-24">
+          <div style="display: flex; align-items: flex-start; gap: 12px;">
+            <span class="icon icon-xl icon-dark" style="flex-shrink: 0; -webkit-mask-image: url(../../../assets/icons/info.svg); mask-image: url(../../../assets/icons/info.svg)"></span>
+            <p class="text-md"><strong>Disagreement rule:</strong> If the human and e-rater scores differ by more than 1 point, a second human reader scores the essay. Your final score is the average of the two closest&nbsp;scores.</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          4:30 - 6:00 | Explain the dual scoring system. The e-rater is good at catching mechanical issues (grammar, spelling, sentence structure) but the human reader evaluates reasoning quality. This is why clear organization helps you with both scorers. Clean structure helps the e-rater, and clear reasoning helps the human reader.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 6: E-rater Checks -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Scoring Process</p>
+          <h2>What e-rater evaluates</h2>
+        </div>
+
+        <div class="card-grid-2x3">
+          <div class="card card-green-bg">
+            <h3>Grammar</h3>
+            <p class="text-xs text-light">Subject-verb agreement, tense consistency, pronoun&nbsp;reference.</p>
+          </div>
+          <div class="card card-blue-bg">
+            <h3>Usage</h3>
+            <p class="text-xs text-light">Correct word choice and idiomatic&nbsp;expressions.</p>
+          </div>
+          <div class="card card-purple-bg">
+            <h3>Mechanics</h3>
+            <p class="text-xs text-light">Spelling, capitalization, and&nbsp;punctuation.</p>
+          </div>
+          <div class="card card-orange-bg">
+            <h3>Style</h3>
+            <p class="text-xs text-light">Sentence variety, appropriate register, and word&nbsp;diversity.</p>
+          </div>
+          <div class="card card-green-bg">
+            <h3>Organization</h3>
+            <p class="text-xs text-light">Paragraph structure, transitions, and logical&nbsp;flow.</p>
+          </div>
+          <div class="card card-blue-bg">
+            <h3>Development</h3>
+            <p class="text-xs text-light">Depth of ideas, supporting detail, and essay&nbsp;length.</p>
+          </div>
+        </div>
+
+        <div class="card-alt-green compact mt-16">
+          <div style="display: flex; align-items: flex-start; gap: 12px;">
+            <span class="icon icon-xl icon-green" style="flex-shrink: 0; -webkit-mask-image: url(../../../assets/icons/lightning.svg); mask-image: url(../../../assets/icons/lightning.svg)"></span>
+            <p class="text-md"><strong>Practical tip:</strong> Use clear paragraph breaks and vary your sentence length. These are easy wins for the e-rater that cost you no extra&nbsp;time.</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          6:00 - 7:00 | Walk through the six areas e-rater checks. The actionable takeaway: write in clear paragraphs, vary your sentence structure, and proofread for obvious spelling and grammar errors. You do not need to be a great writer, but you do need to be clean.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 7: Target Scores by Program -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Target Scores</p>
+          <h2>What score do you need</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr><th>AWA Score</th><th>Level</th><th>Guidance</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>5.0+</td><td>Exceptional</td><td>Exceeds expectations for virtually all graduate&nbsp;programs.</td></tr>
+            <tr><td>4.5</td><td>Strong</td><td>Competitive for top-tier programs. No red&nbsp;flags.</td></tr>
+            <tr><td>4.0</td><td>Sufficient</td><td>Meets the bar for most programs. Above the 50th&nbsp;percentile.</td></tr>
+            <tr><td>3.5</td><td>Borderline</td><td>May draw scrutiny from writing-intensive programs.</td></tr>
+            <tr><td>Below 3.0</td><td>Concerning</td><td>Could raise questions about writing ability.</td></tr>
+          </tbody>
+        </table>
+
+        <div class="card-alt-green compact mt-16">
+          <div style="display: flex; align-items: flex-start; gap: 12px;">
+            <span class="icon icon-xl icon-green" style="flex-shrink: 0; -webkit-mask-image: url(../../../assets/icons/sparkle.svg); mask-image: url(../../../assets/icons/sparkle.svg)"></span>
+            <p class="text-md"><strong>Reality check:</strong> Most graduate programs weigh Verbal and Quant scores far more heavily than AWA. A 4.0+ is sufficient for the vast majority of&nbsp;applicants.</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          7:00 - 8:30 | Set realistic expectations. Most students overinvest in AWA prep relative to its importance. A 4.0 is above the 50th percentile and perfectly fine for most programs. The exception: writing-intensive programs (journalism, creative writing, rhetoric) may look more closely at AWA.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 8: Score Distribution -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Score Context</p>
+          <h2>Where your score falls</h2>
+        </div>
+
+        <p class="text-lg mb-24">The average AWA score is approximately 3.5 to 4.0. Here is how scores translate to&nbsp;percentiles.</p>
+
+        <table>
+          <thead>
+            <tr><th>AWA Score</th><th>Approximate Percentile</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>6.0</td><td>99th percentile</td></tr>
+            <tr><td>5.0</td><td>73rd percentile</td></tr>
+            <tr><td>4.5</td><td>59th percentile</td></tr>
+            <tr><td>4.0</td><td>54th percentile</td></tr>
+            <tr><td>3.5</td><td>38th percentile</td></tr>
+            <tr><td>3.0</td><td>15th percentile</td></tr>
+          </tbody>
+        </table>
+
+        <div class="card-alt compact mt-8">
+          <div style="display: flex; align-items: flex-start; gap: 12px;">
+            <span class="icon icon-xl icon-dark" style="flex-shrink: 0; -webkit-mask-image: url(../../../assets/icons/info.svg); mask-image: url(../../../assets/icons/info.svg)"></span>
+            <p class="text-md"><strong>Note:</strong> AWA percentiles are approximate and can shift slightly year to year. The key takeaway: a 4.0 puts you in the top half of all test&nbsp;takers.</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          8:30 - 9:30 | Show the score distribution. The big insight: a 4.0 is above the median. Most students can hit this with minimal prep if they use a clear structure. Spending hours trying to go from 4.0 to 5.0 is usually not worth it compared to improving Verbal or Quant.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 9: Summary (Dark) -->
+      <!-- ============================================ -->
+      <section class="content-dark">
+        <div class="slide-header">
+          <p class="eyebrow">Key Takeaways</p>
+          <h2>Analytical writing overview</h2>
+        </div>
+
+        <div class="flex-col gap-16">
+          <p class="text-lg text-white"><strong>One essay, 30 minutes.</strong> The GRE AWA is now a single Issue Essay (Argument Essay removed September&nbsp;2023).</p>
+          <p class="text-lg text-white"><strong>Scored 0-6</strong> based on reasoning, evidence, organization, and language. Reasoning and evidence matter&nbsp;most.</p>
+          <p class="text-lg text-white"><strong>Human + e-rater.</strong> One trained reader and one automated system score your essay. Clean structure helps with&nbsp;both.</p>
+          <p class="text-lg text-white"><strong>4.0+ is the target</strong> for most programs. That puts you above the 50th percentile with room to&nbsp;spare.</p>
+          <p class="text-lg text-white"><strong>Do not over-prepare.</strong> Verbal and Quant scores carry far more weight. Practice 2-3 essays and move&nbsp;on.</p>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="rgba(255,255,255,0.4)"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          9:30 - 10:00 | Summary slide. The AWA is manageable with structure and a realistic target. For detailed Issue Essay writing strategy, including the 5-paragraph template, example generation, and timing plan, see Lesson 8.5.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js -->
+  <script src="../../../assets/reveal/dist/reveal.min.js"></script>
+  <script type="module">
+    import RevealNotes from '../../../assets/reveal/plugin/notes/notes.esm.js';
+
+    Reveal.initialize({
+      width: 960,
+      height: 540,
+      margin: 0,
+      minScale: 0.5,
+      maxScale: 3.0,
+      hash: true,
+      slideNumber: true,
+      controls: true,
+      progress: true,
+      history: true,
+      center: false,
+      transition: 'none',
+      backgroundTransition: 'none',
+      disableLayout: false,
+      plugins: [ RevealNotes ]
+    });
+  </script>
+</body>
+</html>

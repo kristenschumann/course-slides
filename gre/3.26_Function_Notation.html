@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en" class="reveal-full-page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Function Notation &amp; Plug-In Strategies</title>
+
+  <!-- Reveal.js Core -->
+  <link rel="stylesheet" href="../../../assets/reveal/dist/reset.css">
+  <link rel="stylesheet" href="../../../assets/reveal/dist/reveal.css">
+
+  <!-- Leland Theme -->
+  <link rel="stylesheet" href="../../../assets/reveal/themes/leland.css">
+
+  <!-- KaTeX for math rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false}
+      ]
+    });"></script>
+
+</head>
+<body>
+  <!-- SVG Symbol Definitions (defined once, referenced via <use>) -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="leland-logo" viewBox="0 0 200 45">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z"/>
+      <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z"/>
+      <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z"/>
+      <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z"/>
+      <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z"/>
+      <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z"/>
+    </symbol>
+  </svg>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ============================================ -->
+      <!-- SLIDE 1: Title (Dark) -->
+      <!-- ============================================ -->
+      <section class="title-dark">
+        <div class="leland-logo-top">
+          <svg width="110" height="25" fill="white" class="mb-16"><use href="#leland-logo"/></svg>
+        </div>
+
+        <p class="eyebrow">GRE Self-Study Course</p>
+        <h1>Function Notation &amp;<br><span class="hl">Plug-In Strategies</span></h1>
+
+        <aside class="notes">
+          0:00-0:30 | Hook: If f(x) = x^2 - 3x, what is f(5)? What is f(a+1)? Function notation is just substitution with a fancy name. The GRE uses functions to test whether you can follow instructions precisely. This video makes function notation intuitive.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 2: What Is a Function? -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Core Concept</p>
+          <h2>Functions are substitution machines</h2>
+        </div>
+
+        <div class="card card-green-bg mb-16">
+          <span class="badge badge-green self-start mb-8">The Rule</span>
+          <p class="text-md">$f(x) = x^2 - 3x$ means: take the input, square it, then subtract 3 times the input.</p>
+        </div>
+
+        <div class="two-column gap-24">
+          <div class="card card-blue-bg">
+            <span class="badge badge-blue self-start mb-8">Number Input</span>
+            <p class="text-md mb-8">$f(5)$: replace every $x$ with 5</p>
+            <div class="card-alt compact">
+              <p class="text-md">$(5)^2 - 3(5) = 25 - 15 = $ <span class="ans">$10$</span></p>
+            </div>
+          </div>
+          <div class="card card-purple-bg">
+            <span class="badge badge-purple self-start mb-8">Expression Input</span>
+            <p class="text-md mb-8">$f(a + 1)$: replace every $x$ with $(a + 1)$</p>
+            <div class="card-alt compact">
+              <p class="text-md">$(a+1)^2 - 3(a+1)$</p>
+            </div>
+          </div>
+        </div>
+
+        <aside class="notes">
+          0:30-2:00 | A function is a substitution machine. f(x) tells you the rule. f(5) means replace x with 5. f(a+1) means replace x with the entire expression (a+1). Always use parentheses around the substitution.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 3: Example 2 - Plugging In Expressions -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 1</p>
+          <h2>Plugging in an expression</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-md">If $g(x) = x^2 - 4$, find $g(x + 2)$.</p>
+          </div>
+          <div class="card fragment" data-fragment-index="1">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16 fragment" data-fragment-index="2"><strong>Step 1:</strong> Replace $x$ with $(x + 2)$</p>
+            <p class="text-md mb-16 fragment" data-fragment-index="3"><strong>Step 2:</strong>&nbsp;$(x+2)^2 - 4 = x^2 + 4x + 4 - 4$</p>
+            <p class="text-lg mt-16 fragment" data-fragment-index="4">Answer:&nbsp;<span class="ans">$x^2 + 4x$</span></p>
+          </div>
+        </div>
+
+        <div class="card-alt compact mt-16">
+          <span class="badge badge-red">Common Trap</span>
+          <p class="text-md">$f(a + b) = (a + b)^2$, NOT $a^2 + b^2$. Always use parentheses when substituting.</p>
+        </div>
+
+        <aside class="notes">
+          2:00-3:00 | Example 1: plugging in an expression. Replace x with (x+2). Expand (x+2)^2 = x^2 + 4x + 4. Subtract 4 to get x^2 + 4x. Common trap: forgetting to square the whole expression.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 4: Divider - Composite Functions -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <p class="part-number">Part 2</p>
+        <h1>Composite Functions</h1>
+        <p>Plugging one function into another</p>
+
+        <aside class="notes">
+          3:00-3:10 | Transition: now let's plug one function into another. This is called composition.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 5: Composition Concept -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Composition</p>
+          <h2>Read from inside out</h2>
+        </div>
+
+        <div class="card-alt-green compact mb-16">
+          <p class="text-md"><strong>$f(g(x))$</strong> means: first apply $g$, then apply $f$ to the result. Work inside out.</p>
+        </div>
+
+        <div class="two-column gap-24">
+          <div class="card card-green-bg">
+            <span class="badge badge-green self-start mb-8">f(g(3))</span>
+            <p class="text-md mb-8">Let $f(x) = 2x + 1$ and $g(x) = x^2$</p>
+            <div class="card-alt compact mb-8">
+              <p class="text-md">Inner: $g(3) = 9$</p>
+            </div>
+            <div class="card-alt compact">
+              <p class="text-md">Outer: $f(9) = 2(9) + 1 = $ <span class="ans">$19$</span></p>
+            </div>
+          </div>
+          <div class="card card-orange-bg">
+            <span class="badge badge-orange self-start mb-8">g(f(3))</span>
+            <p class="text-md mb-8">Same functions, different order</p>
+            <div class="card-alt compact mb-8">
+              <p class="text-md">Inner: $f(3) = 7$</p>
+            </div>
+            <div class="card-alt compact">
+              <p class="text-md">Outer: $g(7) = 7^2 = $ <span class="ans">$49$</span></p>
+            </div>
+          </div>
+        </div>
+
+        <aside class="notes">
+          3:10-4:30 | Composition: f(g(x)) means inside out. f(g(3)): first g(3) = 9, then f(9) = 19. Reverse: g(f(3)): first f(3) = 7, then g(7) = 49. Order matters!
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 6: Example - General Composition -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 2</p>
+          <h2>Composing with variables</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-md">If $f(x) = x + 3$ and $g(x) = 2x$, find $f(g(x))$ and $g(f(x))$.</p>
+          </div>
+          <div class="card fragment" data-fragment-index="1">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16 fragment" data-fragment-index="2">$f(g(x)) = f(2x) = 2x + 3$</p>
+            <p class="text-md mb-16 fragment" data-fragment-index="3">$g(f(x)) = g(x + 3) = 2(x + 3) = 2x + 6$</p>
+            <p class="text-lg mt-16 fragment" data-fragment-index="4"><span class="ans">$f(g(x)) = 2x + 3$</span> &nbsp; <span class="ans">$g(f(x)) = 2x + 6$</span></p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          4:30-5:30 | Example 2: composing with variables. f(g(x)) = f(2x) = 2x + 3. g(f(x)) = g(x+3) = 2(x+3) = 2x + 6. Different results, confirming order matters.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 7: Divider - Finding Inputs -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <p class="part-number">Part 3</p>
+        <h1>Finding Inputs from Outputs</h1>
+        <p>Working backwards with functions</p>
+
+        <aside class="notes">
+          5:30-5:40 | Transition: sometimes the GRE gives you the output and asks for the input. This means setting up and solving an equation.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 8: Example - Reverse Problem -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 3</p>
+          <h2>Finding the input</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-md">If $g(x) = x^2 - 5x$, for what values of $x$ does $g(x) = 6$?</p>
+          </div>
+          <div class="card fragment" data-fragment-index="1">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16 fragment" data-fragment-index="2"><strong>Step 1:</strong>&nbsp;$x^2 - 5x = 6$</p>
+            <p class="text-md mb-16 fragment" data-fragment-index="3"><strong>Step 2:</strong>&nbsp;$x^2 - 5x - 6 = 0$</p>
+            <p class="text-md mb-16 fragment" data-fragment-index="4"><strong>Step 3:</strong>&nbsp;$(x - 6)(x + 1) = 0$</p>
+            <p class="text-lg mt-16 fragment" data-fragment-index="5">Answer:&nbsp;<span class="ans">$x = 6$ or $x = -1$</span></p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          5:40-6:40 | Example 3: finding the input. Set g(x) = 6 and solve the quadratic. Factor to get (x-6)(x+1) = 0. Two solutions: x = 6 or x = -1.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 9: Example - Relating Inputs -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 4</p>
+          <h2>Relating two inputs</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-md">If $f(x) = 2x + 1$ and $f(a) = f(b) + 4$, express $a$ in terms of $b$.</p>
+          </div>
+          <div class="card fragment" data-fragment-index="1">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16 fragment" data-fragment-index="2"><strong>Step 1:</strong>&nbsp;$f(a) = 2a + 1$,&nbsp;$f(b) = 2b + 1$</p>
+            <p class="text-md mb-16 fragment" data-fragment-index="3"><strong>Step 2:</strong>&nbsp;$2a + 1 = (2b + 1) + 4$</p>
+            <p class="text-md mb-16 fragment" data-fragment-index="4"><strong>Step 3:</strong>&nbsp;$2a = 2b + 4$</p>
+            <p class="text-lg mt-16 fragment" data-fragment-index="5">Answer:&nbsp;<span class="ans">$a = b + 2$</span></p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          6:40-7:30 | Example 4: relating two inputs. Evaluate f(a) and f(b), set up the equation, and solve for a. Answer: a = b + 2.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 10: GRE Plug-In Strategy -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 5</p>
+          <h2>Plug-in strategy for multiple choice</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-md mb-8">If $f(x) = x^2$, which equals $f(2a)$?</p>
+            <div class="answer-choices">
+              <div class="choice"><span class="choice-letter">(A)</span> $2f(a)$</div>
+              <div class="choice"><span class="choice-letter">(B)</span> $f(a^2)$</div>
+              <div class="choice"><span class="choice-letter">(C)</span> $4f(a)$</div>
+              <div class="choice"><span class="choice-letter">(D)</span> $f(a) + f(a)$</div>
+              <div class="choice"><span class="choice-letter">(E)</span> $(f(a))^2$</div>
+            </div>
+          </div>
+          <div class="card fragment" data-fragment-index="1">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16 fragment" data-fragment-index="2"><strong>Plug in $a = 3$:</strong>&nbsp;$f(6) = 36$</p>
+            <p class="text-md mb-16 fragment" data-fragment-index="3">(A) $2(9) = 18$&nbsp;&nbsp;(B) $f(9) = 81$</p>
+            <p class="text-md mb-16 fragment" data-fragment-index="4">(C) $4(9) = 36$ &nbsp; (D) $9 + 9 = 18$ &nbsp; (E) $81$</p>
+            <p class="text-lg mt-16 fragment" data-fragment-index="5">Answer:&nbsp;<span class="ans">(C) $4f(a)$</span></p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          7:30-8:45 | Example 5: plug-in strategy. Plug in a = 3. f(2a) = f(6) = 36. Test each choice: only (C) gives 36. Verify algebraically: f(2a) = (2a)^2 = 4a^2 = 4f(a).
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 11: When to Plug In -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Strategy</p>
+          <h2>When to use plug-in numbers</h2>
+        </div>
+
+        <div class="card-grid-3">
+          <div class="card card-green-bg">
+            <h3 class="text-md mb-8">Variables in Choices</h3>
+            <p class="text-md">Answer choices contain variables, not specific numbers.</p>
+          </div>
+          <div class="card card-blue-bg">
+            <h3 class="text-md mb-8">Percent Problems</h3>
+            <p class="text-md">No specific values given. Use 100 as your starting number.</p>
+          </div>
+          <div class="card card-purple-bg">
+            <h3 class="text-md mb-8">"Must Be True"</h3>
+            <p class="text-md">Test multiple values to eliminate wrong choices quickly.</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          8:45-9:30 | Three scenarios for plug-in: variables in answer choices, percent problems without specific values, and "must be true" questions. Pick simple numbers like 2, 3, or 100 to make the math easy.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 12: Divider - Custom Operators -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <p class="part-number">Part 4</p>
+        <h1>Custom Operator Problems</h1>
+        <p>"Weird symbol" questions are pure substitution</p>
+
+        <aside class="notes">
+          9:30-9:40 | Transition: the GRE loves to define made-up symbols. These look intimidating but are just function notation in disguise.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 13: Custom Operator Example 1 -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Custom Operators</p>
+          <h2>Substitute and simplify</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-md mb-8">For all integers $x$ and $y$:</p>
+            <p class="text-lg mb-16">$x \oplus y = 2x + 3y - xy$</p>
+            <p class="text-md">What is $3 \oplus (-2)$?</p>
+          </div>
+          <div class="card fragment" data-fragment-index="1">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16 fragment" data-fragment-index="2"><strong>Step 1:</strong> Replace $x$ with 3, $y$ with $-2$</p>
+            <p class="text-md mb-16 fragment" data-fragment-index="3"><strong>Step 2:</strong>&nbsp;$2(3) + 3(-2) - (3)(-2)$</p>
+            <p class="text-md mb-16 fragment" data-fragment-index="4">$= 6 - 6 + 6$</p>
+            <p class="text-lg mt-16 fragment" data-fragment-index="5">Answer:&nbsp;<span class="ans">$6$</span></p>
+          </div>
+        </div>
+
+        <div class="card-alt-green compact mt-16">
+          <div style="display: flex; align-items: flex-start; gap: 12px;">
+            <span class="icon icon-md icon-green" style="flex-shrink: 0; -webkit-mask-image: url(../../../assets/icons/lightning.svg); mask-image: url(../../../assets/icons/lightning.svg)"></span>
+            <p class="text-md"><strong>Strategy:</strong> Custom operator problems are pure plug-in. Substitute carefully, watch your signs, and simplify.</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          9:40-10:40 | Custom operator example. The symbol is just a function definition. Replace x with 3 and y with -2. Be careful with the signs: 3 times -2 = -6, and subtracting -6 gives +6. Answer: 6.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 14: Custom Operator - Nested -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Nested Operators</p>
+          <h2>Work inside out</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-md mb-8">Using $x \oplus y = 2x + 3y - xy$:</p>
+            <p class="text-md">What is $(2 \oplus 1) \oplus 3$?</p>
+          </div>
+          <div class="card fragment" data-fragment-index="1">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16 fragment" data-fragment-index="2"><strong>Inner:</strong>&nbsp;$2 \oplus 1 = 2(2) + 3(1) - (2)(1) = 5$</p>
+            <p class="text-md mb-16 fragment" data-fragment-index="3"><strong>Outer:</strong>&nbsp;$5 \oplus 3 = 2(5) + 3(3) - (5)(3)$</p>
+            <p class="text-md mb-16 fragment" data-fragment-index="4">$= 10 + 9 - 15 = 4$</p>
+            <p class="text-lg mt-16 fragment" data-fragment-index="5">Answer:&nbsp;<span class="ans">$4$</span></p>
+          </div>
+        </div>
+
+        <div class="card-alt compact mt-16">
+          <span class="badge badge-orange">GRE Tip</span>
+          <p class="text-md">Nested operators work just like composition. Evaluate the inner operation first, then use that result in the outer operation.</p>
+        </div>
+
+        <aside class="notes">
+          10:40-11:30 | Nested custom operators. Same idea as function composition: work inside out. First evaluate 2 oplus 1 = 5. Then 5 oplus 3 = 4. These are common on the GRE and are free points if you substitute carefully.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 15: Summary (content-dark) -->
+      <!-- ============================================ -->
+      <section class="content-dark">
+        <div class="slide-header">
+          <p class="eyebrow">Key Takeaways</p>
+          <h2>Function notation and plug-in</h2>
+        </div>
+
+        <ul class="plus-list">
+          <li><strong>Evaluation</strong>: Replace every $x$ with the input. Always use parentheses.</li>
+          <li><strong>Composition</strong>: $f(g(x))$ means inside out. Order matters.</li>
+          <li><strong>Finding inputs</strong>: Set $f(x) =$ target value and solve the equation.</li>
+          <li><strong>Parentheses trap</strong>: $f(a+b) = (a+b)^2$, not $a^2 + b^2$.</li>
+          <li><strong>Custom operators</strong>: "Weird symbol" problems are just substitution. Replace variables carefully.</li>
+          <li><strong>Plug-in strategy</strong>: Pick simple numbers to test answer choices when variables appear.</li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="rgba(255,255,255,0.4)"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          9:30-10:00 | Summary: function evaluation is substitution. Composition works inside out. Find inputs by solving equations. Watch the parentheses trap. Use plug-in with simple numbers for multiple choice.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js -->
+  <script src="../../../assets/reveal/dist/reveal.min.js"></script>
+  <script type="module">
+    import RevealNotes from '../../../assets/reveal/plugin/notes/notes.esm.js';
+
+    Reveal.initialize({
+      width: 960,
+      height: 540,
+      margin: 0,
+      minScale: 0.5,
+      maxScale: 3.0,
+      hash: true,
+      slideNumber: true,
+      controls: true,
+      progress: true,
+      history: true,
+      center: false,
+      transition: 'none',
+      backgroundTransition: 'none',
+      disableLayout: false,
+      plugins: [ RevealNotes ]
+    });
+  </script>
+</body>
+</html>
