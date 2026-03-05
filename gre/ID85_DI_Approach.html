@@ -6,11 +6,11 @@
   <title>How to Approach DI Questions</title>
 
   <!-- Reveal.js Core -->
-  <link rel="stylesheet" href="../assets/reveal/dist/reset.css">
-  <link rel="stylesheet" href="../assets/reveal/dist/reveal.css">
+  <link rel="stylesheet" href="../../../../../../_design/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../../../../../../_design/revealjs/dist/reveal.css">
 
   <!-- Leland Theme -->
-  <link rel="stylesheet" href="../assets/reveal/themes/leland.css">
+  <link rel="stylesheet" href="../../../../../../_design/revealjs/themes/leland.css">
 
   <!-- KaTeX for math rendering -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
@@ -71,29 +71,29 @@
         <table>
           <thead>
             <tr>
-              <th>Display Type</th>
+              <th style="width:180px">Display Type</th>
               <th>What It Shows</th>
               <th>Common Questions</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>Bar graph</td>
+              <td style="vertical-align:middle"><svg viewBox="0 0 50 32" width="40" height="26" style="vertical-align:middle; margin-right:8px"><rect x="4" y="14" width="8" height="16" fill="#15B078" rx="1"/><rect x="15" y="6" width="8" height="24" fill="#113A2D" rx="1"/><rect x="26" y="18" width="8" height="12" fill="#3B7DFD" rx="1"/><rect x="37" y="10" width="8" height="20" fill="#185440" rx="1"/><line x1="2" y1="30" x2="48" y2="30" stroke="#333" stroke-width="0.7"/></svg> Bar graph</td>
               <td>Comparisons</td>
               <td>Which is largest? Difference?</td>
             </tr>
             <tr>
-              <td>Line graph</td>
+              <td style="vertical-align:middle"><svg viewBox="0 0 50 32" width="40" height="26" style="vertical-align:middle; margin-right:8px"><polyline points="4,24 16,14 28,18 40,6" fill="none" stroke="#15B078" stroke-width="2"/><circle cx="4" cy="24" r="2" fill="#15B078"/><circle cx="16" cy="14" r="2" fill="#15B078"/><circle cx="28" cy="18" r="2" fill="#15B078"/><circle cx="40" cy="6" r="2" fill="#15B078"/><line x1="2" y1="30" x2="48" y2="30" stroke="#333" stroke-width="0.7"/></svg> Line graph</td>
               <td>Trends over time</td>
               <td>Increase/decrease? Rate of change?</td>
             </tr>
             <tr>
-              <td>Pie chart</td>
+              <td style="vertical-align:middle"><svg viewBox="0 0 50 32" width="40" height="26" style="vertical-align:middle; margin-right:8px"><path d="M25,3 A13,13 0 0,1 34.5,25.8 L25,16 Z" fill="#15B078"/><path d="M34.5,25.8 A13,13 0 0,1 11.5,20.5 L25,16 Z" fill="#113A2D"/><path d="M11.5,20.5 A13,13 0 0,1 25,3 L25,16 Z" fill="#3B7DFD"/></svg> Pie chart</td>
               <td>Parts of a whole</td>
               <td>Percentages, fractions</td>
             </tr>
             <tr>
-              <td>Table</td>
+              <td style="vertical-align:middle"><svg viewBox="0 0 50 32" width="40" height="26" style="vertical-align:middle; margin-right:8px"><rect x="2" y="2" width="46" height="28" fill="none" stroke="#333" stroke-width="0.7" rx="2"/><line x1="2" y1="10" x2="48" y2="10" stroke="#333" stroke-width="0.5"/><line x1="2" y1="17" x2="48" y2="17" stroke="#E5E5E5" stroke-width="0.5"/><line x1="2" y1="24" x2="48" y2="24" stroke="#E5E5E5" stroke-width="0.5"/><line x1="22" y1="2" x2="22" y2="30" stroke="#E5E5E5" stroke-width="0.5"/></svg> Table</td>
               <td>Precise values</td>
               <td>Calculations, comparisons</td>
             </tr>
@@ -131,23 +131,57 @@
           <h2>The Three-Step Workflow</h2>
         </div>
 
+        <!-- Annotated sample chart showing what to scan -->
+        <svg class="chart-svg" viewBox="0 0 750 110" style="margin-bottom: 8px">
+          <rect x="100" y="2" width="480" height="100" fill="#fafafa" stroke="#E5E5E5" stroke-width="1" rx="4"/>
+          <!-- Title -->
+          <text x="340" y="14" text-anchor="middle" font-size="9" font-weight="600" fill="#333" font-family="Inter,Arial,sans-serif">Enrollment by Department, 2018-2022 (thousands of students)</text>
+          <!-- Y-axis -->
+          <line x1="140" y1="22" x2="140" y2="88" stroke="#333" stroke-width="0.5"/>
+          <line x1="140" y1="88" x2="540" y2="88" stroke="#333" stroke-width="0.7"/>
+          <text x="136" y="91" text-anchor="end" font-size="7" fill="#707070" font-family="Inter,Arial,sans-serif">0</text>
+          <text x="136" y="68" text-anchor="end" font-size="7" fill="#707070" font-family="Inter,Arial,sans-serif">5</text>
+          <text x="136" y="45" text-anchor="end" font-size="7" fill="#707070" font-family="Inter,Arial,sans-serif">10</text>
+          <text x="120" y="58" text-anchor="middle" font-size="7" fill="#707070" font-family="Inter,Arial,sans-serif" transform="rotate(-90,120,58)">Students (000s)</text>
+          <!-- Bars -->
+          <rect x="170" y="50" width="22" height="38" fill="#15B078" rx="1"/><rect x="194" y="58" width="22" height="30" fill="#113A2D" rx="1"/>
+          <rect x="250" y="42" width="22" height="46" fill="#15B078" rx="1"/><rect x="274" y="50" width="22" height="38" fill="#113A2D" rx="1"/>
+          <rect x="330" y="34" width="22" height="54" fill="#15B078" rx="1"/><rect x="354" y="42" width="22" height="46" fill="#113A2D" rx="1"/>
+          <rect x="410" y="28" width="22" height="60" fill="#15B078" rx="1"/><rect x="434" y="38" width="22" height="50" fill="#113A2D" rx="1"/>
+          <rect x="490" y="24" width="22" height="64" fill="#15B078" rx="1"/><rect x="514" y="32" width="22" height="56" fill="#113A2D" rx="1"/>
+          <!-- Legend -->
+          <rect x="560" y="42" width="8" height="6" fill="#15B078" rx="1"/><text x="571" y="48" font-size="7" fill="#333" font-family="Inter,Arial,sans-serif">Eng.</text>
+          <rect x="560" y="54" width="8" height="6" fill="#113A2D" rx="1"/><text x="571" y="60" font-size="7" fill="#333" font-family="Inter,Arial,sans-serif">Bus.</text>
+          <!-- Scan callouts -->
+          <line x1="68" y1="14" x2="98" y2="14" stroke="#15B078" stroke-width="1.2"/>
+          <text x="65" y="17" text-anchor="end" font-size="7" font-weight="700" fill="#15B078" font-family="Inter,Arial,sans-serif">TITLE</text>
+          <line x1="68" y1="58" x2="108" y2="58" stroke="#3B7DFD" stroke-width="1.2"/>
+          <text x="65" y="61" text-anchor="end" font-size="7" font-weight="700" fill="#3B7DFD" font-family="Inter,Arial,sans-serif">LABELS</text>
+          <line x1="632" y1="14" x2="594" y2="14" stroke="#EF8509" stroke-width="1.2"/>
+          <text x="635" y="17" text-anchor="start" font-size="7" font-weight="700" fill="#EF8509" font-family="Inter,Arial,sans-serif">UNITS</text>
+          <line x1="68" y1="91" x2="134" y2="91" stroke="#2D25A6" stroke-width="1.2"/>
+          <text x="65" y="94" text-anchor="end" font-size="7" font-weight="700" fill="#2D25A6" font-family="Inter,Arial,sans-serif">SCALE</text>
+          <line x1="632" y1="52" x2="582" y2="52" stroke="#9B9B9B" stroke-width="1.2"/>
+          <text x="635" y="55" text-anchor="start" font-size="7" font-weight="700" fill="#9B9B9B" font-family="Inter,Arial,sans-serif">LEGEND</text>
+        </svg>
+
         <div class="workflow">
           <div class="workflow-step">
             <div class="step-num mb-16">1</div>
             <h3 class="text-md">Scan</h3>
-            <p class="text-md">Title, labels, units, scale (30 sec)</p>
+            <p class="text-sm">Title, labels, units, scale (30 sec)</p>
           </div>
           <div class="workflow-arrow">&rarr;</div>
           <div class="workflow-step">
             <div class="step-num mb-16">2</div>
             <h3 class="text-md">Read</h3>
-            <p class="text-md">What exactly is being asked? (15 sec)</p>
+            <p class="text-sm">What exactly is being asked? (15 sec)</p>
           </div>
           <div class="workflow-arrow">&rarr;</div>
           <div class="workflow-step">
             <div class="step-num mb-16">3</div>
             <h3 class="text-md">Calculate</h3>
-            <p class="text-md">Extract values, compute, verify</p>
+            <p class="text-sm">Extract values, compute, verify</p>
           </div>
         </div>
 
@@ -188,7 +222,21 @@
           <div class="card card-purple-bg">
             <span class="badge badge-purple self-start mb-8">Trap 3</span>
             <h3 class="text-md mb-8">Visual Deception</h3>
-            <p class="text-md">3D graphs and broken axes distort proportions.</p>
+            <!-- Mini truncated axis example -->
+            <svg viewBox="0 0 200 70" width="180" style="margin: 4px 0">
+              <line x1="30" y1="8" x2="30" y2="55" stroke="#333" stroke-width="0.5"/>
+              <line x1="30" y1="55" x2="180" y2="55" stroke="#333" stroke-width="0.5"/>
+              <text x="26" y="58" text-anchor="end" font-size="7" fill="#707070" font-family="Inter,Arial,sans-serif">90</text>
+              <text x="26" y="38" text-anchor="end" font-size="7" fill="#707070" font-family="Inter,Arial,sans-serif">95</text>
+              <text x="26" y="18" text-anchor="end" font-size="7" fill="#707070" font-family="Inter,Arial,sans-serif">100</text>
+              <path d="M26 53 L29 51 L26 49 L29 47" stroke="#333" fill="none" stroke-width="0.7"/>
+              <rect x="50" y="30" width="30" height="25" fill="#FB5A42" rx="1"/>
+              <rect x="100" y="12" width="30" height="43" fill="#FB5A42" rx="1" opacity="0.7"/>
+              <text x="65" y="65" text-anchor="middle" font-size="7" fill="#333" font-family="Inter,Arial,sans-serif">A: 93</text>
+              <text x="115" y="65" text-anchor="middle" font-size="7" fill="#333" font-family="Inter,Arial,sans-serif">B: 98</text>
+              <text x="155" y="38" font-size="6" font-weight="600" fill="#FB5A42" font-family="Inter,Arial,sans-serif">Looks 2x</text>
+              <text x="155" y="46" font-size="6" font-weight="600" fill="#FB5A42" font-family="Inter,Arial,sans-serif">but only 5%</text>
+            </svg>
           </div>
         </div>
 
@@ -414,9 +462,9 @@
   </div>
 
   <!-- Reveal.js -->
-  <script src="../assets/reveal/dist/reveal.min.js"></script>
+  <script src="../../../../../../_design/revealjs/dist/reveal.min.js"></script>
   <script type="module">
-    import RevealNotes from '../assets/reveal/plugin/notes/notes.esm.js';
+    import RevealNotes from '../../../../../../_design/revealjs/plugin/notes/notes.esm.js';
 
     Reveal.initialize({
       width: 960,
