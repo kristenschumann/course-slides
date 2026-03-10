@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en" class="reveal-full-page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Percent Change &amp; Successive Change</title>
+
+  <!-- Reveal.js Core -->
+  <link rel="stylesheet" href="../assets/reveal/dist/reset.css">
+  <link rel="stylesheet" href="../assets/reveal/dist/reveal.css">
+
+  <!-- Leland Theme -->
+  <link rel="stylesheet" href="../assets/reveal/themes/leland.css">
+
+  <!-- KaTeX for math rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false}
+      ]
+    });"></script>
+
+</head>
+<body>
+  <!-- SVG Symbol Definitions (defined once, referenced via <use>) -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="leland-logo" viewBox="0 0 200 45">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z"/>
+      <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z"/>
+      <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z"/>
+      <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z"/>
+      <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z"/>
+      <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z"/>
+    </symbol>
+  </svg>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ============================================ -->
+      <!-- SLIDE 1: Title (Dark) -->
+      <!-- ============================================ -->
+      <section class="title-dark">
+        <div class="leland-logo-top">
+          <svg width="110" height="25" fill="white" class="mb-16"><use href="#leland-logo"/></svg>
+        </div>
+
+        <p class="eyebrow">GRE Self-Study Course</p>
+        <h1>Percent Change &amp;<br><span class="hl">Successive Change</span></h1>
+
+        <aside class="notes">
+          0:00-0:30 | Hook: A shirt goes on sale for 20% off, then another 30% off. Total discount? Most students say 50%, but the answer is 44%. This video explains why and teaches the multiplier method for percent changes.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 2: Divider - Percent Change -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <p class="part-number">Part 1</p>
+        <h1>The Percent Change Formula</h1>
+        <p>Always divide by the original</p>
+
+        <aside class="notes">
+          0:30-0:40 | Transition into the percent change formula.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 3: Formula + Multiplier -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Percent Change</p>
+          <h2>The formula and the multiplier</h2>
+        </div>
+
+        <div class="card-alt-green compact mb-16">
+          <p class="text-md">$\text{Percent Change} = \frac{\text{New} - \text{Old}}{\text{Old}} \times 100\%$</p>
+        </div>
+
+        <div class="two-column gap-24">
+          <div class="card card-green-bg">
+            <span class="badge badge-green self-start mb-16">Increase</span>
+            <p class="text-md mb-8">Increase of $x\%$</p>
+            <p class="text-md">Multiply by&nbsp;$(1 + \frac{x}{100})$</p>
+          </div>
+          <div class="card card-red-bg">
+            <span class="badge badge-red self-start mb-16">Decrease</span>
+            <p class="text-md mb-8">Decrease of $x\%$</p>
+            <p class="text-md">Multiply by&nbsp;$(1 - \frac{x}{100})$</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          0:40-2:00 | The formula: (New - Old) / Old times 100%. Always divide by the original. The multiplier method: increase of 20% means multiply by 1.20, decrease of 15% means multiply by 0.85.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 4: Example 1 - Percent Increase -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 1</p>
+          <h2>Finding the percent increase</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-md">A stock price rises from \$40 to \$50. What is the percent increase?</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md math-step">$\frac{50 - 40}{40} \times 100\%$</p>
+            <p class="text-md math-step">$= \frac{10}{40} \times 100\% = 0.25 \times 100\%$</p>
+            <p class="text-lg mt-16">Answer:&nbsp;$25\%$ increase</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          2:00-2:40 | Example 1: stock goes from $40 to $50. Change is 10, divide by old (40), get 25% increase.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 5: Divider - Percent More vs Times -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <p class="part-number">Part 2</p>
+        <h1>Percent More vs. Times as Much</h1>
+        <p>The critical distinction</p>
+
+        <aside class="notes">
+          2:40-2:50 | Transition into the percent-more vs times-as-much distinction.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 6: Percent More vs Times -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Percent More vs. Times</p>
+          <h2>Reading the language precisely</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Statement</th>
+              <th>Meaning</th>
+              <th>Multiplier</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>A is 50% more than B</td>
+              <td>$A = 1.5B$</td>
+              <td>$\times 1.5$</td>
+            </tr>
+            <tr>
+              <td>A is 50% of B</td>
+              <td>$A = 0.5B$</td>
+              <td>$\times 0.5$</td>
+            </tr>
+            <tr>
+              <td>A is 3 times B</td>
+              <td>$A = 3B$</td>
+              <td>$\times 3$</td>
+            </tr>
+            <tr>
+              <td>A is 200% more than B</td>
+              <td>$A = 3B$</td>
+              <td>$\times 3$</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="card-alt compact mt-16">
+          <span class="badge badge-orange">Key</span>
+          <p class="text-md">3 times as much $=$ 200% <strong>more</strong> (not 300%). "X times more" adds X copies of the original.</p>
+        </div>
+
+        <aside class="notes">
+          2:50-4:20 | The critical distinction. 50% more means multiply by 1.5. 3 times as much means multiply by 3, which is the same as 200% more. Walk through each row. Emphasize that "3 times more" = 4 times total is debated, but on the GRE, "X% more" always means add X% to the original.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 7: Example 3 - Percent More -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 2</p>
+          <h2>Applying "percent more"</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-md">Sarah earns 40% more than Tom. Tom earns \$5,000. How much does Sarah earn?</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16">"40% more" $\rightarrow$ multiply by 1.40</p>
+            <p class="text-md mb-16">Sarah $= 1.40 \times \$5{,}000$</p>
+            <p class="text-lg mt-16">Answer:&nbsp;$\$7{,}000$</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          4:20-4:50 | Example 2: 40% more means multiply by 1.40. Sarah = 1.40 x $5,000 = $7,000.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 8: Divider - Successive Changes -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <p class="part-number">Part 3</p>
+        <h1>Successive Percent Changes</h1>
+        <p>Multiply the multipliers, never add the percents</p>
+
+        <aside class="notes">
+          4:50-5:00 | Transition into successive changes.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 9: Example 6 - Successive Discounts -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 3</p>
+          <h2>Successive discounts</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-md">A \$100 shirt is 20% off, then another 30% off the sale price. Final price?</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16">First discount:&nbsp;$\$100 \times 0.80 = \$80$</p>
+            <p class="text-md mb-16">Second discount:&nbsp;$\$80 \times 0.70 = \$56$</p>
+            <p class="text-lg mt-16">Total discount: $44\%$ (not $50\%$!)</p>
+          </div>
+        </div>
+
+        <div class="card-alt compact mt-16">
+          <span class="badge badge-red">Common Error</span>
+          <p class="text-md">Adding percents: $20\% + 30\% = 50\%$. The second discount applies to the <strong>reduced</strong> price.</p>
+        </div>
+
+        <aside class="notes">
+          5:00-6:00 | Example 3: successive discounts. 20% off gives $80. Then 30% off of $80 gives $56. The combined multiplier is 0.80 x 0.70 = 0.56, which is a 44% discount, not 50%. Quick formula for two successive changes x% and y%: net change = x + y + (xy/100). For -20% and -30%: -20 + -30 + (600/100) = -44%. This shortcut saves time on the GRE.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 10: Successive Percent Shortcut -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Successive Change</p>
+          <h2>The quick formula</h2>
+        </div>
+
+        <p class="text-lg mb-16">For two successive changes of $x\%$ and $y\%$, the net percent change is:</p>
+
+        <div class="card-alt-green compact mb-16">
+          <p class="text-md"><strong>Net change</strong> $= x + y + \frac{xy}{100}$</p>
+        </div>
+
+        <div class="two-column gap-24">
+          <div class="card">
+            <h3 class="text-md mb-16">Example</h3>
+            <p class="text-md">A 20% increase followed by a 10% decrease.</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16">$x = 20$, $y = -10$</p>
+            <p class="text-md mb-16">$20 + (-10) + \frac{(20)(-10)}{100}$</p>
+            <p class="text-md mb-16">$= 10 + (-2) = 8$</p>
+            <p class="text-lg mt-16">Answer:&nbsp;$8\%$ net increase</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          5:30 - 6:00 | The quick formula for successive percent changes: x + y + xy/100. Use signed values (negative for decreases). This saves time compared to multiplying decimals on the GRE.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 11: Example 7 - Population Increase -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 4</p>
+          <h2>Successive increases</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-md">A population increases by 10% one year, then 20% the next. Total percent increase?</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16">Year 1 multiplier:&nbsp;$1.10$</p>
+            <p class="text-md mb-16">Year 2 multiplier:&nbsp;$1.20$</p>
+            <p class="text-md mb-16">Combined:&nbsp;$1.10 \times 1.20 = 1.32$</p>
+            <p class="text-lg mt-16">Answer:&nbsp;$32\%$ increase (not $30\%$)</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          6:00-6:50 | Example 4: successive increases. Multiply 1.10 by 1.20 to get 1.32, meaning 32% total increase, not 30%.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 11: The Return Trip Trap -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Successive Change</p>
+          <h2>The return trip trap</h2>
+        </div>
+
+        <div class="two-column gap-24">
+          <div class="card card-red-bg">
+            <span class="badge badge-red self-start mb-16">The Trap</span>
+            <p class="text-md mb-8">Increase by 50%, then decrease by 50%:</p>
+            <div class="card-alt compact mb-8">
+              <p class="text-md">$\$100 \times 1.50 = \$150$</p>
+            </div>
+            <div class="card-alt compact">
+              <p class="text-md">$\$150 \times 0.50 = $ <span class="neg">$\$75$</span></p>
+            </div>
+          </div>
+          <div class="card card-green-bg">
+            <span class="badge badge-green self-start mb-16">Why</span>
+            <p class="text-md mb-8">The decrease applies to a <strong>larger</strong> base.</p>
+            <p class="text-md mb-8">To return to \$100 from \$150:</p>
+            <div class="card-alt compact">
+              <p class="text-md">Need&nbsp;$\frac{50}{150} = $ $33.3\%$ decrease</p>
+            </div>
+          </div>
+        </div>
+
+        <aside class="notes">
+          6:50-7:50 | The return trip trap. Increase by 50% then decrease by 50% does NOT get you back. You end up at $75, not $100. The decrease is calculated from a larger base. To return to $100 you need only a 33.3% decrease. Coaching tip: a percent decrease always hurts more than a percent increase of the same amount helps. This is guaranteed to appear as a trap answer on the GRE. Think of it as fractions: a 50% increase is multiplying by 3/2, so the reverse is 2/3, which is a 33.3% decrease.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 12: Example 8 - Net Zero -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 5</p>
+          <h2>Increase then decrease</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-md">A price increases by 25%, then decreases by 20%. What is the net change?</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16">Increase 25%:&nbsp;$\times 1.25$</p>
+            <p class="text-md mb-16">Decrease 20%:&nbsp;$\times 0.80$</p>
+            <p class="text-md mb-16">Combined:&nbsp;$1.25 \times 0.80 = 1.00$</p>
+            <p class="text-lg mt-16">Answer:&nbsp;$0\%$ change (back to original)</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          7:50-8:30 | Example 5: increase 25% then decrease 20%. Combined multiplier is 1.25 x 0.80 = 1.00. Net change is 0%. This specific pair happens to cancel exactly.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 13: Finding the Original -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 6</p>
+          <h2>Finding the original price</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-md">After a 25% increase, a price is \$75. What was the original price?</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16">Original $\times 1.25 = \$75$</p>
+            <p class="text-md math-step">Original $= \frac{\$75}{1.25}$</p>
+            <p class="text-lg mt-16">Answer:&nbsp;$\$60$</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          8:30-9:10 | Example 6: working backwards. If the new price is $75 after a 25% increase, divide by 1.25 to get $60.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 14: Summary (content-dark) -->
+      <!-- ============================================ -->
+      <section class="content-dark">
+        <div class="slide-header">
+          <p class="eyebrow">Key Takeaways</p>
+          <h2>Percent change toolkit</h2>
+        </div>
+
+        <ul class="plus-list">
+          <li><strong>Percent change formula</strong> - $\frac{\text{New} - \text{Old}}{\text{Old}} \times 100\%$, always divide by the original</li>
+          <li><strong>Multiplier method</strong> - Increase $x\%$ means $\times (1 + \frac{x}{100})$, decrease means $\times (1 - \frac{x}{100})$</li>
+          <li><strong>Percent more vs. times</strong> - 3 times as much $=$ 200% more, not 300%</li>
+          <li><strong>Successive changes</strong> - Multiply the multipliers, never add the percents</li>
+          <li><strong>Return trip trap</strong> - Equal increases and decreases do not cancel out</li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="rgba(255,255,255,0.4)"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          9:10-10:00 | Summary: always use the multiplier method. Multiply multipliers for successive changes. Watch for the percent-more vs times-as-much distinction. Remember the return trip trap.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js -->
+  <script src="../assets/reveal/dist/reveal.min.js"></script>
+  <script type="module">
+    import RevealNotes from '../assets/reveal/plugin/notes/notes.esm.js';
+
+    Reveal.initialize({
+      width: 960,
+      height: 540,
+      margin: 0,
+      minScale: 0.5,
+      maxScale: 3.0,
+      hash: true,
+      slideNumber: true,
+      controls: true,
+      progress: true,
+      history: true,
+      center: false,
+      transition: 'none',
+      backgroundTransition: 'none',
+      disableLayout: false,
+      plugins: [ RevealNotes ]
+    });
+  </script>
+</body>
+</html>

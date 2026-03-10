@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en" class="reveal-full-page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Word Problems Practice Set</title>
+
+  <!-- Reveal.js Core -->
+  <link rel="stylesheet" href="../assets/reveal/dist/reset.css">
+  <link rel="stylesheet" href="../assets/reveal/dist/reveal.css">
+
+  <!-- Leland Theme -->
+  <link rel="stylesheet" href="../assets/reveal/themes/leland.css">
+
+  <!-- KaTeX for math rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false}
+      ]
+    });"></script>
+
+</head>
+<body>
+  <!-- SVG Symbol Definitions (defined once, referenced via <use>) -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="leland-logo" viewBox="0 0 200 45">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z"/>
+      <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z"/>
+      <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z"/>
+      <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z"/>
+      <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z"/>
+      <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z"/>
+    </symbol>
+  </svg>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ============================================ -->
+      <!-- SLIDE 1: Title (Dark) -->
+      <!-- ============================================ -->
+      <section class="title-dark">
+        <div class="leland-logo-top">
+          <svg width="110" height="25" fill="white" class="mb-16"><use href="#leland-logo"/></svg>
+        </div>
+
+        <p class="eyebrow">GRE Self-Study Course</p>
+        <h1>Word Problems<br><span class="hl">Practice Set</span></h1>
+
+        <aside class="notes">
+          0:00-0:30 | This practice set covers all Week 3 word problem topics: translation, distance-rate-time, work rates, interest, and overlapping sets. We will walk through representative examples from each section with full solutions.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 2: Practice 1 - Translation -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Translation</p>
+          <h2>Consecutive integer problem</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-md">The product of two consecutive integers is 72. What is the larger integer?</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16"><strong>Step 1:</strong> Let the integers be $n$ and $n + 1$</p>
+            <p class="text-md mb-16"><strong>Step 2:</strong>&nbsp;$n(n + 1) = 72$, so $n^2 + n - 72 = 0$</p>
+            <p class="text-md mb-16"><strong>Step 3:</strong>&nbsp;$(n - 8)(n + 9) = 0$, so $n = 8$</p>
+            <p class="text-lg mt-16">Answer:&nbsp;$9$</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          0:30-1:30 | Translation problem. Click to reveal. Step 1: assign variables. Step 2: set up equation. Step 3: factor the quadratic. The larger integer is 9.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 3: Practice 2 - Age Problem -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Translation</p>
+          <h2>Age problem</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-md">Kim is 8 years older than Lee. In 4 years, Kim will be twice Lee's current age. How old is Lee now?</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16"><strong>Step 1:</strong> Kim $= L + 8$</p>
+            <p class="text-md mb-16"><strong>Step 2:</strong> In 4 years:&nbsp;$(L + 8) + 4 = 2L$</p>
+            <p class="text-md mb-16"><strong>Step 3:</strong>&nbsp;$L + 12 = 2L$, so $L = 12$</p>
+            <p class="text-lg mt-16">Answer:&nbsp;Lee is $12$ years old</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          1:30-2:30 | Age problem. Click to reveal. Step 1: express Kim's age in terms of Lee's. Step 2: write the "in 4 years" condition. Step 3: solve. Lee is 12 years old.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 4: Practice 3 - Distance-Rate-Time -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Distance-Rate-Time</p>
+          <h2>Catching up problem</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-md">Train A leaves at 9 AM at 50 mph. Train B leaves at 10 AM on the same route at 70 mph. When does B catch A?</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16"><strong>Step 1:</strong> A's head start:&nbsp;$50 \times 1 = 50$ miles</p>
+            <p class="text-md mb-16"><strong>Step 2:</strong> Closing speed:&nbsp;$70 - 50 = 20$ mph</p>
+            <p class="text-md mb-16"><strong>Step 3:</strong> Time to close:&nbsp;$\frac{50}{20} = 2.5$ hours after 10 AM</p>
+            <p class="text-lg mt-16">Answer:&nbsp;12:30 PM</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          2:30-3:30 | Catching up problem. Click to reveal. Step 1: A has a 50-mile head start. Step 2: B closes at 20 mph. Step 3: 50/20 = 2.5 hours after 10 AM. Answer: 12:30 PM.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 5: Practice 4 - Round Trip -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Distance-Rate-Time</p>
+          <h2>Round trip, different speeds</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-md">Sarah drove to work at 30 mph and returned at 50 mph. If the round trip took 4 hours, how far is her workplace?</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md math-step"><strong>Step 1:</strong>&nbsp;$\frac{d}{30} + \frac{d}{50} = 4$</p>
+            <p class="text-md math-step"><strong>Step 2:</strong>&nbsp;$\frac{5d}{150} + \frac{3d}{150} = 4$</p>
+            <p class="text-md math-step"><strong>Step 3:</strong>&nbsp;$\frac{8d}{150} = 4$, so $d = \frac{600}{8}$</p>
+            <p class="text-lg mt-16">Answer:&nbsp;$75$ miles</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          3:30-4:30 | Round trip problem. Click to reveal. Step 1: set up equation with d/30 + d/50 = 4. Step 2: common denominator 150. Step 3: solve for d = 75 miles. Verify: 2.5 + 1.5 = 4 hours.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 6: Practice 5 - Work Rate -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Work Rates</p>
+          <h2>Pool with fill and drain</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-md">A pool fills in 8 hours and drains in 12 hours. With both open, how long to fill?</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md math-step"><strong>Step 1:</strong> Net rate:&nbsp;$\frac{1}{8} - \frac{1}{12}$</p>
+            <p class="text-md math-step"><strong>Step 2:</strong>&nbsp;$\frac{3}{24} - \frac{2}{24} = \frac{1}{24}$</p>
+            <p class="text-md"><strong>Step 3:</strong> Flip the rate</p>
+            <p class="text-lg mt-16">Answer:&nbsp;$24$ hours</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          4:30-5:30 | Work rate with drain. Click to reveal. Step 1: net rate is 1/8 minus 1/12. Step 2: common denominator gives 1/24. Step 3: flip to get time. Answer: 24 hours.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 7: Practice 6 - Interest -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Interest</p>
+          <h2>Compound interest</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-md">$2{,}000 compounded annually at 5% for 3 years yields what amount?</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16"><strong>Formula:</strong>&nbsp;$A = P(1 + r)^t$</p>
+            <p class="text-md mb-16"><strong>Plug in:</strong>&nbsp;$A = 2000(1.05)^3$</p>
+            <p class="text-md mb-16"><strong>Calculate:</strong>&nbsp;$2000 \times 1.157625$</p>
+            <p class="text-lg mt-16">Answer:&nbsp;$\$2{,}315.25$</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          5:30-6:30 | Compound interest. Click to reveal. Use the formula A = P(1+r)^t. Plug in P = 2000, r = 0.05, t = 3. Calculate 1.05 cubed = 1.157625. Answer: $2,315.25.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 8: Practice 7 - Overlapping Sets -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Overlapping Sets</p>
+          <h2>Percentage-based sets</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-md">Every employee speaks English, Spanish, or both. If 80% speak English and 60% speak Spanish, what percent speak both?</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16"><strong>Step 1:</strong> Neither $= 0$ (everyone speaks at least one)</p>
+            <p class="text-md mb-16"><strong>Step 2:</strong>&nbsp;$100 = 80 + 60 - \text{Both}$</p>
+            <p class="text-md mb-16"><strong>Step 3:</strong>&nbsp;$\text{Both} = 140 - 100$</p>
+            <p class="text-lg mt-16">Answer:&nbsp;$40\%$</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          6:30-7:30 | Overlapping sets with percents. Click to reveal. Step 1: Neither is 0. Step 2: plug into formula. Step 3: Both = 40%. The percentages add to more than 100 because of the overlap.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 9: Practice 8 - Mixture -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Mixed Application</p>
+          <h2>Mixture problem</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-md">A solution is 20% acid. How many liters of pure acid must be added to 10 liters to make it 50% acid?</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md math-step"><strong>Step 1:</strong> Acid now:&nbsp;$10 \times 0.20 = 2$ liters</p>
+            <p class="text-md math-step"><strong>Step 2:</strong>&nbsp;$\frac{2 + x}{10 + x} = 0.50$</p>
+            <p class="text-md math-step"><strong>Step 3:</strong>&nbsp;$2 + x = 5 + 0.5x$, so $0.5x = 3$</p>
+            <p class="text-lg mt-16">Answer:&nbsp;$6$ liters</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          7:30-8:30 | Mixture problem. Click to reveal. Step 1: currently 2 liters of acid. Step 2: set up the equation. Step 3: solve for x = 6 liters of pure acid to add.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 10: Practice 9 - Investment Split -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Mixed Application</p>
+          <h2>Split investment problem</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-md">Two investments totaling $10,000 earn 4% and 6%. If total interest is $520, how much is at 6%?</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16"><strong>Step 1:</strong> Let $x$ = amount at 4%. Then $10000 - x$ at 6%.</p>
+            <p class="text-md mb-16"><strong>Step 2:</strong>&nbsp;$0.04x + 0.06(10000 - x) = 520$</p>
+            <p class="text-md mb-16"><strong>Step 3:</strong>&nbsp;$0.04x + 600 - 0.06x = 520$, so $x = 4000$</p>
+            <p class="text-lg mt-16">Answer:&nbsp;$\$6{,}000$ at 6%</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          8:30-9:30 | Split investment. Click to reveal. Step 1: let x be at 4%, rest at 6%. Step 2: set up interest equation. Step 3: solve to find $4,000 at 4%, so $6,000 at 6%.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 11: Summary (content-dark) -->
+      <!-- ============================================ -->
+      <section class="content-dark">
+        <div class="slide-header">
+          <p class="eyebrow">Key Takeaways</p>
+          <h2>Word problems practice</h2>
+        </div>
+
+        <ul class="plus-list">
+          <li><strong>Translation</strong>: Assign variables, translate words to equations, solve algebraically.</li>
+          <li><strong>Distance-Rate-Time</strong>: $d = rt$. For catch-up, use relative speed.</li>
+          <li><strong>Work Rates</strong>: $\frac{1}{A} + \frac{1}{B} = \frac{1}{T}$. Subtract for drains.</li>
+          <li><strong>Interest</strong>: Simple ($I = Prt$) vs. Compound ($A = P(1+r)^t$).</li>
+          <li><strong>Overlapping Sets</strong>: Total $= A + B -$ Both $+$ Neither.</li>
+          <li><strong>Mixtures</strong>: Track the quantity of interest (acid, money) through the change.</li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="rgba(255,255,255,0.4)"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          9:30-10:00 | Summary: review the key formulas and strategies for each word problem type. Practice identifying the problem type quickly, then apply the matching framework.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js -->
+  <script src="../assets/reveal/dist/reveal.min.js"></script>
+  <script type="module">
+    import RevealNotes from '../assets/reveal/plugin/notes/notes.esm.js';
+
+    Reveal.initialize({
+      width: 960,
+      height: 540,
+      margin: 0,
+      minScale: 0.5,
+      maxScale: 3.0,
+      hash: true,
+      slideNumber: true,
+      controls: true,
+      progress: true,
+      history: true,
+      center: false,
+      transition: 'none',
+      backgroundTransition: 'none',
+      disableLayout: false,
+      plugins: [ RevealNotes ]
+    });
+  </script>
+</body>
+</html>

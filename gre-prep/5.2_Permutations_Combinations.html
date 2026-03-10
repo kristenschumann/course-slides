@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en" class="reveal-full-page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Permutations vs Combinations</title>
+
+  <!-- Reveal.js Core -->
+  <link rel="stylesheet" href="../assets/reveal/dist/reset.css">
+  <link rel="stylesheet" href="../assets/reveal/dist/reveal.css">
+
+  <!-- Leland Theme -->
+  <link rel="stylesheet" href="../assets/reveal/themes/leland.css">
+
+  <!-- KaTeX for math rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false}
+      ]
+    });"></script>
+
+</head>
+<body>
+  <!-- SVG Symbol Definitions (defined once, referenced via <use>) -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="leland-logo" viewBox="0 0 200 45">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z"/>
+      <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z"/>
+      <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z"/>
+      <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z"/>
+      <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z"/>
+      <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z"/>
+    </symbol>
+  </svg>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ============================================ -->
+      <!-- SLIDE 1: Title (Dark) -->
+      <!-- ============================================ -->
+      <section class="title-dark">
+        <div class="leland-logo-top">
+          <svg width="110" height="25" fill="white" class="mb-16"><use href="#leland-logo"/></svg>
+        </div>
+
+        <p class="eyebrow">GRE Self-Study Course</p>
+        <h1>Permutations vs<br><span class="hl">Combinations</span></h1>
+
+        <aside class="notes">
+          0:00-0:30 | Hook: 10 people run a race. How many ways can gold, silver, bronze be awarded? A committee of 3 is chosen from 10 people. How many possible committees? Both involve choosing 3 from 10, but the answers are different. The difference: does order matter?
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 2: The Key Question -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Decision Rule</p>
+          <h2>Does order matter?</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Scenario</th>
+              <th>Order?</th>
+              <th>Type</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Assigning 1st, 2nd, 3rd place</td>
+              <td>Yes</td>
+              <td>Permutation</td>
+            </tr>
+            <tr>
+              <td>Choosing a committee</td>
+              <td>No</td>
+              <td><span class="hl-bold">Combination</span></td>
+            </tr>
+            <tr>
+              <td>Creating a password</td>
+              <td>Yes</td>
+              <td>Permutation</td>
+            </tr>
+            <tr>
+              <td>Selecting pizza toppings</td>
+              <td>No</td>
+              <td><span class="hl-bold">Combination</span></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="card-alt compact mt-16">
+          <p class="text-md"><span class="badge badge-orange">Quick Test</span> Swap two selected items. Different result? <strong>Permutation.</strong> Same result? <strong>Combination.</strong></p>
+        </div>
+
+        <aside class="notes">
+          0:30-2:00 | The key question: does changing the order create a different outcome? Walk through the table of scenarios. The swap test: if swapping two items gives something different, it is a permutation. If swapping gives the same thing, it is a combination.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 3: Divider - Permutations -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <p class="part-number">Part 1</p>
+        <h1>Permutations</h1>
+        <p>Arrangements where order matters</p>
+
+        <aside class="notes">
+          2:00-2:10 | Transition to permutation formula.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 4: Permutation Formula -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Permutations</p>
+          <h2>The formula and shortcut</h2>
+        </div>
+
+        <div class="card-alt-green compact mb-16">
+          <p class="text-md">$P(n, r) = \frac{n!}{(n-r)!}$ &nbsp; Shortcut: multiply $n$ down for $r$ terms</p>
+        </div>
+
+        <div class="two-column gap-24">
+          <div class="card card-green-bg">
+            <span class="badge badge-green self-start mb-8">Medal Awards</span>
+            <p class="text-md mb-8">Gold, silver, bronze from 10 runners</p>
+            <div class="card-alt compact">
+              <p class="text-md">$P(10,3) = 10 \times 9 \times 8 = $ $720$</p>
+            </div>
+          </div>
+          <div class="card card-blue-bg">
+            <span class="badge badge-blue self-start mb-8">Letter Arrange</span>
+            <p class="text-md mb-8">4-letter arrangements from ABCDEFG</p>
+            <div class="card-alt compact">
+              <p class="text-md">$P(7,4) = 7 \times 6 \times 5 \times 4 = $ $840$</p>
+            </div>
+          </div>
+        </div>
+
+        <aside class="notes">
+          2:10-3:30 | Permutation formula: P(n,r) = n!/(n-r)!. The shortcut: just multiply n down for r terms. Medal example: 10 x 9 x 8 = 720. Letter arrangement: 7 x 6 x 5 x 4 = 840. GRE speed tip: the "multiply down" shortcut is faster than computing full factorials. On test day, never calculate n! and (n-r)! separately when you can just count down r terms from n.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 5: Divider - Combinations -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <p class="part-number">Part 2</p>
+        <h1>Combinations</h1>
+        <p>Selections where order does not matter</p>
+
+        <aside class="notes">
+          3:30-3:40 | Transition to combinations.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 6: Combination Formula -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Combinations</p>
+          <h2>Divide out the duplicates</h2>
+        </div>
+
+        <div class="card-alt-green compact mb-16">
+          <p class="text-md">$C(n, r) = \frac{n!}{r!(n-r)!} = \frac{P(n,r)}{r!}$ &nbsp; Divide permutation count by $r!$ to remove order</p>
+        </div>
+
+        <div class="two-column gap-24">
+          <div class="card card-green-bg">
+            <span class="badge badge-green self-start mb-8">Committee</span>
+            <p class="text-md mb-8">Choose 3 from 10 people</p>
+            <div class="card-alt compact">
+              <p class="text-md math-step">$C(10,3) = \frac{10 \times 9 \times 8}{3 \times 2 \times 1} = \frac{720}{6} = $ $120$</p>
+            </div>
+          </div>
+          <div class="card card-orange-bg">
+            <span class="badge badge-orange self-start mb-8">Pizza Toppings</span>
+            <p class="text-md mb-8">Choose 4 toppings from 10</p>
+            <div class="card-alt compact">
+              <p class="text-md math-step">$C(10,4) = \frac{10 \times 9 \times 8 \times 7}{4!} = \frac{5040}{24} = $ $210$</p>
+            </div>
+          </div>
+        </div>
+
+        <aside class="notes">
+          3:40-5:30 | Combination formula: C(n,r) = P(n,r) / r!. Why divide by r!? Because {A,B,C} is one committee, but the permutation formula counts ABC, ACB, BAC, BCA, CAB, CBA (3! = 6 arrangements). Committee: 720/6 = 120. Pizza: 5040/24 = 210.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 7: Decision Guide -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Decision Guide</p>
+          <h2>Keyword signals</h2>
+        </div>
+
+        <div class="two-column gap-24">
+          <div class="card card-green-bg">
+            <span class="badge badge-green self-start mb-8">Permutation</span>
+            <p class="text-md mb-8">Order matters</p>
+            <div class="card-alt compact mb-8">
+              <p class="text-md">Arrange, order, sequence</p>
+            </div>
+            <div class="card-alt compact mb-8">
+              <p class="text-md">Rank, place, position</p>
+            </div>
+            <div class="card-alt compact">
+              <p class="text-md">Code, password, different roles</p>
+            </div>
+          </div>
+          <div class="card card-blue-bg">
+            <span class="badge badge-blue self-start mb-8">Combination</span>
+            <p class="text-md mb-8">Order does not matter</p>
+            <div class="card-alt compact mb-8">
+              <p class="text-md">Choose, select, pick</p>
+            </div>
+            <div class="card-alt compact mb-8">
+              <p class="text-md">Committee, team, group</p>
+            </div>
+            <div class="card-alt compact">
+              <p class="text-md">Subset, handshakes</p>
+            </div>
+          </div>
+        </div>
+
+        <aside class="notes">
+          5:30-6:30 | Keyword signals for quick identification. Permutation keywords: arrange, rank, code, different roles. Combination keywords: choose, committee, subset, handshakes.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 8: Handshake Example -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 1</p>
+          <h2>Counting handshakes</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card card-blue-bg">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-md">8 people meet. Each person shakes hands with every other person once. How many handshakes?</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16">A handshake between A and B is the same as B and A, so order does not matter.</p>
+            <p class="text-md math-step">$C(8,2) = \frac{8 \times 7}{2 \times 1}$</p>
+            <p class="text-lg mt-16">Answer:&nbsp;$28$ handshakes</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          6:30-7:10 | Handshake example: a handshake between A and B is the same as B and A, so this is a combination. C(8,2) = 28.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 9: Card Hands Example -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 2</p>
+          <h2>Five-card poker hands</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card card-purple-bg">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-md">From a 52-card deck, how many 5-card hands are possible?</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16">Order does not matter (same hand regardless of deal order).</p>
+            <p class="text-md math-step">$C(52,5) = \frac{52 \times 51 \times 50 \times 49 \times 48}{5!}$</p>
+            <p class="text-lg mt-16">Answer:&nbsp;$2{,}598{,}960$ hands</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          7:10-7:50 | Card hands: order does not matter. C(52,5) = 2,598,960. This is a classic combination problem.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 10: Combined Problem -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 3</p>
+          <h2>Combining both principles</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card card-orange-bg">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-md">A committee of 5 is chosen from 8 men and 6 women. Must have exactly 3 men and 2 women. How many committees?</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16">Choose 3 men:&nbsp;$C(8,3) = 56$</p>
+            <p class="text-md mb-16">Choose 2 women:&nbsp;$C(6,2) = 15$</p>
+            <p class="text-md mb-16">Both must happen (AND), so multiply.</p>
+            <p class="text-lg mt-16">Answer: $56 \times 15 =$&nbsp;$840$</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          7:50-9:20 | Combined problem: choose 3 men from 8 AND 2 women from 6. Each selection is a combination (order does not matter within the group). Then multiply because both selections must happen. 56 x 15 = 840. The GRE often tests this pattern: "at least one" of a type on a committee. For those, use the complement: total committees minus all-of-one-type committees. Much faster than listing every qualifying case.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 11: Summary (content-dark) -->
+      <!-- ============================================ -->
+      <section class="content-dark">
+        <div class="slide-header">
+          <p class="eyebrow">Key Takeaways</p>
+          <h2>Permutations vs combinations</h2>
+        </div>
+
+        <ul class="plus-list">
+          <li><strong>Permutation (order matters)</strong> - $P(n,r) = \frac{n!}{(n-r)!}$, multiply $n$ down for $r$ terms</li>
+          <li><strong>Combination (order does not matter)</strong> - $C(n,r) = \frac{n!}{r!(n-r)!}$, divide permutation by $r!$</li>
+          <li><strong>The swap test</strong> - Swapping creates something different? Permutation. Same thing? Combination</li>
+          <li><strong>Keywords</strong> - Arrange/rank/code = permutation. Choose/committee/group = combination</li>
+          <li><strong>Combined problems</strong> - Use combinations for each independent selection, then multiply</li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="rgba(255,255,255,0.4)"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          9:20-10:00 | Summary: permutations for ordered arrangements, combinations for unordered selections. Use the swap test to decide. For combined problems, multiply independent combination counts.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js -->
+  <script src="../assets/reveal/dist/reveal.min.js"></script>
+  <script type="module">
+    import RevealNotes from '../assets/reveal/plugin/notes/notes.esm.js';
+
+    Reveal.initialize({
+      width: 960,
+      height: 540,
+      margin: 0,
+      minScale: 0.5,
+      maxScale: 3.0,
+      hash: true,
+      slideNumber: true,
+      controls: true,
+      progress: true,
+      history: true,
+      center: false,
+      transition: 'none',
+      backgroundTransition: 'none',
+      disableLayout: false,
+      plugins: [ RevealNotes ]
+    });
+  </script>
+</body>
+</html>

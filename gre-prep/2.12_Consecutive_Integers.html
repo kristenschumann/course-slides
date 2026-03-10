@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en" class="reveal-full-page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consecutive Integers &amp; Number Lines</title>
+
+  <!-- Reveal.js Core -->
+  <link rel="stylesheet" href="../assets/reveal/dist/reset.css">
+  <link rel="stylesheet" href="../assets/reveal/dist/reveal.css">
+
+  <!-- Leland Theme -->
+  <link rel="stylesheet" href="../assets/reveal/themes/leland.css">
+
+  <!-- KaTeX for math rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false}
+      ]
+    });"></script>
+
+</head>
+<body>
+  <!-- SVG Symbol Definitions (defined once, referenced via <use>) -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="leland-logo" viewBox="0 0 200 45">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z"/>
+      <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z"/>
+      <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z"/>
+      <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z"/>
+      <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z"/>
+      <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z"/>
+    </symbol>
+  </svg>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ============================================ -->
+      <!-- SLIDE 1: Title (Dark) -->
+      <!-- ============================================ -->
+      <section class="title-dark">
+        <div class="leland-logo-top">
+          <svg width="110" height="25" fill="white" class="mb-16"><use href="#leland-logo"/></svg>
+        </div>
+
+        <p class="eyebrow">GRE Self-Study Course</p>
+        <h1>Consecutive Integers<br><span class="hl">&amp; Number Lines</span></h1>
+
+        <aside class="notes">
+          0:00-0:30 | Hook: "How many integers are there from 7 to 83, inclusive?" Common wrong answer: 83 minus 7 = 76. Right answer: 83 minus 7 plus 1 = 77. The plus 1 catches most students. This video teaches you why, and covers other consecutive integer properties the GRE loves.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 2: The Fencepost Formula -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Counting Integers</p>
+          <h2>The fencepost formula</h2>
+        </div>
+
+        <div class="card-alt-green compact mb-16">
+          <p class="text-md"><strong>Number of integers from $a$ to $b$, inclusive = $b - a + 1$</strong></p>
+        </div>
+
+        <p class="text-md mb-16">Think of fenceposts: to build 10 feet of fence with posts every foot, you need <strong>11 posts</strong> (one at each end).</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>From</th>
+              <th>To</th>
+              <th>Formula</th>
+              <th>Count</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>$1$</td>
+              <td>$10$</td>
+              <td>$10 - 1 + 1$</td>
+              <td>$10$</td>
+            </tr>
+            <tr>
+              <td>$5$</td>
+              <td>$12$</td>
+              <td>$12 - 5 + 1$</td>
+              <td>$8$</td>
+            </tr>
+            <tr>
+              <td>$7$</td>
+              <td>$83$</td>
+              <td>$83 - 7 + 1$</td>
+              <td>$77$</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <aside class="notes">
+          0:30-2:00 | The fencepost formula: b minus a plus 1 for inclusive counting. Like building fence with posts at each end. Walk through three examples in the table.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 3: Counting Variations -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Counting Integers</p>
+          <h2>Three counting scenarios</h2>
+        </div>
+
+        <div class="card-grid-3">
+          <div class="card card-green-bg">
+            <h3 class="text-md mb-8">Inclusive</h3>
+            <p class="text-md mb-8">"From $a$ to $b$, inclusive"</p>
+            <div class="card-alt compact mb-8">
+              <p class="text-md">$b - a + 1$</p>
+            </div>
+            <p class="text-md">$10$ to $50$: $41$</p>
+          </div>
+          <div class="card card-blue-bg">
+            <h3 class="text-md mb-8">Exclusive</h3>
+            <p class="text-md mb-8">"Strictly between $a$ and $b$"</p>
+            <div class="card-alt compact mb-8">
+              <p class="text-md">$b - a - 1$</p>
+            </div>
+            <p class="text-md">$10$ to $50$: $39$</p>
+          </div>
+          <div class="card card-purple-bg">
+            <h3 class="text-md mb-8">One Endpoint</h3>
+            <p class="text-md mb-8">"$a &lt; x \leq b$"</p>
+            <div class="card-alt compact mb-8">
+              <p class="text-md">$b - a$</p>
+            </div>
+            <p class="text-md">$10$ to $50$: $40$</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          2:00-2:30 | Three counting scenarios: inclusive (b - a + 1), exclusive or "strictly between" (b - a - 1), one endpoint only (b - a). Watch the wording carefully on the GRE.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 4: Divider - Properties -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <p class="part-number">Part 2</p>
+        <h1>Properties of Consecutive Integers</h1>
+        <p>Sum, middle term, and product rules</p>
+
+        <aside class="notes">
+          2:30-2:40 | Transition: Now let's look at the key properties of consecutive integer sets.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 5: Example 1 - Sum Formula -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 1</p>
+          <h2>Sum of consecutive integers</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-lg">What is the sum of integers from $1$ to $100$?</p>
+            <div class="card-alt compact mt-16">
+              <p class="text-md">$\text{Sum} = n \times \frac{\text{first} + \text{last}}{2}$</p>
+            </div>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16">Count:&nbsp;$n = 100$</p>
+            <p class="text-md math-step">$\text{Sum} = 100 \times \frac{1 + 100}{2}$</p>
+            <p class="text-md mb-16">$= 100 \times 50.5$</p>
+            <p class="text-lg mt-16">Answer:&nbsp;$5{,}050$</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          2:40-3:40 | Example 1: Sum from 1 to 100. Use the formula: n times (first + last) / 2. Click to reveal. Click: n = 100. Click: plug into formula. Click: multiply. Click: answer is 5,050. This is a classic GRE problem.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 6: Example 2 - Middle Term -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 2</p>
+          <h2>Finding the middle integer</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-lg">The sum of 5 consecutive integers is 45. What is the middle integer?</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16">Sum = $n \times$ middle (for odd $n$)</p>
+            <p class="text-md mb-16">$45 = 5 \times$ middle</p>
+            <p class="text-md mb-16">The integers:&nbsp;$7, 8, 9, 10, 11$</p>
+            <p class="text-lg mt-16">Answer:&nbsp;$9$</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          3:40-4:30 | Example 2: Sum of 5 consecutive integers is 45. For an odd count, sum = n times the middle term. Click to reveal. Click: formula. Click: 45 = 5 times middle, so middle = 9. Click: verify the sequence. Click: answer is 9.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 7: Product Divisibility -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Properties</p>
+          <h2>Product divisibility rule</h2>
+        </div>
+
+        <div class="card-alt-green compact mb-16">
+          <p class="text-md"><strong>The product of $n$ consecutive integers is always divisible by $n!$</strong></p>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Consecutive Set</th>
+              <th>Divisible By</th>
+              <th>Example</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Any 2 consecutive</td>
+              <td>$2! = $ $2$</td>
+              <td>$4 \times 5 = 20$</td>
+            </tr>
+            <tr>
+              <td>Any 3 consecutive</td>
+              <td>$3! = $ $6$</td>
+              <td>$4 \times 5 \times 6 = 120$</td>
+            </tr>
+            <tr>
+              <td>Any 4 consecutive</td>
+              <td>$4! = $ $24$</td>
+              <td>$3 \times 4 \times 5 \times 6 = 360$</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="card-alt compact mt-16">
+          <span class="badge badge-green">Why</span>
+          <p class="text-md">In any $n$ consecutive integers, one is divisible by 1, one by 2, one by 3, and so on up to $n$.</p>
+        </div>
+
+        <aside class="notes">
+          4:30-5:30 | Product divisibility: product of n consecutive integers is divisible by n!. Why: each set contains one multiple of 1, 2, 3, etc. Walk through the table examples. This is a popular GRE number properties fact.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 8: Divider - Spacing -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <p class="part-number">Part 3</p>
+        <h1>Spacing and Distance</h1>
+        <p>Equally spaced objects on a number line</p>
+
+        <aside class="notes">
+          5:30-5:40 | Transition: The fencepost idea extends to spacing problems with equally spaced objects.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 9: Example 3 - Spacing Problem -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 3</p>
+          <h2>Trees equally spaced in a row</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-md">8 trees are planted in a row, equally spaced. The first and last trees are 35 meters apart. What is the distance between adjacent trees?</p>
+            <div class="card-alt compact mt-16">
+              <p class="text-md">Gaps = Objects $- 1$</p>
+            </div>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16">Number of gaps:&nbsp;$8 - 1 = 7$</p>
+            <p class="text-md math-step">Distance per gap:&nbsp;$\frac{35}{7}$</p>
+            <p class="text-lg mt-16">Answer:&nbsp;$5$ meters</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          5:40-6:30 | Example 3: 8 trees, 35 meters total. Click to reveal. Click: gaps = 8 - 1 = 7. Click: distance per gap = 35 / 7. Click: answer is 5 meters.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 10: Example 4 - Fence Posts -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 4</p>
+          <h2>Counting posts along a fence</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-md">Posts are placed every 4 feet along a 100-foot fence, including both ends. How many posts are there?</p>
+            <div class="card-alt compact mt-16">
+              <p class="text-md">Objects = $\frac{\text{Distance}}{\text{Spacing}} + 1$</p>
+            </div>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md math-step">Number of gaps:&nbsp;$\frac{100}{4} = 25$</p>
+            <p class="text-md mb-16">Posts = gaps $+ 1$:&nbsp;$25 + 1$</p>
+            <p class="text-lg mt-16">Answer:&nbsp;$26$ posts</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          6:30-7:20 | Example 4: 100-foot fence with posts every 4 feet. Click to reveal. Click: 100 / 4 = 25 gaps. Click: posts = gaps + 1. Click: answer is 26 posts. Same plus 1 pattern as counting integers.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 11: Summary (content-dark) -->
+      <!-- ============================================ -->
+      <section class="content-dark">
+        <div class="slide-header">
+          <p class="eyebrow">Key Takeaways</p>
+          <h2>Consecutive integers &amp; number lines</h2>
+        </div>
+
+        <ul class="plus-list">
+          <li><strong>Count (inclusive)</strong> from $a$ to $b$ = $b - a + 1$</li>
+          <li><strong>Sum formula</strong> = $n \times (\text{first} + \text{last}) / 2$</li>
+          <li><strong>Middle term shortcut</strong> for odd $n$: sum = $n \times$ middle</li>
+          <li><strong>Product of $n$ consecutive</strong> is always divisible by $n!$</li>
+          <li><strong>Gaps = objects $- 1$</strong>, and objects = distance/spacing $+ 1$</li>
+          <li><strong>Common trap:</strong> forgetting the "$+ 1$" when counting endpoints</li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="rgba(255,255,255,0.4)"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          7:20-8:00 | Summary: Five key formulas. Counting inclusive uses b - a + 1. Sum uses n times average of endpoints. Middle term shortcut for odd count. Product divisibility by n factorial. Spacing uses gaps = objects - 1. The most common trap is forgetting the plus 1 when counting endpoints. [Leland+ Tip] For counting multiples in a range (e.g., multiples of 3 between 100 and 200), first adjust the range so both endpoints are multiples of 3, then use (last - first)/3 + 1. The GRE frequently tests "less than" vs "less than or equal to" to trip up students on the boundary.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js -->
+  <script src="../assets/reveal/dist/reveal.min.js"></script>
+  <script type="module">
+    import RevealNotes from '../assets/reveal/plugin/notes/notes.esm.js';
+
+    Reveal.initialize({
+      width: 960,
+      height: 540,
+      margin: 0,
+      minScale: 0.5,
+      maxScale: 3.0,
+      hash: true,
+      slideNumber: true,
+      controls: true,
+      progress: true,
+      history: true,
+      center: false,
+      transition: 'none',
+      backgroundTransition: 'none',
+      disableLayout: false,
+      plugins: [ RevealNotes ]
+    });
+  </script>
+</body>
+</html>

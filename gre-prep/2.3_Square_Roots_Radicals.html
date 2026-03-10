@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en" class="reveal-full-page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Square Roots &amp; Radicals</title>
+
+  <!-- Reveal.js Core -->
+  <link rel="stylesheet" href="../assets/reveal/dist/reset.css">
+  <link rel="stylesheet" href="../assets/reveal/dist/reveal.css">
+
+  <!-- Leland Theme -->
+  <link rel="stylesheet" href="../assets/reveal/themes/leland.css">
+
+  <!-- KaTeX for math rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false}
+      ]
+    });"></script>
+
+</head>
+<body>
+  <!-- SVG Symbol Definitions (defined once, referenced via <use>) -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="leland-logo" viewBox="0 0 200 45">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z"/>
+      <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z"/>
+      <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z"/>
+      <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z"/>
+      <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z"/>
+      <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z"/>
+    </symbol>
+  </svg>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ============================================ -->
+      <!-- SLIDE 1: Title (Dark) -->
+      <!-- ============================================ -->
+      <section class="title-dark">
+        <div class="leland-logo-top">
+          <svg width="110" height="25" fill="white" class="mb-16"><use href="#leland-logo"/></svg>
+        </div>
+
+        <p class="eyebrow">GRE Self-Study Course</p>
+        <h1>Square Roots &amp;<br><span class="hl">Radicals</span></h1>
+
+        <aside class="notes">
+          0:00-0:30 | Hook: Show the problem fifth root of x^5 y^10 z^23. This looks terrifying, but there is a simple trick: divide the root into each exponent. 5 into 5 is 1, 10 is 2, 23 is 4 remainder 3. Answer: xy^2 z^4 times fifth root of z^3. This video teaches you the four radical rules the GRE actually tests.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 2: The Four Radical Rules -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Radicals</p>
+          <h2>The four rules you need</h2>
+        </div>
+
+        <p class="text-md mb-16">There are only four things you need to know about radicals on the GRE:</p>
+
+        <div class="card-grid-2">
+          <div class="card card-green-bg" style="padding: 16px">
+            <span class="badge badge-green self-start mb-8">Rule 1</span>
+            <h3 class="text-md mb-8">Break Apart Radicals</h3>
+            <p class="text-md">Factor and separate, or pull out pairs.</p>
+          </div>
+          <div class="card card-blue-bg" style="padding: 16px">
+            <span class="badge badge-blue self-start mb-8">Rule 2</span>
+            <h3 class="text-md mb-8">Fractional Exponents</h3>
+            <p class="text-md">Convert radicals to exponents and back.</p>
+          </div>
+          <div class="card card-orange-bg" style="padding: 16px">
+            <span class="badge badge-orange self-start mb-8">Rule 3</span>
+            <h3 class="text-md mb-8">Radicals of Decimals</h3>
+            <p class="text-md">Count decimal places, divide by the root.</p>
+          </div>
+          <div class="card card-purple-bg" style="padding: 16px">
+            <span class="badge badge-purple self-start mb-8">Rule 4</span>
+            <h3 class="text-md mb-8">Roots Greater Than 1</h3>
+            <p class="text-md">$\sqrt{\text{number} > 1}$ is always $> 1$.</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          0:30-1:00 | Overview of the four radical rules: breaking apart radicals, converting to fractional exponents, handling radicals of decimals, and knowing when a root is greater than 1. Let's master each one.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 3: Divider - Breaking Apart -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <p class="part-number">Part 1</p>
+        <h1>Breaking Radicals Apart</h1>
+        <p>Factor and separate, or pull out pairs</p>
+
+        <aside class="notes">
+          1:00-1:10 | Transition into Part 1: two methods for breaking apart radicals.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 4: Factor and Separate -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Breaking Apart</p>
+          <h2>Factor and separate</h2>
+        </div>
+
+        <p class="text-md mb-16">Factor the number inside the radical, put each factor under its own radical sign, then simplify.</p>
+
+        <div class="two-column gap-24">
+          <div class="card card-green-bg">
+            <span class="badge badge-green self-start mb-16">The Rule</span>
+            <p class="text-lg mb-8">$\sqrt{a \times b} = \sqrt{a} \times \sqrt{b}$</p>
+            <p class="text-md">Multiplication distributes over radicals.</p>
+          </div>
+          <div class="card card-blue-bg">
+            <span class="badge badge-blue self-start mb-16">Example</span>
+            <p class="text-lg mb-8">$\sqrt{12} = \sqrt{4 \times 3}$</p>
+            <p class="text-md">$= \sqrt{4} \times \sqrt{3} = $ $2\sqrt{3}$</p>
+          </div>
+        </div>
+
+        <div class="card-alt compact mt-24">
+          <span class="badge badge-orange">Watch Out</span>
+          <p class="text-md">This does NOT work with addition: $\sqrt{a + b} \neq \sqrt{a} + \sqrt{b}$</p>
+        </div>
+
+        <aside class="notes">
+          1:10-2:00 | Method 1: factor and separate. The square root of a product equals the product of the square roots. Factor 12 into 4 times 3, take the root of 4 to get 2, and you have 2 root 3. Important: this does NOT work with addition.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 5: Example - Combining Like Radicals -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 1</p>
+          <h2>Combining like radicals</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-lg">$(\sqrt{3} + \sqrt{27})^3$</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16"><strong>Step 1:</strong> Simplify:&nbsp;$\sqrt{27} = \sqrt{9 \times 3} = 3\sqrt{3}$</p>
+            <p class="text-md mb-16"><strong>Step 2:</strong> Combine:&nbsp;$\sqrt{3} + 3\sqrt{3} = 4\sqrt{3}$</p>
+            <p class="text-md mb-16"><strong>Step 3:</strong> Cube it:&nbsp;$(4\sqrt{3})^3 = 64 \times 3\sqrt{3}$</p>
+            <p class="text-lg mt-16">Answer:&nbsp;$192\sqrt{3}$</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          2:00-3:00 | Example 1: simplify root 27 to 3 root 3, combine like radicals to get 4 root 3, then cube it. 4 cubed is 64, root 3 cubed is 3 root 3. Multiply to get 192 root 3.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 6: Divide Root into Exponents -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 2</p>
+          <h2>Divide the root into exponents</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-lg">$\sqrt[5]{x^5 y^{10} z^{23}}$</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16"><strong>$x$:</strong>&nbsp;$5 \div 5 = 1$ (one $x$ comes out)</p>
+            <p class="text-md mb-16"><strong>$y$:</strong>&nbsp;$10 \div 5 = 2$ ($y^2$ comes out)</p>
+            <p class="text-md mb-16"><strong>$z$:</strong>&nbsp;$23 \div 5 = 4$ remainder $3$ ($z^4$ out, $z^3$ stays)</p>
+            <p class="text-lg mt-16">Answer:&nbsp;$xy^2z^4\sqrt[5]{z^3}$</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          3:00-4:00 | The fast way for variable radicals: divide the root into each exponent. For the fifth root: 5 into 5 is 1, so x comes out. 10 divided by 5 is 2, so y squared comes out. 23 divided by 5 is 4 remainder 3, so z to the 4th comes out and z cubed stays inside. Answer: x y^2 z^4 times the fifth root of z^3.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 7: Divider - Fractional Exponents -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <p class="part-number">Part 2</p>
+        <h1>Fractional Exponents</h1>
+        <p>Converting between radicals and exponents</p>
+
+        <aside class="notes">
+          4:00-4:10 | Transition into Part 2: turning radicals into fractional exponents.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 8: The Conversion Rule -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Fractional Exponents</p>
+          <h2>The conversion rule</h2>
+        </div>
+
+        <div class="card-alt-green compact mb-16">
+          <p class="text-md"><strong>The denominator of the fractional exponent = the root of the radical.</strong></p>
+        </div>
+
+        <div class="two-column gap-24">
+          <div>
+            <h3 class="text-md mb-8">Basic Conversions</h3>
+            <table>
+              <thead>
+                <tr><th>Radical</th><th>Exponent</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>$\sqrt{3}$</td><td>$3^{1/2}$</td></tr>
+                <tr><td>$\sqrt[3]{3}$</td><td>$3^{1/3}$</td></tr>
+                <tr><td>$\sqrt[4]{3}$</td><td>$3^{1/4}$</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h3 class="text-md mb-8">With Inner Exponents</h3>
+            <table>
+              <thead>
+                <tr><th>Radical</th><th>Exponent</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>$\sqrt{7^9}$</td><td>$7^{9/2}$</td></tr>
+                <tr><td>$\sqrt[3]{7^2}$</td><td>$7^{2/3}$</td></tr>
+                <tr><td>$\sqrt[5]{x^3}$</td><td>$x^{3/5}$</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <aside class="notes">
+          4:10-5:00 | The conversion rule: the root becomes the denominator of the fractional exponent. Square root of 3 is 3 to the 1/2. If there is an exponent inside the radical, it becomes the numerator. Square root of 7^9 is 7 to the 9/2.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 9: Example - Mixed Radicals and Exponents -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 3</p>
+          <h2>Mixed radicals and exponents</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-lg">$\sqrt{3} \times 9^2$</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md math-step"><strong>Step 1:</strong> Convert:&nbsp;$\sqrt{3} = 3^{1/2}$</p>
+            <p class="text-md math-step"><strong>Step 2:</strong> Get bases same:&nbsp;$9^2 = (3^2)^2 = 3^4$</p>
+            <p class="text-md math-step"><strong>Step 3:</strong> Add exponents:&nbsp;$3^{1/2} \times 3^4 = 3^{9/2}$</p>
+            <p class="text-md math-step"><strong>Step 4:</strong> Simplify:&nbsp;$3^{9/2} = 3^4 \times 3^{1/2} = 81\sqrt{3}$</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          5:00-6:20 | Example 3: convert root 3 to 3^(1/2), rewrite 9^2 as 3^4, add exponents to get 3^(9/2). Split: 3^4 times 3^(1/2) equals 81 root 3.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 10: Radicals of Decimals -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Radicals of Decimals</p>
+          <h2>Count and divide decimal places</h2>
+        </div>
+
+        <p class="text-md mb-16">Count the decimal places, then divide by the root to find decimal places in the answer.</p>
+
+        <div class="two-column gap-24">
+          <div class="card card-green-bg">
+            <span class="badge badge-green self-start mb-16">Square Root</span>
+            <p class="text-md mb-8">$\sqrt{0.000016}$</p>
+            <div class="card-alt compact mb-8">
+              <p class="text-md">6 decimal places $\div$ 2 = 3 places</p>
+            </div>
+            <div class="card-alt compact">
+              <p class="text-md">$\sqrt{16} = 4$, so answer:&nbsp;$0.004$</p>
+            </div>
+          </div>
+          <div class="card card-blue-bg">
+            <span class="badge badge-blue self-start mb-16">Cube Root</span>
+            <p class="text-md mb-8">$\sqrt[3]{0.000027}$</p>
+            <div class="card-alt compact mb-8">
+              <p class="text-md">6 decimal places $\div$ 3 = 2 places</p>
+            </div>
+            <div class="card-alt compact">
+              <p class="text-md">$\sqrt[3]{27} = 3$, so answer:&nbsp;$0.03$</p>
+            </div>
+          </div>
+        </div>
+
+        <aside class="notes">
+          6:20-7:40 | Radicals of decimals: count decimal places and divide by the root. For square roots, the answer has half the decimal places. 0.000016 has 6 decimal places, half is 3, root of 16 is 4, answer is 0.004. For cube roots, divide by 3. 0.000027 has 6 places, one-third is 2, cube root of 27 is 3, answer is 0.03.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 11: Roots Greater Than 1 -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Radicals</p>
+          <h2>Roots greater than 1</h2>
+        </div>
+
+        <div class="card-alt-green compact mb-16">
+          <p class="text-md"><strong>The root of ANY number greater than 1 MUST be greater than 1.</strong></p>
+        </div>
+
+        <div class="two-column gap-24">
+          <div class="card card-green-bg">
+            <span class="badge badge-green self-start mb-16">Why?</span>
+            <p class="text-md mb-8">Numbers less than 1 multiply to give less than 1:</p>
+            <div class="card-alt compact mb-8">
+              <p class="text-md">$0.9 \times 0.9 = 0.81$</p>
+            </div>
+            <div class="card-alt compact">
+              <p class="text-md">$0.9999 \times 0.9999 = 0.9998...$</p>
+            </div>
+          </div>
+          <div class="card card-blue-bg">
+            <span class="badge badge-blue self-start mb-16">GRE Application</span>
+            <p class="text-md mb-16">If you see $\sqrt{1.0000000987}$, you do not need to calculate.</p>
+            <p class="text-lg">Answer:&nbsp;Greater than 1</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          7:40-9:00 | The root of any number greater than 1 must be greater than 1. Why? Because numbers less than 1 multiply to give less than 1. 0.9 times 0.9 is 0.81. No matter how many nines you add, you cannot reach 1 by multiplying decimals less than 1. On the GRE, if you see root of 1.0001, you know instantly it is greater than 1.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 12: Example - Putting It Together -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 4</p>
+          <h2>Simplify a fractional exponent</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-lg">Simplify $3^{9/2}$</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16"><strong>Step 1:</strong> Split the exponent:&nbsp;$3^{9/2} = 3^{4 + 1/2}$</p>
+            <p class="text-md mb-16"><strong>Step 2:</strong> Separate:&nbsp;$3^4 \times 3^{1/2}$</p>
+            <p class="text-md mb-16"><strong>Step 3:</strong> Evaluate:&nbsp;$81 \times \sqrt{3}$</p>
+            <p class="text-lg mt-16">Answer:&nbsp;$81\sqrt{3}$</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          9:00-9:50 | Example 4: simplify 3 to the 9/2. Split the exponent into 4 plus 1/2. Separate into 3^4 times 3^(1/2). That is 81 times root 3. Answer: 81 root 3.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 13: Rationalizing the Denominator -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Rationalization</p>
+          <h2>Rationalizing the denominator</h2>
+        </div>
+
+        <p class="text-md mb-16">GRE answer choices never have radicals in the denominator. If your answer does, you need to rationalize.</p>
+
+        <div class="two-column gap-24">
+          <div class="card card-green-bg">
+            <span class="badge badge-green self-start mb-16">Simple</span>
+            <p class="text-md mb-8">Multiply by $\dfrac{\sqrt{n}}{\sqrt{n}}$</p>
+            <div class="card-alt compact" style="margin-top: 16px; padding: 16px;">
+              <p class="text-md">$\dfrac{5}{\sqrt{3}} = \dfrac{5}{\sqrt{3}} \times \dfrac{\sqrt{3}}{\sqrt{3}} = $ $\dfrac{5\sqrt{3}}{3}$</p>
+            </div>
+          </div>
+          <div class="card card-blue-bg">
+            <span class="badge badge-blue self-start mb-16">Conjugate</span>
+            <p class="text-md mb-8">Multiply by $\dfrac{a - b}{a - b}$ to use difference of squares</p>
+            <div class="card-alt compact" style="margin-top: 16px; padding: 16px;">
+              <p class="text-md">$\dfrac{1}{\sqrt{5}+\sqrt{2}} \times \dfrac{\sqrt{5}-\sqrt{2}}{\sqrt{5}-\sqrt{2}} = $ $\dfrac{\sqrt{5}-\sqrt{2}}{3}$</p>
+            </div>
+          </div>
+        </div>
+
+        <aside class="notes">
+          9:50 - 11:00 | Two rationalization methods. Simple: multiply top and bottom by the same radical. 5 over root 3 times root 3 over root 3 gives 5 root 3 over 3. Conjugate: for sums or differences of radicals in the denominator, multiply by the conjugate. 1 over root 5 plus root 2, multiply by root 5 minus root 2 over itself. The denominator becomes 5 minus 2 equals 3 by difference of squares.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 14: Why Rationalization Matters on the GRE -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Rationalization</p>
+          <h2>Why this matters on the GRE</h2>
+        </div>
+
+        <div class="card-alt-green compact mb-24">
+          <div style="display: flex; align-items: flex-start; gap: 12px;">
+            <span class="icon icon-xl icon-green" style="flex-shrink: 0; -webkit-mask-image: url(../assets/icons/warning-triangle.svg); mask-image: url(../assets/icons/warning-triangle.svg)"></span>
+            <p class="text-md"><strong>Answer choices are always rationalized.</strong> If your answer has a radical in the denominator, it won't match any choice until you&nbsp;rationalize.</p>
+          </div>
+        </div>
+
+        <div class="two-column gap-32">
+          <div class="card card-orange-bg">
+            <div class="status-incorrect text-md mb-8">Your Work</div>
+            <p class="text-lg">$\dfrac{6}{\sqrt{2}}$</p>
+            <p class="text-sm mt-8">This won't appear as an answer&nbsp;choice.</p>
+          </div>
+          <div class="card card-green-bg">
+            <div class="status-correct text-md mb-8">Answer Choice</div>
+            <p class="text-lg">$3\sqrt{2}$</p>
+            <p class="text-sm mt-8">$\dfrac{6}{\sqrt{2}} \times \dfrac{\sqrt{2}}{\sqrt{2}} = \dfrac{6\sqrt{2}}{2} = 3\sqrt{2}$</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          11:00 - 12:00 | Show why this matters practically. If you solve a problem and get 6 over root 2, you won't find that in the answer choices. Rationalize: multiply by root 2 over root 2 to get 6 root 2 over 2, which simplifies to 3 root 2. That's the form you'll see in the choices. If your answer doesn't match any choice, try rationalizing.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 15: Summary (content-dark) -->
+      <!-- ============================================ -->
+      <section class="content-dark">
+        <div class="slide-header">
+          <p class="eyebrow">Key Takeaways</p>
+          <h2>Square roots &amp; radicals</h2>
+        </div>
+
+        <ul class="plus-list">
+          <li><strong>Factor and separate</strong> - $\sqrt{ab} = \sqrt{a} \times \sqrt{b}$, but NOT over addition</li>
+          <li><strong>Pull out pairs</strong> - For variable radicals, divide the root into each exponent</li>
+          <li><strong>Fractional exponents</strong> - The denominator is the root: $\sqrt[n]{a^m} = a^{m/n}$</li>
+          <li><strong>Decimal radicals</strong> - Count decimal places, divide by the root</li>
+          <li><strong>Roots of numbers $> 1$</strong> - Always greater than 1, no calculation needed</li>
+          <li><strong>Rationalize the denominator</strong> - Multiply by $\sqrt{n}/\sqrt{n}$ or use the conjugate so your answer matches GRE&nbsp;choices</li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="rgba(255,255,255,0.4)"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          9:50-11:00 | Summary: four radical rules. Factor and separate to simplify numeric radicals. Divide the root into exponents for variable radicals. Convert to fractional exponents when mixing with exponent rules. Count decimal places for decimal radicals. And the root of any number greater than 1 is always greater than 1. [Leland+ Tip] A common trap: sqrt(a+b) does NOT equal sqrt(a) + sqrt(b). If you forget this rule on test day, verify with easy numbers: sqrt(9+16) = sqrt(25) = 5, but sqrt(9) + sqrt(16) = 3+4 = 7. Use this self-check technique for any rule you are unsure about.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js -->
+  <script src="../assets/reveal/dist/reveal.min.js"></script>
+  <script type="module">
+    import RevealNotes from '../assets/reveal/plugin/notes/notes.esm.js';
+
+    Reveal.initialize({
+      width: 960,
+      height: 540,
+      margin: 0,
+      minScale: 0.5,
+      maxScale: 3.0,
+      hash: true,
+      slideNumber: true,
+      controls: true,
+      progress: true,
+      history: true,
+      center: false,
+      transition: 'none',
+      backgroundTransition: 'none',
+      disableLayout: false,
+      plugins: [ RevealNotes ]
+    });
+  </script>
+</body>
+</html>

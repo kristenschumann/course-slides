@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en" class="reveal-full-page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prime Factorization, GCF &amp; LCM</title>
+
+  <!-- Reveal.js Core -->
+  <link rel="stylesheet" href="../assets/reveal/dist/reset.css">
+  <link rel="stylesheet" href="../assets/reveal/dist/reveal.css">
+
+  <!-- Leland Theme -->
+  <link rel="stylesheet" href="../assets/reveal/themes/leland.css">
+
+  <!-- KaTeX for math rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false}
+      ]
+    });"></script>
+
+</head>
+<body>
+  <!-- SVG Symbol Definitions (defined once, referenced via <use>) -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="leland-logo" viewBox="0 0 200 45">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z"/>
+      <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z"/>
+      <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z"/>
+      <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z"/>
+      <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z"/>
+      <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z"/>
+    </symbol>
+  </svg>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ============================================ -->
+      <!-- SLIDE 1: Title (Dark) -->
+      <!-- ============================================ -->
+      <section class="title-dark">
+        <div class="leland-logo-top">
+          <svg width="110" height="25" fill="white" class="mb-16"><use href="#leland-logo"/></svg>
+        </div>
+
+        <p class="eyebrow">GRE Self-Study Course</p>
+        <h1>Prime Factorization,<br><span class="hl">GCF &amp; LCM</span></h1>
+
+        <aside class="notes">
+          0:00-0:30 | Hook: What is the LCM of 12 and 18? Most students list multiples until they find 36. Faster way: prime factorize. 12 is 2^2 times 3. 18 is 2 times 3^2. LCM takes the highest power of each prime: 2^2 times 3^2 equals 36. Done in seconds. Prime factorization is the master key to GCF, LCM, and divisibility problems.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 2: Prime Factorization Method -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Prime Factorization</p>
+          <h2>The method</h2>
+        </div>
+
+        <p class="text-md mb-16">Every positive integer can be written as a product of primes. <strong>Keep dividing by the smallest prime that works.</strong></p>
+
+        <div class="two-column gap-24">
+          <div>
+            <h3 class="text-md mb-8">Example: Factor 180</h3>
+            <table>
+              <thead>
+                <tr><th>Step</th><th>Division</th><th>Result</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>1</td><td>$180 \div 2$</td><td>$90$</td></tr>
+                <tr><td>2</td><td>$90 \div 2$</td><td>$45$</td></tr>
+                <tr><td>3</td><td>$45 \div 3$</td><td>$15$</td></tr>
+                <tr><td>4</td><td>$15 \div 3$</td><td>$5$</td></tr>
+                <tr><td>5</td><td>$5$ is prime</td><td>Stop</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="card card-green-bg">
+            <h3 class="text-md mb-16">Result</h3>
+            <p class="text-lg mb-16">$180 = 2^2 \times 3^2 \times 5$</p>
+            <h3 class="text-md mb-8">Primes to Know</h3>
+            <p class="text-md">2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31</p>
+            <div class="card-alt compact mt-16">
+              <p class="text-md">2 is the only even prime. All other primes are odd.</p>
+            </div>
+          </div>
+        </div>
+
+        <aside class="notes">
+          0:30-2:30 | The method: keep dividing by the smallest prime that works. 180 divided by 2 is 90, by 2 again is 45, by 3 is 15, by 3 is 5, and 5 is prime. So 180 equals 2^2 times 3^2 times 5. Know your primes: 2, 3, 5, 7, 11, 13, etc. Remember that 2 is the only even prime.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 3: GCF Rule -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">GCF</p>
+          <h2>Greatest common factor</h2>
+        </div>
+
+        <div class="card-alt-green compact mb-16">
+          <p class="text-md"><strong>GCF = product of shared primes, using the LOWEST power of each.</strong></p>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-md mb-8">Find the GCF of 48 and 180</p>
+            <div class="card-alt compact mb-8">
+              <p class="text-md">$48 = 2^4 \times 3$</p>
+            </div>
+            <div class="card-alt compact">
+              <p class="text-md">$180 = 2^2 \times 3^2 \times 5$</p>
+            </div>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16"><strong>Shared primes:</strong> 2 and 3 (5 is not in 48)</p>
+            <p class="text-md mb-16"><strong>Lowest powers:</strong>&nbsp;$\min(4,2) = 2^2$ and&nbsp;$\min(1,2) = 3^1$</p>
+            <p class="text-lg mt-16">GCF $= 2^2 \times 3 =$&nbsp;$12$</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          2:30-4:00 | GCF: product of shared primes at the lowest power. Prime factorize both: 48 is 2^4 times 3, 180 is 2^2 times 3^2 times 5. Shared primes are 2 and 3. Take the lower power of each: 2^2 and 3^1. GCF is 2^2 times 3 equals 12.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 4: LCM Rule -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">LCM</p>
+          <h2>Least common multiple</h2>
+        </div>
+
+        <div class="card-alt-green compact mb-16">
+          <p class="text-md"><strong>LCM = product of ALL primes, using the HIGHEST power of each.</strong></p>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-md mb-8">Find the LCM of 48 and 180</p>
+            <div class="card-alt compact mb-8">
+              <p class="text-md">$48 = 2^4 \times 3$</p>
+            </div>
+            <div class="card-alt compact">
+              <p class="text-md">$180 = 2^2 \times 3^2 \times 5$</p>
+            </div>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16"><strong>All primes:</strong> 2, 3, and 5</p>
+            <p class="text-md mb-16"><strong>Highest powers:</strong>&nbsp;$2^4$,&nbsp;$3^2$,&nbsp;$5^1$</p>
+            <p class="text-lg mt-16">LCM $= 16 \times 9 \times 5 =$&nbsp;$720$</p>
+          </div>
+        </div>
+
+        <div class="card-alt compact mt-16">
+          <span class="badge badge-green">Check</span>
+          <p class="text-md">$\text{GCF} \times \text{LCM} = 12 \times 720 = 8{,}640 = 48 \times 180$ &#10003;</p>
+        </div>
+
+        <aside class="notes">
+          4:00-5:30 | LCM: product of all primes at the highest power. Take every prime that appears in either number: 2, 3, and 5. Use the highest power of each: 2^4, 3^2, 5^1. Multiply: 16 times 9 times 5 equals 720. Check: GCF times LCM equals 12 times 720 equals 8640, which equals 48 times 180.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 5: GCF vs LCM Side-by-Side -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Comparison</p>
+          <h2>GCF vs LCM at a glance</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Task</th>
+              <th>Which Primes?</th>
+              <th>Which Power?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>GCF</strong></td>
+              <td>Only <span class="hl-bold">shared</span> primes</td>
+              <td><span class="hl-bold">Lowest</span> power</td>
+            </tr>
+            <tr>
+              <td><strong>LCM</strong></td>
+              <td><span class="hl-bold">All</span> primes from both</td>
+              <td><span class="hl-bold">Highest</span> power</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="card-alt-green compact mt-24">
+          <p class="text-md"><strong>Useful formula:</strong> $\text{GCF}(a,b) \times \text{LCM}(a,b) = a \times b$</p>
+        </div>
+
+        <aside class="notes">
+          5:30-6:00 | Quick comparison: GCF uses shared primes at lowest powers. LCM uses all primes at highest powers. And the product of GCF and LCM always equals the product of the two numbers. This formula is tested on the GRE. [Leland+ Tip] Always break numbers down to primes before dealing with GCF/LCM problems. The GRE rewards this approach over listing multiples. Remember the mnemonic: Fewer Factors, More Multiples. Factors are always smaller; multiples go to infinity.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 6: Example - GRE Application -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 1</p>
+          <h2>Using the GCF-LCM formula</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-md">The GCF of 36 and some positive integer $n$ is 12. The LCM of 36 and $n$ is 180.</p>
+            <p class="text-lg mt-16">What is $n$?</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16"><strong>Step 1:</strong> Use formula:&nbsp;$\text{GCF} \times \text{LCM} = 36 \times n$</p>
+            <p class="text-md mb-16"><strong>Step 2:</strong>&nbsp;$12 \times 180 = 36n$, so&nbsp;$2{,}160 = 36n$</p>
+            <p class="text-md mb-16"><strong>Step 3:</strong>&nbsp;$n = 2{,}160 \div 36$</p>
+            <p class="text-lg mt-16">Answer:&nbsp;$n = 60$</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          6:00-6:50 | Example 1: use the GCF times LCM formula. GCF is 12, LCM is 180. 12 times 180 is 2160. 2160 equals 36 times n, so n is 60. Verify: 36 is 2^2 times 3^2, 60 is 2^2 times 3 times 5. GCF is 12, LCM is 180. It checks out.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 7: Example - Factor Counting -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 2</p>
+          <h2>How many factors?</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-md mb-8">For how many positive integers $n$ is $\frac{180}{n}$ an integer?</p>
+            <p class="text-md">Translation: how many factors does 180 have?</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md math-step"><strong>Step 1:</strong> Factor:&nbsp;$180 = 2^2 \times 3^2 \times 5^1$</p>
+            <p class="text-md math-step"><strong>Step 2:</strong> Add 1 to each exponent and multiply</p>
+            <p class="text-md math-step">$(2+1)(2+1)(1+1) = 3 \times 3 \times 2$</p>
+            <p class="text-lg mt-16">Answer:&nbsp;$18$ factors</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          6:50-7:30 | Example 2: 180/n is an integer means n divides 180 evenly. How many factors does 180 have? Prime factorize: 2^2 times 3^2 times 5^1. Add 1 to each exponent and multiply: (2+1)(2+1)(1+1) equals 3 times 3 times 2 equals 18 factors.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 8: Summary (content-dark) -->
+      <!-- ============================================ -->
+      <section class="content-dark">
+        <div class="slide-header">
+          <p class="eyebrow">Key Takeaways</p>
+          <h2>Prime factorization, GCF &amp; LCM</h2>
+        </div>
+
+        <ul class="plus-list">
+          <li><strong>Prime factorize</strong> - Divide by the smallest prime repeatedly until you reach a prime</li>
+          <li><strong>GCF</strong> - Take shared primes at the lowest power</li>
+          <li><strong>LCM</strong> - Take all primes at the highest power</li>
+          <li><strong>Check formula</strong> - $\text{GCF} \times \text{LCM} = $ product of the two numbers</li>
+          <li><strong>Count factors</strong> - Add 1 to each exponent in the prime factorization, then multiply</li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="rgba(255,255,255,0.4)"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          7:30-8:00 | Summary: prime factorization converts hard arithmetic into simple comparisons of exponents. GCF takes shared primes at lowest powers. LCM takes all primes at highest powers. Use the check formula to verify or solve for unknowns. Count factors by adding 1 to each exponent and multiplying.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js -->
+  <script src="../assets/reveal/dist/reveal.min.js"></script>
+  <script type="module">
+    import RevealNotes from '../assets/reveal/plugin/notes/notes.esm.js';
+
+    Reveal.initialize({
+      width: 960,
+      height: 540,
+      margin: 0,
+      minScale: 0.5,
+      maxScale: 3.0,
+      hash: true,
+      slideNumber: true,
+      controls: true,
+      progress: true,
+      history: true,
+      center: false,
+      transition: 'none',
+      backgroundTransition: 'none',
+      disableLayout: false,
+      plugins: [ RevealNotes ]
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en" class="reveal-full-page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mixture Problems</title>
+
+  <!-- Reveal.js Core -->
+  <link rel="stylesheet" href="../assets/reveal/dist/reset.css">
+  <link rel="stylesheet" href="../assets/reveal/dist/reveal.css">
+
+  <!-- Leland Theme -->
+  <link rel="stylesheet" href="../assets/reveal/themes/leland.css">
+
+  <!-- KaTeX for math rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false}
+      ]
+    });"></script>
+
+</head>
+<body>
+  <!-- SVG Symbol Definitions (defined once, referenced via <use>) -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="leland-logo" viewBox="0 0 200 45">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z"/>
+      <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z"/>
+      <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z"/>
+      <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z"/>
+      <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z"/>
+      <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z"/>
+    </symbol>
+  </svg>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ============================================ -->
+      <!-- SLIDE 1: Title (Dark) -->
+      <!-- ============================================ -->
+      <section class="title-dark">
+        <div class="leland-logo-top">
+          <svg width="110" height="25" fill="white" class="mb-16"><use href="#leland-logo"/></svg>
+        </div>
+
+        <p class="eyebrow">GRE Self-Study Course</p>
+        <h1>Mixture Problems &amp;<br><span class="hl">The Weighted Table</span></h1>
+
+        <aside class="notes">
+          0:00-0:30 | Hook: Mix 10 gallons of 30% alcohol with 5 gallons of 60% alcohol. What is the concentration? It is NOT 45%. The answer is 40%, because you are mixing different amounts. This video teaches the weighted table method.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 2: Divider - The Formula -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <p class="part-number">Part 1</p>
+        <h1>The Mixture Formula</h1>
+        <p>Pure substance in = Pure substance out</p>
+
+        <aside class="notes">
+          0:30-0:40 | Transition into the core mixture formula.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 3: The Weighted Table -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Mixture Formula</p>
+          <h2>The weighted table</h2>
+        </div>
+
+        <p class="text-md mb-16"><strong>Core principle:</strong> Total pure substance $=$ sum of pure substance from each part.</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Component</th>
+              <th>Concentration</th>
+              <th>Amount</th>
+              <th>Pure Substance</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Solution 1</td>
+              <td>$c_1$</td>
+              <td>$v_1$</td>
+              <td>$c_1 \times v_1$</td>
+            </tr>
+            <tr>
+              <td>Solution 2</td>
+              <td>$c_2$</td>
+              <td>$v_2$</td>
+              <td>$c_2 \times v_2$</td>
+            </tr>
+            <tr>
+              <td><strong>Mixture</strong></td>
+              <td>$c_{\text{mix}}$</td>
+              <td>$v_1 + v_2$</td>
+              <td>$c_1 v_1 + c_2 v_2$</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <aside class="notes">
+          0:40-2:00 | The weighted table. Fill in concentration, amount, and pure substance for each component. The mixture row totals the amounts and the pure substance. The key equation: pure substance in = pure substance out.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 4: Example 1 - Basic Mixture -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 1</p>
+          <h2>Basic concentration problem</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-md">10 gal of 30% alcohol mixed with 5 gal of 60% alcohol. What is the mixture concentration?</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16">Pure alcohol:&nbsp;$0.30(10) + 0.60(5) = 3 + 3 = 6$</p>
+            <p class="text-md math-step">Concentration $= \frac{6}{15}$</p>
+            <p class="text-lg mt-16">Answer:&nbsp;$40\%$ (not $45\%$)</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          2:00-3:00 | Example 1: the hook problem. Pure alcohol from each part: 3 + 3 = 6 gal. Total volume = 15 gal. Concentration = 6/15 = 40%. Not 45% because there is more of the weaker solution.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 5: Example 2 - Adding Pure Substance -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 2</p>
+          <h2>Adding pure substance</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-md">A 20 L solution is 15% salt. How many liters of pure salt must be added to make 25%?</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16">Original salt:&nbsp;$0.15(20) = 3$ L. Added:&nbsp;$x$ L at 100%</p>
+            <p class="text-md mb-16">$3 + x = 0.25(20 + x)$</p>
+            <p class="text-md mb-16">$3 + x = 5 + 0.25x$, so&nbsp;$0.75x = 2$</p>
+            <p class="text-lg mt-16">Answer:&nbsp;$x = \frac{8}{3} \approx 2.67$ L</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          3:00-4:20 | Example 2: adding pure salt. Original has 3 L of salt. After adding x L of pure salt (100%), total salt = 3 + x, total volume = 20 + x. Set equal to 25% and solve.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 6: Divider - Replacement -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <p class="part-number">Part 2</p>
+        <h1>Replacement Problems</h1>
+        <p>Drain some out, add something different</p>
+
+        <aside class="notes">
+          4:20-4:30 | Transition into replacement problems.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 7: Example 3 - Replacement -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 3</p>
+          <h2>Drain and replace</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-md">100 gal of 40% antifreeze. Some is drained and replaced with water. Result is 25%. How much was drained?</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16">Original antifreeze:&nbsp;$40$ gal</p>
+            <p class="text-md mb-16">Drain $x$ gal (removes $0.4x$ antifreeze)</p>
+            <p class="text-md mb-16">$40 - 0.4x = 25$, so&nbsp;$0.4x = 15$</p>
+            <p class="text-lg mt-16">Answer:&nbsp;$x = 37.5$ gal</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          4:30-5:40 | Example 3: replacement problem. We drain x gallons of 40% solution and replace with water (0%). Water adds no antifreeze. Remaining antifreeze = 40 - 0.4x = 25 (since final is 25% of 100 gal). Solve for x = 37.5 gallons.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 8: Divider - Price Mixtures -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <p class="part-number">Part 3</p>
+        <h1>Price Mixtures</h1>
+        <p>Same formula, different context</p>
+
+        <aside class="notes">
+          5:40-5:50 | Transition into price mixtures.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 9: Example 4 - Coffee Blend -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 4</p>
+          <h2>Price mixture</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-md">Brand A (\$8/lb) mixed with Brand B (\$12/lb) for 20 lbs at \$9.50/lb. How much of each?</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16">A $= x$ lb, B $= 20 - x$ lb</p>
+            <p class="text-md mb-16">$8x + 12(20 - x) = 190$</p>
+            <p class="text-md mb-16">$8x + 240 - 12x = 190$, so&nbsp;$-4x = -50$</p>
+            <p class="text-lg mt-16">A $=$ $12.5$ lb, B $=$ $7.5$ lb</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          5:50-7:00 | Example 4: price mixture. Let A = x, B = 20 - x (LEGO inference). Total cost = $190. Solve 8x + 12(20-x) = 190 to get x = 12.5 lbs of A and 7.5 lbs of B.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 10: Example 5 - Ratio Shortcut -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 5</p>
+          <h2>Finding the mixing ratio</h2>
+        </div>
+
+        <div class="two-column gap-24">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-md">Cashews (\$10/lb) and peanuts (\$4/lb). What ratio gives \$6/lb?</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16">Cashews: \$10, diff from \$6 $= +4$</p>
+            <p class="text-md mb-16">Peanuts: \$4, diff from \$6 $= -2$</p>
+            <p class="text-md mb-16">Ratio (inverse of diffs):&nbsp;$2{:}4$</p>
+            <p class="text-lg mt-16">Cashews:Peanuts $=$&nbsp;$1{:}2$</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          7:00-7:50 | Example 5: the allegation shortcut. Find differences from the target price. The mixing ratio is the inverse of those differences. Cashews to peanuts = 2:4 = 1:2. Coaching tip: the allegation method (also called the alligation diagram) is the fastest approach for any two-component mixture. Draw the X-diagram: put the two concentrations on the left, the target in the middle, and cross-subtract. The results give you the mixing ratio directly.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 11: Allegation Method -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Shortcut</p>
+          <h2>The allegation method</h2>
+        </div>
+
+        <div class="card-alt-green compact mb-16">
+          <p class="text-md"><strong>Ratio of Low to High</strong> $= |\text{High} - \text{Target}| : |\text{Low} - \text{Target}|$</p>
+        </div>
+
+        <div class="two-column gap-24">
+          <div class="card card-green-bg">
+            <span class="badge badge-green self-start mb-16">Example A</span>
+            <p class="text-md mb-8">Mix 30% and 60% to get 45%</p>
+            <p class="text-md">$|60-45| : |30-45| = 15:15 =$&nbsp;$1:1$</p>
+          </div>
+          <div class="card card-blue-bg">
+            <span class="badge badge-blue self-start mb-16">Example B</span>
+            <p class="text-md mb-8">Mix 20% and 50% to get 30%</p>
+            <p class="text-md">$|50-30| : |20-30| = 20:10 =$&nbsp;$2:1$</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          7:50-9:00 | The allegation method for quickly finding mixing ratios. The ratio of the low-concentration to the high-concentration equals the absolute difference of the high from target to the low from target. Walk through both examples.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 12: Summary (content-dark) -->
+      <!-- ============================================ -->
+      <section class="content-dark">
+        <div class="slide-header">
+          <p class="eyebrow">Key Takeaways</p>
+          <h2>Mixture problem toolkit</h2>
+        </div>
+
+        <ul class="plus-list">
+          <li><strong>Weighted table</strong> - Fill in concentration, amount, and pure substance for each part</li>
+          <li><strong>Key equation</strong> - Pure substance in $=$ pure substance out ($c_1 v_1 + c_2 v_2 = c_{\text{mix}} \cdot v_{\text{total}}$)</li>
+          <li><strong>Replacement problems</strong> - Draining removes pure substance, adding water adds none</li>
+          <li><strong>Price mixtures</strong> - Same formula with price replacing concentration</li>
+          <li><strong>Allegation shortcut</strong> - Ratio of Low:High $= |\text{High} - \text{Target}| : |\text{Low} - \text{Target}|$</li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="rgba(255,255,255,0.4)"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          9:00-10:00 | Summary: the weighted table works for all mixture problems. Track pure substance. Use the allegation shortcut for quick ratio finding. This applies to concentration, price, and weighted average problems. Remember: mixtures are closely related to weighted averages. The alligation method and the sum-of-deviations-equals-zero concept are two sides of the same coin. If you master one, the other follows naturally.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js -->
+  <script src="../assets/reveal/dist/reveal.min.js"></script>
+  <script type="module">
+    import RevealNotes from '../assets/reveal/plugin/notes/notes.esm.js';
+
+    Reveal.initialize({
+      width: 960,
+      height: 540,
+      margin: 0,
+      minScale: 0.5,
+      maxScale: 3.0,
+      hash: true,
+      slideNumber: true,
+      controls: true,
+      progress: true,
+      history: true,
+      center: false,
+      transition: 'none',
+      backgroundTransition: 'none',
+      disableLayout: false,
+      plugins: [ RevealNotes ]
+    });
+  </script>
+</body>
+</html>

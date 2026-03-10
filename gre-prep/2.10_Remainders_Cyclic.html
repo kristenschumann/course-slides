@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en" class="reveal-full-page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Remainders &amp; Cyclic Patterns</title>
+
+  <!-- Reveal.js Core -->
+  <link rel="stylesheet" href="../assets/reveal/dist/reset.css">
+  <link rel="stylesheet" href="../assets/reveal/dist/reveal.css">
+
+  <!-- Leland Theme -->
+  <link rel="stylesheet" href="../assets/reveal/themes/leland.css">
+
+  <!-- KaTeX for math rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false}
+      ]
+    });"></script>
+
+</head>
+<body>
+  <!-- SVG Symbol Definitions (defined once, referenced via <use>) -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="leland-logo" viewBox="0 0 200 45">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z"/>
+      <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z"/>
+      <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z"/>
+      <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z"/>
+      <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z"/>
+      <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z"/>
+    </symbol>
+  </svg>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ============================================ -->
+      <!-- SLIDE 1: Title (Dark) -->
+      <!-- ============================================ -->
+      <section class="title-dark">
+        <div class="leland-logo-top">
+          <svg width="110" height="25" fill="white" class="mb-16"><use href="#leland-logo"/></svg>
+        </div>
+
+        <p class="eyebrow">GRE Self-Study Course</p>
+        <h1>Remainders &amp;<br><span class="hl">Cyclic Patterns</span></h1>
+
+        <aside class="notes">
+          0:00-0:30 | Hook: What is the units digit of 7^100? You cannot calculate it, but you can find the pattern. 7, 9, 3, 1, 7, 9, 3, 1... The cycle repeats every 4. 100 / 4 = 25 remainder 0, which means position 4 in the cycle. Units digit is 1. This video teaches you to find patterns the GRE loves to test.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 2: Divider - Remainder Basics -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <p class="part-number">Part 1</p>
+        <h1>Remainder Basics</h1>
+        <p>The language and formula of remainders</p>
+
+        <aside class="notes">
+          0:30-0:40 | Transition into remainder basics and the division algorithm.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 3: The Remainder Formula -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Remainder Basics</p>
+          <h2>The division algorithm</h2>
+        </div>
+
+        <div class="card-alt-green compact mb-16">
+          <p class="text-md"><strong>Dividend = Divisor $\times$ Quotient + Remainder</strong>, or $n = dq + r$ where $0 \leq r &lt; d$</p>
+        </div>
+
+        <div class="two-column gap-32">
+          <div class="card card-green-bg">
+            <span class="badge badge-green self-start mb-16">Example</span>
+            <p class="text-md mb-8">When we divide 17 by 5:</p>
+            <p class="text-md mb-8">$17 = 5 \times 3 + 2$</p>
+            <p class="text-md">Quotient $= 3$, Remainder $= 2$</p>
+          </div>
+          <div class="card card-blue-bg">
+            <span class="badge badge-blue self-start mb-16">GRE Language</span>
+            <p class="text-md">"17 leaves a remainder of 2 when divided by 5"</p>
+            <p class="text-md mt-16">This means $17 = 5q + 2$ for some integer $q$.</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          0:40-1:40 | The division algorithm: Dividend = Divisor x Quotient + Remainder. Walk through 17 divided by 5: quotient 3, remainder 2. The GRE phrases this as "17 leaves a remainder of 2 when divided by 5." This translates to 17 = 5q + 2.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 4: Example 1 - Remainder of 2n -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 1</p>
+          <h2>Working with remainder expressions</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-md">When $n$ is divided by 7, the remainder is 4. What is the remainder when $2n$ is divided by 7?</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16"><strong>Step 1:</strong> Express:&nbsp;$n = 7q + 4$</p>
+            <p class="text-md mb-16"><strong>Step 2:</strong> Double:&nbsp;$2n = 14q + 8 = 7(2q) + 8$</p>
+            <p class="text-md mb-16"><strong>Step 3:</strong> Since $8 = 7(1) + 1$:&nbsp;$2n = 7(2q+1) + 1$</p>
+            <p class="text-lg mt-16">Remainder:&nbsp;$1$</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          1:40-2:40 | Example 1. Express n = 7q + 4. Double both sides: 2n = 14q + 8. Rewrite 8 as 7(1) + 1. So 2n = 7(2q+1) + 1. The remainder is 1.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 5: Divider - Remainder Arithmetic -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <p class="part-number">Part 2</p>
+        <h1>Remainder Arithmetic</h1>
+        <p>Shortcuts for sums and products</p>
+
+        <aside class="notes">
+          2:40-2:50 | Transition into remainder arithmetic shortcuts for sums and products.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 6: Remainder Arithmetic Rules -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Remainder Arithmetic</p>
+          <h2>Replace numbers with remainders</h2>
+        </div>
+
+        <div class="card-alt-green compact mb-16">
+          <p class="text-md"><strong>Key insight:</strong> When finding remainders, you can replace any number with its remainder first.</p>
+        </div>
+
+        <div class="two-column gap-32">
+          <div class="card card-green-bg">
+            <span class="badge badge-green self-start mb-16">Addition</span>
+            <p class="text-md mb-8">Remainder of $(a + b) =$</p>
+            <p class="text-md">Remainder of $(r_a + r_b)$</p>
+          </div>
+          <div class="card card-blue-bg">
+            <span class="badge badge-blue self-start mb-16">Multiplication</span>
+            <p class="text-md mb-8">Remainder of $(a \times b) =$</p>
+            <p class="text-md">Remainder of $(r_a \times r_b)$</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          2:50-3:40 | Key insight: when working with remainders, you can replace any number with its remainder. This works for both addition and multiplication. Find each number's remainder, combine them, then find the remainder of the result.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 7: Example 2 - Product Remainder -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 2</p>
+          <h2>Remainder of a product</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-lg">What is the remainder when $47 \times 53$ is divided by 10?</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16"><strong>Step 1:</strong> Remainders: $47 \rightarrow 7$, $53 \rightarrow 3$</p>
+            <p class="text-md mb-16"><strong>Step 2:</strong> Multiply:&nbsp;$7 \times 3 = 21$</p>
+            <p class="text-md mb-16"><strong>Step 3:</strong> Remainder of $21 \div 10$</p>
+            <p class="text-lg mt-16">Remainder:&nbsp;$1$</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          3:40-4:20 | Example 2. Find remainders when divided by 10: 47 gives 7, 53 gives 3. Multiply: 7 x 3 = 21. Remainder of 21 divided by 10 is 1.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 8: Example 3 - Sum Remainder -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 3</p>
+          <h2>Remainder of a sum</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-lg">What is the remainder when $23 + 37 + 48$ is divided by 5?</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16"><strong>Step 1:</strong> Remainders: $23 \rightarrow 3$, $37 \rightarrow 2$, $48 \rightarrow 3$</p>
+            <p class="text-md mb-16"><strong>Step 2:</strong> Add:&nbsp;$3 + 2 + 3 = 8$</p>
+            <p class="text-md mb-16"><strong>Step 3:</strong> Remainder of $8 \div 5$</p>
+            <p class="text-lg mt-16">Remainder:&nbsp;$3$</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          4:20-5:00 | Example 3. Remainders when divided by 5: 23 gives 3, 37 gives 2, 48 gives 3. Add: 3 + 2 + 3 = 8. Remainder of 8 divided by 5 is 3.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 9: Divider - Units Digit Cycles -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <p class="part-number">Part 3</p>
+        <h1>Units Digit Cycles</h1>
+        <p>Patterns in powers that repeat</p>
+
+        <aside class="notes">
+          5:00-5:10 | Transition into units digit cycles, which are a special application of remainder arithmetic (remainder when dividing by 10).
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 10: Units Digit Cycle Table -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Units Digit Cycles</p>
+          <h2>The master cycle table</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr><th>Base</th><th>Units Digit Pattern</th><th>Cycle</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>2</td><td>2, 4, 8, 6, 2, 4, 8, 6...</td><td>4</td></tr>
+            <tr><td>3</td><td>3, 9, 7, 1, 3, 9, 7, 1...</td><td>4</td></tr>
+            <tr><td>4</td><td>4, 6, 4, 6...</td><td>2</td></tr>
+            <tr><td>7</td><td>7, 9, 3, 1, 7, 9, 3, 1...</td><td>4</td></tr>
+            <tr><td>8</td><td>8, 4, 2, 6, 8, 4, 2, 6...</td><td>4</td></tr>
+            <tr><td>9</td><td>9, 1, 9, 1...</td><td>2</td></tr>
+          </tbody>
+        </table>
+
+        <div class="card-alt compact mt-16">
+          <span class="badge badge-orange">Note</span>
+          <p class="text-md">Bases 0, 1, 5, and 6 always end in themselves. Bases 2, 3, 7, 8 cycle every 4. Bases 4, 9 cycle every 2.</p>
+        </div>
+
+        <aside class="notes">
+          5:10-6:10 | The master table of units digit cycles. Bases 2, 3, 7, 8 all cycle every 4. Bases 4, 9 cycle every 2. Bases 0, 1, 5, 6 always end in themselves. Memorize the cycle-of-4 patterns.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 11: Method + Example 4 -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 4</p>
+          <h2>Units digit of $7^{100}$</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-lg">What is the units digit of $7^{100}$?</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16"><strong>Step 1:</strong> 7's cycle: 7, 9, 3, 1 (length 4)</p>
+            <p class="text-md mb-16"><strong>Step 2:</strong> $100 \div 4 = 25$ remainder $0$</p>
+            <p class="text-md mb-16"><strong>Step 3:</strong> Remainder 0 $\rightarrow$ position 4 in cycle</p>
+            <p class="text-lg mt-16">Units digit:&nbsp;$1$</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          6:10-6:50 | Example 4. 7's cycle is 7, 9, 3, 1 with length 4. Divide exponent by cycle length: 100 / 4 = 25 remainder 0. Remainder 0 means the last position in the cycle, which is 1.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 12: Example 5 - Units Digit of 3^47 -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 5</p>
+          <h2>Units digit of $3^{47}$</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-lg">What is the units digit of $3^{47}$?</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16"><strong>Step 1:</strong> 3's cycle: 3, 9, 7, 1 (length 4)</p>
+            <p class="text-md mb-16"><strong>Step 2:</strong> $47 \div 4 = 11$ remainder $3$</p>
+            <p class="text-md mb-16"><strong>Step 3:</strong> Position 3 in cycle $\rightarrow$ 7</p>
+            <p class="text-lg mt-16">Units digit:&nbsp;$7$</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          6:50-7:25 | Example 5. 3's cycle: 3, 9, 7, 1 with length 4. 47 divided by 4 is 11 remainder 3. Position 3 in the cycle is 7.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 13: Example 6 - Product of Powers -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 6</p>
+          <h2>Units digit of a product</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-lg">What is the units digit of $13^{25} \times 17^{18}$?</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md math-step"><strong>$13^{25}$:</strong> base ends in 3, cycle 3,9,7,1. $25 \div 4 = 6$ R $1 \rightarrow$&nbsp;<strong>3</strong></p>
+            <p class="text-md math-step"><strong>$17^{18}$:</strong> base ends in 7, cycle 7,9,3,1. $18 \div 4 = 4$ R $2 \rightarrow$&nbsp;<strong>9</strong></p>
+            <p class="text-md mb-16">Multiply units digits:&nbsp;$3 \times 9 = 27$</p>
+            <p class="text-lg mt-16">Units digit:&nbsp;$7$</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          7:25-8:30 | Example 6. Find each units digit separately. 13^25: base ends in 3, cycle is 3,9,7,1. 25/4 = 6 R 1, position 1 is 3. 17^18: base ends in 7, cycle is 7,9,3,1. 18/4 = 4 R 2, position 2 is 9. Multiply: 3 x 9 = 27, units digit is 7.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 14: Example 7 - Remainder of xy -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 7</p>
+          <h2>Remainder of a product</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-md">If $x$ leaves remainder 3 when divided by 7, and $y$ leaves remainder 5 when divided by 7, what is the remainder when $xy$ is divided by 7?</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16"><strong>Step 1:</strong> Multiply remainders:&nbsp;$3 \times 5 = 15$</p>
+            <p class="text-md mb-16"><strong>Step 2:</strong> $15 \div 7 = 2$ remainder $1$</p>
+            <p class="text-lg mt-16">Remainder:&nbsp;$1$</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          8:30-9:15 | Example 7. Multiply the remainders: 3 x 5 = 15. Then find the remainder of 15 divided by 7, which is 1.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 15: Example 8 - QC with 9^n -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 8</p>
+          <h2>Quantitative comparison</h2>
+        </div>
+
+        <p class="text-md mb-16">$n$ is a positive integer</p>
+
+        <div class="qc-columns mb-16">
+          <div class="qc-col">
+            <p class="text-sm text-muted mb-8">Quantity A</p>
+            <p class="text-lg">The units digit of $9^n$</p>
+          </div>
+          <div class="qc-vs">vs</div>
+          <div class="qc-col">
+            <p class="text-sm text-muted mb-8">Quantity B</p>
+            <p class="text-lg">$9$</p>
+          </div>
+        </div>
+
+        <div class="two-column gap-24">
+          <div class="card card-green-bg">
+            <span class="badge badge-green self-start mb-8">n Odd</span>
+            <p class="text-md">$9^n$ ends in $9 \rightarrow$ A $=$ B</p>
+          </div>
+          <div class="card card-orange-bg">
+            <span class="badge badge-orange self-start mb-8">n Even</span>
+            <p class="text-md">$9^n$ ends in $1 \rightarrow$ A $&lt;$ B</p>
+          </div>
+        </div>
+
+        <div class="card-alt compact mt-16">
+          <p class="text-md">Answer:&nbsp;<strong>D</strong> (Cannot be determined)</p>
+        </div>
+
+        <aside class="notes">
+          9:15-10:15 | Example 8: QC problem. 9's cycle is 9, 1 with length 2. If n is odd, units digit is 9, so A = B. If n is even, units digit is 1, so A < B. The relationship changes, so answer is D.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 16: Example 9 - Remainder Pattern -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 9</p>
+          <h2>Remainder pattern in powers</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-lg">What is the remainder when $2^{100}$ is divided by 3?</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16"><strong>Find pattern:</strong> $2^1 \rightarrow$ R $2$, $2^2 \rightarrow$ R $1$, $2^3 \rightarrow$ R $2$, $2^4 \rightarrow$ R $1$</p>
+            <p class="text-md mb-16"><strong>Cycle:</strong> 2, 1, 2, 1... (length 2)</p>
+            <p class="text-md mb-16">100 is even $\rightarrow$ same position as $2^2$</p>
+            <p class="text-lg mt-16">Remainder:&nbsp;$1$</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          10:15-11:15 | Example 9. Find the remainder pattern: 2^1 gives remainder 2, 2^2 gives 1, 2^3 gives 2, 2^4 gives 1. The cycle is 2, 1 with length 2. Since 100 is even, same position as 2^2, remainder is 1.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 17: Summary (content-dark) -->
+      <!-- ============================================ -->
+      <section class="content-dark">
+        <div class="slide-header">
+          <p class="eyebrow">Key Takeaways</p>
+          <h2>Remainders &amp; cyclic patterns</h2>
+        </div>
+
+        <ul class="plus-list">
+          <li><strong>Division algorithm.</strong> $n = dq + r$ where $0 \leq r &lt; d$</li>
+          <li><strong>Remainder arithmetic.</strong> Replace numbers with their remainders before adding or multiplying</li>
+          <li><strong>Units digit cycles.</strong> Bases 2, 3, 7, 8 cycle every 4; bases 4, 9 cycle every 2; bases 0, 1, 5, 6 never change</li>
+          <li><strong>Finding position in cycle.</strong> Divide exponent by cycle length, use the remainder as position (remainder 0 means last position)</li>
+          <li><strong>Product of units digits.</strong> Find each units digit separately, then multiply and take the units digit of the result</li>
+          <li><strong>Remainder cycles.</strong> Not just units digits; remainders of powers also cycle, useful for any divisor</li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="rgba(255,255,255,0.4)"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          11:15-13:00 | Summary: The division algorithm expresses any division as n = dq + r. Replace numbers with remainders before operating. Units digit cycles repeat with lengths 1, 2, or 4. Divide exponent by cycle length to find position. Remainder 0 means the last position in the cycle. [Leland+ Tip] Think of remainders like clock math (modular arithmetic). If it is 10 AM and you add 15 hours, the clock reads 1 AM because 15 mod 12 = 3, and 10+3 = 13, which is 1 on a 12-hour clock. The GRE uses the same logic with different divisors. Test small cases to find the cycle, then use division to find position.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js -->
+  <script src="../assets/reveal/dist/reveal.min.js"></script>
+  <script type="module">
+    import RevealNotes from '../assets/reveal/plugin/notes/notes.esm.js';
+
+    Reveal.initialize({
+      width: 960,
+      height: 540,
+      margin: 0,
+      minScale: 0.5,
+      maxScale: 3.0,
+      hash: true,
+      slideNumber: true,
+      controls: true,
+      progress: true,
+      history: true,
+      center: false,
+      transition: 'none',
+      backgroundTransition: 'none',
+      disableLayout: false,
+      plugins: [ RevealNotes ]
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en" class="reveal-full-page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Time Management</title>
+
+  <!-- Reveal.js Core -->
+  <link rel="stylesheet" href="../assets/reveal/dist/reset.css">
+  <link rel="stylesheet" href="../assets/reveal/dist/reveal.css">
+
+  <!-- Leland Theme -->
+  <link rel="stylesheet" href="../assets/reveal/themes/leland.css">
+
+  <!-- KaTeX for math rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false}
+      ]
+    });"></script>
+
+</head>
+<body>
+  <!-- SVG Symbol Definitions (defined once, referenced via <use>) -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="leland-logo" viewBox="0 0 200 45">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z"/>
+      <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z"/>
+      <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z"/>
+      <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z"/>
+      <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z"/>
+      <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z"/>
+    </symbol>
+  </svg>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ============================================ -->
+      <!-- SLIDE 1: Title (Dark) -->
+      <!-- ============================================ -->
+      <section class="title-dark">
+        <div class="leland-logo-top">
+          <svg width="110" height="25" fill="white" class="mb-16"><use href="#leland-logo"/></svg>
+        </div>
+
+        <p class="eyebrow">GRE Self-Study Course</p>
+        <h1>Time Management<br><span class="hl">on the GRE</span></h1>
+
+        <aside class="notes">
+          0:00 - 0:30 | Hook: The GRE gives you a fixed amount of time per section. Knowing how to budget that time across question types is one of the biggest score levers. Today we cover section-level benchmarks, the mark-and-return strategy, and how to pace yourself on Text Completion questions specifically.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 2: Section-Level Time Benchmarks -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Section Benchmarks</p>
+          <h2>Know your time budget</h2>
+        </div>
+
+        <div class="two-column gap-32">
+          <div class="card card-green-bg">
+            <h3 class="text-md mb-8">Verbal Reasoning</h3>
+            <p class="text-lg mb-8"><strong>23 minutes, ~15 questions</strong></p>
+            <p class="text-md">Average:&nbsp;<strong>~1.5 min/question</strong></p>
+            <p class="text-sm mt-8">TC and SE should take less, giving you more time for Reading Comprehension passages.</p>
+          </div>
+          <div class="card card-blue-bg">
+            <h3 class="text-md mb-8">Quantitative Reasoning</h3>
+            <p class="text-lg mb-8"><strong>26 minutes, ~15 questions</strong></p>
+            <p class="text-md">Average:&nbsp;<strong>~1.75 min/question</strong></p>
+            <p class="text-sm mt-8">Data Interpretation sets take longer. Budget extra time for those and move faster on arithmetic.</p>
+          </div>
+        </div>
+
+        <div class="card-alt-green compact mt-16">
+          <p class="text-md"><strong>Key insight:</strong> These are averages. Some questions should take 30 seconds, others 3 minutes. The skill is knowing which is which.</p>
+        </div>
+
+        <aside class="notes">
+          0:30 - 1:30 | Section-level benchmarks. Verbal: 23 minutes for about 15 questions, averaging 1.5 minutes each. Quant: 26 minutes for about 15 questions, averaging 1.75 minutes each. But these are just averages. The real skill is spending less time on easy questions so you have more time for hard ones.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 3: Mark-and-Return Strategy -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Pacing Strategy</p>
+          <h2>Mark and return</h2>
+        </div>
+
+        <div class="workflow">
+          <div class="workflow-step">
+            <div class="step-num mb-16">1</div>
+            <h3 class="text-md">First pass</h3>
+            <p class="text-sm">Answer every question you can solve confidently within the time target.</p>
+          </div>
+          <div class="workflow-arrow">&rarr;</div>
+          <div class="workflow-step">
+            <div class="step-num mb-16">2</div>
+            <h3 class="text-md">Mark hard ones</h3>
+            <p class="text-sm">If stuck for 30+ seconds, make your best guess, mark it, and move on.</p>
+          </div>
+          <div class="workflow-arrow">&rarr;</div>
+          <div class="workflow-step">
+            <div class="step-num mb-16">3</div>
+            <h3 class="text-md">Second pass</h3>
+            <p class="text-sm">After finishing all questions, return to marked ones with remaining time.</p>
+          </div>
+          <div class="workflow-arrow">&rarr;</div>
+          <div class="workflow-step">
+            <div class="step-num mb-16">4</div>
+            <h3 class="text-md">Never blank</h3>
+            <p class="text-sm">No penalty for wrong answers. Always submit a guess before time runs out.</p>
+          </div>
+        </div>
+
+        <div class="card-alt compact mt-16">
+          <span class="badge badge-orange">Watch Out</span>
+          <p class="text-md">Spending 4 minutes on one hard question means rushing 2-3 easier ones. Protect your easy points first.</p>
+        </div>
+
+        <aside class="notes">
+          1:30 - 3:00 | The mark-and-return strategy. First pass: answer everything you can quickly. If stuck for more than 30 seconds, guess, mark, and move on. Second pass: return to marked questions with whatever time remains. Never leave anything blank since there is no penalty for wrong answers. The biggest mistake is getting stuck on one hard question and losing time for easier questions later in the section.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 4: The Three Types of Text Completion -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Know the Format</p>
+          <h2>The three types of text completion</h2>
+        </div>
+
+        <div class="card-grid-3">
+          <div class="card card-green-bg">
+            <h3 class="text-md mb-8">Single-Blank</h3>
+            <p class="text-sm">One blank with five answer choices. Tests your ability to understand sentence meaning and find the word that&nbsp;fits.</p>
+          </div>
+          <div class="card card-blue-bg">
+            <h3 class="text-md mb-8">Double-Blank</h3>
+            <p class="text-sm">Two blanks with three choices each. You must get BOTH right to earn credit. No partial&nbsp;points.</p>
+          </div>
+          <div class="card card-purple-bg">
+            <h3 class="text-md mb-8">Triple-Blank</h3>
+            <p class="text-sm">Three blanks with three choices each. Again, all three must be correct for any&nbsp;credit.</p>
+          </div>
+        </div>
+
+        <div class="card-alt-green compact mt-8">
+          <span class="badge badge-green self-start">Key Insight</span>
+          <p class="text-md">The strategy is the same for all types: look for clues in the sentence that tell you what kind of word belongs in each&nbsp;blank.</p>
+        </div>
+
+        <aside class="notes">
+          0:30 - 2:00 | Three flavors of TC: single-blank (5 choices), double-blank (3 choices each, no partial credit), triple-blank (3 choices each, no partial credit). Good news: multi-blank questions have fewer choices per blank. The strategy is the same for all three types.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 3: The Predict-Then-Match Method -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">The Method</p>
+          <h2>Predict-then-match</h2>
+        </div>
+
+        <div class="card-grid-2" style="padding-bottom: 0">
+          <div class="card card-green-bg" style="padding: 16px">
+            <h3 class="text-md mb-8 text-green">Step 1: Read for structure</h3>
+            <p class="text-sm">Read the entire sentence first. Understand the overall meaning and logical&nbsp;structure.</p>
+          </div>
+          <div class="card card-blue-bg" style="padding: 16px">
+            <h3 class="text-md mb-8">Step 2: Find the clue</h3>
+            <p class="text-sm">Every blank has a clue: a word or phrase that tells you what the blank must&nbsp;mean.</p>
+          </div>
+          <div class="card card-orange-bg" style="padding: 16px">
+            <h3 class="text-md mb-8">Step 3: Predict your word</h3>
+            <p class="text-sm">BEFORE looking at choices, predict what word fits. "Good," "bad," "increase" are&nbsp;fine.</p>
+          </div>
+          <div class="card card-purple-bg" style="padding: 16px">
+            <h3 class="text-md mb-8">Step 4: Match</h3>
+            <p class="text-sm">Find the choice matching your prediction. Predicted "criticize" and see "censure"? That's&nbsp;it.</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          2:00 - 3:30 | The four-step method: Read for structure and meaning, find the clue (similar meaning, opposite, cause/effect, example), predict your own word before looking at choices, then match. This prevents you from being swayed by attractive wrong answers. Key coaching insight: do NOT look at answer choices before predicting. Students who peek at choices first often latch onto a word that colors how they read the sentence, leading to errors.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 6: Signal Words (Brief) -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Quick Reference</p>
+          <h2>Signal words speed up predictions</h2>
+        </div>
+
+        <p class="text-md mb-16">Signal words tell you whether the blank <strong>matches</strong> or <strong>contrasts</strong> the clue. Spotting them instantly saves time.</p>
+
+        <div class="two-column gap-24">
+          <div class="card card-green-bg">
+            <h3 class="text-md mb-8">Same Direction</h3>
+            <p class="text-md">and, moreover, in fact, thus, therefore</p>
+          </div>
+          <div class="card card-red-bg">
+            <h3 class="text-md mb-8">Opposite Direction</h3>
+            <p class="text-md">but, however, although, despite, rather</p>
+          </div>
+        </div>
+
+        <div class="card-alt compact mt-16">
+          <p class="text-md"><strong>Want the full list?</strong> Lesson 2.21 covers signal words in depth with worked examples for every category.</p>
+        </div>
+
+        <aside class="notes">
+          4:30 - 5:15 | Quick signal word overview for time management purposes. Same-direction signals mean the blank matches the clue. Opposite-direction signals mean the blank contrasts. Recognizing these instantly is what lets you predict in seconds rather than minutes. For detailed signal word strategies with worked examples, see Lesson 2.21.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 5: Time Targets -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Pacing</p>
+          <h2>Time targets by question type</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Question Type</th>
+              <th>Target Time</th>
+              <th>Key Tip</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Single-Blank TC</strong></td>
+              <td><strong class="text-green">30-45 sec</strong></td>
+              <td>If stuck after 60 seconds, guess and move&nbsp;on</td>
+            </tr>
+            <tr>
+              <td><strong>Double-Blank TC</strong></td>
+              <td><strong class="text-green">60-90 sec</strong></td>
+              <td>Start with the easier blank&nbsp;first</td>
+            </tr>
+            <tr>
+              <td><strong>Triple-Blank TC</strong></td>
+              <td><strong class="text-green">90-120 sec</strong></td>
+              <td>Use two clear blanks to narrow the&nbsp;third</td>
+            </tr>
+            <tr>
+              <td><strong>Sentence Equivalence</strong></td>
+              <td><strong class="text-green">45-60 sec</strong></td>
+              <td>Look for synonym pairs&nbsp;first</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="card-alt-green compact mt-16">
+          <span class="badge badge-green self-start">Key Principle</span>
+          <p class="text-md">Vocab questions should be faster than RC. If you're spending 2+ minutes on any single question, you're taking time from passages where you might need&nbsp;it.</p>
+        </div>
+
+        <aside class="notes">
+          5:00 - 6:30 | Time targets: single-blank 30-45 sec, double-blank 60-90 sec, triple-blank 90-120 sec, SE 45-60 sec. Vocab questions should be faster than Reading Comprehension. Don't let any single question eat more than 2 minutes. Guess and move on if stuck.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 6: Multi-Blank Strategy -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Advanced Tips</p>
+          <h2>Multi-blank strategy</h2>
+        </div>
+
+        <ul class="plus-list text-md">
+          <li><strong>Solve the easiest blank first.</strong> Don't go in order. Start with whichever blank has the clearest clue or most obvious&nbsp;answer</li>
+          <li><strong>Use process of elimination.</strong> For multi-blank questions, eliminate choices for one blank to narrow options for the&nbsp;others</li>
+          <li><strong>Read the completed sentence.</strong> After filling all blanks, read the whole thing. Does it make logical sense from start to&nbsp;finish?</li>
+          <li><strong>Don't overthink partial matches.</strong> If two blanks are clear but the third is uncertain, trust the two you're confident about and pick the best remaining&nbsp;option</li>
+        </ul>
+
+        <aside class="notes">
+          6:30 - 7:30 | Multi-blank tips: solve the easiest blank first, use elimination, always read the completed sentence for sense check, and don't overthink when two blanks are clear. These strategies save time and reduce errors on the hardest TC questions. Pro tip: use scratch paper even on verbal. Write down your predicted word for each blank before looking at choices, then mark ABCDE and cross out as you go. Externalizing your thinking frees up mental energy for the next question.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 9: Summary (Dark) -->
+      <!-- ============================================ -->
+      <section class="content-dark">
+        <div class="slide-header">
+          <p class="eyebrow">Key Takeaways</p>
+          <h2>Time management on the GRE</h2>
+        </div>
+
+        <ul class="plus-list">
+          <li><strong>Know your benchmarks:</strong> ~1.5 min/question on Verbal, ~1.75 min/question on Quant</li>
+          <li><strong>Mark and return:</strong> Never get stuck. Guess, mark, move on, and come back with remaining time</li>
+          <li><strong>Predict-Then-Match for TC:</strong> Read, find the clue, predict your word, then match to choices</li>
+          <li><strong>TC time targets:</strong> Single-blank 30-45 sec, double-blank 60-90 sec, triple-blank 90-120 sec</li>
+          <li><strong>Protect easy points:</strong> Spending 4 minutes on one hard question means rushing 2-3 easier ones</li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="rgba(255,255,255,0.4)"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          8:00 - 8:30 | Summary. Know your section benchmarks. Use mark-and-return so you never get stuck. Predict-Then-Match is your core TC method. Stick to time targets per question type. The overarching principle: protect your easy points by not spending too long on any single question. For detailed signal word strategies, see Lesson 2.21.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js -->
+  <script src="../assets/reveal/dist/reveal.min.js"></script>
+  <script type="module">
+    import RevealNotes from '../assets/reveal/plugin/notes/notes.esm.js';
+
+    Reveal.initialize({
+      width: 960,
+      height: 540,
+      margin: 0,
+      minScale: 0.5,
+      maxScale: 3.0,
+      hash: true,
+      slideNumber: true,
+      controls: true,
+      progress: true,
+      history: true,
+      center: false,
+      transition: 'none',
+      backgroundTransition: 'none',
+      disableLayout: false,
+      plugins: [ RevealNotes ]
+    });
+  </script>
+</body>
+</html>

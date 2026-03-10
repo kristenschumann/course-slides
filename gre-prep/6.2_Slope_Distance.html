@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en" class="reveal-full-page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slope, Distance &amp; Midpoint</title>
+
+  <!-- Reveal.js Core -->
+  <link rel="stylesheet" href="../assets/reveal/dist/reset.css">
+  <link rel="stylesheet" href="../assets/reveal/dist/reveal.css">
+
+  <!-- Leland Theme -->
+  <link rel="stylesheet" href="../assets/reveal/themes/leland.css">
+
+  <!-- KaTeX for math rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false}
+      ]
+    });"></script>
+
+</head>
+<body>
+  <!-- SVG Symbol Definitions (defined once, referenced via <use>) -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="leland-logo" viewBox="0 0 200 45">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z"/>
+      <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z"/>
+      <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z"/>
+      <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z"/>
+      <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z"/>
+      <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z"/>
+    </symbol>
+  </svg>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ============================================ -->
+      <!-- SLIDE 1: Title (Dark) -->
+      <!-- ============================================ -->
+      <section class="title-dark">
+        <div class="leland-logo-top">
+          <svg width="110" height="25" fill="white" class="mb-16"><use href="#leland-logo"/></svg>
+        </div>
+
+        <p class="eyebrow">GRE Self-Study Course</p>
+        <h1>Slope, Distance &amp;<br><span class="hl">Midpoint</span></h1>
+
+        <aside class="notes">
+          0:00-0:30 | Hook: Coordinate geometry connects algebra and geometry. Three essential formulas: slope, distance, midpoint. Master these and coordinate geometry becomes straightforward. This video gives you the formulas and the intuition behind them.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 2: Divider - Slope -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <p class="part-number">Part 1</p>
+        <h1>Slope</h1>
+        <p>Measuring steepness and direction</p>
+
+        <aside class="notes">
+          0:30-0:40 | Transition to slope formula.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 3a: Slope Formula — Diagram -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Slope</p>
+          <h2>Rise over run</h2>
+        </div>
+
+        <div class="card-alt-green compact mb-16">
+          <p class="text-md">$m = \frac{y_2 - y_1}{x_2 - x_1} = \frac{\text{rise}}{\text{run}} = \frac{\Delta y}{\Delta x}$</p>
+        </div>
+
+        <svg class="chart-svg" viewBox="0 0 750 220" style="margin: 0 auto">
+          <!-- Grid background -->
+          <g transform="translate(40, 5)">
+            <!-- Light gridlines -->
+            <g stroke="#E5E5E5" stroke-width="0.5">
+              <!-- Vertical gridlines x: -2 to 8 mapped to 0-670, step 67 -->
+              <line x1="0" y1="0" x2="0" y2="199.4"/><line x1="67" y1="0" x2="67" y2="199.4"/>
+              <line x1="134" y1="0" x2="134" y2="199.4"/><line x1="201" y1="0" x2="201" y2="199.4"/>
+              <line x1="268" y1="0" x2="268" y2="199.4"/><line x1="335" y1="0" x2="335" y2="199.4"/>
+              <line x1="402" y1="0" x2="402" y2="199.4"/><line x1="469" y1="0" x2="469" y2="199.4"/>
+              <line x1="536" y1="0" x2="536" y2="199.4"/><line x1="603" y1="0" x2="603" y2="199.4"/>
+              <line x1="670" y1="0" x2="670" y2="199.4"/>
+              <!-- Horizontal gridlines y: -4 to 12 mapped to 199.4-0, step ~12.46 -->
+              <line x1="0" y1="199.4" x2="670" y2="199.4"/><line x1="0" y1="186.9" x2="670" y2="186.9"/>
+              <line x1="0" y1="174.5" x2="670" y2="174.5"/><line x1="0" y1="162.0" x2="670" y2="162.0"/>
+              <line x1="0" y1="149.6" x2="670" y2="149.6"/><line x1="0" y1="137.1" x2="670" y2="137.1"/>
+              <line x1="0" y1="124.6" x2="670" y2="124.6"/><line x1="0" y1="112.2" x2="670" y2="112.2"/>
+              <line x1="0" y1="99.7" x2="670" y2="99.7"/><line x1="0" y1="87.2" x2="670" y2="87.2"/>
+              <line x1="0" y1="74.8" x2="670" y2="74.8"/><line x1="0" y1="62.3" x2="670" y2="62.3"/>
+              <line x1="0" y1="49.9" x2="670" y2="49.9"/><line x1="0" y1="37.4" x2="670" y2="37.4"/>
+              <line x1="0" y1="24.9" x2="670" y2="24.9"/><line x1="0" y1="12.5" x2="670" y2="12.5"/>
+              <line x1="0" y1="0" x2="670" y2="0"/>
+            </g>
+            <!-- Axes: x-axis at y=0 (grid y=149.6), y-axis at x=0 (grid x=134) -->
+            <g stroke="#333" stroke-width="1.5">
+              <line x1="0" y1="149.6" x2="670" y2="149.6"/>
+              <line x1="134" y1="0" x2="134" y2="199.4"/>
+            </g>
+            <!-- Axis labels every 2 units -->
+            <g font-family="Calibre, sans-serif" font-size="9" fill="#333" text-anchor="middle">
+              <text x="0" y="162">-2</text><text x="134" y="162">0</text>
+              <text x="268" y="162">2</text><text x="402" y="162">4</text>
+              <text x="536" y="162">6</text><text x="670" y="162">8</text>
+            </g>
+            <g font-family="Calibre, sans-serif" font-size="9" fill="#333" text-anchor="end">
+              <text x="120" y="152">0</text><text x="120" y="127.1">2</text>
+              <text x="120" y="102.2">4</text><text x="120" y="77.3">6</text>
+              <text x="120" y="52.4">8</text><text x="120" y="27.5">10</text>
+              <text x="120" y="4">12</text><text x="120" y="177.1">-2</text>
+              <text x="120" y="202">-4</text>
+            </g>
+            <!-- Green line: (2,3) to (6,11) => grid (268, 99.7) to (536, 0) -->
+            <line x1="268" y1="99.7" x2="536" y2="0" stroke="#15B078" stroke-width="2"/>
+            <!-- Rise/run arrows for green line -->
+            <line x1="268" y1="99.7" x2="268" y2="0" stroke="#15B078" stroke-width="1.2" stroke-dasharray="4,3"/>
+            <line x1="268" y1="0" x2="536" y2="0" stroke="#15B078" stroke-width="1.2" stroke-dasharray="4,3"/>
+            <text x="252" y="52" font-family="Calibre, sans-serif" font-size="10" fill="#15B078" text-anchor="end">8</text>
+            <text x="400" y="-5" font-family="Calibre, sans-serif" font-size="10" fill="#15B078" text-anchor="middle">4</text>
+            <!-- Green points -->
+            <circle cx="268" cy="99.7" r="5" fill="#113A2D"/>
+            <circle cx="536" cy="0" r="5" fill="#113A2D"/>
+            <text x="268" y="113" font-family="Calibre, sans-serif" font-size="10" fill="#113A2D" text-anchor="middle">(2,3)</text>
+            <text x="536" y="-8" font-family="Calibre, sans-serif" font-size="10" fill="#113A2D" text-anchor="middle">(6,11)</text>
+            <!-- Red line: (-1,5) to (3,-3) => grid (67, 74.8) to (335, 174.5) -->
+            <line x1="67" y1="74.8" x2="335" y2="174.5" stroke="#FB5A42" stroke-width="2"/>
+            <!-- Rise/run arrows for red line -->
+            <line x1="67" y1="74.8" x2="67" y2="174.5" stroke="#FB5A42" stroke-width="1.2" stroke-dasharray="4,3"/>
+            <line x1="67" y1="174.5" x2="335" y2="174.5" stroke="#FB5A42" stroke-width="1.2" stroke-dasharray="4,3"/>
+            <text x="52" y="128" font-family="Calibre, sans-serif" font-size="10" fill="#FB5A42" text-anchor="end">-8</text>
+            <text x="200" y="190" font-family="Calibre, sans-serif" font-size="10" fill="#FB5A42" text-anchor="middle">4</text>
+            <!-- Red points -->
+            <circle cx="67" cy="74.8" r="5" fill="#113A2D"/>
+            <circle cx="335" cy="174.5" r="5" fill="#113A2D"/>
+            <text x="67" y="66" font-family="Calibre, sans-serif" font-size="10" fill="#113A2D" text-anchor="middle">(-1,5)</text>
+            <text x="335" y="190" font-family="Calibre, sans-serif" font-size="10" fill="#113A2D" text-anchor="middle">(3,-3)</text>
+          </g>
+        </svg>
+
+        <aside class="notes">
+          0:40-1:20 | Slope = rise over run = change in y over change in x. The green line rises from left to right (positive slope), the red line falls (negative slope). GRE tip: perpendicular lines have slopes that are negative reciprocals (e.g., 2/3 and -3/2). Parallel lines have equal slopes. QC questions often test whether you know this without needing to compute actual slopes.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 3b: Slope Formula — Examples -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Slope</p>
+          <h2>Calculating slope</h2>
+        </div>
+
+        <div class="two-column gap-24">
+          <div class="card card-green-bg">
+            <span class="badge badge-green self-start mb-8">Positive Slope</span>
+            <p class="text-md mb-8">Through $(2, 3)$ and $(6, 11)$</p>
+            <div class="card-alt compact">
+              <p class="text-md math-step">$m = \frac{11 - 3}{6 - 2} = \frac{8}{4} = $ $2$</p>
+            </div>
+          </div>
+          <div class="card card-red-bg">
+            <span class="badge badge-red self-start mb-8">Negative Slope</span>
+            <p class="text-md mb-8">Through $(-1, 5)$ and $(3, -3)$</p>
+            <div class="card-alt compact">
+              <p class="text-md math-step">$m = \frac{-3 - 5}{3 - (-1)} = \frac{-8}{4} = $ <span class="neg">$-2$</span></p>
+            </div>
+          </div>
+        </div>
+
+        <aside class="notes">
+          1:20-2:00 | Positive slope: line rises left to right. Example gives slope 2. Negative slope: line falls left to right. Example gives slope -2.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 4: Special Slopes -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Slope</p>
+          <h2>Special cases and relationships</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Type</th>
+              <th>Slope</th>
+              <th>Example</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Horizontal line</td>
+              <td>$0$</td>
+              <td>$y = 5$</td>
+            </tr>
+            <tr>
+              <td>Vertical line</td>
+              <td>Undefined</td>
+              <td>$x = 3$</td>
+            </tr>
+            <tr>
+              <td>Parallel lines</td>
+              <td>$m_1 = m_2$</td>
+              <td>Same slope</td>
+            </tr>
+            <tr>
+              <td>Perpendicular lines</td>
+              <td>$m_1 \times m_2 = -1$</td>
+              <td>Negative reciprocals</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <svg class="chart-svg" viewBox="0 0 750 100" style="margin: 8px auto 0">
+          <!-- Mini Grid 1: Horizontal line y=5, m=0 -->
+          <g transform="translate(10, 5)">
+            <rect x="0" y="0" width="150" height="68" fill="none" stroke="#E5E5E5" stroke-width="0.5"/>
+            <g stroke="#E5E5E5" stroke-width="0.5">
+              <line x1="30" y1="0" x2="30" y2="68"/><line x1="60" y1="0" x2="60" y2="68"/>
+              <line x1="90" y1="0" x2="90" y2="68"/><line x1="120" y1="0" x2="120" y2="68"/>
+              <line x1="0" y1="17" x2="150" y2="17"/><line x1="0" y1="34" x2="150" y2="34"/>
+              <line x1="0" y1="51" x2="150" y2="51"/>
+            </g>
+            <line x1="0" y1="68" x2="150" y2="68" stroke="#333" stroke-width="1"/><line x1="0" y1="0" x2="0" y2="68" stroke="#333" stroke-width="1"/>
+            <line x1="10" y1="17" x2="140" y2="17" stroke="#15B078" stroke-width="2"/>
+            <text x="75" y="88" font-family="Calibre, sans-serif" font-size="10" fill="#113A2D" text-anchor="middle">m = 0</text>
+          </g>
+          <!-- Mini Grid 2: Vertical line x=3, m=undef -->
+          <g transform="translate(195, 5)">
+            <rect x="0" y="0" width="150" height="68" fill="none" stroke="#E5E5E5" stroke-width="0.5"/>
+            <g stroke="#E5E5E5" stroke-width="0.5">
+              <line x1="30" y1="0" x2="30" y2="68"/><line x1="60" y1="0" x2="60" y2="68"/>
+              <line x1="90" y1="0" x2="90" y2="68"/><line x1="120" y1="0" x2="120" y2="68"/>
+              <line x1="0" y1="17" x2="150" y2="17"/><line x1="0" y1="34" x2="150" y2="34"/>
+              <line x1="0" y1="51" x2="150" y2="51"/>
+            </g>
+            <line x1="0" y1="68" x2="150" y2="68" stroke="#333" stroke-width="1"/><line x1="0" y1="0" x2="0" y2="68" stroke="#333" stroke-width="1"/>
+            <line x1="90" y1="6" x2="90" y2="62" stroke="#FB5A42" stroke-width="2"/>
+            <text x="75" y="88" font-family="Calibre, sans-serif" font-size="10" fill="#113A2D" text-anchor="middle">m = undef</text>
+          </g>
+          <!-- Mini Grid 3: Two parallel lines, m1=m2 -->
+          <g transform="translate(380, 5)">
+            <rect x="0" y="0" width="150" height="68" fill="none" stroke="#E5E5E5" stroke-width="0.5"/>
+            <g stroke="#E5E5E5" stroke-width="0.5">
+              <line x1="30" y1="0" x2="30" y2="68"/><line x1="60" y1="0" x2="60" y2="68"/>
+              <line x1="90" y1="0" x2="90" y2="68"/><line x1="120" y1="0" x2="120" y2="68"/>
+              <line x1="0" y1="17" x2="150" y2="17"/><line x1="0" y1="34" x2="150" y2="34"/>
+              <line x1="0" y1="51" x2="150" y2="51"/>
+            </g>
+            <line x1="0" y1="68" x2="150" y2="68" stroke="#333" stroke-width="1"/><line x1="0" y1="0" x2="0" y2="68" stroke="#333" stroke-width="1"/>
+            <line x1="10" y1="56" x2="140" y2="14" stroke="#15B078" stroke-width="2"/>
+            <line x1="10" y1="64" x2="140" y2="22" stroke="#3B7DFD" stroke-width="2"/>
+            <text x="75" y="88" font-family="Calibre, sans-serif" font-size="10" fill="#113A2D" text-anchor="middle">m&#8321; = m&#8322;</text>
+          </g>
+          <!-- Mini Grid 4: Two perpendicular lines, m1*m2=-1 -->
+          <g transform="translate(565, 5)">
+            <rect x="0" y="0" width="150" height="68" fill="none" stroke="#E5E5E5" stroke-width="0.5"/>
+            <g stroke="#E5E5E5" stroke-width="0.5">
+              <line x1="30" y1="0" x2="30" y2="68"/><line x1="60" y1="0" x2="60" y2="68"/>
+              <line x1="90" y1="0" x2="90" y2="68"/><line x1="120" y1="0" x2="120" y2="68"/>
+              <line x1="0" y1="17" x2="150" y2="17"/><line x1="0" y1="34" x2="150" y2="34"/>
+              <line x1="0" y1="51" x2="150" y2="51"/>
+            </g>
+            <line x1="0" y1="68" x2="150" y2="68" stroke="#333" stroke-width="1"/><line x1="0" y1="0" x2="0" y2="68" stroke="#333" stroke-width="1"/>
+            <line x1="10" y1="60" x2="130" y2="8" stroke="#15B078" stroke-width="2"/>
+            <line x1="10" y1="14" x2="130" y2="56" stroke="#FB5A42" stroke-width="2"/>
+            <text x="75" y="88" font-family="Calibre, sans-serif" font-size="10" fill="#113A2D" text-anchor="middle">m&#8321;&#183;m&#8322; = -1</text>
+          </g>
+        </svg>
+
+        <div class="card-alt compact mt-8">
+          <p class="text-md"><span class="badge badge-blue">Example</span> If slope is 3, the perpendicular slope is&nbsp;$-\frac{1}{3}$</p>
+        </div>
+
+        <aside class="notes">
+          2:00-3:00 | Special slopes: horizontal lines have slope 0, vertical lines are undefined. Parallel lines share the same slope. Perpendicular lines have slopes that multiply to -1 (negative reciprocals). If slope is 3, perpendicular is -1/3.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 5: Divider - Distance -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <p class="part-number">Part 2</p>
+        <h1>Distance Formula</h1>
+        <p>The Pythagorean theorem in disguise</p>
+
+        <aside class="notes">
+          3:00-3:10 | Transition to distance formula.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 6a: Distance Formula — Diagram -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Distance</p>
+          <h2>Length between two points</h2>
+        </div>
+
+        <div class="card-alt-green compact mb-16">
+          <p class="text-md">$d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$ &nbsp; This IS the Pythagorean theorem: $a^2 + b^2 = c^2$</p>
+        </div>
+
+        <svg class="chart-svg" viewBox="0 0 750 200" style="margin: 0 auto">
+          <g transform="translate(190, 5)">
+            <!-- Light gridlines: x 0-6, y 0-8 => 6 cols, 8 rows; each unit = 50px x, 22px y -->
+            <g stroke="#E5E5E5" stroke-width="0.5">
+              <line x1="0" y1="0" x2="0" y2="176"/><line x1="50" y1="0" x2="50" y2="176"/>
+              <line x1="100" y1="0" x2="100" y2="176"/><line x1="150" y1="0" x2="150" y2="176"/>
+              <line x1="200" y1="0" x2="200" y2="176"/><line x1="250" y1="0" x2="250" y2="176"/>
+              <line x1="300" y1="0" x2="300" y2="176"/>
+              <line x1="0" y1="0" x2="300" y2="0"/><line x1="0" y1="22" x2="300" y2="22"/>
+              <line x1="0" y1="44" x2="300" y2="44"/><line x1="0" y1="66" x2="300" y2="66"/>
+              <line x1="0" y1="88" x2="300" y2="88"/><line x1="0" y1="110" x2="300" y2="110"/>
+              <line x1="0" y1="132" x2="300" y2="132"/><line x1="0" y1="154" x2="300" y2="154"/>
+              <line x1="0" y1="176" x2="300" y2="176"/>
+            </g>
+            <!-- Axes -->
+            <line x1="0" y1="176" x2="300" y2="176" stroke="#333" stroke-width="1.5"/>
+            <line x1="0" y1="0" x2="0" y2="176" stroke="#333" stroke-width="1.5"/>
+            <!-- Axis labels -->
+            <g font-family="Calibre, sans-serif" font-size="10" fill="#333" text-anchor="middle">
+              <text x="0" y="190">0</text><text x="100" y="190">2</text>
+              <text x="200" y="190">4</text><text x="300" y="190">6</text>
+            </g>
+            <g font-family="Calibre, sans-serif" font-size="10" fill="#333" text-anchor="end">
+              <text x="-5" y="179">0</text><text x="-5" y="135">2</text>
+              <text x="-5" y="91">4</text><text x="-5" y="47">6</text>
+              <text x="-5" y="3">8</text>
+            </g>
+            <!-- Right triangle: horiz leg (1,2)->(4,2), vert leg (4,2)->(4,6), hyp (1,2)->(4,6) -->
+            <!-- (1,2) = (50, 132), (4,2) = (200, 132), (4,6) = (200, 44) -->
+            <line x1="50" y1="132" x2="200" y2="132" stroke="#3B7DFD" stroke-width="1.5" stroke-dasharray="5,3"/>
+            <line x1="200" y1="132" x2="200" y2="44" stroke="#3B7DFD" stroke-width="1.5" stroke-dasharray="5,3"/>
+            <line x1="50" y1="132" x2="200" y2="44" stroke="#15B078" stroke-width="2.5"/>
+            <!-- Right angle mark at (4,2) = (200,132) -->
+            <polyline points="188,132 188,120 200,120" fill="none" stroke="#333" stroke-width="1"/>
+            <!-- Labels -->
+            <text x="125" y="148" font-family="Calibre, sans-serif" font-size="10" fill="#3B7DFD" text-anchor="middle">&#916;x = 3</text>
+            <text x="218" y="91" font-family="Calibre, sans-serif" font-size="10" fill="#3B7DFD" text-anchor="start">&#916;y = 4</text>
+            <text x="105" y="78" font-family="Calibre, sans-serif" font-size="11" fill="#15B078" text-anchor="middle" font-weight="600">d = 5</text>
+            <!-- Points -->
+            <circle cx="50" cy="132" r="5" fill="#113A2D"/>
+            <circle cx="200" cy="44" r="5" fill="#113A2D"/>
+            <text x="50" y="125" font-family="Calibre, sans-serif" font-size="10" fill="#113A2D" text-anchor="end">(1,2)</text>
+            <text x="200" y="37" font-family="Calibre, sans-serif" font-size="10" fill="#113A2D" text-anchor="start">(4,6)</text>
+          </g>
+        </svg>
+
+        <aside class="notes">
+          3:10-3:50 | Distance formula is the Pythagorean theorem applied to coordinates. The horizontal and vertical distances form the legs of a right triangle, and the distance is the hypotenuse.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 6b: Distance Formula — Examples -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Distance</p>
+          <h2>Pythagorean triples in action</h2>
+        </div>
+
+        <div class="two-column gap-24">
+          <div class="card card-green-bg">
+            <span class="badge badge-green self-start mb-8">3-4-5 Triple</span>
+            <p class="text-md mb-8">$(1, 2)$ to $(4, 6)$</p>
+            <div class="card-alt compact">
+              <p class="text-md">$\sqrt{3^2 + 4^2} = \sqrt{25} = $ $5$</p>
+            </div>
+          </div>
+          <div class="card card-blue-bg">
+            <span class="badge badge-blue self-start mb-8">6-8-10 Triple</span>
+            <p class="text-md mb-8">$(-2, 3)$ to $(4, -5)$</p>
+            <div class="card-alt compact">
+              <p class="text-md">$\sqrt{6^2 + 8^2} = \sqrt{100} = $ $10$</p>
+            </div>
+          </div>
+        </div>
+
+        <aside class="notes">
+          3:50-4:30 | First example: deltas are 3 and 4, recognizing the 3-4-5 triple gives distance 5. Second example: deltas are 6 and 8, a multiple of 3-4-5, giving distance 10.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 7: Pythagorean Triples Shortcut -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Distance</p>
+          <h2>Recognize Pythagorean triples</h2>
+        </div>
+
+        <p class="text-md mb-16">Memorize common triples to skip the square root calculation entirely.</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Triple</th>
+              <th>Common Multiples</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>3-4-5</strong></td>
+              <td>6-8-10, 9-12-15, 12-16-20</td>
+            </tr>
+            <tr>
+              <td><strong>5-12-13</strong></td>
+              <td>10-24-26</td>
+            </tr>
+            <tr>
+              <td><strong>8-15-17</strong></td>
+              <td>16-30-34</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <aside class="notes">
+          4:30-5:10 | Pythagorean triples let you skip the square root entirely. The big three: 3-4-5, 5-12-13, 8-15-17. Any multiple also works. Spot these to save time on the GRE.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 8: Divider - Midpoint -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <p class="part-number">Part 3</p>
+        <h1>Midpoint Formula</h1>
+        <p>Average the coordinates</p>
+
+        <aside class="notes">
+          5:10-5:20 | Transition to midpoint formula.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 9a: Midpoint Formula — Diagram -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Midpoint</p>
+          <h2>Center of a line segment</h2>
+        </div>
+
+        <div class="card-alt-green compact mb-16">
+          <p class="text-md">Midpoint $= \left(\frac{x_1 + x_2}{2},\; \frac{y_1 + y_2}{2}\right)$ &nbsp; Average each coordinate.</p>
+        </div>
+
+        <svg class="chart-svg" viewBox="0 0 750 200" style="margin: 0 auto">
+          <g transform="translate(195, 5)">
+            <!-- Grid: x 0-10, y 0-12 => 10 cols, 12 rows; unit = 30px x, 15px y -->
+            <g stroke="#E5E5E5" stroke-width="0.5">
+              <line x1="0" y1="0" x2="300" y2="0"/><line x1="0" y1="15" x2="300" y2="15"/>
+              <line x1="0" y1="30" x2="300" y2="30"/><line x1="0" y1="45" x2="300" y2="45"/>
+              <line x1="0" y1="60" x2="300" y2="60"/><line x1="0" y1="75" x2="300" y2="75"/>
+              <line x1="0" y1="90" x2="300" y2="90"/><line x1="0" y1="105" x2="300" y2="105"/>
+              <line x1="0" y1="120" x2="300" y2="120"/><line x1="0" y1="135" x2="300" y2="135"/>
+              <line x1="0" y1="150" x2="300" y2="150"/><line x1="0" y1="165" x2="300" y2="165"/>
+              <line x1="0" y1="180" x2="300" y2="180"/>
+              <line x1="0" y1="0" x2="0" y2="180"/><line x1="30" y1="0" x2="30" y2="180"/>
+              <line x1="60" y1="0" x2="60" y2="180"/><line x1="90" y1="0" x2="90" y2="180"/>
+              <line x1="120" y1="0" x2="120" y2="180"/><line x1="150" y1="0" x2="150" y2="180"/>
+              <line x1="180" y1="0" x2="180" y2="180"/><line x1="210" y1="0" x2="210" y2="180"/>
+              <line x1="240" y1="0" x2="240" y2="180"/><line x1="270" y1="0" x2="270" y2="180"/>
+              <line x1="300" y1="0" x2="300" y2="180"/>
+            </g>
+            <!-- Axes -->
+            <line x1="0" y1="180" x2="300" y2="180" stroke="#333" stroke-width="1.5"/>
+            <line x1="0" y1="0" x2="0" y2="180" stroke="#333" stroke-width="1.5"/>
+            <!-- Axis labels -->
+            <g font-family="Calibre, sans-serif" font-size="9" fill="#333" text-anchor="middle">
+              <text x="0" y="193">0</text><text x="60" y="193">2</text>
+              <text x="120" y="193">4</text><text x="180" y="193">6</text>
+              <text x="240" y="193">8</text><text x="300" y="193">10</text>
+            </g>
+            <g font-family="Calibre, sans-serif" font-size="9" fill="#333" text-anchor="end">
+              <text x="-6" y="183">0</text><text x="-6" y="153">2</text>
+              <text x="-6" y="123">4</text><text x="-6" y="93">6</text>
+              <text x="-6" y="63">8</text><text x="-6" y="33">10</text>
+              <text x="-6" y="3">12</text>
+            </g>
+            <!-- Line segment: (2,5) to (8,11) => (60, 105) to (240, 15) -->
+            <line x1="60" y1="105" x2="240" y2="15" stroke="#113A2D" stroke-width="2"/>
+            <!-- Endpoints -->
+            <circle cx="60" cy="105" r="5" fill="#113A2D"/>
+            <circle cx="240" cy="15" r="5" fill="#113A2D"/>
+            <text x="42" y="102" font-family="Calibre, sans-serif" font-size="10" fill="#113A2D" text-anchor="end">(2,5)</text>
+            <text x="258" y="15" font-family="Calibre, sans-serif" font-size="10" fill="#113A2D" text-anchor="start">(8,11)</text>
+            <!-- Midpoint (5,8) => (150, 60) -->
+            <circle cx="150" cy="60" r="6" fill="#15B078"/>
+            <text x="150" y="50" font-family="Calibre, sans-serif" font-size="11" fill="#15B078" text-anchor="middle" font-weight="600">M(5,8)</text>
+          </g>
+        </svg>
+
+        <aside class="notes">
+          5:20-5:50 | Midpoint = average the x-coordinates, average the y-coordinates. The midpoint is the exact center of the line segment. GRE speed tip: the midpoint formula works backwards too. If you know one endpoint and the midpoint, set up equations to find the other endpoint. This "reverse midpoint" pattern appears frequently on the GRE.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 9b: Midpoint Formula — Examples -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Midpoint</p>
+          <h2>Finding midpoints &amp; endpoints</h2>
+        </div>
+
+        <div class="two-column gap-24">
+          <div class="card card-green-bg">
+            <span class="badge badge-green self-start mb-8">Find Midpoint</span>
+            <p class="text-md mb-8">$(2, 5)$ to $(8, 11)$</p>
+            <div class="card-alt compact">
+              <p class="text-md math-step">$\left(\frac{2+8}{2}, \frac{5+11}{2}\right) = $ $(5, 8)$</p>
+            </div>
+          </div>
+          <div class="card card-orange-bg">
+            <span class="badge badge-orange self-start mb-8">Find Endpoint</span>
+            <p class="text-md mb-8">Midpoint $(4, 7)$, one end $(1, 3)$</p>
+            <div class="card-alt compact">
+              <p class="text-md">$x_B = 2(4) - 1 = 7$, $y_B = 2(7) - 3 = 11$. B $= $ $(7, 11)$</p>
+            </div>
+          </div>
+        </div>
+
+        <aside class="notes">
+          5:50-6:30 | Example: (2+8)/2 = 5, (5+11)/2 = 8, so midpoint is (5, 8). Reverse problem: given midpoint and one endpoint, solve for the other. Double the midpoint and subtract the known endpoint.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 10: Application - Isosceles Triangle -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 1</p>
+          <h2>Testing for isosceles</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card card-blue-bg">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-md">Triangle ABC: A(0,0), B(6,0), C(3,4). Is it isosceles?</p>
+            <svg class="chart-svg" viewBox="0 0 260 120" style="margin: 8px auto 0">
+              <g transform="translate(25, 4)">
+                <!-- Grid: x -1 to 7, y -1 to 5 => 8 cols, 6 rows; unit=20.8px x, 17.3px y -->
+                <g stroke="#E5E5E5" stroke-width="0.5">
+                  <line x1="0" y1="0" x2="208" y2="0"/><line x1="0" y1="20.8" x2="208" y2="20.8"/>
+                  <line x1="0" y1="41.6" x2="208" y2="41.6"/><line x1="0" y1="62.4" x2="208" y2="62.4"/>
+                  <line x1="0" y1="83.2" x2="208" y2="83.2"/><line x1="0" y1="104" x2="208" y2="104"/>
+                  <line x1="0" y1="0" x2="0" y2="104"/><line x1="26" y1="0" x2="26" y2="104"/>
+                  <line x1="52" y1="0" x2="52" y2="104"/><line x1="78" y1="0" x2="78" y2="104"/>
+                  <line x1="104" y1="0" x2="104" y2="104"/><line x1="130" y1="0" x2="130" y2="104"/>
+                  <line x1="156" y1="0" x2="156" y2="104"/><line x1="182" y1="0" x2="182" y2="104"/>
+                  <line x1="208" y1="0" x2="208" y2="104"/>
+                </g>
+                <!-- Axes: y=0 at row 5 => 86.7, x=0 at col 1 => 26 -->
+                <line x1="0" y1="86.7" x2="208" y2="86.7" stroke="#333" stroke-width="1"/>
+                <line x1="26" y1="0" x2="26" y2="104" stroke="#333" stroke-width="1"/>
+                <!-- y range: -1 to 5. Total 6 units, 104px. unit=17.3. y=-1=>104, y=0=>86.7, y=4=>17.3, y=5=>0 -->
+                <!-- x range: -1 to 7. Total 8 units, 208px. unit=26. x=-1=>0, x=0=>26, x=3=>104, x=6=>182, x=7=>208 -->
+                <polygon points="26,86.7 182,86.7 104,17.3" fill="none" stroke="#113A2D" stroke-width="1.5"/>
+                <!-- Points -->
+                <circle cx="26" cy="86.7" r="3.5" fill="#113A2D"/>
+                <circle cx="182" cy="86.7" r="3.5" fill="#113A2D"/>
+                <circle cx="104" cy="17.3" r="3.5" fill="#113A2D"/>
+                <!-- Vertex labels -->
+                <text x="16" y="99" font-family="Calibre, sans-serif" font-size="9" fill="#113A2D" text-anchor="middle">A(0,0)</text>
+                <text x="192" y="99" font-family="Calibre, sans-serif" font-size="9" fill="#113A2D" text-anchor="middle">B(6,0)</text>
+                <text x="104" y="11" font-family="Calibre, sans-serif" font-size="9" fill="#113A2D" text-anchor="middle">C(3,4)</text>
+                <!-- Side labels -->
+                <text x="104" y="82" font-family="Calibre, sans-serif" font-size="8" fill="#3B7DFD" text-anchor="middle">AB = 6</text>
+                <text x="54" y="48" font-family="Calibre, sans-serif" font-size="8" fill="#15B078" text-anchor="middle">AC = 5</text>
+                <text x="154" y="48" font-family="Calibre, sans-serif" font-size="8" fill="#15B078" text-anchor="middle">BC = 5</text>
+              </g>
+            </svg>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16">$AB = 6$ (horizontal distance)</p>
+            <p class="text-md mb-16">$AC = \sqrt{9 + 16} = 5$</p>
+            <p class="text-md mb-16">$BC = \sqrt{9 + 16} = 5$</p>
+            <p class="text-lg mt-16">$AC = BC = 5$, so&nbsp;yes, isosceles</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          6:30-7:30 | Application: use distance formula to test triangle properties. AB = 6 (just horizontal distance). AC and BC both equal sqrt(9+16) = 5. Two equal sides means isosceles.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 11: Application - Circle Center -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 2</p>
+          <h2>Circle center and radius</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card card-purple-bg">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-md">P(1,2) and Q(7,10) are endpoints of a diameter. Find the center and radius.</p>
+            <svg class="chart-svg" viewBox="0 0 260 120" style="margin: 8px auto 0">
+              <g transform="translate(20, 4)">
+                <!-- Grid: x -1 to 9, y 0 to 12 => 10 cols, 12 rows; unitX=22, unitY=9 -->
+                <g stroke="#E5E5E5" stroke-width="0.5">
+                  <line x1="0" y1="0" x2="220" y2="0"/><line x1="0" y1="9" x2="220" y2="9"/>
+                  <line x1="0" y1="18" x2="220" y2="18"/><line x1="0" y1="27" x2="220" y2="27"/>
+                  <line x1="0" y1="36" x2="220" y2="36"/><line x1="0" y1="45" x2="220" y2="45"/>
+                  <line x1="0" y1="54" x2="220" y2="54"/><line x1="0" y1="63" x2="220" y2="63"/>
+                  <line x1="0" y1="72" x2="220" y2="72"/><line x1="0" y1="81" x2="220" y2="81"/>
+                  <line x1="0" y1="90" x2="220" y2="90"/><line x1="0" y1="99" x2="220" y2="99"/>
+                  <line x1="0" y1="108" x2="220" y2="108"/>
+                  <line x1="0" y1="0" x2="0" y2="108"/><line x1="22" y1="0" x2="22" y2="108"/>
+                  <line x1="44" y1="0" x2="44" y2="108"/><line x1="66" y1="0" x2="66" y2="108"/>
+                  <line x1="88" y1="0" x2="88" y2="108"/><line x1="110" y1="0" x2="110" y2="108"/>
+                  <line x1="132" y1="0" x2="132" y2="108"/><line x1="154" y1="0" x2="154" y2="108"/>
+                  <line x1="176" y1="0" x2="176" y2="108"/><line x1="198" y1="0" x2="198" y2="108"/>
+                  <line x1="220" y1="0" x2="220" y2="108"/>
+                </g>
+                <!-- Axes: x-axis at y=0 => row 12 => 108; y-axis at x=-1 => col 0 -->
+                <line x1="0" y1="108" x2="220" y2="108" stroke="#333" stroke-width="1"/>
+                <line x1="22" y1="0" x2="22" y2="108" stroke="#333" stroke-width="1"/>
+                <!-- Mapping: x=-1=>0, x=0=>22, x=1=>44, x=4=>110, x=7=>176, x=9=>220 -->
+                <!-- y=0=>108, y=2=>90, y=6=>54, y=8=>36, y=10=>18, y=12=>0 -->
+                <!-- Circle: center (4,6)=>(110,54), radius=5 units. 5*22=110px horiz, 5*9=45px vert => ellipse -->
+                <svg x="0" y="9" width="220" height="90" viewBox="0 0 220 90" preserveAspectRatio="xMidYMid meet">
+                  <circle cx="110" cy="45" r="45" fill="none" stroke="#9B9B9B" stroke-width="1.5" stroke-dasharray="5,3"/>
+                </svg>
+                <!-- Diameter line P(1,2) to Q(7,10) => (44,90) to (176,18) -->
+                <line x1="44" y1="90" x2="176" y2="18" stroke="#113A2D" stroke-width="1.5"/>
+                <!-- Points -->
+                <circle cx="44" cy="90" r="3.5" fill="#113A2D"/>
+                <circle cx="176" cy="18" r="3.5" fill="#113A2D"/>
+                <text x="34" y="102" font-family="Calibre, sans-serif" font-size="9" fill="#113A2D" text-anchor="middle">P(1,2)</text>
+                <text x="186" y="13" font-family="Calibre, sans-serif" font-size="9" fill="#113A2D" text-anchor="middle">Q(7,10)</text>
+                <!-- Center -->
+                <circle cx="110" cy="54" r="4.5" fill="#15B078"/>
+                <text x="125" y="48" font-family="Calibre, sans-serif" font-size="9" fill="#15B078" font-weight="600">C(4,6)</text>
+              </g>
+            </svg>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16">Center $= $ midpoint $= \left(\frac{1+7}{2}, \frac{2+10}{2}\right) = (4, 6)$</p>
+            <p class="text-md mb-16">Diameter $= \sqrt{6^2 + 8^2} = \sqrt{100} = 10$</p>
+            <p class="text-lg mt-16">Radius $= \frac{10}{2} =$&nbsp;$5$</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          7:30-8:30 | Circle problem: center is the midpoint of the diameter = (4,6). Diameter = distance = sqrt(36+64) = 10. Radius = half the diameter = 5. Note the 6-8-10 triple again.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 12: Application - Right Triangle -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 3</p>
+          <h2>Proving a right triangle</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card card-green-bg">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-md">A(1,1), B(4,5), C(8,2). Is this a right triangle?</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16">$AB = \sqrt{9 + 16} = 5$, &nbsp;$BC = \sqrt{16+9} = 5$</p>
+            <p class="text-md mb-16">$AC = \sqrt{49 + 1} = \sqrt{50}$</p>
+            <p class="text-md mb-16">Check: $AB^2 + BC^2 = 25 + 25 = 50 = AC^2$ &#10003;</p>
+            <p class="text-lg mt-16">Right angle at B</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          8:30-9:30 | Proving a right triangle: find all three side lengths with the distance formula, then check if the Pythagorean theorem holds. AB = BC = 5 and AC = sqrt(50). 25 + 25 = 50, confirmed. Right angle at vertex B.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 13: Summary (content-dark) -->
+      <!-- ============================================ -->
+      <section class="content-dark">
+        <div class="slide-header">
+          <p class="eyebrow">Key Takeaways</p>
+          <h2>Slope, distance &amp; midpoint</h2>
+        </div>
+
+        <ul class="plus-list">
+          <li><strong>Slope</strong> - $m = \frac{\Delta y}{\Delta x}$, positive = rising, negative = falling, zero = horizontal</li>
+          <li><strong>Parallel vs perpendicular</strong> - Same slope = parallel. Slopes multiply to $-1$ = perpendicular</li>
+          <li><strong>Distance</strong> - $d = \sqrt{(\Delta x)^2 + (\Delta y)^2}$, the Pythagorean theorem on coordinates</li>
+          <li><strong>Pythagorean triples</strong> - Recognize 3-4-5, 5-12-13, 8-15-17 to skip calculations</li>
+          <li><strong>Midpoint</strong> - Average x-coordinates and average y-coordinates</li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="rgba(255,255,255,0.4)"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          9:30-10:00 | Summary: three formulas that form the foundation of coordinate geometry. Slope for steepness, distance for length, midpoint for center. Recognize Pythagorean triples to save time.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js -->
+  <script src="../assets/reveal/dist/reveal.min.js"></script>
+  <script type="module">
+    import RevealNotes from '../assets/reveal/plugin/notes/notes.esm.js';
+
+    Reveal.initialize({
+      width: 960,
+      height: 540,
+      margin: 0,
+      minScale: 0.5,
+      maxScale: 3.0,
+      hash: true,
+      slideNumber: true,
+      controls: true,
+      progress: true,
+      history: true,
+      center: false,
+      transition: 'none',
+      backgroundTransition: 'none',
+      disableLayout: false,
+      plugins: [ RevealNotes ]
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en" class="reveal-full-page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test-Day Checklist</title>
+
+  <!-- Reveal.js Core -->
+  <link rel="stylesheet" href="../assets/reveal/dist/reset.css">
+  <link rel="stylesheet" href="../assets/reveal/dist/reveal.css">
+
+  <!-- Leland Theme -->
+  <link rel="stylesheet" href="../assets/reveal/themes/leland.css">
+
+  <!-- KaTeX for math rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false}
+      ]
+    });"></script>
+
+</head>
+<body>
+  <!-- SVG Symbol Definitions (defined once, referenced via <use>) -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="leland-logo" viewBox="0 0 200 45">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z"/>
+      <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z"/>
+      <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z"/>
+      <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z"/>
+      <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z"/>
+      <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z"/>
+    </symbol>
+  </svg>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ============================================ -->
+      <!-- SLIDE 1: Title (Dark) -->
+      <!-- ============================================ -->
+      <section class="title-dark">
+        <div class="leland-logo-top">
+          <svg width="110" height="25" fill="white" class="mb-16"><use href="#leland-logo"/></svg>
+        </div>
+
+        <p class="eyebrow">GRE Self-Study Course</p>
+        <h1>Test-Day<br><span class="hl">Checklist</span></h1>
+
+        <aside class="notes">
+          0:00 - 0:05 | Title slide. This video covers everything you need to know for the night before, morning of, and during the GRE.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 2: The Night Before -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Night Before</p>
+          <h2>Prepare everything in advance</h2>
+        </div>
+
+        <div class="card-grid-2" style="padding-bottom: 0">
+          <div class="card card-green-bg" style="padding: 16px">
+            <h3 class="text-md mb-8">Confirm Logistics</h3>
+            <p class="text-sm">Test center location, directions, travel time (add 15 min buffer).</p>
+          </div>
+          <div class="card card-blue-bg" style="padding: 16px">
+            <h3 class="text-md mb-8">Lay Out Everything</h3>
+            <p class="text-sm">ID, confirmation email, snacks, layers, earplugs. Ready to&nbsp;grab.</p>
+          </div>
+          <div class="card card-purple-bg" style="padding: 16px">
+            <h3 class="text-md mb-8">Get 7-8 Hours of Sleep</h3>
+            <p class="text-sm">No new material. Light review at most. Normal dinner.</p>
+          </div>
+          <div class="card card-orange-bg" style="padding: 16px">
+            <h3 class="text-md mb-8">Set Multiple Alarms</h3>
+            <p class="text-sm">Plenty of buffer. No rushing on test day morning.</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          0:05 - 1:30 | Walk through night-before preparation. The goal is to eliminate all uncertainty so you can sleep well. Everything should be ready to grab in the morning.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 3: What to Bring -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Essentials</p>
+          <h2>What to bring and what to leave</h2>
+        </div>
+
+        <div class="two-column gap-24">
+          <div class="card card-green-bg">
+            <h3 class="text-md mb-8">Bring</h3>
+            <ul class="plus-list text-sm">
+              <li><strong>Valid photo ID</strong> (must match registration name, not expired)</li>
+              <li><strong>Confirmation email</strong> or appointment number</li>
+              <li><strong>Snacks and water</strong> for the break</li>
+              <li><strong>Layers of clothing</strong> (centers can be cold)</li>
+              <li><strong>Earplugs</strong> if sensitive to noise</li>
+            </ul>
+          </div>
+          <div class="card card-red-bg">
+            <h3 class="text-md mb-8">Do Not Bring</h3>
+            <ul class="plus-list text-sm">
+              <li>Watches of any kind (even analog)</li>
+              <li>Phone in testing room (must be stored)</li>
+              <li>Outside scratch paper or notes</li>
+              <li>Food or drink in testing room</li>
+            </ul>
+          </div>
+        </div>
+
+        <aside class="notes">
+          1:30 - 3:00 | Go through the bring/don't-bring list. Emphasize the ID requirement: it must match your registration name exactly, have a photo and signature, and not be expired. This is the most common test-day problem.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 4: Test Day Morning -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Morning Routine</p>
+          <h2>Test day morning</h2>
+        </div>
+
+        <div class="two-column gap-24">
+          <div class="card card-green-bg">
+            <h3 class="text-md mb-8">Physical Prep</h3>
+            <ul class="plus-list text-sm">
+              <li>Wake up with plenty of time</li>
+              <li>Balanced breakfast (protein + carbs)</li>
+              <li>Normal caffeine only</li>
+              <li>Use the bathroom before leaving</li>
+            </ul>
+          </div>
+          <div class="card card-blue-bg">
+            <h3 class="text-md mb-8">Mental Prep</h3>
+            <ul class="plus-list text-sm">
+              <li>Review your top 3 reminders briefly</li>
+              <li>Do not learn anything new</li>
+              <li>Some nervousness is normal</li>
+              <li>Trust your preparation</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card-alt-green compact mt-16">
+          <span class="badge badge-green self-start">Key Idea</span>
+          <p class="text-md">Arrive 30 minutes early. Present ID, store personal items, and settle in without&nbsp;rushing.</p>
+        </div>
+
+        <aside class="notes">
+          3:00 - 4:30 | Walk through the morning routine. Two tracks: physical (eat, hydrate) and mental (quick review, positive mindset). The goal is to arrive calm, fed, and ready.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 5: Test Structure Reminder -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Structure</p>
+          <h2>What the test looks like</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr><th>Section</th><th>Questions</th><th>Time</th><th>Per Question</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>AWA (Issue Essay)</td><td>1 essay</td><td>30 min</td><td>n/a</td></tr>
+            <tr><td>Verbal Reasoning 1</td><td>12</td><td>18 min</td><td>~90 sec</td></tr>
+            <tr><td>Verbal Reasoning 2</td><td>15</td><td>23 min</td><td>~90 sec</td></tr>
+            <tr><td>Quant Reasoning 1</td><td>12</td><td>21 min</td><td>~105 sec</td></tr>
+            <tr><td>Quant Reasoning 2</td><td>15</td><td>26 min</td><td>~105 sec</td></tr>
+          </tbody>
+        </table>
+
+        <div class="card-alt compact mt-16">
+          <span class="badge badge-green self-start">Total</span>
+          <p class="text-md">54 questions + 1 essay. Approximately 1 hour 58 minutes.</p>
+        </div>
+
+        <aside class="notes">
+          4:30 - 5:30 | Quick structure reminder so students know exactly what to expect. Emphasize per-question timing: ~90 seconds for Verbal, ~105 seconds for Quant. The first section of each type sets difficulty.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 6: During-Test Strategy -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">During the Test</p>
+          <h2>Section strategy reminders</h2>
+        </div>
+
+        <ul class="plus-list text-md">
+          <li><strong>First section of each type matters most.</strong> Take your time on the first Verbal and first Quant&nbsp;sections.</li>
+          <li><strong>Mark and move if stuck.</strong> Do not spend 5 minutes on one question. Flag it and come&nbsp;back.</li>
+          <li><strong>Use process of elimination.</strong> Even removing two choices improves your&nbsp;odds.</li>
+          <li><strong>Answer every question.</strong> There is no penalty for guessing on the&nbsp;GRE.</li>
+          <li><strong>Save 2-3 minutes at the end</strong> to review any marked questions in each&nbsp;section.</li>
+        </ul>
+
+        <aside class="notes">
+          5:30 - 7:00 | Five key reminders for during the test. The first section is adaptive and sets difficulty for the second section, so it deserves extra care. Never leave a question blank. GRE tip: if you are running low on time, spend your last 30 seconds clicking an answer for every unanswered question. Random guessing gives you a 20-25% chance per question, and there is zero penalty for wrong answers.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 7: Break Strategy and After -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Break and After</p>
+          <h2>Reset and finish strong</h2>
+        </div>
+
+        <div class="two-column gap-24">
+          <div class="card card-green-bg">
+            <h3 class="text-md mb-8">During the Break</h3>
+            <ul class="plus-list text-sm">
+              <li>Use the bathroom</li>
+              <li>Eat your snack, drink water</li>
+              <li>Stretch and move around</li>
+              <li>Do not review or analyze</li>
+            </ul>
+          </div>
+          <div class="card card-blue-bg">
+            <h3 class="text-md mb-8">After the Test</h3>
+            <ul class="plus-list text-sm">
+              <li>See unofficial V and Q scores</li>
+              <li>Decide: accept or cancel</li>
+              <li>Choose schools (up to 4 free)</li>
+              <li>Official scores in 8-10 days</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card-alt compact mt-16">
+          <span class="badge badge-green self-start">Tip</span>
+          <p class="text-md">Unless something went terribly wrong, accept your scores. Retake and use ScoreSelect&nbsp;later.</p>
+        </div>
+
+        <aside class="notes">
+          7:00 - 8:30 | Cover break strategy (reset, don't analyze) and post-test steps (accept scores, send to schools). Mention ScoreSelect as a safety net. Pro tip: during the break, do NOT discuss the test with anyone or try to look up answers on your phone. Dwelling on a hard question you already answered wastes mental energy and can hurt performance on remaining sections.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 8: Emergency Situations -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Contingencies</p>
+          <h2>If something goes wrong</h2>
+        </div>
+
+        <div class="card-grid-3">
+          <div class="card card-orange-bg">
+            <h3 class="text-md mb-8">Running Late</h3>
+            <p class="text-sm">Call the test center. They may accommodate slight delays.</p>
+          </div>
+          <div class="card card-red-bg">
+            <h3 class="text-md mb-8">Feeling Unwell</h3>
+            <p class="text-sm">Cancel and reschedule. Better to test at full capacity.</p>
+          </div>
+          <div class="card card-blue-bg">
+            <h3 class="text-md mb-8">Tech Issues</h3>
+            <p class="text-sm">Raise your hand. Time is usually paused for technical problems.</p>
+          </div>
+        </div>
+
+        <div class="card-alt-green compact mt-16">
+          <span class="badge badge-green self-start">Remember</span>
+          <p class="text-md">Stay calm. These situations are handled regularly at test centers. You have&nbsp;options.</p>
+        </div>
+
+        <aside class="notes">
+          8:30 - 9:30 | Cover three emergency scenarios. The key message: you always have options. No single test-day problem is catastrophic.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 9: At-Home Testing Requirements -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">At-Home Testing</p>
+          <h2>Requirements for testing at home</h2>
+        </div>
+
+        <ul class="icon-list text-md">
+          <li>
+            <span class="icon icon-xl icon-green" style="flex-shrink: 0; -webkit-mask-image: url(../assets/icons/video.svg); mask-image: url(../assets/icons/video.svg)"></span>
+            <span><strong>Computer with webcam, mic, and speakers.</strong> Windows or Mac. No headphones&nbsp;allowed.</span>
+          </li>
+          <li>
+            <span class="icon icon-xl icon-green" style="flex-shrink: 0; -webkit-mask-image: url(../assets/icons/lock.svg); mask-image: url(../assets/icons/lock.svg)"></span>
+            <span><strong>Private, enclosed room.</strong> Door closed, no other people, clear desk with no papers or secondary&nbsp;monitors.</span>
+          </li>
+          <li>
+            <span class="icon icon-xl icon-green" style="flex-shrink: 0; -webkit-mask-image: url(../assets/icons/write.svg); mask-image: url(../assets/icons/write.svg)"></span>
+            <span><strong>Whiteboard replaces scratch paper.</strong> Physical whiteboard allowed. Must show both sides to proctor before and&nbsp;after.</span>
+          </li>
+          <li>
+            <span class="icon icon-xl icon-green" style="flex-shrink: 0; -webkit-mask-image: url(../assets/icons/globe.svg); mask-image: url(../assets/icons/globe.svg)"></span>
+            <span><strong>Reliable internet connection.</strong> Test your connection speed the day before to avoid&nbsp;surprises.</span>
+          </li>
+        </ul>
+
+        <aside class="notes">
+          9:30 - 10:30 | Cover at-home testing requirements. Many students now take the GRE at home. The key differences: no scratch paper (whiteboard only), no headphones, and the room must be completely private with a closed door. Emphasize testing equipment the day before. If the webcam or mic fails during the test, the session may be terminated.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 10: At-Home Testing Process -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">At-Home Testing</p>
+          <h2>What to expect on test day</h2>
+        </div>
+
+        <div class="card-grid-2" style="padding-bottom: 0">
+          <div class="card card-green-bg" style="padding: 16px">
+            <h3 class="text-md mb-8">Check In Early</h3>
+            <p class="text-sm">Log in via ETS browser 15-20 minutes before your appointment&nbsp;time.</p>
+          </div>
+          <div class="card card-blue-bg" style="padding: 16px">
+            <h3 class="text-md mb-8">Room and ID Scan</h3>
+            <p class="text-sm">Show 360-degree room scan with webcam and hold valid ID to&nbsp;camera.</p>
+          </div>
+          <div class="card card-purple-bg" style="padding: 16px">
+            <h3 class="text-md mb-8">Proctor Monitors You</h3>
+            <p class="text-sm">Live proctor watches via webcam throughout. Same 10-minute break as test&nbsp;center.</p>
+          </div>
+          <div class="card card-orange-bg" style="padding: 16px">
+            <h3 class="text-md mb-8">Scores Are Identical</h3>
+            <p class="text-sm">No difference to schools. At-home and test-center scores are treated the&nbsp;same.</p>
+          </div>
+        </div>
+
+        <div class="card-alt-green compact mt-16">
+          <span class="badge badge-green self-start">Prep Tip</span>
+          <p class="text-md">Test your equipment the day before. Have a backup internet plan. Practice working with a whiteboard instead of scratch&nbsp;paper.</p>
+        </div>
+
+        <aside class="notes">
+          10:30 - 11:30 | Walk through the at-home testing process. The check-in takes 15-20 minutes, so log in early. The room scan is thorough: they will ask you to show under your desk, behind your monitor, etc. If your connection drops, you may be able to resume at the proctor's discretion, but this is not guaranteed. Key reassurance: scores are identical whether you test at home or at a center. Schools cannot tell the difference.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 11: Summary (Dark) -->
+      <!-- ============================================ -->
+      <section class="content-dark">
+        <div class="slide-header">
+          <p class="eyebrow">Key Takeaways</p>
+          <h2>Test-day checklist</h2>
+        </div>
+
+        <ul class="plus-list">
+          <li><strong>Night before:</strong> confirm logistics, lay out everything, get 7-8 hours of sleep, do not&nbsp;cram</li>
+          <li><strong>Bring:</strong> valid photo ID, confirmation number, snacks and water, layers of&nbsp;clothing</li>
+          <li><strong>Morning:</strong> eat a balanced breakfast, review your top 3 reminders only, arrive 30 minutes&nbsp;early</li>
+          <li><strong>During the test:</strong> first section matters most, mark and move when stuck, answer every&nbsp;question</li>
+          <li><strong>Break:</strong> eat, stretch, breathe, reset mentally. Do not analyze how the test is&nbsp;going.</li>
+          <li><strong>At home:</strong> webcam, private room, whiteboard instead of scratch paper. Test equipment the day&nbsp;before.</li>
+          <li><strong>After:</strong> accept your scores unless something went seriously wrong. You completed an 8-week&nbsp;journey.</li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="rgba(255,255,255,0.4)"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          11:30 - 12:00 | Summary slide. Hit the key points from each phase, including at-home testing. End with reassurance: you have prepared for this. Trust the process and execute.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js -->
+  <script src="../assets/reveal/dist/reveal.min.js"></script>
+  <script type="module">
+    import RevealNotes from '../assets/reveal/plugin/notes/notes.esm.js';
+
+    Reveal.initialize({
+      width: 960,
+      height: 540,
+      margin: 0,
+      minScale: 0.5,
+      maxScale: 3.0,
+      hash: true,
+      slideNumber: true,
+      controls: true,
+      progress: true,
+      history: true,
+      center: false,
+      transition: 'none',
+      backgroundTransition: 'none',
+      disableLayout: false,
+      plugins: [ RevealNotes ]
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en" class="reveal-full-page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your 8-Week Study Plan</title>
+
+  <!-- Reveal.js Core -->
+  <link rel="stylesheet" href="../assets/reveal/dist/reset.css">
+  <link rel="stylesheet" href="../assets/reveal/dist/reveal.css">
+
+  <!-- Leland Theme -->
+  <link rel="stylesheet" href="../assets/reveal/themes/leland.css">
+
+  <!-- KaTeX for math rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false}
+      ]
+    });"></script>
+
+</head>
+<body>
+  <!-- SVG Symbol Definitions (defined once, referenced via <use>) -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="leland-logo" viewBox="0 0 200 45">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z"/>
+      <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z"/>
+      <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z"/>
+      <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z"/>
+      <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z"/>
+      <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z"/>
+    </symbol>
+  </svg>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ============================================ -->
+      <!-- SLIDE 1: Title (Dark) -->
+      <!-- ============================================ -->
+      <section class="title-dark">
+        <svg width="110" height="25" fill="white" class="mb-16"><use href="#leland-logo"/></svg>
+        <p class="eyebrow">GRE Self-Study Course</p>
+        <h1>Your <span class="hl">8-Week</span><br>Study Plan</h1>
+        <aside class="notes">
+          0:00 - 0:15 | Title slide. This video lays out the week-by-week study plan so students know exactly what to do and when.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 2: Flexibility Framing -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Getting Started</p>
+          <h2>A flexible plan, not a rigid schedule</h2>
+        </div>
+
+        <p class="text-lg mb-24">This plan is designed around 8 weeks, but it adapts. If you have 6 weeks, compress the early phases. If you have 12 weeks, take more time on weak&nbsp;areas.</p>
+
+        <div class="card-alt-green">
+          <div style="display: flex; align-items: flex-start; gap: 12px;">
+            <span class="icon icon-xl icon-green" style="flex-shrink: 0; -webkit-mask-image: url(../assets/icons/sparkle.svg); mask-image: url(../assets/icons/sparkle.svg)"></span>
+            <p class="text-md"><strong>Consistency beats perfection.</strong> Work through the material at whatever pace fits your life. The structure stays the same whether you move faster or&nbsp;slower.</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          0:15 - 1:00 | Set expectations. This plan is a framework, not a rigid schedule. What matters is working through material in the right order. Faster or slower is fine. Consistency is what separates students who improve from those who plateau.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 3: Weeks 1-2 Foundations -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Weeks 1-2</p>
+          <h2>Foundations and diagnostic</h2>
+        </div>
+
+        <div class="two-column">
+          <div>
+            <h3 class="mb-16">Learn the test</h3>
+            <ul class="plus-list">
+              <li>Take a diagnostic practice test (ETS PowerPrep) to set your&nbsp;baseline.</li>
+              <li>GRE structure, scoring, and how to use practice&nbsp;tests.</li>
+              <li>Set up your error log and calculator&nbsp;strategy.</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="mb-16">Build foundations</h3>
+            <ul class="plus-list">
+              <li>Math foundations: integers, fractions, decimals, percents, absolute value, estimation.</li>
+              <li>Start vocabulary building with roots, prefixes, and&nbsp;suffixes.</li>
+              <li>Learn the calculator vs. scratch paper&nbsp;tradeoffs.</li>
+            </ul>
+          </div>
+        </div>
+
+        <aside class="notes">
+          1:00 - 2:30 | Weeks 1-2 are about learning the test itself and building arithmetic foundations. Take a diagnostic test on day one. It will feel hard, and that is normal. The score is your baseline, not your ceiling. Then work through Module 1: GRE structure, scoring, practice test strategy, error log setup, and all the math foundations (integers through quick conversions). Start vocabulary from day one using the roots and prefixes lesson.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 4: Weeks 3-4 Core Skills -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Weeks 3-4</p>
+          <h2>Core math and verbal strategy</h2>
+        </div>
+
+        <div class="two-column">
+          <div>
+            <h3 class="mb-16">Quantitative</h3>
+            <ul class="plus-list">
+              <li>Number properties: exponents, roots, primes, divisibility, even/odd&nbsp;logic.</li>
+              <li>Algebra fundamentals: refresher, ratios, percent change, mixture&nbsp;problems.</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="mb-16">Verbal</h3>
+            <ul class="plus-list">
+              <li>Time management and sentence equivalence&nbsp;strategy.</li>
+              <li>Signal words for text completion&nbsp;questions.</li>
+              <li>Continue daily vocabulary&nbsp;practice.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card-alt compact mt-16">
+          <div style="display: flex; align-items: flex-start; gap: 12px;">
+            <span class="icon icon-md icon-dark" style="flex-shrink: 0; -webkit-mask-image: url(../assets/icons/test.svg); mask-image: url(../assets/icons/test.svg)"></span>
+            <p class="text-md"><strong>Practice test 2.</strong> Take your second full-length test at the end of Week 4. Compare to your diagnostic and update your error&nbsp;log.</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          2:30 - 4:00 | Weeks 3-4 are where the real learning begins. On the quant side, work through Module 2 (number properties) and start Module 3 (algebra). On the verbal side, learn time management, SE strategy, and signal words from Module 2's verbal lessons. Take practice test 2 at the end of week 4 to measure progress and identify where to focus next. Your error log is critical here.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 5: Weeks 5-6 Advanced -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Weeks 5-6</p>
+          <h2>Advanced topics and reading</h2>
+        </div>
+
+        <div class="card-grid-2" style="padding-bottom: 0">
+          <div class="card card-green-bg" style="padding: 16px">
+            <h3 class="mb-8">Algebra and word problems</h3>
+            <p class="text-sm">Complete Module 3: distance/rate/time, work rates, overlapping sets, quadratics, systems of&nbsp;equations.</p>
+          </div>
+          <div class="card card-blue-bg" style="padding: 16px">
+            <h3 class="mb-8">Counting and probability</h3>
+            <p class="text-sm">Module 5 math: counting principles, permutations, combinations, overlapping sets, probability.</p>
+          </div>
+          <div class="card card-orange-bg" style="padding: 16px">
+            <h3 class="mb-8">Geometry</h3>
+            <p class="text-sm">Module 6: coordinate geometry, angles, triangles, circles, special right&nbsp;triangles.</p>
+          </div>
+          <div class="card card-purple-bg" style="padding: 16px">
+            <h3 class="mb-8">Reading comprehension</h3>
+            <p class="text-sm">Module 5 verbal: reading approach, passage mapping, question types, paired&nbsp;passages.</p>
+          </div>
+        </div>
+
+        <div class="card-alt compact mt-16">
+          <div style="display: flex; align-items: flex-start; gap: 12px;">
+            <span class="icon icon-md icon-dark" style="flex-shrink: 0; -webkit-mask-image: url(../assets/icons/test.svg); mask-image: url(../assets/icons/test.svg)"></span>
+            <p class="text-md"><strong>Practice test 3.</strong> Take it mid-way through this block. Your score should be climbing. Focus review on your weakest&nbsp;areas.</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          4:00 - 5:30 | Weeks 5-6 are the heaviest content weeks. You are covering the remaining quant topics (algebra completion, counting/probability, geometry) plus starting reading comprehension. This is a lot of material, so be strategic. If you are strong in geometry, move faster. If algebra word problems are tough, spend more time there. Take practice test 3 mid-way through to calibrate. Your error log should be guiding your priorities by now.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 6: Week 7 DI + Review -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Week 7</p>
+          <h2>Data interpretation and critical reasoning</h2>
+        </div>
+
+        <div class="two-column">
+          <div>
+            <h3 class="mb-16">New material</h3>
+            <ul class="plus-list">
+              <li>Module 4: mean, median, mode, distributions, graphs, DI&nbsp;strategy.</li>
+              <li>Critical reasoning: inference, premises, strengthen/weaken, assumptions.</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="mb-16">Targeted review</h3>
+            <ul class="plus-list">
+              <li>Review your error log and revisit your weakest&nbsp;topics.</li>
+              <li>Redo drills on any concept where you scored below&nbsp;70%.</li>
+              <li>Take practice test 4 at the end of the&nbsp;week.</li>
+            </ul>
+          </div>
+        </div>
+
+        <aside class="notes">
+          5:30 - 6:45 | Week 7 covers the last new content: data interpretation (Module 4) and critical reasoning (the rest of Module 5 verbal). At the same time, you should be reviewing weak areas from your error log. This is where targeted study pays off the most. Take practice test 4 to see where you stand heading into the final week.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 7: Week 8 Final Prep -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Week 8</p>
+          <h2>Final prep and test day</h2>
+        </div>
+
+        <ul class="icon-list text-lg">
+          <li>
+            <span class="icon icon-xl icon-green" style="flex-shrink: 0; -webkit-mask-image: url(../assets/icons/write.svg); mask-image: url(../assets/icons/write.svg)"></span>
+            <span><strong>Analytical writing.</strong> Learn the AWA overview and issue essay strategy. Practice one timed&nbsp;essay.</span>
+          </li>
+          <li>
+            <span class="icon icon-xl icon-green" style="flex-shrink: 0; -webkit-mask-image: url(../assets/icons/test.svg); mask-image: url(../assets/icons/test.svg)"></span>
+            <span><strong>Final practice test.</strong> Simulate real conditions. Use your score to set&nbsp;expectations.</span>
+          </li>
+          <li>
+            <span class="icon icon-xl icon-green" style="flex-shrink: 0; -webkit-mask-image: url(../assets/icons/shield-check-filled.svg); mask-image: url(../assets/icons/shield-check-filled.svg)"></span>
+            <span><strong>Light review only.</strong> No new material. Revisit reference sheets and your error&nbsp;log.</span>
+          </li>
+          <li>
+            <span class="icon icon-xl icon-green" style="flex-shrink: 0; -webkit-mask-image: url(../assets/icons/calendar-check.svg); mask-image: url(../assets/icons/calendar-check.svg)"></span>
+            <span><strong>Test day prep.</strong> Managing anxiety, the test day checklist, and score prediction&nbsp;tools.</span>
+          </li>
+        </ul>
+
+        <aside class="notes">
+          6:45 - 7:45 | Week 8 is about finishing strong, not cramming. Cover Module 8: test anxiety management, the AWA overview and issue essay strategy, and the test day checklist. Take one final practice test under real conditions. Otherwise, keep it light. Review reference sheets, revisit your error log, but do not try to learn new concepts. You want to walk into test day confident, not exhausted.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 8: How to Adjust -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Adjusting Your Plan</p>
+          <h2>Adapt based on your diagnostic score</h2>
+        </div>
+
+        <div class="comparison-cards">
+          <div class="comparison-panel strong">
+            <div class="panel-label">Diagnostic 150+</div>
+            <h3>Compress the foundations</h3>
+            <p class="text-sm text-light">You already have the basics. Skim Module 1 math foundations quickly and jump into core topics by end of Week 1. Spend your extra time on advanced topics and mixed&nbsp;practice.</p>
+          </div>
+          <div class="comparison-panel average">
+            <div class="panel-label">Diagnostic below 145</div>
+            <h3>Extend the foundations</h3>
+            <p class="text-sm text-light">Spend 3 full weeks on foundations and Module 1 math. Move slowly through arithmetic before tackling algebra. Consider a 10-12 week timeline&nbsp;instead.</p>
+          </div>
+        </div>
+
+        <div class="card-alt-green compact mt-16">
+          <div style="display: flex; align-items: flex-start; gap: 12px;">
+            <span class="icon icon-md icon-green" style="flex-shrink: 0; -webkit-mask-image: url(../assets/icons/lightning.svg); mask-image: url(../assets/icons/lightning.svg)"></span>
+            <p class="text-md"><strong>Your error log is your compass.</strong> After every practice test, let the data tell you where to spend your&nbsp;time.</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          7:45 - 8:45 | This slide is important because not everyone starts from the same place. If your diagnostic is 150 or above, you can compress weeks 1-2 and move faster into core content. If you score below 145, slow down on foundations. Spend more time on arithmetic and consider extending to 10-12 weeks. Either way, your error log should guide every decision about where to focus. The plan is a framework, not a prescription.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 9: Summary (Dark) -->
+      <!-- ============================================ -->
+      <section class="content-dark">
+        <div class="slide-header">
+          <p class="eyebrow">Key Takeaways</p>
+          <h2>Your 8-week plan</h2>
+        </div>
+
+        <ul class="summary-list text-lg">
+          <li><span class="text-green">1.</span> <span class="text-white"><strong>Weeks 1-2:</strong> Take a diagnostic, learn the test, and build math&nbsp;foundations.</span></li>
+          <li><span class="text-green">2.</span> <span class="text-white"><strong>Weeks 3-4:</strong> Core number properties, algebra basics, and verbal&nbsp;strategy.</span></li>
+          <li><span class="text-green">3.</span> <span class="text-white"><strong>Weeks 5-6:</strong> Advanced math, geometry, reading comprehension, and counting/probability.</span></li>
+          <li><span class="text-green">4.</span> <span class="text-white"><strong>Week 7:</strong> Data interpretation, critical reasoning, and targeted weak-area&nbsp;review.</span></li>
+          <li><span class="text-green">5.</span> <span class="text-white"><strong>Week 8:</strong> Writing prep, final practice test, and test day&nbsp;readiness.</span></li>
+          <li><span class="text-green">6.</span> <span class="text-white"><strong>Adjust the pace</strong> based on your diagnostic score and error&nbsp;log.</span></li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="rgba(255,255,255,0.4)"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          8:45 - 9:15 | Recap the full plan. Weeks 1-2 foundations. Weeks 3-4 core skills. Weeks 5-6 advanced topics. Week 7 data interpretation and review. Week 8 writing and test day. The plan adapts to you. Use your diagnostic and error log to guide your pace. Consistency is what makes this work.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js -->
+  <script src="../assets/reveal/dist/reveal.min.js"></script>
+  <script type="module">
+    import RevealNotes from '../assets/reveal/plugin/notes/notes.esm.js';
+
+    Reveal.initialize({
+      width: 960,
+      height: 540,
+      margin: 0,
+      minScale: 0.5,
+      maxScale: 3.0,
+      hash: true,
+      slideNumber: true,
+      controls: true,
+      progress: true,
+      history: true,
+      center: false,
+      transition: 'none',
+      backgroundTransition: 'none',
+      disableLayout: false,
+      plugins: [ RevealNotes ]
+    });
+  </script>
+</body>
+</html>

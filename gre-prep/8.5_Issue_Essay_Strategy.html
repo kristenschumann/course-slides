@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en" class="reveal-full-page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Issue Essay Strategy</title>
+
+  <!-- Reveal.js Core -->
+  <link rel="stylesheet" href="../assets/reveal/dist/reset.css">
+  <link rel="stylesheet" href="../assets/reveal/dist/reveal.css">
+
+  <!-- Leland Theme -->
+  <link rel="stylesheet" href="../assets/reveal/themes/leland.css">
+
+  <!-- KaTeX for math rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false}
+      ]
+    });"></script>
+
+</head>
+<body>
+  <!-- SVG Symbol Definitions (defined once, referenced via <use>) -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="leland-logo" viewBox="0 0 200 45">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z"/>
+      <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z"/>
+      <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z"/>
+      <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z"/>
+      <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z"/>
+      <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z"/>
+    </symbol>
+  </svg>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ============================================ -->
+      <!-- SLIDE 1: Title (Dark) -->
+      <!-- ============================================ -->
+      <section class="title-dark">
+        <div class="leland-logo-top">
+          <svg width="110" height="25" fill="white" class="mb-16"><use href="#leland-logo"/></svg>
+        </div>
+
+        <p class="eyebrow">GRE Self-Study Course</p>
+        <h1>Issue Essay<br><span class="hl">Strategy</span></h1>
+
+        <aside class="notes">
+          0:00 - 0:05 | Title slide. This video covers the complete Issue Essay strategy: template, examples, timing, and common mistakes.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 2: Hook -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">The Challenge</p>
+          <h2>30 minutes to defend a position</h2>
+        </div>
+
+        <p class="text-lg mb-16">The Issue Essay asks you to take a position on a claim and defend it in 30 minutes. The structure can be&nbsp;templated.</p>
+
+        <div class="card-alt-green mb-16">
+          <p class="text-md"><strong>Every Issue prompt has two parts:</strong> 1) A statement expressing a position. 2) Instructions for what to do with it (agree/disagree, or address&nbsp;counterarguments).</p>
+        </div>
+
+        <div class="two-column gap-24">
+          <div class="card card-green-bg">
+            <h3 class="text-md mb-8">You Can</h3>
+            <ul class="plus-list text-sm">
+              <li>Fully agree</li>
+              <li>Fully disagree</li>
+              <li>Agree with qualifications</li>
+            </ul>
+          </div>
+          <div class="card card-blue-bg">
+            <h3 class="text-md mb-8">Best Practice</h3>
+            <p class="text-sm">Pick the position you can support most easily. A clear, one-sided argument scores&nbsp;better.</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          0:05 - 1:30 | Explain the Issue prompt structure. Emphasize that students should read the instructions carefully because some prompts ask them to address counterarguments. Any position can earn a high score.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 3: The 5-Paragraph Template -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Template</p>
+          <h2>The 5-paragraph structure</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr><th>Paragraph</th><th>Content</th><th>Words</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Introduction</td><td>Restate issue, state thesis, preview reasons</td><td>~50</td></tr>
+            <tr><td>Body 1</td><td>First reason + specific example + explanation</td><td>~100</td></tr>
+            <tr><td>Body 2</td><td>Second reason + specific example + explanation</td><td>~100</td></tr>
+            <tr><td>Body 3</td><td>Counterargument OR third reason</td><td>~80</td></tr>
+            <tr><td>Conclusion</td><td>Restate thesis, summarize, broader implication</td><td>~50</td></tr>
+          </tbody>
+        </table>
+
+        <div class="card-alt compact mt-16">
+          <span class="badge badge-green self-start">Key Idea</span>
+          <p class="text-md">Total: 380-400 words. Enough for a good score. You do not need 600&nbsp;words.</p>
+        </div>
+
+        <aside class="notes">
+          1:30 - 3:30 | Present the template. This is the core of the Issue Essay strategy. Students should memorize this structure so they can focus on content, not organization, on test day.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 4: Generating Examples -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Examples</p>
+          <h2>Where to find supporting evidence</h2>
+        </div>
+
+        <p class="text-md mb-8">Build a bank of flexible examples in advance. Three strong categories:</p>
+
+        <div class="card-grid-3">
+          <div class="card card-green-bg">
+            <h3 class="text-md mb-8">Historical</h3>
+            <p class="text-sm">Events, figures, movements from&nbsp;history.</p>
+          </div>
+          <div class="card card-blue-bg">
+            <h3 class="text-md mb-8">Current Events</h3>
+            <p class="text-sm">Recent news, trends, and social&nbsp;changes.</p>
+          </div>
+          <div class="card card-purple-bg">
+            <h3 class="text-md mb-8">Personal</h3>
+            <p class="text-sm">Your own life and observations.</p>
+          </div>
+        </div>
+
+        <div class="card-alt-green compact mt-16">
+          <span class="badge badge-green self-start">Prep Tip</span>
+          <p class="text-md">Prepare 4-5 flexible examples: a historical leader, a business case, a scientific discovery, a social movement, a personal&nbsp;experience.</p>
+        </div>
+
+        <aside class="notes">
+          3:30 - 5:00 | Teach example generation. The five types of examples (historical, current, personal, hypothetical, literary) can be adapted to many prompts. Students should prepare a bank of 4-5 flexible examples before test day.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 5: Making Examples Work -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Examples</p>
+          <h2>Explain the connection</h2>
+        </div>
+
+        <p class="text-lg mb-24">Do not just mention an example. Show how it supports your&nbsp;argument.</p>
+
+        <div class="two-column gap-32">
+          <div class="card card-red-bg">
+            <div class="status-incorrect text-md mb-8">Weak Example</div>
+            <p class="text-md">"For example, Abraham Lincoln was a great president."</p>
+            <p class="text-sm text-light mt-16">No connection to the argument. Just a name&nbsp;drop.</p>
+          </div>
+          <div class="card card-green-bg">
+            <div class="status-correct text-md mb-8">Strong Example</div>
+            <p class="text-md">"Lincoln faced enormous criticism during the Civil War, yet his willingness to persist despite opposition ultimately preserved the Union. This shows that leaders must maintain convictions even when popular opinion turns against&nbsp;them."</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          5:00 - 6:00 | Show the difference between a weak and strong example. The key is the explanation sentence that connects the example back to the thesis. Without that sentence, the example proves nothing.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 6: Divider -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <p class="part-number">Part 2</p>
+        <h1>Sample Prompt Walkthrough</h1>
+
+        <aside class="notes">
+          6:00 - 6:05 | Section divider. Now apply the strategy to a real prompt.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 7: Sample Walkthrough -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Walkthrough</p>
+          <h2>Applying the template</h2>
+        </div>
+
+        <div class="card-alt-green compact mb-16">
+          <span class="badge badge-green self-start">Prompt</span>
+          <p class="text-md">"The best way to teach is to praise positive actions and ignore negative&nbsp;ones."</p>
+        </div>
+
+        <div class="card-grid-2" style="padding-bottom: 0">
+          <div class="card card-blue-bg" style="padding: 16px">
+            <h3 class="text-md mb-8">Position</h3>
+            <p class="text-sm">Disagree: ignoring negatives is not always&nbsp;effective.</p>
+          </div>
+          <div class="card card-green-bg" style="padding: 16px">
+            <h3 class="text-md mb-8">Reason 1</h3>
+            <p class="text-sm">Some negatives need correction for safety.</p>
+          </div>
+          <div class="card card-purple-bg" style="padding: 16px">
+            <h3 class="text-md mb-8">Reason 2</h3>
+            <p class="text-sm">Ignoring negatives can reinforce them.</p>
+          </div>
+          <div class="card card-orange-bg" style="padding: 16px">
+            <h3 class="text-md mb-8">Counterargument</h3>
+            <p class="text-sm">Praise works best combined with boundaries.</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          6:05 - 8:30 | Walk through the sample prompt step by step. Show how to take a position in 30 seconds, brainstorm reasons and examples in 2 minutes, and create a quick outline. This is the planning phase before writing.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 8: Timing Breakdown -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Time Management</p>
+          <h2>Your 30-minute plan</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr><th>Phase</th><th>Time</th><th>Activity</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Read and Plan</td><td>4-5 min</td><td>Understand prompt, take position, outline</td></tr>
+            <tr><td>Write Intro</td><td>3-4 min</td><td>Hook, thesis, preview of reasons</td></tr>
+            <tr><td>Write Body 1</td><td>5-6 min</td><td>First reason with example</td></tr>
+            <tr><td>Write Body 2</td><td>5-6 min</td><td>Second reason with example</td></tr>
+            <tr><td>Write Body 3</td><td>4-5 min</td><td>Third point or counterargument</td></tr>
+            <tr><td>Proofread</td><td>2-3 min</td><td>Fix obvious errors only</td></tr>
+          </tbody>
+        </table>
+
+        <div class="card-alt compact mt-8">
+          <span class="badge badge-orange self-start">Warning</span>
+          <p class="text-md">If not done outlining by minute 5, start writing. An imperfect essay beats an incomplete&nbsp;one.</p>
+        </div>
+
+        <aside class="notes">
+          8:30 - 9:30 | Present the timing breakdown. The biggest timing mistake is spending too long planning. Stick to the plan and get writing.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 9: Common Mistakes -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Pitfalls</p>
+          <h2>5 mistakes to avoid</h2>
+        </div>
+
+        <ul class="plus-list text-md">
+          <li><strong>Not taking a clear stance.</strong> Do not end up arguing both sides equally. Commit to a&nbsp;position.</li>
+          <li><strong>Examples without explanation.</strong> "For example, Steve Jobs" does not prove anything. Explain the&nbsp;connection.</li>
+          <li><strong>Running out of time.</strong> If your outline is not done by minute 5, start writing&nbsp;immediately.</li>
+          <li><strong>Trying to be too clever.</strong> Simple, clear writing scores well. Do not use fancy vocabulary you might&nbsp;misuse.</li>
+          <li><strong>Skipping counterarguments when asked.</strong> Some prompts specifically ask you to address opposing&nbsp;views.</li>
+        </ul>
+
+        <aside class="notes">
+          9:30 - 11:00 | Walk through each common mistake. These are the patterns that separate 3-4 scores from 5-6 scores. The biggest one: not committing to a position.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 10: Sample Body Paragraph -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Template in Action</p>
+          <h2>Sample body paragraph</h2>
+        </div>
+
+        <div class="annotation-container">
+          <div class="essay-text"><span style="background: rgba(21, 176, 120, 0.15); padding: 2px 4px; border-radius: 3px;">Technology has fundamentally transformed access to educational resources.</span> <span style="background: rgba(59, 125, 253, 0.15); padding: 2px 4px; border-radius: 3px;">For instance, platforms like Khan Academy and Coursera now offer university-level courses to millions of students worldwide who would otherwise lack access to such instruction.</span> <span style="background: rgba(138, 92, 246, 0.15); padding: 2px 4px; border-radius: 3px;">This democratization of knowledge means that a student in rural India can learn calculus from the same quality materials as a student at MIT, breaking down geographic and economic barriers that have historically limited educational opportunity.</span> <span style="background: rgba(245, 158, 11, 0.15); padding: 2px 4px; border-radius: 3px;">While access alone does not guarantee learning outcomes, it represents a necessary first step toward educational&nbsp;equity.</span></div>
+
+          <div class="annotation-marker" style="top: 0; right: -140px;">
+            <div class="marker-dot"></div>
+            <div class="marker-line"></div>
+            <div class="marker-label">Claim</div>
+          </div>
+          <div class="annotation-marker" style="top: 28%; right: -140px;">
+            <div class="marker-dot"></div>
+            <div class="marker-line"></div>
+            <div class="marker-label">Example</div>
+          </div>
+          <div class="annotation-marker" style="top: 56%; right: -140px;">
+            <div class="marker-dot"></div>
+            <div class="marker-line"></div>
+            <div class="marker-label">Explanation</div>
+          </div>
+          <div class="annotation-marker" style="top: 84%; right: -140px;">
+            <div class="marker-dot"></div>
+            <div class="marker-line"></div>
+            <div class="marker-label">Transition</div>
+          </div>
+        </div>
+
+        <aside class="notes">
+          11:00 - 12:30 | Walk through the sample body paragraph. Point out each labeled element: the Claim states the position clearly. The Example provides a specific, concrete illustration (Khan Academy, Coursera). The Explanation unpacks why the example matters and connects it to the thesis. The Transition acknowledges a limitation and bridges to the next paragraph. This is the Claim-Example-Explanation-Transition pattern students should replicate in every body paragraph.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 11: Summary (Dark) -->
+      <!-- ============================================ -->
+      <section class="content-dark">
+        <div class="slide-header">
+          <p class="eyebrow">Key Takeaways</p>
+          <h2>Issue essay strategy</h2>
+        </div>
+
+        <ul class="plus-list">
+          <li><strong>Take a clear position</strong> and commit to it, even if you see both&nbsp;sides</li>
+          <li><strong>Use the 5-paragraph template</strong> so you never waste time deciding on&nbsp;structure</li>
+          <li><strong>Prepare 4-5 flexible examples</strong> in advance that can adapt to many different&nbsp;prompts</li>
+          <li><strong>Explain the connection</strong> between each example and your thesis, not just the example&nbsp;itself</li>
+          <li><strong>Manage your time</strong> with a strict plan: 5 min planning, 22 min writing, 3 min&nbsp;proofreading</li>
+          <li><strong>Clarity and logic</strong> matter more than fancy writing or lengthy&nbsp;essays</li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="rgba(255,255,255,0.4)"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          12:30 - 13:00 | Summary slide. Practice this structure 2-3 times before test day. The template removes the uncertainty so you can focus on content.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js -->
+  <script src="../assets/reveal/dist/reveal.min.js"></script>
+  <script type="module">
+    import RevealNotes from '../assets/reveal/plugin/notes/notes.esm.js';
+
+    Reveal.initialize({
+      width: 960,
+      height: 540,
+      margin: 0,
+      minScale: 0.5,
+      maxScale: 3.0,
+      hash: true,
+      slideNumber: true,
+      controls: true,
+      progress: true,
+      history: true,
+      center: false,
+      transition: 'none',
+      backgroundTransition: 'none',
+      disableLayout: false,
+      plugins: [ RevealNotes ]
+    });
+  </script>
+</body>
+</html>

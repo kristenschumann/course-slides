@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en" class="reveal-full-page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Absolute Value &amp; the Number Line</title>
+
+  <!-- Reveal.js Core -->
+  <link rel="stylesheet" href="../assets/reveal/dist/reset.css">
+  <link rel="stylesheet" href="../assets/reveal/dist/reveal.css">
+
+  <!-- Leland Theme -->
+  <link rel="stylesheet" href="../assets/reveal/themes/leland.css">
+
+  <!-- KaTeX for math rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false}
+      ]
+    });"></script>
+
+</head>
+<body>
+  <!-- SVG Symbol Definitions (defined once, referenced via <use>) -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="leland-logo" viewBox="0 0 200 45">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z"/>
+      <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z"/>
+      <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z"/>
+      <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z"/>
+      <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z"/>
+      <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z"/>
+    </symbol>
+  </svg>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ============================================ -->
+      <!-- SLIDE 1: Title (Dark) -->
+      <!-- ============================================ -->
+      <section class="title-dark">
+        <div class="leland-logo-top">
+          <svg width="110" height="25" fill="white" class="mb-16"><use href="#leland-logo"/></svg>
+        </div>
+
+        <p class="eyebrow">GRE Self-Study Course</p>
+        <h1>Absolute Value &amp;<br><span class="hl">the Number Line</span></h1>
+
+        <aside class="notes">
+          0:00-0:30 | Hook: Absolute value shows up in ways you might not expect on the GRE. Most people remember that the absolute value of negative 5 is 5, but the real power is understanding absolute value as distance. When you see it as distance on a number line, tricky problems become straightforward.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 2: Core Concept - Distance from Zero -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Core Concept</p>
+          <h2>Absolute value = distance</h2>
+        </div>
+
+        <div class="card-alt-green compact mb-16">
+          <p class="text-md"><strong>$|x|$ is the distance between $x$ and $0$ on the number line.</strong> Distance is always positive (or zero).</p>
+        </div>
+
+        <div class="two-column gap-24">
+          <div class="card card-green-bg">
+            <span class="badge badge-green self-start mb-16">Same Result</span>
+            <div class="card-alt compact mb-8">
+              <p class="text-md">$|5| = 5$ (five units from 0)</p>
+            </div>
+            <div class="card-alt compact">
+              <p class="text-md">$|-5| = 5$ (also five units from 0)</p>
+            </div>
+          </div>
+          <div class="card card-blue-bg">
+            <span class="badge badge-blue self-start mb-16">Expressions</span>
+            <p class="text-md mb-8">$|x - a|$ = distance from $x$ to $a$</p>
+            <div class="card-alt compact mb-8">
+              <p class="text-md">$|7 - 3| = |4| = 4$</p>
+            </div>
+            <div class="card-alt compact">
+              <p class="text-md">$|1 - 3| = |-2| = 2$</p>
+            </div>
+          </div>
+        </div>
+
+        <aside class="notes">
+          0:30-2:00 | Core concept: absolute value is distance from zero. Show that both 5 and negative 5 are 5 units from 0. Extend to expressions: |x - a| is the distance from x to a. Walk through examples with x = 7 and x = 1.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 3: Divider - Equations -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <p class="part-number">Part 1</p>
+        <h1>Absolute Value Equations</h1>
+        <p>Two solutions, one concept</p>
+
+        <aside class="notes">
+          2:00-2:10 | Transition: Let's use distance thinking to solve equations.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 4: Example 1 - Basic Equation -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 1</p>
+          <h2>Basic absolute value equation</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-lg">$|x - 3| = 5$</p>
+            <p class="text-md mt-16">The distance from $x$ to $3$ is $5$.</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16">Going right:&nbsp;$3 + 5 = 8$</p>
+            <p class="text-md mb-16">Going left:&nbsp;$3 - 5 = -2$</p>
+            <p class="text-md mb-16">Check: $|8 - 3| = 5$ and&nbsp;$|-2 - 3| = 5$</p>
+            <p class="text-lg mt-16">Answer:&nbsp;$x = 8$ or $x = -2$</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          2:10-3:15 | Example 1: |x - 3| = 5. The distance from x to 3 is 5. Click to reveal solution. Click: going right, 3 + 5 = 8. Click: going left, 3 - 5 = -2. Click: verify both. Click: answer is x = 8 or x = -2.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 5: Example 2 - Complex Equation -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 2</p>
+          <h2>Equation with a linear expression</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-lg">$|2x + 1| = 9$</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16"><strong>Case 1:</strong> $2x + 1 = 9$, so $2x = 8$,&nbsp;$x = 4$</p>
+            <p class="text-md mb-16"><strong>Case 2:</strong> $2x + 1 = -9$, so $2x = -10$,&nbsp;$x = -5$</p>
+            <p class="text-lg mt-16">Answer:&nbsp;$x = 4$ or $x = -5$</p>
+          </div>
+        </div>
+
+        <div class="card-alt compact mt-8">
+          <span class="badge badge-green">Pattern</span>
+          <p class="text-md">For $|\text{expression}| = k$, set up: expression $= k$ and expression $= -k$.</p>
+        </div>
+
+        <aside class="notes">
+          3:15-4:30 | Example 2: |2x + 1| = 9. Click to reveal solution. Click: Case 1 gives x = 4. Click: Case 2 gives x = -5. Click: answer. Highlight the general pattern below.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 6: Divider - Inequalities -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <p class="part-number">Part 2</p>
+        <h1>Absolute Value Inequalities</h1>
+        <p>Between or outside</p>
+
+        <aside class="notes">
+          4:30-4:40 | Transition: Now let's apply distance thinking to inequalities. This is where it really pays off.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 7: Inequality Rules -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Inequalities</p>
+          <h2>Less than = between, greater than = outside</h2>
+        </div>
+
+        <div class="two-column gap-24">
+          <div class="card card-green-bg">
+            <span class="badge badge-green self-start mb-16">Less Than</span>
+            <p class="text-md mb-8">$|x| &lt; k$ means "closer than $k$ to zero"</p>
+            <div class="card-alt compact mb-8">
+              <p class="text-md">$-k &lt; x &lt; k$</p>
+            </div>
+            <p class="text-md">$|x| &lt; 4$ gives&nbsp;$-4 &lt; x &lt; 4$</p>
+          </div>
+          <div class="card card-red-bg">
+            <span class="badge badge-red self-start mb-16">Greater Than</span>
+            <p class="text-md mb-8">$|x| &gt; k$ means "farther than $k$ from zero"</p>
+            <div class="card-alt compact mb-8">
+              <p class="text-md">$x &lt; -k$ or $x &gt; k$</p>
+            </div>
+            <p class="text-md">$|x| &gt; 4$ gives $x &lt; -4$ or&nbsp;$x &gt; 4$</p>
+          </div>
+        </div>
+
+        <div class="card-alt compact mt-16">
+          <span class="badge badge-orange">Watch Out</span>
+          <p class="text-md">Less than gives <strong>one interval</strong> (between). Greater than gives <strong>two pieces</strong> (outside). Mixing these up is a common GRE mistake.</p>
+        </div>
+
+        <aside class="notes">
+          4:40-5:40 | The two inequality patterns. Less than means x is between negative k and k. Greater than means x is outside, giving two separate pieces. Emphasize: less than = one interval, greater than = two pieces.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 8: Example 3 - Inequality with Expression -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 3</p>
+          <h2>Inequality with a shifted center</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-lg">$|x - 2| \leq 3$</p>
+            <p class="text-md mt-16">Distance from $x$ to $2$ is at most $3$.</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16">$x$ is within 3 units of&nbsp;$2$</p>
+            <p class="text-md mb-16">$2 - 3 \leq x \leq 2 + 3$</p>
+            <p class="text-lg mt-16">Answer:&nbsp;$-1 \leq x \leq 5$</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          5:40-6:20 | Example 3: |x - 2| is at most 3. Click to reveal solution. Click: x is within 3 units of 2. Click: subtract and add 3 from the center. Click: answer is -1 to 5 inclusive.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 9: Example 4 - Greater-Than Inequality -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 4</p>
+          <h2>Greater-than with a negative center</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-lg">$|x + 5| &gt; 2$</p>
+            <p class="text-md mt-16">Rewrite: $|x - (-5)| &gt; 2$</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16">Distance from $x$ to $-5$ is more than&nbsp;$2$</p>
+            <p class="text-md mb-16">$x &lt; -5 - 2$ or&nbsp;$x &gt; -5 + 2$</p>
+            <p class="text-lg mt-16">Answer:&nbsp;$x &lt; -7$ or $x &gt; -3$</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          6:20-7:10 | Example 4: |x + 5| > 2. Rewrite as |x - (-5)| to see the center is -5. Click to reveal. Click: distance from x to -5 is more than 2. Click: two pieces. Click: answer is x less than -7 or x greater than -3.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 10: Common Traps -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Common Traps</p>
+          <h2>Mistakes the GRE expects</h2>
+        </div>
+
+        <div class="card-grid-3">
+          <div class="card card-red-bg">
+            <h3 class="text-md mb-8">Missing Solutions</h3>
+            <p class="text-md">$|x - 3| = 5$ has TWO solutions. Always solve both cases.</p>
+          </div>
+          <div class="card card-orange-bg">
+            <h3 class="text-md mb-8">Negative Equals</h3>
+            <p class="text-md">$|x| = -3$ has NO solution. Distance is never negative.</p>
+          </div>
+          <div class="card card-blue-bg">
+            <h3 class="text-md mb-8">Flipped Inequality</h3>
+            <p class="text-md">$&lt;$ gives one interval. $&gt;$ gives two pieces. Do not mix them up.</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          7:10-8:30 | Three common traps. First: forgetting the second solution in equations. Second: absolute value can never equal a negative number, so no solution. Third: confusing less-than (between) and greater-than (outside) for inequalities.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 11: Summary (content-dark) -->
+      <!-- ============================================ -->
+      <section class="content-dark">
+        <div class="slide-header">
+          <p class="eyebrow">Key Takeaways</p>
+          <h2>Absolute value &amp; the number line</h2>
+        </div>
+
+        <ul class="plus-list">
+          <li><strong>Absolute value = distance</strong> from zero on the number line</li>
+          <li><strong>$|x - a|$</strong> = distance from $x$ to $a$</li>
+          <li><strong>Equations:</strong> $|\text{expr}| = k$ splits into expr $= k$ and expr $= -k$</li>
+          <li><strong>Less than</strong> gives one interval (between $-k$ and $k$)</li>
+          <li><strong>Greater than</strong> gives two pieces (outside $-k$ and $k$)</li>
+          <li><strong>No solution</strong> if $|\text{something}|$ equals a negative number</li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="rgba(255,255,255,0.4)"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          8:30-10:00 | Summary: Absolute value is distance. Equations give two solutions. Less-than inequalities give one interval, greater-than give two pieces. No solution if absolute value equals a negative. Think distance, and these problems become much clearer. [Leland+ Tip] On QC problems with absolute values, students often forget to test the negative case. Absolute value masks negative numbers. Always split into both positive and negative scenarios before concluding which quantity is greater.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js -->
+  <script src="../assets/reveal/dist/reveal.min.js"></script>
+  <script type="module">
+    import RevealNotes from '../assets/reveal/plugin/notes/notes.esm.js';
+
+    Reveal.initialize({
+      width: 960,
+      height: 540,
+      margin: 0,
+      minScale: 0.5,
+      maxScale: 3.0,
+      hash: true,
+      slideNumber: true,
+      controls: true,
+      progress: true,
+      history: true,
+      center: false,
+      transition: 'none',
+      backgroundTransition: 'none',
+      disableLayout: false,
+      plugins: [ RevealNotes ]
+    });
+  </script>
+</body>
+</html>

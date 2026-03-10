@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en" class="reveal-full-page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Basic Algebra Refresher</title>
+
+  <!-- Reveal.js Core -->
+  <link rel="stylesheet" href="../assets/reveal/dist/reset.css">
+  <link rel="stylesheet" href="../assets/reveal/dist/reveal.css">
+
+  <!-- Leland Theme -->
+  <link rel="stylesheet" href="../assets/reveal/themes/leland.css">
+
+  <!-- KaTeX for math rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false}
+      ]
+    });"></script>
+
+</head>
+<body>
+  <!-- SVG Symbol Definitions (defined once, referenced via <use>) -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="leland-logo" viewBox="0 0 200 45">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z"/>
+      <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z"/>
+      <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z"/>
+      <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z"/>
+      <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z"/>
+      <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z"/>
+    </symbol>
+  </svg>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ============================================ -->
+      <!-- SLIDE 1: Title (Dark) -->
+      <!-- ============================================ -->
+      <section class="title-dark">
+        <div class="leland-logo-top">
+          <svg width="110" height="25" fill="white" class="mb-16"><use href="#leland-logo"/></svg>
+        </div>
+
+        <p class="eyebrow">GRE Self-Study Course</p>
+        <h1>Basic Algebra<br><span class="hl">Refresher</span></h1>
+
+        <aside class="notes">
+          0:00-0:30 | Hook: Before tackling ratios and percents, you need algebra on autopilot. Most GRE ratio problems boil down to setting up and solving simple equations. This video reviews the core algebra skills you will use constantly.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 2: Divider - Variables & Expressions -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <p class="part-number">Part 1</p>
+        <h1>Variables &amp; Expressions</h1>
+        <p>Like terms, combining, and simplifying</p>
+
+        <aside class="notes">
+          0:30-0:40 | Transition into variables and expressions.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 3: Combining Like Terms -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Variables &amp; Expressions</p>
+          <h2>Combining like terms</h2>
+        </div>
+
+        <p class="text-md mb-16"><strong>Like terms</strong> share identical variable parts. Add the coefficients, keep the variables.</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Expression</th>
+              <th>Simplified</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>$2x + 5x$</td>
+              <td>$7x$</td>
+            </tr>
+            <tr>
+              <td>$3x^2 - 6 + x + 11 - x^2 + 5x$</td>
+              <td>$2x^2 + 6x + 5$</td>
+            </tr>
+            <tr>
+              <td>$3xy + 2x - xy - 3x$</td>
+              <td>$2xy - x$</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <aside class="notes">
+          0:40-2:00 | Walk through what makes terms "like" and simplify each row. Emphasize that coefficients add but variable parts stay the same.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 4: Divider - Solving Linear Equations -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <p class="part-number">Part 2</p>
+        <h1>Solving Linear Equations</h1>
+        <p>Isolate the variable on one side</p>
+
+        <aside class="notes">
+          2:00-2:10 | Transition into solving linear equations.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 5: Three Rules for Equations -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Solving Equations</p>
+          <h2>Three rules for equivalent equations</h2>
+        </div>
+
+        <div class="card-grid-3">
+          <div class="card card-green-bg">
+            <h3 class="text-md mb-8">Add or Subtract</h3>
+            <p class="text-md">Add or subtract the same value from both sides.</p>
+          </div>
+          <div class="card card-blue-bg">
+            <h3 class="text-md mb-8">Multiply or Divide</h3>
+            <p class="text-md">Multiply or divide both sides by the same nonzero value.</p>
+          </div>
+          <div class="card card-orange-bg">
+            <h3 class="text-md mb-8">Substitute</h3>
+            <p class="text-md">Replace any expression with an equivalent expression.</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          2:10-2:40 | The goal is to isolate the variable. These three operations produce equivalent equations. Whatever you do to one side, you must do to the other.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 6: Example 1 - Simple Linear -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 1</p>
+          <h2>One-step isolation</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-lg">Solve:&nbsp;$5x - 7 = 28$</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16">Add 7 to both sides:&nbsp;$5x = 35$</p>
+            <p class="text-md mb-16">Divide both sides by 5:&nbsp;$x = 7$</p>
+            <p class="text-lg mt-16">Check: $5(7) - 7 = 28$&nbsp;$\checkmark$</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          2:40-3:30 | Example 1: simple two-step solve. Click to reveal solution. Step 1: add 7. Step 2: divide by 5. Always check your answer by plugging back in.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 7: Example 2 - Multi-Step -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 2</p>
+          <h2>Multi-step with distribution</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-lg">$11x - 4 - 8x = 2(x + 4) - 2x$</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16">Combine left:&nbsp;$3x - 4 = 2x + 8 - 2x$</p>
+            <p class="text-md mb-16">Combine right:&nbsp;$3x - 4 = 8$</p>
+            <p class="text-md mb-16">Add 4, divide by 3:&nbsp;$3x = 12$</p>
+            <p class="text-lg mt-16">Answer:&nbsp;$x = 4$</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          3:30-4:30 | Example 2: multiple steps. Click to reveal solution. Combine like terms on the left. Distribute and combine on the right. Add 4, divide by 3 to get x = 4.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 8: Example 3 - Inequality -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 3</p>
+          <h2>Solving an inequality</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-lg">$\frac{4x + 9}{11} &lt; 5$</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16">Multiply by 11:&nbsp;$4x + 9 &lt; 55$</p>
+            <p class="text-md mb-16">Subtract 9:&nbsp;$4x &lt; 46$</p>
+            <p class="text-lg mt-16">Answer:&nbsp;$x &lt; 11.5$</p>
+          </div>
+        </div>
+
+        <div class="card-alt compact mt-16">
+          <span class="badge badge-red">Watch Out</span>
+          <p class="text-md">When multiplying or dividing by a <strong>negative</strong> number, flip the inequality sign.</p>
+        </div>
+
+        <aside class="notes">
+          4:30-5:30 | Example 3: inequality. Same steps as an equation, but watch the sign. Multiply by 11, subtract 9, divide by 4. Emphasize: if you multiply or divide by a negative, flip the inequality.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 9: Divider - Translation -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <p class="part-number">Part 3</p>
+        <h1>Translating Words to Math</h1>
+        <p>Converting English into algebraic equations</p>
+
+        <aside class="notes">
+          5:30-5:40 | Transition into word-to-equation translation.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 10: Translation Dictionary -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Translation</p>
+          <h2>The translation dictionary</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>English</th>
+              <th>Math Symbol</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>is, was, equals</td>
+              <td>$=$</td>
+            </tr>
+            <tr>
+              <td>more than, increased by</td>
+              <td>$+$</td>
+            </tr>
+            <tr>
+              <td>less than, decreased by</td>
+              <td>$-$</td>
+            </tr>
+            <tr>
+              <td>times, of, product</td>
+              <td>$\times$</td>
+            </tr>
+            <tr>
+              <td>per, for each</td>
+              <td>$\div$</td>
+            </tr>
+            <tr>
+              <td>what, a number</td>
+              <td>$x$</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <aside class="notes">
+          5:40-6:20 | The translation dictionary. Every English phrase has a math equivalent. Walk through each row.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 11: Example 4 - Word Translation -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 4</p>
+          <h2>Translate and solve</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-md">Five less than three times a number is 22. What is the number?</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16">"Three times a number":&nbsp;$3x$</p>
+            <p class="text-md mb-16">"Five less than that":&nbsp;$3x - 5 = 22$</p>
+            <p class="text-md mb-16">Solve:&nbsp;$3x = 27$</p>
+            <p class="text-lg mt-16">Answer:&nbsp;$x = 9$</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          6:20-7:10 | Example 4: translate phrase by phrase. "Three times a number" is 3x. "Five less than" means subtract 5. "Is 22" means equals 22. Solve to get x = 9.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 12: Example 5 - Sum Problem -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 5</p>
+          <h2>Two numbers with a constraint</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-md">The sum of two numbers is 45. One is 9 more than the other. What is the larger number?</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16">Let smaller $= x$, larger $= x + 9$</p>
+            <p class="text-md mb-16">$x + (x + 9) = 45$, so&nbsp;$2x + 9 = 45$</p>
+            <p class="text-md mb-16">$2x = 36$, so&nbsp;$x = 18$</p>
+            <p class="text-lg mt-16">Larger $= 18 + 9 =$&nbsp;$27$</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          7:10-8:10 | Example 5: two unknowns but we can express both in terms of one variable. Let the smaller be x, larger is x + 9. Their sum is 45. Solve to get 18 and 27.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 13: Factoring Out -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Simplifying</p>
+          <h2>Factoring out common terms</h2>
+        </div>
+
+        <p class="text-md mb-16">If every term shares a common factor, pull it out. This skill is essential for simplifying ratios.</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Expression</th>
+              <th>Factored Form</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>$4x + 12$</td>
+              <td>$4(x + 3)$</td>
+            </tr>
+            <tr>
+              <td>$15y^2 - 9y$</td>
+              <td>$3y(5y - 3)$</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="card-alt-green compact mt-24">
+          <p class="text-md"><strong>GRE tip:</strong> Factoring lets you cancel common terms in fractions and simplify ratio expressions quickly.</p>
+        </div>
+
+        <aside class="notes">
+          8:10-9:00 | Factoring out common terms. Find the greatest common factor and pull it out. This is essential for simplifying ratios later.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 14: Divider - GRE Strategy -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <p class="part-number">Part 4</p>
+        <h1>GRE Algebraic Shortcuts</h1>
+        <p>Plugging in, backsolving, and when to use each</p>
+
+        <aside class="notes">
+          9:00-9:10 | Transition: Now that you have the algebra fundamentals, let's talk about two GRE-specific shortcuts that let you avoid algebra altogether on many problems.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 15: Plugging In -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">GRE Strategy</p>
+          <h2>Plugging in numbers</h2>
+        </div>
+
+        <p class="text-md mb-16"><strong>When to use:</strong> The problem has variables in the answer choices (VIAC). Pick easy numbers, solve, and match.</p>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-md mb-8">If $x$ items cost $d$ dollars, how much do $y$ items cost?</p>
+            <p class="text-sm mb-8">(A) $\frac{xd}{y}$ &nbsp; (B) $\frac{xy}{d}$ &nbsp; (C) $\frac{yd}{x}$</p>
+            <p class="text-sm">(D) $xyd$ &nbsp; (E) $\frac{d}{xy}$</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16">Pick: $x = 2$, $d = 10$, $y = 5$</p>
+            <p class="text-md mb-16">2 items cost $10 $\rightarrow$ each costs $5</p>
+            <p class="text-md mb-16">5 items cost $5 \times 5 = 25$. Target:&nbsp;$25$</p>
+            <p class="text-md mb-16">Check (C): $\frac{5 \times 10}{2} = 25$&nbsp;$\checkmark$</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          9:10-10:20 | Plugging In is the most powerful GRE shortcut. Whenever you see variables in the answer choices (VIAC), pick easy numbers. Here we pick x=2 items costing d=10 dollars. That means each item costs 5 dollars. So y=5 items cost 25 dollars. Now plug x=2, d=10, y=5 into each answer choice and find which one gives 25. Choice C works. No algebra needed.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 16: Backsolving -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">GRE Strategy</p>
+          <h2>Backsolving from answer choices</h2>
+        </div>
+
+        <p class="text-md mb-16"><strong>When to use:</strong> The answer choices are numbers. Start with choice C (the middle value) and work backward.</p>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-md mb-8">A store sells a shirt at 25% above cost. If the selling price is $40, what is the cost?</p>
+            <p class="text-sm">(A) $28 &nbsp; (B) $30 &nbsp; (C) $32 &nbsp; (D) $34 &nbsp; (E) $36</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16">Try (C) $32: 32 \times 1.25 = 40$&nbsp;$\checkmark$</p>
+            <p class="text-md">Done in one step. Answer:&nbsp;$32$</p>
+          </div>
+        </div>
+
+        <div class="card-alt-green compact mt-16">
+          <p class="text-md"><strong>Why start at C?</strong> Numeric choices are usually in order. If C is too big, try smaller. If too small, try larger. You narrow to the answer in at most 2 tries.</p>
+        </div>
+
+        <aside class="notes">
+          10:20-11:20 | Backsolving: when answer choices are numbers, work backward. Start with C since choices are usually ordered. If C is too high, go lower; if too low, go higher. Here, C = 32. Mark up 25% gives exactly 40. Done. This avoids setting up the equation entirely.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 17: When to Use Each Strategy -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">GRE Strategy</p>
+          <h2>Choosing the right approach</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Signal</th>
+              <th>Strategy</th>
+              <th>Example Clue</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Variables in answer choices</strong></td>
+              <td>Plug In</td>
+              <td>"In terms of $x$ and $y$"</td>
+            </tr>
+            <tr>
+              <td><strong>Numbers in answer choices</strong></td>
+              <td>Backsolve</td>
+              <td>"What is the value of..."</td>
+            </tr>
+            <tr>
+              <td><strong>Must-be-true or always-true</strong></td>
+              <td>Plug In multiple values</td>
+              <td>"Which must be true?"</td>
+            </tr>
+            <tr>
+              <td><strong>Clean equation, one unknown</strong></td>
+              <td>Algebra</td>
+              <td>$3x + 7 = 22$</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <aside class="notes">
+          11:20-12:00 | Quick decision guide. VIAC = plug in. Numeric answers = backsolve. "Must be true" = plug in multiple values to eliminate. Clean single-variable equation = just solve algebraically. Having all three strategies lets you pick the fastest path on every problem.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 18: Summary (content-dark) -->
+      <!-- ============================================ -->
+      <section class="content-dark">
+        <div class="slide-header">
+          <p class="eyebrow">Key Takeaways</p>
+          <h2>Algebra toolkit for ratios</h2>
+        </div>
+
+        <ul class="plus-list">
+          <li><strong>Combine like terms</strong> - Same variable parts, add the coefficients</li>
+          <li><strong>Isolate the variable</strong> - Do the same operation to both sides</li>
+          <li><strong>Translate carefully</strong> - "Less than" means subtract FROM the quantity</li>
+          <li><strong>Plug In for VIAC</strong> - Variables in answer choices? Pick numbers and test</li>
+          <li><strong>Backsolve from C</strong> - Numeric answer choices? Start with the middle value</li>
+          <li><strong>Flip for negatives</strong> - Multiplying or dividing by a negative flips the inequality</li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="rgba(255,255,255,0.4)"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          9:00-10:00 | Summary: review the four core algebra skills. These are the building blocks for every ratio and proportion problem coming up next.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js -->
+  <script src="../assets/reveal/dist/reveal.min.js"></script>
+  <script type="module">
+    import RevealNotes from '../assets/reveal/plugin/notes/notes.esm.js';
+
+    Reveal.initialize({
+      width: 960,
+      height: 540,
+      margin: 0,
+      minScale: 0.5,
+      maxScale: 3.0,
+      hash: true,
+      slideNumber: true,
+      controls: true,
+      progress: true,
+      history: true,
+      center: false,
+      transition: 'none',
+      backgroundTransition: 'none',
+      disableLayout: false,
+      plugins: [ RevealNotes ]
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en" class="reveal-full-page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spread &amp; Distributions</title>
+
+  <!-- Reveal.js Core -->
+  <link rel="stylesheet" href="../assets/reveal/dist/reset.css">
+  <link rel="stylesheet" href="../assets/reveal/dist/reveal.css">
+
+  <!-- Leland Theme -->
+  <link rel="stylesheet" href="../assets/reveal/themes/leland.css">
+
+  <!-- KaTeX for math rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false}
+      ]
+    });"></script>
+
+</head>
+<body>
+  <!-- SVG Symbol Definitions (defined once, referenced via <use>) -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="leland-logo" viewBox="0 0 200 45">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z"/>
+      <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z"/>
+      <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z"/>
+      <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z"/>
+      <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z"/>
+      <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z"/>
+    </symbol>
+  </svg>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ============================================ -->
+      <!-- SLIDE 1: Title (Dark) -->
+      <!-- ============================================ -->
+      <section class="title-dark">
+        <div class="leland-logo-top">
+          <svg width="110" height="25" fill="white" class="mb-16"><use href="#leland-logo"/></svg>
+        </div>
+
+        <p class="eyebrow">GRE Self-Study Course</p>
+        <h1>Spread &amp;<br><span class="hl">Distributions</span></h1>
+
+        <aside class="notes">
+          0:00-0:20 | Hook: Two classes both average 75. Class A: 70, 72, 75, 78, 80. Class B: 50, 60, 75, 90, 100. Same average, very different spread. This video teaches you how to measure and interpret that spread.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 2: Range -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Measures of Spread</p>
+          <h2>Range: The simplest measure</h2>
+        </div>
+
+        <div class="card-alt-green compact mb-16">
+          <p class="text-lg"><strong>Range = Maximum - Minimum</strong></p>
+        </div>
+
+        <div class="two-column gap-24">
+          <div class="card card-green-bg">
+            <span class="badge badge-green self-start mb-8">Set A</span>
+            <p class="text-md mb-8">70, 72, 75, 78, 80</p>
+            <div class="card-alt compact">
+              <p class="text-md">Range $= 80 - 70 =$&nbsp;$10$</p>
+            </div>
+          </div>
+          <div class="card card-blue-bg">
+            <span class="badge badge-blue self-start mb-8">Set B</span>
+            <p class="text-md mb-8">50, 60, 75, 90, 100</p>
+            <div class="card-alt compact">
+              <p class="text-md">Range $= 100 - 50 =$&nbsp;$50$</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-alt compact mt-24">
+          <span class="badge badge-orange self-start">Limitation</span>
+          <p class="text-md">Range uses only two values, so a single outlier can make it misleading.</p>
+        </div>
+
+        <aside class="notes">
+          0:20-1:20 | Range is the simplest spread measure: maximum minus minimum. Set A has range 10 (tightly clustered), Set B has range 50 (widely spread). Limitation: range only uses two data points and is sensitive to outliers.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 3: Standard Deviation Concept -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Standard Deviation</p>
+          <h2>Measuring spread from the mean</h2>
+        </div>
+
+        <p class="text-md mb-16">Standard deviation (SD) measures how far values spread from the mean. <strong>You will not calculate SD on the GRE, but you must understand it.</strong></p>
+
+        <div class="two-column gap-24">
+          <div class="card card-green-bg">
+            <span class="badge badge-green self-start mb-8">Low SD</span>
+            <p class="text-md mb-8">48, 49, 50, 51, 52</p>
+            <p class="text-md">Values cluster near the mean (50). Small&nbsp;SD.</p>
+          </div>
+          <div class="card card-orange-bg">
+            <span class="badge badge-orange self-start mb-8">High SD</span>
+            <p class="text-md mb-8">30, 40, 50, 60, 70</p>
+            <p class="text-md">Values spread far from the mean (50). Large&nbsp;SD.</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          1:20-2:30 | Standard deviation measures how spread out values are from the mean. Small SD means values cluster near the mean. Large SD means values are widely spread. The GRE tests conceptual understanding, not calculation.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 4: SD Properties -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Standard Deviation</p>
+          <h2>Three key properties</h2>
+        </div>
+
+        <div class="card-grid-3">
+          <div class="card card-green-bg">
+            <h3 class="text-md mb-8">Always $\geq 0$</h3>
+            <p class="text-md">SD equals zero only when all values are identical.</p>
+          </div>
+          <div class="card card-blue-bg">
+            <h3 class="text-md mb-8">Add a Constant</h3>
+            <p class="text-md">Adding $c$ to every value does NOT change SD.</p>
+          </div>
+          <div class="card card-purple-bg">
+            <h3 class="text-md mb-8">Multiply by $c$</h3>
+            <p class="text-md">Multiplying every value by $c$ multiplies SD by&nbsp;$|c|$.</p>
+          </div>
+        </div>
+
+        <div class="card-alt compact mt-24">
+          <span class="badge badge-green self-start">Example</span>
+          <p class="text-md">If a set has mean 50 and SD 10, doubling every value gives mean 100 and SD&nbsp;20.</p>
+        </div>
+
+        <aside class="notes">
+          2:30-3:40 | Three key SD properties. First, SD is always non-negative and equals zero only when all values are the same. Second, adding a constant shifts every value but does not change the spread. Third, multiplying by a constant scales the SD by that factor.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 5: Divider - Normal Distribution -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <p class="part-number">Part 2</p>
+        <h1>Normal Distribution</h1>
+        <p>The bell curve and the 68-95-99.7 rule</p>
+
+        <aside class="notes">
+          3:40-3:50 | Transition: Now let's see how standard deviation connects to the most important distribution on the GRE.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 6: The 68-95-99.7 Rule -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Normal Distribution</p>
+          <h2>The 68-95-99.7 rule</h2>
+        </div>
+
+        <p class="text-md mb-16">For a normal (bell-curve) distribution centered at mean $\mu$ with standard deviation&nbsp;$\sigma$:</p>
+
+        <div class="card-grid-3">
+          <div class="card card-green-bg">
+            <h3 class="text-md mb-8">Within 1 SD</h3>
+            <p class="text-lg mb-8">68%</p>
+            <p class="text-md">$\mu - \sigma$ to $\mu + \sigma$</p>
+          </div>
+          <div class="card card-blue-bg">
+            <h3 class="text-md mb-8">Within 2 SDs</h3>
+            <p class="text-lg mb-8">95%</p>
+            <p class="text-md">$\mu - 2\sigma$ to $\mu + 2\sigma$</p>
+          </div>
+          <div class="card card-purple-bg">
+            <h3 class="text-md mb-8">Within 3 SDs</h3>
+            <p class="text-lg mb-8">99.7%</p>
+            <p class="text-md">$\mu - 3\sigma$ to $\mu + 3\sigma$</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          3:50-5:00 | The empirical rule: 68% of data within 1 SD, 95% within 2 SDs, 99.7% within 3 SDs. This is the most commonly tested normal distribution fact on the GRE.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 7: Example - Normal Distribution -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 1</p>
+          <h2>Applying the empirical rule</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-md">Test scores are normally distributed with $\mu = 500$ and $\sigma = 100$. What percent score above&nbsp;700?</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16">$700 = 500 + 200 = \mu + 2\sigma$</p>
+            <p class="text-md mb-16">95% within 2 SDs, so 5% outside</p>
+            <p class="text-md mb-16">By symmetry, half above $\mu + 2\sigma$</p>
+            <p class="text-lg mt-16">Answer:&nbsp;$2.5\%$</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          5:00-5:50 | Example: scores with mean 500 and SD 100. 700 is 2 SDs above the mean. 95% fall within 2 SDs, so 5% are outside. By symmetry, 2.5% are above 700.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 8: Skewness -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Comparing Distributions</p>
+          <h2>Skewness: Mean vs. median</h2>
+        </div>
+
+        <div class="card-grid-3">
+          <div class="card card-green-bg">
+            <h3 class="text-md mb-8">Symmetric</h3>
+            <p class="text-md mb-8">Mean $\approx$ Median</p>
+            <p class="text-md">Normal distributions, balanced data.</p>
+          </div>
+          <div class="card card-orange-bg">
+            <h3 class="text-md mb-8">Skewed Right</h3>
+            <p class="text-md mb-8">Mean $>$ Median</p>
+            <p class="text-md">Long tail to the right (e.g., income).</p>
+          </div>
+          <div class="card card-blue-bg">
+            <h3 class="text-md mb-8">Skewed Left</h3>
+            <p class="text-md mb-8">Mean $<$ Median</p>
+            <p class="text-md">Long tail to the left (e.g., retirement age).</p>
+          </div>
+        </div>
+
+        <div class="card-alt-green compact mt-24">
+          <span class="badge badge-green self-start">GRE Tip</span>
+          <p class="text-md">The mean is always pulled toward the tail. If mean $>$ median, the tail is on the&nbsp;right.</p>
+        </div>
+
+        <aside class="notes">
+          5:50-7:30 | Three shapes of distributions. Symmetric: mean equals median. Skewed right: mean is pulled above median by high outliers (income). Skewed left: mean is pulled below median by low outliers. The GRE tests whether you can identify skewness from mean vs median.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 9: Summary (Dark) -->
+      <!-- ============================================ -->
+      <section class="content-dark">
+        <div class="slide-header">
+          <p class="eyebrow">Key Takeaways</p>
+          <h2>Spread &amp; distributions</h2>
+        </div>
+
+        <ul class="plus-list">
+          <li><strong>Range</strong> -- Maximum minus minimum; simple but sensitive to outliers</li>
+          <li><strong>Standard deviation</strong> -- Measures spread from the mean; you won't calculate it on the GRE</li>
+          <li><strong>Adding a constant</strong> -- Shifts the mean but does not change SD</li>
+          <li><strong>Multiplying by a constant</strong> -- Scales both the mean and SD by that factor</li>
+          <li><strong>68-95-99.7 rule</strong> -- Memorize these percentages for normal distribution questions</li>
+          <li><strong>Skewness</strong> -- The mean is always pulled toward the longer tail</li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="rgba(255,255,255,0.4)"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          7:30-8:00 | Summary: Range and SD measure spread. Adding a constant does not change SD; multiplying does. The 68-95-99.7 rule is essential. Skewness tells you which way the tail goes.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js -->
+  <script src="../assets/reveal/dist/reveal.min.js"></script>
+  <script type="module">
+    import RevealNotes from '../assets/reveal/plugin/notes/notes.esm.js';
+
+    Reveal.initialize({
+      width: 960,
+      height: 540,
+      margin: 0,
+      minScale: 0.5,
+      maxScale: 3.0,
+      hash: true,
+      slideNumber: true,
+      controls: true,
+      progress: true,
+      history: true,
+      center: false,
+      transition: 'none',
+      backgroundTransition: 'none',
+      disableLayout: false,
+      plugins: [ RevealNotes ]
+    });
+  </script>
+</body>
+</html>

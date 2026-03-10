@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en" class="reveal-full-page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quadratics</title>
+
+  <!-- Reveal.js Core -->
+  <link rel="stylesheet" href="../assets/reveal/dist/reset.css">
+  <link rel="stylesheet" href="../assets/reveal/dist/reveal.css">
+
+  <!-- Leland Theme -->
+  <link rel="stylesheet" href="../assets/reveal/themes/leland.css">
+
+  <!-- KaTeX for math rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false}
+      ]
+    });"></script>
+
+</head>
+<body>
+  <!-- SVG Symbol Definitions (defined once, referenced via <use>) -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="leland-logo" viewBox="0 0 200 45">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z"/>
+      <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z"/>
+      <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z"/>
+      <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z"/>
+      <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z"/>
+      <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z"/>
+    </symbol>
+  </svg>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ============================================ -->
+      <!-- SLIDE 1: Title (Dark) -->
+      <!-- ============================================ -->
+      <section class="title-dark">
+        <div class="leland-logo-top">
+          <svg width="110" height="25" fill="white" class="mb-16"><use href="#leland-logo"/></svg>
+        </div>
+
+        <p class="eyebrow">GRE Self-Study Course</p>
+        <h1>Quadratics<br><span class="hl">Drill</span></h1>
+
+        <aside class="notes">
+          0:00-0:30 | This drill covers factoring quadratic expressions, solving quadratic equations, and using the discriminant. We will work through representative problems across easy, medium, and hard difficulty levels.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 2: Three Core Skills -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Core Skills</p>
+          <h2>Factoring, solving, and the discriminant</h2>
+        </div>
+
+        <div class="card-grid-3">
+          <div class="card card-green-bg">
+            <h3 class="text-md mb-8">Factoring</h3>
+            <p class="text-md">Find two numbers that multiply to $c$ and add to $b$.</p>
+          </div>
+          <div class="card card-blue-bg">
+            <h3 class="text-md mb-8">Solving</h3>
+            <p class="text-md">Factor, then set each factor equal to zero.</p>
+          </div>
+          <div class="card card-purple-bg">
+            <h3 class="text-md mb-8">Discriminant</h3>
+            <p class="text-md">$b^2 - 4ac$ tells you the number of real solutions.</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          0:30-1:30 | Three core skills: factoring (find two numbers), solving (set factors to zero), and the discriminant (b^2 - 4ac determines how many solutions). Let's drill each one. Math trick: when the leading coefficient is not 1 (like 6x^2), multiply a times c, factor that product normally, then divide back. This avoids the guesswork of trial-and-error factoring.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 3: Problem 1 - Difference of Squares -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Problem 1</p>
+          <h2>Difference of squares</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-lg">Factor:&nbsp;$x^2 - 9$</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16"><strong>Pattern:</strong>&nbsp;$a^2 - b^2 = (a+b)(a-b)$</p>
+            <p class="text-md mb-16">$x^2 - 9 = x^2 - 3^2$</p>
+            <p class="text-lg mt-16">Answer:&nbsp;$(x+3)(x-3)$</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          1:30-2:10 | Problem 1: difference of squares. Recognize x^2 - 9 as x^2 - 3^2. Apply the pattern a^2 - b^2 = (a+b)(a-b). Answer: (x+3)(x-3).
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 4: Problem 3 - Standard Factoring -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Problem 2</p>
+          <h2>Standard trinomial factoring</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-lg">Factor:&nbsp;$x^2 + 7x + 12$</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16"><strong>Find two numbers:</strong> multiply to 12, add to 7</p>
+            <p class="text-md mb-16">$3 \times 4 = 12$ and $3 + 4 = 7$</p>
+            <p class="text-lg mt-16">Answer:&nbsp;$(x+3)(x+4)$</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          2:10-2:50 | Problem 2: standard trinomial. Find two numbers that multiply to 12 and add to 7. That is 3 and 4. Answer: (x+3)(x+4).
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 5: Problem 5 - Perfect Square -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Problem 3</p>
+          <h2>Perfect square trinomial</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-lg">Factor:&nbsp;$x^2 - 8x + 16$</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16"><strong>Check:</strong>&nbsp;$\frac{8}{2} = 4$, and $4^2 = 16$</p>
+            <p class="text-md mb-16">This is a perfect square trinomial</p>
+            <p class="text-lg mt-16">Answer:&nbsp;$(x-4)^2$</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          2:50-3:30 | Problem 3: perfect square trinomial. Half of 8 is 4, and 4 squared is 16. This confirms the pattern. Answer: (x-4)^2.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 6: Problem 8 - Factor with Leading Coefficient -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Problem 4</p>
+          <h2>Factor out the GCF first</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-lg">Factor completely:&nbsp;$2x^2 + 10x + 12$</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16"><strong>Step 1:</strong> Factor out 2:&nbsp;$2(x^2 + 5x + 6)$</p>
+            <p class="text-md mb-16"><strong>Step 2:</strong>&nbsp;$2 \times 3 = 6$ and $2 + 3 = 5$</p>
+            <p class="text-lg mt-16">Answer:&nbsp;$2(x+2)(x+3)$</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          3:30-4:10 | Problem 4: always factor out the GCF first. Factor out 2, then factor the remaining trinomial. 2 and 3 multiply to 6 and add to 5. Answer: 2(x+2)(x+3).
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 7: Problem 7 - Sum of Solutions Shortcut -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Problem 5</p>
+          <h2>Sum and product shortcuts</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-md">Solve $x^2 - x - 12 = 0$. What is the sum of the solutions?</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16"><strong>Shortcut:</strong> Sum of roots $= \frac{-b}{a} = \frac{-(-1)}{1}$</p>
+            <p class="text-md mb-16"><strong>Verify:</strong>&nbsp;$(x-4)(x+3) = 0$, roots are 4, $-3$</p>
+            <p class="text-lg mt-16">Answer:&nbsp;Sum $= 1$</p>
+          </div>
+        </div>
+
+        <div class="card-alt compact mt-16">
+          <span class="badge badge-orange">GRE Tip</span>
+          <p class="text-md">Sum of roots $= \frac{-b}{a}$. Product of roots $= \frac{c}{a}$. No factoring needed.</p>
+        </div>
+
+        <aside class="notes">
+          4:10-5:10 | Problem 5: sum of solutions shortcut. Use -b/a = 1. Verify by factoring: roots are 4 and -3, sum is 1. The product shortcut is c/a. These save time on the GRE.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 8: Problem 10 - Discriminant -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Problem 6</p>
+          <h2>Using the discriminant</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-md">How many real solutions does $x^2 - 4x + 5 = 0$ have?</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16"><strong>Discriminant:</strong>&nbsp;$b^2 - 4ac$</p>
+            <p class="text-md mb-16">$(-4)^2 - 4(1)(5) = 16 - 20 = -4$</p>
+            <p class="text-md mb-16">Negative discriminant: no real solutions</p>
+            <p class="text-lg mt-16">Answer:&nbsp;$0$ real solutions</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          5:10-5:50 | Problem 6: discriminant. Calculate b^2 - 4ac = 16 - 20 = -4. Negative means no real solutions. Positive means two, zero means exactly one.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 9: Discriminant Reference -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Reference</p>
+          <h2>Discriminant decision table</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Discriminant $b^2 - 4ac$</th>
+              <th>Number of Solutions</th>
+              <th>What It Means</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Positive ($> 0$)</td>
+              <td>2 real solutions</td>
+              <td>Parabola crosses x-axis twice</td>
+            </tr>
+            <tr>
+              <td>Zero ($= 0$)</td>
+              <td>1 real solution</td>
+              <td>Parabola touches x-axis once</td>
+            </tr>
+            <tr>
+              <td>Negative ($< 0$)</td>
+              <td><span class="neg">0 real solutions</span></td>
+              <td>Parabola misses x-axis entirely</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <aside class="notes">
+          5:50-6:30 | Discriminant reference table. Positive gives two solutions, zero gives one, negative gives none. The GRE frequently asks "how many solutions" or "for what value of k does this have exactly one solution."
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 10: Problem 13 - Finding k -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Problem 7</p>
+          <h2>Finding k for one solution</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-md">For what positive value of $k$ does $x^2 + kx + 9 = 0$ have exactly one real solution?</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16"><strong>Step 1:</strong> Set discriminant $= 0$</p>
+            <p class="text-md mb-16"><strong>Step 2:</strong>&nbsp;$k^2 - 4(1)(9) = 0$</p>
+            <p class="text-md mb-16"><strong>Step 3:</strong>&nbsp;$k^2 = 36$, so $k = \pm 6$</p>
+            <p class="text-lg mt-16">Answer:&nbsp;$k = 6$</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          6:30-7:30 | Problem 7: finding k. For exactly one solution, set discriminant = 0. k^2 - 36 = 0, k = plus or minus 6. The positive value is 6.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 11: Problem 14 - Vieta's Formulas -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Problem 8</p>
+          <h2>Sum and product of roots</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-md">If $r$ and $s$ are solutions of $x^2 - 5x + 3 = 0$, find $r^2 + s^2$ without solving.</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16"><strong>Step 1:</strong>&nbsp;$r + s = 5$ and $rs = 3$</p>
+            <p class="text-md mb-16"><strong>Step 2:</strong>&nbsp;$r^2 + s^2 = (r+s)^2 - 2rs$</p>
+            <p class="text-md mb-16"><strong>Step 3:</strong>&nbsp;$= 25 - 6$</p>
+            <p class="text-lg mt-16">Answer:&nbsp;$r^2 + s^2 = 19$</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          7:30-8:30 | Problem 8: using sum and product of roots. r + s = 5 and rs = 3 from Vieta's formulas. Use the identity r^2 + s^2 = (r+s)^2 - 2rs = 25 - 6 = 19. No need to find individual roots.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 12: Problem 15 - Substitution Trick -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Problem 9</p>
+          <h2>Quadratic in disguise</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-md">Solve:&nbsp;$x^4 - 13x^2 + 36 = 0$</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16"><strong>Step 1:</strong> Let $y = x^2$:&nbsp;$y^2 - 13y + 36 = 0$</p>
+            <p class="text-md mb-16"><strong>Step 2:</strong>&nbsp;$(y-4)(y-9) = 0$, so $y = 4$ or $y = 9$</p>
+            <p class="text-md mb-16"><strong>Step 3:</strong>&nbsp;$x^2 = 4 \rightarrow x = \pm 2$;&nbsp;$x^2 = 9 \rightarrow x = \pm 3$</p>
+            <p class="text-lg mt-16">Answer:&nbsp;$x = \pm 2, \pm 3$</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          8:30-9:30 | Problem 9: quadratic in disguise. Substitute y = x^2 to convert to a standard quadratic. Factor to get y = 4 or y = 9. Back-substitute: x = plus or minus 2 and plus or minus 3. Four solutions total.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 13: Quadratic Formula -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Quadratic Formula</p>
+          <h2>When factoring fails</h2>
+        </div>
+
+        <div class="card-alt-green compact mb-16">
+          <p class="text-lg">$x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$</p>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-md">Solve:&nbsp;$2x^2 + 3x - 1 = 0$</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16"><strong>Step 1:</strong> $a = 2$, $b = 3$, $c = -1$</p>
+            <p class="text-md mb-16"><strong>Step 2:</strong>&nbsp;$x = \frac{-3 \pm \sqrt{9 + 8}}{4} = \frac{-3 \pm \sqrt{17}}{4}$</p>
+            <p class="text-lg mt-16">Answer:&nbsp;$x = \frac{-3 \pm \sqrt{17}}{4}$</p>
+          </div>
+        </div>
+
+        <div class="card-alt compact mt-16">
+          <span class="badge badge-orange">GRE Tip</span>
+          <p class="text-md">Use the formula when the trinomial does not factor neatly. If the discriminant is a perfect square, factoring would have worked.</p>
+        </div>
+
+        <aside class="notes">
+          9:30-10:30 | The quadratic formula: x = (-b plus or minus sqrt(b^2 - 4ac)) / 2a. Use it when the trinomial does not factor cleanly. Here a=2, b=3, c=-1. Discriminant = 9+8 = 17, not a perfect square, so the formula is the right approach.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 14: Completing the Square -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Completing the Square</p>
+          <h2>Converting to vertex form</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-md">Solve:&nbsp;$x^2 + 6x + 2 = 0$</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16"><strong>Step 1:</strong> Move constant:&nbsp;$x^2 + 6x = -2$</p>
+            <p class="text-md mb-16"><strong>Step 2:</strong> Half of 6 is 3, square it: add 9 to both sides</p>
+            <p class="text-md mb-16"><strong>Step 3:</strong>&nbsp;$(x + 3)^2 = 7$</p>
+            <p class="text-lg mt-16">Answer:&nbsp;$x = -3 \pm \sqrt{7}$</p>
+          </div>
+        </div>
+
+        <div class="card-alt compact mt-16">
+          <span class="badge badge-blue">When to Use</span>
+          <p class="text-md">The GRE tests completing the square when asking for vertex form or when a problem says "rewrite in the form $(x + a)^2 = b$."</p>
+        </div>
+
+        <aside class="notes">
+          10:30-11:30 | Completing the square. Move the constant, take half the linear coefficient (6/2 = 3), square it (9), add to both sides. Factor the left side as a perfect square. Take the square root. GRE tests this for vertex form and "rewrite" problems.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 15: Summary (content-dark) -->
+      <!-- ============================================ -->
+      <section class="content-dark">
+        <div class="slide-header">
+          <p class="eyebrow">Key Takeaways</p>
+          <h2>Quadratics</h2>
+        </div>
+
+        <ul class="plus-list">
+          <li><strong>Difference of squares</strong>: $a^2 - b^2 = (a+b)(a-b)$</li>
+          <li><strong>Standard trinomial</strong>: Find two numbers that multiply to $c$ and add to $b$.</li>
+          <li><strong>GCF first</strong>: Always factor out the greatest common factor before trying other methods.</li>
+          <li><strong>Discriminant</strong>: $b^2 - 4ac$ determines the number of real solutions (2, 1, or 0).</li>
+          <li><strong>Sum/product shortcuts</strong>: Sum $= \frac{-b}{a}$, product $= \frac{c}{a}$. Use for $r^2 + s^2$ problems.</li>
+          <li><strong>Quadratic formula</strong>: $x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$ when factoring is not obvious.</li>
+          <li><strong>Completing the square</strong>: Half the linear coefficient, square it, add to both sides.</li>
+          <li><strong>Quadratics in disguise</strong>: Substitute $y = x^2$ for fourth-degree equations.</li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="rgba(255,255,255,0.4)"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          9:30-10:00 | Summary: difference of squares, standard trinomial factoring, GCF first, discriminant for counting solutions, sum/product shortcuts, and the substitution trick for disguised quadratics.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js -->
+  <script src="../assets/reveal/dist/reveal.min.js"></script>
+  <script type="module">
+    import RevealNotes from '../assets/reveal/plugin/notes/notes.esm.js';
+
+    Reveal.initialize({
+      width: 960,
+      height: 540,
+      margin: 0,
+      minScale: 0.5,
+      maxScale: 3.0,
+      hash: true,
+      slideNumber: true,
+      controls: true,
+      progress: true,
+      history: true,
+      center: false,
+      transition: 'none',
+      backgroundTransition: 'none',
+      disableLayout: false,
+      plugins: [ RevealNotes ]
+    });
+  </script>
+</body>
+</html>

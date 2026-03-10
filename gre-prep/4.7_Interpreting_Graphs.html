@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en" class="reveal-full-page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interpreting Graphs</title>
+
+  <!-- Reveal.js Core -->
+  <link rel="stylesheet" href="../assets/reveal/dist/reset.css">
+  <link rel="stylesheet" href="../assets/reveal/dist/reveal.css">
+
+  <!-- Leland Theme -->
+  <link rel="stylesheet" href="../assets/reveal/themes/leland.css">
+
+  <!-- KaTeX for math rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false}
+      ]
+    });"></script>
+
+</head>
+<body>
+  <!-- SVG Symbol Definitions (defined once, referenced via <use>) -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="leland-logo" viewBox="0 0 200 45">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z"/>
+      <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z"/>
+      <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z"/>
+      <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z"/>
+      <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z"/>
+      <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z"/>
+    </symbol>
+  </svg>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ============================================ -->
+      <!-- SLIDE 1: Title (Dark) -->
+      <!-- ============================================ -->
+      <section class="title-dark">
+        <div class="leland-logo-top">
+          <svg width="110" height="25" fill="white" class="mb-16"><use href="#leland-logo"/></svg>
+        </div>
+
+        <p class="eyebrow">GRE Self-Study Course</p>
+        <h1>Interpreting Graphs:<br><span class="hl">Bar, Line, Pie &amp; More</span></h1>
+
+        <aside class="notes">
+          0:00-0:20 | Hook: Every GRE includes 2-3 data interpretation sets. They use bar graphs, line graphs, pie charts, stacked bars, and scatter plots. Knowing what each reveals and hides is essential.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 2: Bar Graphs -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Bar Graphs</p>
+          <h2>Comparing categories</h2>
+        </div>
+
+        <!-- Grouped bar chart: Regional Sales by Year -->
+        <svg class="chart-svg" viewBox="0 0 750 110" style="margin-bottom: 8px">
+          <!-- Gridlines -->
+          <line x1="80" y1="8" x2="80" y2="90" stroke="#E5E5E5" stroke-width="0.5"/>
+          <line x1="80" y1="90" x2="730" y2="90" stroke="#333" stroke-width="1"/>
+          <line x1="80" y1="70" x2="730" y2="70" stroke="#ddd" stroke-width="0.5" stroke-dasharray="3,3"/>
+          <line x1="80" y1="50" x2="730" y2="50" stroke="#ddd" stroke-width="0.5" stroke-dasharray="3,3"/>
+          <line x1="80" y1="29" x2="730" y2="29" stroke="#ddd" stroke-width="0.5" stroke-dasharray="3,3"/>
+          <line x1="80" y1="8" x2="730" y2="8" stroke="#ddd" stroke-width="0.5" stroke-dasharray="3,3"/>
+          <!-- Y-axis labels -->
+          <text x="74" y="93" text-anchor="end" font-size="9" fill="#707070" font-family="Inter,Arial,sans-serif">0</text>
+          <text x="74" y="73" text-anchor="end" font-size="9" fill="#707070" font-family="Inter,Arial,sans-serif">10</text>
+          <text x="74" y="52" text-anchor="end" font-size="9" fill="#707070" font-family="Inter,Arial,sans-serif">20</text>
+          <text x="74" y="31" text-anchor="end" font-size="9" fill="#707070" font-family="Inter,Arial,sans-serif">30</text>
+          <text x="74" y="11" text-anchor="end" font-size="9" fill="#707070" font-family="Inter,Arial,sans-serif">40</text>
+          <text x="10" y="51" text-anchor="middle" font-size="9" fill="#707070" font-family="Inter,Arial,sans-serif" transform="rotate(-90,10,51)">Sales (millions $)</text>
+          <!-- 2019 group -->
+          <rect x="110" y="60" width="28" height="30" fill="#15B078" rx="2"/>
+          <rect x="140" y="66" width="28" height="24" fill="#113A2D" rx="2"/>
+          <rect x="170" y="50" width="28" height="40" fill="#3B7DFD" rx="2"/>
+          <rect x="200" y="70" width="28" height="20" fill="#185440" rx="2"/>
+          <text x="169" y="102" text-anchor="middle" font-size="9" fill="#333" font-family="Inter,Arial,sans-serif">2019</text>
+          <!-- 2020 group -->
+          <rect x="270" y="50" width="28" height="40" fill="#15B078" rx="2"/>
+          <rect x="300" y="56" width="28" height="34" fill="#113A2D" rx="2"/>
+          <rect x="330" y="39" width="28" height="51" fill="#3B7DFD" rx="2"/>
+          <rect x="360" y="60" width="28" height="30" fill="#185440" rx="2"/>
+          <text x="329" y="102" text-anchor="middle" font-size="9" fill="#333" font-family="Inter,Arial,sans-serif">2020</text>
+          <!-- 2021 group -->
+          <rect x="430" y="39" width="28" height="51" fill="#15B078" rx="2"/>
+          <rect x="460" y="44" width="28" height="46" fill="#113A2D" rx="2"/>
+          <rect x="490" y="29" width="28" height="61" fill="#3B7DFD" rx="2"/>
+          <rect x="520" y="50" width="28" height="40" fill="#185440" rx="2"/>
+          <text x="489" y="102" text-anchor="middle" font-size="9" fill="#333" font-family="Inter,Arial,sans-serif">2021</text>
+          <!-- 2022 group -->
+          <rect x="590" y="29" width="28" height="61" fill="#15B078" rx="2"/>
+          <rect x="620" y="35" width="28" height="55" fill="#113A2D" rx="2"/>
+          <rect x="650" y="19" width="28" height="71" fill="#3B7DFD" rx="2"/>
+          <rect x="680" y="39" width="28" height="51" fill="#185440" rx="2"/>
+          <text x="649" y="102" text-anchor="middle" font-size="9" fill="#333" font-family="Inter,Arial,sans-serif">2022</text>
+          <!-- Legend -->
+          <rect x="260" y="107" width="10" height="6" fill="#15B078" rx="1"/>
+          <text x="274" y="112" font-size="8" fill="#333" font-family="Inter,Arial,sans-serif">North</text>
+          <rect x="320" y="107" width="10" height="6" fill="#113A2D" rx="1"/>
+          <text x="334" y="112" font-size="8" fill="#333" font-family="Inter,Arial,sans-serif">South</text>
+          <rect x="380" y="107" width="10" height="6" fill="#3B7DFD" rx="1"/>
+          <text x="394" y="112" font-size="8" fill="#333" font-family="Inter,Arial,sans-serif">East</text>
+          <rect x="430" y="107" width="10" height="6" fill="#185440" rx="1"/>
+          <text x="444" y="112" font-size="8" fill="#333" font-family="Inter,Arial,sans-serif">West</text>
+          <!-- Title -->
+          <text x="405" y="6" text-anchor="middle" font-size="10" font-weight="600" fill="#333" font-family="Inter,Arial,sans-serif">Regional Sales by Year (millions of dollars)</text>
+        </svg>
+
+        <ul class="plus-list" style="margin-top: 8px">
+          <li><strong>Vertical &amp; horizontal bars:</strong> Compare heights or lengths directly. Most common on the GRE</li>
+          <li><strong>Stacked bars:</strong> Show parts within each bar. Subtract to find individual segment sizes</li>
+          <li><strong>Grouped bars:</strong> Compare multiple variables side by side across categories</li>
+        </ul>
+
+        <aside class="notes">
+          0:20-1:30 | Four types of bar graphs. Vertical is most common. Horizontal for many categories. Stacked shows composition within each bar. Grouped compares multiple variables side by side. Strategy tip: before looking at any questions, spend 30 seconds scanning the display for title, labels, units, scale, and legend. Check if the y-axis starts at zero. This prevents the most common DI mistakes.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 3: Bar Graph Example -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 1</p>
+          <h2>Bar graph: Percent increase</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <p class="text-md mb-8"><strong>By what percent did revenue increase from Q2 to Q4?</strong></p>
+            <!-- Quarterly revenue bar chart -->
+            <svg class="chart-svg" viewBox="0 0 340 150" style="margin-bottom: 8px">
+              <text x="170" y="10" text-anchor="middle" font-size="10" font-weight="600" fill="#333" font-family="Inter,Arial,sans-serif">Quarterly Revenue (millions of dollars)</text>
+              <line x1="60" y1="20" x2="60" y2="120" stroke="#333" stroke-width="0.5"/>
+              <line x1="60" y1="120" x2="320" y2="120" stroke="#333" stroke-width="1"/>
+              <line x1="60" y1="97" x2="320" y2="97" stroke="#ddd" stroke-width="0.5" stroke-dasharray="3,3"/>
+              <line x1="60" y1="74" x2="320" y2="74" stroke="#ddd" stroke-width="0.5" stroke-dasharray="3,3"/>
+              <line x1="60" y1="51" x2="320" y2="51" stroke="#ddd" stroke-width="0.5" stroke-dasharray="3,3"/>
+              <line x1="60" y1="28" x2="320" y2="28" stroke="#ddd" stroke-width="0.5" stroke-dasharray="3,3"/>
+              <text x="54" y="123" text-anchor="end" font-size="9" fill="#707070" font-family="Inter,Arial,sans-serif">0</text>
+              <text x="54" y="100" text-anchor="end" font-size="9" fill="#707070" font-family="Inter,Arial,sans-serif">20</text>
+              <text x="54" y="77" text-anchor="end" font-size="9" fill="#707070" font-family="Inter,Arial,sans-serif">40</text>
+              <text x="54" y="54" text-anchor="end" font-size="9" fill="#707070" font-family="Inter,Arial,sans-serif">60</text>
+              <text x="54" y="31" text-anchor="end" font-size="9" fill="#707070" font-family="Inter,Arial,sans-serif">80</text>
+              <!-- Q1=$40M -->
+              <rect x="80" y="74" width="44" height="46" fill="#15B078" rx="2"/>
+              <text x="102" y="70" text-anchor="middle" font-size="9" fill="#333" font-family="Inter,Arial,sans-serif">$40M</text>
+              <text x="102" y="135" text-anchor="middle" font-size="9" fill="#333" font-family="Inter,Arial,sans-serif">Q1</text>
+              <!-- Q2=$55M -->
+              <rect x="142" y="57" width="44" height="63" fill="#3B7DFD" rx="2"/>
+              <text x="164" y="53" text-anchor="middle" font-size="9" fill="#333" font-family="Inter,Arial,sans-serif">$55M</text>
+              <text x="164" y="135" text-anchor="middle" font-size="9" fill="#333" font-family="Inter,Arial,sans-serif">Q2</text>
+              <!-- Q3=$50M -->
+              <rect x="204" y="63" width="44" height="57" fill="#15B078" rx="2"/>
+              <text x="226" y="59" text-anchor="middle" font-size="9" fill="#333" font-family="Inter,Arial,sans-serif">$50M</text>
+              <text x="226" y="135" text-anchor="middle" font-size="9" fill="#333" font-family="Inter,Arial,sans-serif">Q3</text>
+              <!-- Q4=$65M -->
+              <rect x="266" y="46" width="44" height="74" fill="#3B7DFD" rx="2"/>
+              <text x="288" y="42" text-anchor="middle" font-size="9" fill="#333" font-family="Inter,Arial,sans-serif">$65M</text>
+              <text x="288" y="135" text-anchor="middle" font-size="9" fill="#333" font-family="Inter,Arial,sans-serif">Q4</text>
+              <!-- Highlight arrow from Q2 to Q4 -->
+              <line x1="164" y1="53" x2="288" y2="42" stroke="#EF8509" stroke-width="1.5" stroke-dasharray="4,3"/>
+            </svg>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16">Change:&nbsp;$\$65\text{M} - \$55\text{M} = \$10\text{M}$</p>
+            <p class="text-md mb-16">Percent increase:&nbsp;$\frac{10}{55} \times 100\%$</p>
+            <p class="text-lg mt-16">Answer:&nbsp;$\approx 18.2\%$</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          1:30-2:20 | Example: percent increase from Q2 to Q4. The change is 10M. Divide by the original (Q2 = 55M). 10/55 is approximately 18.2%.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 4: Truncated Axes Trap -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Watch Out</p>
+          <h2>The truncated axis trap</h2>
+        </div>
+
+        <!-- Side-by-side truncated axis comparison -->
+        <div class="chart-pair" style="margin-bottom: 16px">
+          <div class="chart-container">
+            <p class="text-sm" style="text-align:center; margin-bottom:4px; color:#15B078; font-weight:600">Y-axis starts at 0</p>
+            <svg class="chart-svg" viewBox="0 0 340 130">
+              <text x="170" y="9" text-anchor="middle" font-size="10" font-weight="600" fill="#333" font-family="Inter,Arial,sans-serif">Monthly Sales (thousands)</text>
+              <line x1="55" y1="15" x2="55" y2="107" stroke="#333" stroke-width="0.5"/>
+              <line x1="55" y1="107" x2="320" y2="107" stroke="#333" stroke-width="1"/>
+              <line x1="55" y1="89" x2="320" y2="89" stroke="#ddd" stroke-width="0.5" stroke-dasharray="3,3"/>
+              <line x1="55" y1="70" x2="320" y2="70" stroke="#ddd" stroke-width="0.5" stroke-dasharray="3,3"/>
+              <line x1="55" y1="52" x2="320" y2="52" stroke="#ddd" stroke-width="0.5" stroke-dasharray="3,3"/>
+              <line x1="55" y1="34" x2="320" y2="34" stroke="#ddd" stroke-width="0.5" stroke-dasharray="3,3"/>
+              <line x1="55" y1="15" x2="320" y2="15" stroke="#ddd" stroke-width="0.5" stroke-dasharray="3,3"/>
+              <text x="49" y="110" text-anchor="end" font-size="9" fill="#707070" font-family="Inter,Arial,sans-serif">0</text>
+              <text x="49" y="91" text-anchor="end" font-size="9" fill="#707070" font-family="Inter,Arial,sans-serif">20</text>
+              <text x="49" y="73" text-anchor="end" font-size="9" fill="#707070" font-family="Inter,Arial,sans-serif">40</text>
+              <text x="49" y="54" text-anchor="end" font-size="9" fill="#707070" font-family="Inter,Arial,sans-serif">60</text>
+              <text x="49" y="36" text-anchor="end" font-size="9" fill="#707070" font-family="Inter,Arial,sans-serif">80</text>
+              <text x="49" y="18" text-anchor="end" font-size="9" fill="#707070" font-family="Inter,Arial,sans-serif">100</text>
+              <!-- A=72, B=68, C=75 — bars look similar when axis starts at 0 -->
+              <rect x="90" y="41" width="52" height="66" fill="#15B078" rx="2"/>
+              <text x="116" y="119" text-anchor="middle" font-size="9" fill="#333" font-family="Inter,Arial,sans-serif">Store A</text>
+              <rect x="165" y="44" width="52" height="63" fill="#3B7DFD" rx="2"/>
+              <text x="191" y="119" text-anchor="middle" font-size="9" fill="#333" font-family="Inter,Arial,sans-serif">Store B</text>
+              <rect x="240" y="38" width="52" height="69" fill="#185440" rx="2"/>
+              <text x="266" y="119" text-anchor="middle" font-size="9" fill="#333" font-family="Inter,Arial,sans-serif">Store C</text>
+              <!-- Annotation -->
+              <text x="170" y="128" text-anchor="middle" font-size="9" font-style="italic" fill="#15B078" font-family="Inter,Arial,sans-serif">Bars look similar — small real difference</text>
+            </svg>
+          </div>
+          <div class="chart-container">
+            <p class="text-sm" style="text-align:center; margin-bottom:4px; color:#FB5A42; font-weight:600">Y-axis starts at 50</p>
+            <svg class="chart-svg" viewBox="0 0 340 130">
+              <text x="170" y="9" text-anchor="middle" font-size="10" font-weight="600" fill="#333" font-family="Inter,Arial,sans-serif">Monthly Sales (thousands)</text>
+              <line x1="55" y1="15" x2="55" y2="107" stroke="#333" stroke-width="0.5"/>
+              <line x1="55" y1="107" x2="320" y2="107" stroke="#333" stroke-width="1"/>
+              <line x1="55" y1="89" x2="320" y2="89" stroke="#ddd" stroke-width="0.5" stroke-dasharray="3,3"/>
+              <line x1="55" y1="70" x2="320" y2="70" stroke="#ddd" stroke-width="0.5" stroke-dasharray="3,3"/>
+              <line x1="55" y1="52" x2="320" y2="52" stroke="#ddd" stroke-width="0.5" stroke-dasharray="3,3"/>
+              <line x1="55" y1="34" x2="320" y2="34" stroke="#ddd" stroke-width="0.5" stroke-dasharray="3,3"/>
+              <line x1="55" y1="15" x2="320" y2="15" stroke="#ddd" stroke-width="0.5" stroke-dasharray="3,3"/>
+              <text x="49" y="110" text-anchor="end" font-size="9" fill="#707070" font-family="Inter,Arial,sans-serif">50</text>
+              <text x="49" y="91" text-anchor="end" font-size="9" fill="#707070" font-family="Inter,Arial,sans-serif">55</text>
+              <text x="49" y="73" text-anchor="end" font-size="9" fill="#707070" font-family="Inter,Arial,sans-serif">60</text>
+              <text x="49" y="54" text-anchor="end" font-size="9" fill="#707070" font-family="Inter,Arial,sans-serif">65</text>
+              <text x="49" y="36" text-anchor="end" font-size="9" fill="#707070" font-family="Inter,Arial,sans-serif">70</text>
+              <text x="49" y="18" text-anchor="end" font-size="9" fill="#707070" font-family="Inter,Arial,sans-serif">75</text>
+              <!-- Zigzag break mark on y-axis -->
+              <path d="M50 106 L55 103 L50 101 L55 99" stroke="#333" fill="none" stroke-width="1"/>
+              <!-- Same values: A=72, B=68, C=75 — but NOW bars look drastically different -->
+              <rect x="90" y="42" width="52" height="65" fill="#FB5A42" rx="2"/>
+              <text x="116" y="119" text-anchor="middle" font-size="9" fill="#333" font-family="Inter,Arial,sans-serif">Store A</text>
+              <rect x="165" y="79" width="52" height="28" fill="#FB5A42" rx="2" opacity="0.7"/>
+              <text x="191" y="119" text-anchor="middle" font-size="9" fill="#333" font-family="Inter,Arial,sans-serif">Store B</text>
+              <rect x="240" y="15" width="52" height="92" fill="#FB5A42" rx="2"/>
+              <text x="266" y="119" text-anchor="middle" font-size="9" fill="#333" font-family="Inter,Arial,sans-serif">Store C</text>
+              <!-- Annotation -->
+              <text x="170" y="128" text-anchor="middle" font-size="9" font-weight="700" fill="#FB5A42" font-family="Inter,Arial,sans-serif">MISLEADING — same data looks dramatically different!</text>
+            </svg>
+          </div>
+        </div>
+
+        <div class="two-column gap-32">
+          <div class="card card-red-bg" style="padding: 12px 16px">
+            <span class="badge badge-red self-start mb-8">Trap</span>
+            <p class="text-sm">A bar that appears twice as tall does NOT mean twice the value. Always check where the axis starts.</p>
+          </div>
+          <div class="card card-green-bg" style="padding: 12px 16px">
+            <span class="badge badge-green self-start mb-8">Solution</span>
+            <p class="text-sm">Read the actual values from the scale, not the visual proportions.</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          2:20-3:00 | Critical trap: truncated axes. When the y-axis does not start at zero, visual comparisons are misleading. A bar that looks twice as tall might only represent a 10% difference. Always read the actual numbers.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 5: Divider - Line Graphs -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <p class="part-number">Part 2</p>
+        <h1>Line Graphs</h1>
+        <p>Trends over time and rate of change</p>
+
+        <aside class="notes">
+          3:00-3:10 | Transition: Line graphs are the go-to for showing change over time.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 6: Reading Line Graphs -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Line Graphs</p>
+          <h2>Interpreting slopes and trends</h2>
+        </div>
+
+        <!-- Line chart demonstrating slope types -->
+        <svg class="chart-svg" viewBox="0 0 750 100" style="margin-bottom: 8px">
+          <line x1="60" y1="12" x2="60" y2="81" stroke="#333" stroke-width="0.5"/>
+          <line x1="60" y1="81" x2="720" y2="81" stroke="#333" stroke-width="1"/>
+          <line x1="60" y1="62" x2="720" y2="62" stroke="#ddd" stroke-width="0.5" stroke-dasharray="3,3"/>
+          <line x1="60" y1="42" x2="720" y2="42" stroke="#ddd" stroke-width="0.5" stroke-dasharray="3,3"/>
+          <line x1="60" y1="23" x2="720" y2="23" stroke="#ddd" stroke-width="0.5" stroke-dasharray="3,3"/>
+          <!-- X-axis labels -->
+          <text x="100" y="91" text-anchor="middle" font-size="9" fill="#707070" font-family="Inter,Arial,sans-serif">Jan</text>
+          <text x="210" y="91" text-anchor="middle" font-size="9" fill="#707070" font-family="Inter,Arial,sans-serif">Mar</text>
+          <text x="320" y="91" text-anchor="middle" font-size="9" fill="#707070" font-family="Inter,Arial,sans-serif">May</text>
+          <text x="430" y="91" text-anchor="middle" font-size="9" fill="#707070" font-family="Inter,Arial,sans-serif">Jul</text>
+          <text x="540" y="91" text-anchor="middle" font-size="9" fill="#707070" font-family="Inter,Arial,sans-serif">Sep</text>
+          <text x="650" y="91" text-anchor="middle" font-size="9" fill="#707070" font-family="Inter,Arial,sans-serif">Nov</text>
+          <!-- Line segments with labeled slope types -->
+          <!-- Steep upward: Jan→Mar -->
+          <polyline points="100,69 210,31" fill="none" stroke="#15B078" stroke-width="2.5"/>
+          <circle cx="100" cy="69" r="3" fill="#15B078"/>
+          <circle cx="210" cy="31" r="3" fill="#15B078"/>
+          <text x="155" y="42" text-anchor="middle" font-size="9" font-weight="600" fill="#15B078" font-family="Inter,Arial,sans-serif">Steep Up</text>
+          <!-- Flat: Mar→May -->
+          <polyline points="210,31 320,32" fill="none" stroke="#3B7DFD" stroke-width="2.5"/>
+          <circle cx="320" cy="32" r="3" fill="#3B7DFD"/>
+          <text x="265" y="27" text-anchor="middle" font-size="9" font-weight="600" fill="#3B7DFD" font-family="Inter,Arial,sans-serif">Flat</text>
+          <!-- Gentle upward: May→Jul -->
+          <polyline points="320,32 430,23" fill="none" stroke="#185440" stroke-width="2.5"/>
+          <circle cx="430" cy="23" r="3" fill="#185440"/>
+          <text x="375" y="22" text-anchor="middle" font-size="9" font-weight="600" fill="#185440" font-family="Inter,Arial,sans-serif">Gentle Up</text>
+          <!-- Downward: Jul→Sep→Nov -->
+          <polyline points="430,23 540,42 650,62" fill="none" stroke="#FB5A42" stroke-width="2.5"/>
+          <circle cx="540" cy="42" r="3" fill="#FB5A42"/>
+          <circle cx="650" cy="62" r="3" fill="#FB5A42"/>
+          <text x="540" y="35" text-anchor="middle" font-size="9" font-weight="600" fill="#FB5A42" font-family="Inter,Arial,sans-serif">Downward</text>
+          <!-- Title -->
+          <text x="390" y="8" text-anchor="middle" font-size="10" font-weight="600" fill="#333" font-family="Inter,Arial,sans-serif">Revenue Trend — Identifying Slope Types</text>
+        </svg>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Slope</th>
+              <th>Meaning</th>
+              <th>What to Look For</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Steep upward</td>
+              <td>Rapid increase</td>
+              <td>Large change over short time</td>
+            </tr>
+            <tr>
+              <td>Gentle upward</td>
+              <td>Slow increase</td>
+              <td>Gradual growth</td>
+            </tr>
+            <tr>
+              <td>Flat</td>
+              <td>No change</td>
+              <td>Stable period</td>
+            </tr>
+            <tr>
+              <td>Downward</td>
+              <td>Decrease</td>
+              <td>Declining trend</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p class="text-sm mt-8" style="color: #9B9B9B;"><strong>Watch out:</strong> Do not interpolate between plotted points unless the line is confirmed to be straight.</p>
+
+        <aside class="notes">
+          3:10-4:20 | How to read line graph slopes. Steep upward means rapid increase. Flat means no change. Downward means decrease. Important: do not assume values between plotted points follow a straight line.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 7: Line Graph Example -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 2</p>
+          <h2>Average annual increase</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <p class="text-md mb-8"><strong>What is the average annual increase in profit from Year 1 to Year 5?</strong></p>
+            <!-- 5-year profit line chart -->
+            <svg class="chart-svg" viewBox="0 0 340 150">
+              <text x="170" y="10" text-anchor="middle" font-size="10" font-weight="600" fill="#333" font-family="Inter,Arial,sans-serif">Annual Profit (millions of dollars)</text>
+              <line x1="55" y1="18" x2="55" y2="118" stroke="#333" stroke-width="0.5"/>
+              <line x1="55" y1="118" x2="320" y2="118" stroke="#333" stroke-width="1"/>
+              <line x1="55" y1="93" x2="320" y2="93" stroke="#ddd" stroke-width="0.5" stroke-dasharray="3,3"/>
+              <line x1="55" y1="68" x2="320" y2="68" stroke="#ddd" stroke-width="0.5" stroke-dasharray="3,3"/>
+              <line x1="55" y1="43" x2="320" y2="43" stroke="#ddd" stroke-width="0.5" stroke-dasharray="3,3"/>
+              <line x1="55" y1="18" x2="320" y2="18" stroke="#ddd" stroke-width="0.5" stroke-dasharray="3,3"/>
+              <text x="49" y="121" text-anchor="end" font-size="9" fill="#707070" font-family="Inter,Arial,sans-serif">0</text>
+              <text x="49" y="96" text-anchor="end" font-size="9" fill="#707070" font-family="Inter,Arial,sans-serif">5</text>
+              <text x="49" y="71" text-anchor="end" font-size="9" fill="#707070" font-family="Inter,Arial,sans-serif">10</text>
+              <text x="49" y="46" text-anchor="end" font-size="9" fill="#707070" font-family="Inter,Arial,sans-serif">15</text>
+              <text x="49" y="21" text-anchor="end" font-size="9" fill="#707070" font-family="Inter,Arial,sans-serif">20</text>
+              <!-- Data points: Yr1=$10M, Yr2=$12M, Yr3=$13M, Yr4=$16M, Yr5=$18M -->
+              <polyline points="88,68 146,58 204,53 262,38 320,28" fill="none" stroke="#15B078" stroke-width="2.5"/>
+              <circle cx="88" cy="68" r="4" fill="#15B078"/>
+              <circle cx="146" cy="58" r="3" fill="#15B078"/>
+              <circle cx="204" cy="53" r="3" fill="#15B078"/>
+              <circle cx="262" cy="38" r="3" fill="#15B078"/>
+              <circle cx="320" cy="28" r="4" fill="#15B078"/>
+              <text x="88" y="80" text-anchor="middle" font-size="8" fill="#333" font-family="Inter,Arial,sans-serif">$10M</text>
+              <text x="320" y="22" text-anchor="middle" font-size="8" fill="#333" font-family="Inter,Arial,sans-serif">$18M</text>
+              <!-- X-axis labels -->
+              <text x="88" y="132" text-anchor="middle" font-size="9" fill="#333" font-family="Inter,Arial,sans-serif">Yr 1</text>
+              <text x="146" y="132" text-anchor="middle" font-size="9" fill="#333" font-family="Inter,Arial,sans-serif">Yr 2</text>
+              <text x="204" y="132" text-anchor="middle" font-size="9" fill="#333" font-family="Inter,Arial,sans-serif">Yr 3</text>
+              <text x="262" y="132" text-anchor="middle" font-size="9" fill="#333" font-family="Inter,Arial,sans-serif">Yr 4</text>
+              <text x="320" y="132" text-anchor="middle" font-size="9" fill="#333" font-family="Inter,Arial,sans-serif">Yr 5</text>
+              <!-- Bracket: 4 intervals -->
+              <line x1="88" y1="140" x2="320" y2="140" stroke="#9B9B9B" stroke-width="1"/>
+              <text x="204" y="149" text-anchor="middle" font-size="8" fill="#707070" font-family="Inter,Arial,sans-serif">4 intervals</text>
+            </svg>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16">Total increase:&nbsp;$\$18\text{M} - \$10\text{M} = \$8\text{M}$</p>
+            <p class="text-md mb-16">Number of intervals: 4 (Year 1 to Year 5)</p>
+            <p class="text-lg mt-16">Average:&nbsp;$\frac{\$8\text{M}}{4} =$&nbsp;$\$2\text{M/year}$</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          4:20-5:00 | Example: average annual increase. Total change is 8M over 4 intervals (not 5 years, but 4 gaps). Average increase is 2M per year.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 8: Pie Charts -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Pie Charts</p>
+          <h2>Parts of a whole</h2>
+        </div>
+
+        <div class="two-column gap-24">
+          <div>
+            <p class="text-md mb-8"><strong>A company's $500,000 budget is allocated as shown. How much goes to Marketing?</strong></p>
+            <!-- Pie chart: Budget breakdown -->
+            <svg class="chart-svg" viewBox="0 0 340 190" style="margin-bottom: 4px">
+              <text x="130" y="12" text-anchor="middle" font-size="10" font-weight="600" fill="#333" font-family="Inter,Arial,sans-serif">Company Budget Allocation</text>
+              <!-- Pie slices (cx=130, cy=105, r=72) -->
+              <!-- Salaries 45% = 162° clockwise from top -->
+              <path d="M130,33 A72,72 0 0,1 152.2,173.5 L130,105 Z" fill="#15B078"/>
+              <!-- Equipment 25% = 90° (162° to 252°) -->
+              <path d="M152.2,173.5 A72,72 0 0,1 61.5,127.2 L130,105 Z" fill="#113A2D"/>
+              <!-- Marketing 20% = 72° (252° to 324°) -->
+              <path d="M61.5,127.2 A72,72 0 0,1 87.7,46.8 L130,105 Z" fill="#3B7DFD"/>
+              <!-- Other 10% = 36° (324° to 360°) -->
+              <path d="M87.7,46.8 A72,72 0 0,1 130,33 L130,105 Z" fill="#9B9B9B"/>
+              <!-- Labels (centered in each slice) -->
+              <text x="170" y="102" text-anchor="middle" font-size="13" font-weight="600" fill="#fff" font-family="Inter,Arial,sans-serif">45%</text>
+              <text x="112" y="144" text-anchor="middle" font-size="13" font-weight="600" fill="#fff" font-family="Inter,Arial,sans-serif">25%</text>
+              <text x="92" y="96" text-anchor="middle" font-size="12" font-weight="600" fill="#fff" font-family="Inter,Arial,sans-serif">20%</text>
+              <text x="119" y="75" text-anchor="middle" font-size="11" font-weight="600" fill="#fff" font-family="Inter,Arial,sans-serif">10%</text>
+              <!-- Legend -->
+              <rect x="225" y="50" width="12" height="8" fill="#15B078" rx="2"/>
+              <text x="241" y="58" font-size="9" fill="#333" font-family="Inter,Arial,sans-serif">Salaries (45%)</text>
+              <rect x="225" y="68" width="12" height="8" fill="#113A2D" rx="2"/>
+              <text x="241" y="76" font-size="9" fill="#333" font-family="Inter,Arial,sans-serif">Equipment (25%)</text>
+              <rect x="225" y="86" width="12" height="8" fill="#3B7DFD" rx="2"/>
+              <text x="241" y="94" font-size="9" fill="#333" font-family="Inter,Arial,sans-serif">Marketing (20%)</text>
+              <rect x="225" y="104" width="12" height="8" fill="#9B9B9B" rx="2"/>
+              <text x="241" y="112" font-size="9" fill="#333" font-family="Inter,Arial,sans-serif">Other (10%)</text>
+
+            </svg>
+          </div>
+          <div class="card card-green-bg">
+            <span class="badge badge-green self-start mb-16">Key Formulas</span>
+            <p class="text-md mb-16"><strong>Value:</strong> Percent $\times$ Total</p>
+            <p class="text-md mb-16"><strong>Angle:</strong> $\frac{\text{Percent}}{100} \times 360°$</p>
+            <p class="text-md"><strong>Difference:</strong> Subtract percents, then multiply by total</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          5:00-6:30 | Pie charts show parts of a whole. The entire pie is 100%. To find a value, multiply percent by total. To find an angle, multiply percent by 360 degrees. Example with a $500K budget broken into four categories.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 8b: Stacked Bar & Scatter -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">More Graph Types</p>
+          <h2>Stacked bars and scatter plots</h2>
+        </div>
+
+        <div class="two-column gap-24">
+          <div class="card card-green-bg">
+            <span class="badge badge-green self-start mb-8">Stacked Bar</span>
+            <p class="text-md mb-8">Each bar is divided into segments showing composition.</p>
+            <ul class="plus-list text-md">
+              <li>Read segment heights, not top of bar</li>
+              <li>Total bar height = sum of all parts</li>
+              <li>Segmented (100%) bars show proportions</li>
+            </ul>
+          </div>
+          <div class="card card-blue-bg">
+            <span class="badge badge-blue self-start mb-8">Scatter Plot</span>
+            <p class="text-md mb-8">Each point represents two variables for one observation.</p>
+            <ul class="plus-list text-md">
+              <li>Look for positive, negative, or no trend</li>
+              <li>Identify outliers far from the cluster</li>
+              <li>Do not assume causation from correlation</li>
+            </ul>
+          </div>
+        </div>
+
+        <aside class="notes">
+          6:30-7:30 | Two more graph types you may see. Stacked bar charts divide each bar into segments. Read individual segment heights carefully by subtracting, not just reading the top. Segmented (100%) bars normalize everything to proportions. Scatter plots show the relationship between two variables. Look for the overall trend direction and any outliers.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 9: Combined Displays -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Combined Displays</p>
+          <h2>Multi-graph questions</h2>
+        </div>
+
+        <div class="two-column">
+          <div>
+            <!-- Two stacked mini displays -->
+            <svg class="chart-svg" viewBox="0 0 340 120" style="margin-bottom: 8px">
+              <text x="170" y="10" text-anchor="middle" font-size="10" font-weight="600" fill="#333" font-family="Inter,Arial,sans-serif">Total Market Size ($M)</text>
+              <line x1="60" y1="18" x2="60" y2="95" stroke="#333" stroke-width="0.5"/>
+              <line x1="60" y1="95" x2="300" y2="95" stroke="#333" stroke-width="1"/>
+              <text x="54" y="98" text-anchor="end" font-size="8" fill="#707070" font-family="Inter,Arial,sans-serif">0</text>
+              <text x="54" y="72" text-anchor="end" font-size="8" fill="#707070" font-family="Inter,Arial,sans-serif">50</text>
+              <text x="54" y="46" text-anchor="end" font-size="8" fill="#707070" font-family="Inter,Arial,sans-serif">100</text>
+              <line x1="60" y1="70" x2="300" y2="70" stroke="#ddd" stroke-width="0.5" stroke-dasharray="3,3"/>
+              <line x1="60" y1="45" x2="300" y2="45" stroke="#ddd" stroke-width="0.5" stroke-dasharray="3,3"/>
+              <rect x="88" y="60" width="40" height="35" fill="#185440" rx="2"/>
+              <text x="108" y="110" text-anchor="middle" font-size="9" fill="#333" font-family="Inter,Arial,sans-serif">2018</text>
+              <rect x="152" y="48" width="40" height="47" fill="#185440" rx="2"/>
+              <text x="172" y="110" text-anchor="middle" font-size="9" fill="#333" font-family="Inter,Arial,sans-serif">2019</text>
+              <rect x="216" y="35" width="40" height="60" fill="#15B078" rx="2"/>
+              <text x="236" y="30" text-anchor="middle" font-size="9" font-weight="600" fill="#15B078" font-family="Inter,Arial,sans-serif">$100M</text>
+              <text x="236" y="110" text-anchor="middle" font-size="9" fill="#333" font-family="Inter,Arial,sans-serif">2020</text>
+            </svg>
+            <svg class="chart-svg" viewBox="0 0 340 120" style="margin-top: 4px">
+              <text x="120" y="10" text-anchor="middle" font-size="10" font-weight="600" fill="#333" font-family="Inter,Arial,sans-serif">2020 Market Share</text>
+              <!-- Pie: cx=120, cy=68, r=48; 35% = 126° clockwise from top -->
+              <path d="M120,20 A48,48 0 0,1 158.8,96.2 L120,68 Z" fill="#15B078"/>
+              <path d="M158.8,96.2 A48,48 0 1,1 120,20 L120,68 Z" fill="#E5E5E5"/>
+              <text x="145" y="58" text-anchor="middle" font-size="13" font-weight="600" fill="#fff" font-family="Inter,Arial,sans-serif">35%</text>
+              <text x="95" y="84" text-anchor="middle" font-size="11" fill="#707070" font-family="Inter,Arial,sans-serif">65%</text>
+              <rect x="230" y="50" width="10" height="8" fill="#15B078" rx="1"/>
+              <text x="244" y="58" font-size="9" fill="#333" font-family="Inter,Arial,sans-serif">Company A</text>
+              <rect x="230" y="66" width="10" height="8" fill="#E5E5E5" rx="1"/>
+              <text x="244" y="74" font-size="9" fill="#333" font-family="Inter,Arial,sans-serif">Others</text>
+            </svg>
+          </div>
+          <div>
+            <p class="text-md mb-16"><strong>What were Company A's sales in 2020?</strong></p>
+            <p class="text-md mb-16">From bar graph: total market = $100M</p>
+            <p class="text-md mb-16">From pie chart: Company A share = 35%</p>
+            <p class="text-lg mt-16">Sales $= 35\% \times \$100\text{M} =$&nbsp;\$35M</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          6:30-7:30 | Combined display questions require data from multiple sources. Step 1: find total market from the bar graph. Step 2: find the company share from the pie chart. Step 3: multiply to get the answer.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 10: Graph Reading Checklist -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Checklist</p>
+          <h2>Before you calculate, always check</h2>
+        </div>
+
+        <!-- Annotated chart with callouts to each checklist element -->
+        <svg class="chart-svg" viewBox="0 0 750 130" style="margin-bottom: 8px">
+          <!-- Chart area -->
+          <rect x="120" y="17" width="440" height="95" fill="#fafafa" stroke="#E5E5E5" stroke-width="1" rx="4"/>
+          <!-- Title -->
+          <text x="340" y="13" text-anchor="middle" font-size="10" font-weight="600" fill="#333" font-family="Inter,Arial,sans-serif">Annual Revenue by Division (millions of dollars)</text>
+          <!-- Y-axis -->
+          <line x1="160" y1="27" x2="160" y2="102" stroke="#333" stroke-width="0.5"/>
+          <line x1="160" y1="102" x2="520" y2="102" stroke="#333" stroke-width="1"/>
+          <text x="154" y="105" text-anchor="end" font-size="8" fill="#707070" font-family="Inter,Arial,sans-serif">0</text>
+          <text x="154" y="84" text-anchor="end" font-size="8" fill="#707070" font-family="Inter,Arial,sans-serif">10</text>
+          <text x="154" y="65" text-anchor="end" font-size="8" fill="#707070" font-family="Inter,Arial,sans-serif">20</text>
+          <text x="154" y="45" text-anchor="end" font-size="8" fill="#707070" font-family="Inter,Arial,sans-serif">30</text>
+          <text x="128" y="67" text-anchor="middle" font-size="8" fill="#707070" font-family="Inter,Arial,sans-serif" transform="rotate(-90,128,67)">Revenue ($M)</text>
+          <!-- X-axis label -->
+          <text x="340" y="128" text-anchor="middle" font-size="8" fill="#707070" font-family="Inter,Arial,sans-serif">Division</text>
+          <!-- Bars -->
+          <rect x="200" y="55" width="30" height="47" fill="#15B078" rx="2"/>
+          <rect x="245" y="65" width="30" height="37" fill="#113A2D" rx="2"/>
+          <rect x="310" y="46" width="30" height="56" fill="#15B078" rx="2"/>
+          <rect x="355" y="74" width="30" height="28" fill="#113A2D" rx="2"/>
+          <rect x="420" y="36" width="30" height="66" fill="#15B078" rx="2"/>
+          <rect x="465" y="60" width="30" height="42" fill="#113A2D" rx="2"/>
+          <text x="222" y="118" text-anchor="middle" font-size="7" fill="#333" font-family="Inter,Arial,sans-serif">North</text>
+          <text x="342" y="118" text-anchor="middle" font-size="7" fill="#333" font-family="Inter,Arial,sans-serif">South</text>
+          <text x="452" y="118" text-anchor="middle" font-size="7" fill="#333" font-family="Inter,Arial,sans-serif">West</text>
+          <!-- Legend box -->
+          <rect x="520" y="47" width="35" height="32" fill="none" stroke="#E5E5E5" stroke-width="1" rx="3"/>
+          <rect x="524" y="54" width="8" height="6" fill="#15B078" rx="1"/>
+          <text x="535" y="59" font-size="7" fill="#333" font-family="Inter,Arial,sans-serif">2023</text>
+          <rect x="524" y="65" width="8" height="6" fill="#113A2D" rx="1"/>
+          <text x="535" y="70" font-size="7" fill="#333" font-family="Inter,Arial,sans-serif">2024</text>
+
+          <!-- CALLOUT ARROWS -->
+          <!-- 1. Labels callout (pointing to y-axis label) -->
+          <line x1="90" y1="67" x2="118" y2="67" stroke="#15B078" stroke-width="1.5" marker-end="url(#arrowGreen)"/>
+          <rect x="10" y="60" width="78" height="18" rx="4" fill="#15B078"/>
+          <text x="49" y="72" text-anchor="middle" font-size="8" font-weight="600" fill="#fff" font-family="Inter,Arial,sans-serif">1. LABELS</text>
+
+          <!-- 2. Units callout (pointing to title) -->
+          <line x1="620" y1="13" x2="572" y2="13" stroke="#3B7DFD" stroke-width="1.5" marker-end="url(#arrowBlue)"/>
+          <rect x="622" y="6" width="68" height="18" rx="4" fill="#3B7DFD"/>
+          <text x="656" y="18" text-anchor="middle" font-size="8" font-weight="600" fill="#fff" font-family="Inter,Arial,sans-serif">2. UNITS</text>
+
+          <!-- 3. Scale callout (pointing to y-axis 0) -->
+          <line x1="90" y1="105" x2="148" y2="105" stroke="#EF8509" stroke-width="1.5" marker-end="url(#arrowOrange)"/>
+          <rect x="10" y="98" width="78" height="18" rx="4" fill="#EF8509"/>
+          <text x="49" y="110" text-anchor="middle" font-size="8" font-weight="600" fill="#fff" font-family="Inter,Arial,sans-serif">3. SCALE</text>
+
+          <!-- 4. Legend callout (pointing to legend box) -->
+          <line x1="620" y1="63" x2="558" y2="63" stroke="#2D25A6" stroke-width="1.5" marker-end="url(#arrowPurple)"/>
+          <rect x="622" y="56" width="78" height="18" rx="4" fill="#2D25A6"/>
+          <text x="661" y="68" text-anchor="middle" font-size="8" font-weight="600" fill="#fff" font-family="Inter,Arial,sans-serif">4. LEGEND</text>
+
+          <!-- Arrow markers -->
+          <defs>
+            <marker id="arrowGreen" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+              <path d="M0,0 L6,3 L0,6" fill="#15B078"/>
+            </marker>
+            <marker id="arrowBlue" markerWidth="6" markerHeight="6" refX="1" refY="3" orient="auto">
+              <path d="M6,0 L0,3 L6,6" fill="#3B7DFD"/>
+            </marker>
+            <marker id="arrowOrange" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+              <path d="M0,0 L6,3 L0,6" fill="#EF8509"/>
+            </marker>
+            <marker id="arrowPurple" markerWidth="6" markerHeight="6" refX="1" refY="3" orient="auto">
+              <path d="M6,0 L0,3 L6,6" fill="#2D25A6"/>
+            </marker>
+          </defs>
+        </svg>
+
+        <div class="card-grid-2" style="padding-bottom: 0">
+          <div class="card card-green-bg">
+            <span class="badge badge-green self-start mb-8">1. Labels</span>
+            <p class="text-sm">What is being measured on each axis?</p>
+          </div>
+          <div class="card card-blue-bg">
+            <span class="badge badge-blue self-start mb-8">2. Units</span>
+            <p class="text-sm">Thousands? Millions? Check the title/caption.</p>
+          </div>
+          <div class="card card-orange-bg">
+            <span class="badge badge-orange self-start mb-8">3. Scale</span>
+            <p class="text-sm">Does the y-axis start at zero?</p>
+          </div>
+          <div class="card card-purple-bg">
+            <span class="badge badge-purple self-start mb-8">4. Legend</span>
+            <p class="text-sm">What do colors and patterns represent?</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          7:30-8:30 | The pre-calculation checklist. Always verify: axis labels, unit multipliers, starting point of the scale, and legend color coding. This prevents the most common Data Interpretation errors.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 11: Graph Limitations -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Limitations</p>
+          <h2>What each graph hides</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Graph Type</th>
+              <th>Best For</th>
+              <th>Watch Out For</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Bar</td>
+              <td>Comparing categories</td>
+              <td>Truncated axes exaggerate differences</td>
+            </tr>
+            <tr>
+              <td>Line</td>
+              <td>Trends over time</td>
+              <td>Interpolation between points may be wrong</td>
+            </tr>
+            <tr>
+              <td>Pie</td>
+              <td>Parts of a whole</td>
+              <td>3D distortion, hard to compare small slices</td>
+            </tr>
+            <tr>
+              <td>Stacked bar</td>
+              <td>Composition over categories</td>
+              <td>Must subtract to find individual segments</td>
+            </tr>
+            <tr>
+              <td>Scatter</td>
+              <td>Relationships between variables</td>
+              <td>Correlation does not imply causation</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="card-alt-green compact mt-24">
+          <span class="badge badge-green self-start">Key Rule</span>
+          <p class="text-md">Always verify visual impressions with actual numbers. What looks bigger may not&nbsp;be.</p>
+        </div>
+
+        <aside class="notes">
+          8:30-9:30 | Limitations of each graph type. Bar graphs can mislead with truncated axes. Line graphs tempt you to interpolate. Pie charts distort proportions in 3D. Always verify visual impressions with numbers.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 12: Summary (Dark) -->
+      <!-- ============================================ -->
+      <section class="content-dark">
+        <div class="slide-header">
+          <p class="eyebrow">Key Takeaways</p>
+          <h2>Interpreting graphs</h2>
+        </div>
+
+        <ul class="plus-list">
+          <li><strong>Bar graphs</strong> -- Compare categories; watch for truncated axes</li>
+          <li><strong>Line graphs</strong> -- Show trends; slope steepness = rate of change</li>
+          <li><strong>Pie charts</strong> -- Parts of a whole; Value = Percent x Total</li>
+          <li><strong>Stacked bars &amp; scatter</strong> -- Read segment heights carefully; look for trend direction</li>
+          <li><strong>Combined displays</strong> -- Match each question to the right graph first</li>
+          <li><strong>Always check</strong> -- Labels, units, scale, and legend before calculating</li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="rgba(255,255,255,0.4)"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          9:30-10:00 | Summary: Bar graphs compare categories, line graphs show trends, pie charts show composition. For combined displays, identify which graph to use first. Always check labels, units, scale before calculating.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js -->
+  <script src="../assets/reveal/dist/reveal.min.js"></script>
+  <script type="module">
+    import RevealNotes from '../assets/reveal/plugin/notes/notes.esm.js';
+
+    Reveal.initialize({
+      width: 960,
+      height: 540,
+      margin: 0,
+      minScale: 0.5,
+      maxScale: 3.0,
+      hash: true,
+      slideNumber: true,
+      controls: true,
+      progress: true,
+      history: true,
+      center: false,
+      transition: 'none',
+      backgroundTransition: 'none',
+      disableLayout: false,
+      plugins: [ RevealNotes ]
+    });
+  </script>
+</body>
+</html>

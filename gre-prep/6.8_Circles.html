@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en" class="reveal-full-page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Circles: Arcs, Sectors &amp; Inscribed Angles</title>
+
+  <!-- Reveal.js Core -->
+  <link rel="stylesheet" href="../assets/reveal/dist/reset.css">
+  <link rel="stylesheet" href="../assets/reveal/dist/reveal.css">
+
+  <!-- Leland Theme -->
+  <link rel="stylesheet" href="../assets/reveal/themes/leland.css">
+
+  <!-- KaTeX for math rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false}
+      ]
+    });"></script>
+
+</head>
+<body>
+  <!-- SVG Symbol Definitions (defined once, referenced via <use>) -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="leland-logo" viewBox="0 0 200 45">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z"/>
+      <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z"/>
+      <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z"/>
+      <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z"/>
+      <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z"/>
+      <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z"/>
+    </symbol>
+  </svg>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ============================================ -->
+      <!-- SLIDE 1: Title (Dark) -->
+      <!-- ============================================ -->
+      <section class="title-dark">
+        <div class="leland-logo-top">
+          <svg width="110" height="25" fill="white" class="mb-16"><use href="#leland-logo"/></svg>
+        </div>
+
+        <p class="eyebrow">GRE Self-Study Course</p>
+        <h1>Circles: Arcs,<br><span class="hl">Sectors &amp; Angles</span></h1>
+
+        <aside class="notes">
+          0:00-0:30 | Hook: Circles appear constantly on the GRE. Beyond area and circumference, you need arcs, sectors, and angle rules. The key: everything relates to the central angle as a fraction of 360 degrees. This video connects all the circle concepts.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 2: Basic Circle Formulas -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Circle Basics</p>
+          <h2>Essential formulas</h2>
+        </div>
+
+        <div class="two-column gap-24">
+          <div>
+            <svg class="chart-svg" viewBox="0 0 300 180" style="margin: 0 auto; display: block;">
+              <!-- Circle outline -->
+              <circle cx="150" cy="90" r="65" fill="none" stroke="#113A2D" stroke-width="2"/>
+              <!-- Center point O -->
+              <circle cx="150" cy="90" r="3.5" fill="#113A2D"/>
+              <text x="137" y="100" font-family="Calibre, sans-serif" font-size="14" fill="#113A2D" font-weight="600">O</text>
+              <!-- Radius line (center to right) -->
+              <line x1="150" y1="90" x2="215" y2="90" stroke="#15B078" stroke-width="2.5"/>
+              <circle cx="215" cy="90" r="3.5" fill="#15B078"/>
+              <text x="178" y="82" font-family="Calibre, sans-serif" font-size="14" fill="#15B078" font-weight="600">r</text>
+              <!-- Diameter line (left to right, dashed portion) -->
+              <line x1="85" y1="90" x2="150" y2="90" stroke="#3B7DFD" stroke-width="1.5" stroke-dasharray="5,3"/>
+              <circle cx="85" cy="90" r="3.5" fill="#3B7DFD"/>
+              <text x="100" y="110" font-family="Calibre, sans-serif" font-size="14" fill="#3B7DFD" font-weight="600">d</text>
+              <!-- Arc along top with circumference label -->
+              <path d="M 215 90 A 65 65 0 0 0 85 90" fill="none" stroke="#113A2D" stroke-width="3" stroke-linecap="round"/>
+              <text x="240" y="55" font-family="Calibre, sans-serif" font-size="13" fill="#113A2D" font-weight="600">C = 2πr</text>
+              <line x1="215" y1="82" x2="236" y2="55" stroke="#9B9B9B" stroke-width="1" stroke-dasharray="3,2"/>
+            </svg>
+          </div>
+          <div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Measure</th>
+                  <th>Formula</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Circumference</td>
+                  <td>$C = 2\pi r = \pi d$</td>
+                </tr>
+                <tr>
+                  <td>Area</td>
+                  <td>$A = \pi r^2$</td>
+                </tr>
+                <tr>
+                  <td>Diameter</td>
+                  <td>$d = 2r$</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="card-alt compact mt-16">
+              <p class="text-md"><span class="badge badge-green">Example</span> Radius $= 6$: &nbsp; $C = 12\pi$, &nbsp; $A = 36\pi$</p>
+            </div>
+          </div>
+        </div>
+
+        <aside class="notes">
+          0:30-1:30 | Essential circle formulas: circumference = 2 pi r, area = pi r squared. With radius 6: C = 12pi, A = 36pi. These are the building blocks for arcs and sectors.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 3: Divider - Arcs and Sectors -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <p class="part-number">Part 1</p>
+        <h1>Arcs &amp; Sectors</h1>
+        <p>Parts of a circle as fractions of the whole</p>
+
+        <aside class="notes">
+          1:30-1:40 | Transition to arcs and sectors.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 4a: The Fraction Principle (Concept) -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Arcs &amp; Sectors</p>
+          <h2>The fraction principle</h2>
+        </div>
+
+        <div class="card-alt-green compact mb-16">
+          <p class="text-md">Central angle $= \theta\degree$ means the arc/sector is $\frac{\theta}{360}$ of the whole circle.</p>
+        </div>
+
+        <svg class="chart-svg" viewBox="0 0 750 200" style="margin: 0 auto;">
+          <!-- Full circle outline -->
+          <circle cx="375" cy="100" r="78" fill="none" stroke="#113A2D" stroke-width="1.5" stroke-opacity="0.3"/>
+          <!-- Sector fill (72 degrees = 1/5, starting from top-right) -->
+          <path d="M 375 100 L 449.24 68.27 A 78 78 0 0 0 375 22 Z" fill="rgba(21,176,120,0.1)" stroke="none"/>
+          <!-- Radius lines bounding the sector -->
+          <line x1="375" y1="100" x2="375" y2="22" stroke="#113A2D" stroke-width="1.5"/>
+          <line x1="375" y1="100" x2="449.24" y2="68.27" stroke="#113A2D" stroke-width="1.5"/>
+          <!-- Arc portion highlighted in green -->
+          <path d="M 375 22 A 78 78 0 0 1 449.24 68.27" fill="none" stroke="#15B078" stroke-width="3.5" stroke-linecap="round"/>
+          <!-- Center point O -->
+          <circle cx="375" cy="100" r="3" fill="#113A2D"/>
+          <text x="362" y="115" font-family="Calibre, sans-serif" font-size="13" fill="#113A2D" font-weight="600">O</text>
+          <!-- Angle arc (θ) -->
+          <path d="M 375 74 A 26 26 0 0 1 396.46 86.24" fill="none" stroke="#EF8509" stroke-width="1.5"/>
+          <text x="398" y="72" font-family="Calibre, sans-serif" font-size="13" fill="#EF8509" font-weight="600">θ</text>
+          <!-- Labels -->
+          <text x="468" y="40" font-family="Calibre, sans-serif" font-size="12" fill="#15B078" font-weight="600">Arc = θ/360 × C</text>
+          <text x="468" y="100" font-family="Calibre, sans-serif" font-size="12" fill="rgba(21,176,120,0.6)" font-weight="600">Sector = θ/360 × A</text>
+        </svg>
+
+        <p class="text-sm" style="text-align:center; color:#9B9B9B;">Arc length and sector area are fractions of the whole circle.</p>
+
+        <aside class="notes">
+          1:40-2:20 | The fraction principle: central angle over 360 gives the fraction of the circle. Arc length is that fraction times the circumference. Sector area is that fraction times the total area. GRE tip: simplify the fraction first. 72/360 = 1/5, 120/360 = 1/3. The GRE loves "nice" fractions, so if your fraction doesn't simplify cleanly, double-check your setup.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 4b: Arc Length and Sector Area -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Arcs &amp; Sectors</p>
+          <h2>Arc length and sector area</h2>
+        </div>
+
+        <div class="two-column gap-24">
+          <div class="card card-green-bg">
+            <span class="badge badge-green self-start mb-16">Arc Length</span>
+            <p class="text-md mb-24">$\frac{\theta}{360} \times 2\pi r$</p>
+            <div class="card-alt">
+              <p class="text-md math-step">$r = 10$, $\theta = 72\degree$: $\frac{72}{360} \times 20\pi = $ $4\pi$</p>
+            </div>
+          </div>
+          <div class="card card-blue-bg">
+            <span class="badge badge-blue self-start mb-16">Sector Area</span>
+            <p class="text-md mb-24">$\frac{\theta}{360} \times \pi r^2$</p>
+            <div class="card-alt">
+              <p class="text-md math-step">$r = 10$, $\theta = 72\degree$: $\frac{72}{360} \times 100\pi = $ $20\pi$</p>
+            </div>
+          </div>
+        </div>
+
+        <aside class="notes">
+          2:20-3:00 | With r = 10 and 72 degrees: 72/360 = 1/5, so arc = 4pi, sector = 20pi.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 5: Finding the Central Angle -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 1</p>
+          <h2>Working backwards to the angle</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card card-orange-bg">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-md"><strong>If an arc has length $6\pi$ on a circle with radius 9, what is the central angle?</strong></p>
+            <svg class="chart-svg" viewBox="0 0 240 140" style="margin: 8px auto 0;">
+              <!-- Circle -->
+              <circle cx="120" cy="75" r="50" fill="none" stroke="#113A2D" stroke-width="1.5"/>
+              <!-- Center O -->
+              <circle cx="120" cy="75" r="2.5" fill="#113A2D"/>
+              <text x="110" y="88" font-family="Calibre, sans-serif" font-size="11" fill="#113A2D" font-weight="600">O</text>
+              <!-- Radius line to top -->
+              <line x1="120" y1="75" x2="120" y2="25" stroke="#113A2D" stroke-width="1.5"/>
+              <!-- Radius line to ~120° clockwise from top -->
+              <line x1="120" y1="75" x2="76.7" y2="100" stroke="#113A2D" stroke-width="1.5"/>
+              <!-- Radius label -->
+              <text x="127" y="52" font-family="Calibre, sans-serif" font-size="10" fill="#113A2D" font-weight="600">9</text>
+              <!-- Arc highlighted in green (~1/3 of circle, from top going counter-clockwise) -->
+              <path d="M 120 25 A 50 50 0 0 0 76.7 100" fill="none" stroke="#15B078" stroke-width="3" stroke-linecap="round"/>
+              <text x="48" y="55" font-family="Calibre, sans-serif" font-size="10" fill="#15B078" font-weight="600">6π</text>
+              <!-- Angle arc with question mark -->
+              <path d="M 120 60 A 15 15 0 0 0 107.02 82.5" fill="none" stroke="#EF8509" stroke-width="1.5"/>
+              <text x="96" y="72" font-family="Calibre, sans-serif" font-size="10" fill="#EF8509" font-weight="600">θ?</text>
+            </svg>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md math-step">$6\pi = \frac{\theta}{360} \times 2\pi(9)$</p>
+            <p class="text-md math-step">$6\pi = \frac{\theta}{360} \times 18\pi$</p>
+            <p class="text-md mb-16">$\frac{\theta}{360} = \frac{1}{3}$</p>
+            <p class="text-lg mt-16">Answer: $\theta =$&nbsp;$120\degree$</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          3:00-3:50 | Working backwards: given arc length and radius, solve for the central angle. Set up the equation, divide both sides by 18pi, get theta/360 = 1/3, so theta = 120 degrees.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 6: Divider - Angles -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <p class="part-number">Part 2</p>
+        <h1>Central vs Inscribed Angles</h1>
+        <p>The half-angle relationship</p>
+
+        <aside class="notes">
+          3:50-4:00 | Transition to angle relationships in circles.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 7a: Central vs Inscribed (Diagram) -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Circle Angles</p>
+          <h2>Central vs inscribed</h2>
+        </div>
+
+        <svg class="chart-svg" viewBox="0 0 750 200" style="margin: 0 auto;">
+          <!-- Circle -->
+          <circle cx="375" cy="105" r="80" fill="none" stroke="#113A2D" stroke-width="1.5"/>
+          <!-- Points A and B on circle -->
+          <path d="M 299.79 77.65 A 80 80 0 0 0 450.21 77.65" fill="none" stroke="#15B078" stroke-width="3.5" stroke-linecap="round"/>
+          <!-- Center O -->
+          <circle cx="375" cy="105" r="3" fill="#113A2D"/>
+          <text x="378" y="117" font-family="Calibre, sans-serif" font-size="12" fill="#113A2D" font-weight="600">O</text>
+          <!-- Points A and B -->
+          <circle cx="299.79" cy="77.65" r="3" fill="#113A2D"/>
+          <text x="278" y="72" font-family="Calibre, sans-serif" font-size="12" fill="#113A2D" font-weight="600">A</text>
+          <circle cx="450.21" cy="77.65" r="3" fill="#113A2D"/>
+          <text x="456" y="72" font-family="Calibre, sans-serif" font-size="12" fill="#113A2D" font-weight="600">B</text>
+          <!-- Central angle: O to A and O to B (green) -->
+          <line x1="375" y1="105" x2="299.79" y2="77.65" stroke="#15B078" stroke-width="2"/>
+          <line x1="375" y1="105" x2="450.21" y2="77.65" stroke="#15B078" stroke-width="2"/>
+          <!-- Central angle arc -->
+          <path d="M 349.9 93.6 A 27 27 0 0 1 400.1 93.6" fill="none" stroke="#15B078" stroke-width="1.5"/>
+          <text x="363" y="134" font-family="Calibre, sans-serif" font-size="12" fill="#15B078" font-weight="600">80°</text>
+          <!-- Point C on circle (top) for inscribed angle -->
+          <circle cx="375" cy="25" r="3" fill="#3B7DFD"/>
+          <text x="380" y="20" font-family="Calibre, sans-serif" font-size="12" fill="#3B7DFD" font-weight="600">C</text>
+          <!-- Inscribed angle: C to A and C to B (blue) -->
+          <line x1="375" y1="25" x2="299.79" y2="77.65" stroke="#3B7DFD" stroke-width="2"/>
+          <line x1="375" y1="25" x2="450.21" y2="77.65" stroke="#3B7DFD" stroke-width="2"/>
+          <!-- Inscribed angle arc -->
+          <path d="M 358.5 43.6 A 21 21 0 0 1 391.5 43.6" fill="none" stroke="#3B7DFD" stroke-width="1.5"/>
+          <text x="363" y="56" font-family="Calibre, sans-serif" font-size="12" fill="#3B7DFD" font-weight="600">40°</text>
+          <!-- Labels -->
+          <text x="540" y="85" font-family="Calibre, sans-serif" font-size="12" fill="#15B078" font-weight="600">Central = 80°</text>
+          <text x="540" y="105" font-family="Calibre, sans-serif" font-size="12" fill="#3B7DFD" font-weight="600">Inscribed = 40°</text>
+        </svg>
+
+        <div class="card-alt-green compact">
+          <p class="text-md"><span class="badge badge-green">Key Rule</span> Inscribed angle $= \frac{1}{2} \times$ central angle (same arc)</p>
+        </div>
+
+        <aside class="notes">
+          4:00-4:30 | Central angle equals the intercepted arc. Inscribed angle equals half the intercepted arc. If both intercept the same arc, the inscribed angle is half the central angle. Central of 80 means inscribed of 40.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 7b: Central vs Inscribed Rules -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Circle Angles</p>
+          <h2>Central vs inscribed rules</h2>
+        </div>
+
+        <div class="two-column gap-24">
+          <div class="card card-green-bg">
+            <span class="badge badge-green self-start mb-8">Central Angle</span>
+            <p class="text-md mb-8">Vertex at center</p>
+            <p class="text-md">Measure $=$ intercepted arc</p>
+          </div>
+          <div class="card card-blue-bg">
+            <span class="badge badge-blue self-start mb-8">Inscribed Angle</span>
+            <p class="text-md mb-8">Vertex on the circle</p>
+            <p class="text-md">Measure $= \frac{1}{2} \times$ intercepted arc</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          4:30-5:00 | Central angle: vertex at center, measure equals the intercepted arc. Inscribed angle: vertex on the circle, measure equals half the intercepted arc.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 8: Inscribed Angle Corollaries -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Circle Angles</p>
+          <h2>Inscribed angle corollaries</h2>
+        </div>
+
+        <div class="two-column gap-24">
+          <div class="card card-green-bg">
+            <span class="badge badge-green self-start mb-8">Same Arc</span>
+            <p class="text-md mb-8">Inscribed angles intercepting the same arc are <strong>equal</strong>.</p>
+            <svg class="chart-svg" viewBox="0 0 200 90" style="margin: 4px auto;">
+              <!-- Circle -->
+              <circle cx="100" cy="45" r="35" fill="none" stroke="#113A2D" stroke-width="1.2"/>
+              <!-- Points A and C on circle (bottom, defining the arc) -->
+              <circle cx="77.4" cy="71.2" r="3" fill="#113A2D"/>
+              <text x="64" y="80" font-family="Calibre, sans-serif" font-size="11" fill="#113A2D" font-weight="600">A</text>
+              <circle cx="122.6" cy="71.2" r="3" fill="#113A2D"/>
+              <text x="128" y="80" font-family="Calibre, sans-serif" font-size="11" fill="#113A2D" font-weight="600">C</text>
+              <!-- Intercepted arc (bottom) highlighted -->
+              <path d="M 77.4 71.2 A 35 35 0 0 0 122.6 71.2" fill="none" stroke="#15B078" stroke-width="3" stroke-linecap="round"/>
+              <!-- Vertex D1 at top-left -->
+              <circle cx="73.3" cy="22.1" r="3" fill="#3B7DFD"/>
+              <line x1="73.3" y1="22.1" x2="77.4" y2="71.2" stroke="#3B7DFD" stroke-width="1.2"/>
+              <line x1="73.3" y1="22.1" x2="122.6" y2="71.2" stroke="#3B7DFD" stroke-width="1.2"/>
+              <text x="58" y="16" font-family="Calibre, sans-serif" font-size="11" fill="#3B7DFD" font-weight="600">70°</text>
+              <!-- Vertex D2 at top-right -->
+              <circle cx="106.1" cy="10.4" r="3" fill="#3B7DFD"/>
+              <line x1="106.1" y1="10.4" x2="77.4" y2="71.2" stroke="#3B7DFD" stroke-width="1.2" stroke-dasharray="3,2"/>
+              <line x1="106.1" y1="10.4" x2="122.6" y2="71.2" stroke="#3B7DFD" stroke-width="1.2" stroke-dasharray="3,2"/>
+              <text x="115" y="10" font-family="Calibre, sans-serif" font-size="11" fill="#3B7DFD" font-weight="600">70°</text>
+            </svg>
+            <div class="card-alt compact">
+              <p class="text-md">Arc $AC = 140\degree$, inscribed angle $=$&nbsp;$70\degree$</p>
+            </div>
+          </div>
+          <div class="card card-blue-bg">
+            <span class="badge badge-blue self-start mb-8">Semicircle</span>
+            <p class="text-md mb-8">Inscribed in a semicircle (diameter) $=$ <strong>$90\degree$</strong></p>
+            <svg class="chart-svg" viewBox="0 0 200 90" style="margin: 4px auto;">
+              <!-- Circle -->
+              <circle cx="100" cy="48" r="35" fill="none" stroke="#113A2D" stroke-width="1.2"/>
+              <!-- Diameter A to C (horizontal) -->
+              <line x1="65" y1="48" x2="135" y2="48" stroke="#113A2D" stroke-width="1.5"/>
+              <circle cx="65" cy="48" r="3" fill="#113A2D"/>
+              <text x="50" y="52" font-family="Calibre, sans-serif" font-size="11" fill="#113A2D" font-weight="600">A</text>
+              <circle cx="135" cy="48" r="3" fill="#113A2D"/>
+              <text x="141" y="52" font-family="Calibre, sans-serif" font-size="11" fill="#113A2D" font-weight="600">C</text>
+              <!-- B at top -->
+              <circle cx="88.2" cy="15.7" r="3" fill="#3B7DFD"/>
+              <text x="78" y="10" font-family="Calibre, sans-serif" font-size="11" fill="#3B7DFD" font-weight="600">B</text>
+              <!-- Triangle lines -->
+              <line x1="65" y1="48" x2="88.2" y2="15.7" stroke="#3B7DFD" stroke-width="1.2"/>
+              <line x1="135" y1="48" x2="88.2" y2="15.7" stroke="#3B7DFD" stroke-width="1.2"/>
+              <!-- Right angle mark at B -->
+              <path d="M 80 20 L 83 24.5 L 87.5 21.5" fill="none" stroke="#FB5A42" stroke-width="1.5"/>
+              <text x="94" y="24" font-family="Calibre, sans-serif" font-size="10" fill="#FB5A42" font-weight="600">90°</text>
+            </svg>
+            <div class="card-alt compact">
+              <p class="text-md">If $AC$ is a diameter, then $\angle ABC =$&nbsp;$90\degree$</p>
+            </div>
+          </div>
+        </div>
+
+        <aside class="notes">
+          5:00-6:00 | Two important corollaries. First: all inscribed angles intercepting the same arc are equal. Second: an inscribed angle in a semicircle is always 90 degrees, because it intercepts a 180-degree arc. This is Thales' theorem. GRE trap: when a problem shows a triangle inscribed in a circle with one side as the diameter, the angle opposite that side is ALWAYS 90 degrees. This unlocks Pythagorean theorem for the rest of the problem.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 9: Divider - Tangents -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <p class="part-number">Part 3</p>
+        <h1>Tangent Lines</h1>
+        <p>Perpendicular to the radius at the point of contact</p>
+
+        <aside class="notes">
+          6:00-6:10 | Transition to tangent line properties.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 10: Tangent Properties -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 2</p>
+          <h2>Tangent and radius form a right angle</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card card-green-bg">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-md"><strong>If OT is drawn from center O to point T on the tangent, with OP = 5 and PT = 12, what is OT?</strong></p>
+            <svg class="chart-svg" viewBox="0 0 240 140" style="margin: 8px auto 0;">
+              <!-- Circle with center O -->
+              <circle cx="70" cy="70" r="40" fill="none" stroke="#113A2D" stroke-width="1.5"/>
+              <!-- Center O -->
+              <circle cx="70" cy="70" r="2.5" fill="#113A2D"/>
+              <text x="58" y="74" font-family="Calibre, sans-serif" font-size="10" fill="#113A2D" font-weight="600">O</text>
+              <!-- Point P on circle (right side): 70+40, 70 = 110, 70 -->
+              <circle cx="110" cy="70" r="2.5" fill="#15B078"/>
+              <text x="112" y="64" font-family="Calibre, sans-serif" font-size="10" fill="#113A2D" font-weight="600">P</text>
+              <!-- Radius OP -->
+              <line x1="70" y1="70" x2="110" y2="70" stroke="#15B078" stroke-width="2"/>
+              <text x="85" y="83" font-family="Calibre, sans-serif" font-size="10" fill="#15B078" font-weight="600">5</text>
+              <!-- Tangent line at P (vertical) going down to T -->
+              <line x1="110" y1="30" x2="110" y2="130" stroke="#9B9B9B" stroke-width="1" stroke-dasharray="4,3"/>
+              <!-- Point T on tangent -->
+              <circle cx="110" cy="118" r="2.5" fill="#3B7DFD"/>
+              <text x="115" y="122" font-family="Calibre, sans-serif" font-size="10" fill="#113A2D" font-weight="600">T</text>
+              <!-- PT distance label -->
+              <text x="115" y="96" font-family="Calibre, sans-serif" font-size="10" fill="#3B7DFD" font-weight="600">12</text>
+              <!-- Right angle mark at P -->
+              <rect x="102" y="70" width="5" height="5" fill="none" stroke="#FB5A42" stroke-width="1"/>
+              <!-- Hypotenuse OT (dashed) -->
+              <line x1="70" y1="70" x2="110" y2="118" stroke="#113A2D" stroke-width="1.5" stroke-dasharray="5,3"/>
+              <text x="72" y="102" font-family="Calibre, sans-serif" font-size="10" fill="#EF8509" font-weight="600">OT = ?</text>
+            </svg>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16">Tangent $\perp$ radius at P, forming a right triangle.</p>
+            <p class="text-md mb-16">$OT^2 = 5^2 + 12^2 = 25 + 144 = 169$</p>
+            <p class="text-lg mt-16">Answer: $OT =$&nbsp;$13$ (5-12-13 triple)</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          6:10-7:10 | Tangent is perpendicular to the radius at the point of tangency, creating a right angle. OP = 5, PT = 12, so OT is the hypotenuse of a 5-12-13 right triangle. OT = 13.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 11: Two Tangent Theorem + Application -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Tangent Properties</p>
+          <h2>Equal tangent segments</h2>
+        </div>
+
+        <div class="card-alt-green compact mb-16">
+          <p class="text-md">Two tangents from the same external point are <strong>equal</strong>: $PA = PB$.</p>
+        </div>
+
+        <svg class="chart-svg" viewBox="0 0 750 80" style="margin: 0 auto;">
+          <!-- Circle with center O -->
+          <circle cx="375" cy="40" r="27" fill="none" stroke="#113A2D" stroke-width="1.5"/>
+          <!-- Center O -->
+          <circle cx="375" cy="40" r="2.5" fill="#113A2D"/>
+          <text x="378" y="43" font-family="Calibre, sans-serif" font-size="10" fill="#113A2D" font-weight="600">O</text>
+          <!-- External point P to the right -->
+          <circle cx="480" cy="40" r="3" fill="#3B7DFD"/>
+          <text x="485" y="38" font-family="Calibre, sans-serif" font-size="11" fill="#3B7DFD" font-weight="600">P</text>
+          <!-- Point A on circle (upper tangent point) -->
+          <circle cx="400.8" cy="31.8" r="2.5" fill="#15B078"/>
+          <text x="404" y="26" font-family="Calibre, sans-serif" font-size="11" fill="#113A2D" font-weight="600">A</text>
+          <circle cx="400.8" cy="48.2" r="2.5" fill="#15B078"/>
+          <text x="404" y="60" font-family="Calibre, sans-serif" font-size="11" fill="#113A2D" font-weight="600">B</text>
+          <!-- Tangent lines PA and PB -->
+          <line x1="480" y1="40" x2="400.8" y2="31.8" stroke="#3B7DFD" stroke-width="1.5"/>
+          <line x1="480" y1="40" x2="400.8" y2="48.2" stroke="#3B7DFD" stroke-width="1.5"/>
+          <!-- Tick marks on PA and PB (equal length indicators) -->
+          <line x1="440" y1="34" x2="444" y2="38" stroke="#3B7DFD" stroke-width="1.5"/>
+          <line x1="440" y1="46" x2="444" y2="42" stroke="#3B7DFD" stroke-width="1.5"/>
+          <!-- Radii OA and OB -->
+          <line x1="375" y1="40" x2="400.8" y2="31.8" stroke="#9B9B9B" stroke-width="1" stroke-dasharray="4,3"/>
+          <line x1="375" y1="40" x2="400.8" y2="48.2" stroke="#9B9B9B" stroke-width="1" stroke-dasharray="4,3"/>
+          <!-- Right angle marks at A and B -->
+          <rect x="397" y="31.8" width="4" height="4" fill="none" stroke="#FB5A42" stroke-width="0.8" transform="rotate(-17.2, 400.8, 31.8)"/>
+          <rect x="397" y="44.2" width="4" height="4" fill="none" stroke="#FB5A42" stroke-width="0.8" transform="rotate(17.2, 400.8, 48.2)"/>
+          <!-- Labels -->
+          <text x="436" y="28" font-family="Calibre, sans-serif" font-size="10" fill="#3B7DFD" font-weight="600">PA</text>
+          <text x="436" y="57" font-family="Calibre, sans-serif" font-size="10" fill="#3B7DFD" font-weight="600">PB</text>
+          <text x="520" y="40" font-family="Calibre, sans-serif" font-size="11" fill="#113A2D" font-weight="600">PA = PB</text>
+        </svg>
+
+        <div class="two-column gap-24">
+          <div class="card card-blue-bg">
+            <span class="badge badge-blue self-start mb-8">Example</span>
+            <p class="text-sm mb-8"><strong>What fraction of the circle is an arc of $4\pi$ when $r = 12$?</strong></p>
+            <div class="card-alt compact">
+              <p class="text-md math-step">$\frac{4\pi}{24\pi} = $ $\frac{1}{6}$</p>
+            </div>
+          </div>
+          <div class="card card-purple-bg">
+            <span class="badge badge-purple self-start mb-8">Example</span>
+            <p class="text-sm mb-8"><strong>Two concentric circles have radii 4 and 6. What is the ring area?</strong></p>
+            <div class="card-alt compact">
+              <p class="text-md">$36\pi - 16\pi = $ $20\pi$</p>
+            </div>
+          </div>
+        </div>
+
+        <aside class="notes">
+          7:10-8:30 | Two tangent segments from the same external point are equal. Also two application problems: pizza slice fraction = arc/circumference = 4pi/24pi = 1/6. Concentric ring area = outer minus inner = 36pi - 16pi = 20pi.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 12: Summary (content-dark) -->
+      <!-- ============================================ -->
+      <section class="content-dark">
+        <div class="slide-header">
+          <p class="eyebrow">Key Takeaways</p>
+          <h2>Circles: Arcs, sectors &amp; angles</h2>
+        </div>
+
+        <ul class="plus-list">
+          <li><strong>The fraction principle</strong> — Arc length and sector area are $\frac{\theta}{360}$ of the circumference and area</li>
+          <li><strong>Central vs. inscribed angles</strong> — Central angle equals the arc; inscribed angle equals half the arc</li>
+          <li><strong>Semicircle rule</strong> — Inscribed angle in a semicircle is always $90\degree$</li>
+          <li><strong>Tangent properties</strong> — Perpendicular to radius at contact point; equal segments from an external point</li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="rgba(255,255,255,0.4)"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          8:30-10:00 | Summary: use the fraction principle for arcs and sectors. Central angle = arc, inscribed = half arc, semicircle = 90 degrees. Tangent is perpendicular to radius and equal tangents from an external point.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js -->
+  <script src="../assets/reveal/dist/reveal.min.js"></script>
+  <script type="module">
+    import RevealNotes from '../assets/reveal/plugin/notes/notes.esm.js';
+
+    Reveal.initialize({
+      width: 960,
+      height: 540,
+      margin: 0,
+      minScale: 0.5,
+      maxScale: 3.0,
+      hash: true,
+      slideNumber: true,
+      controls: true,
+      progress: true,
+      history: true,
+      center: false,
+      transition: 'none',
+      backgroundTransition: 'none',
+      disableLayout: false,
+      plugins: [ RevealNotes ]
+    });
+  </script>
+</body>
+</html>

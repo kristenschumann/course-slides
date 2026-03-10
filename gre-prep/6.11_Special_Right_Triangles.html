@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en" class="reveal-full-page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Special Right Triangles &amp; Pythagorean Triples</title>
+
+  <!-- Reveal.js Core -->
+  <link rel="stylesheet" href="../assets/reveal/dist/reset.css">
+  <link rel="stylesheet" href="../assets/reveal/dist/reveal.css">
+
+  <!-- Leland Theme -->
+  <link rel="stylesheet" href="../assets/reveal/themes/leland.css">
+
+  <!-- KaTeX for math rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false}
+      ]
+    });"></script>
+
+</head>
+<body>
+  <!-- SVG Symbol Definitions (defined once, referenced via <use>) -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="leland-logo" viewBox="0 0 200 45">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z"/>
+      <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z"/>
+      <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z"/>
+      <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z"/>
+      <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z"/>
+      <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z"/>
+    </symbol>
+  </svg>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ============================================ -->
+      <!-- SLIDE 1: Title (Dark) -->
+      <!-- ============================================ -->
+      <section class="title-dark">
+        <div class="leland-logo-top">
+          <svg width="110" height="25" fill="white" class="mb-16"><use href="#leland-logo"/></svg>
+        </div>
+
+        <p class="eyebrow">GRE Self-Study Course</p>
+        <h1>Special Right Triangles &amp;<br><span class="hl">Pythagorean Triples</span></h1>
+
+        <aside class="notes">
+          0:00-0:30 | Hook: A square has diagonal 10. What is the side length? Without special triangle knowledge, this requires algebra. With 45-45-90 ratios, it is instant: side = 5 root 2. This video gives you the shortcuts the GRE expects you to know.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 2: Divider - 45-45-90 -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <p class="part-number">Part 1</p>
+        <h1>45-45-90 Triangles</h1>
+        <p>The isosceles right triangle</p>
+
+        <aside class="notes">
+          0:30-0:40 | Transition to 45-45-90 triangle.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 3: 45-45-90 Ratio -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">45-45-90 Triangle</p>
+          <h2>Ratio: $1 : 1 : \sqrt{2}$</h2>
+        </div>
+
+        <svg class="chart-svg" viewBox="0 0 750 80" style="margin: 0 auto; display: block;">
+          <!-- 45-45-90 triangle centered in viewBox -->
+          <!-- Triangle vertices scaled by 0.727 (80/110) -->
+          <polygon points="300,73 300,7 390,73" fill="none" stroke="#15B078" stroke-width="2" stroke-linejoin="round"/>
+          <!-- Right angle mark at bottom-left -->
+          <polyline points="310,73 310,65 300,65" fill="none" stroke="#113A2D" stroke-width="1.5"/>
+          <!-- 45-degree arc at top-left -->
+          <path d="M300,17 A14,14 0 0,1 310,13" fill="none" stroke="#113A2D" stroke-width="1.2"/>
+          <text x="314" y="20" font-family="Calibre, sans-serif" font-size="11" fill="#113A2D">45°</text>
+          <!-- 45-degree arc at bottom-right -->
+          <path d="M376,73 A14,14 0 0,1 384,67" fill="none" stroke="#113A2D" stroke-width="1.2"/>
+          <text x="370" y="68" font-family="Calibre, sans-serif" font-size="11" fill="#113A2D">45°</text>
+          <!-- Side labels -->
+          <text x="282" y="42" font-family="Calibre, sans-serif" font-size="13" fill="#113A2D" text-anchor="end">x</text>
+          <text x="345" y="71" font-family="Calibre, sans-serif" font-size="13" fill="#113A2D" text-anchor="middle" dy="14">x</text>
+          <text x="355" y="35" font-family="Calibre, sans-serif" font-size="13" fill="#113A2D" text-anchor="start">x√2</text>
+          <!-- Tick marks on equal legs -->
+          <!-- Left leg tick -->
+          <line x1="296" y1="40" x2="304" y2="40" stroke="#113A2D" stroke-width="1.2"/>
+          <!-- Bottom leg tick -->
+          <line x1="345" y1="70" x2="345" y2="76" stroke="#113A2D" stroke-width="1.2"/>
+        </svg>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Part</th>
+              <th>Value</th>
+              <th>Key Fact</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Leg</td>
+              <td>$x$</td>
+              <td>Two equal legs (isosceles)</td>
+            </tr>
+            <tr>
+              <td>Leg</td>
+              <td>$x$</td>
+              <td>Two $45\degree$ angles</td>
+            </tr>
+            <tr>
+              <td>Hypotenuse</td>
+              <td>$x\sqrt{2}$</td>
+              <td>Appears in square diagonals</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="card-alt compact mt-16">
+          <p class="text-md"><span class="badge badge-green">Given Leg</span> Hyp $= $ leg $\times \sqrt{2}$ &nbsp;&nbsp; <span class="badge badge-orange">Given Hyp</span> Leg $= $ hyp $\div \sqrt{2}$</p>
+        </div>
+
+        <aside class="notes">
+          0:40-2:00 | The 45-45-90 ratio: 1, 1, root 2. Two equal legs, two 45-degree angles, and the hypotenuse is leg times root 2. This triangle appears whenever you cut a square diagonally.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 4: 45-45-90 Examples -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">45-45-90 Triangle</p>
+          <h2>Working both directions</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card card-green-bg">
+            <span class="badge badge-green self-start mb-16">Example</span>
+            <p class="text-md mb-8">Hypotenuse $= 6\sqrt{2}$</p>
+          </div>
+          <div class="card card-blue-bg">
+            <span class="badge badge-blue self-start mb-16">Hyp = 10</span>
+            <p class="text-md mb-8">Leg $= \frac{10}{\sqrt{2}} = \frac{10\sqrt{2}}{2} = $ $5\sqrt{2}$</p>
+          </div>
+        </div>
+
+        <div class="two-column mt-24">
+          <div class="card card-orange-bg">
+            <span class="badge badge-orange self-start mb-16">Square Diagonal</span>
+            <p class="text-md">Diagonal $= 14$, so side $= \frac{14}{\sqrt{2}} = $ $7\sqrt{2}$</p>
+          </div>
+          <div class="card card-purple-bg">
+            <span class="badge badge-purple self-start mb-16">Area Problem</span>
+            <p class="text-md">Hyp $= 8$, leg $= 4\sqrt{2}$. Area $= \frac{1}{2}(4\sqrt{2})^2 = $ $16$</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          2:00-3:30 | Four examples. Given leg = 6: hyp = 6 root 2. Given hyp = 10: leg = 5 root 2 (rationalize by multiplying by root 2 over root 2). Square with diagonal 14: side = 7 root 2. Area of isosceles right triangle with hyp 8: leg = 4 root 2, area = (1/2)(4 root 2)^2 = 16.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 5: Divider - 30-60-90 -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <p class="part-number">Part 2</p>
+        <h1>30-60-90 Triangles</h1>
+        <p>Half of an equilateral triangle</p>
+
+        <aside class="notes">
+          3:30-3:40 | Transition to 30-60-90 triangle.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 6: 30-60-90 Ratio -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">30-60-90 Triangle</p>
+          <h2>Ratio: $1 : \sqrt{3} : 2$</h2>
+        </div>
+
+        <svg class="chart-svg" viewBox="0 0 750 85" style="margin: 0 auto; display: block;">
+          <!-- 30-60-90 triangle scaled by 0.708 (85/120) -->
+          <polygon points="280,78 280,14 436,78" fill="none" stroke="#15B078" stroke-width="2" stroke-linejoin="round"/>
+          <!-- Dashed mirror line showing "other half" of equilateral triangle -->
+          <line x1="280" y1="14" x2="124" y2="78" stroke="#9B9B9B" stroke-width="1.5" stroke-dasharray="4 3"/>
+          <line x1="124" y1="78" x2="280" y2="78" stroke="#9B9B9B" stroke-width="1.5" stroke-dasharray="4 3"/>
+          <!-- Right angle mark at bottom-left -->
+          <polyline points="290,78 290,71 280,71" fill="none" stroke="#113A2D" stroke-width="1.5"/>
+          <!-- 30-degree arc at top -->
+          <path d="M280,25 A16,16 0 0,1 294,30" fill="none" stroke="#113A2D" stroke-width="1.2"/>
+          <text x="298" y="31" font-family="Calibre, sans-serif" font-size="11" fill="#113A2D">30°</text>
+          <!-- 60-degree arc at bottom-right -->
+          <path d="M420,78 A16,16 0 0,1 426,69" fill="none" stroke="#113A2D" stroke-width="1.2"/>
+          <text x="412" y="68" font-family="Calibre, sans-serif" font-size="11" fill="#113A2D">60°</text>
+          <!-- Side labels -->
+          <text x="266" y="48" font-family="Calibre, sans-serif" font-size="13" fill="#113A2D" text-anchor="end">x</text>
+          <text x="358" y="78" font-family="Calibre, sans-serif" font-size="13" fill="#113A2D" text-anchor="middle" dy="14">x√3</text>
+          <text x="368" y="41" font-family="Calibre, sans-serif" font-size="13" fill="#113A2D" text-anchor="start">2x</text>
+        </svg>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Part</th>
+              <th>Opposite Angle</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Short leg</td>
+              <td>$30\degree$</td>
+              <td>$x$</td>
+            </tr>
+            <tr>
+              <td>Long leg</td>
+              <td>$60\degree$</td>
+              <td>$x\sqrt{3}$</td>
+            </tr>
+            <tr>
+              <td>Hypotenuse</td>
+              <td>$90\degree$</td>
+              <td>$2x$</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="card-alt compact mt-16">
+          <p class="text-md"><span class="badge badge-green">Strategy</span> Always find the short leg first, then scale to find the other sides.</p>
+        </div>
+
+        <aside class="notes">
+          3:40-4:30 | The 30-60-90 ratio: 1, root 3, 2. Short leg opposite the 30-degree angle, long leg opposite 60, hypotenuse opposite 90. Strategy: always find the short leg first, then scale.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 7: 30-60-90 Examples -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">30-60-90 Triangle</p>
+          <h2>Finding other sides</h2>
+        </div>
+
+        <div class="card-grid-3">
+          <div class="card card-green-bg">
+            <h3 class="text-md mb-8">Short Leg = 5</h3>
+            <p class="text-md mb-8">Long leg $= 5\sqrt{3}$</p>
+            <p class="text-md">Hyp $= $ $10$</p>
+          </div>
+          <div class="card card-blue-bg">
+            <h3 class="text-md mb-8">Hyp = 12</h3>
+            <p class="text-md mb-8">Short leg $= 6$</p>
+            <p class="text-md">Long leg $= $ $6\sqrt{3}$</p>
+          </div>
+          <div class="card card-orange-bg">
+            <h3 class="text-md mb-8">Long Leg = $9\sqrt{3}$</h3>
+            <p class="text-md mb-8">Short leg $= 9$</p>
+            <p class="text-md">Hyp $= $ $18$</p>
+          </div>
+        </div>
+
+        <div class="card-alt compact mt-16">
+          <p class="text-md"><span class="badge badge-purple">Application</span> Equilateral triangle (side 10) cut in half: height $= 5\sqrt{3}$ (the long leg of a 30-60-90).</p>
+        </div>
+
+        <aside class="notes">
+          4:30-6:00 | Three examples working from different given sides. Short leg 5: long = 5 root 3, hyp = 10. Hyp 12: short = 6, long = 6 root 3. Long leg 9 root 3: short = 9, hyp = 18. Application: equilateral triangle height is the long leg of a 30-60-90.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 8: Divider - Pythagorean Triples -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <p class="part-number">Part 3</p>
+        <h1>Pythagorean Triples</h1>
+        <p>Integer right triangles you should memorize</p>
+
+        <aside class="notes">
+          6:00-6:10 | Transition to Pythagorean triples.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 9: Pythagorean Triples Table -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Pythagorean Triples</p>
+          <h2>Memorize the big three</h2>
+        </div>
+
+        <svg class="chart-svg" viewBox="0 0 750 70" style="margin: 0 auto; display: block;">
+          <!-- 3-4-5 triangle scaled by 0.7 -->
+          <polygon points="80,63 80,35 120,63" fill="none" stroke="#15B078" stroke-width="2" stroke-linejoin="round"/>
+          <polyline points="88,63 88,57 80,57" fill="none" stroke="#113A2D" stroke-width="1.2"/>
+          <text x="72" y="51" font-family="Calibre, sans-serif" font-size="11" fill="#113A2D" text-anchor="end">3</text>
+          <text x="100" y="63" font-family="Calibre, sans-serif" font-size="11" fill="#113A2D" text-anchor="middle" dy="13">4</text>
+          <text x="108" y="46" font-family="Calibre, sans-serif" font-size="11" fill="#113A2D" text-anchor="start">5</text>
+
+          <!-- 5-12-13 triangle scaled by 0.7 -->
+          <polygon points="310,63 310,13 382,63" fill="none" stroke="#15B078" stroke-width="2" stroke-linejoin="round"/>
+          <polyline points="318,63 318,57 310,57" fill="none" stroke="#113A2D" stroke-width="1.2"/>
+          <text x="302" y="41" font-family="Calibre, sans-serif" font-size="11" fill="#113A2D" text-anchor="end">5</text>
+          <text x="346" y="63" font-family="Calibre, sans-serif" font-size="11" fill="#113A2D" text-anchor="middle" dy="13">12</text>
+          <text x="354" y="34" font-family="Calibre, sans-serif" font-size="11" fill="#113A2D" text-anchor="start">13</text>
+
+          <!-- 8-15-17 triangle scaled by 0.7 -->
+          <polygon points="550,63 550,13 621,63" fill="none" stroke="#15B078" stroke-width="2" stroke-linejoin="round"/>
+          <polyline points="558,63 558,57 550,57" fill="none" stroke="#113A2D" stroke-width="1.2"/>
+          <text x="542" y="41" font-family="Calibre, sans-serif" font-size="11" fill="#113A2D" text-anchor="end">8</text>
+          <text x="586" y="63" font-family="Calibre, sans-serif" font-size="11" fill="#113A2D" text-anchor="middle" dy="13">15</text>
+          <text x="594" y="34" font-family="Calibre, sans-serif" font-size="11" fill="#113A2D" text-anchor="start">17</text>
+        </svg>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Triple</th>
+              <th>Verification</th>
+              <th>Common Multiples</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>3-4-5</strong></td>
+              <td>$9 + 16 = 25$</td>
+              <td>6-8-10, 9-12-15, 12-16-20</td>
+            </tr>
+            <tr>
+              <td><strong>5-12-13</strong></td>
+              <td>$25 + 144 = 169$</td>
+              <td>10-24-26</td>
+            </tr>
+            <tr>
+              <td><strong>8-15-17</strong></td>
+              <td>$64 + 225 = 289$</td>
+              <td>16-30-34</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="card-alt compact mt-16">
+          <p class="text-md"><span class="badge badge-green">Speed Tip</span> Spot two numbers from a triple? The third is instant. No square root needed.</p>
+        </div>
+
+        <aside class="notes">
+          6:10-7:20 | The big three Pythagorean triples: 3-4-5, 5-12-13, 8-15-17. Multiples work too. If you spot two numbers from a triple, the third follows instantly with no calculation. GRE trap: the test loves disguising triples with scaling factors. If you see legs 1.5 and 2, that's a 3-4-5 scaled by 0.5, so the hypotenuse is 2.5. Always check if dividing by a common factor reveals a known triple.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 10: Spotting Triples -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Pythagorean Triples</p>
+          <h2>Spotting triples in problems</h2>
+        </div>
+
+        <div class="card-grid-3">
+          <div class="card card-green-bg">
+            <h3 class="text-md mb-8">Legs 9 and 12</h3>
+            <p class="text-md mb-8">$= 3(3)$ and $4(3)$</p>
+            <p class="text-md">Hyp $= 5(3) = $ $15$</p>
+          </div>
+          <div class="card card-blue-bg">
+            <h3 class="text-md mb-8">Leg 15, Hyp 17</h3>
+            <p class="text-md mb-8">Part of 8-15-17</p>
+            <p class="text-md">Other leg $= $ $8$</p>
+          </div>
+          <div class="card card-orange-bg">
+            <h3 class="text-md mb-8">Ladder Problem</h3>
+            <p class="text-md mb-8"><strong>A 13 ft ladder leans against a wall, 5 ft from the base. How high does it reach?</strong></p>
+            <p class="text-md">Height $= $ $12$ ft</p>
+            <svg class="chart-svg" viewBox="0 0 140 75" style="margin: 8px auto 0;">
+              <!-- Ground line -->
+              <line x1="10" y1="68" x2="130" y2="68" stroke="#113A2D" stroke-width="1.5"/>
+              <!-- Wall line -->
+              <line x1="20" y1="68" x2="20" y2="5" stroke="#113A2D" stroke-width="1.5"/>
+              <!-- Wall hatching -->
+              <line x1="14" y1="14" x2="20" y2="10" stroke="#113A2D" stroke-width="0.8"/>
+              <line x1="14" y1="24" x2="20" y2="20" stroke="#113A2D" stroke-width="0.8"/>
+              <line x1="14" y1="34" x2="20" y2="30" stroke="#113A2D" stroke-width="0.8"/>
+              <line x1="14" y1="44" x2="20" y2="40" stroke="#113A2D" stroke-width="0.8"/>
+              <line x1="14" y1="55" x2="20" y2="50" stroke="#113A2D" stroke-width="0.8"/>
+              <line x1="14" y1="65" x2="20" y2="61" stroke="#113A2D" stroke-width="0.8"/>
+              <!-- Ladder (hypotenuse) -->
+              <line x1="20" y1="8" x2="90" y2="68" stroke="#15B078" stroke-width="2"/>
+              <!-- Right angle mark -->
+              <polyline points="28,68 28,63 20,63" fill="none" stroke="#113A2D" stroke-width="1.2"/>
+              <!-- Labels -->
+              <text x="62" y="33" font-family="Calibre, sans-serif" font-size="10" fill="#113A2D" transform="rotate(51.3, 62, 33)">13 ft</text>
+              <text x="55" y="71" font-family="Calibre, sans-serif" font-size="9" fill="#113A2D" text-anchor="middle" dy="8">5 ft</text>
+              <text x="10" y="38" font-family="Calibre, sans-serif" font-size="9" fill="#113A2D" text-anchor="end">12 ft</text>
+            </svg>
+          </div>
+        </div>
+
+        <aside class="notes">
+          7:20-8:30 | Three recognition examples. Legs 9 and 12: factor out 3 to see the 3-4-5 pattern, hyp = 15. Leg 15 and hyp 17: 8-15-17, other leg = 8. Ladder problem: 5-?-13 is a 5-12-13 triple, height = 12 feet.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 11: Recognition Guide -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Quick Recognition</p>
+          <h2>When to look for special triangles</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Clue in Problem</th>
+              <th>Triangle Type</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>$45\degree$ angle mentioned</td>
+              <td>45-45-90</td>
+            </tr>
+            <tr>
+              <td>Square diagonal</td>
+              <td>45-45-90</td>
+            </tr>
+            <tr>
+              <td>$30\degree$ or $60\degree$ angle</td>
+              <td>30-60-90</td>
+            </tr>
+            <tr>
+              <td>Equilateral triangle height</td>
+              <td>30-60-90</td>
+            </tr>
+            <tr>
+              <td>Small integers in a right triangle</td>
+              <td>Pythagorean triple</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <aside class="notes">
+          8:30-9:20 | Quick recognition guide: 45 degrees or square diagonal signals 45-45-90. 30 or 60 degrees or equilateral triangle height signals 30-60-90. Small integers in a right triangle suggests a Pythagorean triple.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 12: Summary (content-dark) -->
+      <!-- ============================================ -->
+      <section class="content-dark">
+        <div class="slide-header">
+          <p class="eyebrow">Key Takeaways</p>
+          <h2>Special right triangles</h2>
+        </div>
+
+        <ul class="plus-list">
+          <li><strong>45-45-90 ratio</strong> — $1 : 1 : \sqrt{2}$. Two equal legs, hypotenuse is leg times $\sqrt{2}$</li>
+          <li><strong>30-60-90 ratio</strong> — $1 : \sqrt{3} : 2$. Find the short leg first, then scale</li>
+          <li><strong>3-4-5 triple</strong> — Most common. Watch for multiples like 6-8-10, 9-12-15</li>
+          <li><strong>5-12-13 and 8-15-17</strong> — Less common but still tested. 5-12-13 appears in tangent-radius problems</li>
+          <li><strong>Recognize first, calculate second</strong> — Spotting patterns saves significant time on the GRE</li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="rgba(255,255,255,0.4)"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          9:20-10:00 | Summary: two special right triangles (45-45-90 and 30-60-90) plus three Pythagorean triples (3-4-5, 5-12-13, 8-15-17). The strategy: recognize patterns before reaching for the calculator.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js -->
+  <script src="../assets/reveal/dist/reveal.min.js"></script>
+  <script type="module">
+    import RevealNotes from '../assets/reveal/plugin/notes/notes.esm.js';
+
+    Reveal.initialize({
+      width: 960,
+      height: 540,
+      margin: 0,
+      minScale: 0.5,
+      maxScale: 3.0,
+      hash: true,
+      slideNumber: true,
+      controls: true,
+      progress: true,
+      history: true,
+      center: false,
+      transition: 'none',
+      backgroundTransition: 'none',
+      disableLayout: false,
+      plugins: [ RevealNotes ]
+    });
+  </script>
+</body>
+</html>

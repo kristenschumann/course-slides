@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en" class="reveal-full-page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How the GRE is Scored</title>
+
+  <!-- Reveal.js Core -->
+  <link rel="stylesheet" href="../assets/reveal/dist/reset.css">
+  <link rel="stylesheet" href="../assets/reveal/dist/reveal.css">
+
+  <!-- Leland Theme -->
+  <link rel="stylesheet" href="../assets/reveal/themes/leland.css">
+
+  <!-- KaTeX for math rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false}
+      ]
+    });"></script>
+
+</head>
+<body>
+  <!-- SVG Symbol Definitions (defined once, referenced via <use>) -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="leland-logo" viewBox="0 0 200 45">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z"/>
+      <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z"/>
+      <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z"/>
+      <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z"/>
+      <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z"/>
+      <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z"/>
+    </symbol>
+  </svg>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ============================================ -->
+      <!-- SLIDE 1: Title (Dark) -->
+      <!-- ============================================ -->
+      <section class="title-dark">
+        <div class="leland-logo-top">
+          <svg width="110" height="25" fill="white" class="mb-16"><use href="#leland-logo"/></svg>
+        </div>
+
+        <p class="eyebrow">GRE Self-Study Course</p>
+        <h1>How the GRE<br><span class="hl">is Scored</span></h1>
+
+        <aside class="notes">
+          0:00 - 0:30 | Hook. Understanding the scoring system helps you set realistic goals and interpret practice test results. Break down how answers become scores.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 2: Score Ranges -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">The Basics</p>
+          <h2>The score ranges</h2>
+        </div>
+
+        <div class="card-grid-3">
+          <div class="card card-green-bg">
+            <h3 class="mb-8">Verbal Reasoning</h3>
+            <p class="text-lg mb-8"><strong>130 - 170</strong></p>
+            <p class="text-md">1-point increments</p>
+          </div>
+
+          <div class="card card-blue-bg">
+            <h3 class="mb-8">Quantitative Reasoning</h3>
+            <p class="text-lg mb-8"><strong>130 - 170</strong></p>
+            <p class="text-md">1-point increments</p>
+          </div>
+
+          <div class="card card-purple-bg">
+            <h3 class="mb-8">Analytical Writing</h3>
+            <p class="text-lg mb-8"><strong>0 - 6</strong></p>
+            <p class="text-md">Half-point increments</p>
+          </div>
+        </div>
+
+        <div class="card-alt-green compact mt-24">
+          <p class="text-md">When people talk about their "GRE score," they usually mean Verbal and Quant. The writing score is reported separately and often weighted&nbsp;less.</p>
+        </div>
+
+        <aside class="notes">
+          0:30 - 1:30 | Cover the basics: Verbal and Quant both 130-170 in 1-point increments. AWA is 0-6 in half-point increments. Verbal and Quant are what most people focus on.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 3: Percentiles -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Understanding Percentiles</p>
+          <h2>Verbal vs. Quant percentiles</h2>
+        </div>
+
+        <p class="text-md mb-8">The same score means different things on each section. Quant scores skew higher, so it takes a higher Quant score to stand&nbsp;out.</p>
+
+        <div class="two-column gap-32">
+          <div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Score</th>
+                  <th>Verbal %</th>
+                  <th>Quant %</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>170</td>
+                  <td>99%</td>
+                  <td>94%</td>
+                </tr>
+                <tr>
+                  <td>165</td>
+                  <td>95%</td>
+                  <td>76%</td>
+                </tr>
+                <tr>
+                  <td>160</td>
+                  <td>84%</td>
+                  <td>61%</td>
+                </tr>
+                <tr>
+                  <td>155</td>
+                  <td>65%</td>
+                  <td>46%</td>
+                </tr>
+                <tr>
+                  <td>150</td>
+                  <td>41%</td>
+                  <td>30%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div>
+            <div class="card card-green-bg mb-16">
+              <h3 class="mb-8">The Key Difference</h3>
+              <p class="text-md">A 160 in Verbal = 84th percentile. A 160 in Quant = only 61st&nbsp;percentile.</p>
+            </div>
+
+            <div class="card card-blue-bg">
+              <h3 class="mb-8">Average Scores</h3>
+              <p class="text-md">Verbal: 151, Quant: 155, AWA:&nbsp;3.5</p>
+            </div>
+          </div>
+        </div>
+
+        <aside class="notes">
+          1:30 - 3:30 | Critical point: Verbal and Quant have different percentile distributions. A 160 Verbal is 84th percentile but 160 Quant is only 61st. Quant scores skew higher overall. Average scores: V 151, Q 155, AWA 3.5.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 4: Section-Adaptive Scoring -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">How It Works</p>
+          <h2>Section-adaptive scoring</h2>
+        </div>
+
+        <p class="text-md mb-8">The GRE uses equating to adjust for question difficulty, so scores are comparable across test dates. Here is how section-level adaptation&nbsp;works.</p>
+
+        <div class="two-column gap-24">
+          <div class="card card-green-bg">
+            <h3 class="mb-8">Do Well on Section 1</h3>
+            <p class="text-sm">You get a harder Section 2. Questions in the harder section are worth more toward your final&nbsp;score.</p>
+            <p class="text-sm"><strong>This is where high scores come&nbsp;from.</strong></p>
+          </div>
+
+          <div class="card card-orange-bg">
+            <h3 class="mb-8">Struggle on Section 1</h3>
+            <p class="text-sm">You get an easier Section 2. Even getting most right won't yield as high a&nbsp;score.</p>
+            <p class="text-sm"><strong>The scoring ceiling is&nbsp;lower.</strong></p>
+          </div>
+        </div>
+
+        <div class="card-alt compact mt-8">
+          <span class="badge badge-orange self-start">Strategy</span>
+          <p class="text-md">Don't rush Section 1. If running low on time, guess on remaining questions rather than leaving them&nbsp;blank.</p>
+        </div>
+
+        <aside class="notes">
+          3:30 - 5:00 | Explain section-adaptive scoring. First section performance determines second section difficulty. Doing well unlocks harder questions worth more points. Key strategy: don't rush Section 1, always guess rather than skip.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 5: What Scores Mean for Admissions -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Program Expectations</p>
+          <h2>What scores mean for admissions</h2>
+        </div>
+
+        <p class="text-md mb-8">There is no universal "good" GRE score. What matters is how yours compares to your target&nbsp;programs.</p>
+
+        <div class="card-grid-3">
+          <div class="card card-blue-bg">
+            <h3 class="mb-8">STEM Programs</h3>
+            <p class="text-sm">Prioritize Quant. A 165Q with 155V might be perfectly&nbsp;fine.</p>
+          </div>
+
+          <div class="card card-purple-bg">
+            <h3 class="mb-8">Humanities &amp; Social Sci</h3>
+            <p class="text-sm">Prioritize Verbal. A 165V with 155Q might work&nbsp;well.</p>
+          </div>
+
+          <div class="card card-green-bg">
+            <h3 class="mb-8">MBA &amp; Business</h3>
+            <p class="text-sm">Want strong scores in both. Top programs look for 160+ in&nbsp;each.</p>
+          </div>
+        </div>
+
+        <div class="card-alt-green compact mt-8">
+          <span class="badge badge-green self-start">Action Step</span>
+          <p class="text-md">Research your target programs and find their median GRE scores. Aim to match or exceed&nbsp;them.</p>
+        </div>
+
+        <aside class="notes">
+          5:00 - 6:30 | Different programs care about different sections. STEM focuses on Quant. Humanities on Verbal. MBA wants both. Research your specific programs to set realistic score targets.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 6: Score Choice & Reporting -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Reporting Options</p>
+          <h2>Score choice and reporting</h2>
+        </div>
+
+        <div class="card-grid-3">
+          <div class="type-box">
+            <div class="type-num">01</div>
+            <div>
+              <h3>ScoreSelect</h3>
+              <p>Choose which test date's scores to send. Send only your best&nbsp;scores.</p>
+            </div>
+          </div>
+
+          <div class="type-box">
+            <div class="type-num">02</div>
+            <div>
+              <h3>Superscoring</h3>
+              <p>Some schools take your highest Verbal from one date and highest Quant from another.</p>
+            </div>
+          </div>
+
+          <div class="type-box">
+            <div class="type-num">03</div>
+            <div>
+              <h3>5-Year Validity</h3>
+              <p>Scores are valid for 5 years from your test date. Flexibility in when you&nbsp;apply.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-alt compact mt-8">
+          <span class="badge badge-green self-start">Good to Know</span>
+          <p class="text-md">You can cancel scores right after the test, but most students don't need to. Take the test, see your scores, and use ScoreSelect if&nbsp;needed.</p>
+        </div>
+
+        <aside class="notes">
+          6:30 - 7:30 | Cover score reporting options. ScoreSelect lets you choose which dates to send. Some schools superscore. Scores valid 5 years. Most students don't need to worry about canceling.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 7: Summary (Dark) -->
+      <!-- ============================================ -->
+      <section class="content-dark">
+        <div class="slide-header">
+          <p class="eyebrow">Summary</p>
+          <h2>Key takeaways</h2>
+        </div>
+
+        <ul class="plus-list">
+          <li><strong>Verbal and Quant</strong> are each scored 130-170. Writing is scored&nbsp;0-6.</li>
+          <li><strong>Percentiles differ by section.</strong> The same score means different things on Verbal vs. Quant. Quant skews&nbsp;higher.</li>
+          <li><strong>Section-adaptive scoring.</strong> First section performance determines second section difficulty and your score&nbsp;ceiling.</li>
+          <li><strong>No universal "good" score.</strong> What counts depends on your target programs. Research their median&nbsp;scores.</li>
+          <li><strong>ScoreSelect gives you control.</strong> You choose which test date's scores to send to&nbsp;programs.</li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="rgba(255,255,255,0.4)"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          7:30 - 8:00 | Recap: Score ranges, percentile differences, section-adaptive scoring, program-specific targets. Research your programs and set realistic goals. [Leland+ Tip] If strong on Verbal and weaker on Quant, the GRE may be a better choice than the GMAT, since GRE Quant is generally considered easier. Many programs now accept both tests. Take a diagnostic on each before committing.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js -->
+  <script src="../assets/reveal/dist/reveal.min.js"></script>
+  <script type="module">
+    import RevealNotes from '../assets/reveal/plugin/notes/notes.esm.js';
+
+    Reveal.initialize({
+      width: 960,
+      height: 540,
+      margin: 0,
+      minScale: 0.5,
+      maxScale: 3.0,
+      hash: true,
+      slideNumber: true,
+      controls: true,
+      progress: true,
+      history: true,
+      center: false,
+      transition: 'none',
+      backgroundTransition: 'none',
+      disableLayout: false,
+      plugins: [ RevealNotes ]
+    });
+  </script>
+</body>
+</html>

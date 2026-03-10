@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en" class="reveal-full-page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Venn Diagrams: 3-Circle Sets</title>
+
+  <!-- Reveal.js Core -->
+  <link rel="stylesheet" href="../assets/reveal/dist/reset.css">
+  <link rel="stylesheet" href="../assets/reveal/dist/reveal.css">
+
+  <!-- Leland Theme -->
+  <link rel="stylesheet" href="../assets/reveal/themes/leland.css">
+
+  <!-- KaTeX for math rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false}
+      ]
+    });"></script>
+
+</head>
+<body>
+  <!-- SVG Symbol Definitions (defined once, referenced via <use>) -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="leland-logo" viewBox="0 0 200 45">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z"/>
+      <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z"/>
+      <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z"/>
+      <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z"/>
+      <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z"/>
+      <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z"/>
+    </symbol>
+  </svg>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ============================================ -->
+      <!-- SLIDE 1: Title (Dark) -->
+      <!-- ============================================ -->
+      <section class="title-dark">
+        <div class="leland-logo-top">
+          <svg width="110" height="25" fill="white" class="mb-16"><use href="#leland-logo"/></svg>
+        </div>
+
+        <p class="eyebrow">GRE Self-Study Course</p>
+        <h1>Venn Diagrams:<br><span class="hl">3-Circle Sets</span></h1>
+
+        <aside class="notes">
+          0:00-0:15 | Hook: Three overlapping circles create seven distinct regions. The GRE tests whether you can navigate them systematically.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 2: The Seven Regions -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Three-Circle Venn</p>
+          <h2>Seven distinct regions</h2>
+        </div>
+
+        <div class="two-column gap-24">
+          <div>
+            <div class="card card-green-bg mb-16">
+              <span class="badge badge-green self-start mb-8">Only One</span>
+              <p class="text-md">A only, B only, C only</p>
+            </div>
+            <div class="card card-blue-bg mb-16">
+              <span class="badge badge-blue self-start mb-8">Exactly Two</span>
+              <p class="text-md">A$\cap$B only, A$\cap$C only, B$\cap$C only</p>
+            </div>
+            <div class="card card-purple-bg">
+              <span class="badge badge-purple self-start mb-8">All Three</span>
+              <p class="text-md">A$\cap$B$\cap$C (the center)</p>
+            </div>
+          </div>
+          <div class="card card-orange-bg">
+            <span class="badge badge-orange self-start mb-16">The Formula</span>
+            <p class="text-md mb-16"><strong>Inclusion-Exclusion:</strong></p>
+            <p class="text-md mb-16">$|A \cup B \cup C| = |A| + |B| + |C|$</p>
+            <p class="text-md mb-16">$- |A\cap B| - |A\cap C| - |B\cap C|$</p>
+            <p class="text-md">$+ |A\cap B\cap C|$</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          0:15-1:45 | Three overlapping circles create 7 distinct regions: three single-set only regions, three pairwise overlap regions, and one triple overlap. Plus the area outside all circles. The inclusion-exclusion formula accounts for overcounting.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 3: Example 1 - At Least One -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 1</p>
+          <h2>How many read at least one?</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-md">100 people surveyed about magazines A, B, C. 40 read A, 35 read B, 30 read C, 10 read A$\cap$B, 8 read A$\cap$C, 12 read B$\cap$C, 5 read all three.</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16">$= 40 + 35 + 30$</p>
+            <p class="text-md mb-16">$- 10 - 8 - 12$</p>
+            <p class="text-md mb-16">$+ 5$</p>
+            <p class="text-lg mt-16">At least one:&nbsp;$80$</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          1:45-2:45 | Apply the inclusion-exclusion formula. Add individual sets: 105. Subtract pairwise overlaps: minus 30. Add back triple overlap: plus 5. Total in at least one set: 80.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 4: Example 2 - A Only -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 2</p>
+          <h2>Working from the center out</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-md">Using the same data, how many read only magazine A?</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16">All three: A$\cap$B$\cap$C $= 5$</p>
+            <p class="text-md mb-16">A$\cap$B only $= 10 - 5 = 5$</p>
+            <p class="text-md mb-16">A$\cap$C only $= 8 - 5 = 3$</p>
+            <p class="text-lg mt-16">A only $= 40 - 5 - 5 - 3 =$&nbsp;$27$</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          2:45-3:30 | To find "A only," work from the center outward. Start with the triple overlap (5). Subtract it from each pairwise overlap to get the "both only" counts. Then subtract all overlapping regions from the total for A.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 5: Fill-In Strategy -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Strategy</p>
+          <h2>Fill in from the center out</h2>
+        </div>
+
+        <div class="workflow">
+          <div class="workflow-step">
+            <div class="step-num mb-16">1</div>
+            <h3 class="text-md">Center</h3>
+            <p class="text-md">Fill in all-three overlap first</p>
+          </div>
+          <div class="workflow-arrow">&rarr;</div>
+          <div class="workflow-step">
+            <div class="step-num mb-16">2</div>
+            <h3 class="text-md">Pairs</h3>
+            <p class="text-md">Subtract center from pairwise</p>
+          </div>
+          <div class="workflow-arrow">&rarr;</div>
+          <div class="workflow-step">
+            <div class="step-num mb-16">3</div>
+            <h3 class="text-md">Singles</h3>
+            <p class="text-md">Subtract overlaps from totals</p>
+          </div>
+          <div class="workflow-arrow">&rarr;</div>
+          <div class="workflow-step">
+            <div class="step-num mb-16">4</div>
+            <h3 class="text-md">Outside</h3>
+            <p class="text-md">Total minus all regions</p>
+          </div>
+        </div>
+
+        <div class="card-alt-green compact mt-24">
+          <span class="badge badge-green self-start">Key Tip</span>
+          <p class="text-md">Always start with the triple overlap. Every other region depends on&nbsp;it.</p>
+        </div>
+
+        <aside class="notes">
+          3:30-3:45 | The systematic approach: always fill in from the center outward. Step 1: triple overlap. Step 2: pairwise overlaps minus the center. Step 3: individual sets minus all overlaps. Step 4: outside if needed.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 6: Summary (Dark) -->
+      <!-- ============================================ -->
+      <section class="content-dark">
+        <div class="slide-header">
+          <p class="eyebrow">Key Takeaways</p>
+          <h2>Venn diagrams: 3-circle sets</h2>
+        </div>
+
+        <ul class="plus-list">
+          <li><strong>Seven regions</strong> -- Three single-only, three pairwise-only, one triple overlap</li>
+          <li><strong>Inclusion-exclusion</strong> -- Add individuals, subtract pairs, add back the triple</li>
+          <li><strong>Work center-out</strong> -- Always fill in the triple overlap first</li>
+          <li><strong>"Exactly two"</strong> -- Sum of the three pairwise-only regions</li>
+          <li><strong>"A only"</strong> -- Total in A minus all regions A shares with B or C</li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="rgba(255,255,255,0.4)"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          3:45-4:00 | Summary: Seven distinct regions in a 3-circle Venn. Use inclusion-exclusion for "at least one." Work from center out for individual regions. Exactly two means the pairwise-only regions.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js -->
+  <script src="../assets/reveal/dist/reveal.min.js"></script>
+  <script type="module">
+    import RevealNotes from '../assets/reveal/plugin/notes/notes.esm.js';
+
+    Reveal.initialize({
+      width: 960,
+      height: 540,
+      margin: 0,
+      minScale: 0.5,
+      maxScale: 3.0,
+      hash: true,
+      slideNumber: true,
+      controls: true,
+      progress: true,
+      history: true,
+      center: false,
+      transition: 'none',
+      backgroundTransition: 'none',
+      disableLayout: false,
+      plugins: [ RevealNotes ]
+    });
+  </script>
+</body>
+</html>

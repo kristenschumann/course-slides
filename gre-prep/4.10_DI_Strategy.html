@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en" class="reveal-full-page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DI Strategy: Scan vs Read</title>
+
+  <!-- Reveal.js Core -->
+  <link rel="stylesheet" href="../assets/reveal/dist/reset.css">
+  <link rel="stylesheet" href="../assets/reveal/dist/reveal.css">
+
+  <!-- Leland Theme -->
+  <link rel="stylesheet" href="../assets/reveal/themes/leland.css">
+
+  <!-- KaTeX for math rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false}
+      ]
+    });"></script>
+
+</head>
+<body>
+  <!-- SVG Symbol Definitions (defined once, referenced via <use>) -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="leland-logo" viewBox="0 0 200 45">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z"/>
+      <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z"/>
+      <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z"/>
+      <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z"/>
+      <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z"/>
+      <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z"/>
+    </symbol>
+  </svg>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ============================================ -->
+      <!-- SLIDE 1: Title (Dark) -->
+      <!-- ============================================ -->
+      <section class="title-dark">
+        <div class="leland-logo-top">
+          <svg width="110" height="25" fill="white" class="mb-16"><use href="#leland-logo"/></svg>
+        </div>
+
+        <p class="eyebrow">GRE Self-Study Course</p>
+        <h1>Data Interpretation Strategy:<br><span class="hl">Scan vs. Read</span></h1>
+
+        <aside class="notes">
+          0:00-0:20 | Hook: Data Interpretation (DI) questions are time-consuming if approached wrong. The secret is to scan first for structure, then read carefully only what is needed.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 2: The Scan Phase -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Phase 1</p>
+          <h2>The 30-second scan</h2>
+        </div>
+
+        <p class="text-md mb-8">Before reading any questions, spend 30-45 seconds scanning the data display.</p>
+
+        <!-- Annotated chart: what to scan -->
+        <svg class="chart-svg" viewBox="0 0 750 120" style="margin-bottom: 8px">
+          <rect x="110" y="4" width="460" height="100" fill="#fafafa" stroke="#E5E5E5" stroke-width="1" rx="4"/>
+          <!-- Title -->
+          <text x="340" y="16" text-anchor="middle" font-size="9" font-weight="600" fill="#333" font-family="Inter,Arial,sans-serif">Average Monthly Temperature, 2019-2023 (degrees Fahrenheit)</text>
+          <!-- Axes -->
+          <line x1="145" y1="24" x2="145" y2="88" stroke="#333" stroke-width="0.5"/>
+          <line x1="145" y1="88" x2="540" y2="88" stroke="#333" stroke-width="0.7"/>
+          <text x="140" y="91" text-anchor="end" font-size="7" fill="#707070" font-family="Inter,Arial,sans-serif">30</text>
+          <text x="140" y="68" text-anchor="end" font-size="7" fill="#707070" font-family="Inter,Arial,sans-serif">50</text>
+          <text x="140" y="45" text-anchor="end" font-size="7" fill="#707070" font-family="Inter,Arial,sans-serif">70</text>
+          <text x="125" y="60" text-anchor="middle" font-size="7" fill="#707070" font-family="Inter,Arial,sans-serif" transform="rotate(-90,125,60)">Temp (°F)</text>
+          <!-- Line data -->
+          <polyline points="175,78 225,65 295,42 370,30 440,40 510,65" fill="none" stroke="#15B078" stroke-width="2"/>
+          <circle cx="175" cy="78" r="2.5" fill="#15B078"/>
+          <circle cx="225" cy="65" r="2.5" fill="#15B078"/>
+          <circle cx="295" cy="42" r="2.5" fill="#15B078"/>
+          <circle cx="370" cy="30" r="2.5" fill="#15B078"/>
+          <circle cx="440" cy="40" r="2.5" fill="#15B078"/>
+          <circle cx="510" cy="65" r="2.5" fill="#15B078"/>
+          <!-- X labels -->
+          <text x="175" y="98" text-anchor="middle" font-size="7" fill="#333" font-family="Inter,Arial,sans-serif">Jan</text>
+          <text x="295" y="98" text-anchor="middle" font-size="7" fill="#333" font-family="Inter,Arial,sans-serif">Apr</text>
+          <text x="440" y="98" text-anchor="middle" font-size="7" fill="#333" font-family="Inter,Arial,sans-serif">Oct</text>
+          <!-- Callout labels -->
+          <rect x="8" y="6" width="80" height="14" rx="3" fill="#15B078"/>
+          <text x="48" y="16" text-anchor="middle" font-size="7" font-weight="700" fill="#fff" font-family="Inter,Arial,sans-serif">TITLE</text>
+          <line x1="90" y1="13" x2="110" y2="14" stroke="#15B078" stroke-width="1"/>
+          <rect x="8" y="30" width="80" height="14" rx="3" fill="#3B7DFD"/>
+          <text x="48" y="40" text-anchor="middle" font-size="7" font-weight="700" fill="#fff" font-family="Inter,Arial,sans-serif">AXIS LABELS</text>
+          <line x1="90" y1="37" x2="115" y2="60" stroke="#3B7DFD" stroke-width="1"/>
+          <rect x="8" y="54" width="80" height="14" rx="3" fill="#EF8509"/>
+          <text x="48" y="64" text-anchor="middle" font-size="7" font-weight="700" fill="#fff" font-family="Inter,Arial,sans-serif">UNITS</text>
+          <line x1="90" y1="61" x2="110" y2="16" stroke="#EF8509" stroke-width="1"/>
+          <rect x="8" y="78" width="80" height="14" rx="3" fill="#2D25A6"/>
+          <text x="48" y="88" text-anchor="middle" font-size="7" font-weight="700" fill="#fff" font-family="Inter,Arial,sans-serif">SCALE START</text>
+          <line x1="90" y1="85" x2="140" y2="88" stroke="#2D25A6" stroke-width="1"/>
+          <rect x="598" y="6" width="80" height="14" rx="3" fill="#9B9B9B"/>
+          <text x="638" y="16" text-anchor="middle" font-size="7" font-weight="700" fill="#fff" font-family="Inter,Arial,sans-serif">TIME PERIOD</text>
+          <line x1="596" y1="13" x2="572" y2="16" stroke="#9B9B9B" stroke-width="1"/>
+        </svg>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Element</th>
+              <th>Why It Matters</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Title</td>
+              <td>What is this data about?</td>
+            </tr>
+            <tr>
+              <td>Axis labels</td>
+              <td>What is being measured?</td>
+            </tr>
+            <tr>
+              <td>Units</td>
+              <td>Thousands? Millions? Percent?</td>
+            </tr>
+            <tr>
+              <td>Time period</td>
+              <td>What years or range does it cover?</td>
+            </tr>
+            <tr>
+              <td>Scale</td>
+              <td>Does the y-axis start at zero?</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <aside class="notes">
+          0:20-2:00 | The scan phase: 30-45 seconds before touching any question. Check the title, axis labels, units, time period, and scale. This prevents unit errors and misreading the data source.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 3: The Read Phase -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Phase 2</p>
+          <h2>Read the question precisely</h2>
+        </div>
+
+        <p class="text-md mb-16">Key words change the entire meaning of a question.</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Key Word</th>
+              <th>Meaning</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>"Approximately"</td>
+              <td>Estimation is okay; round freely</td>
+            </tr>
+            <tr>
+              <td>"Exactly"</td>
+              <td>Be precise; no rounding</td>
+            </tr>
+            <tr>
+              <td>"At least" / "At most"</td>
+              <td>Minimum ($\geq$) / Maximum ($\leq$)</td>
+            </tr>
+            <tr>
+              <td>"From X to Y"</td>
+              <td>Change between two specific points</td>
+            </tr>
+            <tr>
+              <td>"During X to Y"</td>
+              <td>Total over an entire period</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <aside class="notes">
+          2:00-3:30 | The read phase: look for key words that change meaning. "Approximately" means you can round. "At least" means greater than or equal to. "From X to Y" asks about change between two points. "During X to Y" asks about the total over a period.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 4: Divider - Prioritization -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <p class="part-number">Part 2</p>
+        <h1>Question Prioritization</h1>
+        <p>Not all Data Interpretation questions are equal</p>
+
+        <aside class="notes">
+          3:30-3:40 | Transition: Now that you know how to scan and read, let's talk about which questions to answer first.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 5: Two-Pass Strategy -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Strategy</p>
+          <h2>The two-pass approach</h2>
+        </div>
+
+        <div class="two-column gap-24">
+          <div class="card card-green-bg">
+            <span class="badge badge-green self-start mb-8">Pass 1</span>
+            <h3 class="text-md mb-8">Easy Questions First</h3>
+            <ul class="plus-list text-md">
+              <li>Direct reads from one graph</li>
+              <li>Simple comparisons</li>
+              <li>Single data source questions</li>
+            </ul>
+          </div>
+          <div class="card card-blue-bg">
+            <span class="badge badge-blue self-start mb-8">Pass 2</span>
+            <h3 class="text-md mb-8">Return to Hard Ones</h3>
+            <ul class="plus-list text-md">
+              <li>Multi-step calculations</li>
+              <li>Questions requiring both displays</li>
+              <li>Complex percent changes</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Sample DI question set mockup showing triage -->
+        <div style="display: flex; gap: 16px; margin-top: 12px; align-items: flex-start">
+          <!-- Mini chart -->
+          <svg viewBox="0 0 180 90" width="180" style="flex-shrink:0">
+            <rect x="0" y="0" width="180" height="90" fill="#fafafa" stroke="#E5E5E5" stroke-width="0.7" rx="3"/>
+            <text x="90" y="10" text-anchor="middle" font-size="7" font-weight="600" fill="#333" font-family="Inter,Arial,sans-serif">Sales by Region ($M)</text>
+            <line x1="30" y1="16" x2="30" y2="72" stroke="#333" stroke-width="0.4"/>
+            <line x1="30" y1="72" x2="165" y2="72" stroke="#333" stroke-width="0.5"/>
+            <rect x="42" y="38" width="16" height="34" fill="#15B078" rx="1"/><rect x="60" y="48" width="16" height="24" fill="#113A2D" rx="1"/>
+            <rect x="92" y="28" width="16" height="44" fill="#15B078" rx="1"/><rect x="110" y="42" width="16" height="30" fill="#113A2D" rx="1"/>
+            <rect x="142" y="22" width="16" height="50" fill="#15B078" rx="1"/>
+            <text x="59" y="82" text-anchor="middle" font-size="6" fill="#333" font-family="Inter,Arial,sans-serif">East</text>
+            <text x="109" y="82" text-anchor="middle" font-size="6" fill="#333" font-family="Inter,Arial,sans-serif">West</text>
+            <text x="150" y="82" text-anchor="middle" font-size="6" fill="#333" font-family="Inter,Arial,sans-serif">South</text>
+          </svg>
+          <!-- Question triage labels -->
+          <div style="font-size: 14px; line-height: 1.6">
+            <p style="margin-bottom:6px"><span style="display:inline-block; width:56px; padding:2px 6px; border-radius:4px; background:rgba(21,176,120,0.12); color:#15B078; font-size:11px; font-weight:600; text-align:center">EASY</span> <span style="color:#333">Q1: What were East sales in 2023?</span></p>
+            <p style="margin-bottom:6px"><span style="display:inline-block; width:56px; padding:2px 6px; border-radius:4px; background:rgba(239,133,9,0.12); color:#EF8509; font-size:11px; font-weight:600; text-align:center">MEDIUM</span> <span style="color:#333">Q2: % increase from East to West?</span></p>
+            <p><span style="display:inline-block; width:56px; padding:2px 6px; border-radius:4px; background:rgba(251,90,66,0.12); color:#FB5A42; font-size:11px; font-weight:600; text-align:center">HARD</span> <span style="color:#333">Q3: Which region grew most from '22-'23?</span></p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          3:40-5:00 | The two-pass strategy. Pass 1: answer easy questions first (direct reads, simple comparisons). Pass 2: return to harder multi-step questions. This banks easy points and builds familiarity with the data.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 6: Difficulty Triage -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Time Budget</p>
+          <h2>Triage by difficulty</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Difficulty</th>
+              <th>Example</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Easy</td>
+              <td>Direct read from one graph</td>
+              <td>30-45 sec</td>
+            </tr>
+            <tr>
+              <td>Medium</td>
+              <td>Calculate from extracted values</td>
+              <td>60-90 sec</td>
+            </tr>
+            <tr>
+              <td>Hard</td>
+              <td>Multi-step, multiple sources</td>
+              <td>2-3 min</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="card-alt-green compact mt-24">
+          <span class="badge badge-orange self-start">Skip Signal</span>
+          <p class="text-md">If you have spent 2+ minutes without progress, mark it and move on. Return with fresh eyes after completing&nbsp;others.</p>
+        </div>
+
+        <aside class="notes">
+          5:00-5:45 | Time budgets: easy questions under 45 seconds, medium around 90 seconds, hard up to 3 minutes. If stuck for 2+ minutes, skip and return. Do not let one question steal time from the rest.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 7: Efficiency Traps -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Avoid These</p>
+          <h2>Four efficiency traps</h2>
+        </div>
+
+        <div class="card-grid-2" style="padding-bottom: 0">
+          <div class="card card-red-bg" style="padding: 16px">
+            <span class="badge badge-red self-start mb-8">Trap 1</span>
+            <h3 class="text-md mb-8">Reading Everything First</h3>
+            <p class="text-md">Let questions guide your reading.</p>
+          </div>
+          <div class="card card-orange-bg" style="padding: 16px">
+            <span class="badge badge-orange self-start mb-8">Trap 2</span>
+            <h3 class="text-md mb-8">Solving in Order</h3>
+            <p class="text-md">Triage by difficulty instead.</p>
+          </div>
+          <div class="card card-purple-bg" style="padding: 16px">
+            <span class="badge badge-purple self-start mb-8">Trap 3</span>
+            <h3 class="text-md mb-8">Over-Precision</h3>
+            <p class="text-md">Check answer spacing before calculating.</p>
+          </div>
+          <div class="card card-blue-bg" style="padding: 16px">
+            <span class="badge badge-blue self-start mb-8">Trap 4</span>
+            <h3 class="text-md mb-8">Misreading Units</h3>
+            <p class="text-md">Circle or underline units during scan.</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          5:45-6:30 | Four efficiency traps. Trap 1: do not read everything before looking at questions. Trap 2: do not solve in order, triage instead. Trap 3: do not over-calculate when answers are spread apart. Trap 4: circle units during your scan to prevent misreading.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 8: Summary (Dark) -->
+      <!-- ============================================ -->
+      <section class="content-dark">
+        <div class="slide-header">
+          <p class="eyebrow">Key Takeaways</p>
+          <h2>DI strategy: Scan vs. read</h2>
+        </div>
+
+        <ul class="plus-list">
+          <li><strong>Scan first (30-45 sec)</strong> -- Title, labels, units, scale, and legend before touching questions</li>
+          <li><strong>Read precisely</strong> -- Key words like "approximately," "at least," and "from X to Y" change everything</li>
+          <li><strong>Two-pass strategy</strong> -- Answer easy questions first, return to hard ones second</li>
+          <li><strong>Budget your time</strong> -- Easy: 30-45 sec, medium: 60-90 sec, hard: 2-3 min</li>
+          <li><strong>Skip and return</strong> -- If stuck for 2+ minutes, mark it and move on</li>
+          <li><strong>Let questions guide you</strong> -- Do not read everything up front; let each question tell you where to look</li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="rgba(255,255,255,0.4)"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          6:30-7:00 | Summary: Scan for structure, read for precision, solve efficiently. Use the two-pass strategy. Budget time by difficulty. Skip and return when stuck. Let questions guide your reading.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js -->
+  <script src="../assets/reveal/dist/reveal.min.js"></script>
+  <script type="module">
+    import RevealNotes from '../assets/reveal/plugin/notes/notes.esm.js';
+
+    Reveal.initialize({
+      width: 960,
+      height: 540,
+      margin: 0,
+      minScale: 0.5,
+      maxScale: 3.0,
+      hash: true,
+      slideNumber: true,
+      controls: true,
+      progress: true,
+      history: true,
+      center: false,
+      transition: 'none',
+      backgroundTransition: 'none',
+      disableLayout: false,
+      plugins: [ RevealNotes ]
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en" class="reveal-full-page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Angles &amp; Triangle Rules</title>
+
+  <!-- Reveal.js Core -->
+  <link rel="stylesheet" href="../assets/reveal/dist/reset.css">
+  <link rel="stylesheet" href="../assets/reveal/dist/reveal.css">
+
+  <!-- Leland Theme -->
+  <link rel="stylesheet" href="../assets/reveal/themes/leland.css">
+
+  <!-- KaTeX for math rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false}
+      ]
+    });"></script>
+
+</head>
+<body>
+  <!-- SVG Symbol Definitions (defined once, referenced via <use>) -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="leland-logo" viewBox="0 0 200 45">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z"/>
+      <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z"/>
+      <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z"/>
+      <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z"/>
+      <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z"/>
+      <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z"/>
+    </symbol>
+  </svg>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ============================================ -->
+      <!-- SLIDE 1: Title (Dark) -->
+      <!-- ============================================ -->
+      <section class="title-dark">
+        <div class="leland-logo-top">
+          <svg width="110" height="25" fill="white" class="mb-16"><use href="#leland-logo"/></svg>
+        </div>
+
+        <p class="eyebrow">GRE Self-Study Course</p>
+        <h1>Angles &amp;<br><span class="hl">Triangle Rules</span></h1>
+
+        <aside class="notes">
+          0:00-0:30 | Hook: Angles in a triangle sum to 180 degrees, everyone knows that. But the GRE tests dozens of angle relationships at once. This video builds your complete angle toolkit so you can solve complex angle puzzles with simple rules.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 2: Divider - Basic Angles -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <p class="part-number">Part 1</p>
+        <h1>Angle Relationships</h1>
+        <p>Complementary, supplementary, and vertical angles</p>
+
+        <aside class="notes">
+          0:30-0:40 | Transition to basic angle relationships.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 3: Angle Types and Relationships -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Angle Relationships</p>
+          <h2>Four rules to know</h2>
+        </div>
+
+        <svg class="chart-svg" viewBox="0 0 750 60" style="margin: 0 auto 8px auto; display: block;">
+          <!-- Acute angle ~45° -->
+          <line x1="20" y1="45" x2="100" y2="45" stroke="#113A2D" stroke-width="2"/>
+          <line x1="20" y1="45" x2="76" y2="12" stroke="#15B078" stroke-width="2"/>
+          <path d="M 40 45 A 20 20 0 0 0 32 33" fill="none" stroke="#EF8509" stroke-width="2.5"/>
+          <text x="60" y="57" font-family="Calibre, sans-serif" font-size="11" fill="#113A2D" text-anchor="middle">Acute</text>
+          <!-- Right angle 90° -->
+          <line x1="200" y1="45" x2="280" y2="45" stroke="#113A2D" stroke-width="2"/>
+          <line x1="200" y1="45" x2="200" y2="7.5" stroke="#15B078" stroke-width="2"/>
+          <rect x="200" y="37.5" width="7.5" height="7.5" fill="none" stroke="#EF8509" stroke-width="1.5"/>
+          <text x="240" y="57" font-family="Calibre, sans-serif" font-size="11" fill="#113A2D" text-anchor="middle">Right</text>
+          <!-- Obtuse angle ~120° -->
+          <line x1="400" y1="45" x2="480" y2="45" stroke="#113A2D" stroke-width="2"/>
+          <line x1="400" y1="45" x2="360" y2="10.5" stroke="#15B078" stroke-width="2"/>
+          <path d="M 420 45 A 20 20 0 0 0 394 31.5" fill="none" stroke="#EF8509" stroke-width="2.5"/>
+          <text x="430" y="57" font-family="Calibre, sans-serif" font-size="11" fill="#113A2D" text-anchor="middle">Obtuse</text>
+          <!-- Straight angle 180° -->
+          <line x1="560" y1="37.5" x2="730" y2="37.5" stroke="#15B078" stroke-width="2"/>
+          <circle cx="645" cy="37.5" r="3" fill="#113A2D"/>
+          <path d="M 665 37.5 A 20 20 0 0 0 625 37.5" fill="none" stroke="#EF8509" stroke-width="2.5"/>
+          <text x="645" y="57" font-family="Calibre, sans-serif" font-size="11" fill="#113A2D" text-anchor="middle">Straight</text>
+        </svg>
+
+        <div class="two-column gap-24">
+          <div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Type</th>
+                  <th>Measure</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Acute</td>
+                  <td>$0\degree &lt; \theta &lt; 90\degree$</td>
+                </tr>
+                <tr>
+                  <td>Right</td>
+                  <td>$= 90\degree$</td>
+                </tr>
+                <tr>
+                  <td>Obtuse</td>
+                  <td>$90\degree &lt; \theta &lt; 180\degree$</td>
+                </tr>
+                <tr>
+                  <td>Straight</td>
+                  <td>$= 180\degree$</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Relationship</th>
+                  <th>Rule</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Complementary</td>
+                  <td>Sum $= 90\degree$</td>
+                </tr>
+                <tr>
+                  <td>Supplementary</td>
+                  <td>Sum $= 180\degree$</td>
+                </tr>
+                <tr>
+                  <td>Vertical</td>
+                  <td>Equal</td>
+                </tr>
+                <tr>
+                  <td>Linear pair</td>
+                  <td>Sum $= 180\degree$</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <aside class="notes">
+          0:40-2:00 | Angle types by measure: acute (less than 90), right (exactly 90), obtuse (between 90 and 180), straight (180). Key relationships: complementary = sum to 90, supplementary = sum to 180, vertical angles = equal, linear pair = supplementary.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 4: Angle Examples -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Angle Relationships</p>
+          <h2>Setting up equations</h2>
+        </div>
+
+        <svg class="chart-svg" viewBox="0 0 750 100" style="margin: 0 auto 12px auto; display: block;">
+          <!-- Complementary side -->
+          <text x="188" y="12" font-family="Calibre, sans-serif" font-size="13" fill="#15B078" font-weight="600" text-anchor="middle">Complementary</text>
+          <line x1="68" y1="80" x2="308" y2="80" stroke="#9B9B9B" stroke-width="1.5"/>
+          <line x1="68" y1="80" x2="68" y2="24" stroke="#9B9B9B" stroke-width="1.5"/>
+          <line x1="68" y1="80" x2="260" y2="30" stroke="#15B078" stroke-width="2"/>
+          <rect x="68" y="70" width="10" height="10" fill="none" stroke="#EF8509" stroke-width="1.5"/>
+          <path d="M 103 80 A 35 35 0 0 0 88 56" fill="none" stroke="#EF8509" stroke-width="2.5"/>
+          <text x="112" y="66" font-family="Calibre, sans-serif" font-size="13" fill="#EF8509" font-weight="600">25°</text>
+          <path d="M 83 52 A 22 22 0 0 0 68 50" fill="none" stroke="#EF8509" stroke-width="2"/>
+          <text x="72" y="42" font-family="Calibre, sans-serif" font-size="13" fill="#EF8509" font-weight="600">65°</text>
+
+          <!-- Divider -->
+          <line x1="375" y1="18" x2="375" y2="92" stroke="#E5E5E5" stroke-width="1"/>
+
+          <!-- Supplementary side -->
+          <text x="563" y="12" font-family="Calibre, sans-serif" font-size="13" fill="#3B7DFD" font-weight="600" text-anchor="middle">Supplementary</text>
+          <line x1="413" y1="65" x2="713" y2="65" stroke="#9B9B9B" stroke-width="1.5"/>
+          <line x1="563" y1="65" x2="620" y2="24" stroke="#3B7DFD" stroke-width="2"/>
+          <circle cx="563" cy="65" r="3" fill="#113A2D"/>
+          <path d="M 588 65 A 25 25 0 0 0 578 50" fill="none" stroke="#EF8509" stroke-width="2.5"/>
+          <text x="594" y="52" font-family="Calibre, sans-serif" font-size="12" fill="#EF8509" font-weight="600">x</text>
+          <path d="M 538 65 A 25 25 0 0 1 548 50" fill="none" stroke="#EF8509" stroke-width="2"/>
+          <text x="510" y="50" font-family="Calibre, sans-serif" font-size="12" fill="#EF8509" font-weight="600">3x</text>
+        </svg>
+
+        <div class="two-column gap-24">
+          <div>
+            <p class="text-md mb-8"><strong>If one angle is 25°, what is the complement?</strong></p>
+            <div class="card-alt compact">
+              <p class="text-md">$90\degree - 25\degree = $ $65\degree$</p>
+            </div>
+          </div>
+          <div>
+            <p class="text-md mb-8"><strong>One angle is 3 times the other. Find both.</strong></p>
+            <div class="card-alt compact">
+              <p class="text-md">$x + 3x = 180\degree$, so $x = $ $45\degree$ and $3x = $ $135\degree$</p>
+            </div>
+          </div>
+        </div>
+
+        <aside class="notes">
+          2:00-2:40 | Two quick examples. Complementary: if one angle is 25, the other is 90 - 25 = 65. Supplementary with a ratio: x + 3x = 180, so x = 45 and 3x = 135.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 5a: Parallel Lines Diagram -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Parallel Lines</p>
+          <h2>Transversal creates two angle sizes</h2>
+        </div>
+
+        <svg class="chart-svg" viewBox="0 0 750 180" style="margin: 0 auto 12px auto; display: block;">
+          <!-- Parallel line 1 -->
+          <line x1="80" y1="45" x2="670" y2="45" stroke="#3B7DFD" stroke-width="2.5"/>
+          <polygon points="670,45 660,41 660,49" fill="#3B7DFD"/>
+          <!-- Parallel arrows on line 1 -->
+          <polygon points="360,40 366,45 360,50" fill="#3B7DFD"/>
+          <polygon points="370,40 376,45 370,50" fill="#3B7DFD"/>
+          <text x="68" y="49" font-family="Calibre, sans-serif" font-size="13" fill="#3B7DFD" font-style="italic">&#8467;&#8321;</text>
+
+          <!-- Parallel line 2 -->
+          <line x1="80" y1="135" x2="670" y2="135" stroke="#3B7DFD" stroke-width="2.5"/>
+          <polygon points="670,135 660,131 660,139" fill="#3B7DFD"/>
+          <!-- Parallel arrows on line 2 -->
+          <polygon points="360,130 366,135 360,140" fill="#3B7DFD"/>
+          <polygon points="370,130 376,135 370,140" fill="#3B7DFD"/>
+          <text x="68" y="139" font-family="Calibre, sans-serif" font-size="13" fill="#3B7DFD" font-style="italic">&#8467;&#8322;</text>
+
+          <!-- Transversal -->
+          <line x1="250" y1="6" x2="490" y2="174" stroke="#113A2D" stroke-width="2"/>
+          <text x="240" y="14" font-family="Calibre, sans-serif" font-size="12" fill="#113A2D" font-style="italic">t</text>
+
+          <!-- Angles at intersection with line 1 (intersection ~330,45) -->
+          <!-- Upper-left: 110° (orange) -->
+          <path d="M 315 45 A 15 15 0 0 0 324 32" fill="none" stroke="#EF8509" stroke-width="1.5"/>
+          <text x="296" y="36" font-family="Calibre, sans-serif" font-size="12" fill="#EF8509" font-weight="600">110°</text>
+          <!-- Upper-right: 70° (green) -->
+          <path d="M 345 45 A 15 15 0 0 0 336 32" fill="none" stroke="#15B078" stroke-width="1.5"/>
+          <text x="346" y="34" font-family="Calibre, sans-serif" font-size="12" fill="#15B078" font-weight="600">70°</text>
+          <!-- Lower-left: 70° (green) -->
+          <path d="M 315 45 A 15 15 0 0 1 324 58" fill="none" stroke="#15B078" stroke-width="1.5"/>
+          <text x="296" y="66" font-family="Calibre, sans-serif" font-size="12" fill="#15B078" font-weight="600">70°</text>
+          <!-- Lower-right: 110° (orange) -->
+          <path d="M 345 45 A 15 15 0 0 1 336 58" fill="none" stroke="#EF8509" stroke-width="1.5"/>
+          <text x="346" y="66" font-family="Calibre, sans-serif" font-size="12" fill="#EF8509" font-weight="600">110°</text>
+
+          <!-- Angles at intersection with line 2 (intersection ~430,135) -->
+          <!-- Upper-left: 110° (orange) -->
+          <path d="M 415 135 A 15 15 0 0 0 424 122" fill="none" stroke="#EF8509" stroke-width="1.5"/>
+          <text x="396" y="126" font-family="Calibre, sans-serif" font-size="12" fill="#EF8509" font-weight="600">110°</text>
+          <!-- Upper-right: 70° (green) -->
+          <path d="M 445 135 A 15 15 0 0 0 436 122" fill="none" stroke="#15B078" stroke-width="1.5"/>
+          <text x="446" y="124" font-family="Calibre, sans-serif" font-size="12" fill="#15B078" font-weight="600">70°</text>
+          <!-- Lower-left: 70° (green) -->
+          <path d="M 415 135 A 15 15 0 0 1 424 148" fill="none" stroke="#15B078" stroke-width="1.5"/>
+          <text x="396" y="156" font-family="Calibre, sans-serif" font-size="12" fill="#15B078" font-weight="600">70°</text>
+          <!-- Lower-right: 110° (orange) -->
+          <path d="M 445 135 A 15 15 0 0 1 436 148" fill="none" stroke="#EF8509" stroke-width="1.5"/>
+          <text x="446" y="156" font-family="Calibre, sans-serif" font-size="12" fill="#EF8509" font-weight="600">110°</text>
+        </svg>
+        <p class="text-sm mb-8" style="text-align: center; color: #9B9B9B;">When a transversal crosses parallel lines, eight angles form in just <strong>two sizes</strong>.</p>
+
+        <aside class="notes">
+          2:40-3:20 | Parallel lines cut by a transversal: the key insight is only two angle sizes exist. Here you can see all eight angles are either 70 or 110 degrees. GRE speed tip: once you find one angle, you know all eight. If you see any angle is x, the others are x or (180 - x). Don't waste time identifying "alternate interior" vs "corresponding" -- just use the two-sizes rule.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 5b: Equal vs Supplementary Angles -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Parallel Lines</p>
+          <h2>Equal vs supplementary angles</h2>
+        </div>
+
+        <div class="two-column gap-24">
+          <div class="card card-green-bg">
+            <span class="badge badge-green self-start mb-8">Equal Angles</span>
+            <p class="text-md">Corresponding, alternate interior, alternate exterior</p>
+          </div>
+          <div class="card card-orange-bg">
+            <span class="badge badge-orange self-start mb-8">Supplementary</span>
+            <p class="text-md">Same-side interior angles add to $180\degree$</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          3:20-4:00 | Corresponding, alternate interior, and alternate exterior are all equal. Same-side interior angles are supplementary. If one angle is 70, the others are 70 or 110.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 6: Transversal Algebra -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 1</p>
+          <h2>Solving with parallel lines</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card card-blue-bg">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-md mb-8">Parallel lines cut by a transversal. Alternate interior angles are $(2x + 10)\degree$ and $(3x - 20)\degree$. Find $x$.</p>
+            <svg class="chart-svg" viewBox="0 0 280 140" style="margin: 0 auto; display: block;">
+              <!-- Parallel line 1 -->
+              <line x1="20" y1="35" x2="260" y2="35" stroke="#3B7DFD" stroke-width="2"/>
+              <polygon points="252,31 258,35 252,39" fill="#3B7DFD"/>
+              <!-- Parallel line 2 -->
+              <line x1="20" y1="105" x2="260" y2="105" stroke="#3B7DFD" stroke-width="2"/>
+              <polygon points="252,101 258,105 252,109" fill="#3B7DFD"/>
+              <!-- Transversal -->
+              <line x1="90" y1="5" x2="200" y2="135" stroke="#113A2D" stroke-width="1.5"/>
+              <!-- Angle at line 1 (lower-right): (2x+10)° -->
+              <path d="M 145 35 A 15 15 0 0 1 136 48" fill="none" stroke="#EF8509" stroke-width="1.5"/>
+              <text x="148" y="54" font-family="Calibre, sans-serif" font-size="10" fill="#EF8509" font-weight="600">(2x+10)°</text>
+              <!-- Angle at line 2 (upper-left): (3x-20)° -->
+              <path d="M 155 105 A 15 15 0 0 0 164 92" fill="none" stroke="#EF8509" stroke-width="1.5"/>
+              <text x="96" y="96" font-family="Calibre, sans-serif" font-size="10" fill="#EF8509" font-weight="600">(3x−20)°</text>
+            </svg>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16">Alternate interior angles are equal.</p>
+            <p class="text-md mb-16">$2x + 10 = 3x - 20$</p>
+            <p class="text-lg mt-16">Answer: $x =$&nbsp;$30$</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          4:00-4:40 | Algebra with parallel lines: alternate interior angles are equal, so set them equal. 2x + 10 = 3x - 20, solve to get x = 30.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 7: Divider - Triangle Rules -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <p class="part-number">Part 2</p>
+        <h1>Triangle Rules</h1>
+        <p>Angle sum, exterior angles, and inequality</p>
+
+        <aside class="notes">
+          4:40-4:50 | Transition to triangle rules.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 8: Triangle Angle Rules -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Triangle Rules</p>
+          <h2>Interior and exterior angles</h2>
+        </div>
+
+        <div class="two-column gap-24">
+          <div class="card card-green-bg">
+            <span class="badge badge-green self-start mb-8">Interior Sum</span>
+            <svg class="chart-svg" viewBox="0 0 160 70" style="margin: 0 auto 8px auto; display: block;">
+              <!-- Triangle -->
+              <polygon points="80,7 20,59.5 145,59.5" fill="none" stroke="#15B078" stroke-width="2"/>
+              <!-- Vertex labels -->
+              <text x="78" y="5.6" font-family="Calibre, sans-serif" font-size="11" fill="#113A2D" text-anchor="middle">A</text>
+              <text x="12" y="65.8" font-family="Calibre, sans-serif" font-size="11" fill="#113A2D" text-anchor="middle">B</text>
+              <text x="153" y="65.8" font-family="Calibre, sans-serif" font-size="11" fill="#113A2D" text-anchor="middle">C</text>
+              <!-- Angle A: 40° -->
+              <path d="M 68 18.2 A 18 18 0 0 1 92 18.2" fill="none" stroke="#EF8509" stroke-width="2.5"/>
+              <text x="80" y="26.6" font-family="Calibre, sans-serif" font-size="9" fill="#EF8509" text-anchor="middle">40°</text>
+              <!-- Angle B: 75° -->
+              <path d="M 38 56 A 14 14 0 0 0 25 50.4" fill="none" stroke="#EF8509" stroke-width="2.5"/>
+              <text x="40" y="50.4" font-family="Calibre, sans-serif" font-size="9" fill="#EF8509">75°</text>
+              <!-- Angle C: x -->
+              <path d="M 130 56 A 14 14 0 0 1 140 50.4" fill="none" stroke="#EF8509" stroke-width="1.5"/>
+              <text x="122" y="50.4" font-family="Calibre, sans-serif" font-size="9" fill="#EF8509">x</text>
+            </svg>
+            <p class="text-md mb-8">$\angle A + \angle B + \angle C = 180\degree$</p>
+            <div class="card-alt compact">
+              <p class="text-md">$40\degree + 75\degree + x = 180\degree$, so $x = $ $65\degree$</p>
+            </div>
+          </div>
+          <div class="card card-blue-bg">
+            <span class="badge badge-blue self-start mb-8">Exterior Angle</span>
+            <svg class="chart-svg" viewBox="0 0 180 70" style="margin: 0 auto 8px auto; display: block;">
+              <!-- Triangle -->
+              <polygon points="30,10.5 15,56 120,56" fill="none" stroke="#3B7DFD" stroke-width="2"/>
+              <!-- Extended side -->
+              <line x1="120" y1="56" x2="170" y2="56" stroke="#EF8509" stroke-width="2"/>
+              <!-- Angle at top: 50° -->
+              <path d="M 24 21 A 12 12 0 0 1 38 19.6" fill="none" stroke="#EF8509" stroke-width="2.5"/>
+              <text x="33" y="29.4" font-family="Calibre, sans-serif" font-size="9" fill="#EF8509">50°</text>
+              <!-- Angle at bottom-left: 70° -->
+              <path d="M 32 53.2 A 14 14 0 0 0 20 47.6" fill="none" stroke="#EF8509" stroke-width="2.5"/>
+              <text x="34" y="47.6" font-family="Calibre, sans-serif" font-size="9" fill="#EF8509">70°</text>
+              <!-- Exterior angle: 120° -->
+              <path d="M 135 56 A 15 15 0 0 0 126 47.6" fill="none" stroke="#EF8509" stroke-width="1.5"/>
+              <text x="134" y="47.6" font-family="Calibre, sans-serif" font-size="9" fill="#EF8509" font-weight="600">120°</text>
+            </svg>
+            <p class="text-md mb-8">Equals sum of two remote interiors</p>
+            <div class="card-alt compact">
+              <p class="text-md">Exterior $= 50\degree + 70\degree = $ $120\degree$</p>
+            </div>
+          </div>
+        </div>
+
+        <aside class="notes">
+          4:50-6:00 | Two key rules. Interior angles always sum to 180. An exterior angle of a triangle equals the sum of the two non-adjacent interior angles. A triangle cannot have two right angles.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 9: Triangle Inequality -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Triangle Inequality</p>
+          <h2>When can three sides form a triangle?</h2>
+        </div>
+
+        <div class="card-alt-green compact mb-16">
+          <p class="text-md">The longest side must be <strong>less than</strong> the sum of the other two sides.</p>
+        </div>
+
+        <div class="two-column gap-24">
+          <div class="card card-red-bg">
+            <span class="badge badge-red self-start mb-8">Invalid</span>
+            <svg class="chart-svg" viewBox="0 0 160 55" style="margin: 0 auto 8px auto; display: block;">
+              <!-- Long side (12) -->
+              <line x1="10" y1="37.8" x2="150" y2="37.8" stroke="#FB5A42" stroke-width="2"/>
+              <text x="80" y="48.1" font-family="Calibre, sans-serif" font-size="10" fill="#FB5A42" text-anchor="middle">12</text>
+              <!-- Short sides can't reach -->
+              <line x1="10" y1="37.8" x2="40" y2="15.1" stroke="#FB5A42" stroke-width="2"/>
+              <text x="16" y="23.4" font-family="Calibre, sans-serif" font-size="10" fill="#FB5A42">3</text>
+              <line x1="150" y1="37.8" x2="118" y2="15.1" stroke="#FB5A42" stroke-width="2"/>
+              <text x="140" y="23.4" font-family="Calibre, sans-serif" font-size="10" fill="#FB5A42">7</text>
+              <!-- Gap indicator -->
+              <line x1="40" y1="15.1" x2="118" y2="15.1" stroke="#FB5A42" stroke-width="1" stroke-dasharray="4,3"/>
+              <text x="79" y="11" font-family="Calibre, sans-serif" font-size="9" fill="#FB5A42" text-anchor="middle">gap!</text>
+            </svg>
+            <p class="text-md mb-8">Sides 3, 7, 12</p>
+            <div class="card-alt compact">
+              <p class="text-md">$12 &lt; 3 + 7 = 10$? <span class="neg">No</span></p>
+            </div>
+          </div>
+          <div class="card card-green-bg">
+            <span class="badge badge-green self-start mb-8">Valid</span>
+            <svg class="chart-svg" viewBox="0 0 160 55" style="margin: 0 auto 8px auto; display: block;">
+              <!-- Valid triangle with sides 5, 8, 11 -->
+              <polygon points="15,48.1 145,48.1 100,10.3" fill="none" stroke="#15B078" stroke-width="2"/>
+              <!-- Side labels -->
+              <text x="80" y="53.6" font-family="Calibre, sans-serif" font-size="10" fill="#15B078" text-anchor="middle">11</text>
+              <text x="48" y="26.1" font-family="Calibre, sans-serif" font-size="10" fill="#15B078">5</text>
+              <text x="130" y="26.1" font-family="Calibre, sans-serif" font-size="10" fill="#15B078">8</text>
+            </svg>
+            <p class="text-md mb-8">Sides 5, 8, 11</p>
+            <div class="card-alt compact">
+              <p class="text-md">$11 &lt; 5 + 8 = 13$? Yes</p>
+            </div>
+          </div>
+        </div>
+
+        <aside class="notes">
+          6:00-7:10 | Triangle inequality: the longest side must be less than the sum of the other two. 3, 7, 12 fails because 12 is not less than 10. 5, 8, 11 works because 11 is less than 13. Range rule: if sides are 5 and 9, the third side must be between 4 and 14. GRE tip: QC questions love asking "which of these could be the third side?" Use the range formula: |a - b| &lt; c &lt; a + b. This eliminates wrong answers instantly.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 10: Side-Angle Relationships -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Triangle Properties</p>
+          <h2>Side-angle relationships</h2>
+        </div>
+
+        <div class="card-alt-green compact mb-16">
+          <p class="text-md"><strong>Largest angle is opposite the longest side.</strong> Smallest angle is opposite the shortest side.</p>
+        </div>
+
+        <div class="two-column gap-24">
+          <div class="card card-blue-bg">
+            <span class="badge badge-blue self-start mb-8">From Sides</span>
+            <svg class="chart-svg" viewBox="0 0 160 65" style="margin: 0 auto 8px auto; display: block;">
+              <!-- Triangle with sides 5, 8, 10 -->
+              <polygon points="10,55.3 150,55.3 110,9.8" fill="none" stroke="#3B7DFD" stroke-width="2"/>
+              <!-- Side labels -->
+              <text x="80" y="62.4" font-family="Calibre, sans-serif" font-size="10" fill="#3B7DFD" text-anchor="middle">10</text>
+              <text x="50" y="29.9" font-family="Calibre, sans-serif" font-size="10" fill="#3B7DFD">5</text>
+              <text x="138" y="29.9" font-family="Calibre, sans-serif" font-size="10" fill="#3B7DFD">8</text>
+              <!-- Small arc (opp 5) at bottom-right -->
+              <path d="M 138 53.3 A 10 10 0 0 0 143 49.4" fill="none" stroke="#EF8509" stroke-width="1.5"/>
+              <!-- Medium arc (opp 8) at top -->
+              <path d="M 100 14.3 A 14 14 0 0 0 118 16.9" fill="none" stroke="#EF8509" stroke-width="1.5"/>
+              <!-- Large arc (opp 10) at bottom-left -->
+              <path d="M 26 52 A 16 16 0 0 0 16 46.8" fill="none" stroke="#FB5A42" stroke-width="1.5"/>
+            </svg>
+            <p class="text-md mb-8">Sides: 5, 8, 10</p>
+            <div class="card-alt compact">
+              <p class="text-md">Angles: $\angle$ opp 5 $&lt;$ $\angle$ opp 8 $&lt;$ $\angle$ opp 10</p>
+            </div>
+          </div>
+          <div class="card card-purple-bg">
+            <span class="badge badge-purple self-start mb-8">From Angles</span>
+            <p class="text-md mb-8">$\angle P = 50\degree$, $\angle Q = 60\degree$, $\angle R = 70\degree$</p>
+            <div class="card-alt compact">
+              <p class="text-md">Longest side is $PQ$ (opposite largest $\angle R$)</p>
+            </div>
+          </div>
+        </div>
+
+        <aside class="notes">
+          7:10-8:10 | In any triangle, the largest angle sits opposite the longest side. If you know side lengths, you can order the angles. If you know angles, you can order the sides. This is a common GRE testing point.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 11: Isosceles Triangle -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 2</p>
+          <h2>Isosceles triangle angles</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card card-green-bg">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-md mb-8">In isosceles triangle ABC, $AB = BC$ and $\angle A = 40\degree$. Find $\angle B$ and $\angle C$.</p>
+            <svg class="chart-svg" viewBox="0 0 160 80" style="margin: 0 auto; display: block;">
+              <!-- Isosceles triangle -->
+              <polygon points="80,6.7 20,70 140,70" fill="none" stroke="#15B078" stroke-width="2"/>
+              <!-- Vertex labels -->
+              <text x="80" y="5.3" font-family="Calibre, sans-serif" font-size="11" fill="#113A2D" text-anchor="middle">B</text>
+              <text x="12" y="76" font-family="Calibre, sans-serif" font-size="11" fill="#113A2D" text-anchor="middle">A</text>
+              <text x="148" y="76" font-family="Calibre, sans-serif" font-size="11" fill="#113A2D" text-anchor="middle">C</text>
+              <!-- Tick marks on AB (equal sides) -->
+              <line x1="46" y1="36" x2="54" y2="40" stroke="#15B078" stroke-width="1.5"/>
+              <!-- Tick marks on BC (equal sides) -->
+              <line x1="106" y1="36" x2="114" y2="40" stroke="#15B078" stroke-width="1.5"/>
+              <!-- Angle A: 40° -->
+              <path d="M 36 66.7 A 14 14 0 0 0 26 60" fill="none" stroke="#EF8509" stroke-width="2.5"/>
+              <text x="38" y="60" font-family="Calibre, sans-serif" font-size="9" fill="#EF8509">40°</text>
+            </svg>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16">Equal sides $\rightarrow$ equal base angles: $\angle A = \angle C = 40\degree$</p>
+            <p class="text-md mb-16">$\angle B = 180\degree - 40\degree - 40\degree$</p>
+            <p class="text-lg mt-16">Answer: $\angle B =$&nbsp;$100\degree$</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          8:10-9:00 | Isosceles triangle: two equal sides means two equal base angles. AB = BC so angle A = angle C = 40. Angle B = 180 - 40 - 40 = 100.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 12: Summary (content-dark) -->
+      <!-- ============================================ -->
+      <section class="content-dark">
+        <div class="slide-header">
+          <p class="eyebrow">Key Takeaways</p>
+          <h2>Angles &amp; triangle rules</h2>
+        </div>
+
+        <ul class="plus-list">
+          <li><strong>Vertical angles</strong> — Always equal. Linear pairs sum to $180\degree$</li>
+          <li><strong>Parallel lines + transversal</strong> — Creates only two angle sizes (equal or supplementary)</li>
+          <li><strong>Triangle interior angles</strong> — Always sum to $180\degree$</li>
+          <li><strong>Exterior angle theorem</strong> — Equals the sum of two remote interior angles</li>
+          <li><strong>Triangle inequality &amp; side-angle rule</strong> — Longest side less than sum of other two; largest angle opposite longest side</li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="rgba(255,255,255,0.4)"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          9:00-10:00 | Summary: vertical angles equal, parallel transversals create two sizes, triangle angles sum to 180, exterior angle equals the remote interiors, triangle inequality checks validity, largest angle opposite longest side.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js -->
+  <script src="../assets/reveal/dist/reveal.min.js"></script>
+  <script type="module">
+    import RevealNotes from '../assets/reveal/plugin/notes/notes.esm.js';
+
+    Reveal.initialize({
+      width: 960,
+      height: 540,
+      margin: 0,
+      minScale: 0.5,
+      maxScale: 3.0,
+      hash: true,
+      slideNumber: true,
+      controls: true,
+      progress: true,
+      history: true,
+      center: false,
+      transition: 'none',
+      backgroundTransition: 'none',
+      disableLayout: false,
+      plugins: [ RevealNotes ]
+    });
+  </script>
+</body>
+</html>

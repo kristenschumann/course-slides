@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en" class="reveal-full-page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Overlapping Sets</title>
+
+  <!-- Reveal.js Core -->
+  <link rel="stylesheet" href="../assets/reveal/dist/reset.css">
+  <link rel="stylesheet" href="../assets/reveal/dist/reveal.css">
+
+  <!-- Leland Theme -->
+  <link rel="stylesheet" href="../assets/reveal/themes/leland.css">
+
+  <!-- KaTeX for math rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false}
+      ]
+    });"></script>
+
+</head>
+<body>
+  <!-- SVG Symbol Definitions (defined once, referenced via <use>) -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="leland-logo" viewBox="0 0 200 45">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z"/>
+      <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z"/>
+      <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z"/>
+      <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z"/>
+      <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z"/>
+      <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z"/>
+    </symbol>
+  </svg>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ============================================ -->
+      <!-- SLIDE 1: Title (Dark) -->
+      <!-- ============================================ -->
+      <section class="title-dark">
+        <div class="leland-logo-top">
+          <svg width="110" height="25" fill="white" class="mb-16"><use href="#leland-logo"/></svg>
+        </div>
+
+        <p class="eyebrow">GRE Self-Study Course</p>
+        <h1>Overlapping Sets<br><span class="hl">with Two Categories</span></h1>
+
+        <aside class="notes">
+          0:00-0:30 | Hook: In a class of 30 students, 18 play soccer and 15 play basketball. How many play both? Adding gives 33, but there are only 30 students. The overlap accounts for the extra 3. This video teaches how to handle overlapping sets without double-counting. Extended in Lesson 5.3 with three-set problems and more complex Venn diagram strategies.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 2: The Inclusion-Exclusion Formula -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Core Formula</p>
+          <h2>Inclusion-exclusion principle</h2>
+        </div>
+
+        <p class="text-md mb-16">When items belong to multiple groups, adding the groups counts some items twice. Subtract the overlap.</p>
+
+        <div class="card card-green-bg">
+          <span class="badge badge-green self-start mb-8">The Formula</span>
+          <p class="text-lg mb-16">$\text{Total} = A + B - \text{Both} + \text{Neither}$</p>
+          <div class="two-column gap-24">
+            <div class="card-alt compact">
+              <p class="text-md"><strong>A</strong> = count in group A (includes overlap)</p>
+            </div>
+            <div class="card-alt compact">
+              <p class="text-md"><strong>B</strong> = count in group B (includes overlap)</p>
+            </div>
+          </div>
+        </div>
+
+        <aside class="notes">
+          0:30-2:00 | The inclusion-exclusion formula: Total = A + B minus Both plus Neither. A and B each include the overlap, so we subtract it once to avoid double-counting. Walk through each variable. For three-set problems on the GRE: if you know exactly-2 and need exactly-3, use the relation: sum of sets = exactly-1 + 2(exactly-2) + 3(exactly-3). Combined with total = E1 + E2 + E3, you can solve for any unknown.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 3: Example 1 - Finding Both -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 1</p>
+          <h2>Finding the overlap</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-md">In a class of 30 students, 18 play soccer and 15 play basketball. If 5 play neither sport, how many play both?</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16"><strong>Step 1:</strong>&nbsp;$30 = 18 + 15 - \text{Both} + 5$</p>
+            <p class="text-md mb-16"><strong>Step 2:</strong>&nbsp;$30 = 38 - \text{Both}$</p>
+            <p class="text-lg mt-16">Answer:&nbsp;Both $= 8$</p>
+          </div>
+        </div>
+
+        <div class="card-alt compact mt-16">
+          <span class="badge badge-green">Verify</span>
+          <p class="text-md">Soccer only: 10 + Basketball only: 7 + Both: 8 + Neither: 5 = 30</p>
+        </div>
+
+        <aside class="notes">
+          2:00-3:00 | Example 1: finding the overlap. Click to reveal. Step 1: plug into the formula. Step 2: simplify to get Both = 8. Verify: 10 + 7 + 8 + 5 = 30.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 4: The Venn Diagram Method -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Visual Method</p>
+          <h2>The four Venn diagram regions</h2>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="card card-green-bg" style="padding: 16px">
+            <span class="badge badge-green self-start mb-8">Region 1</span>
+            <h3 class="text-md mb-8">A Only</h3>
+            <p class="text-md">$A - \text{Both}$</p>
+          </div>
+          <div class="card card-blue-bg" style="padding: 16px">
+            <span class="badge badge-blue self-start mb-8">Region 2</span>
+            <h3 class="text-md mb-8">B Only</h3>
+            <p class="text-md">$B - \text{Both}$</p>
+          </div>
+          <div class="card card-purple-bg" style="padding: 16px">
+            <span class="badge badge-purple self-start mb-8">Region 3</span>
+            <h3 class="text-md mb-8">Both A and B</h3>
+            <p class="text-md">Given or calculated</p>
+          </div>
+          <div class="card card-orange-bg" style="padding: 16px">
+            <span class="badge badge-orange self-start mb-8">Region 4</span>
+            <h3 class="text-md mb-8">Neither</h3>
+            <p class="text-md">$\text{Total} - \text{(other three)}$</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          3:00-4:00 | The Venn diagram has four regions: A only, B only, Both, and Neither. Strategy: start with what you know (usually Both), then fill in the rest. All four regions must sum to the total.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 5: Example 2 - Finding Neither -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 2</p>
+          <h2>Finding neither</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-md">Of 100 customers, 60 bought coffee, 40 bought tea, and 25 bought both. How many bought neither?</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16"><strong>Step 1:</strong> Coffee only:&nbsp;$60 - 25 = 35$</p>
+            <p class="text-md mb-16"><strong>Step 2:</strong> Tea only:&nbsp;$40 - 25 = 15$</p>
+            <p class="text-md mb-16"><strong>Step 3:</strong>&nbsp;$100 - (35 + 25 + 15)$</p>
+            <p class="text-lg mt-16">Answer:&nbsp;Neither $= 25$</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          4:00-5:00 | Example 2: finding neither. Click to reveal. Step 1: coffee only = 35. Step 2: tea only = 15. Step 3: total minus all three regions. Answer: 25 bought neither.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 6: "At Least One" Problems -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Key Relationship</p>
+          <h2>"At least one" = total - neither</h2>
+        </div>
+
+        <div class="two-column gap-24">
+          <div class="card card-green-bg">
+            <span class="badge badge-green self-start mb-8">At Least One</span>
+            <p class="text-md mb-8">$\text{At Least One} = \text{Total} - \text{Neither}$</p>
+            <div class="card-alt compact">
+              <p class="text-md">80 people, 10 own neither: At least one $= 80 - 10 = $ $70$</p>
+            </div>
+          </div>
+          <div class="card card-blue-bg">
+            <span class="badge badge-blue self-start mb-8">Find Both</span>
+            <p class="text-md mb-8">$\text{Both} = A + B - \text{At Least One}$</p>
+            <div class="card-alt compact">
+              <p class="text-md">$45 + 30 - 70 = $ $5$</p>
+            </div>
+          </div>
+        </div>
+
+        <aside class="notes">
+          5:00-6:00 | "At least one" equals Total minus Neither. Once you know "at least one," you can find Both by subtracting from A + B. Walk through both relationships.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 7: Divider - GRE Applications -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <p class="part-number">Part 3</p>
+        <h1>GRE Applications</h1>
+        <p>Fraction-based and multi-part problems</p>
+
+        <aside class="notes">
+          6:00-6:10 | Transition: let's apply these skills to GRE-style problems that use fractions and percentages.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 8: Example 4 - Fractions -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 3</p>
+          <h2>Working with fractions</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-md">Every student studies French, Spanish, or both. If $\frac{3}{4}$ study French and $\frac{2}{3}$ study Spanish, what fraction study both?</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md math-step"><strong>Step 1:</strong> Neither $= 0$ (everyone studies at least one)</p>
+            <p class="text-md math-step"><strong>Step 2:</strong>&nbsp;$1 = \frac{3}{4} + \frac{2}{3} - \text{Both}$</p>
+            <p class="text-md math-step"><strong>Step 3:</strong>&nbsp;$\text{Both} = \frac{9}{12} + \frac{8}{12} - \frac{12}{12}$</p>
+            <p class="text-lg mt-16">Answer:&nbsp;$\frac{5}{12}$</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          6:10-7:30 | Example 3: fractions. Click to reveal. Step 1: Neither is 0, everyone does at least one. Step 2: plug into the formula with 1 as total. Step 3: find common denominator 12. Answer: 5/12.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 9: Example 5 - Multi-Part -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">Example 4</p>
+          <h2>Multi-part problem</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card">
+            <h3 class="text-md mb-16">Problem</h3>
+            <p class="text-md">Of 200 employees, 120 speak English, 90 speak Spanish, and 40 speak both. Find only English, only Spanish, and neither.</p>
+          </div>
+          <div class="card">
+            <h3 class="text-md mb-16">Solution</h3>
+            <p class="text-md mb-16">Only English:&nbsp;$120 - 40 = $ $80$</p>
+            <p class="text-md mb-16">Only Spanish:&nbsp;$90 - 40 = $ $50$</p>
+            <p class="text-md mb-16">Neither:&nbsp;$200 - (80 + 50 + 40)$</p>
+            <p class="text-lg mt-16">Neither =&nbsp;$30$</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          7:30-8:45 | Example 4: multi-part. Click to reveal. Only English = 80, only Spanish = 50. Neither = 200 minus 170 = 30. Always verify all four regions sum to the total.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 10: Common Trap -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Common Trap</p>
+          <h2>A and B already include the overlap</h2>
+        </div>
+
+        <div class="two-column gap-24">
+          <div class="card card-red-bg">
+            <span class="badge badge-red self-start mb-8">Wrong</span>
+            <p class="text-md mb-8">Treating A and B as "only" counts.</p>
+            <div class="card-alt compact">
+              <p class="text-md"><span class="status-incorrect">Soccer: 18</span> does NOT mean "18 play only soccer."</p>
+            </div>
+          </div>
+          <div class="card card-green-bg">
+            <span class="badge badge-green self-start mb-8">Right</span>
+            <p class="text-md mb-8">A includes those in Both.</p>
+            <div class="card-alt compact">
+              <p class="text-md"><span class="status-correct">Soccer: 18</span> means 18 total, including those who also play basketball.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-alt-green compact mt-16">
+          <p class="text-md"><strong>Always subtract the overlap:</strong> A Only $= A - \text{Both}$</p>
+        </div>
+
+        <aside class="notes">
+          8:45-9:30 | Common trap: forgetting that A includes those in Both. When a problem says "18 play soccer," that includes students who play both sports. Always subtract the overlap to get "only A." When the problem has no overlap possible (like comedy vs horror films), use a two-way table instead of a Venn diagram. Fill in row and column totals first, then work inward.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 11: Summary (content-dark) -->
+      <!-- ============================================ -->
+      <section class="content-dark">
+        <div class="slide-header">
+          <p class="eyebrow">Key Takeaways</p>
+          <h2>Overlapping sets</h2>
+        </div>
+
+        <ul class="plus-list">
+          <li><strong>Inclusion-exclusion</strong>: Total $= A + B -$ Both $+$ Neither</li>
+          <li><strong>Four Venn diagram regions</strong>: A only, B only, Both, Neither (must sum to Total)</li>
+          <li><strong>A only</strong> $= A -$ Both. Always subtract the overlap from each group.</li>
+          <li><strong>At least one</strong> $=$ Total $-$ Neither. A fast shortcut for many problems.</li>
+          <li><strong>Works with fractions and percents</strong>: Use 1 or 100 as the total.</li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="rgba(255,255,255,0.4)"><use href="#leland-logo"/></svg>
+        </div>
+
+        <aside class="notes">
+          9:30-10:00 | Summary: the inclusion-exclusion formula, four Venn diagram regions, how to find "only" counts, the "at least one" shortcut, and working with fractions and percents.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js -->
+  <script src="../assets/reveal/dist/reveal.min.js"></script>
+  <script type="module">
+    import RevealNotes from '../assets/reveal/plugin/notes/notes.esm.js';
+
+    Reveal.initialize({
+      width: 960,
+      height: 540,
+      margin: 0,
+      minScale: 0.5,
+      maxScale: 3.0,
+      hash: true,
+      slideNumber: true,
+      controls: true,
+      progress: true,
+      history: true,
+      center: false,
+      transition: 'none',
+      backgroundTransition: 'none',
+      disableLayout: false,
+      plugins: [ RevealNotes ]
+    });
+  </script>
+</body>
+</html>
