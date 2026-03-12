@@ -222,7 +222,7 @@
 
         <div class="card-alt-green compact mt-16">
           <div style="display: flex; align-items: flex-start; gap: 12px;">
-            <span class="icon icon-xl icon-green" style="flex-shrink: 0; -webkit-mask-image: url(../assets/icons/warning-triangle.svg); mask-image: url(../assets/icons/warning-triangle.svg)"></span>
+            <span class="icon icon-xl icon-green" style="../assets/reveal/icons/warning-triangle.svg)"></span>
             <p class="text-md"><strong>Key trap:</strong> Negating "all" is "not all" (some aren't), NOT "none." Students who negate too strongly will reject correct&nbsp;answers.</p>
           </div>
         </div>
@@ -379,7 +379,71 @@
       </section>
 
       <!-- ============================================ -->
-      <!-- SLIDE 10: Summary (Dark) -->
+      <!-- SLIDE 10: Practice Problem -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Practice</p>
+          <h2>Find the assumption</h2>
+        </div>
+
+        <div class="card-alt compact mb-16">
+          <p class="text-md"><strong>Argument:</strong> Because the new software is more efficient than the old software, the company should switch to the new software&nbsp;immediately.</p>
+        </div>
+
+        <p class="text-md mb-8"><strong>The argument assumes which of the following?</strong></p>
+
+        <div class="text-sm" style="line-height: 1.8">
+          <p>(A) The new software is less expensive than the old&nbsp;software.</p>
+          <p>(B) Efficiency is an important factor in software&nbsp;selection.</p>
+          <p>(C) The company has the resources and ability to switch&nbsp;software.</p>
+          <p>(D) Employees prefer the new&nbsp;software.</p>
+          <p>(E) The old software is&nbsp;outdated.</p>
+        </div>
+
+        <aside class="notes">
+          ~1 min | Read the argument aloud, then the question and choices. Give the viewer a moment to think. Encourage them to pause and try the negation test on their top pick before moving on.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 11: Practice Answer — Negation Test Demo -->
+      <!-- ============================================ -->
+      <section class="content math-content">
+        <div class="slide-header">
+          <p class="eyebrow">Practice</p>
+          <h2>Negation test walkthrough</h2>
+        </div>
+
+        <div class="fragment fade-up">
+          <div class="card card-green-bg mb-16" style="padding: 16px">
+            <div class="status-correct text-md mb-8">Correct: (C)</div>
+            <p class="text-sm"><strong>Negate C:</strong> "The company does NOT have the resources or ability to switch software."</p>
+            <p class="text-sm mt-8">If the company can't switch, the conclusion — "should switch immediately" — collapses entirely. You can't switch if you can't&nbsp;switch.</p>
+          </div>
+        </div>
+
+        <div class="fragment fade-up">
+          <div class="card card-orange-bg" style="padding: 16px">
+            <p class="text-sm mb-8"><strong>Why not (A)?</strong> Negate: "New software is NOT less expensive." The argument is about efficiency, not cost — still&nbsp;works.</p>
+            <p class="text-sm mb-8"><strong>Why not (B)?</strong> Negate: "Efficiency is NOT an important factor in software selection." Seems damaging, but the premise already establishes efficiency as the reason. The argument doesn't depend on efficiency being important in general — it assumes the company CAN switch. (B) is baked into the premise, not a hidden&nbsp;assumption.</p>
+            <p class="text-sm mb-8"><strong>Why not (D)?</strong> Negate: "Employees do NOT prefer the new software." Preference isn't the argument's basis — still&nbsp;works.</p>
+            <p class="text-sm"><strong>Why not (E)?</strong> Negate: "The old software is NOT outdated." The argument never claims it is — still&nbsp;works.</p>
+          </div>
+        </div>
+
+        <div class="card-alt-green compact mt-16 fade-up">
+          <span class="badge badge-green self-start">Strategy</span>
+          <p class="text-md">The Negation Test is your verification tool. Always negate your answer choice and ask: <em>"Does the argument fall apart?"</em> If yes, that's your&nbsp;assumption.</p>
+        </div>
+
+        <aside class="notes">
+          ~1.5 min | Reveal the answer: C. Walk through the negation of C and show how the argument collapses. Then quickly show why A, B, D, and E fail the negation test — the argument survives without them. For B, note that efficiency is already stated in the premise so it's not a hidden assumption. Reinforce the strategy: negate, check for collapse.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 12: Summary (Dark) -->
       <!-- ============================================ -->
       <section class="content-dark">
         <div class="slide-header">
@@ -410,7 +474,7 @@
   <!-- Reveal.js -->
   <script src="../assets/reveal/dist/reveal.min.js"></script>
   <script type="module">
-    import RevealNotes from '../assets/reveal/plugin/notes/notes.esm.js';
+../assets/reveal/plugin/notes/notes.esm.js';
 
     Reveal.initialize({
       width: 960,
