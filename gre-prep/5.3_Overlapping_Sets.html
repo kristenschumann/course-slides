@@ -165,11 +165,11 @@
             <h3 class="text-md mb-16">Problem</h3>
             <p class="text-md">80 people at a party: 45 drink coffee, 35 drink tea, 10 drink neither. How many drink both?</p>
           </div>
-          <div class="card">
+          <div class="card ">
             <h3 class="text-md mb-16">Solution</h3>
-            <p class="text-md mb-16">$|C \cup T| = 80 - 10 = 70$</p>
-            <p class="text-md mb-16">$70 = 45 + 35 - |C \cap T|$</p>
-            <p class="text-lg mt-16">Answer: $|C \cap T| =$&nbsp;$10$ people</span></p>
+            <p class="text-md mb-16 ">$|C \cup T| = 80 - 10 = 70$</p>
+            <p class="text-md mb-16 ">$70 = 45 + 35 - |C \cap T|$</p>
+            <p class="text-lg mt-16 ">Answer: $|C \cap T| =$&nbsp;$10$ people</span></p>
           </div>
         </div>
 
@@ -302,11 +302,11 @@
             <h3 class="text-md mb-16">Problem</h3>
             <p class="text-md">150 students: 80 Spanish, 65 French, 50 German. Pairs: S+F 30, S+G 25, F+G 20. All three: 10.</p>
           </div>
-          <div class="card">
+          <div class="card ">
             <h3 class="text-md mb-16">Solution</h3>
-            <p class="text-md mb-16">$= 80 + 65 + 50 - 30 - 25 - 20 + 10$</p>
-            <p class="text-md mb-16">At least one:&nbsp;$130$</span></p>
-            <p class="text-lg mt-16">Neither: $150 - 130 =$&nbsp;$20$</span></p>
+            <p class="text-md mb-16 ">$= 80 + 65 + 50 - 30 - 25 - 20 + 10$</p>
+            <p class="text-md mb-16 ">At least one:&nbsp;$130$</span></p>
+            <p class="text-lg mt-16 ">Neither: $150 - 130 =$&nbsp;$20$</span></p>
           </div>
         </div>
 
@@ -329,12 +329,12 @@
             <h3 class="text-md mb-16">Problem</h3>
             <p class="text-md">Using the language survey data, how many students study Spanish only?</p>
           </div>
-          <div class="card">
+          <div class="card ">
             <h3 class="text-md mb-16">Solution</h3>
-            <p class="text-md mb-16">Start with $|S| = 80$</p>
-            <p class="text-md mb-16">Subtract pairs: $-30$ (S+F) $-25$ (S+G)</p>
-            <p class="text-md mb-16">Add back triple: $+10$ (subtracted twice)</p>
-            <p class="text-lg mt-16">Answer: $80 - 30 - 25 + 10 =$&nbsp;$35$</span></p>
+            <p class="text-md mb-16 ">Start with $|S| = 80$</p>
+            <p class="text-md mb-16 ">Subtract pairs: $-30$ (S+F) $-25$ (S+G)</p>
+            <p class="text-md mb-16 ">Add back triple: $+10$ (subtracted twice)</p>
+            <p class="text-lg mt-16 ">Answer: $80 - 30 - 25 + 10 =$&nbsp;$35$</span></p>
           </div>
         </div>
 
@@ -357,11 +357,11 @@
             <h3 class="text-md mb-16">Problem</h3>
             <p class="text-md">Committee of 4 from 6 men and 5 women. How many have at least one woman?</p>
           </div>
-          <div class="card">
+          <div class="card ">
             <h3 class="text-md mb-16">Solution</h3>
-            <p class="text-md mb-16">Total committees:&nbsp;$C(11,4) = 330$</p>
-            <p class="text-md mb-16">All-male committees:&nbsp;$C(6,4) = 15$</p>
-            <p class="text-lg mt-16">Answer: $330 - 15 =$&nbsp;$315$</span></p>
+            <p class="text-md mb-16 ">Total committees:&nbsp;$C(11,4) = 330$</p>
+            <p class="text-md mb-16 ">All-male committees:&nbsp;$C(6,4) = 15$</p>
+            <p class="text-lg mt-16 ">Answer: $330 - 15 =$&nbsp;$315$</span></p>
           </div>
         </div>
 
@@ -406,7 +406,7 @@
   <!-- Reveal.js -->
   <script src="../assets/reveal/dist/reveal.min.js"></script>
   <script type="module">
-../assets/reveal/plugin/notes/notes.esm.js';
+    import RevealNotes from '../assets/reveal/plugin/notes/notes.esm.js';
 
     Reveal.initialize({
       width: 960,
