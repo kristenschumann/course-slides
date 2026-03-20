@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en" class="reveal-full-page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cap Table Fundamentals</title>
+
+  <!-- Reveal.js Core -->
+  <link rel="stylesheet" href="../assets/reveal/dist/reset.css">
+  <link rel="stylesheet" href="../assets/reveal/dist/reveal.css">
+
+  <!-- Leland Theme -->
+  <link rel="stylesheet" href="../assets/reveal/themes/leland.css">
+
+</head>
+<body>
+  <!-- SVG Symbol Definitions (defined once, referenced via <use>) -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="leland-logo" viewBox="0 0 200 45">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z"/>
+      <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z"/>
+      <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z"/>
+      <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z"/>
+      <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z"/>
+      <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z"/>
+    </symbol>
+  </svg>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ============================================ -->
+      <!-- SLIDE 1: Title Dark -->
+      <!-- ============================================ -->
+      <section class="title-dark">
+        <svg width="110" height="25" fill="white" class="mb-16"><use href="#leland-logo"/></svg>
+        <p class="eyebrow">VC Recruiting Course</p>
+        <h1>Cap Table<br><span class="hl">Fundamentals</span></h1>
+
+        <aside class="notes">
+          [0:00] Welcome slide. Brief pause before the hook.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 2: The Interview Story -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>One page, one question, one failed interview</h2>
+        </div>
+
+        <div class="card-alt-green">
+          <div style="display: flex; align-items: flex-start; gap: 16px;">
+            <span class="icon icon-xl icon-green" style="../assets/icons/spreadsheet.svg); flex-shrink: 0;"></span>
+            <div>
+              <p><strong>A partner slid a one-page cap table across the table and asked, "After this round closes, what does the founder actually own?" The candidate stared at it, started doing math on the wrong number, and never recovered. The answer was on the page.</strong></p>
+              <p class="text-sm text-light mt-8">Cap tables are one of the most tested topics in VC interviews and one of the least intuitive if you haven't worked with them. The math is not hard. But the logic behind the math is where people trip up. That is what we are covering here.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          0:00 - 0:30 | I watched a candidate blow a final-round interview over a cap table question. The partner slid a one-page cap table across the table and asked what the founder actually owns after the round closes. The candidate stared at it, did math on the wrong number, and never recovered. The answer was right there. You just have to know how to read it.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 3: What You'll Learn -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Four skills you'll build today</h2>
+        </div>
+
+        <ul class="icon-list text-lg">
+          <li>
+            <span class="icon icon-xl icon-green" style="../assets/icons/spreadsheet.svg); flex-shrink: 0;"></span>
+            <span><strong>Build a cap table from scratch</strong> and read one cold in an interview setting.</span>
+          </li>
+          <li>
+            <span class="icon icon-xl icon-green" style="../assets/icons/arrow-up-chart-growth.svg); flex-shrink: 0;"></span>
+            <span><strong>Model dilution across rounds</strong> and understand how ownership changes with each investment.</span>
+          </li>
+          <li>
+            <span class="icon icon-xl icon-green" style="../assets/icons/user-group.svg); flex-shrink: 0;"></span>
+            <span><strong>Understand option pool mechanics</strong> and why pre-money pool creation matters for founders.</span>
+          </li>
+          <li>
+            <span class="icon icon-xl icon-green" style="../assets/icons/money.svg); flex-shrink: 0;"></span>
+            <span><strong>Run a waterfall analysis</strong> to calculate who gets paid, how much, and in what order at exit.</span>
+          </li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          0:30 - 1:15 | Four skills. Build a cap table from scratch. Model how dilution works across multiple funding rounds. Understand why option pools get created before the investment and not after. And run a waterfall analysis, which is the single most practical skill tested in VC technical interviews. This connects to the ownership math from 7.2. If that video gave you the formulas, this one gives you the spreadsheet where those formulas live.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 4: Section Divider -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <div class="part-number">Section 1</div>
+        <h1>What a Cap Table Is and Why VCs Obsess Over It</h1>
+
+        <aside class="notes">
+          1:15 | Transition into cap table fundamentals.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 5: Anatomy of a Cap Table -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>The basic structure</h2>
+        </div>
+
+        <div class="card-grid-3">
+          <div class="card card-green-bg fragment" data-fragment-index="1">
+            <span class="icon icon-lg icon-green mb-16" style="../assets/icons/user.svg)"></span>
+            <h3>Rows = Shareholders</h3>
+            <p class="text-sm text-light">Founders, institutional investors, angel investors, option pool holders. Every person or entity with an ownership stake gets a row.</p>
+          </div>
+          <div class="card card-blue-bg fragment" data-fragment-index="2">
+            <span class="icon icon-lg icon-blue mb-16" style="../assets/icons/spreadsheet.svg)"></span>
+            <h3>Columns = Attributes</h3>
+            <p class="text-sm text-light">Name, share class (common, Series A preferred, Series B preferred), number of shares, percentage ownership, and fully diluted ownership.</p>
+          </div>
+          <div class="card card-purple-bg fragment" data-fragment-index="3">
+            <span class="icon icon-lg icon-purple mb-16" style="../assets/icons/layers.svg)"></span>
+            <h3>Share Classes</h3>
+            <p class="text-sm text-light">Common stock goes to founders and employees. Preferred stock goes to investors. Each funding round creates a new class of preferred with distinct rights.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          1:15 - 2:00 | A cap table is the ownership blueprint for a company. [Click] Rows are shareholders: founders, investors, option pool holders. [Click] Columns track attributes: name, share class, share count, percentage ownership. At seed stage this might be ten rows in a Google Sheet. By Series C it can be 200 rows across multiple share classes. [Click] Common stock for founders and employees, preferred stock for investors. Each round creates a new class of preferred.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 6: Why VCs Care About Cap Tables -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Three reasons CAP tables matter</h2>
+        </div>
+
+        <div class="card-grid-3">
+          <div class="card card-green-bg fragment" data-fragment-index="1">
+            <span class="icon icon-lg icon-green mb-16" style="../assets/icons/money.svg)"></span>
+            <h3>Ownership Drives Economics</h3>
+            <p class="text-sm text-light">When a VC invests $5M at a $20M pre-money, they are buying 20%. But 20% of what? The cap table tells you exactly what that percentage looks like in shares, price, and rights.</p>
+          </div>
+          <div class="card card-orange-bg fragment" data-fragment-index="2">
+            <span class="icon icon-lg icon-orange mb-16" style="../assets/icons/search.svg)"></span>
+            <h3>Cap Tables Reveal History</h3>
+            <p class="text-sm text-light">A seed investor who owns 30% after putting in $500K signals something went wrong in negotiation. The cap table is a forensic record of every deal the company has done.</p>
+          </div>
+          <div class="card card-blue-bg fragment" data-fragment-index="3">
+            <span class="icon icon-lg icon-blue mb-16" style="../assets/icons/trophy.svg)"></span>
+            <h3>Cap Tables Determine Outcomes</h3>
+            <p class="text-sm text-light">A founder who owns 15% on paper might get less than an investor who owns 10%, depending on liquidation preferences. The cap table shows who gets paid and in what order.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          2:00 - 2:45 | Three reasons VCs obsess over cap tables. [Click] Ownership drives economics. Without the cap table, ownership is a guess. [Click] Cap tables reveal history. I can look at one and tell whether the founders negotiated well or got taken advantage of. A seed investor at 30% for $500K is a red flag. [Click] Cap tables determine outcomes. The cap table tells you what people own. Liquidation preferences tell you what they actually get. We will cover that distinction in Section 4.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 7: Seed-Stage Cap Table Example -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Simple seed-stage CAP table</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Shareholder</th>
+              <th>Shares</th>
+              <th>Class</th>
+              <th>Ownership</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Founder A</td>
+              <td>4,000,000</td>
+              <td>Common</td>
+              <td>40.0%</td>
+            </tr>
+            <tr>
+              <td>Founder B</td>
+              <td>4,000,000</td>
+              <td>Common</td>
+              <td>40.0%</td>
+            </tr>
+            <tr>
+              <td>Angel Investor</td>
+              <td>1,000,000</td>
+              <td>Seed Preferred</td>
+              <td>10.0%</td>
+            </tr>
+            <tr>
+              <td>Option Pool</td>
+              <td>1,000,000</td>
+              <td>Reserved</td>
+              <td>10.0%</td>
+            </tr>
+            <tr>
+              <td><strong>Total</strong></td>
+              <td><strong>10,000,000</strong></td>
+              <td></td>
+              <td><strong>100.0%</strong></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          2:45 - 3:15 | Here is a clean seed-stage cap table. Two founders at 40% each, an angel at 10%, and a 10% option pool. Four rows, 10 million shares, 100%. By Series C, this same table might have 200 rows across multiple share classes with SAFEs, convertible notes, and secondary transactions. Complexity compounds with every round.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 8: Section Divider -- How Dilution Works -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <div class="part-number">Section 2</div>
+        <h1>How Dilution Actually Works</h1>
+
+        <aside class="notes">
+          3:30 | Transition into dilution mechanics.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 9: The Dilution Formula -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Dilution is mechanical, not mysterious</h2>
+        </div>
+
+        <div class="card-alt-green">
+          <div style="display: flex; align-items: flex-start; gap: 16px;">
+            <span class="icon icon-xl icon-green" style="../assets/icons/lightning.svg); flex-shrink: 0;"></span>
+            <div>
+              <p><strong>New ownership % = Your shares / New total shares outstanding</strong></p>
+              <p class="text-sm text-light mt-8">When a company issues new shares, existing shareholders' percentage ownership goes down. Their number of shares stays the same. But the total pie got bigger, so their slice is a smaller fraction of the whole. Dilution happens through share issuance, not through losing shares.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          3:30 - 4:00 | Dilution is straightforward once you see it mechanically. Your new ownership equals your shares divided by the new total shares outstanding. Your share count does not change. The denominator gets bigger. That is all dilution is.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 10: Dilution Walkthrough -- Rounds 1-2 -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Building a CAP table round by round</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Event</th>
+              <th>Founder A</th>
+              <th>Founder B</th>
+              <th>Seed Investor</th>
+              <th>Total Shares</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="fragment" data-fragment-index="1">
+              <td>Founding</td>
+              <td>10M (100%)</td>
+              <td>--</td>
+              <td>--</td>
+              <td>10M</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="2">
+              <td>Co-founder joins</td>
+              <td>10M (71.4%)</td>
+              <td>4M (28.6%)</td>
+              <td>--</td>
+              <td>14M</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="3">
+              <td>Seed ($2M at $8M pre)</td>
+              <td>10M (57.1%)</td>
+              <td>4M (22.9%)</td>
+              <td>3.5M (20.0%)</td>
+              <td>17.5M</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          4:00 - 4:45 | Let us walk through it. [Click] A founder starts a company. 10 million shares, 100% ownership. [Click] She brings on a co-founder and issues 4 million new shares. Now 14 million total. She dropped from 100% to 71.4%. No money changed hands. Dilution happened purely through share issuance. [Click] Seed round. $2M at $8M pre-money, $10M post-money. Investor buys 20%. The company issues 3.5 million new shares. Founder A drops to 57.1%. Everyone who held shares before the round got diluted proportionally.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 11: Dilution Walkthrough -- Series A -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Post-Series a ownership</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Shareholder</th>
+              <th>Shares</th>
+              <th>Post-Seed</th>
+              <th>Post-Series A</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="fragment" data-fragment-index="1">
+              <td>Founder A</td>
+              <td>10,000,000</td>
+              <td>57.1%</td>
+              <td>42.9%</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="2">
+              <td>Founder B</td>
+              <td>4,000,000</td>
+              <td>22.9%</td>
+              <td>17.1%</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="3">
+              <td>Seed Investor</td>
+              <td>3,500,000</td>
+              <td>20.0%</td>
+              <td>15.0%</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="4">
+              <td>Series A Investor</td>
+              <td>5,833,333</td>
+              <td>--</td>
+              <td>25.0%</td>
+            </tr>
+            <tr>
+              <td><strong>Total</strong></td>
+              <td><strong>23,333,333</strong></td>
+              <td><strong>100%</strong></td>
+              <td><strong>100%</strong></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          4:45 - 5:30 | Series A. $5M at $15M pre-money, $20M post-money. Investor buys 25%. [Click] Founder A drops from 57% to 43%. [Click] Founder B from 23% to 17%. [Click] Seed investor from 20% to 15%. [Click] Series A investor owns 25%. Two rounds in and the founder who started at 100% now owns 43%. Carta benchmarks show median founder ownership around 56% after seed, 40% after Series A, 23% after Series B. That tracks.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 12: Dilution Is Not Inherently Bad -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Smaller slice, bigger pie</h2>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="card card-green-bg fragment" data-fragment-index="1" style="padding: 16px;">
+            <h3 class="mb-8">The Math That Matters</h3>
+            <p class="text-sm text-light">A founder who owns 40% of a $50M company has $20M in value. Dilute to 30% of a $200M company and that is $60M. They own less of a much bigger pie. The absolute dollar value tripled.</p>
+          </div>
+          <div class="card card-blue-bg fragment" data-fragment-index="2" style="padding: 16px;">
+            <h3 class="mb-8">The Fundraising Lever</h3>
+            <p class="text-sm text-light">A founder who raises $3M at $12M pre gives up 20%. The same $3M at $27M pre gives up 10%. Same cash, half the dilution. Raising at the right valuation is the most consequential financial decision a founder makes.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          5:30 - 6:00 | Key insight: dilution is not inherently bad if the value of your remaining shares grows faster than your percentage shrinks. [Click] A founder at 40% of a $50M company has $20M. Dilute to 30% of $200M and that is $60M. The absolute value tripled. That is the trade: dilution is the cost, growth is the return. [Click] And founders who raise at higher valuations give up less equity per dollar. Same cash, half the dilution. That is why fundraising at the right valuation matters.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 13: Section Divider -- Option Pools -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <div class="part-number">Section 3</div>
+        <h1>Option Pools: The Hidden Dilution Event</h1>
+
+        <aside class="notes">
+          6:00 | Transition into option pool mechanics.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 14: Option Pool Basics -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>What an option pool is</h2>
+        </div>
+
+        <div class="card-alt-green">
+          <div style="display: flex; align-items: flex-start; gap: 16px;">
+            <span class="icon icon-xl icon-green" style="../assets/icons/user-group.svg); flex-shrink: 0;"></span>
+            <div>
+              <p><strong>A block of shares reserved for future employees. Stock options for engineers, executives, and salespeople as part of compensation. Every venture-backed startup has one.</strong></p>
+              <p class="text-sm text-light mt-8">The standard at Series A is about 14% of fully diluted shares. Late-stage companies often carry pools closer to 20%. The pool gets created as part of the financing. The fight is over how big it should be and when it gets created.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          6:00 - 6:30 | An option pool is shares reserved for future employees. Every venture-backed startup has one. The standard at Series A is about 14%. The contentious part is not the pool itself, it is the timing of when it gets created.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 15: Pre-Money vs. Post-Money Pool -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Why pre-money pool creation matters</h2>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="card card-orange-bg fragment" data-fragment-index="1" style="padding: 16px;">
+            <h3 class="mb-8">Without Option Pool</h3>
+            <p class="text-sm text-light">$10M pre-money, $2.5M investment, $12.5M post-money. Investor gets 20%. Founders retain 80%. Clean and simple.</p>
+          </div>
+          <div class="card card-purple-bg fragment" data-fragment-index="2" style="padding: 16px;">
+            <h3 class="mb-8">With 15% Pre-Money Pool</h3>
+            <p class="text-sm text-light">Same terms, but a 15% option pool is created before the investment closes. The pool comes out of the founders' side. Founders end up with 65%, not 80%. Investor still owns 20%. Pool owns 15%.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          6:30 - 7:15 | Here is the key mechanic. Investors almost always require the pool to be created pre-money. [Click] Without a pool: $10M pre, $2.5M investment, founders keep 80%, investor gets 20%. [Click] With a 15% pre-money pool: the dilution falls entirely on the founders. They end up with 65% instead of 80%. The investor still owns exactly 20%. This is a negotiation point and a real one.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 16: The Option Pool Negotiation -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>How founders push back</h2>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="card card-green-bg fragment" data-fragment-index="1" style="padding: 16px;">
+            <h3 class="mb-8">The Investor's Play</h3>
+            <p class="text-sm text-light">Push for a larger pool (20%+) so the company can hire longer without expanding the pool, which would dilute the investor. An oversized pool is effectively a free call option at the founders' expense.</p>
+          </div>
+          <div class="card card-blue-bg fragment" data-fragment-index="2" style="padding: 16px;">
+            <h3 class="mb-8">The Founder's Counter</h3>
+            <p class="text-sm text-light">Size the pool to the actual 12-18 month hiring plan. "We need a VP Engineering at 1.5%, three senior engineers at 0.3% each, a head of sales at 0.8%." Specificity is the founders' best weapon.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          7:15 - 8:00 | Founders push for smaller pools, investors push for larger ones. [Click] An investor who demands 20% without reference to the hiring plan is building a buffer at the founders' expense. Unallocated pool shares dilute everyone now but serve no purpose if they are never granted. [Click] Sophisticated founders counter with a specific hiring plan. That specificity justifies a 12% pool instead of 20%. The interview answer: the pool dilutes existing shareholders, not the new investor. That is the key point.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 17: Section Divider -- Liquidation Preferences -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <div class="part-number">Section 4</div>
+        <h1>Liquidation Preferences and Waterfall Analysis</h1>
+
+        <aside class="notes">
+          8:00 | Transition into how money actually flows at exit.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 18: How Liquidation Preferences Work -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>1x non-participating preferred (standard)</h2>
+        </div>
+
+        <div class="card-alt-green">
+          <div style="display: flex; align-items: flex-start; gap: 16px;">
+            <span class="icon icon-xl icon-green" style="../assets/icons/shield-check-filled.svg); flex-shrink: 0;"></span>
+            <div>
+              <p><strong>Preferred shareholders get paid before common shareholders. The preference defines the minimum amount the investor receives before anyone else sees a dollar.</strong></p>
+              <p class="text-sm text-light mt-8">With 1x non-participating preferred, the investor chooses whichever is higher: take their money back (the preference) or convert to common stock and take their pro-rata share. At low exits, they take the preference. At high exits, they convert. The preference is downside protection, not upside capture.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          8:00 - 8:30 | A liquidation preference determines who gets paid first at exit. The standard is 1x non-participating. The investor has a choice: take their money back, or convert to common and take their percentage. They pick whichever is higher. At low exits, the preference protects them. At high exits, they convert. Simple.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 19: Waterfall Analysis -- Non-Participating -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>1x non-participating at two exit values</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th></th>
+              <th>$30M Exit</th>
+              <th>$100M Exit</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="fragment" data-fragment-index="1">
+              <td>Investor preference (1x)</td>
+              <td>$10M</td>
+              <td>$10M</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="2">
+              <td>Investor converts (20%)</td>
+              <td>$6M</td>
+              <td>$20M</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="3">
+              <td><strong>Investor takes</strong></td>
+              <td><strong>$10M (preference)</strong></td>
+              <td><strong>$20M (converts)</strong></td>
+            </tr>
+            <tr class="fragment" data-fragment-index="4">
+              <td>Founders receive</td>
+              <td>$20M</td>
+              <td>$80M</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          8:30 - 9:00 | Walk through the waterfall. Investor put in $10M, owns 20%. [Click] At a $30M exit, the preference gives them $10M. [Click] Converting gives them 20% of $30M, which is $6M. [Click] They take the preference. $10M is better than $6M. [Click] At $100M, converting gives $20M, which beats the $10M preference. They convert. Founders get $80M. At high outcomes, the preference becomes irrelevant.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 20: Participating Preferred -- The Double Dip -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Participating vs. non-participating at $100M exit</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Structure</th>
+              <th>Preference</th>
+              <th>Participation</th>
+              <th>Investor Total</th>
+              <th>Founders Get</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="fragment" data-fragment-index="1">
+              <td>Non-participating</td>
+              <td>$10M or convert</td>
+              <td>--</td>
+              <td>$20M (converts)</td>
+              <td>$80M</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="2">
+              <td>Participating</td>
+              <td>$10M off the top</td>
+              <td>+ 20% of $90M</td>
+              <td>$28M</td>
+              <td>$72M</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="3">
+              <td>Participating (3x cap)</td>
+              <td>$10M off the top</td>
+              <td>+ 20% of $90M</td>
+              <td>$28M (under cap)</td>
+              <td>$72M</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          9:00 - 9:45 | Now the aggressive version. [Click] Non-participating: investor converts, takes $20M at a $100M exit. Standard. [Click] Participating preferred: investor gets their $10M back AND 20% of the remaining $90M. That is $28M instead of $20M. The extra $8M comes directly from the founders. This is called double dipping. [Click] Participating with a 3x cap limits the total payout, but at this exit value the investor is under the cap anyway. Participating preferred is less common but still shows up in later-stage deals.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 21: Waterfall Interview Framework -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>How to run a waterfall step by step</h2>
+        </div>
+
+        <ul class="icon-list text-lg">
+          <li>
+            <span class="icon icon-xl icon-green" style="../assets/icons/arrow-down.svg); flex-shrink: 0;"></span>
+            <span><strong>Pay senior preferences first.</strong> Later rounds usually have seniority. Series B gets paid before Series A.</span>
+          </li>
+          <li>
+            <span class="icon icon-xl icon-green" style="../assets/icons/arrow-down.svg); flex-shrink: 0;"></span>
+            <span><strong>Pay junior preferences next.</strong> Work through each investor class in order of seniority.</span>
+          </li>
+          <li>
+            <span class="icon icon-xl icon-green" style="../assets/icons/arrow-down.svg); flex-shrink: 0;"></span>
+            <span><strong>Check for conversion.</strong> If any preferred investor would do better converting to common, they convert.</span>
+          </li>
+          <li>
+            <span class="icon icon-xl icon-green" style="../assets/icons/arrow-down.svg); flex-shrink: 0;"></span>
+            <span><strong>Distribute remaining proceeds.</strong> Whatever is left flows to common holders (founders, employees with exercised options).</span>
+          </li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          9:45 - 10:15 | In an interview, go step by step. Pay senior preferences first, then junior, check if anyone is better off converting, then distribute the remainder to common. Write it out. Do not try to do it in your head. The candidate who works methodically beats the candidate who tries to be fast and gets the wrong answer.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 22: Pro Forma Modeling -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>The four interview exercises</h2>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="card card-green-bg" style="padding: 16px;">
+            <h3 class="mb-8">Post-Round Ownership</h3>
+            <p class="text-sm text-light">Given a cap table and a proposed round, calculate ownership for every shareholder after the round closes.</p>
+          </div>
+          <div class="card card-blue-bg" style="padding: 16px;">
+            <h3 class="mb-8">Waterfall Payout</h3>
+            <p class="text-sm text-light">Given an exit value and liquidation preferences, calculate the payout to each shareholder class.</p>
+          </div>
+          <div class="card card-orange-bg" style="padding: 16px;">
+            <h3 class="mb-8">Option Pool Impact</h3>
+            <p class="text-sm text-light">Explain how a pool expansion changes ownership and the effective valuation for founders.</p>
+          </div>
+          <div class="card card-purple-bg" style="padding: 16px;">
+            <h3 class="mb-8">SAFE Conversion</h3>
+            <p class="text-sm text-light">Walk through how a SAFE converts in a priced round. Ties directly to 7.5.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          10:15 - 10:45 | Four exercises that cover every cap table question in interviews. Post-round ownership calculations. Waterfall payouts at different exit values. Option pool impact on effective valuation. And SAFE conversion mechanics, which we cover in 7.5. Practice with actual numbers. Build cap tables in a spreadsheet and run scenarios until the mechanics are automatic.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 23: Interview Speed Tip -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Speed and structure win</h2>
+        </div>
+
+        <div class="card-alt-green">
+          <div style="display: flex; align-items: flex-start; gap: 16px;">
+            <span class="icon icon-xl icon-green" style="../assets/icons/clock.svg); flex-shrink: 0;"></span>
+            <div>
+              <p><strong>If a partner hands you a cap table and says "this company is raising a $10M Series B at $40M pre," you need to calculate post-round ownership for every shareholder in under two minutes.</strong></p>
+              <p class="text-sm text-light mt-8">That speed signals fluency. Practice until the mechanics are automatic. The goal is not to memorize formulas. The goal is to internalize the logic so that when a number looks wrong, you feel it before you calculate it.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          10:45 - 11:30 | The speed matters in interviews. Two minutes for a post-round cap table calculation. The way to get there is practice. Build cap tables in a spreadsheet, run different valuations, different pool sizes, different exit amounts. Internalize the logic so wrong numbers feel wrong before you do the math.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 24: Key Takeaways -->
+      <!-- ============================================ -->
+      <section class="content-dark">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Key takeaways</h2>
+        </div>
+
+        <ul class="plus-list text-white">
+          <li class="fragment" data-fragment-index="1"><strong>A cap table is the financial DNA of a company.</strong> Every negotiation, every round, every equity hire is encoded in it. Reading one fluently is non-negotiable for VC work.</li>
+          <li class="fragment" data-fragment-index="2"><strong>Dilution is the cost of funding growth.</strong> The question is never whether the founder got diluted. It is whether they got diluted at a valuation that reflects progress.</li>
+          <li class="fragment" data-fragment-index="3"><strong>Option pools dilute existing shareholders, not the incoming investor.</strong> The pre-money vs. post-money distinction is the single most important thing to understand about pool mechanics.</li>
+          <li class="fragment" data-fragment-index="4"><strong>Ownership percentages lie without liquidation preferences.</strong> Two investors can own the same percentage and walk away with dramatically different payouts.</li>
+          <li class="fragment" data-fragment-index="5"><strong>In interviews, write out the waterfall step by step.</strong> Methodical beats fast. The candidate who works through the math carefully wins.</li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="rgba(255,255,255,0.4)"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          11:30 - 12:00 | Five takeaways. [Click] Cap tables are the financial DNA of a company. Learn to read them fluently. [Click] Dilution is the cost of growth. The question is whether the valuation reflects progress. [Click] Option pools dilute founders, not the new investor. That is the answer in interviews. [Click] Ownership percentages lie without understanding the liquidation preferences behind them. [Click] In interviews, write it out. Step by step. Methodical beats fast. The term sheet in 7.6 is where these terms get formalized.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js -->
+  <script src="../assets/reveal/dist/reveal.min.js"></script>
+  <script type="module">
+    import RevealNotes from '../assets/reveal/plugin/notes/notes.esm.js';
+
+    Reveal.initialize({
+      width: 960,
+      height: 540,
+      margin: 0,
+      minScale: 0.5,
+      maxScale: 3.0,
+      hash: true,
+      slideNumber: true,
+      controls: true,
+      progress: true,
+      history: true,
+      center: false,
+      transition: 'none',
+      backgroundTransition: 'none',
+      disableLayout: false,
+      plugins: [ RevealNotes ]
+    });
+  </script>
+</body>
+</html>

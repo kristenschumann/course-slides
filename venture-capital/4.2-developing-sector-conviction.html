@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en" class="reveal-full-page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Developing Sector Conviction</title>
+
+  <!-- Reveal.js Core -->
+  <link rel="stylesheet" href="../assets/reveal/dist/reset.css">
+  <link rel="stylesheet" href="../assets/reveal/dist/reveal.css">
+
+  <!-- Leland Theme -->
+  <link rel="stylesheet" href="../assets/reveal/themes/leland.css">
+
+</head>
+<body>
+  <!-- SVG Symbol Definitions (defined once, referenced via <use>) -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="leland-logo" viewBox="0 0 200 45">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z"/>
+      <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z"/>
+      <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z"/>
+      <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z"/>
+      <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z"/>
+      <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z"/>
+    </symbol>
+  </svg>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ============================================ -->
+      <!-- SLIDE 1: Title Dark -->
+      <!-- ============================================ -->
+      <section class="title-dark">
+        <svg width="110" height="25" fill="white" class="mb-16"><use href="#leland-logo"/></svg>
+        <p class="eyebrow">VC Recruiting Course</p>
+        <h1>Developing Sector<br><span class="hl">Conviction</span></h1>
+
+        <aside class="notes">
+          [0:00] Welcome slide. Brief pause before launching into the hook.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 2: The Cost of No Conviction -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>A partner passed. The company 15x'd.</h2>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="card card-orange-bg fragment" data-fragment-index="1">
+            <span class="icon icon-lg icon-orange mb-16" style="../assets/icons/stop-octagon-minus.svg)"></span>
+            <h3>The Miss</h3>
+            <p class="text-sm text-light">In 2019, a partner passed on a vertical SaaS deal in construction tech. His reasoning: "I don't know construction well enough to underwrite this."</p>
+          </div>
+          <div class="card card-green-bg fragment" data-fragment-index="2">
+            <span class="icon icon-lg icon-green mb-16" style="../assets/icons/arrow-up-chart-growth.svg)"></span>
+            <h3>The Outcome</h3>
+            <p class="text-sm text-light">Twelve months later, that company raised a Series B at 15x the valuation. Insight Partners led the round. The partner didn't lack intelligence. He lacked sector conviction.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          0:00 - 0:30 | Hook. A partner at our firm passed on a vertical SaaS deal in construction tech because he couldn't distinguish signal from noise in a market he didn't live in. [Click] Twelve months later, 15x valuation at Series B. That's the difference between a generalist opinion and sector conviction.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 3: What You'll Learn -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>From surface awareness to real conviction</h2>
+        </div>
+
+        <ul class="icon-list text-lg">
+          <li>
+            <span class="icon icon-lg icon-green" style="../assets/icons/sparkle.svg)"></span>
+            <span><strong>Sector selection:</strong> How to choose a sector that aligns with your background and the market</span>
+          </li>
+          <li>
+            <span class="icon icon-lg icon-green" style="../assets/icons/layers.svg)"></span>
+            <span><strong>Knowledge system:</strong> How to build a structured system that compounds over time</span>
+          </li>
+          <li>
+            <span class="icon icon-lg icon-green" style="../assets/icons/search-document.svg)"></span>
+            <span><strong>Depth progression:</strong> How to move from surface-level awareness to partner-level conviction</span>
+          </li>
+          <li>
+            <span class="icon icon-lg icon-green" style="../assets/icons/eye-open.svg)"></span>
+            <span><strong>Real expertise:</strong> The habits that separate "I follow AI" from "I understand the AI infrastructure stack"</span>
+          </li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          0:30 - 1:15 | Four topics today. In 4.1, we covered what an investment thesis is and why it matters. Now we're going deeper into the hardest part: picking a sector and developing genuine expertise.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 4: Section Divider -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <div class="part-number">Section 1</div>
+        <h1>Why Sector Focus Is Non-Negotiable</h1>
+
+        <aside class="notes">
+          1:15 | Transition into why generalists lose.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 5: The Sector Conviction Pyramid -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Three levels of sector knowledge</h2>
+        </div>
+
+        <div class="card-grid-3">
+          <div class="card card-orange-bg fragment" data-fragment-index="1">
+            <span class="icon icon-lg icon-orange mb-16" style="../assets/icons/eye-open.svg)"></span>
+            <h3>Surface Level</h3>
+            <p class="text-sm text-light">You read TechCrunch headlines and can name the major players. Everyone applying has this. It is not a differentiator.</p>
+          </div>
+          <div class="card card-blue-bg fragment" data-fragment-index="2">
+            <span class="icon icon-lg icon-blue mb-16" style="../assets/icons/search.svg)"></span>
+            <h3>Competitive Intelligence</h3>
+            <p class="text-sm text-light">You can name 50 companies and their competitive positions. You understand the market structure and key dynamics.</p>
+          </div>
+          <div class="card card-green-bg fragment" data-fragment-index="3">
+            <span class="icon icon-lg icon-green mb-16" style="../assets/icons/star.svg)"></span>
+            <h3>Proprietary Views</h3>
+            <p class="text-sm text-light">You have informed opinions on where value will accrue, grounded in patterns you have observed firsthand.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          1:15 - 2:00 | Most candidates say they're "interested in technology." That means nothing. Deal selection is the single most important driver of fund performance. [Click] Surface level is table stakes. [Click] Competitive intelligence is the middle ground. [Click] Proprietary views are what get you hired.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 6: Why Partners Care -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Depth over breadth earns trust</h2>
+        </div>
+
+        <div class="card-alt-green">
+          <div style="display: flex; align-items: flex-start; gap: 16px;">
+            <span class="icon icon-xl icon-green" style="../assets/icons/sparkle.svg); flex-shrink: 0;"></span>
+            <div>
+              <p><strong>"When I bring an analyst into a deal meeting, I need to know their sector opinion is worth something. If they say 'this company's approach to payments orchestration is differentiated,' I need to trust they've looked at the other 30 companies doing payments orchestration."</strong></p>
+              <p class="text-sm text-light mt-8">Domain expertise becomes a differentiation tool when it is deep enough that a partner says, "Get them on the phone, they know this space cold." "I'm a generalist" is not a viable position for junior candidates. Partners are generalists. They earned that right through 20 years of pattern recognition.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          2:00 - 3:15 | Direct quote from a Bessemer partner. In 2.1, we covered domain expertise as one of the four attributes. In 2.2, we covered differentiation. Sector conviction is where those two converge. And to be direct: "I'm a generalist" is a losing position for junior candidates. Partners are generalists. They have earned that right. Pick a lane.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 7: Section Divider -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <div class="part-number">Section 2</div>
+        <h1>How to Choose Your Sector</h1>
+
+        <aside class="notes">
+          3:15 | Transition into sector selection strategy.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 8: The Three-Circle Venn -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>The strategic intersection</h2>
+        </div>
+
+        <div class="card-grid-3">
+          <div class="card card-green-bg fragment" data-fragment-index="1">
+            <span class="icon icon-lg icon-green mb-16" style="../assets/icons/experiences.svg)"></span>
+            <h3>Your Background</h3>
+            <p class="text-sm text-light">Your professional experience gives you a starting advantage. Where do you already have insider knowledge?</p>
+          </div>
+          <div class="card card-blue-bg fragment" data-fragment-index="2">
+            <span class="icon icon-lg icon-blue mb-16" style="../assets/icons/bar-chart.svg)"></span>
+            <h3>Where Capital Flows</h3>
+            <p class="text-sm text-light">Market timing tells you where firms are writing checks. Expanding sectors offer more opportunities.</p>
+          </div>
+          <div class="card card-purple-bg fragment" data-fragment-index="3">
+            <span class="icon icon-lg icon-purple mb-16" style="../assets/icons/search.svg)"></span>
+            <h3>Where Firms Hire</h3>
+            <p class="text-sm text-light">Firm alignment ensures your expertise maps to where target firms are actively building teams.</p>
+          </div>
+        </div>
+
+        <p class="text-light mt-16 fragment" data-fragment-index="4">Choosing a sector is not a personality quiz. It is a strategic decision. You want the intersection of your background, market timing, and firm alignment.</p>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          3:15 - 3:45 | Three circles. [Click] Your background gives you a starting advantage. [Click] Market timing tells you where capital is flowing. [Click] Firm alignment ensures your expertise maps to where firms are hiring. [Click] The intersection is your answer.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 9: Don't Abandon Your Advantage -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Interest fades. Competitive advantage compounds.</h2>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="card card-orange-bg fragment" data-fragment-index="1">
+            <h3>The Mistake</h3>
+            <p class="text-sm text-light">A candidate with deep supply chain experience, three years at a logistics company, pivoted to consumer social because it seemed more exciting. She walked into interviews talking about TikTok. The partner asked about last-mile delivery. She couldn't answer.</p>
+          </div>
+          <div class="card card-green-bg fragment" data-fragment-index="2">
+            <h3>The Lesson</h3>
+            <p class="text-sm text-light">She abandoned the one sector where she had an unfair advantage to compete in one where thousands of people had equally shallow opinions. Ask yourself: "Where can I develop conviction fastest given what I already know?"</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          3:45 - 4:30 | Your professional experience is your starting advantage. Don't throw it away by choosing a sector you think sounds cooler. [Click] I saw a candidate with real supply chain expertise pivot to consumer social. [Click] The real test is not "what am I interested in" but "where can I develop conviction fastest given what I already know?"
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 10: Sector Heat Map -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Where capital and hiring are concentrated</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Sector</th>
+              <th>Capital (2024-25)</th>
+              <th>Hiring Signal</th>
+              <th>Complexity</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>AI / ML Infrastructure</td>
+              <td>$40B+</td>
+              <td>Very High</td>
+              <td>High</td>
+            </tr>
+            <tr>
+              <td>Climate / Energy Tech</td>
+              <td>$15B+</td>
+              <td>High</td>
+              <td>High</td>
+            </tr>
+            <tr>
+              <td>Fintech / Payments</td>
+              <td>$12B+</td>
+              <td>Moderate</td>
+              <td>Medium</td>
+            </tr>
+            <tr>
+              <td>Defense / Gov Tech</td>
+              <td>$8B+</td>
+              <td>High</td>
+              <td>High</td>
+            </tr>
+            <tr>
+              <td>Healthtech / Biotech</td>
+              <td>$10B+</td>
+              <td>Moderate</td>
+              <td>Very High</td>
+            </tr>
+            <tr>
+              <td>Developer Tools</td>
+              <td>$6B+</td>
+              <td>Moderate</td>
+              <td>High</td>
+            </tr>
+            <tr>
+              <td>Consumer / Social</td>
+              <td>$3B</td>
+              <td>Low</td>
+              <td>Low</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          4:30 - 5:00 | Market timing matters. Some sectors are expanding, others contracting. AI infrastructure, climate tech, and defense tech are in expansion mode. Consumer social and D2C e-commerce are in contraction. You don't need to chase hype, but you need to be realistic about where firms are writing checks.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 11: Firm-Sector Alignment -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Match your sector to your target firms</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Firm</th>
+              <th>Primary Sectors</th>
+              <th>What They Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>a16z</td>
+              <td>Enterprise, Bio, Crypto, AI</td>
+              <td>Operator experience in core verticals</td>
+            </tr>
+            <tr>
+              <td>Founders Fund</td>
+              <td>Deep tech, Defense, Space</td>
+              <td>Contrarian thinkers with technical depth</td>
+            </tr>
+            <tr>
+              <td>Ribbit Capital</td>
+              <td>Fintech, Insurance, Payments</td>
+              <td>Financial services domain expertise</td>
+            </tr>
+            <tr>
+              <td>Lux Capital</td>
+              <td>Deep science, Frontier tech</td>
+              <td>PhD-level understanding of hard problems</td>
+            </tr>
+            <tr>
+              <td>Bessemer</td>
+              <td>Cloud, SaaS, Developer Tools</td>
+              <td>Data-driven, metrics-oriented analysis</td>
+            </tr>
+            <tr>
+              <td>Union Square</td>
+              <td>Marketplaces, Networks, Web3</td>
+              <td>Ecosystem thinking, network effects</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          5:00 - 5:30 | Research the firms on your shortlist. Look at their last 20 deals. Read their partner blogs and annual letters. When a partner sees your resume and your sector lines up with their fund thesis, that is not a coincidence. It is a signal that you have done your homework.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 12: Section Divider -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <div class="part-number">Section 3</div>
+        <h1>Building Your Knowledge System</h1>
+
+        <aside class="notes">
+          5:30 | Transition into the Four Layers.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 13: The Four Layers -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>A system that compounds, not a reading habit</h2>
+        </div>
+
+        <div class="workflow">
+          <div class="workflow-step fragment" data-fragment-index="1">
+            <div class="step-num mb-16">1</div>
+            <h3 class="text-md">Market Structure</h3>
+            <p class="text-sm text-light">How value flows, who the incumbents are, where startups enter</p>
+          </div>
+          <div class="workflow-arrow">&#8594;</div>
+          <div class="workflow-step fragment" data-fragment-index="2">
+            <div class="step-num mb-16">2</div>
+            <h3 class="text-md">Company Intel</h3>
+            <p class="text-sm text-light">50-100 companies across seed to growth, their metrics and motions</p>
+          </div>
+          <div class="workflow-arrow">&#8594;</div>
+          <div class="workflow-step fragment" data-fragment-index="3">
+            <div class="step-num mb-16">3</div>
+            <h3 class="text-md">Pattern Recognition</h3>
+            <p class="text-sm text-light">Recurring dynamics that emerge after 6-8 weeks of tracking</p>
+          </div>
+          <div class="workflow-arrow">&#8594;</div>
+          <div class="workflow-step fragment" data-fragment-index="4">
+            <div class="step-num mb-16">4</div>
+            <h3 class="text-md">Proprietary POV</h3>
+            <p class="text-sm text-light">A specific, falsifiable opinion you can defend</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          5:30 - 6:15 | Most people read a few newsletters for two weeks and claim expertise. That is not conviction. Here are the Four Layers. [Click] Market Structure: understand how value flows through the sector. [Click] Company Intelligence: know the 50-100 companies across all stages. [Click] Pattern Recognition: after 6-8 weeks, you start noticing patterns. [Click] Proprietary POV: a specific, falsifiable opinion grounded in real observation.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 14: Layer 1 and 2 in Practice -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Structure and intelligence are the foundation</h2>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="card card-blue-bg fragment" data-fragment-index="1">
+            <h3>Market Structure</h3>
+            <p class="text-sm text-light">For fintech, interchange revenue (not subscription fees) drives most payment company economics. For healthtech, hospital procurement cycles run 18-24 months. Every sector has structural facts that separate insiders from tourists.</p>
+          </div>
+          <div class="card card-purple-bg fragment" data-fragment-index="2">
+            <h3>Company Intelligence</h3>
+            <p class="text-sm text-light">PitchBook and CB Insights are industry standard. Tracxn and Crunchbase Pro are more affordable. Build a tracker with funding history, key metrics, go-to-market motions, and investors. Update it weekly. This is not optional.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          6:15 - 6:45 | [Click] Layer 1: You need to understand structural facts. In fintech, interchange revenue drives economics. In healthtech, procurement takes 18-24 months. These facts separate insiders from tourists. [Click] Layer 2: Know the players. Not just the unicorns. The seed and Series A companies too. Tools like PitchBook, CB Insights, Tracxn.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 15: Weekly Sector Intelligence Routine -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>The weekly cadence that builds depth</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Day</th>
+              <th>Activity</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Monday</td>
+              <td>Review funding announcements in your sector</td>
+              <td>30 min</td>
+            </tr>
+            <tr>
+              <td>Tuesday</td>
+              <td>Read one earnings call transcript or investor letter</td>
+              <td>20 min</td>
+            </tr>
+            <tr>
+              <td>Wednesday</td>
+              <td>Deep-read one company (product, team, metrics)</td>
+              <td>45 min</td>
+            </tr>
+            <tr>
+              <td>Thursday</td>
+              <td>Read 2-3 sector newsletters or analyst reports</td>
+              <td>30 min</td>
+            </tr>
+            <tr>
+              <td>Friday</td>
+              <td>Update your market map and note what changed</td>
+              <td>20 min</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          6:45 - 7:15 | This is the weekly cadence. About two and a half hours per week, spread across five days. The daily habit builds ambient awareness that lets you notice patterns and shifts in real time.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 16: Pattern Recognition in Action -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>How two months of tracking becomes a thesis</h2>
+        </div>
+
+        <div class="card-alt-green">
+          <div style="display: flex; align-items: flex-start; gap: 16px;">
+            <span class="icon icon-xl icon-green" style="../assets/icons/search-document.svg); flex-shrink: 0;"></span>
+            <div>
+              <p><strong>After eight weeks tracking the AI coding assistant market, I noticed the companies that integrated directly into the IDE were retaining users at 3x the rate of standalone web tools. That pattern was not in any analyst report. It came from tracking retention proxies across 15 companies.</strong></p>
+              <p class="text-sm text-light mt-8">Pattern recognition is not magic. It is the compound interest of paying attention. The candidates who develop it are the ones who show up consistently, not the ones who binge-read for three days before an interview.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          7:15 - 7:45 | Layer 3: Pattern recognition. Here is a concrete example. I spent two months tracking AI coding assistants. After eight weeks, I noticed IDE-integrated tools retained users at 3x the rate of standalone tools. That became the core of my thesis about where value accrues in the developer tools stack. This kind of insight only comes from consistent tracking.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 17: Section Divider -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <div class="part-number">Section 4</div>
+        <h1>The Conviction Stress Test</h1>
+
+        <aside class="notes">
+          8:00 | Transition into testing your conviction.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 18: Five Questions to Test Your Readiness -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>If you stumble on more than one, you need more reps</h2>
+        </div>
+
+        <ul class="icon-list text-lg">
+          <li class="fragment" data-fragment-index="1">
+            <span class="icon icon-lg icon-green" style="../assets/icons/checkmark-badge.svg)"></span>
+            <span>Name the top 10 companies by stage. Explain why each is positioned where it is.</span>
+          </li>
+          <li class="fragment" data-fragment-index="2">
+            <span class="icon icon-lg icon-green" style="../assets/icons/checkmark-badge.svg)"></span>
+            <span>What happened in your sector in the last 90 days that matters? Not headline news.</span>
+          </li>
+          <li class="fragment" data-fragment-index="3">
+            <span class="icon icon-lg icon-green" style="../assets/icons/checkmark-badge.svg)"></span>
+            <span>Where is the consensus wrong? What do you believe that most people don't?</span>
+          </li>
+          <li class="fragment" data-fragment-index="4">
+            <span class="icon icon-lg icon-green" style="../assets/icons/checkmark-badge.svg)"></span>
+            <span>If you had $10M to deploy tomorrow, where would you put it and why?</span>
+          </li>
+          <li class="fragment" data-fragment-index="5">
+            <span class="icon icon-lg icon-green" style="../assets/icons/checkmark-badge.svg)"></span>
+            <span>What is the biggest risk to your thesis? What data would change your mind?</span>
+          </li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          8:00 - 9:00 | Five questions to pressure-test your conviction. [Click] Can you name the top 10 companies and explain their positioning? [Click] What happened in the last 90 days that matters? [Click] Where is the consensus wrong? [Click] The $10M question forces specificity. [Click] Can you articulate the biggest risk to your own thesis?
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 19: Conviction Is Not Certainty -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Strong opinions, loosely held</h2>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="card card-green-bg fragment" data-fragment-index="1">
+            <h3>The Right Posture</h3>
+            <p class="text-sm text-light">Confident in your analytical framework for understanding the sector. Flexible on the specific conclusions as new data comes in. The best VCs combine deep domain knowledge with intellectual flexibility.</p>
+          </div>
+          <div class="card card-orange-bg fragment" data-fragment-index="2">
+            <h3>The Wrong Posture</h3>
+            <p class="text-sm text-light">Rigid attachment to a specific prediction. Inability to update when evidence contradicts your view. Rigidity is the enemy of good investing. The Stanford Venture Capital Initiative's research confirms this.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          9:00 - 9:45 | Most people get this wrong. Conviction does not mean certainty. [Click] The right posture is confident in your framework, flexible on conclusions. [Click] The wrong posture is rigid attachment to a prediction. Update your views as new data comes in.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 20: Section Divider -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <div class="part-number">Section 5</div>
+        <h1>Making Conviction Visible</h1>
+
+        <aside class="notes">
+          9:45 | Transition into visibility channels.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 21: Four Visibility Channels -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>If no one can see your expertise, it doesn't exist</h2>
+        </div>
+
+        <div class="card-grid-2" style="padding-bottom: 0;">
+          <div class="card card-green-bg fragment" data-fragment-index="1" style="padding: 16px;">
+            <h3 class="mb-8">Written Content</h3>
+            <p class="text-sm text-light">Substack, blog, Twitter threads, LinkedIn posts. When someone Googles your name plus your sector, they should find substance.</p>
+          </div>
+          <div class="card card-blue-bg fragment" data-fragment-index="2" style="padding: 16px;">
+            <h3 class="mb-8">Network Building</h3>
+            <p class="text-sm text-light">Sector-specific events, niche communities, Slack and Discord servers. 15 founder conversations beats 15 blog posts.</p>
+          </div>
+          <div class="card card-purple-bg fragment" data-fragment-index="3" style="padding: 16px;">
+            <h3 class="mb-8">Deal Flow Contribution</h3>
+            <p class="text-sm text-light">Source deals informally. A focused note with a company, why it is interesting, and three risks to diligence proves everything.</p>
+          </div>
+          <div class="card card-orange-bg fragment" data-fragment-index="4" style="padding: 16px;">
+            <h3 class="mb-8">The Compounding Effect</h3>
+            <p class="text-sm text-light">Writing attracts founders. Founder conversations deepen knowledge. Deeper knowledge improves writing. Within six months, you have a real reputation.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          9:45 - 11:00 | Building knowledge in private is necessary but not sufficient. [Click] Write about your sector. Bessemer publishes their investment memos publicly for a reason. [Click] Go to niche sector events. Build relationships with founders. [Click] The advanced move: source deals informally. [Click] Each visibility channel feeds the others. Within six months, you have a real reputation.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 22: Key Takeaways -->
+      <!-- ============================================ -->
+      <section class="content-dark">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Key takeaways</h2>
+        </div>
+
+        <ul class="plus-list text-white">
+          <li class="fragment" data-fragment-index="1"><strong>"I'm a generalist" is a losing position for junior candidates.</strong> Partners already go wide. They need you to go deep. Pick a sector and commit to it.</li>
+          <li class="fragment" data-fragment-index="2"><strong>Choose your sector strategically, not emotionally.</strong> The best sector for you is where your background gives you an advantage, where capital is flowing, and where your target firms are active.</li>
+          <li class="fragment" data-fragment-index="3"><strong>Build a knowledge system, not a reading habit.</strong> The Four Layers, from market structure to proprietary POV, are a progression. Most candidates never get past Layer 2. The ones who reach Layer 4 get hired.</li>
+          <li class="fragment" data-fragment-index="4"><strong>Conviction without visibility is wasted.</strong> Write publicly, build a founder network, contribute deal flow. If no one can see your expertise, it might as well not exist.</li>
+          <li class="fragment" data-fragment-index="5"><strong>Conviction is not certainty.</strong> Hold strong frameworks and update your conclusions. If you cannot name the biggest risk to your own thesis, your conviction is enthusiasm with a better vocabulary.</li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="rgba(255,255,255,0.4)"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          11:30 - 12:00 | Five takeaways. [Click] Generalist is a losing position. Pick a lane. [Click] Choose strategically: background, capital flow, firm alignment. [Click] Build a system, not a habit. Four Layers, bottom to top. [Click] Make your conviction visible. Write, network, source deals. [Click] Conviction is not certainty. The best investors hold strong frameworks and update their conclusions.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js -->
+  <script src="../assets/reveal/dist/reveal.min.js"></script>
+  <script type="module">
+    import RevealNotes from '../assets/reveal/plugin/notes/notes.esm.js';
+
+    Reveal.initialize({
+      width: 960,
+      height: 540,
+      margin: 0,
+      minScale: 0.5,
+      maxScale: 3.0,
+      hash: true,
+      slideNumber: true,
+      controls: true,
+      progress: true,
+      history: true,
+      center: false,
+      transition: 'none',
+      backgroundTransition: 'none',
+      disableLayout: false,
+      plugins: [ RevealNotes ]
+    });
+  </script>
+</body>
+</html>

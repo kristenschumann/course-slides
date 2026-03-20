@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en" class="reveal-full-page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valuation Methods for Startups</title>
+
+  <!-- Reveal.js Core -->
+  <link rel="stylesheet" href="../assets/reveal/dist/reset.css">
+  <link rel="stylesheet" href="../assets/reveal/dist/reveal.css">
+
+  <!-- Leland Theme -->
+  <link rel="stylesheet" href="../assets/reveal/themes/leland.css">
+
+</head>
+<body>
+  <!-- SVG Symbol Definitions (defined once, referenced via <use>) -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="leland-logo" viewBox="0 0 200 45">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z"/>
+      <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z"/>
+      <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z"/>
+      <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z"/>
+      <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z"/>
+      <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z"/>
+    </symbol>
+  </svg>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ============================================ -->
+      <!-- SLIDE 1: Title Dark -->
+      <!-- ============================================ -->
+      <section class="title-dark">
+        <svg width="110" height="25" fill="white" class="mb-16"><use href="#leland-logo"/></svg>
+        <p class="eyebrow">VC Recruiting Course</p>
+        <h1>Valuation Methods for<br><span class="hl">Startups</span></h1>
+
+        <aside class="notes">
+          [0:00] Welcome slide. Brief pause before launching into the hook.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 2: The Circular Logic Problem -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>"$80 million. pre-revenue. no product."</h2>
+        </div>
+
+        <div class="card-alt-green">
+          <div style="display: flex; align-items: flex-start; gap: 16px;">
+            <span class="icon icon-xl icon-green" style="../assets/icons/question.svg); flex-shrink: 0;"></span>
+            <div>
+              <p><strong>A founder told me his company was worth $80 million. Pre-revenue. No product in market. His reasoning? "A competitor raised at $100 million last year, and we have better technology."</strong></p>
+              <p class="text-sm text-light mt-8">A company with no revenue is worth $80 million because a different company with no revenue was told it was worth $100 million by a VC who needed the deal to justify their fund economics. That's circular logic dressed up as valuation. Startup valuation is part science, part negotiation, and part market psychology. This video separates the actual methods from the fiction.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          0:00 - 0:30 | A founder once told me his company was worth $80M. Pre-revenue. No product. His reasoning? "A competitor raised at $100M and we have better technology." So a company with no revenue is worth $80M because a different company with no revenue was told it was worth $100M. That's circular logic. Startup valuation is part science, part negotiation, part market psychology. This video separates the methods from the fiction.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 3: What You'll Learn -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Five skills you'll build today</h2>
+        </div>
+
+        <ul class="icon-list text-lg">
+          <li>
+            <span class="icon icon-xl icon-green" style="../assets/icons/money.svg); flex-shrink: 0;"></span>
+            <span><strong>Pre-money and post-money mechanics</strong> with numerical precision, including the traps that trip up candidates.</span>
+          </li>
+          <li>
+            <span class="icon icon-xl icon-green" style="../assets/icons/search.svg); flex-shrink: 0;"></span>
+            <span><strong>Comparable company analysis</strong> for growth-stage startups, using public and private comps.</span>
+          </li>
+          <li>
+            <span class="icon icon-xl icon-green" style="../assets/icons/achievements.svg); flex-shrink: 0;"></span>
+            <span><strong>The venture capital method</strong> that works backward from the exit to set today's price.</span>
+          </li>
+          <li>
+            <span class="icon icon-xl icon-green" style="../assets/icons/certificate.svg); flex-shrink: 0;"></span>
+            <span><strong>Scorecard and Berkus methods</strong> for pre-revenue companies where multiples are meaningless.</span>
+          </li>
+          <li>
+            <span class="icon icon-xl icon-green" style="../assets/icons/shield-check-filled.svg); flex-shrink: 0;"></span>
+            <span><strong>How to discuss valuation in interviews</strong> with a framework that shows judgment, not just math.</span>
+          </li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          0:30 - 1:15 | Five things by the end. Pre-money and post-money mechanics including the traps. Comparable company analysis for growth-stage startups. The venture capital method. Scorecard and Berkus for pre-revenue companies. And how to talk about valuation in interviews. The metrics and multiples work from 6.7 feeds directly into this.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 4: Section Divider -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <div class="part-number">Section 1</div>
+        <h1>Pre-Money and Post-Money</h1>
+
+        <aside class="notes">
+          1:15 | Transition into the most fundamental concept in venture financing.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 5: The Core Formulas -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Two formulas you must know cold</h2>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="card card-green-bg fragment" data-fragment-index="1" style="padding: 16px;">
+            <h3 class="mb-8">Post-Money = Pre-Money + Investment</h3>
+            <p class="text-sm text-light">Company has a $40M pre-money. Lead investor writes a $10M check. Post-money is $50M.</p>
+          </div>
+          <div class="card card-blue-bg fragment" data-fragment-index="2" style="padding: 16px;">
+            <h3 class="mb-8">Ownership = Investment / Post-Money</h3>
+            <p class="text-sm text-light">$10M / $50M = 20%. The investor owns 20% of the company after the round closes.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          1:15 - 1:45 | The most basic concept in venture financing, and I've watched MBA candidates stumble on it. [Click] Post-money equals pre-money plus new investment. $40M pre-money, $10M check, $50M post-money. [Click] Investor ownership equals investment divided by post-money. $10M / $50M = 20%. Simple. But there are three traps that make it complicated in practice.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 6: Trap 1 -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Trap 1: The option pool shuffle</h2>
+        </div>
+
+        <div class="card-alt-green">
+          <div style="display: flex; align-items: flex-start; gap: 16px;">
+            <span class="icon icon-xl icon-green" style="../assets/icons/warning-triangle.svg); flex-shrink: 0;"></span>
+            <div>
+              <p><strong>VCs require the company to expand its employee option pool before a round, on a pre-money basis. The dilution comes out of the founders' ownership, not the new investor's.</strong></p>
+              <p class="text-sm text-light mt-8">If a company has a $40M pre-money but creates a new 10% option pool before the round, the effective pre-money for existing shareholders is really $36M. The new investor still gets 20% on a $50M post-money, but the founders gave up more than they realized. Understanding this signals you know how deals actually work.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          1:45 - 2:15 | Trap 1: the option pool shuffle. VCs almost always require an option pool expansion before the round, on a pre-money basis. That means the dilution comes out of the founders' ownership, not the new investor's. $40M pre-money with a 10% pool expansion means founders' effective pre-money is $36M. This is one of the most common negotiation dynamics. Understanding it signals real deal knowledge.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 7: Traps 2 and 3 -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Traps 2-3: Safes in the CAP table</h2>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="card card-orange-bg fragment" data-fragment-index="1" style="padding: 16px;">
+            <h3 class="mb-8">SAFE Conversion at Series A</h3>
+            <p class="text-sm text-light">If a company raised $2M on SAFEs before the Series A, those convert into equity at the round. Depending on valuation cap and discount rate, SAFE holders get shares below the Series A price. Those converted shares add to the fully diluted share count, lowering everyone else's ownership.</p>
+          </div>
+          <div class="card card-purple-bg fragment" data-fragment-index="2" style="padding: 16px;">
+            <h3 class="mb-8">Post-Money vs. Pre-Money SAFEs</h3>
+            <p class="text-sm text-light">YC's post-money SAFE defines the cap as post-money including the SAFE. A $10M cap with $1M invested means exactly 10% ownership. Clean. Older pre-money SAFEs are messier because ownership depends on total SAFE amounts raised, which may be unknown at signing.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          2:15 - 3:00 | [Click] Trap 2: SAFE conversion. If the company raised on SAFEs before the Series A, those convert at the round. Depending on cap and discount, SAFE holders get shares below the Series A price. Those shares increase the fully diluted count and lower everyone else's ownership. In an interview, if someone gives you a scenario with prior SAFEs, ask: "What are the conversion terms?" That question alone separates you from 80% of candidates. [Click] Trap 3: post-money vs. pre-money SAFEs. YC's post-money SAFE is now standard. $10M cap with $1M invested means exactly 10%. Clean. Older pre-money SAFEs are messier.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 8: Section Divider -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <div class="part-number">Section 2</div>
+        <h1>Comparable Company Analysis</h1>
+
+        <aside class="notes">
+          3:00 | Transition into comps for startup valuation.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 9: Public Comps for Growth-Stage -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Using public comps at Series b and beyond</h2>
+        </div>
+
+        <ul class="icon-list text-lg">
+          <li>
+            <span class="icon icon-xl icon-green" style="../assets/icons/search.svg); flex-shrink: 0;"></span>
+            <span><strong>Find 5-8 public companies</strong> with similar business models, growth rates, and end markets.</span>
+          </li>
+          <li>
+            <span class="icon icon-xl icon-green" style="../assets/icons/bar-chart.svg); flex-shrink: 0;"></span>
+            <span><strong>Pull EV/NTM Revenue multiples</strong> and take the median across your peer group.</span>
+          </li>
+          <li>
+            <span class="icon icon-xl icon-green" style="../assets/icons/arrow-down.svg); flex-shrink: 0;"></span>
+            <span><strong>Apply a private company discount</strong> of 15-25% because the shares can't trade on NASDAQ tomorrow.</span>
+          </li>
+          <li>
+            <span class="icon icon-xl icon-green" style="../assets/icons/checkmark-badge.svg); flex-shrink: 0;"></span>
+            <span><strong>The result is a defensible valuation range</strong>, not a precise number. Ranges are honest.</span>
+          </li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          3:00 - 3:45 | For a Series B or later company with meaningful revenue, anchor to public market multiples. Find 5-8 public comps with similar business models and growth profiles. Pull their EV/NTM Revenue multiples. Take the median. Apply a 15-25% private company discount for illiquidity. That gives you a defensible valuation range.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 10: Worked Comps Example -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Comps in practice: Restaurant vertical SaaS</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card card-green-bg" style="padding: 24px;">
+            <h3>The Target Company</h3>
+            <p class="text-sm text-light">$15M ARR growing 70% YoY. Vertical SaaS for restaurants.</p>
+            <p class="text-sm text-light">NTM revenue (assuming slight growth deceleration): ~$22M.</p>
+          </div>
+          <div class="card card-blue-bg" style="padding: 24px;">
+            <h3>The Implied Range</h3>
+            <p class="text-sm text-light">Public comps median: 3-5x NTM revenue.</p>
+            <p class="text-sm text-light">At 4x with 20% discount: ~$70M EV.</p>
+            <p class="text-sm text-light">At 6x with 10% discount: ~$120M EV.</p>
+            <p class="text-sm text-light">Founder wants $100M pre-money. Sits mid-range. Defensible.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          3:45 - 4:30 | Concrete example. Vertical SaaS for restaurants, $15M ARR growing 70%. Public comps are Toast, Lightspeed, Olo, PAR Technology at a median of 3-5x NTM revenue. NTM revenue is roughly $22M assuming slight deceleration. At 4x with a 20% private discount, implied EV is ~$70M. At 6x with a 10% discount (justified by faster growth), $120M. The founder wants $100M pre-money. That sits in the middle. Defensible.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 11: Valuation Multiples by Stage -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>How multiples compress as companies grow</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Stage</th>
+              <th>Typical ARR Range</th>
+              <th>Typical EV/ARR Multiple</th>
+              <th>Implied Valuation Range</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="fragment" data-fragment-index="1">
+              <td>Seed</td>
+              <td>Pre-revenue to $500K</td>
+              <td>N/A (use other methods)</td>
+              <td>$5-15M pre-money</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="2">
+              <td>Series A</td>
+              <td>$1-3M ARR</td>
+              <td>25-50x</td>
+              <td>$25-150M pre-money</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="3">
+              <td>Series B</td>
+              <td>$5-15M ARR</td>
+              <td>15-30x</td>
+              <td>$75-450M pre-money</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="4">
+              <td>Series C+</td>
+              <td>$20-50M+ ARR</td>
+              <td>10-20x</td>
+              <td>$200M-1B+ pre-money</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          4:30 - 5:15 | Key pattern: multiples compress as companies grow. [Click] Seed: pre-revenue, use other methods. $5-15M pre-money range. [Click] Series A: $1-3M ARR at 25-50x. The revenue base is tiny and growth potential is enormous. [Click] Series B: $5-15M ARR at 15-30x. Market has more data and precision. [Click] Series C+: $20-50M+ ARR at 10-20x. Absolute multiples shift with market cycles (2021 was 2-3x higher across the board than 2023) but stage compression always holds.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 12: Private Comps -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Private comps: Normalize by multiples, not raw valuations</h2>
+        </div>
+
+        <div class="card-alt-green">
+          <div style="display: flex; align-items: flex-start; gap: 16px;">
+            <span class="icon icon-xl icon-green" style="../assets/icons/search-document.svg); flex-shrink: 0;"></span>
+            <div>
+              <p><strong>Don't compare raw valuations. Compare multiples. "Companies at this stage and growth rate are raising at 30-50x ARR" is actionable. "Company X raised at $50 million" without context is not.</strong></p>
+              <p class="text-sm text-light mt-8">PitchBook, Crunchbase, and fund-level databases track recent rounds. The challenge is that private data is noisy. A "$50M Series A" means very different things depending on whether the company had $1M or $5M in ARR. Normalizing by multiples makes the data useful.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          5:15 - 5:30 | At earlier stages, private comps are often more relevant than public. But the key: normalize. Don't compare raw valuations. Compare multiples. "Companies at this stage raise at 30-50x ARR" is actionable. "$50M Series A" without context is meaningless because it depends entirely on the revenue underneath.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 13: Section Divider -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <div class="part-number">Section 3</div>
+        <h1>The Venture Capital Method</h1>
+
+        <aside class="notes">
+          5:30 | Transition into the workhorse valuation approach.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 14: VC Method Logic -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Working backward from the exit</h2>
+        </div>
+
+        <div class="card-alt-green">
+          <div style="display: flex; align-items: flex-start; gap: 16px;">
+            <span class="icon icon-xl icon-green" style="../assets/icons/lightning.svg); flex-shrink: 0;"></span>
+            <div>
+              <p><strong>If I need a target return of Xx on my investment, and I believe the company will be worth $Y at exit, then the maximum I should pay today is $Y / X (adjusted for dilution).</strong></p>
+              <p class="text-sm text-light mt-8">The VC method is the workhorse valuation approach for early-stage deals. It makes every assumption explicit: exit value, required return, dilution. Interviewers expect you to know this cold.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          5:30 - 6:00 | The VC method is the most important single valuation framework you'll use. The logic: if I need Xx return on my investment, and the company will be worth $Y at exit, the maximum price today is $Y / X, adjusted for dilution. It works backward from the exit instead of forward from today.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 15: VC Method Four Steps -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Four steps of the VC method</h2>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="card card-green-bg fragment" data-fragment-index="1" style="padding: 16px;">
+            <h3 class="mb-8">1. Estimate Exit Value</h3>
+            <p class="text-sm text-light">Project revenue at Year 5-7. Multiply by an exit multiple from public comps. Example: $80M revenue x 8x = $640M exit value.</p>
+          </div>
+          <div class="card card-blue-bg fragment" data-fragment-index="2" style="padding: 16px;">
+            <h3 class="mb-8">2. Set Required Return</h3>
+            <p class="text-sm text-light">Seed: 20-30x. Series A: 10-15x. Series B: 5-8x. Growth: 3-5x. These reflect probability-weighted expected value given failure rates at each stage.</p>
+          </div>
+          <div class="card card-orange-bg fragment" data-fragment-index="3" style="padding: 16px;">
+            <h3 class="mb-8">3. Calculate Post-Money Today</h3>
+            <p class="text-sm text-light">Divide exit value by required return. $640M / 10x = $64M post-money. If investing $8M, pre-money is $56M.</p>
+          </div>
+          <div class="card card-purple-bg fragment" data-fragment-index="4" style="padding: 16px;">
+            <h3 class="mb-8">4. Adjust for Dilution</h3>
+            <p class="text-sm text-light">Expect 40% dilution from future rounds. Adjusted post-money = $640M / (10 / 0.60) = $38.4M. Pre-money: $30.4M. Meaningfully different from $56M.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          6:00 - 7:00 | Four steps. [Click] Step 1: estimate exit value. Project revenue at Year 5-7, multiply by an exit multiple. $80M revenue at 8x = $640M. [Click] Step 2: set your required return by stage. Seed needs 20-30x because most fail. Series A: 10-15x. Series B: 5-8x. [Click] Step 3: divide exit value by required return. $640M / 10x = $64M post-money today. [Click] Step 4: adjust for dilution. With 40% expected dilution, the adjusted post-money drops to $38.4M. That's a meaningful difference. The pre-money goes from $56M to $30.4M.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 16: VC Method Worked Example -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>VC method: Complete calculation</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Step</th>
+              <th>Calculation</th>
+              <th>Result</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="fragment" data-fragment-index="1">
+              <td>Projected exit revenue (Year 6)</td>
+              <td>$80M ARR</td>
+              <td>--</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="2">
+              <td>Exit multiple (public comps)</td>
+              <td>8x revenue</td>
+              <td>--</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="3">
+              <td>Exit enterprise value</td>
+              <td>$80M x 8</td>
+              <td>$640M</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="4">
+              <td>Required return (Series A)</td>
+              <td>10x</td>
+              <td>--</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="5">
+              <td>Post-money today (pre-dilution)</td>
+              <td>$640M / 10</td>
+              <td>$64M</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="6">
+              <td>Expected dilution to exit</td>
+              <td>40%</td>
+              <td>--</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="7">
+              <td>Adjusted post-money</td>
+              <td>$640M / (10 / 0.60)</td>
+              <td>$38.4M</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="8">
+              <td>Implied pre-money</td>
+              <td>$38.4M - $8M</td>
+              <td><strong>$30.4M</strong></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          7:00 - 7:30 | Complete calculation laid out. [Click through each row] Each step builds on the last. The power of the VC method is making every assumption visible. Exit value depends on revenue projections and multiples, both debatable. Required return depends on stage risk. Dilution depends on future capital needs. When you lay this out, valuation becomes a conversation about assumptions rather than a fight over a number. The NBER survey confirms VCs anchor on expected exits and ownership targets, not bottom-up models.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 17: Section Divider -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <div class="part-number">Section 4</div>
+        <h1>Scorecard, Berkus, and DCF</h1>
+
+        <aside class="notes">
+          7:30 | Transition into the three other methods you should know.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 18: The Scorecard Method -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Scorecard method: Weighted factor adjustment</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Factor</th>
+              <th>Weight</th>
+              <th>This Company</th>
+              <th>Weighted Score</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="fragment" data-fragment-index="1">
+              <td>Management team</td>
+              <td>30%</td>
+              <td>120% (strong)</td>
+              <td>36.0%</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="2">
+              <td>Market opportunity</td>
+              <td>25%</td>
+              <td>110% (above avg)</td>
+              <td>27.5%</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="3">
+              <td>Product/technology</td>
+              <td>15%</td>
+              <td>100% (average)</td>
+              <td>15.0%</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="4">
+              <td>Competitive environment</td>
+              <td>10%</td>
+              <td>90% (crowded)</td>
+              <td>9.0%</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="5">
+              <td>Marketing/sales + Other</td>
+              <td>20%</td>
+              <td>100% (average)</td>
+              <td>20.0%</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="6">
+              <td><strong>Total</strong></td>
+              <td><strong>100%</strong></td>
+              <td></td>
+              <td><strong>107.5%</strong></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          7:30 - 8:30 | The Scorecard Method, developed by angel investor Bill Payne. Start with the average pre-money valuation for similar startups in the region and stage. Then adjust based on weighted factors. [Click through rows] Management team gets the heaviest weight at 30%. Market opportunity 25%. Product 15%. Competitive environment 10%. The rest 20%. [Click] Total: 107.5%. If the average seed-stage SaaS valuation is $6M, the implied valuation is $6.45M. Not precise, but it gives structured thinking for pre-revenue companies where there's nothing to multiply.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 19: Berkus Method and DCF -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Two more methods to know</h2>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="card card-green-bg fragment" data-fragment-index="1" style="padding: 16px;">
+            <h3 class="mb-8">The Berkus Method</h3>
+            <p class="text-sm text-light">Assign up to $500K-$1M each to five risk factors: sound idea, prototype, quality management, strategic relationships, and product rollout. Maximum pre-money: $2.5-5M. More of a sanity check than a valuation tool. Forces the question: what de-risking has this company actually accomplished?</p>
+          </div>
+          <div class="card card-red-bg fragment" data-fragment-index="2" style="padding: 16px;">
+            <h3 class="mb-8">DCF: When It Fails</h3>
+            <p class="text-sm text-light">Requires forecastable cash flows and a defensible discount rate. Pre-revenue startups have neither. Even post-revenue startups growing 150% have projections that are fiction. DCF becomes relevant at growth stage ($30M+ ARR, visible profitability path). Even then, VCs use it as a cross-check, not the primary method.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          8:30 - 9:30 | Two more methods. [Click] The Berkus Method: assign up to $500K-$1M to five risk factors. Maximum pre-money of $2.5-5M. It's a sanity check that forces you to ask what de-risking has been accomplished. [Click] DCF: here's when not to use it. It requires forecastable cash flows and a defensible discount rate. Early-stage startups have neither. The clean interview answer: "DCF requires predictable cash flows and a defensible discount rate. Pre-revenue startups have neither. Revenue-multiple comps and the VC method are better tools at that stage."
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 20: Method Selection Guide -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Match the method to the stage</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Stage</th>
+              <th>Primary Method</th>
+              <th>Secondary Method</th>
+              <th>Avoid</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Pre-revenue</td>
+              <td>Berkus, Scorecard</td>
+              <td>VC Method (directional)</td>
+              <td>DCF</td>
+            </tr>
+            <tr>
+              <td>Seed ($100K-$1M ARR)</td>
+              <td>VC Method</td>
+              <td>Private comps</td>
+              <td>DCF</td>
+            </tr>
+            <tr>
+              <td>Series A ($1-5M ARR)</td>
+              <td>VC Method</td>
+              <td>Public + private comps</td>
+              <td>--</td>
+            </tr>
+            <tr>
+              <td>Series B+ ($10M+ ARR)</td>
+              <td>Comparable companies</td>
+              <td>VC Method (cross-check)</td>
+              <td>--</td>
+            </tr>
+            <tr>
+              <td>Growth ($30M+ ARR)</td>
+              <td>Comps + DCF cross-check</td>
+              <td>VC Method</td>
+              <td>--</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          9:30 - 10:00 | Quick reference for method selection by stage. Pre-revenue: Berkus and Scorecard. Seed: VC Method with private comps. Series A: VC Method with comps. Series B+: comps become the primary tool. Growth stage: comps plus DCF as a cross-check. The key: match the method to the data you have. Using DCF on a seed-stage company will lose you the interview.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 21: Section Divider -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <div class="part-number">Section 5</div>
+        <h1>Discussing Valuation in Interviews</h1>
+
+        <aside class="notes">
+          10:00 | Transition into step-up valuation and interview strategy.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 22: Step-Up Valuation -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Standard step-ups between rounds</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Round Transition</th>
+              <th>Normal Step-Up</th>
+              <th>2020-2021 Bubble</th>
+              <th>2022-2023 Correction</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="fragment" data-fragment-index="1">
+              <td>Seed to Series A</td>
+              <td>2-4x</td>
+              <td>4-8x</td>
+              <td>Flat to 2x</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="2">
+              <td>Series A to Series B</td>
+              <td>2-3x</td>
+              <td>3-6x</td>
+              <td>Flat rounds common</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="3">
+              <td>Series B to Series C</td>
+              <td>1.5-2.5x</td>
+              <td>2-4x</td>
+              <td>Down rounds common</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          10:00 - 10:30 | Step-ups reflect value created between rounds. [Click] Seed to A: normally 2-4x. In 2021, routinely 4-8x. In the correction, flat to 2x. [Click] A to B: normally 2-3x. During the bubble, 3-6x. Correction brought flat rounds. [Click] B to C: normally 1.5-2.5x. Correction brought down rounds. Down rounds aren't a death sentence for the company, but they are a painful dilution event for existing shareholders. This is why DPI beats TVPI every time. Markups can evaporate.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 23: The Five-Part Interview Answer -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>How to answer valuation questions</h2>
+        </div>
+
+        <ul class="icon-list text-lg">
+          <li>
+            <span class="icon icon-xl icon-green" style="../assets/icons/question.svg); flex-shrink: 0;"></span>
+            <span><strong>Ask clarifying questions.</strong> "What stage? What's the revenue profile? Recent comparable transactions?" This shows context determines method.</span>
+          </li>
+          <li>
+            <span class="icon icon-xl icon-green" style="../assets/icons/shapes.svg); flex-shrink: 0;"></span>
+            <span><strong>State your method and why.</strong> "Series B with $12M ARR, so I'd anchor to public comps with a private discount and cross-check with the VC method."</span>
+          </li>
+          <li>
+            <span class="icon icon-xl icon-green" style="../assets/icons/spreadsheet.svg); flex-shrink: 0;"></span>
+            <span><strong>Walk through the math.</strong> Make assumptions explicit. Don't hide your inputs. Invite pushback.</span>
+          </li>
+          <li>
+            <span class="icon icon-xl icon-green" style="../assets/icons/filter-levels.svg); flex-shrink: 0;"></span>
+            <span><strong>Give a range, not a point estimate.</strong> "$80-120M pre-money." Ranges are honest. Point estimates are false precision.</span>
+          </li>
+          <li>
+            <span class="icon icon-xl icon-green" style="../assets/icons/achievements.svg); flex-shrink: 0;"></span>
+            <span><strong>Connect to the investment decision.</strong> "At $100M pre-money, we own 12% for our $12M check. At our expected exit, that's 7x. The deal works at this price."</span>
+          </li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          10:30 - 11:15 | The five-part answer for valuation questions in interviews. Ask clarifying questions first. State your method and why. Walk through the math with explicit assumptions. Give a range, not a point estimate. And connect back to the investment decision: does this return justify the risk at this price? That's the complete answer. Method, math, and investment judgment. That's what gets offers.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 24: Key Takeaways -->
+      <!-- ============================================ -->
+      <section class="content-dark">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Key takeaways</h2>
+        </div>
+
+        <ul class="plus-list text-white">
+          <li class="fragment" data-fragment-index="1"><strong>Pre-money and post-money are the vocabulary of every venture deal.</strong> Get the option pool shuffle and SAFE conversion right, and you'll demonstrate more practical knowledge than most first-year associates on day one.</li>
+          <li class="fragment" data-fragment-index="2"><strong>Use the right tool for the stage.</strong> Berkus and Scorecard for pre-revenue. VC method for seed through Series A. Comps for Series B and beyond. DCF only when a company has stable, forecastable cash flows.</li>
+          <li class="fragment" data-fragment-index="3"><strong>The VC method is the most important single valuation framework.</strong> It makes every assumption visible and turns valuation into a structured conversation instead of a fight over a number.</li>
+          <li class="fragment" data-fragment-index="4"><strong>Valuation is a negotiation, not a calculation.</strong> VCs anchor on expected exits and ownership targets. The models inform the conversation. The outcome is determined by leverage, competition, and conviction.</li>
+          <li class="fragment" data-fragment-index="5"><strong>Your framework matters more than your number.</strong> State the method, make assumptions explicit, give a range, and connect it to the investment decision.</li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="rgba(255,255,255,0.4)"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          11:30 - 12:00 | Five takeaways. [Click] Pre-money and post-money vocabulary. Get the option pool shuffle and SAFE conversion right, and you signal real deal knowledge. [Click] Match the method to the stage. DCF for a seed company will lose you the interview. [Click] The VC method is the single most important framework. Makes every assumption visible. Practice until you can do it on a whiteboard in two minutes. [Click] Valuation is a negotiation, not a calculation. Models inform the conversation but leverage and competition determine the outcome. [Click] Framework matters more than number. Method, assumptions, range, investment decision. That's the answer that gets the offer.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js -->
+  <script src="../assets/reveal/dist/reveal.min.js"></script>
+  <script type="module">
+    import RevealNotes from '../assets/reveal/plugin/notes/notes.esm.js';
+
+    Reveal.initialize({
+      width: 960,
+      height: 540,
+      margin: 0,
+      minScale: 0.5,
+      maxScale: 3.0,
+      hash: true,
+      slideNumber: true,
+      controls: true,
+      progress: true,
+      history: true,
+      center: false,
+      transition: 'none',
+      backgroundTransition: 'none',
+      disableLayout: false,
+      plugins: [ RevealNotes ]
+    });
+  </script>
+</body>
+</html>

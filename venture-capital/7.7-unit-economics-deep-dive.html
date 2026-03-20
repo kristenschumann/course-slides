@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en" class="reveal-full-page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unit Economics Deep Dive</title>
+
+  <!-- Reveal.js Core -->
+  <link rel="stylesheet" href="../assets/reveal/dist/reset.css">
+  <link rel="stylesheet" href="../assets/reveal/dist/reveal.css">
+
+  <!-- Leland Theme -->
+  <link rel="stylesheet" href="../assets/reveal/themes/leland.css">
+
+</head>
+<body>
+  <!-- SVG Symbol Definitions (defined once, referenced via <use>) -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="leland-logo" viewBox="0 0 200 45">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z"/>
+      <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z"/>
+      <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z"/>
+      <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z"/>
+      <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z"/>
+      <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z"/>
+    </symbol>
+  </svg>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ============================================ -->
+      <!-- SLIDE 1: Title Dark -->
+      <!-- ============================================ -->
+      <section class="title-dark">
+        <svg width="110" height="25" fill="white" class="mb-16"><use href="#leland-logo"/></svg>
+        <p class="eyebrow">VC Recruiting Course</p>
+        <h1>Unit Economics<br><span class="hl">Deep Dive</span></h1>
+
+        <aside class="notes">
+          [0:00] Welcome slide. Brief pause before launching into the hook.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 2: The Interview Story -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Revenue growth is what a company looks like from the outside</h2>
+        </div>
+
+        <div class="card-alt-green">
+          <div style="display: flex; align-items: flex-start; gap: 16px;">
+            <span class="icon icon-xl icon-green" style="../assets/icons/lightning.svg); flex-shrink: 0;"></span>
+            <div>
+              <p><strong>A candidate evaluated a $20M ARR SaaS company growing 100% YoY and called it a good business. The partner pulled up one slide: 36-month CAC payback, 52% gross margins, LTV/CAC of 1.4x. The business was lighting money on fire to grow.</strong></p>
+              <p class="text-sm text-light mt-8">"Revenue growth is what a company looks like from the outside. Unit economics is what it looks like from the inside." That question, whether you can see past the top-line number to the unit level, is the most common filter in VC technical interviews.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          0:00 - 0:30 | A candidate in a mock interview called a $20M ARR, 100% growth SaaS company a good business. The partner showed one slide: 36-month CAC payback, 52% gross margins, 1.4x LTV/CAC. The company was destroying value on every customer. That's why they passed. The ability to see past top-line growth to unit-level health is the most tested skill in VC interviews.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 3: What You'll Learn -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Four skills you'll build today</h2>
+        </div>
+
+        <ul class="icon-list text-lg">
+          <li>
+            <span class="icon icon-xl icon-green" style="../assets/icons/money.svg); flex-shrink: 0;"></span>
+            <span><strong>CAC calculation and interpretation</strong>, including the three methods companies use and why it matters which one you're looking at.</span>
+          </li>
+          <li>
+            <span class="icon icon-xl icon-green" style="../assets/icons/earnings.svg); flex-shrink: 0;"></span>
+            <span><strong>LTV, LTV/CAC, and CAC payback</strong>, the ratios that reveal whether a business model actually works at the unit level.</span>
+          </li>
+          <li>
+            <span class="icon icon-xl icon-green" style="../assets/icons/spreadsheet.svg); flex-shrink: 0;"></span>
+            <span><strong>Cohort analysis</strong>, the single most powerful analytical tool for separating healthy businesses from deteriorating ones.</span>
+          </li>
+          <li>
+            <span class="icon icon-xl icon-green" style="../assets/icons/shapes.svg); flex-shrink: 0;"></span>
+            <span><strong>Unit economics by business model</strong>, how metrics shift across SaaS, marketplace, and consumer companies.</span>
+          </li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          0:30 - 1:15 | Four things you'll master. CAC calculation and why the method matters. LTV, LTV/CAC, and CAC payback. Cohort analysis, the tool that separates good analysts from great ones. And how unit economics shift across SaaS, marketplace, and consumer business models. This connects to the metrics framework in 6.7 and growth-stage evaluation in 6.6.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 4: Section Divider -- CAC -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <div class="part-number">Section 1</div>
+        <h1>CAC: The Cost Nobody Calculates Honestly</h1>
+
+        <aside class="notes">
+          1:15 | Transition into CAC methods and manipulation.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 5: Three Ways to Calculate CAC -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Three CAC methods, three different numbers</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Method</th>
+              <th>What's Included</th>
+              <th>Example CAC</th>
+              <th>What It Tells You</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="fragment" data-fragment-index="1">
+              <td>Blended</td>
+              <td>Total S&amp;M spend / all new customers</td>
+              <td>$400</td>
+              <td>Most common, most honest, but blunt</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="2">
+              <td>Paid Only</td>
+              <td>Paid spend / paid-channel customers</td>
+              <td>$200</td>
+              <td>Excludes organic, flatters the number</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="3">
+              <td>Fully Loaded</td>
+              <td>S&amp;M + sales salaries + tools + onboarding</td>
+              <td>$650</td>
+              <td>What VCs actually care about</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          1:15 - 2:00 | CAC sounds simple but is the most manipulated metric in any pitch deck. [Click] Blended: total spend divided by total new customers. Honest but blunt. [Click] Paid only: excludes organic customers from the denominator while keeping organic costs low. A company says paid CAC is $200 but spends $500K/month on brand marketing feeding the organic funnel. The real number is $600. [Click] Fully loaded: includes sales salaries, tools, onboarding. This is the number VCs care about and companies least want to show. In an interview, always ask: is that blended or paid, and does it include sales comp?
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 6: CAC Trends and Channel Mix -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>CAC rises as companies scale</h2>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="card card-green-bg fragment" data-fragment-index="1" style="padding: 16px;">
+            <h3 class="mb-8">The Scaling Trap</h3>
+            <p class="text-sm text-light">The cheapest customers are acquired first. First 1,000 come from founder networks. Next 10,000 from efficient digital channels. Next 100,000 require sales teams and competitive paid acquisition. If current CAC is $300, ask what it was 12 months ago.</p>
+          </div>
+          <div class="card card-blue-bg fragment" data-fragment-index="2" style="padding: 16px;">
+            <h3 class="mb-8">CAC by Channel</h3>
+            <p class="text-sm text-light">A company might have $150 CAC from content marketing and $2,000 CAC from outbound sales. If the growth plan calls for tripling the outbound team, that plan is a plan to destroy unit economics. Channel mix determines where CAC is headed.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          2:00 - 2:45 | Two critical patterns. [Click] CAC rises as companies scale. The cheapest customers come first. Founder networks, then word of mouth, then digital channels, then paid and outbound. Always ask what CAC was 12 months ago. The trend tells more than the current number. [Click] CAC by channel matters enormously. Content marketing at $150 vs outbound at $2,000. If the growth plan leans into the expensive channel, unit economics are about to get worse.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 7: Interview Tip -- Start with CAC -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Interview strategy: Start with CAC, not LTV</h2>
+        </div>
+
+        <div class="card-alt-green">
+          <div style="display: flex; align-items: flex-start; gap: 16px;">
+            <span class="icon icon-xl icon-green" style="../assets/icons/sparkle.svg); flex-shrink: 0;"></span>
+            <div>
+              <p><strong>When a partner says "walk me through the unit economics," most candidates start with LTV. Start with CAC instead. CAC is the input the company controls. It reveals management discipline, channel efficiency, and customer understanding.</strong></p>
+              <p class="text-sm text-light mt-8">LTV is a function of product quality, market dynamics, and customer behavior, all variables harder to influence directly. Starting with CAC frames you as someone who thinks from the operator's perspective, not just the spreadsheet. That framing signals you understand how businesses actually work.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          2:45 - 3:15 | Quick interview tip. When asked to walk through unit economics, start with CAC, not LTV. Most candidates start with LTV. But CAC is the spending decision. It reveals management discipline and channel efficiency. Starting with CAC signals you think like an operator, not an analyst. That framing gets you hired.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 8: Section Divider -- LTV and Ratios -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <div class="part-number">Section 2</div>
+        <h1>LTV and the Ratios That Matter</h1>
+
+        <aside class="notes">
+          3:45 | Transition into LTV formula and the key ratios.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 9: The LTV Formula -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Lifetime value: The formula and its inputs</h2>
+        </div>
+
+        <div class="card card-green-bg" style="padding: 24px;">
+          <span class="badge badge-green self-start mb-8">Formula</span>
+          <p class="text-lg"><strong>LTV = ARPU x Gross Margin / Churn Rate</strong></p>
+          <div class="card-alt" style="margin-top: 16px; padding: 16px;">
+            <p class="text-md">$500 ARPU x 80% Gross Margin / 2% Monthly Churn = <strong>$20,000 LTV</strong></p>
+          </div>
+        </div>
+
+        <p class="text-light mt-16">Simple math, but every input is an assumption, and assumptions compound. Reducing monthly churn from 3% to 2% increases LTV by 50%.</p>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          3:45 - 4:15 | The LTV formula. Average revenue per user times gross margin divided by monthly churn rate. A SaaS company with $500 ARPU, 80% margins, and 2% monthly churn has $20,000 LTV. Simple math, but every input is an assumption. Reducing churn from 3% to 2% increases LTV by 50%. Small changes compound dramatically.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 10: Pressure-Testing the Inputs -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Two inputs to pressure-test first</h2>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="card card-purple-bg fragment" data-fragment-index="1" style="padding: 16px;">
+            <h3 class="mb-8">Gross Margin</h3>
+            <p class="text-sm text-light">Software should be above 70%. If a "SaaS" company has 50% margins, it's not really software. It has services or infrastructure costs embedded in delivery. Managed services disguised as SaaS is one of the most common bait-and-switches in pitch decks.</p>
+          </div>
+          <div class="card card-orange-bg fragment" data-fragment-index="2" style="padding: 16px;">
+            <h3 class="mb-8">Churn Rate</h3>
+            <p class="text-sm text-light">2% monthly sounds small but annualizes to 21.5%. Enterprise SaaS: under 1% monthly. SMB SaaS: under 3% monthly. Consumer: higher churn is tolerable only if CAC is proportionally low. Above 5% monthly means replacing half your base every year.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          4:15 - 5:00 | Two inputs to pressure-test. [Click] Gross margin. The benchmark is 70%+ for software. Below that, the company has meaningful services or infrastructure costs. Managed services disguised as SaaS is a common bait-and-switch. The revenue recurs, but the margins are not software margins. [Click] Churn. 2% monthly annualizes to 21.5%. You lose a fifth of your base every year. Enterprise SaaS needs under 1% monthly. SMB under 3%. Consumer can tolerate more if CAC is cheap enough.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 11: Contribution Margin -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Contribution margin: Beyond gross margin</h2>
+        </div>
+
+        <div class="card-alt-green">
+          <div style="display: flex; align-items: flex-start; gap: 16px;">
+            <span class="icon icon-xl icon-green" style="../assets/icons/search.svg); flex-shrink: 0;"></span>
+            <div>
+              <p><strong>Contribution margin subtracts all variable costs: support, payment processing, account management. For marketplaces, the gap between gross margin and contribution margin is where the real economics live.</strong></p>
+              <p class="text-sm text-light mt-8">A food delivery marketplace might have a 25% take rate but after driver incentives, support, and refunds, contribution margin per order is 5%. The unit economics live in that 5%, not the 25%. Always ask for the contribution-margin view when evaluating businesses with meaningful variable costs beyond COGS.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          5:00 - 5:30 | Related concept: contribution margin. Gross margin accounts for delivery costs. Contribution margin goes further, subtracting support, payment processing, refunds. For SaaS, the two are close. For marketplaces, the gap is enormous. A food delivery marketplace with a 25% take rate might have 5% contribution margin per order after driver incentives and support. The real economics live in that 5%.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 12: LTV/CAC and CAC Payback Benchmarks -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Benchmark ranges by business type</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Business Type</th>
+              <th>LTV/CAC Good</th>
+              <th>LTV/CAC Great</th>
+              <th>CAC Payback Good</th>
+              <th>CAC Payback Great</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="fragment" data-fragment-index="1">
+              <td>Enterprise SaaS</td>
+              <td>3x+</td>
+              <td>5x+</td>
+              <td>Under 18 months</td>
+              <td>Under 12 months</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="2">
+              <td>SMB SaaS</td>
+              <td>3x+</td>
+              <td>4x+</td>
+              <td>Under 12 months</td>
+              <td>Under 6 months</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="3">
+              <td>Marketplace</td>
+              <td>2x+</td>
+              <td>4x+</td>
+              <td>Under 12 months</td>
+              <td>Under 6 months</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="4">
+              <td>Consumer Sub</td>
+              <td>2x+</td>
+              <td>3x+</td>
+              <td>Under 6 months</td>
+              <td>Under 3 months</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          5:30 - 6:00 | The benchmarks by business type. [Click] Enterprise SaaS: 3x+ LTV/CAC is good, 5x+ is great. Payback under 18 months. [Click] SMB SaaS: similar ratios but tighter payback because deal sizes are smaller. [Click] Marketplace: 2x+ is acceptable because transaction-based models behave differently. [Click] Consumer subscriptions: thinner margins mean tighter tolerances. Under 6 months payback is the standard. Context: a 2.5x ratio backed by 4 years of cohort data beats a 3x ratio projected from 18 months of data.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 13: Why CAC Payback Matters More -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>CAC payback is a liquidity metric in disguise</h2>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="card card-green-bg fragment" data-fragment-index="1" style="padding: 16px;">
+            <h3 class="mb-8">The Cash Problem</h3>
+            <p class="text-sm text-light">A 5:1 LTV/CAC ratio with a 30-month payback means the company finances acquisition for 2.5 years before seeing returns. Burning $5M/month on acquisition requires surviving 30 months before those customers pay for themselves.</p>
+          </div>
+          <div class="card card-blue-bg fragment" data-fragment-index="2" style="padding: 16px;">
+            <h3 class="mb-8">The Formula</h3>
+            <p class="text-sm text-light">CAC / (Monthly ARPU x Gross Margin). Under 18 months is good. Under 12 is great. Under 6 usually means the company should invest more aggressively. Over 24 months is a structural problem requiring massive cash reserves or continuous fundraising.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          6:00 - 6:30 | Why CAC payback often matters more than LTV/CAC. [Click] It's a liquidity metric in disguise. A company with beautiful 5:1 LTV/CAC but 30-month payback will run out of cash before those economics materialize. The cash goes out today, the lifetime value trickles in over years. [Click] The formula: CAC divided by monthly ARPU times gross margin. Under 18 months good, under 12 great, under 6 usually means under-investment. Over 24 months is structural trouble.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 14: Section Divider -- Cohort Analysis -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <div class="part-number">Section 3</div>
+        <h1>Cohort Analysis</h1>
+
+        <aside class="notes">
+          6:30 | Transition into cohort analysis.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 15: How to Read a Cohort Table -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Three ways to read a cohort table</h2>
+        </div>
+
+        <div class="card-grid-3">
+          <div class="card card-green-bg fragment" data-fragment-index="1">
+            <span class="icon icon-lg icon-green mb-16" style="../assets/icons/arrow-right.svg)"></span>
+            <h3>Read Horizontally</h3>
+            <p class="text-sm text-light">Follow a single row across time. A steep early drop that flattens is fine. A steady decline that never flattens is fatal.</p>
+          </div>
+          <div class="card card-blue-bg fragment" data-fragment-index="2">
+            <span class="icon icon-lg icon-blue mb-16" style="../assets/icons/arrow-down.svg)"></span>
+            <h3>Read Vertically</h3>
+            <p class="text-sm text-light">Compare the same month across cohorts. Vertical improvement means better onboarding and targeting. Vertical degradation means expanding into weaker segments.</p>
+          </div>
+          <div class="card card-purple-bg fragment" data-fragment-index="3">
+            <span class="icon icon-lg icon-purple mb-16" style="../assets/icons/arrow-up-right.svg)"></span>
+            <h3>Read Diagonally</h3>
+            <p class="text-sm text-light">If revenue increases over time, customers are spending more. This is expansion revenue driving NDR above 100%. Numbers that increase as you read across are the dream.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          6:30 - 7:15 | Every metric so far can be gamed in aggregate. Cohort analysis is how you see through the averages. A cohort is a group of customers who started in the same period. [Click] Read horizontally: follow one cohort over time. Steep early drop then flattening is fine. Steady decline is fatal. [Click] Read vertically: compare the same month across cohorts. Is month-3 retention improving? That means the company is learning. [Click] Read diagonally: if revenue increases over time, you have expansion revenue. That's what drives NDR above 100%.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 16: Sample Cohort Retention Table -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Revenue retention by cohort</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Cohort</th>
+              <th>Month 0</th>
+              <th>Month 1</th>
+              <th>Month 3</th>
+              <th>Month 6</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="fragment" data-fragment-index="1">
+              <td>January</td>
+              <td>100%</td>
+              <td>82%</td>
+              <td>68%</td>
+              <td>60%</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="2">
+              <td>February</td>
+              <td>100%</td>
+              <td>85%</td>
+              <td>72%</td>
+              <td>65%</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="3">
+              <td>March</td>
+              <td>100%</td>
+              <td>87%</td>
+              <td>76%</td>
+              <td>70%</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="4">
+              <td>April</td>
+              <td>100%</td>
+              <td>90%</td>
+              <td>80%</td>
+              <td>75%</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="5">
+              <td>May</td>
+              <td>100%</td>
+              <td>91%</td>
+              <td>83%</td>
+              <td>--</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          7:15 - 7:45 | Here's a sample cohort table. [Click] January: starts at 100%, drops to 60% by month 6. [Click] February: same pattern, slightly better at 65%. [Click] March: improving again, 70%. [Click] April: 75%. [Click] May: 91% at month 1, 83% at month 3. See the vertical improvement? Each cohort retains better than the last. This company is learning: better ICP targeting, tighter onboarding, stickier features. The trajectory matters more than any single cohort.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 17: Cohort Patterns to Watch -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>The best and most dangerous patterns</h2>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="card card-green-bg fragment" data-fragment-index="1" style="padding: 16px;">
+            <h3 class="mb-8">Healthy Pattern</h3>
+            <p class="text-sm text-light">Early cohorts have mediocre retention, and each subsequent cohort improves. The company is learning its ICP, improving onboarding, and building features that drive stickiness. The trajectory of improvement matters more than any single number.</p>
+          </div>
+          <div class="card card-orange-bg fragment" data-fragment-index="2" style="padding: 16px;">
+            <h3 class="mb-8">Dangerous Pattern</h3>
+            <p class="text-sm text-light">Excellent early cohorts that degrade over time. Initial customers were design partners or early adopters with unusually high engagement. As the company expanded to a broader market, the product didn't resonate. Early success was an anomaly, not a baseline.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          7:45 - 8:15 | Two patterns to recognize. [Click] Healthy: early cohorts are mediocre but each one improves. This is a company that's learning. [Click] Dangerous: great early cohorts that degrade over time. The first customers were design partners with unusually high engagement. As the company expanded to a broader market, retention fell. The early success was an anomaly. In an interview, saying "I'd want to see the cohort data before judging these aggregate numbers" is the analytical instinct that gets you hired.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 18: Section Divider -- Business Model -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <div class="part-number">Section 4</div>
+        <h1>Unit Economics by Business Model</h1>
+
+        <aside class="notes">
+          9:00 | Transition into how unit economics differ across business models.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 19: SaaS Unit Economics -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>SaaS: Net dollar retention is the separator</h2>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="card card-green-bg fragment" data-fragment-index="1" style="padding: 16px;">
+            <h3 class="mb-8">The Core Metrics</h3>
+            <p class="text-sm text-light">MRR/ARR as the currency. LTV/CAC, CAC payback, gross margin, churn as the standard toolkit. NDR above 120% means existing customers generate 20% more revenue each year without any new logos. Snowflake hit 150%+ at IPO. Datadog runs 130%+.</p>
+          </div>
+          <div class="card card-blue-bg fragment" data-fragment-index="2" style="padding: 16px;">
+            <h3 class="mb-8">The Magic Number</h3>
+            <p class="text-sm text-light">Net new ARR divided by prior quarter's S&amp;M spend. Measures how efficiently growth spending converts to recurring revenue. Above 0.75 is healthy. Above 1.0 means the engine is firing. Below 0.5 means you're pouring into a leaky bucket.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          9:00 - 9:30 | SaaS first. [Click] The standard toolkit: LTV/CAC, CAC payback, gross margin, churn. But the metric that separates elite SaaS is net dollar retention. NDR above 120% means existing customers grow 20% annually without new logos. Snowflake hit 150%+ at IPO. These companies can slow acquisition and still grow. [Click] The Magic Number: net new ARR divided by prior quarter's S&amp;M spend. Above 0.75 is healthy, above 1.0 is excellent, below 0.5 is a leaky bucket.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 20: Marketplace Unit Economics -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Marketplaces: The unit is a transaction</h2>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="card card-purple-bg fragment" data-fragment-index="1" style="padding: 16px;">
+            <h3 class="mb-8">GMV and Take Rate</h3>
+            <p class="text-sm text-light">Total transaction value is GMV. The marketplace captures a percentage as take rate. $100M GMV at 15% take rate = $15M net revenue. Take rates vary enormously: ride-sharing 20-30%, wholesale marketplaces 3-5%.</p>
+          </div>
+          <div class="card card-orange-bg fragment" data-fragment-index="2" style="padding: 16px;">
+            <h3 class="mb-8">Supply vs. Demand Economics</h3>
+            <p class="text-sm text-light">Which side is harder to build? Subsidize the hard side, monetize the easy side. Uber subsidized drivers, monetized riders. Once both sides reach critical mass, the marketplace self-reinforces and unit economics improve because you stop subsidizing.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          9:30 - 10:00 | Marketplaces. [Click] The unit isn't a customer, it's a transaction. GMV is total transaction value. Take rate is what the marketplace captures. Huge variation: ride-sharing at 20-30%, wholesale at 3-5%. Contribution margin per transaction is the key: revenue minus payment processing, support, fraud, insurance. If contribution margin is negative, you're losing money on every transaction and hoping volume saves you. It won't. [Click] Supply vs demand: subsidize the hard side, monetize the easy side. Once critical mass hits, both sides reinforce each other.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 21: Consumer Unit Economics -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Consumer: Engagement drives everything</h2>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="card card-blue-bg fragment" data-fragment-index="1" style="padding: 16px;">
+            <h3 class="mb-8">DAU/MAU Ratio</h3>
+            <p class="text-sm text-light">Engagement frequency. Above 50% is exceptional (Facebook-level). Most apps sit at 15-25%. A daily user is worth 10x a weekly user regardless of monetization model. This ratio predicts everything downstream.</p>
+          </div>
+          <div class="card card-green-bg fragment" data-fragment-index="2" style="padding: 16px;">
+            <h3 class="mb-8">The Consumer Loop</h3>
+            <p class="text-sm text-light">Acquisition cost, trial conversion, monthly churn, ARPU. Thinner margins and higher churn mean tighter tolerances. A consumer sub with 6-month average lifetime and $10/month ARPU has $60 LTV. CAC needs to stay under $20 for the math to work.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          10:00 - 10:30 | Consumer. [Click] DAU/MAU is the engagement metric. Above 50% is Facebook-level. Most apps are 15-25%. A daily user is worth 10x a weekly user for monetization purposes. [Click] Consumer subscription loop: acquisition, conversion, churn, ARPU. Thinner margins and higher churn mean the LTV equation produces smaller numbers. A 6-month average lifetime at $10/month ARPU gives $60 LTV before margin adjustments. CAC must stay under $20. Much tighter tolerances than SaaS.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 22: Unit Economics by Stage -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>How expectations evolve by stage</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Stage</th>
+              <th>Unit Economics</th>
+              <th>What You're Looking For</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="fragment" data-fragment-index="1">
+              <td>Seed</td>
+              <td>Aspirational</td>
+              <td>Directional signals, path to strong economics</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="2">
+              <td>Series A</td>
+              <td>Early Proof</td>
+              <td>12-18 months of cohort data, improving trends</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="3">
+              <td>Series B+</td>
+              <td>Proven</td>
+              <td>LTV/CAC above 3x, payback under 18 months, margins above 70%</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          10:30 - 11:00 | Unit economics expectations shift by stage. [Click] Seed: aspirational. Maybe 50 customers. You can calculate LTV/CAC but the sample size is too small to trust. Look for directional signals. [Click] Series A: early proof. 200-500 customers, cohort data starting to stabilize. LTV/CAC doesn't need to be at 3x yet but should trend in the right direction. [Click] Series B+: non-negotiable. If a company has raised $50M and still can't demonstrate positive unit economics, something is structurally wrong with the model.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 23: The Benchmark Cheat Sheet -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Benchmarks to memorize</h2>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="card card-green-bg" style="padding: 16px;">
+            <h3 class="mb-8">LTV/CAC</h3>
+            <p class="text-sm text-light">Above 3x good. Above 5x great. Below 2x is a warning sign.</p>
+          </div>
+          <div class="card card-blue-bg" style="padding: 16px;">
+            <h3 class="mb-8">CAC Payback</h3>
+            <p class="text-sm text-light">Under 18 months good. Under 12 months great. Over 24 months is a structural problem.</p>
+          </div>
+          <div class="card card-purple-bg" style="padding: 16px;">
+            <h3 class="mb-8">Gross Margin</h3>
+            <p class="text-sm text-light">Above 70% for software. Below 60% means significant services or infrastructure costs.</p>
+          </div>
+          <div class="card card-orange-bg" style="padding: 16px;">
+            <h3 class="mb-8">NDR + Magic Number</h3>
+            <p class="text-sm text-light">NDR above 120% is elite SaaS. Magic Number above 0.75 for efficient growth.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          11:00 - 11:15 | Your cheat sheet. These are the numbers to memorize and the logic behind each. LTV/CAC above 3x. CAC payback under 18 months. Gross margins above 70% for software. NDR above 120% for elite SaaS. Magic Number above 0.75 for efficient growth. Know when to apply each one based on business model and stage.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 24: Key Takeaways -->
+      <!-- ============================================ -->
+      <section class="content-dark">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Key takeaways</h2>
+        </div>
+
+        <ul class="plus-list text-white">
+          <li class="fragment" data-fragment-index="1"><strong>Unit economics is the language of VC technical interviews.</strong> Walk through CAC, LTV, payback, and cohort analysis for any business model, and you can handle any case study they throw at you.</li>
+          <li class="fragment" data-fragment-index="2"><strong>Never accept a single LTV/CAC number at face value.</strong> Ask how CAC is calculated, what assumptions drive LTV, and ask to see the cohort data. Pressure-test the inputs, not the outputs.</li>
+          <li class="fragment" data-fragment-index="3"><strong>CAC payback matters as much as LTV/CAC.</strong> A beautiful ratio means nothing if the payback period is 30 months and the company runs out of cash before those economics materialize.</li>
+          <li class="fragment" data-fragment-index="4"><strong>Cohort analysis is the single most powerful tool in VC diligence.</strong> Aggregate metrics lie. Cohorts tell the truth. If interview data includes cohort information, start there.</li>
+          <li class="fragment" data-fragment-index="5"><strong>The benchmarks are your shorthand.</strong> LTV/CAC above 3x. CAC payback under 18 months. Gross margin above 70%. NDR above 120%. Magic Number above 0.75. Memorize them and know when each applies.</li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="rgba(255,255,255,0.4)"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          11:15 - 12:00 | Five takeaways. [Click] Unit economics is the interview language. Master CAC, LTV, payback, and cohorts for any model. [Click] Never accept aggregate numbers. Ask how CAC is calculated. Ask for cohort data. Pressure-test inputs. [Click] CAC payback is as important as LTV/CAC. It's a liquidity metric. Great ratios don't save companies that run out of cash. [Click] Cohort analysis is the most powerful tool. Aggregates lie. Cohorts tell the truth. Always start there. [Click] Memorize the benchmarks and know the logic behind each one.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js -->
+  <script src="../assets/reveal/dist/reveal.min.js"></script>
+  <script type="module">
+    import RevealNotes from '../assets/reveal/plugin/notes/notes.esm.js';
+
+    Reveal.initialize({
+      width: 960,
+      height: 540,
+      margin: 0,
+      minScale: 0.5,
+      maxScale: 3.0,
+      hash: true,
+      slideNumber: true,
+      controls: true,
+      progress: true,
+      history: true,
+      center: false,
+      transition: 'none',
+      backgroundTransition: 'none',
+      disableLayout: false,
+      plugins: [ RevealNotes ]
+    });
+  </script>
+</body>
+</html>

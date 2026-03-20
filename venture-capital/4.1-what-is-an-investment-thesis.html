@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en" class="reveal-full-page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What Is an Investment Thesis</title>
+
+  <!-- Reveal.js Core -->
+  <link rel="stylesheet" href="../assets/reveal/dist/reset.css">
+  <link rel="stylesheet" href="../assets/reveal/dist/reveal.css">
+
+  <!-- Leland Theme -->
+  <link rel="stylesheet" href="../assets/reveal/themes/leland.css">
+
+</head>
+<body>
+  <!-- SVG Symbol Definitions (defined once, referenced via <use>) -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="leland-logo" viewBox="0 0 200 45">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z"/>
+      <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z"/>
+      <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z"/>
+      <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z"/>
+      <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z"/>
+      <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z"/>
+    </symbol>
+  </svg>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ============================================ -->
+      <!-- SLIDE 1: Title Dark -->
+      <!-- ============================================ -->
+      <section class="title-dark">
+        <svg width="110" height="25" fill="white" class="mb-16"><use href="#leland-logo"/></svg>
+        <p class="eyebrow">VC Recruiting Course</p>
+        <h1>What Is an<br><span class="hl">Investment Thesis</span></h1>
+
+        <aside class="notes">
+          [0:00] Welcome slide. Brief pause before launching into the hook.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 2: Thesis First, Company Second -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>What Bessemer's best memos have in common</h2>
+        </div>
+
+        <div class="card-alt-green">
+          <div style="display: flex; align-items: flex-start; gap: 16px;">
+            <span class="icon icon-xl icon-green" style="../assets/icons/search-document.svg); flex-shrink: 0;"></span>
+            <div>
+              <p><strong>Bessemer publishes their actual investment memos online. The ones from their best investments all share one thing: they don't start with the company. They start with a belief about the world.</strong></p>
+              <p class="text-sm text-light mt-8">The Shopify memo did not open with "Shopify is a good company." It opened with a conviction that retail was shifting to small merchants who needed infrastructure to sell online. The company was evidence for the thesis. Not the other way around.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          0:00 - 0:30 | Bessemer publishes their investment memos online. I have read dozens of them. The best ones all share one thing: they don't start with the company. They start with a belief about the world. The Shopify memo opened with a conviction about retail shifting to small merchants. That distinction, thesis first, company second, is the most important concept in this module.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 3: What You'll Learn -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Module 4 begins here</h2>
+        </div>
+
+        <ul class="icon-list text-lg">
+          <li>
+            <span class="icon icon-lg icon-green" style="../assets/icons/sparkle.svg)"></span>
+            <span>What an investment thesis actually is (and what it is not)</span>
+          </li>
+          <li>
+            <span class="icon icon-lg icon-green" style="../assets/icons/star.svg)"></span>
+            <span>Why it matters more than any other signal in recruiting</span>
+          </li>
+          <li>
+            <span class="icon icon-lg icon-green" style="../assets/icons/checkmark-badge.svg)"></span>
+            <span>What separates a thesis that impresses partners from one that sounds like Wikipedia</span>
+          </li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          0:30 - 1:00 | This is the pivot point in the course. Modules 2 and 3 were about getting you to the table. Module 4 is about proving you belong there. Three things today: what a thesis actually is, why it matters most in recruiting, and what separates good from great.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 4: Section Divider -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <div class="part-number">Section 1</div>
+        <h1>What a Thesis Actually Is</h1>
+
+        <aside class="notes">
+          1:00 | Transition into defining an investment thesis.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 5: Not a Hot Take -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Headlines are not theses</h2>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="card card-orange-bg fragment" data-fragment-index="1">
+            <span class="icon icon-lg icon-orange mb-16" style="../assets/icons/stop-octagon-minus.svg)"></span>
+            <h3>What Most People Say</h3>
+            <p class="text-sm text-light">"I'm bullish on AI." "Healthcare is ripe for disruption." "Fintech is the future." Those are headlines. Everyone in the room agrees. They tell an interviewer nothing about your judgment.</p>
+          </div>
+          <div class="card card-green-bg fragment" data-fragment-index="2">
+            <span class="icon icon-lg icon-green mb-16" style="../assets/icons/checkmark-badge.svg)"></span>
+            <h3>What a Thesis Sounds Like</h3>
+            <p class="text-sm text-light">"Vertical AI companies with proprietary training data will capture market share from incumbent horizontal platforms over 3-5 years, because AI-native architectures require fundamentally different data infrastructure."</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          1:00 - 1:45 | Almost every candidate I have interviewed makes the same mistake. [Click] They think a thesis is a hot take. "AI is going to be big." Those are headlines. [Click] A thesis is a structured argument with a worldview, a timeframe, and specific criteria. "Vertical AI companies with proprietary data will win over 3-5 years because..." That is specific enough to be evaluated.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 6: Anatomy of an Investment Thesis -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Five components every thesis needs</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Component</th>
+              <th>What It Answers</th>
+              <th>Example</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="fragment" data-fragment-index="1">
+              <td>Market Belief</td>
+              <td>What structural shift is happening?</td>
+              <td>Enterprise is moving to AI-native architectures</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="2">
+              <td>Timing Argument</td>
+              <td>Why now, and for how long?</td>
+              <td>3-5 year window while incumbents are caught flat-footed</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="3">
+              <td>Winning Profile</td>
+              <td>What kind of company captures value?</td>
+              <td>Vertical AI with proprietary data + outcome-based pricing</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="4">
+              <td>Evidence Base</td>
+              <td>What supports this belief?</td>
+              <td>Adoption data, customer interviews, comparable transitions</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="5">
+              <td>Key Risks</td>
+              <td>What would make this wrong?</td>
+              <td>Incumbents move faster; regulation changes the data landscape</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          1:45 - 2:45 | Five components. [Click] Market belief: what structural shift is happening. [Click] Timing argument: why now, how long is the window. Without timing, it is just an observation. [Click] Winning profile: what kind of company captures the value. Without this, you cannot evaluate deals. [Click] Evidence base: what supports your belief. [Click] Key risks: what would make you wrong. Without risks, it is wishful thinking.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 7: Section Divider -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <div class="part-number">Section 2</div>
+        <h1>Why Thesis Matters Most in Recruiting</h1>
+
+        <aside class="notes">
+          2:45 | Transition into why thesis matters for getting hired.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 8: The One Question Partners Ask -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>"Does this person have the judgment to pick winners?"</h2>
+        </div>
+
+        <div class="card-alt-green">
+          <div style="display: flex; align-items: flex-start; gap: 16px;">
+            <span class="icon icon-xl icon-green" style="../assets/icons/search.svg); flex-shrink: 0;"></span>
+            <div>
+              <p><strong>The Stanford/NBER study of 885 VCs found that deal selection is rated the most important driver of value creation. More important than sourcing. More important than board support.</strong></p>
+              <p class="text-sm text-light mt-8">When a partner interviews you, they are trying to answer one question: can this person help us pick the right companies? Everything else is secondary. Your thesis is the best proxy for that judgment.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          2:45 - 3:30 | The Stanford/NBER study surveyed 885 VCs across 681 firms. Deal selection is the most important driver of value creation. More important than sourcing, more than board support. When a partner interviews you, one question: does this person have judgment to help us pick winners? Your thesis is the best proxy.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 9: What Your Thesis Reveals -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>A thesis shows how you think, not just what</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Thesis Element</th>
+              <th>What It Reveals About You</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Market belief</td>
+              <td>Can you identify non-obvious structural shifts?</td>
+            </tr>
+            <tr>
+              <td>Timing argument</td>
+              <td>Do you understand cycles, adoption curves, and catalysts?</td>
+            </tr>
+            <tr>
+              <td>Winning profile</td>
+              <td>Can you evaluate companies against clear criteria?</td>
+            </tr>
+            <tr>
+              <td>Evidence base</td>
+              <td>Are you rigorous? Do you do primary research?</td>
+            </tr>
+            <tr>
+              <td>Risk assessment</td>
+              <td>Are you intellectually honest, or only see the bull case?</td>
+            </tr>
+            <tr>
+              <td>Specific companies</td>
+              <td>Are you actually tracking the space, or theorizing from a distance?</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          3:30 - 4:00 | A thesis reveals how you think. Partners see whether you understand market dynamics, can identify structural trends versus hype cycles, think about risk honestly, and can translate insight into investment criteria. No other artifact does all of that at once.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 10: Two Interview Debriefs -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>The thesis is where offers are won or lost</h2>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="card card-green-bg fragment" data-fragment-index="1">
+            <span class="icon icon-lg icon-green mb-16" style="../assets/icons/checkmark-badge.svg)"></span>
+            <h3>Offer That Week</h3>
+            <p class="text-sm text-light">"Her thesis on embedded fintech was better than half the memos on our internal wiki." The candidate had a structured argument with evidence, risks, and named companies.</p>
+          </div>
+          <div class="card card-orange-bg fragment" data-fragment-index="2">
+            <span class="icon icon-lg icon-orange mb-16" style="../assets/icons/stop-octagon-minus.svg)"></span>
+            <h3>Eliminated Round Two</h3>
+            <p class="text-sm text-light">"Smart person, great resume, but when I pushed on his AI thesis, there was nothing underneath. It was just 'AI is big.'" Surface-level thinking gets exposed fast.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          4:00 - 4:30 | I have sat in both of these debrief meetings. [Click] One candidate's embedded fintech thesis was so strong a partner said it was better than their internal memos. Offer that week. [Click] Another candidate was smart, great resume, but when pushed on his AI thesis, there was nothing underneath. Did not make it past round two.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 11: Section Divider -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <div class="part-number">Section 3</div>
+        <h1>Fund-Level vs. Personal Thesis</h1>
+
+        <aside class="notes">
+          4:30 | Transition into the two types of theses.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 12: Two Types of Theses -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>You need to understand both</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Dimension</th>
+              <th>Fund-Level Thesis</th>
+              <th>Personal Thesis</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Scope</td>
+              <td>Broad strategic mandate</td>
+              <td>Specific market or trend</td>
+            </tr>
+            <tr>
+              <td>Timeframe</td>
+              <td>Life of a fund (7-10 years)</td>
+              <td>2-5 year conviction window</td>
+            </tr>
+            <tr>
+              <td>Owner</td>
+              <td>The partnership collectively</td>
+              <td>You, individually</td>
+            </tr>
+            <tr>
+              <td>Purpose</td>
+              <td>Guides all investment decisions</td>
+              <td>Demonstrates your judgment</td>
+            </tr>
+            <tr>
+              <td>Example</td>
+              <td>"We back technical founders building category-defining platforms"</td>
+              <td>"Vertical SaaS for construction will consolidate around 3 platforms in 5 years"</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          4:30 - 5:15 | Two types of investment theses. Fund-level is the strategic mandate. a16z's original thesis: the best tech companies will be run by technical founders who need operational support. USV focuses on large networks of engaged users. Your personal thesis is narrower: your point of view on a specific market. You need both. Understand fund theses to align conversations. Build a personal thesis to prove you can do the job.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 13: Your Thesis Can Open New Doors -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>White space is a feature, not a bug</h2>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="card card-blue-bg fragment" data-fragment-index="1">
+            <span class="icon icon-lg icon-blue mb-16" style="../assets/icons/search.svg)"></span>
+            <h3>Alignment Matters</h3>
+            <p class="text-sm text-light">If you are interviewing at a seed fund focused on developer tools, do not pitch your thesis on late-stage consumer fintech. Show you have thought about the same problems they think about, but with a fresh angle.</p>
+          </div>
+          <div class="card card-green-bg fragment" data-fragment-index="2">
+            <span class="icon icon-lg icon-green mb-16" style="../assets/icons/sparkle.svg)"></span>
+            <h3>White Space Is Valuable</h3>
+            <p class="text-sm text-light">Some of the best candidates had theses in areas their target firms had not explored yet. A partner hears a compelling thesis on an unfamiliar space and thinks: "This person can bring us deal flow we don't have."</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          5:15 - 5:45 | Your personal thesis does not need to match every firm. [Click] Align your conversations to the firm's focus. [Click] But some of the best candidates presented theses in areas the firm had not explored. A partner hears a compelling thesis on new space and thinks: this person brings deal flow we do not have. That is incredibly valuable.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 14: Section Divider -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <div class="part-number">Section 4</div>
+        <h1>Building Your Thesis from Scratch</h1>
+
+        <aside class="notes">
+          5:45 | Transition into the step-by-step process.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 15: The 5-Step Thesis Development Process -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Four to eight weeks of focused work</h2>
+        </div>
+
+        <ul class="icon-list text-lg">
+          <li class="fragment" data-fragment-index="1">
+            <span class="icon icon-lg icon-green" style="../assets/icons/sparkle.svg)"></span>
+            <span><strong>Pick a domain.</strong> Your thesis should live where you have genuine knowledge or experience. Authenticity matters because every interviewer probes beneath the surface.</span>
+          </li>
+          <li class="fragment" data-fragment-index="2">
+            <span class="icon icon-lg icon-green" style="../assets/icons/search.svg)"></span>
+            <span><strong>Map the landscape.</strong> Major players, what has been funded, where the gaps are. Bessemer's public memos show how professionals structure their thinking.</span>
+          </li>
+          <li class="fragment" data-fragment-index="3">
+            <span class="icon icon-lg icon-green" style="../assets/icons/sparkle.svg)"></span>
+            <span><strong>Identify a structural insight.</strong> Not describing a market. Making a claim about what is changing and why that change creates an investment opportunity.</span>
+          </li>
+          <li class="fragment" data-fragment-index="4">
+            <span class="icon icon-lg icon-green" style="../assets/icons/checkmark-badge.svg)"></span>
+            <span><strong>Define your criteria.</strong> If your thesis is right, what kind of company should you invest in? Revenue threshold, customer segment, moat characteristics.</span>
+          </li>
+          <li class="fragment" data-fragment-index="5">
+            <span class="icon icon-lg icon-green" style="../assets/icons/deal-execution.svg)"></span>
+            <span><strong>Name your companies.</strong> A thesis without named companies is an essay. You should have three companies ready when an interviewer asks "Give me a name."</span>
+          </li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          5:45 - 7:00 | Five steps. [Click] Pick a domain where you have real depth. If you spent three years in healthcare, your thesis should be in healthtech. [Click] Map the landscape. Use Bessemer's public memos, CB Insights, PitchBook. [Click] Identify a structural insight. The best insights come from primary research: conversations with operators, customers, and founders. [Click] Define criteria. "B2B with $1M+ ARR, mid-market, with workflow integration that increases switching costs." [Click] Name companies. A thesis with five companies you are tracking is a working portfolio. The whole process takes 4-8 weeks.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 16: Where Structural Insights Come From -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Primary research separates good from great</h2>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="card card-orange-bg fragment" data-fragment-index="1">
+            <span class="icon icon-lg icon-orange mb-16" style="../assets/icons/stop-octagon-minus.svg)"></span>
+            <h3>Weak Evidence</h3>
+            <p class="text-sm text-light">Assembled from blog posts, podcasts, and TechCrunch articles. Anyone can synthesize secondary sources. It reads like a book report and partners can tell immediately.</p>
+          </div>
+          <div class="card card-green-bg fragment" data-fragment-index="2">
+            <span class="icon icon-lg icon-green mb-16" style="../assets/icons/checkmark-badge.svg)"></span>
+            <h3>Strong Evidence</h3>
+            <p class="text-sm text-light">"I talked to 15 procurement managers at mid-market companies, and 12 told me their current software cannot handle X." Primary research makes a thesis credible and defensible.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          7:00 - 7:15 | The single biggest differentiator between a good thesis and a great one is the evidence. [Click] A thesis built from blog posts reads like a book report. [Click] A thesis grounded in conversations with 15 procurement managers is credible. Partners can tell the difference instantly. This is where the track record from 2.4 comes to life.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 17: The Litmus Test -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Four questions to test any thesis</h2>
+        </div>
+
+        <div class="card-grid-2" style="padding-bottom: 0;">
+          <div class="card card-green-bg fragment" data-fragment-index="1" style="padding: 16px;">
+            <h3 class="mb-8">Can you state it in three sentences?</h3>
+            <p class="text-sm text-light">If you need a paragraph, it is not crisp enough.</p>
+          </div>
+          <div class="card card-blue-bg fragment" data-fragment-index="2" style="padding: 16px;">
+            <h3 class="mb-8">Does it have a clear "why now"?</h3>
+            <p class="text-sm text-light">If the same thesis was true five years ago and will be true in ten, it is not a thesis. It is a trend.</p>
+          </div>
+          <div class="card card-purple-bg fragment" data-fragment-index="3" style="padding: 16px;">
+            <h3 class="mb-8">Can someone disagree with it?</h3>
+            <p class="text-sm text-light">Consensus does not generate outsized returns. When Peter Thiel asks "What truth do few people agree with you on?" he is asking for a thesis.</p>
+          </div>
+          <div class="card card-orange-bg fragment" data-fragment-index="4" style="padding: 16px;">
+            <h3 class="mb-8">Would you put money behind it?</h3>
+            <p class="text-sm text-light">If someone handed you $100K and said "invest according to your thesis," could you? If yes, it is real.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          7:15 - 7:30 | Four-question litmus test for any thesis. [Click] Can you state it in three sentences? [Click] Does it have a "why now"? A thesis without timing is just a trend. [Click] Can someone disagree? Consensus does not generate outsized returns. [Click] Would you put money behind it? That is the final test.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 18: Key Takeaways -->
+      <!-- ============================================ -->
+      <section class="content-dark">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Key takeaways</h2>
+        </div>
+
+        <ul class="plus-list text-white">
+          <li class="fragment" data-fragment-index="1"><strong>A thesis is not a hot take, a market summary, or a prediction.</strong> It is a structured argument with a market belief, timing logic, winning profile, evidence, and risks.</li>
+          <li class="fragment" data-fragment-index="2"><strong>Thesis quality is the number one signal partners use to evaluate candidates.</strong> The Stanford/NBER study confirmed what practitioners already knew: deal selection drives returns.</li>
+          <li class="fragment" data-fragment-index="3"><strong>Build your thesis in a domain where you have real depth.</strong> The worst interview move is presenting a thesis you only know from TechCrunch. The best is a thesis grounded in operating experience and primary research.</li>
+          <li class="fragment" data-fragment-index="4"><strong>A good thesis is specific enough to be wrong.</strong> If you cannot identify a scenario where it fails, you have not thought hard enough.</li>
+          <li class="fragment" data-fragment-index="5"><strong>Start now. This takes weeks, not days.</strong> The thesis you bring to your first interview should be the product of deliberate work, not something drafted the night before.</li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="rgba(255,255,255,0.4)"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          7:30 - 8:00 | Five takeaways. [Click] A thesis is a structured argument with five components. Headlines are not theses. [Click] Thesis quality is the number one recruiting signal. Deal selection drives returns. [Click] Build in a domain where you have real depth. Primary research makes the difference. [Click] A good thesis is specific enough to be wrong. Intellectual honesty is the separator. [Click] Start now. This takes 4-8 weeks of focused work. The frameworks in Module 4 will guide you, but the raw material is on you.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js -->
+  <script src="../assets/reveal/dist/reveal.min.js"></script>
+  <script type="module">
+    import RevealNotes from '../assets/reveal/plugin/notes/notes.esm.js';
+
+    Reveal.initialize({
+      width: 960,
+      height: 540,
+      margin: 0,
+      minScale: 0.5,
+      maxScale: 3.0,
+      hash: true,
+      slideNumber: true,
+      controls: true,
+      progress: true,
+      history: true,
+      center: false,
+      transition: 'none',
+      backgroundTransition: 'none',
+      disableLayout: false,
+      plugins: [ RevealNotes ]
+    });
+  </script>
+</body>
+</html>

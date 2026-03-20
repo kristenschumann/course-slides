@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en" class="reveal-full-page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Understanding VC Math</title>
+
+  <!-- Reveal.js Core -->
+  <link rel="stylesheet" href="../assets/reveal/dist/reset.css">
+  <link rel="stylesheet" href="../assets/reveal/dist/reveal.css">
+
+  <!-- Leland Theme -->
+  <link rel="stylesheet" href="../assets/reveal/themes/leland.css">
+
+</head>
+<body>
+  <!-- SVG Symbol Definitions (defined once, referenced via <use>) -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="leland-logo" viewBox="0 0 200 45">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z"/>
+      <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z"/>
+      <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z"/>
+      <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z"/>
+      <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z"/>
+      <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z"/>
+    </symbol>
+  </svg>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ============================================ -->
+      <!-- SLIDE 1: Title Dark -->
+      <!-- ============================================ -->
+      <section class="title-dark">
+        <svg width="110" height="25" fill="white" class="mb-16"><use href="#leland-logo"/></svg>
+        <p class="eyebrow">VC Recruiting Course</p>
+        <h1>Understanding<br><span class="hl">VC Math</span></h1>
+
+        <aside class="notes">
+          [0:00] Welcome slide. Brief pause before launching into the hook.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 2: The Power Law in One Story -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>47 investments. 3 that mattered.</h2>
+        </div>
+
+        <div class="card-alt-green">
+          <div style="display: flex; align-items: flex-start; gap: 16px;">
+            <span class="icon icon-xl icon-green" style="../assets/icons/bar-chart.svg); flex-shrink: 0;"></span>
+            <div>
+              <p><strong>A partner at a Series A fund told me the math behind his entire career: "I've made 47 investments over fifteen years. Three of them generated 90% of my returns. Forty-four were noise."</strong></p>
+              <p class="text-sm text-light mt-8">He wasn't being modest. He was describing the foundational law of venture capital, the power law. If you don't understand what it means for fund economics, ownership math, and portfolio construction, you'll never think like a VC. This is the most important video in Module 7. Everything else builds on what we cover here.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          0:00 - 0:30 | A partner at a well-known Series A fund once told me the math behind his career. 47 investments over fifteen years. Three generated 90% of his returns. Forty-four were noise. That's the power law. If you don't understand it, you'll think like a financial analyst who happens to work at a venture fund. This is the most important video in Module 7.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 3: What You'll Learn -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Four building blocks of VC math</h2>
+        </div>
+
+        <ul class="icon-list text-lg">
+          <li>
+            <span class="icon icon-xl icon-green" style="../assets/icons/earnings.svg); flex-shrink: 0;"></span>
+            <span><strong>Fund-level return metrics</strong> using TVPI, DPI, and IRR, the three numbers LPs care about.</span>
+          </li>
+          <li>
+            <span class="icon icon-xl icon-green" style="../assets/icons/bar-chart.svg); flex-shrink: 0;"></span>
+            <span><strong>The power law</strong> and why it drives every portfolio construction and deal selection decision.</span>
+          </li>
+          <li>
+            <span class="icon icon-xl icon-green" style="../assets/icons/money.svg); flex-shrink: 0;"></span>
+            <span><strong>Ownership economics</strong> and the "return the fund" test that VCs run on every deal.</span>
+          </li>
+          <li>
+            <span class="icon icon-xl icon-green" style="../assets/icons/spreadsheet.svg); flex-shrink: 0;"></span>
+            <span><strong>Portfolio construction</strong> arithmetic: how many bets, what check sizes, and how much in reserves.</span>
+          </li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          0:30 - 1:15 | Four building blocks by the end of this video. Fund-level return metrics. The power law. Ownership economics and the "return the fund" test. And portfolio construction arithmetic. This is the math VCs do in their heads every day. It's simpler than you think. The hard part isn't the arithmetic, it's the implications.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 4: Section Divider -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <div class="part-number">Section 1</div>
+        <h1>Fund-Level Return Metrics</h1>
+
+        <aside class="notes">
+          1:15 | Transition into the three metrics LPs care about.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 5: TVPI -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>TVPI: Total value to paid-in capital</h2>
+        </div>
+
+        <div class="two-column">
+          <div class="card card-green-bg" style="padding: 24px;">
+            <h3>The Formula</h3>
+            <p class="text-sm text-light">(Realized Proceeds + Unrealized Value) / Total Capital Called</p>
+            <div class="card-alt" style="margin-top: 16px; padding: 16px;">
+              <p class="text-sm">A fund with $300M called, $200M in realized exits, and $400M in portfolio markups has a TVPI of 2.0x.</p>
+            </div>
+          </div>
+          <div class="card card-orange-bg" style="padding: 24px;">
+            <h3>The Catch</h3>
+            <p class="text-sm text-light">That $400M in markups is based on the most recent round's pricing, not what anyone has paid in cash. Markups are opinions. A company valued at $500M in its Series C could be worth $500M or $50M. You won't know until there's an exit.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          1:15 - 2:00 | LPs care about three numbers. That's it. First: TVPI. Total Value to Paid-In Capital. Realized proceeds plus the marked value of unrealized investments, divided by total capital called. A 2.0x TVPI looks great. But the catch: markups are opinions based on the last round's pricing. TVPI looks great during bull markets and collapses when reality hits.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 6: DPI and IRR -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>DPI and IRR: Cash and time</h2>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="card card-blue-bg fragment" data-fragment-index="1" style="padding: 16px;">
+            <h3 class="mb-8">DPI: Distributions to Paid-In</h3>
+            <p class="text-sm text-light">Only counts cash returned to LPs. Not marks, not paper gains. A fund with 4x TVPI and 0.3x DPI has made LPs feel wealthy on paper but has barely returned anything spendable. DPI is the only metric that doesn't lie.</p>
+          </div>
+          <div class="card card-purple-bg fragment" data-fragment-index="2" style="padding: 16px;">
+            <h3 class="mb-8">IRR: Internal Rate of Return</h3>
+            <p class="text-sm text-light">Accounts for the time value of money. A 3x return in three years is spectacular. A 3x in twelve years is mediocre. Top-quartile funds target 20-25% net IRR. The median VC fund returns roughly 1.5x net TVPI and mid-single-digit IRR.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          2:00 - 2:45 | [Click] DPI: Distributions to Paid-In. Only counts cash returned. I've seen funds with 4x TVPI that ultimately returned 1.2x in cash. The markups evaporated. If someone asks which metric matters most to LPs, the answer is DPI. [Click] IRR accounts for timing. A 3x in three years is spectacular. A 3x in twelve years is mediocre. Top-quartile targets 20-25% net IRR. But the median VC fund barely beats public markets.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 7: Fund Return Metrics Reference -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>What LPs actually care about</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Metric</th>
+              <th>Formula</th>
+              <th>What It Measures</th>
+              <th>Weakness</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>TVPI</td>
+              <td>(Realized + Unrealized) / Paid-In</td>
+              <td>Total fund performance</td>
+              <td>Unrealized values are subjective</td>
+            </tr>
+            <tr>
+              <td>DPI</td>
+              <td>Cash Distributed / Paid-In</td>
+              <td>Actual cash returned</td>
+              <td>Ignores unrealized upside</td>
+            </tr>
+            <tr>
+              <td>IRR</td>
+              <td>Time-weighted return</td>
+              <td>Efficiency of capital deployment</td>
+              <td>Sensitive to timing of cash flows</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          2:45 - 3:15 | Here's the complete reference. TVPI for total performance, but it includes subjective markups. DPI for actual cash, the honest metric. IRR for time efficiency. The NBER survey of 681 VC firms confirmed LPs focus on these absolute measures, cash multiples and net IRR, far more than any relative benchmark. "How much cash did you give me back, and how fast?"
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 8: Section Divider -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <div class="part-number">Section 2</div>
+        <h1>The Power Law</h1>
+
+        <aside class="notes">
+          3:30 | Transition into the power law and why it drives everything.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 9: Power Law Defined -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>A small number of deals drive almost all returns</h2>
+        </div>
+
+        <div class="card-alt-green">
+          <div style="display: flex; align-items: flex-start; gap: 16px;">
+            <span class="icon icon-xl icon-green" style="../assets/icons/arrow-up-chart-growth.svg); flex-shrink: 0;"></span>
+            <div>
+              <p><strong>The top 10% of deals in a given fund vintage account for 60-70% of total returns across the entire VC industry. At the individual fund level, one or two deals routinely generate more returns than the other twenty or thirty combined.</strong></p>
+              <p class="text-sm text-light mt-8">Most people think a good VC picks mostly winners. The reality is the opposite. Most startups fail. Many return some capital but nothing meaningful. A few become massive. And "massive" means a single company can return your entire fund, or several times your fund.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          3:30 - 4:15 | The power law is the single most important concept in venture capital. Cambridge Associates data shows the top 10% of deals account for 60-70% of total returns industry-wide. At the fund level, it's even more extreme. One or two deals routinely outperform twenty or thirty others combined. Most startups fail. A few become massive. That's not bad management. That's the fundamental nature of startups.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 10: Power Law Worked Example -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>A $200M fund in action</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Portfolio Segment</th>
+              <th># of Companies</th>
+              <th>Return Range</th>
+              <th>Total Proceeds</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="fragment" data-fragment-index="1">
+              <td>Failures</td>
+              <td>15</td>
+              <td>0x-1x</td>
+              <td>~$30M</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="2">
+              <td>Moderate returns</td>
+              <td>3</td>
+              <td>2-3x</td>
+              <td>~$40M</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="3">
+              <td>Breakout winners</td>
+              <td>2</td>
+              <td>20x, 30x</td>
+              <td>~$500M</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="4">
+              <td><strong>Total Fund</strong></td>
+              <td><strong>20</strong></td>
+              <td></td>
+              <td><strong>~$570M (2.85x)</strong></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          4:15 - 4:45 | Concrete example. $200M fund, 20 investments at $10M each. [Click] Fifteen return between 0x and 1x. Maybe $30M combined. [Click] Three return 2-3x. Another $40M. [Click] Two return 20x and 30x. Those two generate $500M in proceeds. [Click] The fund returns 2.85x. Two companies did essentially all the work.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 11: Power Law Consequences -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>How the power law shapes every decision</h2>
+        </div>
+
+        <div class="card-grid-3">
+          <div class="card card-green-bg fragment" data-fragment-index="1">
+            <span class="icon icon-lg icon-green mb-16" style="../assets/icons/achievements.svg)"></span>
+            <h3>Deal Selection</h3>
+            <p class="text-sm text-light">Every investment needs the theoretical potential to return the entire fund. A company that can only become a $200M business doesn't move the needle, even if it's "safe."</p>
+          </div>
+          <div class="card card-blue-bg fragment" data-fragment-index="2">
+            <span class="icon icon-lg icon-blue mb-16" style="../assets/icons/money.svg)"></span>
+            <h3>Pricing Tolerance</h3>
+            <p class="text-sm text-light">VCs pay what looks like absurd prices for 100x potential. A $100M pre-money for pre-revenue AI sounds insane until you model the $10B exit scenario.</p>
+          </div>
+          <div class="card card-purple-bg fragment" data-fragment-index="3">
+            <span class="icon icon-lg icon-purple mb-16" style="../assets/icons/arrow-up-chart-growth.svg)"></span>
+            <h3>Portfolio Management</h3>
+            <p class="text-sm text-light">Once a GP identifies a winner, they pour resources into it. Follow-on capital, board attention, recruiting help. Winners get more of everything.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          4:45 - 5:30 | Three direct consequences. [Click] Deal selection: every bet needs fund-returning potential. A $200M exit on a $500M fund doesn't move the needle. That's why VCs obsess over TAM. [Click] Pricing: VCs pay what looks absurd for 100x potential. The expected value math works because of the power law. [Click] Portfolio management: winners get more of everything. Follow-on capital, board attention, recruiting help. That's not favoritism. It's math.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 12: Section Divider -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <div class="part-number">Section 3</div>
+        <h1>Ownership Economics</h1>
+
+        <aside class="notes">
+          5:30 | Transition into the math behind every deal.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 13: The Core Equation -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>One equation starts every deal</h2>
+        </div>
+
+        <div class="card-alt-green">
+          <div style="display: flex; align-items: flex-start; gap: 16px;">
+            <span class="icon icon-xl icon-green" style="../assets/icons/lightning.svg); flex-shrink: 0;"></span>
+            <div>
+              <p><strong>Ownership % = Investment Amount / Post-Money Valuation</strong></p>
+              <p class="text-sm text-light mt-8">Invest $10M at a $40M post-money and you own 25%. Simple. But watch what happens to that 25% over time. Each new round dilutes your stake. By exit, your 25% might be 10-12% depending on how many rounds happened and whether you followed on.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          5:30 - 6:00 | Every deal starts with one equation. Ownership equals investment divided by post-money valuation. $10M into a $40M post-money, you own 25%. Simple. But that 25% shrinks with every subsequent round. By exit, it might be 10-12%.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 14: Dilution Across Rounds -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>How ownership erodes over time</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Event</th>
+              <th>Investor Ownership</th>
+              <th>Dilution This Round</th>
+              <th>Cumulative Dilution</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="fragment" data-fragment-index="1">
+              <td>Series A (lead)</td>
+              <td>20.0%</td>
+              <td>--</td>
+              <td>--</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="2">
+              <td>Series B</td>
+              <td>16.0%</td>
+              <td>20%</td>
+              <td>20%</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="3">
+              <td>Series C</td>
+              <td>12.8%</td>
+              <td>20%</td>
+              <td>36%</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="4">
+              <td>Series D</td>
+              <td>10.9%</td>
+              <td>15%</td>
+              <td>45%</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="5">
+              <td>IPO / Exit</td>
+              <td>9.8%</td>
+              <td>10%</td>
+              <td>51%</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          6:00 - 6:30 | Dilution across a typical company lifecycle. [Click] You lead the Series A at 20%. [Click] Series B: 20% dilution drops you to 16%. [Click] Series C: another 20%, now 12.8%. [Click] Series D: 15% dilution, you're at 10.9%. [Click] By IPO, 9.8%. Started at 20%, ended below 10%. And that's without any follow-on investment.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 15: Return the Fund -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>The "return the fund" test</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Variable</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Fund Size</td>
+              <td>$300M</td>
+            </tr>
+            <tr>
+              <td>Investment</td>
+              <td>$15M</td>
+            </tr>
+            <tr>
+              <td>Post-Money Valuation</td>
+              <td>$60M</td>
+            </tr>
+            <tr>
+              <td>Initial Ownership</td>
+              <td>25%</td>
+            </tr>
+            <tr>
+              <td>Assumed Dilution to Exit</td>
+              <td>50%</td>
+            </tr>
+            <tr>
+              <td>Ownership at Exit</td>
+              <td>12.5%</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="1">
+              <td><strong>Required Exit Value</strong></td>
+              <td><strong>$300M / 12.5% = $2.4B</strong></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          6:30 - 7:15 | The "return the fund" test is the first calculation any VC runs. Can this deal, at my expected ownership at exit, generate proceeds equal to the entire fund? Worked example. $300M fund. $15M investment at $60M post-money, 25% ownership. Assume 50% dilution by exit, so 12.5% ownership. [Click] Required exit: $300M divided by 12.5% equals $2.4 billion. Is that realistic for this company? If yes, the deal passes the first screen. If $2.4B is a fantasy, the deal is dead regardless of how much you like the team.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 16: Follow-On and Return Math -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Follow-on changes the math</h2>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="card card-green-bg fragment" data-fragment-index="1" style="padding: 16px;">
+            <h3 class="mb-8">With Follow-On</h3>
+            <p class="text-sm text-light">Reserve 50-60% of fund capital for follow-on. If you follow on pro rata in Series B and C, you maintain 18-20% ownership at exit. Required exit drops from $2.4B to $1.5-1.7B. More achievable.</p>
+          </div>
+          <div class="card card-blue-bg fragment" data-fragment-index="2" style="padding: 16px;">
+            <h3 class="mb-8">Return Multiple Formula</h3>
+            <p class="text-sm text-light">Return Multiple = Exit Value x Ownership at Exit / Total Invested Capital. If exit is $1.5B and you own 18% ($25M invested total), proceeds are $270M. That's 10.8x. One deal returns 90% of a $300M fund.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          7:15 - 8:00 | Follow-on strategy changes the math significantly. [Click] Most funds reserve 50-60% of capital for follow-on. Maintain 18-20% ownership at exit instead of 12.5%. Required exit drops from $2.4B to $1.5-1.7B. That's the difference between fantasy and achievable. [Click] Return multiple formula: exit value times ownership divided by total capital invested. $1.5B exit, 18% ownership, $25M invested. $270M proceeds. 10.8x return. One deal returns 90% of the fund. That's the power law in action.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 17: Section Divider -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <div class="part-number">Section 4</div>
+        <h1>Portfolio Construction</h1>
+
+        <aside class="notes">
+          8:00 | Transition into portfolio construction arithmetic.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 18: $300M Fund Blueprint -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Anatomy of a $300M Series a fund</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Component</th>
+              <th>Allocation</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="fragment" data-fragment-index="1">
+              <td>Management fees (fund life)</td>
+              <td>~$35M</td>
+              <td>2% annual, declining after Year 5</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="2">
+              <td>Investable capital</td>
+              <td>~$265M</td>
+              <td>What's actually deployed into companies</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="3">
+              <td>Initial investments (20 cos x ~$5-6M)</td>
+              <td>~$106-120M</td>
+              <td>40-45% of investable capital</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="4">
+              <td>Follow-on reserves</td>
+              <td>~$145-159M</td>
+              <td>55-60% of investable capital</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="5">
+              <td>Target ownership at entry</td>
+              <td>15-20%</td>
+              <td>Series A standard for lead investor</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="6">
+              <td>Target ownership at exit</td>
+              <td>10-15%</td>
+              <td>Assumes 2-3 more rounds</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          8:00 - 9:00 | Portfolio construction for a $300M Series A fund. [Click] Management fees consume about $35M over the fund's life. [Click] Investable capital: $265M. [Click] Initial investments: 20 companies at $5-6M each, 40-45% of capital. [Click] Follow-on reserves: 55-60% of capital, concentrated in the winners. [Click] Target entry ownership: 15-20%. [Click] Target exit ownership: 10-15% after dilution. This is the blueprint. Change one variable and the entire equation shifts.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 19: Return Targets by Stage -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Return targets vary by fund stage</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Fund Stage</th>
+              <th>Target Net Return</th>
+              <th>Why</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="fragment" data-fragment-index="1">
+              <td>Early-stage (Seed-A)</td>
+              <td>3x net to LPs</td>
+              <td>Higher risk, more failures, bigger winners needed</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="2">
+              <td>Growth-stage (B+)</td>
+              <td>2-2.5x net</td>
+              <td>Lower risk, higher entry prices, fewer 50x outcomes</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="3">
+              <td>Late-stage / Crossover</td>
+              <td>1.5-2x net</td>
+              <td>Near-public pricing, illiquidity premium play</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          9:00 - 9:30 | Return targets by stage. [Click] Early-stage funds target 3x net. A $300M fund needs $900M in cash proceeds. [Click] Growth-stage targets 2-2.5x. Less volatility but fewer moonshots. [Click] Late-stage and crossover: 1.5-2x, operating closer to public market investing with an illiquidity premium.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 20: Working Backward from Fund Math -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>The bar for every deal</h2>
+        </div>
+
+        <div class="card-alt-green">
+          <div style="display: flex; align-items: flex-start; gap: 16px;">
+            <span class="icon icon-xl icon-green" style="../assets/icons/achievements.svg); flex-shrink: 0;"></span>
+            <div>
+              <p><strong>If your $300M fund needs $900M in proceeds to hit 3x net, and the power law says your top 3 deals drive 70% of returns, those 3 companies each need to exit at $1.4-1.75 billion.</strong></p>
+              <p class="text-sm text-light mt-8">That's the bar. Every deal you evaluate, the first question is: can this company reach a $1.5B+ exit? If the honest answer is no, the deal doesn't fit the portfolio math regardless of how compelling the team or technology might be.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          9:30 - 10:00 | Working backward from the fund math. $300M fund needs $900M in proceeds. Power law says 70% comes from the top three deals, so you need $630M from three companies. Each needs to contribute roughly $210M. At 12-15% ownership at exit, each needs to exit at $1.4-1.75 billion. That's the bar for every deal. Can this company reach a $1.5B exit? If no, the deal doesn't fit.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 21: The Ownership Floor -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Why leading rounds matters</h2>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="card card-green-bg fragment" data-fragment-index="1" style="padding: 16px;">
+            <h3 class="mb-8">The 10% Ownership Floor</h3>
+            <p class="text-sm text-light">For most institutional VCs, 10% at entry is the minimum. Below that, even a massive exit doesn't generate meaningful fund-level returns. If you own 5% of a $1B exit, your $50M proceeds represent only 0.17x on a $300M fund.</p>
+          </div>
+          <div class="card card-blue-bg fragment" data-fragment-index="2" style="padding: 16px;">
+            <h3 class="mb-8">Leading vs. Co-Investing</h3>
+            <p class="text-sm text-light">Leading gives you the allocation for meaningful ownership. Participating as a small co-investor gives exposure but not the economics to drive fund returns. At the portfolio construction level, leading is not optional.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          10:00 - 10:30 | There's a minimum ownership that makes a deal worth doing. [Click] For most institutional VCs, the floor is 10% at entry. Own 5% of a $1B exit and your $50M proceeds only represent 0.17x on a $300M fund. You can't build a portfolio on those economics. [Click] This is why VCs care about leading rounds. Leading gets you meaningful ownership. Co-investing gets you exposure but not the economics. At the fund level, leading is how the math works.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 22: Follow-On Strategy -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Follow-on capital goes to winners</h2>
+        </div>
+
+        <div class="card-alt-green">
+          <div style="display: flex; align-items: flex-start; gap: 16px;">
+            <span class="icon icon-xl icon-green" style="../assets/icons/arrow-up-chart-growth.svg); flex-shrink: 0;"></span>
+            <div>
+              <p><strong>The best funds are ruthless about where they follow on. They concentrate reserves in their winners, the companies showing breakout growth, strong retention, and clear paths to large outcomes. The rest get no follow-on.</strong></p>
+              <p class="text-sm text-light mt-8">They don't protect ownership in every company equally. The power law expresses itself through capital allocation. If you exercise pro rata at each round, you maintain higher ownership but deploy more capital. The trade-off: follow on to maintain ownership, or accept dilution and conserve capital for new deals.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          10:30 - 11:30 | Follow-on strategy is where the power law meets capital allocation. The best funds are ruthless. They concentrate reserves in winners showing breakout growth and strong retention. Everyone else gets no follow-on and ownership dilutes. That's not neglect. It's the power law expressing itself through capital allocation.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 23: Key Takeaways -->
+      <!-- ============================================ -->
+      <section class="content-dark">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Key takeaways</h2>
+        </div>
+
+        <ul class="plus-list text-white">
+          <li class="fragment" data-fragment-index="1"><strong>DPI is the only fund metric that measures reality.</strong> TVPI includes paper gains that may never materialize. In an interview, if someone asks which metric matters most to LPs, the answer is DPI.</li>
+          <li class="fragment" data-fragment-index="2"><strong>The power law is the operating math of venture capital.</strong> Two or three deals drive 70%+ of your fund's returns. Every investment thesis, pricing decision, and follow-on allocation flows from this reality.</li>
+          <li class="fragment" data-fragment-index="3"><strong>"Return the fund" is the minimum bar for every deal.</strong> Run the ownership math first. Can this company exit at a valuation that, at your expected ownership, returns the entire fund?</li>
+          <li class="fragment" data-fragment-index="4"><strong>Portfolio construction is strategy expressed as arithmetic.</strong> Number of bets, check sizes, reserve ratios, and follow-on decisions are all interconnected. Know the fund you're interviewing at.</li>
+          <li class="fragment" data-fragment-index="5"><strong>Follow-on capital goes to winners, not evenly across the portfolio.</strong> VCs concentrate reserves in their best companies because that's where the returns are.</li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="rgba(255,255,255,0.4)"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          11:30 - 12:00 | Five takeaways. [Click] DPI is the only metric that doesn't lie. Everything else is a progress report. [Click] The power law is the operating math. Two or three deals drive 70%+ of returns. Structure your thinking around it. [Click] "Return the fund" is the minimum bar. Run the ownership math before anything else. [Click] Portfolio construction is strategy as arithmetic. Know the fund's size, stage, and check size. [Click] Follow-on capital goes to winners. The best funds are ruthless about concentration because the power law demands it.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js -->
+  <script src="../assets/reveal/dist/reveal.min.js"></script>
+  <script type="module">
+    import RevealNotes from '../assets/reveal/plugin/notes/notes.esm.js';
+
+    Reveal.initialize({
+      width: 960,
+      height: 540,
+      margin: 0,
+      minScale: 0.5,
+      maxScale: 3.0,
+      hash: true,
+      slideNumber: true,
+      controls: true,
+      progress: true,
+      history: true,
+      center: false,
+      transition: 'none',
+      backgroundTransition: 'none',
+      disableLayout: false,
+      plugins: [ RevealNotes ]
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en" class="reveal-full-page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reading a Term Sheet</title>
+
+  <!-- Reveal.js Core -->
+  <link rel="stylesheet" href="../assets/reveal/dist/reset.css">
+  <link rel="stylesheet" href="../assets/reveal/dist/reveal.css">
+
+  <!-- Leland Theme -->
+  <link rel="stylesheet" href="../assets/reveal/themes/leland.css">
+
+</head>
+<body>
+  <!-- SVG Symbol Definitions (defined once, referenced via <use>) -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="leland-logo" viewBox="0 0 200 45">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z"/>
+      <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z"/>
+      <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z"/>
+      <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z"/>
+      <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z"/>
+      <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z"/>
+    </symbol>
+  </svg>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ============================================ -->
+      <!-- SLIDE 1: Title Dark -->
+      <!-- ============================================ -->
+      <section class="title-dark">
+        <svg width="110" height="25" fill="white" class="mb-16"><use href="#leland-logo"/></svg>
+        <p class="eyebrow">VC Recruiting Course</p>
+        <h1>Reading a<br><span class="hl">Term Sheet</span></h1>
+
+        <aside class="notes">
+          [0:00] Welcome slide. Brief pause before the hook.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 2: The One-Question Test -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Founder-friendly or investor-friendly?</h2>
+        </div>
+
+        <div class="card-alt-green">
+          <div style="display: flex; align-items: flex-start; gap: 16px;">
+            <span class="icon icon-xl icon-green" style="../assets/icons/search-document.svg); flex-shrink: 0;"></span>
+            <div>
+              <p><strong>A partner once told me that the fastest way to evaluate a junior candidate is to hand them a term sheet and ask one question: "Is this founder-friendly or investor-friendly?" Not "walk me through every term." Just: which side does this favor, and how do you know?</strong></p>
+              <p class="text-sm text-light mt-8">Most candidates freeze. They can recite definitions but cannot read a term sheet the way a VC reads one: fast, opinionated, with an eye for the three or four terms that actually determine the economics and the power dynamics. That is the skill we are building here.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          0:00 - 0:30 | A partner at a well-known fund told me the fastest way to evaluate a junior candidate. Hand them a term sheet, ask one question: founder-friendly or investor-friendly? Most candidates freeze. They can define terms but cannot assess the overall package. This video connects 7.4 and 7.5 into the real document.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 3: What You'll Learn -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Reading a term sheet in under five minutes</h2>
+        </div>
+
+        <ul class="icon-list text-lg">
+          <li>
+            <span class="icon icon-xl icon-green" style="../assets/icons/money.svg); flex-shrink: 0;"></span>
+            <span><strong>Economic terms</strong> that determine who gets what financially: valuation, liquidation preferences, anti-dilution.</span>
+          </li>
+          <li>
+            <span class="icon icon-xl icon-green" style="../assets/icons/shield-check-filled.svg); flex-shrink: 0;"></span>
+            <span><strong>Governance terms</strong> that determine who controls what operationally: board seats, protective provisions, drag-along rights.</span>
+          </li>
+          <li>
+            <span class="icon icon-xl icon-green" style="../assets/icons/search.svg); flex-shrink: 0;"></span>
+            <span><strong>How to identify departures</strong> from the standard and what each departure signals about the negotiation dynamics.</span>
+          </li>
+          <li>
+            <span class="icon icon-xl icon-green" style="../assets/icons/lightning.svg); flex-shrink: 0;"></span>
+            <span><strong>Interview framework</strong> for analyzing any term sheet quickly and forming an opinion the interviewer wants to hear.</span>
+          </li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          0:30 - 1:00 | By the end of this, you will be able to identify the terms that matter, understand the split between economics and governance, know which terms are standard versus aggressive, and analyze a term sheet in under five minutes in an interview. That is exactly the amount of time you will get.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 4: Section Divider -- Economic Terms -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <div class="part-number">Section 1</div>
+        <h1>Economic Terms: Where the Money Is</h1>
+
+        <aside class="notes">
+          1:00 | Transition into economic terms.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 5: Valuation and Investment Amount -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>The headline terms</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Component</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Pre-money valuation</td>
+              <td>$20M</td>
+            </tr>
+            <tr>
+              <td>Investment amount</td>
+              <td>$5M</td>
+            </tr>
+            <tr>
+              <td>Post-money valuation</td>
+              <td>$25M</td>
+            </tr>
+            <tr>
+              <td>Fully diluted shares</td>
+              <td>10M existing + 2.5M new = 12.5M</td>
+            </tr>
+            <tr>
+              <td>Price per share</td>
+              <td>$20M / 10M = $2.00</td>
+            </tr>
+            <tr>
+              <td>Investor ownership</td>
+              <td>2.5M / 12.5M = 20%</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          1:00 - 1:45 | The headline terms are straightforward. Pre-money plus investment equals post-money. Price per share comes from pre-money divided by fully diluted shares. The nuance is in "fully diluted," which includes all outstanding options, warrants, convertible instruments, and the option pool. If the term sheet specifies a 15% option pool pre-money, that pool is in the share count before the price is calculated. From 7.4: the pool dilutes the founders, not the new investor.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 6: Liquidation Preferences on a Term Sheet -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>What to look for in the preference clause</h2>
+        </div>
+
+        <div class="card-grid-3">
+          <div class="card card-green-bg fragment" data-fragment-index="1">
+            <span class="icon icon-lg icon-green mb-16" style="../assets/icons/check.svg)"></span>
+            <h3>1x Non-Participating</h3>
+            <p class="text-sm text-light">The standard. Investor gets their money back OR converts to common and takes pro-rata. Whichever is higher. Downside protection, not upside capture.</p>
+          </div>
+          <div class="card card-orange-bg fragment" data-fragment-index="2">
+            <span class="icon icon-lg icon-orange mb-16" style="../assets/icons/warning-triangle.svg)"></span>
+            <h3>1x Participating</h3>
+            <p class="text-sm text-light">The aggressive version. Investor gets money back AND participates in remaining proceeds. Double dipping. Material departure from standard at Series A.</p>
+          </div>
+          <div class="card card-purple-bg fragment" data-fragment-index="3">
+            <span class="icon icon-lg icon-purple mb-16" style="../assets/icons/shield.svg)"></span>
+            <h3>Participating with Cap</h3>
+            <p class="text-sm text-light">The compromise. Investor participates until total return hits a cap (2x or 3x), then converts. Limits the double dip but still favors the investor.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          1:45 - 2:30 | Liquidation preferences. We covered the mechanics in 7.4. On a term sheet, here is what to look for. [Click] 1x non-participating is the standard. At Benchmark or Sequoia, this is all you will see. [Click] 1x participating is a material departure. The investor gets money back AND pro-rata participation. Shows up at less competitive firms, in tougher markets, or in later-stage deals. [Click] Participating with a cap is the middle ground. Limits the double dip to 2x or 3x total return. Still favors the investor over the standard.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 7: Anti-Dilution Provisions -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Down round protection</h2>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="card card-green-bg fragment" data-fragment-index="1" style="padding: 16px;">
+            <h3 class="mb-8">Broad-Based Weighted Average</h3>
+            <p class="text-sm text-light">The standard. Investor's conversion price adjusts downward, but accounts for the size of the down round relative to the overall cap table. Partial protection. Not a windfall.</p>
+          </div>
+          <div class="card card-orange-bg fragment" data-fragment-index="2" style="padding: 16px;">
+            <h3 class="mb-8">Full Ratchet</h3>
+            <p class="text-sm text-light">The aggressive version. Investor's price resets entirely to the new lower price, regardless of how small the down round is. A $10 to $2 repricing creates a 5x increase in share count. Red flag on any term sheet.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          2:30 - 3:15 | Anti-dilution protects the investor if a down round happens. [Click] Broad-based weighted average is standard. The adjustment is proportional to the down round size. Partial protection that is fair to both sides. [Click] Full ratchet is a red flag. The investor's entire position reprices to the new lower price. If they bought at $10 and a tiny bridge prices at $2, full ratchet reprices everything to $2. That is a 5x share increase that massively dilutes founders. Rare in competitive markets. Always flag it.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 8: Anti-Dilution Comparison -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Same down round, different outcomes</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th></th>
+              <th>Original Price</th>
+              <th>Down Round Price</th>
+              <th>Adjusted Price</th>
+              <th>Impact</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="fragment" data-fragment-index="1">
+              <td>Broad-based weighted average</td>
+              <td>$10/share</td>
+              <td>$5/share</td>
+              <td>~$8.50/share</td>
+              <td>Partial adjustment</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="2">
+              <td>Full ratchet</td>
+              <td>$10/share</td>
+              <td>$5/share</td>
+              <td>$5.00/share</td>
+              <td>Complete repricing</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          3:15 - 3:45 | Here is the comparison. Same scenario: original price $10, down round at $5. [Click] Broad-based weighted average adjusts to roughly $8.50. The investor gets some protection without destroying the founders' position. [Click] Full ratchet resets completely to $5. The investor's share count doubles. The dilution to founders is dramatic. This is the single easiest red flag to spot on a term sheet.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 9: Dividends as a Hidden Cost -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Cumulative dividends: The quiet accumulator</h2>
+        </div>
+
+        <div class="card-alt-green">
+          <div style="display: flex; align-items: flex-start; gap: 16px;">
+            <span class="icon icon-xl icon-green" style="../assets/icons/money.svg); flex-shrink: 0;"></span>
+            <div>
+              <p><strong>8% cumulative dividends on a $10M investment means $800K per year accruing on top of the liquidation preference. Over five years, that is an extra $4M off the top before founders see a dollar.</strong></p>
+              <p class="text-sm text-light mt-8">Most venture term sheets specify non-cumulative dividends or omit them entirely. Cumulative dividends that accrue are a red flag. Startups never pay dividends. But cumulative dividends stack up as an invisible addition to the liquidation preference that grows each year.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          3:45 - 4:00 | One more economic term to watch. Cumulative dividends. They almost never get paid, but they accrue. On a $10M investment at 8%, that is $800K per year added to the liquidation preference. Over five years, $4M extra comes off the top at exit. Most institutional term sheets say non-cumulative or do not mention dividends. Cumulative is a flag.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 10: Section Divider -- Governance Terms -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <div class="part-number">Section 2</div>
+        <h1>Governance Terms: Where the Power Is</h1>
+
+        <aside class="notes">
+          4:00 | Transition into governance terms.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 11: Board Composition -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>The most underrated term on the sheet</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Stage</th>
+              <th>Common Seats</th>
+              <th>Investor Seats</th>
+              <th>Independent</th>
+              <th>Total</th>
+              <th>Control</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="fragment" data-fragment-index="1">
+              <td>Series A</td>
+              <td>2</td>
+              <td>1</td>
+              <td>2</td>
+              <td>5</td>
+              <td>Balanced</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="2">
+              <td>Series B</td>
+              <td>2</td>
+              <td>2</td>
+              <td>1</td>
+              <td>5</td>
+              <td>Power shift</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="3">
+              <td>Series C</td>
+              <td>2</td>
+              <td>3</td>
+              <td>2</td>
+              <td>7</td>
+              <td>Founders minority</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          4:00 - 4:45 | Board composition evolves and never in the founders' favor. [Click] At Series A, the standard is 2 common seats, 1 investor seat, 2 mutually selected independents. Neither side has outright control. [Click] At Series B, the new investor wants a seat. Now it is 2-2-1. The founders lost their advantage. [Click] By Series C, the board might be 2-3-2. Founders are a minority. Each incremental board seat shifts power permanently. That is why the Series A structure matters so much. It sets the baseline every subsequent round negotiates from.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 12: Protective Provisions -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>What investors can block</h2>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="card card-green-bg fragment" data-fragment-index="1" style="padding: 16px;">
+            <h3 class="mb-8">Standard (Reasonable)</h3>
+            <p class="text-sm text-light">Issuing senior equity. Taking on debt above a threshold. Changing the certificate of incorporation. Selling the company. Changing board size. These prevent the founder from undermining the investor's position.</p>
+          </div>
+          <div class="card card-orange-bg fragment" data-fragment-index="2" style="padding: 16px;">
+            <h3 class="mb-8">Non-Standard (Watch For)</h3>
+            <p class="text-sm text-light">Blocking executive hires and fires. Approving the annual budget. Preventing new lines of business. These shift operational control from the CEO to the boardroom. Budget approval rights effectively give the investor a veto over strategy.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          4:45 - 5:30 | Protective provisions give preferred stockholders a veto over specific actions. [Click] Standard provisions are reasonable. Block issuing senior equity, taking on major debt, selling the company, changing the charter. These protect the investor without restricting operations. [Click] Non-standard provisions shift operational control. Budget approval, hiring and firing approval, new business lines. A founder who agrees to budget approval has given the investor a veto over strategy. That is a significant concession. Flag it.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 13: Other Governance Terms -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Four more terms to know</h2>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="card card-green-bg" style="padding: 16px;">
+            <h3 class="mb-8">Pro-Rata Rights</h3>
+            <p class="text-sm text-light">The right to invest in future rounds to maintain ownership. Standard for lead investors. Becomes contentious when all existing investors exercise and crowd out a new lead.</p>
+          </div>
+          <div class="card card-blue-bg" style="padding: 16px;">
+            <h3 class="mb-8">Information Rights</h3>
+            <p class="text-sm text-light">Quarterly and annual financials, cap table updates. Standard. Monthly financials are more burdensome but not unusual. Often tied to a "major investor" ownership threshold.</p>
+          </div>
+          <div class="card card-purple-bg" style="padding: 16px;">
+            <h3 class="mb-8">Drag-Along Rights</h3>
+            <p class="text-sm text-light">If a specified majority approves a sale, all shareholders must participate. Prevents a minority from blocking an acquisition. Watch the threshold: majority of preferred alone is more aggressive than majority of both preferred and common.</p>
+          </div>
+          <div class="card card-orange-bg" style="padding: 16px;">
+            <h3 class="mb-8">Tag-Along and ROFR</h3>
+            <p class="text-sm text-light">Tag-along lets investors sell alongside a founder in a secondary. ROFR gives the company first right to buy shares before they are sold externally. Both control who ends up on the cap table.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          5:30 - 6:30 | Four more governance terms. Pro-rata rights: standard for the lead, contentious when existing investors crowd out new capital. Information rights: quarterly financials and cap table updates, standard. Drag-along: forces all shareholders to participate if a majority approves a sale. Watch whether the threshold requires common votes or just preferred. Tag-along and ROFR: control who can sell and who ends up on the cap table. Both are standard fairness provisions.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 14: Governance Matters More Than Valuation -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Valuations get renegotiated, board seats do not</h2>
+        </div>
+
+        <div class="card-alt-green">
+          <div style="display: flex; align-items: flex-start; gap: 16px;">
+            <span class="icon icon-xl icon-green" style="../assets/icons/warning.svg); flex-shrink: 0;"></span>
+            <div>
+              <p><strong>I have seen founders who were thrilled with their $25M valuation discover two years later that the protective provisions gave their investor an effective veto over a strategic acquisition the founders wanted to pursue.</strong></p>
+              <p class="text-sm text-light mt-8">A founder who wins on valuation but loses on board control has not won. Valuation is a number you negotiate once. Board seats and protective provisions are structures you live with for the life of the company. The best VCs offer clean terms because their competitive advantage is brand, network, and portfolio, not aggressive deal provisions.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          6:30 - 7:00 | The governance section is where experienced founders spend the most time. Valuation is a one-time negotiation. Board seats and protective provisions are permanent. I have watched founders celebrate a high valuation only to discover the governance terms gave their investor a veto over strategy. The valuation did not matter at that point. The governance did.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 15: Section Divider -- Interview Framework -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <div class="part-number">Section 3</div>
+        <h1>Reading a Term Sheet in an Interview</h1>
+
+        <aside class="notes">
+          7:00 | Transition into the interview application.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 16: The Three-Step Framework -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>How vcs actually read term sheets</h2>
+        </div>
+
+        <div class="card-grid-3">
+          <div class="card card-green-bg fragment" data-fragment-index="1">
+            <span class="icon icon-lg icon-green mb-16" style="../assets/icons/money.svg)"></span>
+            <h3>Step 1: Economics</h3>
+            <p class="text-sm text-light">Pre-money valuation, investment amount, liquidation preference, anti-dilution. Calculate ownership. Note participating vs. non-participating. Check anti-dilution type.</p>
+          </div>
+          <div class="card card-blue-bg fragment" data-fragment-index="2">
+            <span class="icon icon-lg icon-blue mb-16" style="../assets/icons/shield-check-filled.svg)"></span>
+            <h3>Step 2: Governance</h3>
+            <p class="text-sm text-light">Board composition and protective provisions. Who controls the board? What can the investor block unilaterally? These two provisions define the power dynamic.</p>
+          </div>
+          <div class="card card-purple-bg fragment" data-fragment-index="3">
+            <span class="icon icon-lg icon-purple mb-16" style="../assets/icons/lightning.svg)"></span>
+            <h3>Step 3: Form an Opinion</h3>
+            <p class="text-sm text-light">Is this fair, aggressive, or founder-friendly? Why? Most candidates describe terms but do not assess them. The interviewer wants your judgment.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          7:00 - 7:45 | Three steps. [Click] Economics first. Valuation, ownership, preference, anti-dilution. Four terms, four calculations. [Click] Governance second. Board seats and protective provisions. Who controls what? [Click] Step three is where most candidates stop short. Form an opinion. Is the term sheet fair, aggressive, or founder-friendly? The interviewer does not want you to recite definitions. They want your assessment and your reasoning.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 17: Example -- Clean Term Sheet -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>A clean, founder-friendly term sheet</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Term</th>
+              <th>Value</th>
+              <th>Assessment</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Pre-money / Investment</td>
+              <td>$20M / $5M</td>
+              <td>Standard</td>
+            </tr>
+            <tr>
+              <td>Liquidation preference</td>
+              <td>1x non-participating</td>
+              <td>Standard</td>
+            </tr>
+            <tr>
+              <td>Anti-dilution</td>
+              <td>Broad-based weighted average</td>
+              <td>Standard</td>
+            </tr>
+            <tr>
+              <td>Board</td>
+              <td>2 common, 1 preferred, 2 independent</td>
+              <td>Balanced</td>
+            </tr>
+            <tr>
+              <td>Option pool</td>
+              <td>20% pre-money</td>
+              <td>High, push to 15%</td>
+            </tr>
+            <tr>
+              <td>Protective provisions</td>
+              <td>Standard list</td>
+              <td>Clean</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          7:45 - 8:15 | Here is a clean example. $5M at $20M pre, non-participating preference, broad-based weighted average, five-person board with balanced seats. The only flag is the 20% option pool, which is on the high side for a Series A. The founder should push to 15% and argue a refresh at Series B. Overall, this looks like a top-tier fund's term sheet. Value comes from brand and network, not aggressive terms.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 18: Example -- Aggressive Term Sheet -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>An aggressive, investor-friendly term sheet</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Term</th>
+              <th>Value</th>
+              <th>Assessment</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Pre-money / Investment</td>
+              <td>$15M / $5M</td>
+              <td>Fine</td>
+            </tr>
+            <tr>
+              <td>Liquidation preference</td>
+              <td>1x participating (3x cap)</td>
+              <td>Aggressive</td>
+            </tr>
+            <tr>
+              <td>Anti-dilution</td>
+              <td>Full ratchet</td>
+              <td>Red flag</td>
+            </tr>
+            <tr>
+              <td>Board</td>
+              <td>1 common, 1 preferred, 1 independent</td>
+              <td>Investor blocking power</td>
+            </tr>
+            <tr>
+              <td>Protective provisions</td>
+              <td>Includes budget approval</td>
+              <td>Shifts operational control</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          8:15 - 8:45 | Now an aggressive one. Participating preferred with a 3x cap is unusual at Series A. Full ratchet is a significant red flag. Three-person board with one investor seat gives the investor blocking power since they only need the independent vote. Budget approval shifts operational control. If advising the founder, push hard to convert the preference to non-participating and the anti-dilution to broad-based weighted average. Those are the two terms that matter most.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 19: The Quick Assessment Reference -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Term sheet traffic light</h2>
+        </div>
+
+        <div class="card-grid-3">
+          <div class="card card-green-bg fragment" data-fragment-index="1">
+            <span class="icon icon-lg icon-green mb-16" style="../assets/icons/check.svg)"></span>
+            <h3>Standard (Green)</h3>
+            <p class="text-sm text-light">1x non-participating. Broad-based weighted average. 5-person board (2/1/2). Standard protective provisions. Non-cumulative dividends.</p>
+          </div>
+          <div class="card card-orange-bg fragment" data-fragment-index="2">
+            <span class="icon icon-lg icon-orange mb-16" style="../assets/icons/warning.svg)"></span>
+            <h3>Negotiate (Yellow)</h3>
+            <p class="text-sm text-light">Participating with cap. Option pool above 15%. Cumulative dividends. 3-person board. Pro-rata on small checks.</p>
+          </div>
+          <div class="card card-red-bg fragment" data-fragment-index="3">
+            <span class="icon icon-lg icon-red mb-16" style="../assets/icons/stop-octagon-minus.svg)"></span>
+            <h3>Red Flag</h3>
+            <p class="text-sm text-light">Full ratchet anti-dilution. Participating uncapped. Investor-controlled board. Budget approval rights. Executive hire/fire approval.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          8:45 - 9:15 | A quick reference. [Click] Green: everything standard. 1x non-participating, broad-based weighted average, balanced board. This is what you see from tier-one funds. [Click] Yellow: negotiate these. Participating with a cap, oversized option pool, cumulative dividends. Not deal-breakers but worth pushing back. [Click] Red: full ratchet, uncapped participation, investor-controlled board, budget approval. These fundamentally shift economics or control. Flag them immediately in an interview and explain what you would negotiate.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 20: Reading the Room -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Diplomacy in the interview</h2>
+        </div>
+
+        <div class="card-alt-green">
+          <div style="display: flex; align-items: flex-start; gap: 16px;">
+            <span class="icon icon-xl icon-green" style="../assets/icons/chat-bubbles.svg); flex-shrink: 0;"></span>
+            <div>
+              <p><strong>If the interviewer's firm uses aggressive terms and you call out those exact terms as red flags, you might create an awkward moment. Frame your analysis in terms of trade-offs, not judgments.</strong></p>
+              <p class="text-sm text-light mt-8">"Participating preferred shifts economics toward the investor in moderate outcomes, which makes sense if the investor is providing significant value-add beyond capital." That is diplomatic without being dishonest. The skill is having the opinion and knowing when and how to express it.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          9:00 - 9:15 | One practical note. If you are interviewing at a firm known for participating preferred and you call it a red flag, you have created a problem. Frame it as a trade-off. "Participating preferred makes sense if the investor provides significant value beyond capital." Diplomatic without being dishonest. The skill is having the opinion and knowing how to deliver it.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 21: The Three-Part System -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>CAP tables, deal terms, and term sheets</h2>
+        </div>
+
+        <div class="card-grid-3">
+          <div class="card card-green-bg fragment" data-fragment-index="1">
+            <span class="icon icon-lg icon-green mb-16" style="../assets/icons/spreadsheet.svg)"></span>
+            <h3>7.4: Cap Table</h3>
+            <p class="text-sm text-light">Who owns what. The ownership blueprint. Every shareholder, share class, and percentage.</p>
+          </div>
+          <div class="card card-blue-bg fragment" data-fragment-index="2">
+            <span class="icon icon-lg icon-blue mb-16" style="../assets/icons/document-file.svg)"></span>
+            <h3>7.5: Deal Instruments</h3>
+            <p class="text-sm text-light">How they got there. SAFEs, convertible notes, and priced rounds that built the cap table.</p>
+          </div>
+          <div class="card card-purple-bg fragment" data-fragment-index="3">
+            <span class="icon icon-lg icon-purple mb-16" style="../assets/icons/search-document.svg)"></span>
+            <h3>7.6: Term Sheet</h3>
+            <p class="text-sm text-light">What ownership actually means. The economic and governance rules that determine payouts and control.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          9:00 - 9:15 | These three videos are a system. Cap tables tell you who owns what. Deal instruments tell you how they got there. Term sheets tell you what that ownership actually means: the economics and governance that determine payouts and control. Together they cover every technical question you will face in a VC interview about deal structure.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 22: Key Takeaways -->
+      <!-- ============================================ -->
+      <section class="content-dark">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Key takeaways</h2>
+        </div>
+
+        <ul class="plus-list text-white">
+          <li class="fragment" data-fragment-index="1"><strong>Economic terms and governance terms are two different negotiations on the same document.</strong> A founder who wins on valuation but loses on board control has not won.</li>
+          <li class="fragment" data-fragment-index="2"><strong>1x non-participating with broad-based weighted average is the standard.</strong> Anything beyond that is a departure, and departures need justification. If you can explain why a term departs and what it means for both sides, you understand term sheets at associate level.</li>
+          <li class="fragment" data-fragment-index="3"><strong>Board composition is the most underrated term.</strong> Valuations get renegotiated. Liquidation preferences get restructured. Board seats, once given, are almost never taken back.</li>
+          <li class="fragment" data-fragment-index="4"><strong>When reading a term sheet in an interview, do not recite. Prioritize.</strong> Identify the two or three departures from standard. Explain who they favor. Offer a specific opinion on whether the package is fair. That is the skill being tested.</li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="rgba(255,255,255,0.4)"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          9:15 - 10:00 | Four takeaways. [Click] Economics and governance are two different negotiations. Win on both or you have not won. [Click] Know the standard: 1x non-participating, broad-based weighted average. Everything else is a departure. Explain departures and you demonstrate real understanding. [Click] Board composition is the most underrated term. Seats given are never taken back. Every subsequent round negotiates from the baseline you set at Series A. [Click] In interviews, prioritize over reciting. Find the departures, explain who they favor, give your opinion. That is how VCs read term sheets on the job. That is the skill being tested.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js -->
+  <script src="../assets/reveal/dist/reveal.min.js"></script>
+  <script type="module">
+    import RevealNotes from '../assets/reveal/plugin/notes/notes.esm.js';
+
+    Reveal.initialize({
+      width: 960,
+      height: 540,
+      margin: 0,
+      minScale: 0.5,
+      maxScale: 3.0,
+      hash: true,
+      slideNumber: true,
+      controls: true,
+      progress: true,
+      history: true,
+      center: false,
+      transition: 'none',
+      backgroundTransition: 'none',
+      disableLayout: false,
+      plugins: [ RevealNotes ]
+    });
+  </script>
+</body>
+</html>

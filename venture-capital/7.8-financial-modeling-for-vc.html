@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en" class="reveal-full-page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Financial Modeling for VC</title>
+
+  <!-- Reveal.js Core -->
+  <link rel="stylesheet" href="../assets/reveal/dist/reset.css">
+  <link rel="stylesheet" href="../assets/reveal/dist/reveal.css">
+
+  <!-- Leland Theme -->
+  <link rel="stylesheet" href="../assets/reveal/themes/leland.css">
+
+</head>
+<body>
+  <!-- SVG Symbol Definitions (defined once, referenced via <use>) -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="leland-logo" viewBox="0 0 200 45">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z"/>
+      <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z"/>
+      <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z"/>
+      <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z"/>
+      <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z"/>
+      <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z"/>
+    </symbol>
+  </svg>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ============================================ -->
+      <!-- SLIDE 1: Title Dark -->
+      <!-- ============================================ -->
+      <section class="title-dark">
+        <svg width="110" height="25" fill="white" class="mb-16"><use href="#leland-logo"/></svg>
+        <p class="eyebrow">VC Recruiting Course</p>
+        <h1>Financial Modeling<br><span class="hl">for VC</span></h1>
+
+        <aside class="notes">
+          [0:00] Welcome slide. Brief pause before launching into the hook.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 2: The Useless DCF Story -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Beautiful and completely useless</h2>
+        </div>
+
+        <div class="card-alt-green">
+          <div style="display: flex; align-items: flex-start; gap: 16px;">
+            <span class="icon icon-xl icon-green" style="../assets/icons/warning-triangle.svg); flex-shrink: 0;"></span>
+            <div>
+              <p><strong>A candidate spent three weeks building a full DCF for a Series A SaaS company. Three-statement model. Terminal value with perpetuity growth. WACC to two decimal places. The partner said: "This is beautiful. And completely useless."</strong></p>
+              <p class="text-sm text-light mt-8">The company had $2M in ARR and 14 months of operating history. Projecting a terminal value for a business that might not exist in 18 months isn't financial analysis. It's fiction with a spreadsheet attached. VC modeling is not investment banking modeling, and that distinction trips up more candidates than any other concept.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          0:00 - 0:30 | A candidate spent three weeks on a DCF for a Series A company. Full three-statement model, terminal value, WACC calculated to two decimal places. The partner said it was beautiful and completely useless. The company had $2M ARR and 14 months of history. Projecting a terminal value for something that might not exist in 18 months is fiction. VC modeling is fundamentally different from banking. If you come from banking, you need to unlearn half of what you know.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 3: What You'll Learn -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Four skills you'll build today</h2>
+        </div>
+
+        <ul class="icon-list text-lg">
+          <li>
+            <span class="icon icon-xl icon-green" style="../assets/icons/bar-chart.svg); flex-shrink: 0;"></span>
+            <span><strong>Bottom-up and top-down revenue models</strong> and when to use each one.</span>
+          </li>
+          <li>
+            <span class="icon icon-xl icon-green" style="../assets/icons/spreadsheet.svg); flex-shrink: 0;"></span>
+            <span><strong>VC operating model structure</strong>, focused on the P&amp;L, not the balance sheet.</span>
+          </li>
+          <li>
+            <span class="icon icon-xl icon-green" style="../assets/icons/filter-levels.svg); flex-shrink: 0;"></span>
+            <span><strong>Scenario analysis</strong> that brackets realistic outcomes with bull, base, and bear cases.</span>
+          </li>
+          <li>
+            <span class="icon icon-xl icon-green" style="../assets/icons/arrow-round.svg); flex-shrink: 0;"></span>
+            <span><strong>Exit math and reverse engineering</strong>, working backward from a target exit to test feasibility.</span>
+          </li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          0:30 - 1:15 | Four things you'll master. Bottom-up and top-down revenue modeling. VC operating model structure. Scenario analysis with three cases. And the reverse-engineering exercise that's most unique to venture. This connects to fund math in 7.2 and feeds into investment memo construction in 6.10. The model is the analytical backbone of the memo, where your thesis becomes testable.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 4: Section Divider -- VC vs. Banking -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <div class="part-number">Section 1</div>
+        <h1>VC Modeling vs. Banking Modeling</h1>
+
+        <aside class="notes">
+          1:15 | Transition into the key differences between VC and IB modeling.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 5: The Core Difference -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Precision vs. direction</h2>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="card card-orange-bg fragment" data-fragment-index="1" style="padding: 16px;">
+            <h3 class="mb-8">Banking Models</h3>
+            <p class="text-sm text-light">Precision instruments. Hundreds of line items. Working capital, depreciation schedules, debt covenants. Goal: a defensible valuation to the nearest dollar. Makes sense for mature companies with decades of history.</p>
+          </div>
+          <div class="card card-green-bg fragment" data-fragment-index="2" style="padding: 16px;">
+            <h3 class="mb-8">VC Models</h3>
+            <p class="text-sm text-light">Directional tools. Goal: understand the relationship between assumptions and outcomes. What happens if growth slows from 100% to 60%? What if margins never exceed 65%? The model answers "what if," not "how much."</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          1:15 - 1:45 | The core distinction. [Click] Banking models are precision instruments. Hundreds of line items, three-statement flows, detailed schedules. The goal is valuation to the nearest dollar. That makes sense for mature companies with decades of data. [Click] VC models are directional tools. The goal is understanding how assumptions drive outcomes. What happens if growth slows? What if margins stall? The model answers "what if," not "how much exactly."
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 6: Three Practical Differences -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Three things that change everything</h2>
+        </div>
+
+        <div class="card-grid-3">
+          <div class="card card-green-bg fragment" data-fragment-index="1">
+            <span class="icon icon-lg icon-green mb-16" style="../assets/icons/document-file.svg)"></span>
+            <h3>P&amp;L Is Primary</h3>
+            <p class="text-sm text-light">In banking you build all three statements. In VC, the balance sheet is rarely relevant. Cash flow is derived from the P&amp;L plus burn rate analysis.</p>
+          </div>
+          <div class="card card-blue-bg fragment" data-fragment-index="2">
+            <span class="icon icon-lg icon-blue mb-16" style="../assets/icons/hourglass-time.svg)"></span>
+            <h3>Wide Uncertainty Bands</h3>
+            <p class="text-sm text-light">Banking projects 5 years with high confidence. VC projects 5-7 years for a company that's 18 months old. Year-5 projections are scenarios, not predictions.</p>
+          </div>
+          <div class="card card-purple-bg fragment" data-fragment-index="3">
+            <span class="icon icon-lg icon-purple mb-16" style="../assets/icons/sparkle.svg)"></span>
+            <h3>Assumptions Over Formulas</h3>
+            <p class="text-sm text-light">In banking, getting formulas right is critical. In VC, the inputs are the game. 80% vs 120% growth changes exit value by billions.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          1:45 - 2:30 | Three practical differences. [Click] The primary statement is the P&amp;L. Balance sheets are rarely relevant for early-stage companies. I've built hundreds of VC models. Fewer than 10% had a balance sheet. [Click] Time horizon is 5-7 years with wide uncertainty. A Series A model projects into year 5 for a company that's 18 months old. These are scenarios, not predictions. [Click] Assumptions matter more than formulas. The formula for revenue is trivial. The hard part is deciding whether 80% or 120% growth is right. That's where judgment lives, and that's what interviewers test.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 7: What Interviewers Actually Test -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>The take-home model that stands out</h2>
+        </div>
+
+        <div class="card-alt-green">
+          <div style="display: flex; align-items: flex-start; gap: 16px;">
+            <span class="icon icon-xl icon-green" style="../assets/icons/sparkle.svg); flex-shrink: 0;"></span>
+            <div>
+              <p><strong>When a firm gives you a 48-72 hour modeling exercise, they're checking whether you can make reasonable assumptions, structure a clean analysis, and articulate what the numbers mean for the investment decision.</strong></p>
+              <p class="text-sm text-light mt-8">The standout models are never the most complex. They're the ones where you can open the file, immediately see the assumptions, and understand the story the numbers tell. A clean 30-row model that answers the investment question beats a 500-row three-statement model every time.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          2:30 - 3:00 | What interviewers actually look for in take-home models. Not complexity. Not Excel wizardry. They want to see reasonable assumptions, clean structure, and clear communication of what the numbers mean. I've reviewed dozens of take-home models. The standout ones were always the simplest. You open the file, see the assumptions immediately, and understand the investment story. That's the bar.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 8: Section Divider -- Revenue Modeling -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <div class="part-number">Section 2</div>
+        <h1>Revenue Modeling</h1>
+
+        <aside class="notes">
+          3:30 | Transition into the two revenue modeling approaches.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 9: Bottom-Up Revenue Modeling -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Bottom-up: Start with the unit economics</h2>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="card card-green-bg fragment" data-fragment-index="1" style="padding: 16px;">
+            <h3 class="mb-8">Sales-Led SaaS</h3>
+            <p class="text-sm text-light">Sales reps x deals per rep per quarter x average contract value. Every assumption is observable and testable. "Is it realistic that each rep closes 4 deals at $50K ACV?" is a concrete question with a concrete answer.</p>
+          </div>
+          <div class="card card-blue-bg fragment" data-fragment-index="2" style="padding: 16px;">
+            <h3 class="mb-8">Product-Led Growth</h3>
+            <p class="text-sm text-light">Website visitors x signup conversion x free-to-paid conversion x ARPU. Each variable can be benchmarked against current performance and industry data, then projected forward with informed judgment.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          3:30 - 4:00 | Bottom-up starts with unit economics and builds upward. [Click] For sales-led SaaS: reps times deals per rep times ACV. Every assumption is observable. You can benchmark rep productivity against current data and industry averages. [Click] For PLG: visitors times signup conversion times paid conversion times ARPU. Same principle: each variable is testable. The power of bottom-up is that every assumption is concrete, not abstract.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 10: Bottom-Up Revenue Build Example -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>SaaS revenue build: Year 1 to year 5</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Input</th>
+              <th>Year 1</th>
+              <th>Year 2</th>
+              <th>Year 3</th>
+              <th>Year 4</th>
+              <th>Year 5</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="fragment" data-fragment-index="1">
+              <td>Sales Reps</td>
+              <td>10</td>
+              <td>18</td>
+              <td>28</td>
+              <td>35</td>
+              <td>40</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="2">
+              <td>Quota per Rep</td>
+              <td>$600K</td>
+              <td>$600K</td>
+              <td>$650K</td>
+              <td>$650K</td>
+              <td>$700K</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="3">
+              <td>Quota Attainment</td>
+              <td>65%</td>
+              <td>70%</td>
+              <td>72%</td>
+              <td>75%</td>
+              <td>75%</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="4">
+              <td>New ARR</td>
+              <td>$3.9M</td>
+              <td>$7.6M</td>
+              <td>$13.1M</td>
+              <td>$17.1M</td>
+              <td>$21.0M</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="5">
+              <td>Ending ARR (with retention + expansion)</td>
+              <td>$8.5M</td>
+              <td>$18.2M</td>
+              <td>$33.0M</td>
+              <td>$52.5M</td>
+              <td>$74.0M</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          4:00 - 4:30 | A concrete example. [Click] Start with 10 reps, scaling to 40 over five years. [Click] Quota per rep grows modestly from $600K to $700K as the company moves upmarket. [Click] Quota attainment starts at 65% (ramp time) and improves to 75%. [Click] New ARR compounds from the inputs above. [Click] Ending ARR includes retention and expansion from existing cohorts. The ending ARR of $74M tells the revenue story. Every number traces back to a testable assumption.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 11: Cohort-Based Revenue Build -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>The most sophisticated approach: Cohort-based</h2>
+        </div>
+
+        <div class="card-alt-green">
+          <div style="display: flex; align-items: flex-start; gap: 16px;">
+            <span class="icon icon-xl icon-green" style="../assets/icons/spreadsheet.svg); flex-shrink: 0;"></span>
+            <div>
+              <p><strong>Instead of modeling revenue as a single number, model each customer cohort independently. Each cohort has its own acquisition date, ACV, retention rate, and expansion rate. Stack them up for total revenue.</strong></p>
+              <p class="text-sm text-light mt-8">This approach naturally incorporates retention and expansion dynamics, which are the variables that matter most. If a firm asks you to build a revenue model and you use a cohort-based approach, you're signaling that you think like an investor, not an accountant.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          4:30 - 5:00 | The most sophisticated version of bottom-up is cohort-based. Instead of one revenue number, model each customer cohort independently. Q1 2024 cohort has its own ACV, retention, and expansion assumptions. Q2 is separate. Stack them up for total revenue. More work, but it naturally captures the retention and expansion dynamics that drive outcomes. Using a cohort-based approach in a take-home signals investor thinking.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 12: Top-Down Revenue Modeling -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Top-down: Start with the market</h2>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="card card-purple-bg fragment" data-fragment-index="1" style="padding: 16px;">
+            <h3 class="mb-8">The Approach</h3>
+            <p class="text-sm text-light">TAM is $10B. Company captures 2% in 5 years. That's $200M revenue. Useful for sanity-checking bottom-up projections and for very early-stage companies with insufficient data for bottom-up.</p>
+          </div>
+          <div class="card card-orange-bg fragment" data-fragment-index="2" style="padding: 16px;">
+            <h3 class="mb-8">The Limitation</h3>
+            <p class="text-sm text-light">Disconnected from execution. "2% of a $10B market" tells you nothing about how. No customer acquisition details, no sales capacity, no competitive dynamics. A pitch deck uses top-down to impress. Diligence uses bottom-up to verify.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          5:00 - 5:30 | Top-down works from the market downward. [Click] TAM times market share equals revenue. If bottom-up says $500M year-5 revenue in a $2B TAM, that implies 25% market share. For a 3-year-old company? Probably not realistic. The top-down check saves you from fantasy. [Click] The limitation: it's disconnected from execution. Saying "2% of $10B" sounds plausible but tells you nothing about how. The best models use both: build bottom-up, cross-check top-down. If they converge, confidence increases. If they diverge, figure out which is wrong.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 13: Channel-Based Revenue Builds -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Breaking revenue by acquisition channel</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Channel</th>
+              <th>Year 1 ARR</th>
+              <th>Year 3 ARR</th>
+              <th>Year 5 ARR</th>
+              <th>Scaling Constraint</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="fragment" data-fragment-index="1">
+              <td>Direct Sales</td>
+              <td>$3.0M</td>
+              <td>$12.0M</td>
+              <td>$24.0M</td>
+              <td>Rep hiring and ramp</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="2">
+              <td>Inbound/Content</td>
+              <td>$1.5M</td>
+              <td>$5.0M</td>
+              <td>$8.0M</td>
+              <td>Diminishing SEO returns</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="3">
+              <td>Partnerships</td>
+              <td>$0.5M</td>
+              <td>$4.0M</td>
+              <td>$12.0M</td>
+              <td>Partner onboarding time</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="4">
+              <td>Product-Led</td>
+              <td>$0.8M</td>
+              <td>$6.0M</td>
+              <td>$18.0M</td>
+              <td>Conversion rate ceiling</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          5:30 - 6:00 | Channel-based builds add another layer. [Click] Direct sales: scales with rep count but has a hiring ceiling. [Click] Inbound: scales with content investment but hits diminishing returns. [Click] Partnerships: slow to start but can compound as partners onboard. [Click] Product-led: often the highest-ceiling channel but conversion rates have limits. Modeling by channel forces you to think about where growth will actually come from, not just the aggregate rate. Each channel has different unit economics and different scaling constraints.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 14: Section Divider -- Operating Model -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <div class="part-number">Section 3</div>
+        <h1>Operating Model and Scenario Analysis</h1>
+
+        <aside class="notes">
+          6:15 | Transition into the operating model below the revenue line.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 15: The Four Cost Buckets -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Startup p&amp;l: Four cost categories</h2>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="card card-green-bg" style="padding: 16px;">
+            <h3 class="mb-8">COGS</h3>
+            <p class="text-sm text-light">Hosting, infrastructure, support. Gross margin should be 70%+ for true SaaS. Below 60% means a services component that caps profitability.</p>
+          </div>
+          <div class="card card-blue-bg" style="padding: 16px;">
+            <h3 class="mb-8">Sales &amp; Marketing</h3>
+            <p class="text-sm text-light">Usually the largest line at 40-60% of revenue in growth phase. The question isn't how much, it's what you get per dollar spent.</p>
+          </div>
+          <div class="card card-purple-bg" style="padding: 16px;">
+            <h3 class="mb-8">R&amp;D</h3>
+            <p class="text-sm text-light">Product and engineering. 20-30% of revenue at scale. Should decline as a percentage over time as the product matures.</p>
+          </div>
+          <div class="card card-orange-bg" style="padding: 16px;">
+            <h3 class="mb-8">G&amp;A</h3>
+            <p class="text-sm text-light">Finance, legal, HR. 10-15% of revenue, declining over time. If G&amp;A grows faster than revenue, operational discipline has failed.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          6:15 - 7:00 | Four standard cost buckets for a startup P&amp;L. COGS: direct delivery costs. Gross margin must be 70%+ for real SaaS. Sales and marketing: usually the largest line, 40-60% of revenue during growth. R&amp;D: product and engineering, 20-30% at scale, declining as a percentage. G&amp;A: overhead at 10-15%, also declining. The relationship between these buckets and revenue is where operating leverage lives.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 16: Operating Leverage -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Operating leverage: Why software gets premium multiples</h2>
+        </div>
+
+        <div class="card-alt-green">
+          <div style="display: flex; align-items: flex-start; gap: 16px;">
+            <span class="icon icon-xl icon-green" style="../assets/icons/arrow-up-chart-growth.svg); flex-shrink: 0;"></span>
+            <div>
+              <p><strong>Software has high fixed costs and low variable costs. Serving the 10,000th customer costs almost nothing more than the 1,000th. As revenue grows, margins expand. That is operating leverage.</strong></p>
+              <p class="text-sm text-light mt-8">In the model, operating leverage shows up as expenses growing slower than revenue. If revenue doubles and expenses grow 50%, margins expand. If expenses grow at the same rate as revenue, there is no operating leverage, and the business is not truly a software company from a financial perspective. Your model should show this trajectory.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          7:00 - 7:30 | Operating leverage ties the cost structure together. Software has high fixed costs, low variable costs. The 10,000th customer costs almost nothing more than the 1,000th. Revenue doubles, expenses grow 50%, margins expand. In your model, this shows up as expense growth lagging revenue growth. If both grow at the same rate, there's no operating leverage, and you should ask why. This is the core reason software companies earn premium multiples.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 17: Scenario Analysis Structure -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Bull, base, and bear: Three scenarios</h2>
+        </div>
+
+        <div class="card-grid-3">
+          <div class="card card-green-bg fragment" data-fragment-index="1">
+            <span class="icon icon-lg icon-green mb-16" style="../assets/icons/arrow-up-chart-growth.svg)"></span>
+            <h3>Bull Case</h3>
+            <p class="text-sm text-light">Everything goes right. Growth accelerates, retention improves, expansion into adjacent markets. What's the exit? What return does the fund generate?</p>
+          </div>
+          <div class="card card-blue-bg fragment" data-fragment-index="2">
+            <span class="icon icon-lg icon-blue mb-16" style="../assets/icons/arrow-right.svg)"></span>
+            <h3>Base Case</h3>
+            <p class="text-sm text-light">The company executes its current plan. Growth continues on current trajectory, retention holds, costs scale historically. The "most likely" outcome.</p>
+          </div>
+          <div class="card card-orange-bg fragment" data-fragment-index="3">
+            <span class="icon icon-lg icon-orange mb-16" style="../assets/icons/arrow-down.svg)"></span>
+            <h3>Bear Case</h3>
+            <p class="text-sm text-light">Growth slows. A competitor enters. Key segment churns. Additional fundraise at lower valuation. Can the fund still generate a return, or is the investment wiped out?</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          7:30 - 8:00 | Scenario analysis turns the model into a decision tool. [Click] Bull: everything works. Growth accelerates, retention improves, new markets open. What does the exit look like? [Click] Base: current trajectory continues. Growth holds, costs scale in line. The most likely outcome. [Click] Bear: growth slows, competition increases, customers churn. What's the downside? Can the fund still make money? Good scenario analysis isn't about optimism and pessimism. It's about identifying which variables drive the widest range of outcomes.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 18: Scenario Summary Table -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Three-scenario outcome summary</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Metric</th>
+              <th>Bull</th>
+              <th>Base</th>
+              <th>Bear</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="fragment" data-fragment-index="1">
+              <td>Year 5 Revenue</td>
+              <td>$150M</td>
+              <td>$80M</td>
+              <td>$40M</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="2">
+              <td>Gross Margin</td>
+              <td>78%</td>
+              <td>72%</td>
+              <td>65%</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="3">
+              <td>Exit Multiple</td>
+              <td>12x</td>
+              <td>8x</td>
+              <td>5x</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="4">
+              <td>Exit Valuation</td>
+              <td>$1.8B</td>
+              <td>$640M</td>
+              <td>$200M</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="5">
+              <td>Return Multiple</td>
+              <td>9.0x</td>
+              <td>3.2x</td>
+              <td>1.0x</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          8:00 - 8:30 | A concrete scenario summary. [Click] Year 5 revenue: $150M bull, $80M base, $40M bear. [Click] Gross margins improve in the bull case, compress in the bear. [Click] Exit multiples: 12x in a hot market vs 5x in a correction. [Click] Exit valuations range from $1.8B to $200M. Same company, same entry. [Click] Return multiples: 9x in the bull case is fund-making. 3.2x in the base is solid. 1.0x in the bear is capital preservation. The model makes it obvious which assumptions carry the most weight.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 19: Sensitivity Analysis -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Which assumptions matter most</h2>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="card card-green-bg fragment" data-fragment-index="1" style="padding: 16px;">
+            <h3 class="mb-8">Build a Sensitivity Matrix</h3>
+            <p class="text-sm text-light">Pick the two highest-impact variables, usually growth rate and exit multiple. Build a matrix showing returns across combinations. A 2-variable sensitivity table is the most information-dense visual in a VC model.</p>
+          </div>
+          <div class="card card-blue-bg fragment" data-fragment-index="2" style="padding: 16px;">
+            <h3 class="mb-8">Partners Love This</h3>
+            <p class="text-sm text-light">It answers "what has to go right for this to work?" in a single glance. Highlight the zone of acceptability where returns exceed the threshold. A deal that only works in the top-right corner of the table is a market-timing bet, not an investment.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          8:30 - 9:00 | Sensitivity analysis makes the scenario work explicit. [Click] Pick two highest-impact variables, usually growth rate and exit multiple. Build a matrix showing return at each combination. This is the most information-dense visual you can produce. [Click] Partners love these because they answer "what has to go right?" at a glance. Highlight the zone where returns work. If the deal only works in the top-right corner, you're making a market-timing bet, not an investment decision.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 20: Section Divider -- Exit Math -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <div class="part-number">Section 4</div>
+        <h1>Exit Math: Working Backward</h1>
+
+        <aside class="notes">
+          9:15 | Transition into reverse-engineering the exit.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 21: The Reverse-Engineering Exercise -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Start with the exit, work backward</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Step</th>
+              <th>Calculation</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="fragment" data-fragment-index="1">
+              <td>Fund size</td>
+              <td>Given</td>
+              <td>$500M</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="2">
+              <td>Fund ownership at exit</td>
+              <td>Post-dilution</td>
+              <td>15%</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="3">
+              <td>Required exit value</td>
+              <td>$500M / 15%</td>
+              <td>$3.3B</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="4">
+              <td>Exit multiple (SaaS)</td>
+              <td>Market benchmark</td>
+              <td>15x</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="5">
+              <td>Required exit revenue</td>
+              <td>$3.3B / 15x</td>
+              <td>$220M</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="6">
+              <td>Current ARR</td>
+              <td>Given</td>
+              <td>$20M</td>
+            </tr>
+            <tr class="fragment" data-fragment-index="7">
+              <td>Implied CAGR (7 years)</td>
+              <td>$20M to $220M</td>
+              <td>~40%</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          9:15 - 10:00 | The reverse-engineering exercise. Start with what the exit needs to look like and work backward. [Click] $500M fund. [Click] 15% ownership at exit after dilution. [Click] Need a $3.3B exit to return the fund. [Click] At a 15x revenue multiple. [Click] The company needs $220M in revenue at exit. [Click] Currently at $20M ARR. [Click] That implies ~40% CAGR over 7 years. Is that realistic? For a well-positioned SaaS company with strong unit economics and large market, yes. For a niche market with 90% NDR and rising CAC, probably not. This exercise forces intellectual honesty.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 22: Dilution and Exit Multiple Sensitivity -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Two hidden variables that change everything</h2>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="card card-purple-bg fragment" data-fragment-index="1" style="padding: 16px;">
+            <h3 class="mb-8">Dilution Doubles the Bar</h3>
+            <p class="text-sm text-light">If the fund owns 20% at Series B but gets diluted to 10% by IPO, the required exit valuation doubles. A company needing two more rounds will dilute existing investors 30-50%. The model must account for future fundraising.</p>
+          </div>
+          <div class="card card-orange-bg fragment" data-fragment-index="2" style="padding: 16px;">
+            <h3 class="mb-8">Exit Multiple Vulnerability</h3>
+            <p class="text-sm text-light">A company at 20x revenue in a hot market might trade at 8x in a correction. If the model only works at 20x, there is no margin of safety. Use the bear-case multiple. If the deal requires a bull-market multiple to work, you're making a market-timing bet.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          10:00 - 10:30 | Two variables that change the math dramatically. [Click] Dilution. Owning 20% at Series B means nothing if you're at 10% by IPO. Each future round dilutes existing investors 15-25%. Two more rounds means 30-50% dilution. The model must account for this. [Click] Exit multiple sensitivity. A company at 20x in a hot market might trade at 8x in a downturn. If your model only works at 20x, you have no margin of safety. Best practice: use the bear-case multiple and see if the return still works.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 23: Why This Exercise Matters -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Think like an investor, not an analyst</h2>
+        </div>
+
+        <div class="card-alt-green">
+          <div style="display: flex; align-items: flex-start; gap: 16px;">
+            <span class="icon icon-xl icon-green" style="../assets/icons/lightning.svg); flex-shrink: 0;"></span>
+            <div>
+              <p><strong>The analyst builds a model and reports the output. The investor asks "what does the output need to be?" and works backward to test feasibility. That shift in framing is the difference between someone who crunches numbers and someone who makes investment decisions.</strong></p>
+              <p class="text-sm text-light mt-8">For interview take-homes, this reverse-engineering exercise is often the most impressive component. It shows you understand the investment question. Instead of building a forecast and hoping the exit looks good, you start with what the exit needs to look like and ask whether it's achievable. That's rigorous thinking.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          10:30 - 11:00 | The key mindset shift. An analyst builds a model and reports what comes out. An investor starts with what the output needs to be and works backward to test whether it's achievable. In take-home exercises, this reverse-engineering is often the most impressive component. It demonstrates you think like an investor, not a spreadsheet operator. "What does this company need to become for this investment to work?" is the question that drives everything.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 24: Key Takeaways -->
+      <!-- ============================================ -->
+      <section class="content-dark">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Key takeaways</h2>
+        </div>
+
+        <ul class="plus-list text-white">
+          <li class="fragment" data-fragment-index="1"><strong>VC modeling is about assumptions, not formulas.</strong> Anyone can build a spreadsheet. The skill is knowing which assumptions drive the outcome and setting them realistically. Interviewers test judgment, not Excel skills.</li>
+          <li class="fragment" data-fragment-index="2"><strong>Build bottom-up, sanity-check top-down.</strong> Ground the revenue model in observable unit economics, then cross-reference against TAM. The gap between the two approaches is where the most important conversations happen.</li>
+          <li class="fragment" data-fragment-index="3"><strong>Work backward from the exit.</strong> "What does this company need to look like for the investment to work?" turns an abstract growth story into a concrete, testable claim. This is the most practical exercise in VC modeling.</li>
+          <li class="fragment" data-fragment-index="4"><strong>Scenario analysis identifies the variables that matter.</strong> A useful bull case names the specific driver of upside. A useful bear case identifies the specific risk. Test sensitivity on the highest-impact assumptions.</li>
+          <li class="fragment" data-fragment-index="5"><strong>The biggest mistake is over-engineering.</strong> A clean 30-row model that answers the investment question beats a 500-row three-statement model every time. Build the model that answers the question. Nothing more.</li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="rgba(255,255,255,0.4)"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          11:15 - 12:00 | Five takeaways. [Click] Assumptions over formulas. Interviewers test judgment, not Excel. [Click] Build bottom-up, check top-down. The gap between approaches is where insight lives. [Click] Work backward from the exit. Turn the growth story into a testable claim about revenue, multiples, and ownership. [Click] Scenario analysis should name specific variables. A bull case where everything goes up 10% is lazy. A bull case driven by enterprise expansion with higher ACVs is useful. [Click] Don't over-engineer. If you spend 40 of 48 hours on a DCF with a WACC calculation, you've missed the point entirely. Build what answers the question.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js -->
+  <script src="../assets/reveal/dist/reveal.min.js"></script>
+  <script type="module">
+    import RevealNotes from '../assets/reveal/plugin/notes/notes.esm.js';
+
+    Reveal.initialize({
+      width: 960,
+      height: 540,
+      margin: 0,
+      minScale: 0.5,
+      maxScale: 3.0,
+      hash: true,
+      slideNumber: true,
+      controls: true,
+      progress: true,
+      history: true,
+      center: false,
+      transition: 'none',
+      backgroundTransition: 'none',
+      disableLayout: false,
+      plugins: [ RevealNotes ]
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en" class="reveal-full-page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Market Mapping Fundamentals</title>
+
+  <!-- Reveal.js Core -->
+  <link rel="stylesheet" href="../assets/reveal/dist/reset.css">
+  <link rel="stylesheet" href="../assets/reveal/dist/reveal.css">
+
+  <!-- Leland Theme -->
+  <link rel="stylesheet" href="../assets/reveal/themes/leland.css">
+
+</head>
+<body>
+  <!-- SVG Symbol Definitions (defined once, referenced via <use>) -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="leland-logo" viewBox="0 0 200 45">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z"/>
+      <path d="M162.705 24.9972V38.1671H169.214V23.5735C169.214 17.675 167.434 13.0986 160.366 13.0986C156.807 13.0986 154.315 14.6749 152.993 17.2682H152.841L152.891 13.5563H146.383V38.1671H152.891V25.9125C152.891 21.7938 154.264 18.4378 158.281 18.4378C162.044 18.4378 162.705 21.3361 162.705 24.9972Z"/>
+      <path d="M134.451 35.3196L134.553 38.1671H140.807V24.082C140.807 19.9124 139.892 17.675 138.112 15.9462C136.282 14.2173 133.79 13.0986 129.417 13.0986C125.146 13.0986 121.688 14.5732 119.807 15.6919L121.79 19.8615C122.858 19.0479 125.553 17.8276 128.807 17.8276C132.214 17.8276 134.299 19.3022 134.299 22.4548V23.1158L128.4 23.5226C123.315 23.8786 118.281 25.8617 118.281 30.9974C118.281 36.1331 122.146 38.7264 126.926 38.7264C130.587 38.7264 133.434 37.0993 134.451 35.3196ZM129.926 27.3363L134.349 27.0821V31.6076C133.485 32.828 131.604 34.3026 129.061 34.3026C126.366 34.3026 124.79 32.8788 124.79 30.794C124.79 28.7092 126.468 27.5397 129.926 27.3363Z"/>
+      <path d="M84.6788 27.9465H102.781C102.781 27.9465 102.883 25.9125 102.883 24.6413C102.883 18.0818 98.3063 13.0986 90.7298 13.0986C83.7127 13.0986 77.9668 18.3869 77.9668 26.2685C77.9668 34.2009 83.4585 38.7264 90.8824 38.7264C96.8826 38.7264 100.595 36.184 101.967 34.7602L99.425 31.2517C98.2555 32.2686 95.3062 33.7432 92.0011 33.7432C88.2891 33.7432 85.289 31.8618 84.6788 27.9465ZM90.679 17.9293C95.2554 17.9293 96.2724 21.031 96.3741 23.726H84.5771C84.7805 20.6243 86.8145 17.9293 90.679 17.9293Z"/>
+      <path d="M63.8193 6.35938V32.6722H76.0738V38.1639H57.2598V6.35938L63.8193 6.35938Z"/>
+      <path d="M113.915 6.35938V38.1639H107.457V6.35938L113.915 6.35938Z"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z"/>
+    </symbol>
+  </svg>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ============================================ -->
+      <!-- SLIDE 1: Title Dark -->
+      <!-- ============================================ -->
+      <section class="title-dark">
+        <svg width="110" height="25" fill="white" class="mb-16"><use href="#leland-logo"/></svg>
+        <p class="eyebrow">VC Recruiting Course</p>
+        <h1>Market Mapping<br><span class="hl">Fundamentals</span></h1>
+
+        <aside class="notes">
+          [0:00] Welcome slide. Brief pause before launching into the hook.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 2: The VC Cheat Code -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>367 companies. 45 markets. One map.</h2>
+        </div>
+
+        <div class="card-alt-green">
+          <div style="display: flex; align-items: flex-start; gap: 16px;">
+            <span class="icon icon-xl icon-green" style="../assets/icons/search-document.svg); flex-shrink: 0;"></span>
+            <div>
+              <p><strong>CB Insights mapped 367 companies across 45 markets in the data center value chain. That single map told investors more about where advantage was forming, where capital was clustering, and where white space existed than any pitch deck or analyst report could.</strong></p>
+              <p class="text-sm text-light mt-8">When a partner evaluates a new deal, the first question is always the same: "Who else is doing this, and where does this company sit in the landscape?" The person who can answer that from memory is the person who gets pulled into the deal meeting.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          0:00 - 0:30 | Hook. CB Insights built a map of the entire data center value chain. 367 companies, 45 markets. It became one of the most referenced documents in infrastructure investing. Market maps are the closest thing VCs have to a cheat code.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 3: What You'll Learn -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>From logo dump to investment tool</h2>
+        </div>
+
+        <ul class="icon-list text-lg">
+          <li>
+            <span class="icon icon-lg icon-green" style="../assets/icons/layers.svg)"></span>
+            <span><strong>Map structure:</strong> How to structure a market map that VCs actually find useful</span>
+          </li>
+          <li>
+            <span class="icon icon-lg icon-green" style="../assets/icons/sparkle.svg)"></span>
+            <span><strong>Seven dimensions:</strong> The dimensions that separate a good map from a great one</span>
+          </li>
+          <li>
+            <span class="icon icon-lg icon-green" style="../assets/icons/search.svg)"></span>
+            <span><strong>White space:</strong> How to identify gaps and emerging opportunities</span>
+          </li>
+          <li>
+            <span class="icon icon-lg icon-green" style="../assets/icons/arrow-recurring.svg)"></span>
+            <span><strong>Living document:</strong> The workflow for keeping your map current and alive</span>
+          </li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          0:30 - 1:00 | Four topics. In 4.1 we covered why a thesis matters. In 4.2 we built sector conviction. A market map is how you operationalize both. It turns conviction into a tool.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 4: Section Divider -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <div class="part-number">Section 1</div>
+        <h1>What a Market Map Actually Is</h1>
+
+        <aside class="notes">
+          1:00 | Transition into defining a real market map.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 5: Logo Dump vs. Analytical Map -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>A list of logos is not a market map</h2>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="card card-orange-bg fragment" data-fragment-index="1">
+            <span class="icon icon-lg icon-orange mb-16" style="../assets/icons/stop-octagon-minus.svg)"></span>
+            <h3>The Bad Map</h3>
+            <p class="text-sm text-light">Company logos grouped by vague categories like "infrastructure," "platform," and "applications." No funding data. No competitive positioning. No insight about where the market is heading. This is a directory, not an analytical tool.</p>
+          </div>
+          <div class="card card-green-bg fragment" data-fragment-index="2">
+            <span class="icon icon-lg icon-green mb-16" style="../assets/icons/checkmark-badge.svg)"></span>
+            <h3>The Good Map</h3>
+            <p class="text-sm text-light">Companies organized by value chain position with segmentation by customer type, business model, and stage. Includes funding data, competitive notes, and explicit white space callouts. A reader immediately understands where capital has concentrated.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          1:00 - 1:45 | I see this mistake constantly. Someone puts 30 logos on a slide, organizes them into three columns, and calls it a market map. [Click] That is a logo dump. No insight, no analysis. [Click] A real market map uses value chain logic to show competitive dynamics, opportunity gaps, and where value is being captured.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 6: Descriptive vs. Analytical -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Partners want to see where the opportunity is</h2>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="card card-blue-bg fragment" data-fragment-index="1">
+            <h3>Descriptive Map</h3>
+            <p class="text-sm text-light">Shows you who is in the market. Company names, logos, basic categories. Available to anyone with a PitchBook login. Does not differentiate you as a candidate.</p>
+          </div>
+          <div class="card card-green-bg fragment" data-fragment-index="2">
+            <h3>Analytical Map</h3>
+            <p class="text-sm text-light">Shows you where the opportunity is. Includes your competitive assessments, moat indicators, and white space hypotheses. Candidates who bring this to an interview immediately differentiate themselves.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          1:45 - 2:45 | The distinction is between a descriptive map and an analytical map. [Click] A descriptive map shows who is in the market. That is available to anyone. [Click] An analytical map shows where the opportunity is. Your judgment, your competitive notes, your white space flags. That is unique to you.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 7: Section Divider -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <div class="part-number">Section 2</div>
+        <h1>The Seven Dimensions of a Great Map</h1>
+
+        <aside class="notes">
+          2:45 | Transition into the seven dimensions.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 8: Dimensions 1-3 -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Position, customer, and stage</h2>
+        </div>
+
+        <div class="card-grid-3">
+          <div class="card card-green-bg fragment" data-fragment-index="1">
+            <span class="icon icon-lg icon-green mb-16" style="../assets/icons/layers.svg)"></span>
+            <h3>Value Chain Position</h3>
+            <p class="text-sm text-light">Where does each company sit in the delivery of value? Each layer has different economics and defensibility.</p>
+          </div>
+          <div class="card card-blue-bg fragment" data-fragment-index="2">
+            <span class="icon icon-lg icon-blue mb-16" style="../assets/icons/user-group.svg)"></span>
+            <h3>Customer Segment</h3>
+            <p class="text-sm text-light">Enterprise, SMB, consumer, developer, government? Two identical technologies become different businesses depending on the buyer.</p>
+          </div>
+          <div class="card card-purple-bg fragment" data-fragment-index="3">
+            <span class="icon icon-lg icon-purple mb-16" style="../assets/icons/bar-chart.svg)"></span>
+            <h3>Stage and Funding</h3>
+            <p class="text-sm text-light">Pre-seed through public. Ten seed-stage companies and zero Series A companies in a category tells you something important about market maturity.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          2:45 - 3:30 | Seven dimensions separate a useful map from a decorative one. [Click] Value chain position: where does each company sit in the delivery chain? [Click] Customer segment: who is each company selling to? This changes everything about the business. [Click] Stage and funding: map lifecycle explicitly. Ten seed companies and zero Series A in a category is a signal.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 9: The Market Map Template -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Every map needs these columns</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Column</th>
+              <th>What It Captures</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Category / Subcategory</td>
+              <td>Value chain position</td>
+            </tr>
+            <tr>
+              <td>Company</td>
+              <td>The player</td>
+            </tr>
+            <tr>
+              <td>Stage</td>
+              <td>Pre-seed to public</td>
+            </tr>
+            <tr>
+              <td>Total Funding</td>
+              <td>Investor conviction by category</td>
+            </tr>
+            <tr>
+              <td>Lead Investors</td>
+              <td>Smart money positioning</td>
+            </tr>
+            <tr>
+              <td>Customer Segment</td>
+              <td>Business model differences</td>
+            </tr>
+            <tr>
+              <td>Business Model</td>
+              <td>SaaS / Usage / Marketplace / Other</td>
+            </tr>
+            <tr>
+              <td>Moat Indicators</td>
+              <td>Data, network effects, switching costs</td>
+            </tr>
+            <tr>
+              <td>Competitive Notes</td>
+              <td>Your analytical judgment</td>
+            </tr>
+            <tr>
+              <td>White Space Flag</td>
+              <td>Where opportunities exist</td>
+            </tr>
+            <tr>
+              <td>Last Updated</td>
+              <td>Keeps the map fresh</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          3:30 - 4:15 | Here is the template. Every column serves a purpose. Core use case enables apples-to-apples comparison. Moat indicators capture your defensibility assessment. Competitive notes are where your judgment lives. The white space flag column is why the map exists.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 10: Dimensions 4-5 -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Business model and defensibility</h2>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="card card-orange-bg fragment" data-fragment-index="1">
+            <h3>Business Model</h3>
+            <p class="text-sm text-light">SaaS, usage-based, marketplace, transaction-fee, hardware-plus-software. Two companies in the same category with different models have radically different margin profiles and scaling characteristics.</p>
+          </div>
+          <div class="card card-blue-bg fragment" data-fragment-index="2">
+            <h3>Moat Indicators</h3>
+            <p class="text-sm text-light">Barriers to entry, switching costs, network effects, proprietary data, regulatory advantages. A category full of companies with no defensibility means margins will compress and most players will struggle.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          4:15 - 4:45 | [Click] Dimension 4: business model is the economic engine. Don't group a SaaS company and a marketplace in the same bucket without noting the structural difference. [Click] Dimension 5: moat indicators. Not every company has a moat. That is an important finding.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 11: Dimensions 6-7 -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Your judgment and the gaps</h2>
+        </div>
+
+        <div class="card-grid-2">
+          <div class="card card-purple-bg fragment" data-fragment-index="1">
+            <h3>Competitive Notes</h3>
+            <p class="text-sm text-light">Your assessment of each company's strengths, weaknesses, and trajectory. "Strong product but weak GTM. Selling to enterprise with a bottoms-up tool. Likely needs to rebuild sales motion." This qualitative layer is where your unique value lives.</p>
+          </div>
+          <div class="card card-green-bg fragment" data-fragment-index="2">
+            <h3>White Space Flags</h3>
+            <p class="text-sm text-light">Categories with no companies. Customer segments nobody is serving. Value chain positions where no startup has planted a flag. When you identify a gap, you have found a potential opportunity.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          4:45 - 5:15 | [Click] Dimension 6: competitive positioning notes. Your analytical overlay is what a partner cannot get from a PitchBook login. [Click] Dimension 7: white space identification. This is why the map exists. Every map should explicitly call out gaps.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 12: Section Divider -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <div class="part-number">Section 3</div>
+        <h1>Finding and Tracking Companies</h1>
+
+        <aside class="notes">
+          5:15 | Transition into sourcing workflow.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 13: Start with Databases -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>The best companies won't come from pitchbook</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Source</th>
+              <th>What You'll Find</th>
+              <th>Frequency</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>PitchBook / CB Insights</td>
+              <td>Comprehensive deal and company data</td>
+              <td>Weekly alerts</td>
+            </tr>
+            <tr>
+              <td>Y Combinator batch lists</td>
+              <td>Earliest-stage, pre-product companies</td>
+              <td>Twice per year</td>
+            </tr>
+            <tr>
+              <td>Product Hunt / Hacker News</td>
+              <td>Developer tools, consumer products</td>
+              <td>Daily</td>
+            </tr>
+            <tr>
+              <td>AngelList / Wellfound</td>
+              <td>Seed-stage companies and their hiring</td>
+              <td>Weekly</td>
+            </tr>
+            <tr>
+              <td>Twitter/X + Substack</td>
+              <td>Founder announcements, industry analysis</td>
+              <td>Daily</td>
+            </tr>
+            <tr>
+              <td>Conference speaker lists</td>
+              <td>Companies gaining visibility</td>
+              <td>Quarterly</td>
+            </tr>
+            <tr>
+              <td>Patent filings (Google Patents)</td>
+              <td>Deep tech companies before they launch</td>
+              <td>Monthly</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          5:15 - 6:00 | A map is only as good as the companies in it. Start with databases: PitchBook is the gold standard, CB Insights is strong for market maps specifically. Then go beyond databases. The best companies on your map will come from YC batch lists, founder Twitter, conference speaker rosters, and patent filings.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 14: Make Tracking a Background Process -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Five minutes a day beats four hours a month</h2>
+        </div>
+
+        <ul class="icon-list text-lg">
+          <li class="fragment" data-fragment-index="1">
+            <span class="icon icon-lg icon-green" style="../assets/icons/bell.svg)"></span>
+            <span>Set up Google Alerts for your sector keywords and PitchBook/Crunchbase alerts for new funding rounds.</span>
+          </li>
+          <li class="fragment" data-fragment-index="2">
+            <span class="icon icon-lg icon-green" style="../assets/icons/networking.svg)"></span>
+            <span>Follow the 20 most active VCs in your sector on Twitter for real-time signal.</span>
+          </li>
+          <li class="fragment" data-fragment-index="3">
+            <span class="icon icon-lg icon-green" style="../assets/icons/spreadsheet.svg)"></span>
+            <span>Create a "watch list" column for companies you are monitoring but have not yet added.</span>
+          </li>
+          <li class="fragment" data-fragment-index="4">
+            <span class="icon icon-lg icon-green" style="../assets/icons/star.svg)"></span>
+            <span>The seed-stage names a partner has never heard of, with your note explaining why they are interesting, are what catch attention.</span>
+          </li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          6:00 - 7:00 | The goal is to make company tracking a background process, not a project. [Click] Set up automated alerts. [Click] Follow active VCs in your sector for real-time signal. [Click] Keep a watch list column for companies on your radar. [Click] What separates great maps from good ones: including companies not yet on anyone's radar.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 15: Section Divider -->
+      <!-- ============================================ -->
+      <section class="divider">
+        <div class="part-number">Section 4</div>
+        <h1>White Space Analysis</h1>
+
+        <aside class="notes">
+          7:15 | Transition into white space, the whole point of the exercise.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 16: The White Space Matrix -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Where demand meets opportunity</h2>
+        </div>
+
+        <div class="card-grid-2" style="padding-bottom: 0;">
+          <div class="card card-orange-bg fragment" data-fragment-index="1" style="padding: 16px;">
+            <span class="badge badge-orange self-start mb-8">High Demand + High Supply</span>
+            <h3 class="mb-8">Crowded Category</h3>
+            <p class="text-sm text-light">Pick the winner, not the category. Example: AI chatbots for customer support.</p>
+          </div>
+          <div class="card card-green-bg fragment" data-fragment-index="2" style="padding: 16px;">
+            <span class="badge badge-green self-start mb-8">High Demand + Low Supply</span>
+            <h3 class="mb-8">Sweet Spot</h3>
+            <p class="text-sm text-light">Clear need, few startups. Example: AI-native compliance tools for community banks.</p>
+          </div>
+          <div class="card card-red-bg fragment" data-fragment-index="3" style="padding: 16px;">
+            <span class="badge badge-red self-start mb-8">Low Demand + High Supply</span>
+            <h3 class="mb-8">Danger Zone</h3>
+            <p class="text-sm text-light">Lots of companies, no customer pull. Example: Blockchain for supply chain.</p>
+          </div>
+          <div class="card card-blue-bg fragment" data-fragment-index="4" style="padding: 16px;">
+            <span class="badge badge-blue self-start mb-8">Low Demand + Low Supply</span>
+            <h3 class="mb-8">Watch List</h3>
+            <p class="text-sm text-light">Could be dead or too early. Look for an emerging catalyst in the next 12-24 months.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          7:15 - 8:15 | White space is where market maps become investment tools. Four quadrants. [Click] High demand, high supply: crowded. The thesis is about picking the winner. [Click] High demand, low supply: the sweet spot. Clear need, few startups. [Click] Low demand, high supply: danger zone. Lots of building, no customer pull. [Click] Low demand, low supply: requires the most judgment. Is there an emerging catalyst?
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 17: Writing a White Space Hypothesis -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Turn every gap into a testable thesis</h2>
+        </div>
+
+        <div class="card-alt-green">
+          <div style="display: flex; align-items: flex-start; gap: 16px;">
+            <span class="icon icon-xl icon-green" style="../assets/icons/search-document.svg); flex-shrink: 0;"></span>
+            <div>
+              <p><strong>"No company is addressing [specific problem] for [specific customer segment] because [specific reason]. I believe this will change when [specific catalyst occurs], creating an opportunity for [specific type of company]."</strong></p>
+              <p class="text-sm text-light mt-8">That is a white space hypothesis. It connects to the value chain: when you see a step that every company handles manually or outsources to legacy providers, that is structural white space. It is not just an absence of startups. It is an absence of modern solutions at a specific point in the value delivery process.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          8:15 - 9:00 | When you identify white space, document your hypothesis using this structure. This is the building block of an investment thesis. When you see a gap in the chain, a step handled manually or by legacy providers, that is the highest-conviction kind of white space.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 18: Keeping Your Map Alive -->
+      <!-- ============================================ -->
+      <section class="content">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>A stale map is worse than no map</h2>
+        </div>
+
+        <div class="card-grid-2" style="padding-bottom: 0;">
+          <div class="card card-green-bg fragment" data-fragment-index="1" style="padding: 16px;">
+            <h3 class="mb-8">Weekly</h3>
+            <p class="text-sm text-light">Add new funding announcements and companies to watch list.</p>
+          </div>
+          <div class="card card-blue-bg fragment" data-fragment-index="2" style="padding: 16px;">
+            <h3 class="mb-8">Bi-weekly</h3>
+            <p class="text-sm text-light">Update stage and funding data for tracked companies.</p>
+          </div>
+          <div class="card card-purple-bg fragment" data-fragment-index="3" style="padding: 16px;">
+            <h3 class="mb-8">Monthly</h3>
+            <p class="text-sm text-light">Review white space hypotheses. Did anything change? Did a new company emerge in a gap?</p>
+          </div>
+          <div class="card card-orange-bg fragment" data-fragment-index="4" style="padding: 16px;">
+            <h3 class="mb-8">Quarterly</h3>
+            <p class="text-sm text-light">Full refresh. Remove dead companies, recategorize pivots, update competitive notes.</p>
+          </div>
+        </div>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          9:00 - 9:30 | A map that has not been updated in three months is worse than no map at all. [Click] Weekly: add new funding announcements. [Click] Bi-weekly: update funding and stage data. [Click] Monthly: review your white space hypotheses. [Click] Quarterly: full refresh. Time-stamp your map.
+        </aside>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SLIDE 19: Key Takeaways -->
+      <!-- ============================================ -->
+      <section class="content-dark">
+        <div class="slide-header">
+          <p class="eyebrow">VC Recruiting Course</p>
+          <h2>Key takeaways</h2>
+        </div>
+
+        <ul class="plus-list text-white">
+          <li class="fragment" data-fragment-index="1"><strong>A market map is not a logo collection.</strong> It is a structured analytical tool built on value chain logic. If your map lacks competitive notes, moat indicators, and white space flags, it is a directory, not a map.</li>
+          <li class="fragment" data-fragment-index="2"><strong>Include all seven dimensions.</strong> Value chain position, customer segment, stage, business model, moat indicators, competitive notes, and white space flags.</li>
+          <li class="fragment" data-fragment-index="3"><strong>White space is the entire point.</strong> High demand plus low startup supply is the quadrant that generates the best investment opportunities. Train your eye to look for gaps, not just logos.</li>
+          <li class="fragment" data-fragment-index="4"><strong>Source beyond databases.</strong> PitchBook and CB Insights are starting points. The most valuable companies on your map will come from YC batch lists, founder Twitter, and patent filings.</li>
+          <li class="fragment" data-fragment-index="5"><strong>Keep it alive.</strong> Update weekly, refresh quarterly, time-stamp everything. A living map is a career asset that compounds. A stale one is a liability.</li>
+        </ul>
+
+        <div class="leland-footer">
+          <svg width="80" height="18" fill="rgba(255,255,255,0.4)"><use href="#leland-logo"/></svg>
+        </div>
+        <aside class="notes">
+          9:30 - 10:00 | Five takeaways. [Click] A market map is an analytical tool, not a logo dump. [Click] Seven dimensions are what separate useful from decorative. [Click] White space is the point. Look for gaps, not just logos. [Click] Source beyond databases. [Click] Keep it alive. A living map compounds. A stale one is a liability.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal.js -->
+  <script src="../assets/reveal/dist/reveal.min.js"></script>
+  <script type="module">
+    import RevealNotes from '../assets/reveal/plugin/notes/notes.esm.js';
+
+    Reveal.initialize({
+      width: 960,
+      height: 540,
+      margin: 0,
+      minScale: 0.5,
+      maxScale: 3.0,
+      hash: true,
+      slideNumber: true,
+      controls: true,
+      progress: true,
+      history: true,
+      center: false,
+      transition: 'none',
+      backgroundTransition: 'none',
+      disableLayout: false,
+      plugins: [ RevealNotes ]
+    });
+  </script>
+</body>
+</html>
