@@ -67,7 +67,7 @@
         </div>
 
         <!-- Grouped bar chart: Regional Sales by Year -->
-        <svg class="chart-svg" viewBox="0 0 750 110" style="margin-bottom: 8px">
+        <svg class="chart-svg" viewBox="0 0 750 130" style="margin-bottom: 8px">
           <!-- Gridlines -->
           <line x1="80" y1="8" x2="80" y2="90" stroke="#E5E5E5" stroke-width="0.5"/>
           <line x1="80" y1="90" x2="730" y2="90" stroke="#333" stroke-width="1"/>
@@ -198,8 +198,9 @@
           <h2>The truncated axis trap</h2>
         </div>
 
+        <div style="font-size: 0.9em">
         <!-- Side-by-side truncated axis comparison -->
-        <div class="chart-pair" style="margin-bottom: 16px">
+        <div class="chart-pair" style="margin-bottom: 12px">
           <div class="chart-container">
             <p class="text-sm" style="text-align:center; margin-bottom:4px; color:#15B078; font-weight:600">Y-axis starts at 0</p>
             <svg class="chart-svg" viewBox="0 0 340 130">
@@ -260,15 +261,16 @@
           </div>
         </div>
 
-        <div class="two-column gap-32">
-          <div class="card card-red-bg" style="padding: 12px 16px">
-            <span class="badge badge-red self-start mb-8">Trap</span>
+        <div class="two-column gap-16">
+          <div class="card card-red-bg" style="padding: 8px 14px">
+            <span class="badge badge-red self-start mb-4">Trap</span>
             <p class="text-sm">A bar that appears twice as tall does NOT mean twice the value. Always check where the axis starts.</p>
           </div>
-          <div class="card card-green-bg" style="padding: 12px 16px">
-            <span class="badge badge-green self-start mb-8">Solution</span>
+          <div class="card card-green-bg" style="padding: 8px 14px">
+            <span class="badge badge-green self-start mb-4">Solution</span>
             <p class="text-sm">Read the actual values from the scale, not the visual proportions.</p>
           </div>
+        </div>
         </div>
 
         <aside class="notes">
@@ -421,10 +423,13 @@
             </svg>
           </div>
           <div class="card fragment" data-fragment-index="1">
-            <h3 class="text-md mb-16">Solution</h3>
-            <p class="text-md mb-16 fragment" data-fragment-index="2">Total increase:&nbsp;$\$18\text{M} - \$10\text{M} = \$8\text{M}$</p>
-            <p class="text-md mb-16 fragment" data-fragment-index="3">Number of intervals: 4 (Year 1 to Year 5)</p>
-            <p class="text-lg mt-16 fragment" data-fragment-index="4">Average:&nbsp;$\frac{\$8\text{M}}{4} =$&nbsp;$\$2\text{M/year}$</p>
+            <h3 class="text-md mb-12">Solution</h3>
+            <p class="text-md mb-4 fragment" data-fragment-index="2"><strong>Step 1:</strong> Total increase</p>
+            <p class="text-md mb-12 fragment" data-fragment-index="2"><span style="white-space: nowrap">$\$18\text{M} - \$10\text{M} = \$8\text{M}$</span></p>
+            <p class="text-md mb-4 fragment" data-fragment-index="3"><strong>Step 2:</strong> Number of intervals</p>
+            <p class="text-md mb-12 fragment" data-fragment-index="3">4 (Year 1 to Year 5)</p>
+            <p class="text-md mb-4 fragment" data-fragment-index="4"><strong>Step 3:</strong> Average</p>
+            <p class="text-lg fragment" data-fragment-index="4"><span style="white-space: nowrap">$\frac{\$8\text{M}}{4} =$&nbsp;$\$2\text{M/year}$</span></p>
           </div>
         </div>
 
@@ -626,7 +631,7 @@
           <text x="49" y="72" text-anchor="middle" font-size="8" font-weight="600" fill="#fff" font-family="Inter,Arial,sans-serif">1. LABELS</text>
 
           <!-- 2. Units callout (pointing to title) -->
-          <line x1="620" y1="13" x2="572" y2="13" stroke="#3B7DFD" stroke-width="1.5" marker-end="url(#arrowBlue)"/>
+          <line x1="620" y1="13" x2="440" y2="13" stroke="#3B7DFD" stroke-width="1.5" marker-end="url(#arrowBlue)"/>
           <rect x="622" y="6" width="68" height="18" rx="4" fill="#3B7DFD"/>
           <text x="656" y="18" text-anchor="middle" font-size="8" font-weight="600" fill="#fff" font-family="Inter,Arial,sans-serif">2. UNITS</text>
 
