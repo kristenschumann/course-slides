@@ -4,15 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Square Roots &amp; Radicals</title>
-
-  <!-- Reveal.js Core -->
-  <link rel="stylesheet" href="../assets/reveal/dist/reset.css">
-  <link rel="stylesheet" href="../assets/reveal/dist/reveal.css">
-
-  <!-- Leland Theme -->
-  <link rel="stylesheet" href="../assets/reveal/themes/leland.css">
-
-  <!-- KaTeX for math rendering -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.0/reset.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.0/reveal.min.css">
+  <style>@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');:root{--leland-green:#15B078;--leland-dark:#113A2D;--leland-medium:#185440;--leland-offwhite:#F8F8F8;--leland-white:#FFFFFF;--leland-black:#000000;--leland-text-dark:#333333;--leland-text-light:#707070;--leland-text-muted:#9B9B9B;--leland-stroke:#E5E5E5;--leland-orange:#EF8509;--leland-red:#FB5A42;--leland-blue:#3B7DFD;--leland-purple:#2D25A6;--leland-green-bg:rgba(21,176,120,0.12);--leland-orange-bg:rgba(239,133,9,0.12);--leland-red-bg:rgba(251,90,66,0.12);--leland-blue-bg:rgba(59,125,253,0.12);--leland-purple-bg:rgba(45,37,166,0.12);--leland-green-light:rgba(21,176,120,0.08);}.reveal{font-family:'Calibre','Inter',Arial,sans-serif;font-size:18px;color:var(--leland-text-dark);}.reveal .slides section{box-sizing:border-box;padding:56px 80px 82px;width:960px;height:540px;text-align:left;overflow:hidden;}.reveal .slides section.title-dark,.reveal .slides section.divider{padding-bottom:56px;}.reveal .slides section.title-dark{background-color:var(--leland-dark);color:var(--leland-white);display:flex !important;flex-direction:column;justify-content:center;}.reveal .slides section.title-dark h1{font-size:56px;line-height:1.1;margin-bottom:12px;color:var(--leland-white);}.reveal .slides section.title-dark h2{color:var(--leland-white);}.reveal .slides section.title-dark p{color:rgba(255,255,255,0.7);}.reveal .slides section.title-dark .text-white{color:var(--leland-white);}.reveal .slides section.title-dark .text-muted{color:rgba(255,255,255,0.7);}.reveal .slides section.divider{background-color:var(--leland-dark);color:var(--leland-white);display:flex !important;flex-direction:column;justify-content:center;align-items:center;text-align:center;}.reveal .slides section.divider h1{color:var(--leland-white);font-size:42px;margin-bottom:16px;}.reveal .slides section.divider .part-number{color:var(--leland-green);font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:12px;}.reveal .slides section.divider p{color:rgba(255,255,255,0.7);}.reveal .slides section.content-dark{background-color:var(--leland-dark);color:var(--leland-white);}.reveal .slides section.content-dark h1,.reveal .slides section.content-dark h2,.reveal .slides section.content-dark h3{color:var(--leland-white);}.reveal .slides section.content-dark p{color:rgba(255,255,255,0.7);}.reveal .slides section.content-dark .eyebrow{color:var(--leland-green);}.reveal .slides section.content-dark .text-white{color:var(--leland-white);}.reveal .slides section.content{background-color:var(--leland-white);color:var(--leland-text-dark);display:flex;flex-direction:column;}.reveal .slides section.content .two-column{flex:1;}.reveal h1{font-size:48px;font-weight:700;line-height:1.15;margin:0 0 16px 0;color:var(--leland-black);text-transform:none;text-align:left;}.reveal h2{font-size:32px;font-weight:700;line-height:1.2;margin:0 0 8px 0;color:var(--leland-black);text-transform:none;text-align:left;}.reveal h3{font-size:20px;font-weight:600;line-height:1.3;margin:0 0 8px 0;color:var(--leland-black);text-transform:none;text-align:left;}.reveal p{margin:0;line-height:1.5;}.reveal ul,.reveal ol{margin:0;padding-left:20px;}.reveal li{margin-bottom:8px;line-height:1.5;}.reveal .eyebrow{color:var(--leland-green);font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:12px;}.reveal .slides section.title-dark .eyebrow{color:var(--leland-green);}.text-lg{font-size:22px;}.text-md{font-size:20px;}.text-sm{font-size:16px;}.text-xs{font-size:14px;}.text-dark{color:var(--leland-text-dark);}.text-light{color:var(--leland-text-light);}.text-muted{color:var(--leland-text-muted);}.text-green{color:var(--leland-green);}.text-white{color:var(--leland-white);}.hl{color:var(--leland-green);}.hl-bold{color:var(--leland-green);font-weight:700;}.neg{color:var(--leland-red);}.ans{color:var(--leland-green);}.text-center{text-align:center;}.mt-16{margin-top:16px;}.mt-20{margin-top:20px;}.mt-24{margin-top:24px;}.mt-32{margin-top:32px;}.mb-8{margin-bottom:8px;}.mb-16{margin-bottom:16px;}.mb-20{margin-bottom:20px;}.mb-24{margin-bottom:24px;}.mb-32{margin-bottom:32px;}.mb-40{margin-bottom:40px;}.gap-16{gap:16px;}.gap-20{gap:20px;}.gap-24{gap:24px;}.gap-32{gap:32px;}.two-column{display:flex;gap:32px;}.two-column>*{flex:1;}.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px;}.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;}.flex-col{display:flex;flex-direction:column;}.flex-1{flex:1;}.flex-center{display:flex;align-items:center;justify-content:center;}.card{background:var(--leland-white);border:1px solid var(--leland-stroke);border-radius:12px;padding:24px;}.card-alt{background:var(--leland-offwhite);border-radius:12px;padding:24px;}.card-alt-green{background:rgba(21,176,120,0.06);border-radius:12px;padding:24px;}.compact{padding:14px 24px;border-radius:8px;}.slide-header{margin-bottom:20px;}.self-start{align-self:flex-start;}.card.card-green-bg{background:var(--leland-green-bg);border:none;}.card.card-orange-bg{background:var(--leland-orange-bg);border:none;}.card.card-red-bg{background:var(--leland-red-bg);border:none;}.card.card-blue-bg{background:var(--leland-blue-bg);border:none;}.card.card-purple-bg{background:var(--leland-purple-bg);border:none;}.card-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding-bottom:40px;}.card-grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;padding-bottom:40px;}.card-grid-2>.card,.card-grid-2>.type-box,.card-grid-3>.card{display:flex;flex-direction:column;}.card-grid-2>.card:has(>.icon:first-child),.card-grid-3>.card:has(>.icon:first-child){align-items:center;text-align:center;}.card-grid-2>.card:has(>.icon:first-child) h3,.card-grid-3>.card:has(>.icon:first-child) h3{text-align:center;}.type-box{display:flex;gap:16px;align-items:flex-start;padding:20px;background:var(--leland-offwhite);border-radius:12px;}.type-box h3{font-size:20px;font-weight:600;margin-bottom:4px;}.type-box p{font-size:16px;color:var(--leland-text-light);line-height:1.4;}.type-num{font-size:24px;font-weight:700;color:var(--leland-green);line-height:1;flex-shrink:0;}.timeline-block{padding:20px;border-radius:12px;background-color:var(--leland-white);}.timeline-block.dark{background-color:var(--leland-medium);color:var(--leland-white);}.timeline-block.dark h3{color:var(--leland-white);}.timeline-block.dark p{color:rgba(255,255,255,0.7);}.timeline-block.highlight{background-color:rgba(21,176,120,0.12);}.timeline-block.light{background-color:var(--leland-offwhite);}.timeline-label{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:var(--leland-text-muted);margin-bottom:8px;}.timeline-block.dark .timeline-label{color:rgba(255,255,255,0.5);}.timeline-block.highlight .timeline-label{color:var(--leland-green);}.study-block{flex:1;padding:20px;background-color:var(--leland-offwhite);border-radius:12px;}.study-block.highlight{background-color:rgba(21,176,120,0.08);}.panel-box{padding:24px;background:var(--leland-offwhite);border-radius:12px;}.panel-title{font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:var(--leland-green);margin-bottom:12px;}.workflow{display:flex;align-items:stretch;gap:8px;}.workflow-step{flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;padding:20px 16px;background:var(--leland-white);border:1px solid var(--leland-stroke);border-radius:12px;}.workflow-step h3{text-align:center;}.workflow-arrow{display:flex;align-items:center;justify-content:center;min-width:20px;font-size:20px;color:var(--leland-green);font-weight:700;flex-shrink:0;}.step-num{width:36px;height:36px;background:var(--leland-green);color:var(--leland-white);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;}.badge{display:inline-block;padding:4px 12px;border-radius:100px;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;}.badge-green{background:var(--leland-green-bg);color:var(--leland-green);}.badge-orange{background:var(--leland-orange-bg);color:var(--leland-orange);}.badge-red{background:var(--leland-red-bg);color:var(--leland-red);}.badge-blue{background:var(--leland-blue-bg);color:var(--leland-blue);}.badge-purple{background:var(--leland-purple-bg);color:var(--leland-purple);}.reveal table{width:100%;border-collapse:collapse;font-size:16px;margin-bottom:16px;}.reveal table thead th{background:var(--leland-dark);color:var(--leland-white);font-weight:600;font-size:14px;text-transform:uppercase;letter-spacing:0.05em;padding:12px 16px;text-align:left;border:none;}.reveal table thead th:first-child{border-radius:8px 0 0 0;}.reveal table thead th:last-child{border-radius:0 8px 0 0;}.reveal table tbody td{padding:12px 16px;border-bottom:1px solid var(--leland-stroke);color:var(--leland-text-dark);}.reveal table tbody tr:last-child td{border-bottom:none;}.reveal table tbody tr:nth-child(even){background:#EFEFEF;}.plus-list{list-style:none;padding-left:0;}.plus-list li{position:relative;padding-left:28px;margin-bottom:16px;line-height:1.5;}.plus-list li::before{content:'+';position:absolute;left:0;color:var(--leland-green);font-weight:700;font-size:20px;}.status-correct{color:var(--leland-green);font-weight:600;}.status-incorrect{color:var(--leland-red);font-weight:600;}.reveal .slide-number{background:none;color:var(--leland-text-muted);font-family:'Calibre','Inter',Arial,sans-serif;font-size:calc(14px * var(--slide-scale,1));line-height:1;padding:0;}.reveal .slide-number a{color:var(--leland-text-muted);text-decoration:none;}.reveal .controls{display:none !important;}.reveal .slide-number{bottom:calc( (var(--viewport-height) - var(--slide-height) * var(--slide-scale,1)) / 2 + 24px * var(--slide-scale,1) );right:calc( (var(--viewport-width) - var(--slide-width) * var(--slide-scale,1)) / 2 + 48px * var(--slide-scale,1) );}.leland-footer{position:absolute;bottom:24px;left:48px;}.leland-logo-top{position:absolute;top:32px;left:48px;}.image-placeholder{display:flex;align-items:center;justify-content:center;border:2px dashed var(--leland-stroke);border-radius:12px;min-height:200px;color:var(--leland-text-muted);}.icon{display:inline-block;vertical-align:middle;-webkit-mask-image:var(--icon);mask-image:var(--icon);-webkit-mask-mode:alpha;mask-mode:alpha;-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;}.icon-xs{width:16px;height:16px;}.icon-sm{width:20px;height:20px;}.icon-md{width:24px;height:24px;}.icon-lg{width:32px;height:32px;}.icon-xl{width:40px;height:40px;}.icon-green{background-color:var(--leland-green);}.icon-white{background-color:var(--leland-white);}.icon-dark{background-color:var(--leland-dark);}.icon-red{background-color:var(--leland-red);}.icon-blue{background-color:var(--leland-blue);}.icon-orange{background-color:var(--leland-orange);}.icon-purple{background-color:var(--leland-purple);}.icon-list{list-style:none;padding-left:0;}.icon-list li{display:flex;align-items:flex-start;gap:16px;margin-bottom:20px;line-height:1.5;}.icon-list li .icon{flex-shrink:0;margin-top:2px;}.slide-content{max-height:402px;overflow:hidden;}.reveal .speaker-notes-container{width:20%;}.title-dark .card-alt{color:var(--leland-white);}.title-dark .card-alt p{color:var(--leland-white);}.content-dark .card-alt{color:var(--leland-white);}.content-dark .card-alt p{color:var(--leland-white);}.content-dark .card-alt,.content-dark .card-alt.compact{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.2);}.content-dark table,.content-dark th,.content-dark td{border-color:rgba(255,255,255,0.3);}.content-dark th{background:rgba(255,255,255,0.1);}.content-dark tbody tr:nth-child(even){background:rgba(255,255,255,0.05);}.content-dark tbody td{color:rgba(255,255,255,0.85);border-bottom-color:rgba(255,255,255,0.15);}.content-dark .card{background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.2);color:var(--leland-white);}.content-dark .card p{color:rgba(255,255,255,0.85);}.content-dark .card-alt-green{background:rgba(21,176,120,0.15);color:var(--leland-white);}.content-dark .card-alt-green p{color:rgba(255,255,255,0.85);}.content-dark .text-light{color:rgba(255,255,255,0.6);}.content-dark .text-muted{color:rgba(255,255,255,0.5);}.answer-choices{display:grid;grid-template-columns:1fr 1fr;gap:8px 32px;margin-top:12px;}.answer-choices .choice{display:flex;align-items:baseline;gap:8px;}.answer-choices .choice-letter{font-weight:600;flex-shrink:0;}.qc-columns{display:grid;grid-template-columns:1fr auto 1fr;gap:0;align-items:stretch;margin-top:12px;}.qc-columns .qc-col{padding:16px 24px;text-align:center;}.qc-columns .qc-col:first-child{background:var(--leland-green-light);border-radius:8px 0 0 8px;}.qc-columns .qc-col:last-child{background:var(--leland-offwhite);border-radius:0 8px 8px 0;}.qc-columns .qc-vs{display:flex;align-items:center;padding:0 12px;font-weight:600;background:var(--leland-white);}.math-step{margin-bottom:20px;line-height:1.8;}.math-step:last-child{margin-bottom:0;}.summary-list{list-style:none;padding:0;margin:0;}.summary-list li{padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.15);display:flex;align-items:baseline;gap:12px;}.summary-list li:last-child{border-bottom:none;}.reveal .slides section.math-content{padding:48px 80px 64px;display:flex;flex-direction:column;}.math-content .slide-header{margin-bottom:12px;}.math-content .card-alt,.math-content .card-alt-green,.math-content .card{padding:12px 20px;}.math-content .compact{padding:8px 16px;}.math-content p{line-height:1.4;}.math-content .two-column{gap:24px;flex:1;}.math-content table tbody td{padding:8px 12px;}.math-content table thead th{padding:8px 12px;}.math-content .slide-content{max-height:428px;}.example-box{border-left:3px solid var(--leland-green);padding-left:16px;margin-top:12px;}.example-box .example-label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:var(--leland-green);margin-bottom:4px;}.content-dark .example-box{border-left-color:var(--leland-green);}.content-dark .example-box .example-label{color:var(--leland-green);}.solution-steps{display:flex;flex-direction:column;gap:8px;}.solution-steps .step{line-height:1.5;}.solution-steps .step-final{font-size:20px;font-weight:600;margin-top:4px;}.quote-block{background:var(--leland-offwhite);border-left:4px solid var(--leland-green);border-radius:0 12px 12px 0;padding:20px 24px;margin-top:16px;}.quote-block p{font-style:italic;line-height:1.6;}.quote-block .quote-source{font-style:normal;font-size:13px;font-weight:600;color:var(--leland-text-muted);text-transform:uppercase;letter-spacing:0.05em;margin-top:12px;}.content-dark .quote-block{background:rgba(255,255,255,0.08);border-left-color:var(--leland-green);}.content-dark .quote-block p{color:rgba(255,255,255,0.85);}.content-dark .quote-block .quote-source{color:rgba(255,255,255,0.5);}</style>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
@@ -22,10 +16,8 @@
         {left: '$', right: '$', display: false}
       ]
     });"></script>
-
 </head>
 <body>
-  <!-- SVG Symbol Definitions (defined once, referenced via <use>) -->
   <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
     <symbol id="leland-logo" viewBox="0 0 200 45">
       <path fill-rule="evenodd" clip-rule="evenodd" d="M41.0778 3.86523L13.0702 12.2675L3.73438 41.2086L32.6755 32.8064L41.0778 3.86523ZM22.4056 27.2048C24.9836 27.2048 27.0735 25.1149 27.0735 22.5369C27.0735 19.9588 24.9836 17.8689 22.4056 17.8689C19.8276 17.8689 17.7377 19.9588 17.7377 22.5369C17.7377 25.1149 19.8276 27.2048 22.4056 27.2048Z"/>
@@ -37,37 +29,21 @@
       <path fill-rule="evenodd" clip-rule="evenodd" d="M200 6.35938V38.1639H193.847L193.796 34.2994H193.644C191.661 37.452 188.61 38.7232 185.203 38.7232C177.982 38.7232 173.559 33.1298 173.559 25.8076C173.559 18.8413 178.186 13.0954 185.661 13.0954C188.966 13.0954 191.762 14.3158 193.491 16.9599H193.593C193.542 15.8412 193.542 14.5192 193.542 12.7903V6.35938L200 6.35938ZM180.169 25.8076C180.169 30.0789 182.813 33.4349 187.034 33.4349C190.949 33.4349 193.695 30.4348 193.695 25.8076C193.695 21.6889 191 18.0786 186.83 18.0786C182.61 18.0786 180.169 21.6889 180.169 25.8076Z"/>
     </symbol>
   </svg>
-
   <div class="reveal">
     <div class="slides">
-
-      <!-- ============================================ -->
-      <!-- SLIDE 1: Title (Dark) -->
-      <!-- ============================================ -->
       <section class="title-dark">
         <div class="leland-logo-top">
           <svg width="110" height="25" fill="white" class="mb-16"><use href="#leland-logo"/></svg>
         </div>
-
         <p class="eyebrow">GRE Self-Study Course</p>
         <h1>Square Roots &amp;<br><span class="hl">Radicals</span></h1>
-
-        <aside class="notes">
-          0:00-0:30 | Hook: Show the problem fifth root of x^5 y^10 z^23. This looks terrifying, but there is a simple trick: divide the root into each exponent. 5 into 5 is 1, 10 is 2, 23 is 4 remainder 3. Answer: xy^2 z^4 times fifth root of z^3. This video teaches you the four radical rules the GRE actually tests.
-        </aside>
       </section>
-
-      <!-- ============================================ -->
-      <!-- SLIDE 2: The Four Radical Rules -->
-      <!-- ============================================ -->
       <section class="content math-content">
         <div class="slide-header">
           <p class="eyebrow">Radicals</p>
           <h2>The four rules you need</h2>
         </div>
-
         <p class="text-md mb-16">There are only four things you need to know about radicals on the GRE:</p>
-
         <div class="card-grid-2">
           <div class="card card-green-bg" style="padding: 16px">
             <span class="badge badge-green self-start mb-8">Rule 1</span>
@@ -90,36 +66,18 @@
             <p class="text-md">$\sqrt{x} > 1$ when $x > 1$.</p>
           </div>
         </div>
-
-        <aside class="notes">
-          0:30-1:00 | Overview of the four radical rules: breaking apart radicals, converting to fractional exponents, handling radicals of decimals, and knowing when a root is greater than 1. Let's master each one.
-        </aside>
       </section>
-
-      <!-- ============================================ -->
-      <!-- SLIDE 3: Divider - Breaking Apart -->
-      <!-- ============================================ -->
       <section class="divider">
         <p class="part-number">Part 1</p>
         <h1>Breaking Radicals Apart</h1>
         <p>Factor and separate, or pull out pairs</p>
-
-        <aside class="notes">
-          1:00-1:10 | Transition into Part 1: two methods for breaking apart radicals.
-        </aside>
       </section>
-
-      <!-- ============================================ -->
-      <!-- SLIDE 4: Factor and Separate -->
-      <!-- ============================================ -->
       <section class="content math-content">
         <div class="slide-header">
           <p class="eyebrow">Breaking Apart</p>
           <h2>Factor and separate</h2>
         </div>
-
         <p class="text-md mb-16">Factor the number inside the radical, put each factor under its own radical sign, then simplify.</p>
-
         <div class="two-column gap-24">
           <div class="card card-green-bg">
             <span class="badge badge-green self-start mb-16">The Rule</span>
@@ -132,26 +90,16 @@
             <p class="text-md">$= \sqrt{4} \times \sqrt{3} = $ $2\sqrt{3}$</p>
           </div>
         </div>
-
         <div class="card-alt compact mt-24">
           <span class="badge badge-orange">Watch Out</span>
           <p class="text-md">This does NOT work with addition: $\sqrt{a + b} \neq \sqrt{a} + \sqrt{b}$</p>
         </div>
-
-        <aside class="notes">
-          1:10-2:00 | Method 1: factor and separate. The square root of a product equals the product of the square roots. Factor 12 into 4 times 3, take the root of 4 to get 2, and you have 2 root 3. Important: this does NOT work with addition.
-        </aside>
       </section>
-
-      <!-- ============================================ -->
-      <!-- SLIDE 5: Example - Combining Like Radicals -->
-      <!-- ============================================ -->
       <section class="content">
         <div class="slide-header">
           <p class="eyebrow">Example 1</p>
           <h2>Combining like radicals</h2>
         </div>
-
         <div class="two-column">
           <div class="card">
             <h3 class="text-md mb-16">Problem</h3>
@@ -165,21 +113,12 @@
             <p class="text-lg mt-16 fragment" data-fragment-index="5">Answer:&nbsp;$192\sqrt{3}$</p>
           </div>
         </div>
-
-        <aside class="notes">
-          2:00-3:00 | Example 1: simplify root 27 to 3 root 3, combine like radicals to get 4 root 3, then cube it. 4 cubed is 64, root 3 cubed is 3 root 3. Multiply to get 192 root 3.
-        </aside>
       </section>
-
-      <!-- ============================================ -->
-      <!-- SLIDE 6: Divide Root into Exponents -->
-      <!-- ============================================ -->
       <section class="content math-content">
         <div class="slide-header">
           <p class="eyebrow">Example 2</p>
           <h2>Divide the root into exponents</h2>
         </div>
-
         <div class="two-column">
           <div class="card">
             <h3 class="text-md mb-16">Problem</h3>
@@ -193,38 +132,20 @@
             <p class="text-lg mt-16 fragment" data-fragment-index="5">Answer:&nbsp;$xy^2z^4\sqrt[5]{z^3}$</p>
           </div>
         </div>
-
-        <aside class="notes">
-          3:00-4:00 | The fast way for variable radicals: divide the root into each exponent. For the fifth root: 5 into 5 is 1, so x comes out. 10 divided by 5 is 2, so y squared comes out. 23 divided by 5 is 4 remainder 3, so z to the 4th comes out and z cubed stays inside. Answer: x y^2 z^4 times the fifth root of z^3.
-        </aside>
       </section>
-
-      <!-- ============================================ -->
-      <!-- SLIDE 7: Divider - Fractional Exponents -->
-      <!-- ============================================ -->
       <section class="divider">
         <p class="part-number">Part 2</p>
         <h1>Fractional Exponents</h1>
         <p>Converting between radicals and exponents</p>
-
-        <aside class="notes">
-          4:00-4:10 | Transition into Part 2: turning radicals into fractional exponents.
-        </aside>
       </section>
-
-      <!-- ============================================ -->
-      <!-- SLIDE 8: The Conversion Rule -->
-      <!-- ============================================ -->
       <section class="content math-content">
         <div class="slide-header">
           <p class="eyebrow">Fractional Exponents</p>
           <h2>The conversion rule</h2>
         </div>
-
         <div class="card-alt-green compact mb-16">
           <p class="text-md"><strong>The denominator of the fractional exponent = the root of the radical.</strong></p>
         </div>
-
         <div class="two-column gap-24">
           <div>
             <h3 class="text-md mb-8">Basic Conversions</h3>
@@ -253,21 +174,12 @@
             </table>
           </div>
         </div>
-
-        <aside class="notes">
-          4:10-5:00 | The conversion rule: the root becomes the denominator of the fractional exponent. Square root of 3 is 3 to the 1/2. If there is an exponent inside the radical, it becomes the numerator. Square root of 7^9 is 7 to the 9/2.
-        </aside>
       </section>
-
-      <!-- ============================================ -->
-      <!-- SLIDE 9: Example - Mixed Radicals and Exponents -->
-      <!-- ============================================ -->
       <section class="content math-content">
         <div class="slide-header">
           <p class="eyebrow">Example 3</p>
           <h2>Mixed radicals and exponents</h2>
         </div>
-
         <div class="two-column">
           <div class="card">
             <h3 class="text-md mb-16">Problem</h3>
@@ -281,23 +193,13 @@
             <p class="text-md math-step fragment" data-fragment-index="5"><strong>Step 4:</strong> Simplify:&nbsp;<span style="white-space: nowrap">$3^{9/2} = 3^4 \times 3^{1/2} = 81\sqrt{3}$</span></p>
           </div>
         </div>
-
-        <aside class="notes">
-          5:00-6:20 | Example 3: convert root 3 to 3^(1/2), rewrite 9^2 as 3^4, add exponents to get 3^(9/2). Split: 3^4 times 3^(1/2) equals 81 root 3.
-        </aside>
       </section>
-
-      <!-- ============================================ -->
-      <!-- SLIDE 10: Radicals of Decimals -->
-      <!-- ============================================ -->
       <section class="content math-content">
         <div class="slide-header">
           <p class="eyebrow">Radicals of Decimals</p>
           <h2>Count and divide decimal places</h2>
         </div>
-
         <p class="text-md mb-16">Count the decimal places, then divide by the root to find decimal places in the answer.</p>
-
         <div class="two-column gap-24">
           <div class="card card-green-bg">
             <span class="badge badge-green self-start mb-16">Square Root</span>
@@ -320,25 +222,15 @@
             </div>
           </div>
         </div>
-
-        <aside class="notes">
-          6:20-7:40 | Radicals of decimals: count decimal places and divide by the root. For square roots, the answer has half the decimal places. 0.000016 has 6 decimal places, half is 3, root of 16 is 4, answer is 0.004. For cube roots, divide by 3. 0.000027 has 6 places, one-third is 2, cube root of 27 is 3, answer is 0.03.
-        </aside>
       </section>
-
-      <!-- ============================================ -->
-      <!-- SLIDE 11: Roots Greater Than 1 -->
-      <!-- ============================================ -->
       <section class="content math-content">
         <div class="slide-header">
           <p class="eyebrow">Radicals</p>
           <h2>Roots greater than 1</h2>
         </div>
-
         <div class="card-alt-green compact mb-16">
           <p class="text-md"><strong>The root of ANY number greater than 1 MUST be greater than 1.</strong></p>
         </div>
-
         <div class="two-column gap-24">
           <div class="card card-green-bg">
             <span class="badge badge-green self-start mb-16">Why?</span>
@@ -352,25 +244,16 @@
           </div>
           <div class="card card-blue-bg">
             <span class="badge badge-blue self-start mb-16">GRE Application</span>
-            <p class="text-md mb-16">If you see $\sqrt{1.0000000987}$, you do not need to calculate.</p>
+            <p class="text-md mb-16">If you see $\sqrt{1.000000000987}$, you do not need to calculate.</p>
             <p class="text-lg">Answer:&nbsp;Greater than 1</p>
           </div>
         </div>
-
-        <aside class="notes">
-          7:40-9:00 | The root of any number greater than 1 must be greater than 1. Why? Because numbers less than 1 multiply to give less than 1. 0.9 times 0.9 is 0.81. No matter how many nines you add, you cannot reach 1 by multiplying decimals less than 1. On the GRE, if you see root of 1.0001, you know instantly it is greater than 1.
-        </aside>
       </section>
-
-      <!-- ============================================ -->
-      <!-- SLIDE 12: Example - Putting It Together -->
-      <!-- ============================================ -->
       <section class="content">
         <div class="slide-header">
           <p class="eyebrow">Example 4</p>
           <h2>Simplify a fractional exponent</h2>
         </div>
-
         <div class="two-column">
           <div class="card">
             <h3 class="text-md mb-16">Problem</h3>
@@ -378,29 +261,19 @@
           </div>
           <div class="card fragment" data-fragment-index="1">
             <h3 class="text-md mb-16">Solution</h3>
-            <p class="text-md mb-16 fragment" data-fragment-index="2"><strong>Step 1:</strong> Split the exponent:&nbsp;$3^{9/2} = 3^{4 + 1/2}$</p>
-            <p class="text-md mb-16 fragment" data-fragment-index="3"><strong>Step 2:</strong> Separate:&nbsp;$3^4 \times 3^{1/2}$</p>
-            <p class="text-md mb-16 fragment" data-fragment-index="4"><strong>Step 3:</strong> Evaluate:&nbsp;$81 \times \sqrt{3}$</p>
+            <p class="text-md math-step fragment" data-fragment-index="2"><strong>Step 1:</strong> Split the exponent:&nbsp;<span style="white-space: nowrap">$3^{9/2} = 3^{4 + 1/2}$</span></p>
+            <p class="text-md math-step fragment" data-fragment-index="3"><strong>Step 2:</strong> Separate:&nbsp;<span style="white-space: nowrap">$3^4 \times 3^{1/2}$</span></p>
+            <p class="text-md math-step fragment" data-fragment-index="4"><strong>Step 3:</strong> Evaluate:&nbsp;<span style="white-space: nowrap">$81 \times \sqrt{3}$</span></p>
             <p class="text-lg mt-16 fragment" data-fragment-index="5">Answer:&nbsp;$81\sqrt{3}$</p>
           </div>
         </div>
-
-        <aside class="notes">
-          9:00-9:50 | Example 4: simplify 3 to the 9/2. Split the exponent into 4 plus 1/2. Separate into 3^4 times 3^(1/2). That is 81 times root 3. Answer: 81 root 3.
-        </aside>
       </section>
-
-      <!-- ============================================ -->
-      <!-- SLIDE 13: Rationalizing the Denominator -->
-      <!-- ============================================ -->
       <section class="content math-content">
         <div class="slide-header">
           <p class="eyebrow">Rationalization</p>
           <h2>Rationalizing the denominator</h2>
         </div>
-
         <p class="text-md mb-16">GRE answer choices never have radicals in the denominator. If your answer does, you need to rationalize.</p>
-
         <div class="two-column gap-24">
           <div class="card card-green-bg">
             <span class="badge badge-green self-start mb-16">Simple</span>
@@ -417,26 +290,16 @@
             </div>
           </div>
         </div>
-
-        <aside class="notes">
-          9:50 - 11:00 | Two rationalization methods. Simple: multiply top and bottom by the same radical. 5 over root 3 times root 3 over root 3 gives 5 root 3 over 3. Conjugate: for sums or differences of radicals in the denominator, multiply by the conjugate. 1 over root 5 plus root 2, multiply by root 5 minus root 2 over itself. The denominator becomes 5 minus 2 equals 3 by difference of squares.
-        </aside>
       </section>
-
-      <!-- ============================================ -->
-      <!-- SLIDE 14: Why Rationalization Matters on the GRE -->
-      <!-- ============================================ -->
       <section class="content">
         <div class="slide-header">
           <p class="eyebrow">Rationalization</p>
           <h2>Why this matters on the GRE</h2>
         </div>
-
         <div class="card-alt-green compact mb-24">
-          <span class="icon icon-xl icon-green" style="flex-shrink: 0; -webkit-mask-image: url(../assets/reveal/icons/warning-triangle.svg); mask-image: url(../assets/reveal/icons/warning-triangle.svg)"></span>
+          <span class="icon icon-xl icon-green" style="flex-shrink: 0; -webkit-mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iY3VycmVudENvbG9yIj48cGF0aCBkPSJNMTIgMkwxIDIxaDIyTDEyIDJ6bTAgNmw3LjUzIDEzSDQuNDdMMTIgOHptLTEgNHY0aDJ2LTRoLTJ6bTAgNnYyaDJ2LTJoLTJ6Ii8+PC9zdmc+"); mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iY3VycmVudENvbG9yIj48cGF0aCBkPSJNMTIgMkwxIDIxaDIyTDEyIDJ6bTAgNmw3LjUzIDEzSDQuNDdMMTIgOHptLTEgNHY0aDJ2LTRoLTJ6bTAgNnYyaDJ2LTJoLTJ6Ii8+PC9zdmc+")"></span>
           <p class="text-md"><strong>Answer choices are always rationalized.</strong> If your answer has a radical in the denominator, it won't match any choice until you&nbsp;rationalize.</p>
         </div>
-
         <div class="two-column gap-32">
           <div class="card card-orange-bg">
             <div class="status-incorrect text-md mb-8">Your Work</div>
@@ -449,21 +312,12 @@
             <p class="text-sm mt-8">$\dfrac{6}{\sqrt{2}} \times \dfrac{\sqrt{2}}{\sqrt{2}} = \dfrac{6\sqrt{2}}{2} = 3\sqrt{2}$</p>
           </div>
         </div>
-
-        <aside class="notes">
-          11:00 - 12:00 | Show why this matters practically. If you solve a problem and get 6 over root 2, you won't find that in the answer choices. Rationalize: multiply by root 2 over root 2 to get 6 root 2 over 2, which simplifies to 3 root 2. That's the form you'll see in the choices. If your answer doesn't match any choice, try rationalizing.
-        </aside>
       </section>
-
-      <!-- ============================================ -->
-      <!-- SLIDE 15: Summary (content-dark) -->
-      <!-- ============================================ -->
       <section class="content-dark">
         <div class="slide-header">
           <p class="eyebrow">Key Takeaways</p>
           <h2>Square roots &amp; radicals</h2>
         </div>
-
         <ul class="plus-list">
           <li><strong>Factor and separate</strong> - $\sqrt{ab} = \sqrt{a} \times \sqrt{b}$, but NOT over addition</li>
           <li><strong>Pull out pairs</strong> - For variable radicals, divide the root into each exponent</li>
@@ -472,24 +326,14 @@
           <li><strong>Roots of numbers $> 1$</strong> - Always greater than 1, no calculation needed</li>
           <li><strong>Rationalize the denominator</strong> - Multiply by $\sqrt{n}/\sqrt{n}$ or use the conjugate so your answer matches GRE&nbsp;choices</li>
         </ul>
-
         <div class="leland-footer">
           <svg width="80" height="18" fill="rgba(255,255,255,0.4)"><use href="#leland-logo"/></svg>
         </div>
-
-        <aside class="notes">
-          9:50-11:00 | Summary: four radical rules. Factor and separate to simplify numeric radicals. Divide the root into exponents for variable radicals. Convert to fractional exponents when mixing with exponent rules. Count decimal places for decimal radicals. And the root of any number greater than 1 is always greater than 1. [Leland+ Tip] A common trap: sqrt(a+b) does NOT equal sqrt(a) + sqrt(b). If you forget this rule on test day, verify with easy numbers: sqrt(9+16) = sqrt(25) = 5, but sqrt(9) + sqrt(16) = 3+4 = 7. Use this self-check technique for any rule you are unsure about.
-        </aside>
       </section>
-
     </div>
   </div>
-
-  <!-- Reveal.js -->
-  <script src="../assets/reveal/dist/reveal.min.js"></script>
-  <script type="module">
-    import RevealNotes from '../assets/reveal/plugin/notes/notes.esm.js';
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.0/reveal.min.js"></script>
+  <script>
     Reveal.initialize({
       width: 960,
       height: 540,
@@ -505,7 +349,7 @@
       transition: 'none',
       backgroundTransition: 'none',
       disableLayout: false,
-      plugins: [ RevealNotes ]
+      plugins: []
     });
   </script>
 </body>
