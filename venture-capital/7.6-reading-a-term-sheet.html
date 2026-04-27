@@ -6,11 +6,11 @@
   <title>Reading a Term Sheet</title>
 
   <!-- Reveal.js Core -->
-  <link rel="stylesheet" href="../assets/reveal/dist/reset.css">
-  <link rel="stylesheet" href="../assets/reveal/dist/reveal.css">
+  <link rel="stylesheet" href="../../../../_design/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../../../../_design/revealjs/dist/reveal.css">
 
   <!-- Leland Theme -->
-  <link rel="stylesheet" href="../assets/reveal/themes/leland.css">
+  <link rel="stylesheet" href="../../../../_design/revealjs/themes/leland.css">
 
 </head>
 <body>
@@ -54,7 +54,7 @@
 
         <div class="card-alt-green">
           <div style="display: flex; align-items: flex-start; gap: 16px;">
-            <span class="icon icon-xl icon-green" style="-webkit-mask-image: url(../assets/icons/search-document.svg); mask-image: url(../assets/icons/search-document.svg)"></span>
+            <span class="icon icon-xl icon-green" style="--icon: url(../../../../_design/icons/search-document.svg); flex-shrink: 0;"></span>
             <div>
               <p><strong>A partner once told me that the fastest way to evaluate a junior candidate is to hand them a term sheet and ask one question: "Is this founder-friendly or investor-friendly?" Not "walk me through every term." Just: which side does this favor, and how do you know?</strong></p>
               <p class="text-sm text-light mt-8">Most candidates freeze. They can recite definitions but cannot read a term sheet the way a VC reads one: fast, opinionated, with an eye for the three or four terms that actually determine the economics and the power dynamics. That is the skill we are building here.</p>
@@ -81,19 +81,19 @@
 
         <ul class="icon-list text-lg">
           <li>
-            <span class="icon icon-xl icon-green" style="-webkit-mask-image: url(../assets/icons/money.svg); mask-image: url(../assets/icons/money.svg)"></span>
+            <span class="icon icon-xl icon-green" style="--icon: url(../../../../_design/icons/money.svg); flex-shrink: 0;"></span>
             <span><strong>Economic terms</strong> that determine who gets what financially: valuation, liquidation preferences, anti-dilution.</span>
           </li>
           <li>
-            <span class="icon icon-xl icon-green" style="-webkit-mask-image: url(../assets/icons/shield-check-filled.svg); mask-image: url(../assets/icons/shield-check-filled.svg)"></span>
+            <span class="icon icon-xl icon-green" style="--icon: url(../../../../_design/icons/shield-check-filled.svg); flex-shrink: 0;"></span>
             <span><strong>Governance terms</strong> that determine who controls what operationally: board seats, protective provisions, drag-along rights.</span>
           </li>
           <li>
-            <span class="icon icon-xl icon-green" style="-webkit-mask-image: url(../assets/icons/search.svg); mask-image: url(../assets/icons/search.svg)"></span>
+            <span class="icon icon-xl icon-green" style="--icon: url(../../../../_design/icons/search.svg); flex-shrink: 0;"></span>
             <span><strong>How to identify departures</strong> from the standard and what each departure signals about the negotiation dynamics.</span>
           </li>
           <li>
-            <span class="icon icon-xl icon-green" style="-webkit-mask-image: url(../assets/icons/lightning.svg); mask-image: url(../assets/icons/lightning.svg)"></span>
+            <span class="icon icon-xl icon-green" style="--icon: url(../../../../_design/icons/lightning.svg); flex-shrink: 0;"></span>
             <span><strong>Interview framework</strong> for analyzing any term sheet quickly and forming an opinion the interviewer wants to hear.</span>
           </li>
         </ul>
@@ -180,18 +180,18 @@
         </div>
 
         <div class="card-grid-3">
-          <div class="card card-green-bg " data--index="1">
-            <span class="icon icon-lg icon-green mb-16" style="-webkit-mask-image: url(../assets/icons/check.svg); mask-image: url(../assets/icons/check.svg)"></span>
+          <div class="card card-green-bg fragment" data-fragment-index="1">
+            <span class="icon icon-lg icon-green mb-16" style="--icon: url(../../../../_design/icons/check.svg)"></span>
             <h3>1x Non-Participating</h3>
             <p class="text-sm text-light">The standard. Investor gets their money back OR converts to common and takes pro-rata. Whichever is higher. Downside protection, not upside capture.</p>
           </div>
-          <div class="card card-orange-bg " data--index="2">
-            <span class="icon icon-lg icon-orange mb-16" style="-webkit-mask-image: url(../assets/icons/warning-triangle.svg); mask-image: url(../assets/icons/warning-triangle.svg)"></span>
+          <div class="card card-orange-bg fragment" data-fragment-index="2">
+            <span class="icon icon-lg icon-orange mb-16" style="--icon: url(../../../../_design/icons/warning-triangle.svg)"></span>
             <h3>1x Participating</h3>
             <p class="text-sm text-light">The aggressive version. Investor gets money back AND participates in remaining proceeds. Double dipping. Material departure from standard at Series A.</p>
           </div>
-          <div class="card card-purple-bg " data--index="3">
-            <span class="icon icon-lg icon-purple mb-16" style="-webkit-mask-image: url(../assets/icons/shield.svg); mask-image: url(../assets/icons/shield.svg)"></span>
+          <div class="card card-purple-bg fragment" data-fragment-index="3">
+            <span class="icon icon-lg icon-purple mb-16" style="--icon: url(../../../../_design/icons/shield.svg)"></span>
             <h3>Participating with Cap</h3>
             <p class="text-sm text-light">The compromise. Investor participates until total return hits a cap (2x or 3x), then converts. Limits the double dip but still favors the investor.</p>
           </div>
@@ -215,11 +215,11 @@
         </div>
 
         <div class="card-grid-2">
-          <div class="card card-green-bg " data--index="1" style="padding: 16px;">
+          <div class="card card-green-bg fragment" data-fragment-index="1" style="padding: 16px;">
             <h3 class="mb-8">Broad-Based Weighted Average</h3>
             <p class="text-sm text-light">The standard. Investor's conversion price adjusts downward, but accounts for the size of the down round relative to the overall cap table. Partial protection. Not a windfall.</p>
           </div>
-          <div class="card card-orange-bg " data--index="2" style="padding: 16px;">
+          <div class="card card-orange-bg fragment" data-fragment-index="2" style="padding: 16px;">
             <h3 class="mb-8">Full Ratchet</h3>
             <p class="text-sm text-light">The aggressive version. Investor's price resets entirely to the new lower price, regardless of how small the down round is. A $10 to $2 repricing creates a 5x increase in share count. Red flag on any term sheet.</p>
           </div>
@@ -253,14 +253,14 @@
             </tr>
           </thead>
           <tbody>
-            <tr class="" data--index="1">
+            <tr class="fragment" data-fragment-index="1">
               <td>Broad-based weighted average</td>
               <td>$10/share</td>
               <td>$5/share</td>
               <td>~$8.50/share</td>
               <td>Partial adjustment</td>
             </tr>
-            <tr class="" data--index="2">
+            <tr class="fragment" data-fragment-index="2">
               <td>Full ratchet</td>
               <td>$10/share</td>
               <td>$5/share</td>
@@ -283,7 +283,7 @@
       <!-- ============================================ -->
       <section class="divider">
         <div class="part-number">Section 2</div>
-        <h1>Governance Terms: Where the Power Is</h1>
+        <h1>Governance Terms:<br>Where the Power Is</h1>
 
         <aside class="notes">
           4:00 | Transition into governance terms.
@@ -311,24 +311,24 @@
             </tr>
           </thead>
           <tbody>
-            <tr class="" data--index="1">
-              <td>Series A</td>
+            <tr class="fragment" data-fragment-index="1">
+              <td style="white-space: nowrap;">Series A</td>
               <td>2</td>
               <td>1</td>
               <td>2</td>
               <td>5</td>
               <td>Balanced</td>
             </tr>
-            <tr class="" data--index="2">
-              <td>Series B</td>
+            <tr class="fragment" data-fragment-index="2">
+              <td style="white-space: nowrap;">Series B</td>
               <td>2</td>
               <td>2</td>
               <td>1</td>
               <td>5</td>
               <td>Power shift</td>
             </tr>
-            <tr class="" data--index="3">
-              <td>Series C</td>
+            <tr class="fragment" data-fragment-index="3">
+              <td style="white-space: nowrap;">Series C</td>
               <td>2</td>
               <td>3</td>
               <td>2</td>
@@ -356,11 +356,11 @@
         </div>
 
         <div class="card-grid-2">
-          <div class="card card-green-bg " data--index="1" style="padding: 16px;">
+          <div class="card card-green-bg fragment" data-fragment-index="1" style="padding: 16px;">
             <h3 class="mb-8">Standard (Reasonable)</h3>
             <p class="text-sm text-light">Issuing senior equity. Taking on debt above a threshold. Changing the certificate of incorporation. Selling the company. Changing board size. These prevent the founder from undermining the investor's position.</p>
           </div>
-          <div class="card card-orange-bg " data--index="2" style="padding: 16px;">
+          <div class="card card-orange-bg fragment" data-fragment-index="2" style="padding: 16px;">
             <h3 class="mb-8">Non-Standard (Watch For)</h3>
             <p class="text-sm text-light">Blocking executive hires and fires. Approving the annual budget. Preventing new lines of business. These shift operational control from the CEO to the boardroom. Budget approval rights effectively give the investor a veto over strategy.</p>
           </div>
@@ -383,23 +383,25 @@
           <h2>Four more terms to know</h2>
         </div>
 
-        <div class="card-grid-2">
-          <div class="card card-green-bg" style="padding: 16px;">
-            <h3 class="mb-8">Pro-Rata Rights</h3>
+        <div style="font-size: 0.85em">
+        <div class="card-grid-2 gap-12">
+          <div class="card card-green-bg" style="padding: 10px 14px;">
+            <h3 class="mb-4">Pro-Rata Rights</h3>
             <p class="text-sm text-light">The right to invest in future rounds to maintain ownership. Standard for lead investors. Becomes contentious when all existing investors exercise and crowd out a new lead.</p>
           </div>
-          <div class="card card-blue-bg" style="padding: 16px;">
-            <h3 class="mb-8">Information Rights</h3>
+          <div class="card card-blue-bg" style="padding: 10px 14px;">
+            <h3 class="mb-4">Information Rights</h3>
             <p class="text-sm text-light">Quarterly and annual financials, cap table updates. Standard. Monthly financials are more burdensome but not unusual. Often tied to a "major investor" ownership threshold.</p>
           </div>
-          <div class="card card-purple-bg" style="padding: 16px;">
-            <h3 class="mb-8">Drag-Along Rights</h3>
+          <div class="card card-purple-bg" style="padding: 10px 14px;">
+            <h3 class="mb-4">Drag-Along Rights</h3>
             <p class="text-sm text-light">If a specified majority approves a sale, all shareholders must participate. Prevents a minority from blocking an acquisition. Watch the threshold: majority of preferred alone is more aggressive than majority of both preferred and common.</p>
           </div>
-          <div class="card card-orange-bg" style="padding: 16px;">
-            <h3 class="mb-8">Tag-Along and ROFR</h3>
+          <div class="card card-orange-bg" style="padding: 10px 14px;">
+            <h3 class="mb-4">Tag-Along and ROFR</h3>
             <p class="text-sm text-light">Tag-along lets investors sell alongside a founder in a secondary. ROFR gives the company first right to buy shares before they are sold externally. Both control who ends up on the cap table.</p>
           </div>
+        </div>
         </div>
 
         <div class="leland-footer">
@@ -421,7 +423,7 @@
 
         <div class="card-alt-green">
           <div style="display: flex; align-items: flex-start; gap: 16px;">
-            <span class="icon icon-xl icon-green" style="-webkit-mask-image: url(../assets/icons/warning.svg); mask-image: url(../assets/icons/warning.svg)"></span>
+            <span class="icon icon-xl icon-green" style="--icon: url(../../../../_design/icons/warning.svg); flex-shrink: 0;"></span>
             <div>
               <p><strong>I have seen founders who were thrilled with their $25M valuation discover two years later that the protective provisions gave their investor an effective veto over a strategic acquisition the founders wanted to pursue.</strong></p>
               <p class="text-sm text-light mt-8">A founder who wins on valuation but loses on board control has not won. Valuation is a number you negotiate once. Board seats and protective provisions are structures you live with for the life of the company. The best VCs offer clean terms because their competitive advantage is brand, network, and portfolio, not aggressive deal provisions.</p>
@@ -459,18 +461,18 @@
         </div>
 
         <div class="card-grid-3">
-          <div class="card card-green-bg " data--index="1">
-            <span class="icon icon-lg icon-green mb-16" style="-webkit-mask-image: url(../assets/icons/money.svg); mask-image: url(../assets/icons/money.svg)"></span>
+          <div class="card card-green-bg fragment" data-fragment-index="1">
+            <span class="icon icon-lg icon-green mb-16" style="--icon: url(../../../../_design/icons/money.svg)"></span>
             <h3>Step 1: Economics</h3>
             <p class="text-sm text-light">Pre-money valuation, investment amount, liquidation preference, anti-dilution. Calculate ownership. Note participating vs. non-participating. Check anti-dilution type.</p>
           </div>
-          <div class="card card-blue-bg " data--index="2">
-            <span class="icon icon-lg icon-blue mb-16" style="-webkit-mask-image: url(../assets/icons/shield-check-filled.svg); mask-image: url(../assets/icons/shield-check-filled.svg)"></span>
+          <div class="card card-blue-bg fragment" data-fragment-index="2">
+            <span class="icon icon-lg icon-blue mb-16" style="--icon: url(../../../../_design/icons/shield-check-filled.svg)"></span>
             <h3>Step 2: Governance</h3>
             <p class="text-sm text-light">Board composition and protective provisions. Who controls the board? What can the investor block unilaterally? These two provisions define the power dynamic.</p>
           </div>
-          <div class="card card-purple-bg " data--index="3">
-            <span class="icon icon-lg icon-purple mb-16" style="-webkit-mask-image: url(../assets/icons/lightning.svg); mask-image: url(../assets/icons/lightning.svg)"></span>
+          <div class="card card-purple-bg fragment" data-fragment-index="3">
+            <span class="icon icon-lg icon-purple mb-16" style="--icon: url(../../../../_design/icons/lightning.svg)"></span>
             <h3>Step 3: Form an Opinion</h3>
             <p class="text-sm text-light">Is this fair, aggressive, or founder-friendly? Why? Most candidates describe terms but do not assess them. The interviewer wants your judgment.</p>
           </div>
@@ -607,18 +609,18 @@
         </div>
 
         <div class="card-grid-3">
-          <div class="card card-green-bg " data--index="1">
-            <span class="icon icon-lg icon-green mb-16" style="-webkit-mask-image: url(../assets/icons/check.svg); mask-image: url(../assets/icons/check.svg)"></span>
+          <div class="card card-green-bg fragment" data-fragment-index="1">
+            <span class="icon icon-lg icon-green mb-16" style="--icon: url(../../../../_design/icons/check.svg)"></span>
             <h3>Standard (Green)</h3>
             <p class="text-sm text-light">1x non-participating. Broad-based weighted average. 5-person board (2/1/2). Standard protective provisions. Non-cumulative dividends.</p>
           </div>
-          <div class="card card-orange-bg " data--index="2">
-            <span class="icon icon-lg icon-orange mb-16" style="-webkit-mask-image: url(../assets/icons/warning.svg); mask-image: url(../assets/icons/warning.svg)"></span>
+          <div class="card card-orange-bg fragment" data-fragment-index="2">
+            <span class="icon icon-lg icon-orange mb-16" style="--icon: url(../../../../_design/icons/warning.svg)"></span>
             <h3>Negotiate (Yellow)</h3>
             <p class="text-sm text-light">Participating with cap. Option pool above 15%. Cumulative dividends. 3-person board. Pro-rata on small checks.</p>
           </div>
-          <div class="card card-red-bg " data--index="3">
-            <span class="icon icon-lg icon-red mb-16" style="-webkit-mask-image: url(../assets/icons/stop-octagon-minus.svg); mask-image: url(../assets/icons/stop-octagon-minus.svg)"></span>
+          <div class="card card-red-bg fragment" data-fragment-index="3">
+            <span class="icon icon-lg icon-red mb-16" style="--icon: url(../../../../_design/icons/stop-octagon-minus.svg)"></span>
             <h3>Red Flag</h3>
             <p class="text-sm text-light">Full ratchet anti-dilution. Participating uncapped. Investor-controlled board. Budget approval rights. Executive hire/fire approval.</p>
           </div>
@@ -643,7 +645,7 @@
 
         <div class="card-alt-green">
           <div style="display: flex; align-items: flex-start; gap: 16px;">
-            <span class="icon icon-xl icon-green" style="-webkit-mask-image: url(../assets/icons/chat-bubbles.svg); mask-image: url(../assets/icons/chat-bubbles.svg)"></span>
+            <span class="icon icon-xl icon-green" style="--icon: url(../../../../_design/icons/chat-bubbles.svg); flex-shrink: 0;"></span>
             <div>
               <p><strong>If the interviewer's firm uses aggressive terms and you call out those exact terms as red flags, you might create an awkward moment. Frame your analysis in terms of trade-offs, not judgments.</strong></p>
               <p class="text-sm text-light mt-8">"Participating preferred shifts economics toward the investor in moderate outcomes, which makes sense if the investor is providing significant value-add beyond capital." That is diplomatic without being dishonest. The skill is having the opinion and knowing when and how to express it.</p>
@@ -669,18 +671,18 @@
         </div>
 
         <div class="card-grid-3">
-          <div class="card card-green-bg " data--index="1">
-            <span class="icon icon-lg icon-green mb-16" style="-webkit-mask-image: url(../assets/icons/spreadsheet.svg); mask-image: url(../assets/icons/spreadsheet.svg)"></span>
+          <div class="card card-green-bg fragment" data-fragment-index="1">
+            <span class="icon icon-lg icon-green mb-16" style="--icon: url(../../../../_design/icons/spreadsheet.svg)"></span>
             <h3>7.4: Cap Table</h3>
             <p class="text-sm text-light">Who owns what. The ownership blueprint. Every shareholder, share class, and percentage.</p>
           </div>
-          <div class="card card-blue-bg " data--index="2">
-            <span class="icon icon-lg icon-blue mb-16" style="-webkit-mask-image: url(../assets/icons/document-file.svg); mask-image: url(../assets/icons/document-file.svg)"></span>
+          <div class="card card-blue-bg fragment" data-fragment-index="2">
+            <span class="icon icon-lg icon-blue mb-16" style="--icon: url(../../../../_design/icons/document-file.svg)"></span>
             <h3>7.5: Deal Instruments</h3>
             <p class="text-sm text-light">How they got there. SAFEs, convertible notes, and priced rounds that built the cap table.</p>
           </div>
-          <div class="card card-purple-bg " data--index="3">
-            <span class="icon icon-lg icon-purple mb-16" style="-webkit-mask-image: url(../assets/icons/search-document.svg); mask-image: url(../assets/icons/search-document.svg)"></span>
+          <div class="card card-purple-bg fragment" data-fragment-index="3">
+            <span class="icon icon-lg icon-purple mb-16" style="--icon: url(../../../../_design/icons/search-document.svg)"></span>
             <h3>7.6: Term Sheet</h3>
             <p class="text-sm text-light">What ownership actually means. The economic and governance rules that determine payouts and control.</p>
           </div>
@@ -704,10 +706,10 @@
         </div>
 
         <ul class="plus-list text-white">
-          <li class="" data--index="1"><strong>Economic terms and governance terms are two different negotiations on the same document.</strong> A founder who wins on valuation but loses on board control has not won.</li>
-          <li class="" data--index="2"><strong>1x non-participating with broad-based weighted average is the standard.</strong> Anything beyond that is a departure, and departures need justification. If you can explain why a term departs and what it means for both sides, you understand term sheets at associate level.</li>
-          <li class="" data--index="3"><strong>Board composition is the most underrated term.</strong> Valuations get renegotiated. Liquidation preferences get restructured. Board seats, once given, are almost never taken back.</li>
-          <li class="" data--index="4"><strong>When reading a term sheet in an interview, do not recite. Prioritize.</strong> Identify the two or three departures from standard. Explain who they favor. Offer a specific opinion on whether the package is fair. That is the skill being tested.</li>
+          <li class="fragment" data-fragment-index="1"><strong>Economic terms and governance terms are two different negotiations on the same document.</strong> A founder who wins on valuation but loses on board control has not won.</li>
+          <li class="fragment" data-fragment-index="2"><strong>1x non-participating with broad-based weighted average is the standard.</strong> Anything beyond that is a departure, and departures need justification. If you can explain why a term departs and what it means for both sides, you understand term sheets at associate level.</li>
+          <li class="fragment" data-fragment-index="3"><strong>Board composition is the most underrated term.</strong> Valuations get renegotiated. Liquidation preferences get restructured. Board seats, once given, are almost never taken back.</li>
+          <li class="fragment" data-fragment-index="4"><strong>When reading a term sheet in an interview, do not recite. Prioritize.</strong> Identify the two or three departures from standard. Explain who they favor. Offer a specific opinion on whether the package is fair. That is the skill being tested.</li>
         </ul>
 
         <div class="leland-footer">
@@ -722,9 +724,9 @@
   </div>
 
   <!-- Reveal.js -->
-  <script src="../assets/reveal/dist/reveal.min.js"></script>
+  <script src="../../../../_design/revealjs/dist/reveal.min.js"></script>
   <script type="module">
-    import RevealNotes from '../assets/reveal/plugin/notes/notes.esm.js';
+    import RevealNotes from '../../../../_design/revealjs/plugin/notes/notes.esm.js';
 
     Reveal.initialize({
       width: 960,

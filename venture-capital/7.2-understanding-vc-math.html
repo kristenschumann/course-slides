@@ -6,11 +6,11 @@
   <title>Understanding VC Math</title>
 
   <!-- Reveal.js Core -->
-  <link rel="stylesheet" href="../assets/reveal/dist/reset.css">
-  <link rel="stylesheet" href="../assets/reveal/dist/reveal.css">
+  <link rel="stylesheet" href="../../../../_design/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../../../../_design/revealjs/dist/reveal.css">
 
   <!-- Leland Theme -->
-  <link rel="stylesheet" href="../assets/reveal/themes/leland.css">
+  <link rel="stylesheet" href="../../../../_design/revealjs/themes/leland.css">
 
 </head>
 <body>
@@ -54,7 +54,7 @@
 
         <div class="card-alt-green">
           <div style="display: flex; align-items: flex-start; gap: 16px;">
-            <span class="icon icon-xl icon-green" style="-webkit-mask-image: url(../assets/icons/bar-chart.svg); mask-image: url(../assets/icons/bar-chart.svg)"></span>
+            <span class="icon icon-xl icon-green" style="--icon: url(../../../../_design/icons/bar-chart.svg); flex-shrink: 0;"></span>
             <div>
               <p><strong>A partner at a Series A fund told me the math behind his entire career: "I've made 47 investments over fifteen years. Three of them generated 90% of my returns. Forty-four were noise."</strong></p>
               <p class="text-sm text-light mt-8">He wasn't being modest. He was describing the foundational law of venture capital, the power law. If you don't understand what it means for fund economics, ownership math, and portfolio construction, you'll never think like a VC. This is the most important video in Module 7. Everything else builds on what we cover here.</p>
@@ -81,19 +81,19 @@
 
         <ul class="icon-list text-lg">
           <li>
-            <span class="icon icon-xl icon-green" style="-webkit-mask-image: url(../assets/icons/earnings.svg); mask-image: url(../assets/icons/earnings.svg)"></span>
+            <span class="icon icon-xl icon-green" style="--icon: url(../../../../_design/icons/earnings.svg); flex-shrink: 0;"></span>
             <span><strong>Fund-level return metrics</strong> using TVPI, DPI, and IRR, the three numbers LPs care about.</span>
           </li>
           <li>
-            <span class="icon icon-xl icon-green" style="-webkit-mask-image: url(../assets/icons/bar-chart.svg); mask-image: url(../assets/icons/bar-chart.svg)"></span>
+            <span class="icon icon-xl icon-green" style="--icon: url(../../../../_design/icons/bar-chart.svg); flex-shrink: 0;"></span>
             <span><strong>The power law</strong> and why it drives every portfolio construction and deal selection decision.</span>
           </li>
           <li>
-            <span class="icon icon-xl icon-green" style="-webkit-mask-image: url(../assets/icons/money.svg); mask-image: url(../assets/icons/money.svg)"></span>
+            <span class="icon icon-xl icon-green" style="--icon: url(../../../../_design/icons/money.svg); flex-shrink: 0;"></span>
             <span><strong>Ownership economics</strong> and the "return the fund" test that VCs run on every deal.</span>
           </li>
           <li>
-            <span class="icon icon-xl icon-green" style="-webkit-mask-image: url(../assets/icons/spreadsheet.svg); mask-image: url(../assets/icons/spreadsheet.svg)"></span>
+            <span class="icon icon-xl icon-green" style="--icon: url(../../../../_design/icons/spreadsheet.svg); flex-shrink: 0;"></span>
             <span><strong>Portfolio construction</strong> arithmetic: how many bets, what check sizes, and how much in reserves.</span>
           </li>
         </ul>
@@ -155,15 +155,15 @@
       <section class="content">
         <div class="slide-header">
           <p class="eyebrow">VC Recruiting Course</p>
-          <h2>DPI and IRR: Cash and time</h2>
+          <h2>DPI and IRR: cash and time</h2>
         </div>
 
         <div class="card-grid-2">
-          <div class="card card-blue-bg " data--index="1" style="padding: 16px;">
+          <div class="card card-blue-bg fragment" data-fragment-index="1" style="padding: 16px;">
             <h3 class="mb-8">DPI: Distributions to Paid-In</h3>
-            <p class="text-sm text-light">DPI is the metric that counts real returns</p>
+            <p class="text-sm text-light">Only counts cash returned to LPs. Not marks, not paper gains. A fund with 4x TVPI and 0.3x DPI has made LPs feel wealthy on paper but has barely returned anything spendable. DPI is the metric that counts real returns.</p>
           </div>
-          <div class="card card-purple-bg " data--index="2" style="padding: 16px;">
+          <div class="card card-purple-bg fragment" data-fragment-index="2" style="padding: 16px;">
             <h3 class="mb-8">IRR: Internal Rate of Return</h3>
             <p class="text-sm text-light">Accounts for the time value of money. A 3x return in three years is spectacular. A 3x in twelve years is mediocre. Top-quartile funds target 20-25% net IRR. The median VC fund returns roughly 1.5x net TVPI and mid-single-digit IRR.</p>
           </div>
@@ -248,7 +248,7 @@
 
         <div class="card-alt-green">
           <div style="display: flex; align-items: flex-start; gap: 16px;">
-            <span class="icon icon-xl icon-green" style="-webkit-mask-image: url(../assets/icons/arrow-up-chart-growth.svg); mask-image: url(../assets/icons/arrow-up-chart-growth.svg)"></span>
+            <span class="icon icon-xl icon-green" style="--icon: url(../../../../_design/icons/arrow-up-chart-growth.svg); flex-shrink: 0;"></span>
             <div>
               <p><strong>The top 10% of deals in a given fund vintage account for 60-70% of total returns across the entire VC industry. At the individual fund level, one or two deals routinely generate more returns than the other twenty or thirty combined.</strong></p>
               <p class="text-sm text-light mt-8">Most people think a good VC picks mostly winners. The reality is the opposite. Most startups fail. Many return some capital but nothing meaningful. A few become massive. And "massive" means a single company can return your entire fund, or several times your fund.</p>
@@ -283,25 +283,25 @@
             </tr>
           </thead>
           <tbody>
-            <tr class="" data--index="1">
+            <tr class="fragment" data-fragment-index="1">
               <td>Failures</td>
               <td>15</td>
               <td>0x-1x</td>
               <td>~$30M</td>
             </tr>
-            <tr class="" data--index="2">
+            <tr class="fragment" data-fragment-index="2">
               <td>Moderate returns</td>
               <td>3</td>
               <td>2-3x</td>
               <td>~$40M</td>
             </tr>
-            <tr class="" data--index="3">
+            <tr class="fragment" data-fragment-index="3">
               <td>Breakout winners</td>
               <td>2</td>
               <td>20x, 30x</td>
               <td>~$500M</td>
             </tr>
-            <tr class="" data--index="4">
+            <tr class="fragment" data-fragment-index="4">
               <td><strong>Total Fund</strong></td>
               <td><strong>20</strong></td>
               <td></td>
@@ -327,15 +327,13 @@
           <h2>How the power law shapes every decision</h2>
         </div>
 
-        <div class="card-grid-3">
-          <div class="card card-green-bg " data--index="1">
-            <span class="icon icon-lg icon-green mb-16" style="-webkit-mask-image: url(../assets/icons/achievements.svg); mask-image: url(../assets/icons/achievements.svg)"></span>
-            <h3>Deal Selection</h3>
+        <div class="card-grid-2">
+          <div class="card card-green-bg fragment" data-fragment-index="1" style="padding: 16px;">
+            <h3 class="mb-8">Deal Selection</h3>
             <p class="text-sm text-light">Every investment needs the theoretical potential to return the entire fund. A company that can only become a $200M business doesn't move the needle, even if it's "safe."</p>
           </div>
-          <div class="card card-purple-bg " data--index="2">
-            <span class="icon icon-lg icon-purple mb-16" style="-webkit-mask-image: url(../assets/icons/arrow-up-chart-growth.svg); mask-image: url(../assets/icons/arrow-up-chart-growth.svg)"></span>
-            <h3>Portfolio Management</h3>
+          <div class="card card-purple-bg fragment" data-fragment-index="2" style="padding: 16px;">
+            <h3 class="mb-8">Portfolio Management</h3>
             <p class="text-sm text-light">Once a GP identifies a winner, they pour resources into it. Follow-on capital, board attention, recruiting help. Winners get more of everything.</p>
           </div>
         </div>
@@ -371,7 +369,7 @@
 
         <div class="card-alt-green">
           <div style="display: flex; align-items: flex-start; gap: 16px;">
-            <span class="icon icon-xl icon-green" style="-webkit-mask-image: url(../assets/icons/lightning.svg); mask-image: url(../assets/icons/lightning.svg)"></span>
+            <span class="icon icon-xl icon-green" style="--icon: url(../../../../_design/icons/lightning.svg); flex-shrink: 0;"></span>
             <div>
               <p><strong>Ownership % = Investment Amount / Post-Money Valuation</strong></p>
               <p class="text-sm text-light mt-8">Invest $10M at a $40M post-money and you own 25%. Simple. But watch what happens to that 25% over time. Each new round dilutes your stake. By exit, your 25% might be 10-12% depending on how many rounds happened and whether you followed on.</p>
@@ -406,31 +404,31 @@
             </tr>
           </thead>
           <tbody>
-            <tr class="" data--index="1">
+            <tr class="fragment" data-fragment-index="1">
               <td>Series A (lead)</td>
               <td>20.0%</td>
               <td>--</td>
               <td>--</td>
             </tr>
-            <tr class="" data--index="2">
+            <tr class="fragment" data-fragment-index="2">
               <td>Series B</td>
               <td>16.0%</td>
               <td>20%</td>
               <td>20%</td>
             </tr>
-            <tr class="" data--index="3">
+            <tr class="fragment" data-fragment-index="3">
               <td>Series C</td>
               <td>12.8%</td>
               <td>20%</td>
               <td>36%</td>
             </tr>
-            <tr class="" data--index="4">
+            <tr class="fragment" data-fragment-index="4">
               <td>Series D</td>
               <td>10.9%</td>
               <td>15%</td>
               <td>45%</td>
             </tr>
-            <tr class="" data--index="5">
+            <tr class="fragment" data-fragment-index="5">
               <td>IPO / Exit</td>
               <td>9.8%</td>
               <td>10%</td>
@@ -488,7 +486,7 @@
               <td>Ownership at Exit</td>
               <td>12.5%</td>
             </tr>
-            <tr class="" data--index="1">
+            <tr class="fragment" data-fragment-index="1">
               <td><strong>Required Exit Value</strong></td>
               <td><strong>$300M / 12.5% = $2.4B</strong></td>
             </tr>
@@ -513,11 +511,11 @@
         </div>
 
         <div class="card-grid-2">
-          <div class="card card-green-bg " data--index="1" style="padding: 16px;">
+          <div class="card card-green-bg fragment" data-fragment-index="1" style="padding: 16px;">
             <h3 class="mb-8">With Follow-On</h3>
             <p class="text-sm text-light">Reserve 50-60% of fund capital for follow-on. If you follow on pro rata in Series B and C, you maintain 18-20% ownership at exit. Required exit drops from $2.4B to $1.5-1.7B. More achievable.</p>
           </div>
-          <div class="card card-blue-bg " data--index="2" style="padding: 16px;">
+          <div class="card card-blue-bg fragment" data-fragment-index="2" style="padding: 16px;">
             <h3 class="mb-8">Return Multiple Formula</h3>
             <p class="text-sm text-light">Return Multiple = Exit Value x Ownership at Exit / Total Invested Capital. If exit is $1.5B and you own 18% ($25M invested total), proceeds are $270M. That's 10.8x. One deal returns 90% of a $300M fund.</p>
           </div>
@@ -561,32 +559,32 @@
             </tr>
           </thead>
           <tbody>
-            <tr class="" data--index="1">
+            <tr class="fragment" data-fragment-index="1">
               <td>Management fees (fund life)</td>
               <td>~$35M</td>
               <td>2% annual, declining after Year 5</td>
             </tr>
-            <tr class="" data--index="2">
+            <tr class="fragment" data-fragment-index="2">
               <td>Investable capital</td>
               <td>~$265M</td>
               <td>What's actually deployed into companies</td>
             </tr>
-            <tr class="" data--index="3">
+            <tr class="fragment" data-fragment-index="3">
               <td>Initial investments (20 cos x ~$5-6M)</td>
               <td>~$106-120M</td>
               <td>40-45% of investable capital</td>
             </tr>
-            <tr class="" data--index="4">
+            <tr class="fragment" data-fragment-index="4">
               <td>Follow-on reserves</td>
               <td>~$145-159M</td>
               <td>55-60% of investable capital</td>
             </tr>
-            <tr class="" data--index="5">
+            <tr class="fragment" data-fragment-index="5">
               <td>Target ownership at entry</td>
               <td>15-20%</td>
               <td>Series A standard for lead investor</td>
             </tr>
-            <tr class="" data--index="6">
+            <tr class="fragment" data-fragment-index="6">
               <td>Target ownership at exit</td>
               <td>10-15%</td>
               <td>Assumes 2-3 more rounds</td>
@@ -620,17 +618,17 @@
             </tr>
           </thead>
           <tbody>
-            <tr class="" data--index="1">
+            <tr class="fragment" data-fragment-index="1">
               <td>Early-stage (Seed-A)</td>
               <td>3x net to LPs</td>
               <td>Higher risk, more failures, bigger winners needed</td>
             </tr>
-            <tr class="" data--index="2">
+            <tr class="fragment" data-fragment-index="2">
               <td>Growth-stage (B+)</td>
               <td>2-2.5x net</td>
               <td>Lower risk, higher entry prices, fewer 50x outcomes</td>
             </tr>
-            <tr class="" data--index="3">
+            <tr class="fragment" data-fragment-index="3">
               <td>Late-stage / Crossover</td>
               <td>1.5-2x net</td>
               <td>Near-public pricing, illiquidity premium play</td>
@@ -657,7 +655,7 @@
 
         <div class="card-alt-green">
           <div style="display: flex; align-items: flex-start; gap: 16px;">
-            <span class="icon icon-xl icon-green" style="-webkit-mask-image: url(../assets/icons/achievements.svg); mask-image: url(../assets/icons/achievements.svg)"></span>
+            <span class="icon icon-xl icon-green" style="--icon: url(../../../../_design/icons/achievements.svg); flex-shrink: 0;"></span>
             <div>
               <p><strong>If your $300M fund needs $900M in proceeds to hit 3x net, and the power law says your top 3 deals drive 70% of returns, those 3 companies each need to exit at $1.4-1.75 billion.</strong></p>
               <p class="text-sm text-light mt-8">That's the bar. Every deal you evaluate, the first question is: can this company reach a $1.5B+ exit? If the honest answer is no, the deal doesn't fit the portfolio math regardless of how compelling the team or technology might be.</p>
@@ -683,11 +681,11 @@
         </div>
 
         <div class="card-grid-2">
-          <div class="card card-green-bg " data--index="1" style="padding: 16px;">
+          <div class="card card-green-bg fragment" data-fragment-index="1" style="padding: 16px;">
             <h3 class="mb-8">The 10% Ownership Floor</h3>
             <p class="text-sm text-light">For most institutional VCs, 10% at entry is the minimum. Below that, even a massive exit doesn't generate meaningful fund-level returns. If you own 5% of a $1B exit, your $50M proceeds represent only 0.17x on a $300M fund.</p>
           </div>
-          <div class="card card-blue-bg " data--index="2" style="padding: 16px;">
+          <div class="card card-blue-bg fragment" data-fragment-index="2" style="padding: 16px;">
             <h3 class="mb-8">Leading vs. Co-Investing</h3>
             <p class="text-sm text-light">Leading gives you the allocation for meaningful ownership. Participating as a small co-investor gives exposure but not the economics to drive fund returns. At the portfolio construction level, leading is not optional.</p>
           </div>
@@ -710,12 +708,12 @@
           <h2>Key takeaways</h2>
         </div>
 
-        <ul class="plus-list text-white">
-          <li class="" data--index="1"><strong>DPI is the only fund metric that measures reality.</strong> TVPI includes paper gains that may never materialize. In an interview, if someone asks which metric matters most to LPs, the answer is DPI.</li>
-          <li class="" data--index="2"><strong>The power law is the operating math of venture capital.</strong> Two or three deals drive 70%+ of your fund's returns. Every investment thesis, pricing decision, and follow-on allocation flows from this reality.</li>
-          <li class="" data--index="3"><strong>"Return the fund" is the minimum bar for every deal.</strong> Run the ownership math first. Can this company exit at a valuation that, at your expected ownership, returns the entire fund?</li>
-          <li class="" data--index="4"><strong>Portfolio construction is strategy expressed as arithmetic.</strong> Number of bets, check sizes, reserve ratios, and follow-on decisions are all interconnected. Know the fund you're interviewing at.</li>
-          <li class="" data--index="5"><strong>Follow-on capital goes to winners, not evenly across the portfolio.</strong> VCs concentrate reserves in their best companies because that's where the returns are.</li>
+        <ul class="plus-list text-white" style="font-size: 0.92em;">
+          <li class="fragment" data-fragment-index="1"><strong>DPI is the only fund metric that measures reality.</strong> TVPI includes paper gains that may never materialize. In an interview, if someone asks which metric matters most to LPs, the answer is DPI.</li>
+          <li class="fragment" data-fragment-index="2"><strong>The power law is the operating math of venture capital.</strong> Two or three deals drive 70%+ of your fund's returns. Every investment thesis, pricing decision, and follow-on allocation flows from this reality.</li>
+          <li class="fragment" data-fragment-index="3"><strong>"Return the fund" is the minimum bar for every deal.</strong> Run the ownership math first. Can this company exit at a valuation that, at your expected ownership, returns the entire fund?</li>
+          <li class="fragment" data-fragment-index="4"><strong>Portfolio construction is strategy expressed as arithmetic.</strong> Number of bets, check sizes, reserve ratios, and follow-on decisions are all interconnected. Know the fund you're interviewing at.</li>
+          <li class="fragment" data-fragment-index="5"><strong>Follow-on capital goes to winners, not evenly across the portfolio.</strong> VCs concentrate reserves in their best companies because that's where the returns are.</li>
         </ul>
 
         <div class="leland-footer">
@@ -730,9 +728,9 @@
   </div>
 
   <!-- Reveal.js -->
-  <script src="../assets/reveal/dist/reveal.min.js"></script>
+  <script src="../../../../_design/revealjs/dist/reveal.min.js"></script>
   <script type="module">
-    import RevealNotes from '../assets/reveal/plugin/notes/notes.esm.js';
+    import RevealNotes from '../../../../_design/revealjs/plugin/notes/notes.esm.js';
 
     Reveal.initialize({
       width: 960,

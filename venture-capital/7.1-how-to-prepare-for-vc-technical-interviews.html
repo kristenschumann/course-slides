@@ -6,11 +6,11 @@
   <title>How To Prepare for VC Technical Interviews</title>
 
   <!-- Reveal.js Core -->
-  <link rel="stylesheet" href="../assets/reveal/dist/reset.css">
-  <link rel="stylesheet" href="../assets/reveal/dist/reveal.css">
+  <link rel="stylesheet" href="../../../../_design/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../../../../_design/revealjs/dist/reveal.css">
 
   <!-- Leland Theme -->
-  <link rel="stylesheet" href="../assets/reveal/themes/leland.css">
+  <link rel="stylesheet" href="../../../../_design/revealjs/themes/leland.css">
 
 </head>
 <body>
@@ -54,7 +54,7 @@
 
         <div class="card-alt-green">
           <div style="display: flex; align-items: flex-start; gap: 16px;">
-            <span class="icon icon-xl icon-green" style="-webkit-mask-image: url(../assets/icons/document-file.svg); mask-image: url(../assets/icons/document-file.svg)"></span>
+            <span class="icon icon-xl icon-green" style="--icon: url(../../../../_design/icons/document-file.svg); flex-shrink: 0;"></span>
             <div>
               <p><strong>"Walk me through how you'd think about the valuation." I froze. Not because I didn't know finance. I'd done two years in investment banking. I froze because VC technical work is a completely different animal.</strong></p>
               <p class="text-sm text-light mt-8">There's no DCF model. No precedent transaction analysis. The partner wasn't asking me to build a spreadsheet. He was asking me to think like an investor. That's a skill nobody teaches you before you walk in the door. This video is the roadmap.</p>
@@ -81,19 +81,19 @@
 
         <ul class="icon-list text-lg">
           <li>
-            <span class="icon icon-xl icon-green" style="-webkit-mask-image: url(../assets/icons/shapes.svg); mask-image: url(../assets/icons/shapes.svg)"></span>
+            <span class="icon icon-xl icon-green" style="--icon: url(../../../../_design/icons/shapes.svg); flex-shrink: 0;"></span>
             <span><strong>What "technical" means in VC</strong> and why it differs from banking or consulting technical skills.</span>
           </li>
           <li>
-            <span class="icon icon-xl icon-green" style="-webkit-mask-image: url(../assets/icons/filter-levels.svg); mask-image: url(../assets/icons/filter-levels.svg)"></span>
+            <span class="icon icon-xl icon-green" style="--icon: url(../../../../_design/icons/filter-levels.svg); flex-shrink: 0;"></span>
             <span><strong>Question types by role level</strong> from analyst through principal, and the depth expected at each.</span>
           </li>
           <li>
-            <span class="icon icon-xl icon-green" style="-webkit-mask-image: url(../assets/icons/modules.svg); mask-image: url(../assets/icons/modules.svg)"></span>
+            <span class="icon icon-xl icon-green" style="--icon: url(../../../../_design/icons/modules.svg); flex-shrink: 0;"></span>
             <span><strong>A framework for structuring answers</strong> that works for almost any VC technical question.</span>
           </li>
           <li>
-            <span class="icon icon-xl icon-green" style="-webkit-mask-image: url(../assets/icons/warning-triangle.svg); mask-image: url(../assets/icons/warning-triangle.svg)"></span>
+            <span class="icon icon-xl icon-green" style="--icon: url(../../../../_design/icons/warning-triangle.svg); flex-shrink: 0;"></span>
             <span><strong>The five mistakes that sink candidates</strong> and how to avoid every one of them.</span>
           </li>
         </ul>
@@ -111,7 +111,7 @@
       <!-- ============================================ -->
       <section class="divider">
         <div class="part-number">Section 1</div>
-        <h1>What "Technical" Actually Means in VC</h1>
+        <h1>What "Technical"<br>Actually Means in VC</h1>
 
         <aside class="notes">
           1:00 | Transition into defining VC technical interviews.
@@ -128,15 +128,15 @@
         </div>
 
         <div class="card-grid-3">
-          <div class="card card-green-bg " data--index="1">
+          <div class="card card-green-bg fragment" data-fragment-index="1">
             <h3>VC Math and Fund Economics</h3>
             <p class="text-sm text-light">How funds generate returns, ownership math, and portfolio construction arithmetic.</p>
           </div>
-          <div class="card card-blue-bg " data--index="2">
+          <div class="card card-blue-bg fragment" data-fragment-index="2">
             <h3>Startup Valuation</h3>
             <p class="text-sm text-light">Pre-money, post-money, comps, VC method, and when each applies.</p>
           </div>
-          <div class="card card-purple-bg " data--index="3">
+          <div class="card card-purple-bg fragment" data-fragment-index="3">
             <h3>Cap Table Mechanics</h3>
             <p class="text-sm text-light">How ownership is structured, diluted, and tracked across rounds.</p>
           </div>
@@ -159,9 +159,10 @@
           <h2>Six domains, continued</h2>
         </div>
 
-        <ul>
-          <li><strong>Fund math</strong>
-            <ul>
+        <div class="card-grid-2">
+          <div class="card card-green-bg fragment" data-fragment-index="1" style="padding: 16px;">
+            <h3 class="mb-8">Fund math</h3>
+            <ul class="text-sm text-light" style="margin: 0; padding-left: 20px; line-height: 1.45;">
               <li>Cap table dynamics</li>
               <li>Waterfall math</li>
               <li>Liquidity preference</li>
@@ -169,9 +170,10 @@
               <li>Fund returns</li>
               <li>Startup valuation</li>
             </ul>
-          </li>
-          <li><strong>Company performance math</strong>
-            <ul>
+          </div>
+          <div class="card card-blue-bg fragment" data-fragment-index="2" style="padding: 16px;">
+            <h3 class="mb-8">Company performance math</h3>
+            <ul class="text-sm text-light" style="margin: 0; padding-left: 20px; line-height: 1.45;">
               <li>ARR and revenue growth</li>
               <li>NRR (Net Revenue Retention)</li>
               <li>LTV / CAC</li>
@@ -179,8 +181,8 @@
               <li>Growth rate calculations</li>
               <li>Customer pipeline metrics</li>
             </ul>
-          </li>
-        </ul>
+          </div>
+        </div>
 
         <div class="leland-footer">
           <svg width="80" height="18" fill="#9B9B9B"><use href="#leland-logo"/></svg>
@@ -201,7 +203,7 @@
 
         <div class="card-alt-green">
           <div style="display: flex; align-items: flex-start; gap: 16px;">
-            <span class="icon icon-xl icon-green" style="-webkit-mask-image: url(../assets/icons/sparkle.svg); mask-image: url(../assets/icons/sparkle.svg)"></span>
+            <span class="icon icon-xl icon-green" style="--icon: url(../../../../_design/icons/sparkle.svg); flex-shrink: 0;"></span>
             <div>
               <p><strong>Having interviewed over 50 candidates, the ones who struggled weren't the ones who got the math wrong. They were the ones who couldn't explain their reasoning.</strong></p>
               <p class="text-sm text-light mt-8">They'd give an answer, "$150 million pre-money," but when pushed back with "Why not $100 million?" they couldn't articulate the assumptions driving their number. The interviewer isn't testing whether you can compute a number. They're testing whether you can think through a problem with incomplete information and defend a position.</p>
@@ -238,7 +240,8 @@
           <h2>Technical questions scale with seniority</h2>
         </div>
 
-        <table>
+        <style>.seniority-table td, .seniority-table th { padding: 10px 12px !important; line-height: 1.5 !important; }</style>
+        <table class="seniority-table">
           <thead>
             <tr>
               <th>Level</th>
@@ -248,19 +251,19 @@
             </tr>
           </thead>
           <tbody>
-            <tr class="" data--index="1">
+            <tr class="fragment" data-fragment-index="1">
               <td>Analyst / Pre-MBA</td>
               <td>Ownership math, SAFEs, basic cap tables, return multiples</td>
               <td>"Calculate this. Define that."</td>
               <td>Foundational mechanics</td>
             </tr>
-            <tr class="" data--index="2">
+            <tr class="fragment" data-fragment-index="2">
               <td>Post-MBA Associate</td>
               <td>Comps, fund economics, portfolio construction, valuation arguments</td>
               <td>"Walk me through your thinking."</td>
               <td>Structured reasoning with numbers</td>
             </tr>
-            <tr class="" data--index="3">
+            <tr class="fragment" data-fragment-index="3">
               <td>Principal / VP</td>
               <td>Scenario modeling, waterfall returns, term sheet negotiation</td>
               <td>"Here's a real deal. What would you do?"</td>
@@ -287,11 +290,11 @@
         </div>
 
         <div class="card-grid-2">
-          <div class="card card-green-bg " data--index="1" style="padding: 16px;">
+          <div class="card card-green-bg fragment" data-fragment-index="1" style="padding: 16px;">
             <h3 class="mb-8">What They're Testing</h3>
             <p class="text-sm text-light">Can you do basic ownership math? If a fund invests $5M at a $20M post-money, what percentage do they own? That should be automatic: 25%. Can you explain SAFEs and walk through a simple cap table?</p>
           </div>
-          <div class="card card-blue-bg " data--index="2" style="padding: 16px;">
+          <div class="card card-blue-bg fragment" data-fragment-index="2" style="padding: 16px;">
             <h3 class="mb-8">The Common Failure</h3>
             <p class="text-sm text-light">At one firm, we gave analyst candidates a one-page term sheet and asked them to calculate post-money ownership. About 40% got it right. The math is middle-school arithmetic. The issue: candidates don't know what the terms mean.</p>
           </div>
@@ -315,11 +318,11 @@
         </div>
 
         <div class="card-grid-2">
-          <div class="card card-purple-bg " data--index="1" style="padding: 16px;">
+          <div class="card card-purple-bg fragment" data-fragment-index="1" style="padding: 16px;">
             <h3 class="mb-8">Post-MBA Associate</h3>
             <p class="text-sm text-light">Structure a valuation argument using comps. Discuss fund economics: what does it take for a $500M fund to return 3x net? Handle portfolio construction questions and open-ended deal evaluations.</p>
           </div>
-          <div class="card card-orange-bg " data--index="2" style="padding: 16px;">
+          <div class="card card-orange-bg fragment" data-fragment-index="2" style="padding: 16px;">
             <h3 class="mb-8">Principal / VP</h3>
             <p class="text-sm text-light">Model bull, base, and bear scenarios. Understand waterfall distributions and carry mechanics. Discuss deal terms as negotiation levers, not definitions. Technical blends into deal judgment at this level.</p>
           </div>
@@ -354,23 +357,25 @@
           <h2>State, assume, calculate, pressure test</h2>
         </div>
 
-        <div class="card-grid-2">
-          <div class="card card-green-bg " data--index="1" style="padding: 16px;">
-            <h3 class="mb-8">State the Approach</h3>
+        <div style="font-size: 0.85em">
+        <div class="card-grid-2 gap-12">
+          <div class="card card-green-bg fragment" data-fragment-index="1" style="padding: 10px 14px;">
+            <h3 class="mb-4">State the Approach</h3>
             <p class="text-sm text-light">Tell the interviewer how you'll think about the problem before touching any numbers. "I'd look at comparable public companies, adjust for a private discount, then run the return math."</p>
           </div>
-          <div class="card card-blue-bg " data--index="2" style="padding: 16px;">
-            <h3 class="mb-8">Make Assumptions Explicit</h3>
+          <div class="card card-blue-bg fragment" data-fragment-index="2" style="padding: 10px 14px;">
+            <h3 class="mb-4">Make Assumptions Explicit</h3>
             <p class="text-sm text-light">This is where most candidates fail. Say it out loud: "I'm assuming growth stays above 50% for three years, giving $80M ARR. I'm assuming a 10x exit multiple."</p>
           </div>
-          <div class="card card-orange-bg " data--index="3" style="padding: 16px;">
-            <h3 class="mb-8">Calculate</h3>
+          <div class="card card-orange-bg fragment" data-fragment-index="3" style="padding: 10px 14px;">
+            <h3 class="mb-4">Calculate</h3>
             <p class="text-sm text-light">Do the math. Back-of-envelope is fine. "$80M ARR times 10x is $800M exit. We own 15% after dilution. Proceeds: $120M on a $20M investment. That's 6x."</p>
           </div>
-          <div class="card card-purple-bg " data--index="4" style="padding: 16px;">
-            <h3 class="mb-8">Pressure Test Yourself</h3>
+          <div class="card card-purple-bg fragment" data-fragment-index="4" style="padding: 10px 14px;">
+            <h3 class="mb-4">Pressure Test Yourself</h3>
             <p class="text-sm text-light">Before the interviewer pokes holes, poke your own. "The risk is growth decelerating. If ARR hits $50M, we're looking at 3x, which is decent but not fund-making."</p>
           </div>
+        </div>
         </div>
 
         <div class="leland-footer">
@@ -392,7 +397,7 @@
 
         <div class="card-alt-green">
           <div style="display: flex; align-items: flex-start; gap: 16px;">
-            <span class="icon icon-xl icon-green" style="-webkit-mask-image: url(../assets/icons/checkmark-badge.svg); mask-image: url(../assets/icons/checkmark-badge.svg)"></span>
+            <span class="icon icon-xl icon-green" style="--icon: url(../../../../_design/icons/checkmark-badge.svg); flex-shrink: 0;"></span>
             <div>
               <p><strong>Two candidates can arrive at different valuations and both pass, if they both showed clear thinking, reasonable assumptions, and self-awareness about risks.</strong></p>
               <p class="text-sm text-light mt-8">Interviewers are not looking for the right number. They're looking for the right process. The candidates who state assumptions, run the math, and pressure test themselves are the ones who get offers. The ones who skip to a number and hope it's right get follow-up questions they can't answer.</p>
@@ -430,11 +435,11 @@
         </div>
 
         <div class="card-grid-2">
-          <div class="card card-red-bg " data--index="1" style="padding: 16px;">
+          <div class="card card-red-bg fragment" data-fragment-index="1" style="padding: 16px;">
             <h3 class="mb-8">Treating VC Math Like Banking Math</h3>
             <p class="text-sm text-light">A candidate tries to build a three-statement model for a pre-revenue startup. That's not how this works. VC math is simpler in mechanics but harder in judgment. Think ownership, dilution, exit scenarios, and fund-level returns.</p>
           </div>
-          <div class="card card-orange-bg " data--index="2" style="padding: 16px;">
+          <div class="card card-orange-bg fragment" data-fragment-index="2" style="padding: 16px;">
             <h3 class="mb-8">Not Knowing Your Fund's Strategy</h3>
             <p class="text-sm text-light">A seed fund needs 100x outcomes. A growth fund targets 3-5x with consistency. The technical questions differ because the investment strategy differs. Research the fund's stage, check size, and portfolio construction.</p>
           </div>
@@ -458,11 +463,11 @@
         </div>
 
         <div class="card-grid-2">
-          <div class="card card-red-bg " data--index="1" style="padding: 16px;">
+          <div class="card card-red-bg fragment" data-fragment-index="1" style="padding: 16px;">
             <h3 class="mb-8">Giving Answers Without Assumptions</h3>
             <p class="text-sm text-light">"I'd value this at $200 million." Based on what? Silence. Dead. Always lead with your assumptions. The number without reasoning tells the interviewer nothing.</p>
           </div>
-          <div class="card card-orange-bg " data--index="2" style="padding: 16px;">
+          <div class="card card-orange-bg fragment" data-fragment-index="2" style="padding: 16px;">
             <h3 class="mb-8">Not Connecting Math to the Decision</h3>
             <p class="text-sm text-light">The question is never just "what's the return?" It's "does this return justify the risk at this price?" A 3x on a Series A might be fine. A 3x on a pre-revenue seed deal is terrible given the risk profile.</p>
           </div>
@@ -487,7 +492,7 @@
 
         <div class="card-alt-green">
           <div style="display: flex; align-items: flex-start; gap: 16px;">
-            <span class="icon icon-xl icon-green" style="-webkit-mask-image: url(../assets/icons/shield-check-filled.svg); mask-image: url(../assets/icons/shield-check-filled.svg)"></span>
+            <span class="icon icon-xl icon-green" style="--icon: url(../../../../_design/icons/shield-check-filled.svg); flex-shrink: 0;"></span>
             <div>
               <p><strong>No one expects you to know everything. If a partner asks about waterfall distributions and you're an analyst candidate, honesty beats bluffing every time.</strong></p>
               <p class="text-sm text-light mt-8">Say: "I haven't worked through a full waterfall model, but my understanding is that proceeds flow first to the LP preferred return, then to the GP catch-up, then split by carry terms. I'd want to model that out for a precise answer." That's honest, demonstrates partial knowledge, and shows intellectual humility. That answer is better than making something up.</p>
@@ -512,12 +517,12 @@
           <h2>Key takeaways</h2>
         </div>
 
-        <ul class="plus-list text-white">
-          <li class="" data--index="1"><strong>VC technical interviews test investor thinking, not spreadsheet speed.</strong> Your ability to reason through a problem with incomplete data matters more than getting the exact number right.</li>
-          <li class="" data--index="2"><strong>The six domains are your study guide.</strong> VC math, valuation, cap tables, deal terms, unit economics, and modeling. You need fluency in most and depth in two or three.</li>
-          <li class="" data--index="3"><strong>Always make your assumptions explicit.</strong> State them, run the math, then pressure test your own answer before the interviewer does.</li>
-          <li class="" data--index="4"><strong>Know your fund before you walk in the room.</strong> The technical bar is different at a seed fund, a Series A fund, and a growth equity fund. Your answers should reflect that.</li>
-          <li class="" data--index="5"><strong>The biggest differentiator is connecting technical knowledge to investment judgment.</strong> Explain why ownership matters in the context of fund-level returns and power-law dynamics.</li>
+        <ul class="plus-list text-white" style="font-size: 0.92em;">
+          <li class="fragment" data-fragment-index="1"><strong>VC technical interviews test investor thinking, not spreadsheet speed.</strong> Your ability to reason through a problem with incomplete data matters more than getting the exact number right.</li>
+          <li class="fragment" data-fragment-index="2"><strong>The six domains are your study guide.</strong> VC math, valuation, cap tables, deal terms, unit economics, and modeling. You need fluency in most and depth in two or three.</li>
+          <li class="fragment" data-fragment-index="3"><strong>Always make your assumptions explicit.</strong> State them, run the math, then pressure test your own answer before the interviewer does.</li>
+          <li class="fragment" data-fragment-index="4"><strong>Know your fund before you walk in the room.</strong> The technical bar is different at a seed fund, a Series A fund, and a growth equity fund. Your answers should reflect that.</li>
+          <li class="fragment" data-fragment-index="5"><strong>The biggest differentiator is connecting technical knowledge to investment judgment.</strong> Explain why ownership matters in the context of fund-level returns and power-law dynamics.</li>
         </ul>
 
         <div class="leland-footer">
@@ -532,9 +537,9 @@
   </div>
 
   <!-- Reveal.js -->
-  <script src="../assets/reveal/dist/reveal.min.js"></script>
+  <script src="../../../../_design/revealjs/dist/reveal.min.js"></script>
   <script type="module">
-    import RevealNotes from '../assets/reveal/plugin/notes/notes.esm.js';
+    import RevealNotes from '../../../../_design/revealjs/plugin/notes/notes.esm.js';
 
     Reveal.initialize({
       width: 960,

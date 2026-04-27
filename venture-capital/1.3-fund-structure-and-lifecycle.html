@@ -6,11 +6,11 @@
   <title>Fund Structure and Lifecycle</title>
 
   <!-- Reveal.js Core -->
-  <link rel="stylesheet" href="../assets/reveal/dist/reset.css">
-  <link rel="stylesheet" href="../assets/reveal/dist/reveal.css">
+  <link rel="stylesheet" href="../../../../_design/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../../../../_design/revealjs/dist/reveal.css">
 
   <!-- Leland Theme -->
-  <link rel="stylesheet" href="../assets/reveal/themes/leland.css">
+  <link rel="stylesheet" href="../../../../_design/revealjs/themes/leland.css">
 
 </head>
 <body>
@@ -54,7 +54,7 @@
 
         <div class="card-alt-green mb-24">
           <div style="display: flex; align-items: flex-start; gap: 12px;">
-            <span class="icon icon-xl icon-green" style="-webkit-mask-image: url(../assets/icons/clock.svg); mask-image: url(../assets/icons/clock.svg)"></span>
+            <span class="icon icon-xl icon-green" style="--icon: url(../../../../_design/icons/clock.svg); flex-shrink: 0"></span>
             <p class="text-md">Every dollar has a timestamp, and every phase of the fund's life changes what a GP can and cannot do. Understanding that clock is how you understand why VCs behave the way they do.</p>
           </div>
         </div>
@@ -78,15 +78,15 @@
 
         <ul class="icon-list text-lg">
           <li>
-            <span class="icon icon-lg icon-green" style="-webkit-mask-image: url(../assets/icons/star.svg); mask-image: url(../assets/icons/star.svg)"></span>
+            <span class="icon icon-lg icon-green" style="--icon: url(../../../../_design/icons/star.svg)"></span>
             <span>Walk through the full lifecycle of a fund: thesis to dissolution</span>
           </li>
           <li>
-            <span class="icon icon-lg icon-green" style="-webkit-mask-image: url(../assets/icons/star.svg); mask-image: url(../assets/icons/star.svg)"></span>
+            <span class="icon icon-lg icon-green" style="--icon: url(../../../../_design/icons/star.svg)"></span>
             <span>Explain why VC behavior changes at each phase</span>
           </li>
           <li>
-            <span class="icon icon-lg icon-green" style="-webkit-mask-image: url(../assets/icons/star.svg); mask-image: url(../assets/icons/star.svg)"></span>
+            <span class="icon icon-lg icon-green" style="--icon: url(../../../../_design/icons/star.svg)"></span>
             <span>Understand the forces behind every GP decision at every stage</span>
           </li>
         </ul>
@@ -123,17 +123,17 @@
 
         <div class="card-grid-3">
           <div class="card card-green-bg">
-            <span class="icon icon-lg icon-green mb-16" style="-webkit-mask-image: url(../assets/icons/deal-execution.svg); mask-image: url(../assets/icons/deal-execution.svg)"></span>
+            <span class="icon icon-lg icon-green mb-16" style="--icon: url(../../../../_design/icons/deal-execution.svg)"></span>
             <h3>Sector &amp; Stage</h3>
             <p class="text-sm text-light">Fintech, healthcare, AI, climate tech. Seed, Series A, or growth equity.</p>
           </div>
           <div class="card card-blue-bg">
-            <span class="icon icon-lg icon-blue mb-16" style="-webkit-mask-image: url(../assets/icons/bar-chart.svg); mask-image: url(../assets/icons/bar-chart.svg)"></span>
+            <span class="icon icon-lg icon-blue mb-16" style="--icon: url(../../../../_design/icons/bar-chart.svg)"></span>
             <h3>Geography &amp; Portfolio</h3>
             <p class="text-sm text-light">US-only or global. Check size, ownership targets, number of companies.</p>
           </div>
           <div class="card card-orange-bg">
-            <span class="icon icon-lg icon-orange mb-16" style="-webkit-mask-image: url(../assets/icons/money-chat.svg); mask-image: url(../assets/icons/money-chat.svg)"></span>
+            <span class="icon icon-lg icon-orange mb-16" style="--icon: url(../../../../_design/icons/money-chat.svg)"></span>
             <h3>LP Alignment</h3>
             <p class="text-sm text-light">The thesis must sell. Endowments, family offices, and fund-of-funds each have different portfolio objectives.</p>
           </div>
@@ -158,7 +158,7 @@
 
         <div class="card-alt-green mb-24">
           <div style="display: flex; align-items: flex-start; gap: 12px;">
-            <span class="icon icon-xl icon-green" style="-webkit-mask-image: url(../assets/icons/lightning.svg); mask-image: url(../assets/icons/lightning.svg)"></span>
+            <span class="icon icon-xl icon-green" style="--icon: url(../../../../_design/icons/lightning.svg); flex-shrink: 0"></span>
             <p class="text-md">"$150M early-stage fund focused on enterprise SaaS, writing $3-8M Series A checks, targeting 20-25% ownership in 20-25 companies."</p>
           </div>
         </div>
@@ -193,26 +193,20 @@
           <h2>The Limited Partner Agreement ("LPA") governs all fund activity.</h2>
         </div>
 
-        <div class="workflow">
-          <div class="workflow-step">
-            <span class="icon icon-md icon-green mb-16" style="-webkit-mask-image: url(../assets/icons/money.svg); mask-image: url(../assets/icons/money.svg)"></span>
-            <h3 class="text-md">Fund LP</h3>
+        <div class="card-grid-3">
+          <div class="card card-green-bg" style="padding: 16px;">
+            <span class="icon icon-md icon-green mb-8" style="--icon: url(../../../../_design/icons/money.svg)"></span>
+            <h3 class="text-md mb-8">Fund LP</h3>
             <p class="text-sm text-light">The investment vehicle holding committed capital</p>
           </div>
-          <div class="workflow-arrow">
-            <span class="icon icon-md icon-green" style="-webkit-mask-image: url(../assets/icons/arrow-right.svg); mask-image: url(../assets/icons/arrow-right.svg)"></span>
-          </div>
-          <div class="workflow-step">
-            <span class="icon icon-md icon-green mb-16" style="-webkit-mask-image: url(../assets/icons/document-file.svg); mask-image: url(../assets/icons/document-file.svg)"></span>
-            <h3 class="text-md">GPs</h3>
+          <div class="card card-blue-bg" style="padding: 16px;">
+            <span class="icon icon-md icon-blue mb-8" style="--icon: url(../../../../_design/icons/document-file.svg)"></span>
+            <h3 class="text-md mb-8">GPs</h3>
             <p class="text-sm text-light">General partners who manage the fund and deploy capital</p>
           </div>
-          <div class="workflow-arrow">
-            <span class="icon icon-md icon-green" style="-webkit-mask-image: url(../assets/icons/arrow-right.svg); mask-image: url(../assets/icons/arrow-right.svg)"></span>
-          </div>
-          <div class="workflow-step">
-            <span class="icon icon-md icon-green mb-16" style="-webkit-mask-image: url(../assets/icons/user-group.svg); mask-image: url(../assets/icons/user-group.svg)"></span>
-            <h3 class="text-md">Management Company</h3>
+          <div class="card card-purple-bg" style="padding: 16px;">
+            <span class="icon icon-md icon-purple mb-8" style="--icon: url(../../../../_design/icons/user-group.svg)"></span>
+            <h3 class="text-md mb-8">Management Company</h3>
             <p class="text-sm text-light">Employs team, handles operations, funded by management fees</p>
           </div>
         </div>
@@ -236,13 +230,13 @@
 
         <div class="card-grid-2">
           <div class="card card-purple-bg">
-            <span class="icon icon-lg icon-purple mb-16" style="-webkit-mask-image: url(../assets/icons/money.svg); mask-image: url(../assets/icons/money.svg)"></span>
+            <span class="icon icon-lg icon-purple mb-16" style="--icon: url(../../../../_design/icons/money.svg)"></span>
             <h3>GP Commitment</h3>
             <p class="text-sm text-light">GPs contribute 1-3% of total fund size. For a $200M fund, that is $2-6M from the GP team's own pockets.</p>
           </div>
           <div class="card card-blue-bg">
-            <span class="icon icon-lg icon-blue mb-16" style="-webkit-mask-image: url(../assets/icons/earnings.svg); mask-image: url(../assets/icons/earnings.svg)"></span>
-            <h3>First &amp; Final Close</h3>
+            <span class="icon icon-lg icon-blue mb-16" style="--icon: url(../../../../_design/icons/earnings.svg)"></span>
+            <h3>First Close</h3>
             <p class="text-sm text-light">First close at 40-60% of target lets deployment begin. Fundraising continues until final close.</p>
           </div>
         </div>
@@ -279,23 +273,23 @@
 
         <div class="workflow">
           <div class="workflow-step">
-            <span class="icon icon-md icon-green mb-16" style="-webkit-mask-image: url(../assets/icons/search-document.svg); mask-image: url(../assets/icons/search-document.svg)"></span>
+            <span class="icon icon-md icon-green mb-16" style="--icon: url(../../../../_design/icons/search-document.svg)"></span>
             <h3 class="text-md">Deal Flow &amp; Screening</h3>
             <p class="text-sm text-light">Sourcing and filtering investment opportunities</p>
           </div>
           <div class="workflow-arrow">
-            <span class="icon icon-md icon-green" style="-webkit-mask-image: url(../assets/icons/arrow-right.svg); mask-image: url(../assets/icons/arrow-right.svg)"></span>
+            <span class="icon icon-md icon-green" style="--icon: url(../../../../_design/icons/arrow-right.svg)"></span>
           </div>
           <div class="workflow-step">
-            <span class="icon icon-md icon-green mb-16" style="-webkit-mask-image: url(../assets/icons/document-file.svg); mask-image: url(../assets/icons/document-file.svg)"></span>
-            <h3 class="text-md">Due Diligence &amp; IC Meetings</h3>
+            <span class="icon icon-md icon-green mb-16" style="--icon: url(../../../../_design/icons/document-file.svg)"></span>
+            <h3 class="text-md">Due Diligence &amp; Investment Committee Meetings</h3>
             <p class="text-sm text-light">Deep analysis of target companies and investment committee review</p>
           </div>
           <div class="workflow-arrow">
-            <span class="icon icon-md icon-green" style="-webkit-mask-image: url(../assets/icons/arrow-right.svg); mask-image: url(../assets/icons/arrow-right.svg)"></span>
+            <span class="icon icon-md icon-green" style="--icon: url(../../../../_design/icons/arrow-right.svg)"></span>
           </div>
           <div class="workflow-step">
-            <span class="icon icon-md icon-green mb-16" style="-webkit-mask-image: url(../assets/icons/deal-execution.svg); mask-image: url(../assets/icons/deal-execution.svg)"></span>
+            <span class="icon icon-md icon-green mb-16" style="--icon: url(../../../../_design/icons/deal-execution.svg)"></span>
             <h3 class="text-md">Term Sheet &amp; Wire</h3>
             <p class="text-sm text-light">Negotiate terms and deploy capital</p>
           </div>
@@ -367,12 +361,12 @@
 
         <div class="card-grid-2">
           <div class="card card-green-bg">
-            <span class="icon icon-lg icon-green mb-16" style="-webkit-mask-image: url(../assets/icons/user-group.svg); mask-image: url(../assets/icons/user-group.svg)"></span>
+            <span class="icon icon-lg icon-green mb-16" style="--icon: url(../../../../_design/icons/user-group.svg)"></span>
             <h3>Board-Level Work</h3>
             <p class="text-sm text-light">Governance decisions, strategic pivots, crisis management, executive hiring, business development, follow-on financing strategy.</p>
           </div>
           <div class="card card-orange-bg">
-            <span class="icon icon-lg icon-orange mb-16" style="-webkit-mask-image: url(../assets/icons/bar-chart.svg); mask-image: url(../assets/icons/bar-chart.svg)"></span>
+            <span class="icon icon-lg icon-orange mb-16" style="--icon: url(../../../../_design/icons/bar-chart.svg)"></span>
             <h3>Quarterly Monitoring</h3>
             <p class="text-sm text-light">KPIs, burn rates, revenue growth, customer metrics, company health versus underwriting assumptions.</p>
           </div>
@@ -397,7 +391,7 @@
 
         <div class="card-alt-green mb-24">
           <div style="display: flex; align-items: flex-start; gap: 12px;">
-            <span class="icon icon-xl icon-green" style="-webkit-mask-image: url(../assets/icons/info.svg); mask-image: url(../assets/icons/info.svg)"></span>
+            <span class="icon icon-xl icon-green" style="--icon: url(../../../../_design/icons/info.svg); flex-shrink: 0"></span>
             <p class="text-md">Underperformers show themselves within the first 2-3 years. Missed milestones, founder-market fit questions, and burn rates that do not match traction are early warning signals. Recognizing this early and reallocating follow-on capital to the winners separates great fund managers from average ones.</p>
           </div>
         </div>
@@ -478,23 +472,23 @@
 
         <div class="workflow">
           <div class="workflow-step">
-            <span class="icon icon-md icon-green mb-16" style="-webkit-mask-image: url(../assets/icons/money.svg); mask-image: url(../assets/icons/money.svg)"></span>
+            <span class="icon icon-md icon-green mb-16" style="--icon: url(../../../../_design/icons/money.svg)"></span>
             <h3 class="text-md">Return of Capital</h3>
             <p class="text-sm text-light">LPs receive every contributed dollar back first</p>
           </div>
           <div class="workflow-arrow">
-            <span class="icon icon-md icon-green" style="-webkit-mask-image: url(../assets/icons/arrow-right.svg); mask-image: url(../assets/icons/arrow-right.svg)"></span>
+            <span class="icon icon-md icon-green" style="--icon: url(../../../../_design/icons/arrow-right.svg)"></span>
           </div>
           <div class="workflow-step">
-            <span class="icon icon-md icon-green mb-16" style="-webkit-mask-image: url(../assets/icons/arrow-right.svg); mask-image: url(../assets/icons/arrow-right.svg)"></span>
+            <span class="icon icon-md icon-green mb-16" style="--icon: url(../../../../_design/icons/arrow-right.svg)"></span>
             <h3 class="text-md">Preferred Return</h3>
             <p class="text-sm text-light">If applicable: 8% hurdle is standard in PE but rare in VC. When present, LPs receive this before carry kicks in.</p>
           </div>
           <div class="workflow-arrow">
-            <span class="icon icon-md icon-green" style="-webkit-mask-image: url(../assets/icons/arrow-right.svg); mask-image: url(../assets/icons/arrow-right.svg)"></span>
+            <span class="icon icon-md icon-green" style="--icon: url(../../../../_design/icons/arrow-right.svg)"></span>
           </div>
           <div class="workflow-step">
-            <span class="icon icon-md icon-green mb-16" style="-webkit-mask-image: url(../assets/icons/earnings.svg); mask-image: url(../assets/icons/earnings.svg)"></span>
+            <span class="icon icon-md icon-green mb-16" style="--icon: url(../../../../_design/icons/earnings.svg)"></span>
             <h3 class="text-md">Carried Interest</h3>
             <p class="text-sm text-light">Remaining profits split 80/20 (LP/GP)</p>
           </div>
@@ -547,7 +541,7 @@
 
         <div class="card-alt-green">
           <div style="display: flex; align-items: flex-start; gap: 12px;">
-            <span class="icon icon-xl icon-green" style="-webkit-mask-image: url(../assets/icons/info.svg); mask-image: url(../assets/icons/info.svg)"></span>
+            <span class="icon icon-xl icon-green" style="--icon: url(../../../../_design/icons/info.svg); flex-shrink: 0"></span>
             <p class="text-md">$120M deployed over 5 years, with $80M reserved for management fees and operations. Follow-on capital goes to the strongest 6-8 companies.</p>
           </div>
         </div>
@@ -621,15 +615,15 @@
 
         <ul class="icon-list">
           <li>
-            <span class="icon icon-lg icon-green" style="-webkit-mask-image: url(../assets/icons/arrow-down.svg); mask-image: url(../assets/icons/arrow-down.svg)"></span>
+            <span class="icon icon-lg icon-green" style="--icon: url(../../../../_design/icons/arrow-down.svg)"></span>
             <span><strong>Years 1-3: Negative returns.</strong> Capital deployment, fees, and early write-offs pull NAV below contributed capital</span>
           </li>
           <li>
-            <span class="icon icon-lg icon-green" style="-webkit-mask-image: url(../assets/icons/arrow-up-chart-growth.svg); mask-image: url(../assets/icons/arrow-up-chart-growth.svg)"></span>
+            <span class="icon icon-lg icon-green" style="--icon: url(../../../../_design/icons/arrow-up-chart-growth.svg)"></span>
             <span><strong>Years 4-6: Inflection.</strong> First meaningful exits materialize and surviving companies get marked up</span>
           </li>
           <li>
-            <span class="icon icon-lg icon-green" style="-webkit-mask-image: url(../assets/icons/arrow-up.svg); mask-image: url(../assets/icons/arrow-up.svg)"></span>
+            <span class="icon icon-lg icon-green" style="--icon: url(../../../../_design/icons/arrow-up.svg)"></span>
             <span><strong>Years 6-10+: Harvest.</strong> Strong exits push NAV sharply upward — this is where fund returns are made</span>
           </li>
         </ul>
@@ -653,15 +647,15 @@
 
         <ul class="icon-list">
           <li>
-            <span class="icon icon-lg icon-green" style="-webkit-mask-image: url(../assets/icons/clock.svg); mask-image: url(../assets/icons/clock.svg)"></span>
+            <span class="icon icon-lg icon-green" style="--icon: url(../../../../_design/icons/clock.svg)"></span>
             <span><strong>Fund Extensions:</strong> Most LPAs allow 1-2 year extensions to avoid forced fire sales</span>
           </li>
           <li>
-            <span class="icon icon-lg icon-green" style="-webkit-mask-image: url(../assets/icons/document-file.svg); mask-image: url(../assets/icons/document-file.svg)"></span>
+            <span class="icon icon-lg icon-green" style="--icon: url(../../../../_design/icons/document-file.svg)"></span>
             <span><strong>Orderly Wind-Down:</strong> Remaining companies exited via M&amp;A, secondaries, or write-offs</span>
           </li>
           <li>
-            <span class="icon icon-lg icon-green" style="-webkit-mask-image: url(../assets/icons/arrow-recurring.svg); mask-image: url(../assets/icons/arrow-recurring.svg)"></span>
+            <span class="icon icon-lg icon-green" style="--icon: url(../../../../_design/icons/arrow-recurring.svg)"></span>
             <span><strong>Overlapping Funds:</strong> By years 8-10, a GP manages Fund I wind-down, Fund II portfolio, and Fund III deployment simultaneously</span>
           </li>
         </ul>
@@ -711,9 +705,9 @@
   </div>
 
   <!-- Reveal.js -->
-  <script src="../assets/reveal/dist/reveal.min.js"></script>
+  <script src="../../../../_design/revealjs/dist/reveal.min.js"></script>
   <script type="module">
-    import RevealNotes from '../assets/reveal/plugin/notes/notes.esm.js';
+    import RevealNotes from '../../../../_design/revealjs/plugin/notes/notes.esm.js';
 
     Reveal.initialize({
       width: 960,
